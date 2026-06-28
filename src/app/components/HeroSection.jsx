@@ -18,7 +18,7 @@ export default function HeroSection() {
           className="text-[#264B86] font-bold text-[30px] sm:text-[38px] md:text-[46px] lg:text-[56px] leading-[1.1] max-w-[320px] sm:max-w-xl md:max-w-3xl"
           style={{ textShadow: "0px 3px 8px rgba(0,0,0,0.25)" }}
         >
-          Helping UK Businesses<br className="block sm:hidden" />
+          Helping UK Businesses <br className="block sm:hidden" />
           Stay Compliant & <br className="block sm:hidden" />
           Grow with Confidence.
         </h1>
