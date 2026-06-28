@@ -3,13 +3,12 @@
 import { useState } from "react";
 import TopAnnouncementBar from "./components/TopHeader/TopAnnouncementBar";
 import Header from "./components/header/Header";
-import Button from "./components/utils/Button/Button";
-import HeroSection from "./components/HeroSection";
 import Technology from "./components/Technology";
 import AboutSection from "./components/AboutSection";
 import ArtificileIntellegent from "./components/ArtificialIntellegence/ArtificileIntellegent";
 import NexaLedAi from "./components/ChatBot/NexaLedAi";
 import Footer from "./components/footer/Footer";
+import HomeHeroSection from "./components/VideoComponent/HomeHeroSection";
 
 export default function Home() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -23,7 +22,7 @@ export default function Home() {
       <Header isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
 
       {/* Video Hero Section */}
-      <HeroSection />
+      <HomeHeroSection />
 
       {/* Technologies Section */}
       <Technology />
@@ -41,4 +40,4 @@ export default function Home() {
       <NexaLedAi />
     </main>
   );
-}
+}

@@ -22,24 +22,28 @@ const CONTINENT_PATHS = {
 // Coordinates mapping on our SVG viewBox "0 0 1000 500"
 const LOCATIONS = {
     india: { x: 640, y: 220, label: "India", flag: "🇮🇳", textX: 640, textY: 198, align: "middle" },
-    uae: { x: 585, y: 215, label: "UAE", flag: "🇦🇪", textX: 585, textY: 235, align: "middle" },
     uk: { x: 450, y: 105, label: "UK", flag: "🇬🇧", textX: 450, textY: 88, align: "middle" },
-    ireland: { x: 435, y: 102, label: "Ireland", flag: "🇮🇪", textX: 380, textY: 102, align: "end" },
-    canada: { x: 235, y: 125, label: "Canada", flag: "🇨🇦", textX: 235, textY: 108, align: "middle" },
     usa: { x: 240, y: 155, label: "USA", flag: "🇺🇸", textX: 240, textY: 175, align: "middle" },
+    uae: { x: 585, y: 215, label: "UAE", flag: "🇦🇪", textX: 585, textY: 235, align: "middle" },
+    canada: { x: 235, y: 125, label: "Canada", flag: "🇨🇦", textX: 235, textY: 108, align: "middle" },
+    ireland: { x: 435, y: 102, label: "Ireland", flag: "🇮🇪", textX: 380, textY: 102, align: "end" },
     australia: { x: 870, y: 380, label: "Australia", flag: "🇦🇺", textX: 870, textY: 362, align: "middle" },
-    newZealand: { x: 945, y: 445, label: "New Zealand", flag: "🇳🇿", textX: 945, textY: 428, align: "middle" }
+    singapore: { x: 705, y: 275, label: "Singapore", flag: "🇸🇬", textX: 705, textY: 295, align: "middle" },
+    newZealand: { x: 945, y: 445, label: "New Zealand", flag: "🇳🇿", textX: 945, textY: 428, align: "middle" },
+    netherlands: { x: 475, y: 100, label: "Netherlands", flag: "🇳🇱", textX: 510, textY: 100, align: "start" }
 };
 
 // Timeline order for flying lines sequentially from India
 const TIMELINE = [
-    { key: "uk", target: LOCATIONS.uk, color: "#60A5FA" }, // Blue
-    { key: "usa", target: LOCATIONS.usa, color: "#FBBF24" }, // Yellow
-    { key: "uae", target: LOCATIONS.uae, color: "#10B981" }, // Green
-    { key: "canada", target: LOCATIONS.canada, color: "#F87171" }, // Red
-    { key: "australia", target: LOCATIONS.australia, color: "#A78BFA" }, // Purple
-    { key: "newZealand", target: LOCATIONS.newZealand, color: "#F472B6" }, // Pink
-    { key: "ireland", target: LOCATIONS.ireland, color: "#34D399" } // Emerald
+    { key: "uk", target: LOCATIONS.uk, color: "#00F0FF" }, // Cyan
+    { key: "usa", target: LOCATIONS.usa, color: "#00F0FF" },
+    { key: "uae", target: LOCATIONS.uae, color: "#00F0FF" },
+    { key: "canada", target: LOCATIONS.canada, color: "#00F0FF" },
+    { key: "ireland", target: LOCATIONS.ireland, color: "#00F0FF" },
+    { key: "australia", target: LOCATIONS.australia, color: "#00F0FF" },
+    { key: "singapore", target: LOCATIONS.singapore, color: "#00F0FF" },
+    { key: "newZealand", target: LOCATIONS.newZealand, color: "#00F0FF" },
+    { key: "netherlands", target: LOCATIONS.netherlands, color: "#00F0FF" }
 ];
 
 export default function Footer() {
@@ -49,10 +53,10 @@ export default function Footer() {
     useEffect(() => {
         const interval = setInterval(() => {
             setTimelineStep((prev) => {
-                // Steps 0 to 6: Draw lines to UK, USA, UAE, Canada, Australia, New Zealand, Ireland
-                // Steps 7 to 9: Hold all connections glowing to highlight global network
-                // Step 10: Reset
-                if (prev >= 10) {
+                // Steps 0 to 8: Draw lines to UK, USA, UAE, Canada, Ireland, Australia, Singapore, New Zealand, Netherlands
+                // Steps 9 to 11: Hold all connections glowing to highlight global network
+                // Step 12: Reset
+                if (prev >= 12) {
                     return 0;
                 }
                 return prev + 1;
@@ -234,54 +238,59 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Column 5: Global Connectivity Map Box Widget (Occupies 20% width on Desktop, shifted 25% left) */}
-                    <div className="lg:col-span-1 md:col-span-2 col-span-1 lg:-translate-x-[25%]">
-                        <div className="bg-[#0b2e4d]/85 border border-white/10 rounded-2xl p-4 shadow-[0_8px_32px_0_rgba(15,39,74,0.3)] flex flex-col justify-between h-[280px] group hover:border-[#F58220]/30 transition-all duration-300">
+                    {/* Column 5: Global Connectivity Map Box Widget (Occupies 20% width on Desktop, next to Quick Links) */}
+                    <div className="lg:col-span-1 md:col-span-2 col-span-1 overflow-visible">
+                        <div className="w-[120%] -ml-[10%] bg-[#0b2e4d]/85 border border-white/10 rounded-2xl p-4 shadow-[0_8px_32px_0_rgba(15,39,74,0.3)] flex flex-col justify-between h-[280px] group hover:border-[#00F0FF]/30 transition-all duration-300">
 
                             {/* Map Canvas */}
-                            <div className="relative flex-1 py-2 flex items-center justify-center overflow-hidden">
+                            <div className="relative flex-1 py-1 flex items-center justify-center overflow-hidden">
                                 <svg
                                     viewBox="0 0 1000 500"
                                     className="w-full h-auto max-h-[170px]"
                                 >
                                     <defs>
-                                        <pattern id="widget-grid" width="30" height="30" patternUnits="userSpaceOnUse">
-                                            <circle cx="2" cy="2" r="0.75" fill="#ffffff" opacity="0.05" />
-                                        </pattern>
+                                        <filter id="glow-cyan" x="-25%" y="-25%" width="150%" height="150%">
+                                            <feGaussianBlur stdDeviation="5" result="blur" />
+                                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                        </filter>
+                                        <filter id="glow-orange" x="-25%" y="-25%" width="150%" height="150%">
+                                            <feGaussianBlur stdDeviation="6" result="blur" />
+                                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                        </filter>
                                     </defs>
-                                    <rect width="100%" height="100%" fill="url(#widget-grid)" />
 
                                     {/* Continent Outlines */}
-                                    <g className="fill-white/5 stroke-white/10 stroke-1">
-                                        <path d={CONTINENT_PATHS.northAmerica} className={timelineStep >= 1 && timelineStep < 10 ? "fill-[#34D399]/5 stroke-[#34D399]/20" : ""} />
+                                    <g className="fill-white/5 stroke-white/10 stroke-1 transition-all duration-700">
+                                        <path d={CONTINENT_PATHS.northAmerica} className={timelineStep >= 1 && timelineStep < 12 ? "fill-[#00F0FF]/6 stroke-[#00F0FF]/25" : ""} />
                                         <path d={CONTINENT_PATHS.greenland} />
                                         <path d={CONTINENT_PATHS.southAmerica} />
-                                        <path d={CONTINENT_PATHS.eurasia} className={timelineStep >= 0 && timelineStep < 10 ? "fill-[#F58220]/5 stroke-[#F58220]/20" : ""} />
+                                        <path d={CONTINENT_PATHS.eurasia} className={timelineStep >= 0 && timelineStep < 12 ? "fill-[#00F0FF]/6 stroke-[#00F0FF]/25" : ""} />
                                         <path d={CONTINENT_PATHS.africa} />
-                                        <path d={CONTINENT_PATHS.australia} className={timelineStep >= 4 && timelineStep < 10 ? "fill-[#A78BFA]/5 stroke-[#A78BFA]/20" : ""} />
-                                        <path d={CONTINENT_PATHS.newZealand} className={timelineStep >= 5 && timelineStep < 10 ? "fill-[#F472B6]/5 stroke-[#F472B6]/20" : ""} />
-                                        <path d={CONTINENT_PATHS.uk} />
-                                        <path d={CONTINENT_PATHS.ireland} />
+                                        <path d={CONTINENT_PATHS.australia} className={timelineStep >= 5 && timelineStep < 12 ? "fill-[#00F0FF]/6 stroke-[#00F0FF]/25" : ""} />
+                                        <path d={CONTINENT_PATHS.newZealand} className={timelineStep >= 7 && timelineStep < 12 ? "fill-[#00F0FF]/6 stroke-[#00F0FF]/25" : ""} />
+                                        <path d={CONTINENT_PATHS.uk} className={timelineStep >= 0 && timelineStep < 12 ? "fill-[#00F0FF]/15 stroke-[#00F0FF]/40" : ""} />
+                                        <path d={CONTINENT_PATHS.ireland} className={timelineStep >= 4 && timelineStep < 12 ? "fill-[#00F0FF]/15 stroke-[#00F0FF]/40" : ""} />
                                         <path d={CONTINENT_PATHS.japan} />
                                         <path d={CONTINENT_PATHS.madagascar} />
                                     </g>
 
                                     {/* India -> Targets Arcs */}
                                     {TIMELINE.map((item, idx) => {
-                                        const isActive = timelineStep >= idx && timelineStep < 10;
+                                        const isActive = timelineStep >= idx && timelineStep < 12;
                                         return (
                                             <path
                                                 key={item.key}
                                                 d={getCurvePath(LOCATIONS.india, item.target)}
                                                 fill="none"
-                                                stroke={item.color}
-                                                strokeWidth="2"
+                                                stroke="#00F0FF"
+                                                strokeWidth="2.2"
+                                                filter="url(#glow-cyan)"
                                                 className="transition-all duration-1000 ease-out"
                                                 style={{
                                                     strokeDasharray: "1000",
                                                     strokeDashoffset: isActive ? 0 : 1000,
                                                     transition: "stroke-dashoffset 1.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.5s ease-in-out",
-                                                    opacity: isActive ? 0.75 : 0
+                                                    opacity: isActive ? 0.8 : 0
                                                 }}
                                             />
                                         );
@@ -289,11 +298,11 @@ export default function Footer() {
 
                                     {/* HQ Node: India */}
                                     <circle cx={LOCATIONS.india.x} cy={LOCATIONS.india.y} r="10" fill="#F58220" opacity="0.3" className="animate-ping" />
-                                    <circle cx={LOCATIONS.india.x} cy={LOCATIONS.india.y} r="5" fill="#F58220" />
+                                    <circle cx={LOCATIONS.india.x} cy={LOCATIONS.india.y} r="5" fill="#F58220" filter="url(#glow-orange)" />
 
                                     {/* Target Nodes & Labels */}
                                     {TIMELINE.map((item, idx) => {
-                                        const isActive = timelineStep >= idx && timelineStep < 10;
+                                        const isActive = timelineStep >= idx && timelineStep < 12;
                                         return (
                                             <g key={item.key}>
                                                 {/* Glowing Ripple Pin */}
@@ -301,27 +310,28 @@ export default function Footer() {
                                                     cx={item.target.x}
                                                     cy={item.target.y}
                                                     r="8"
-                                                    fill={item.color}
+                                                    fill="#00F0FF"
                                                     className={`transition-all duration-500 ${isActive ? "opacity-100 scale-100 animate-ping" : "opacity-0 scale-50"}`}
                                                 />
                                                 <circle
                                                     cx={item.target.x}
                                                     cy={item.target.y}
                                                     r="3"
-                                                    fill={item.color}
-                                                    className={`transition-all duration-500 ${isActive ? "opacity-100" : "opacity-30"}`}
+                                                    fill="#00F0FF"
+                                                    filter="url(#glow-cyan)"
+                                                    className={`transition-all duration-500 ${isActive ? "opacity-100" : "opacity-35"}`}
                                                 />
-                                                {/* Country Text Label (Renders precisely when line reaches target) */}
+                                                {/* Country Text Label */}
                                                 <text
                                                     x={item.target.textX}
                                                     y={item.target.textY}
-                                                    fill="#FEF4E4"
-                                                    fontSize="8"
+                                                    fill="#FFFFFF"
+                                                    fontSize="8.5"
                                                     fontWeight="900"
                                                     textAnchor={item.target.align}
-                                                    className="transition-all duration-500 font-sans tracking-wider"
+                                                    className="transition-all duration-500 font-sans tracking-widest uppercase drop-shadow-[0_1.5px_3px_rgba(0,0,0,0.8)]"
                                                     style={{
-                                                        opacity: isActive ? 0.9 : 0,
+                                                        opacity: isActive ? 1 : 0,
                                                         transform: isActive ? "translateY(0)" : "translateY(3px)",
                                                         transition: "opacity 0.6s ease-out, transform 0.6s ease-out"
                                                     }}
@@ -336,41 +346,18 @@ export default function Footer() {
                                     <text
                                         x={LOCATIONS.india.textX}
                                         y={LOCATIONS.india.textY}
-                                        fill="#FEF4E4"
-                                        fontSize="8"
+                                        fill="#FFFFFF"
+                                        fontSize="9"
                                         fontWeight="900"
                                         textAnchor={LOCATIONS.india.align}
-                                        className="font-sans tracking-wider opacity-90"
+                                        className="font-sans tracking-widest uppercase drop-shadow-[0_1.5px_3px_rgba(0,0,0,0.8)] opacity-95"
                                     >
                                         🇮🇳 India
                                     </text>
                                 </svg>
                             </div>
 
-                            {/* Dynamic Connection Log / Status Banner */}
-                            <div className="bg-white/5 border border-white/5 rounded-xl p-2 flex items-center justify-between text-[10px] font-bold">
-                                {timelineStep < 7 ? (
-                                    <>
-                                        <div className="flex items-center gap-1">
-                                            <span className="w-1.5 h-1.5 rounded-full bg-[#F58220] animate-pulse"></span>
-                                            <span className="text-white/40">From:</span>
-                                            <span className="text-[#F58220]">New Delhi</span>
-                                        </div>
-                                        <span className="text-white/30">→</span>
-                                        <div className="flex items-center gap-1">
-                                            <span className="text-white/40">To:</span>
-                                            <span className="text-white">
-                                                {TIMELINE[timelineStep]?.target.flag} {TIMELINE[timelineStep]?.target.label}
-                                            </span>
-                                        </div>
-                                    </>
-                                ) : (
-                                    <div className="w-full text-center py-0.5 text-[#34D399] uppercase tracking-widest font-black text-[9px] flex items-center justify-center gap-1.5">
-                                        <span className="w-2 h-2 rounded-full bg-[#34D399] animate-ping"></span>
-                                        All Regions Connected ⚡
-                                    </div>
-                                )}
-                            </div>
+
 
                         </div>
                     </div>

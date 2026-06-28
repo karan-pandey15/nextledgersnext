@@ -4,23 +4,25 @@ import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 
 const REGIONS = [
-    { code: "GB", name: "United Kingdom", flag: "https://flagcdn.com/gb.svg" },
+    { code: "UK", name: "United Kingdom", flag: "https://flagcdn.com/gb.svg" },
     { code: "US", name: "United States", flag: "https://flagcdn.com/us.svg" },
-    { code: "AE", name: "UAE", flag: "https://flagcdn.com/ae.svg" },
+    { code: "UAE", name: "UAE", flag: "https://flagcdn.com/ae.svg" },
     { code: "CA", name: "Canada", flag: "https://flagcdn.com/ca.svg" },
-    { code: "AU", name: "Australia", flag: "https://flagcdn.com/au.svg" },
-    { code: "NZ", name: "New Zealand", flag: "https://flagcdn.com/nz.svg" },
     { code: "IE", name: "Ireland", flag: "https://flagcdn.com/ie.svg" },
+    { code: "AU", name: "Australia", flag: "https://flagcdn.com/au.svg" },
+    { code: "SG", name: "Singapore", flag: "https://flagcdn.com/sg.svg" },
+    { code: "NZ", name: "New Zealand", flag: "https://flagcdn.com/nz.svg" },
+    { code: "NL", name: "Netherlands", flag: "https://flagcdn.com/nl.svg" },
 ];
 
 // Map region codes to their dedicated page routes
 const REGION_ROUTES = {
-    GB: "/uk/",
+    UK: "/uk/",
 };
 
 export default function RegionSelect({ onRegionChange, className = "", minimize = false }) {
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedRegion, setSelectedRegion] = useState("GB");
+    const [selectedRegion, setSelectedRegion] = useState("UK");
     const dropdownRef = useRef(null);
     const router = useRouter();
 
@@ -89,7 +91,7 @@ export default function RegionSelect({ onRegionChange, className = "", minimize 
                                     style={{
                                         width: "20px",
                                         height: "14px",
-                                        marginLeft: index === 0 ? "0px" : "-6px",
+                                        marginLeft: index === 0 ? "0px" : "-8px",
                                         zIndex: REGIONS.length - index,
                                     }}
                                 >
