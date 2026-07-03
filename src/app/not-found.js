@@ -1,0 +1,72 @@
+"use client";
+
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import { ArrowLeft, Wrench } from "lucide-react";
+import TopAnnouncementBar from "./components/TopHeader/TopAnnouncementBar";
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
+import NexaLedAi from "./components/ChatBot/NexaLedAi";
+
+export default function NotFound() {
+  const router = useRouter();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const handleBack = () => {
+    if (typeof window !== "undefined" && window.history.length > 1) {
+      router.back();
+    } else {
+      router.push("/");
+    }
+  };
+
+  return (
+    <main className="min-h-screen bg-[#faf9f6] text-[#1E1B2A] flex flex-col font-sans">
+      {/* Top Banner */}
+      <TopAnnouncementBar isSidebarOpen={isSidebarOpen} />
+
+      {/* Main Navbar */}
+      <Header isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
+
+      {/* Main Content Area */}
+      <div className="flex-1 flex flex-col items-center justify-center py-16 px-6 sm:px-8 text-center max-w-4xl mx-auto w-full">
+        <div className="bg-[#FEF4E4]/50 border border-[#F58220]/25 rounded-[32px] p-8 sm:p-12 md:p-16 shadow-[0_20px_50px_rgba(245,130,32,0.04)] relative overflow-hidden group hover:shadow-[0_20px_50px_rgba(245,130,32,0.08)] transition-all duration-500 w-full">
+          {/* Decorative Background Accents */}
+          <div className="absolute -top-12 -right-12 w-44 h-44 rounded-full bg-[#F58220]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
+          <div className="absolute -bottom-12 -left-12 w-44 h-44 rounded-full bg-[#F58220]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
+
+          {/* Animated Themed Icon Circle */}
+          <div className="w-20 h-20 rounded-2xl bg-white border border-[#F58220]/30 flex items-center justify-center mx-auto mb-6 text-[#F58220] shadow-sm transform group-hover:rotate-6 transition-transform duration-300">
+            <Wrench className="w-10 h-10 stroke-[2] animate-pulse" />
+          </div>
+
+          <span className="text-[#F58220] font-extrabold text-[10px] sm:text-xs uppercase tracking-widest bg-white border border-[#F58220]/20 px-4 py-1.5 rounded-full inline-block mb-4 shadow-xs">
+            Under Development
+          </span>
+
+
+          <p className="text-gray-600 text-xs sm:text-sm md:text-base max-w-lg mx-auto leading-relaxed mb-8">
+            We are currently designing and setting up this page to deliver your streamlined financial solution. Please check back soon!
+          </p>
+
+          {/* Action Back Button */}
+          <div className="flex justify-center">
+            <button
+              onClick={handleBack}
+              className="flex items-center justify-center gap-2 py-3 px-8 rounded-full bg-[#F58220] hover:bg-[#E0721B] text-[#FEF4E4] font-black text-xs sm:text-sm uppercase tracking-wider shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-[1.03] active:scale-[0.97] cursor-pointer"
+            >
+              <ArrowLeft className="w-4 h-4 stroke-[2.5]" />
+              Go Back
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <Footer />
+
+      {/* Floating AI Chatbot */}
+      <NexaLedAi />
+    </main>
+  );
+}

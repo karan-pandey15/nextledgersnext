@@ -316,13 +316,25 @@ const getResponse = (query) => {
       triggerForm: true
     };
   }
-
   // Default fallback
   return {
     text: "I couldn't find that specific information on our website. Please contact our team directly at info@nextledgers.com or +1 (888) 552-0055, and we'll be happy to assist you immediately.",
     showLeadGen: true
   };
 };
+
+function formatMessageText(text) {
+  if (!text) return "";
+  
+  const parts = text.split("**");
+  return parts.map((part, index) => {
+    const cleaned = part.replaceAll("*", "");
+    if (index % 2 === 1) {
+      return <strong key={index} className="font-extrabold text-[#0F274A]">{cleaned}</strong>;
+    }
+    return cleaned;
+  });
+}
 
 export default function NexaLedAi() {
   const [isOpen, setIsOpen] = useState(false);
@@ -593,7 +605,7 @@ export default function NexaLedAi() {
                         }
                       `}
                     >
-                      {msg.text}
+                      {formatMessageText(msg.text)}
 
                       {/* Display lead validation results if submitted */}
                       {msg.formSubmitted && msg.submittedData && (

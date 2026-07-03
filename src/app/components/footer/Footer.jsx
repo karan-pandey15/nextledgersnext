@@ -81,7 +81,7 @@ export default function Footer() {
             {/* Background Dot Texture */}
             <div className="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px]"></div>
 
-            <div className="w-full px-5 relative z-10">
+            <div className="max-w-7xl mx-auto px-5 relative z-10">
 
                 {/* Restructured 5-Column Grid Layout (Links + World Map Widget) */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 border-b border-white/10 pb-16">
@@ -136,75 +136,46 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    {/* Column 2: USA Services */}
+                    {/* Column 2: General Services */}
                     <div className="space-y-4 lg:col-span-1">
                         <h4 className="text-xs font-black uppercase tracking-wider text-[#F58220]">
-                            OUR SERVICES IN USA
+                            GENERAL SERVICES
                         </h4>
                         <ul className="space-y-2.5 text-xs font-bold text-white/60">
+                            <li>
+                                <Link href="/services/usa-bookkeeping" className="hover:text-[#F58220] transition-colors cursor-pointer block">
+                                    Bookkeeping & Financial Accounting
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/services/usa-tax" className="hover:text-[#F58220] transition-colors cursor-pointer block">
+                                    Tax Preparation & Compliance
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/services/usa-ap-ar" className="hover:text-[#F58220] transition-colors cursor-pointer block">
+                                    Accounts Payable & Receivable
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/services/usa-cfo" className="hover:text-[#F58220] transition-colors cursor-pointer block">
+                                    CFO Advisory & Management Reporting
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/services/canada-compilation" className="hover:text-[#F58220] transition-colors cursor-pointer block">
+                                    Compilation & Review Engagements
+                                </Link>
+                            </li>
                             <li>
                                 <Link href="/services/usa-nonprofit" className="hover:text-[#F58220] transition-colors cursor-pointer block">
                                     Self-Directed & Non-profit Accounting
                                 </Link>
                             </li>
-                            <li>
-                                <Link href="/services/usa-bookkeeping" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    U.S. Bookkeeping Services
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/services/usa-tax" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    U.S. Tax Preparation Services
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/services/usa-ap-ar" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    Accounts Payable & Receivable Services
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/services/usa-cfo" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    Year-End Accounts & CFO Services
-                                </Link>
-                            </li>
                         </ul>
                     </div>
 
-                    {/* Column 3: Canada Services */}
-                    <div className="space-y-4 lg:col-span-1">
-                        <h4 className="text-xs font-black uppercase tracking-wider text-[#F58220]">
-                            OUR SERVICES IN CANADA
-                        </h4>
-                        <ul className="space-y-2.5 text-xs font-bold text-white/60">
-                            <li>
-                                <Link href="/services/canada-compilation" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    Compilation Engagement Services
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/services/canada-review" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    Review Engagement Services
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/services/canada-bookkeeping" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    Canada Bookkeeping Services
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/services/canada-investment" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    C.A. Investment Accounting
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/services/canada-tax" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    C.A. Tax Preparation Services
-                                </Link>
-                            </li>
-                        </ul>
-                    </div>
-
-                    {/* Column 4: Quick Links */}
+                    {/* Column 3: Quick Links */}
                     <div className="space-y-4 lg:col-span-1">
                         <h4 className="text-xs font-black uppercase tracking-wider text-[#F58220]">
                             QUICK LINKS
@@ -238,9 +209,9 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Column 5: Global Connectivity Map Box Widget (Occupies 20% width on Desktop, next to Quick Links) */}
-                    <div className="lg:col-span-1 md:col-span-2 col-span-1 overflow-visible">
-                        <div className="w-[120%] -ml-[10%] bg-[#0b2e4d]/85 border border-white/10 rounded-2xl p-4 shadow-[0_8px_32px_0_rgba(15,39,74,0.3)] flex flex-col justify-between h-[280px] group hover:border-[#00F0FF]/30 transition-all duration-300">
+                    {/* Column 4: Global Connectivity Map Box Widget (Occupies 2 columns on Desktop, next to Quick Links) */}
+                    <div className="lg:col-span-2 md:col-span-2 col-span-1 overflow-visible">
+                        <div className="w-full bg-[#0b2e4d]/85 border border-white/10 rounded-2xl p-4 shadow-[0_8px_32px_0_rgba(15,39,74,0.3)] flex flex-col justify-between h-[280px] group hover:border-[#00F0FF]/30 transition-all duration-300">
 
                             {/* Map Canvas */}
                             <div className="relative flex-1 py-1 flex items-center justify-center overflow-hidden">

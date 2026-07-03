@@ -2,151 +2,38 @@
 
 import React, { useState, useEffect, useRef } from "react";
 
-// Mobile view displays ONLY the starting 8 software logos
-const MOBILE_LOGOS = [
-  // Row 1 (5 items)
-  [
-    {
-      name: "Lacerte Tax",
-      src: "https://advancefinserv.com/wp-content/uploads/2024/07/Lacerte_tax_software_Logo-1.svg",
-    },
-    {
-      name: "FreshBooks",
-      src: "https://advancefinserv.com/wp-content/uploads/2024/07/Freshbooks_Logo-1.svg",
-    },
-    {
-      name: "CCH Fx",
-      src: "https://advancefinserv.com/wp-content/uploads/2024/07/CCH_Fx_Logo-1.svg",
-    },
-    {
-      name: "UltraTax",
-      src: "https://advancefinserv.com/wp-content/uploads/2024/07/Ultra_Tax_Logo.svg",
-    },
-    {
-      name: "Xero",
-      src: "https://advancefinserv.com/wp-content/uploads/2024/07/Xero_Logo.svg",
-    },
-  ],
-  // Row 2 (3 items)
-  [
-    {
-      name: "ATX",
-      src: "https://advancefinserv.com/wp-content/uploads/2024/07/ATX_tax_software_Logo-1.svg",
-    },
-    {
-      name: "Caseware",
-      src: "https://advancefinserv.com/wp-content/uploads/2024/07/CaseWare_Logo-1.svg",
-    },
-    {
-      name: "QuickBooks",
-      src: "/images/quickbookslogo.png",
-    },
-  ],
+const ALL_23_LOGOS = [
+  { name: "Xero", src: "/images/logooUK/Xero.png" },
+  { name: "QuickBooks", src: "/images/logooUK/QuickBooks_Training.png" },
+  { name: "Sage", src: "/images/logooUK/Sage.jpg" },
+  { name: "FreeAgent", src: "/images/logooUK/FreeAgent.png" },
+  { name: "Dext", src: "/images/logooUK/dext.png" },
+  { name: "Hubdoc", src: "/images/logooUK/hubdoc.png" },
+  { name: "ApprovalMax", src: "/images/logooUK/ApprovalMax.jpeg" },
+  { name: "BrightPay", src: "/images/logooUK/brightpay.jpeg" },
+  { name: "NEST", src: "/images/logooUK/NEST_id4rvtkhfhg.png" },
+  { name: "People's Pension", src: "/images/logooUK/thepepole.png" },
+  { name: "Smart Pension", src: "/images/logooUK/Smart_Pension.jpeg" },
+  { name: "Stripe", src: "/images/logooUK/Stripe.png" },
+  { name: "PayPal", src: "/images/logooUK/PayPal_Icon.jpeg" },
+  { name: "Wise", src: "/images/logooUK/Wise_Icon.png" },
+  { name: "GoCardless", src: "/images/logooUK/GoCardless.png" },
+  { name: "Fathom", src: "/images/logooUK/Fathom.png" },
+  { name: "Spotlight", src: "/images/logooUK/Spotlight.jpeg" },
+  { name: "Float", src: "/images/logooUK/Float.png" },
+  { name: "Futrli", src: "/images/logooUK/Futrli.png" },
+  { name: "Excel", src: "/images/logooUK/Microsoft_Excel_id.png" },
+  { name: "Google Sheets", src: "/images/logooUK/Google_Sheets.jpeg" },
+  { name: "Shopify", src: "/images/logooUK/Shopify.jpeg" },
+  { name: "WooCommerce", src: "/images/logooUK/WooCommerce.jpeg" }
 ];
 
-// Desktop view displays the starting 8 software logos + 15 more relevant systems (Total 23) in a wide 3-row layout
+const MOBILE_LOGOS = ALL_23_LOGOS;
+
 const DESKTOP_LOGOS = [
-  // Row 1 (8 items)
-  [
-    {
-      name: "Lacerte Tax",
-      src: "https://advancefinserv.com/wp-content/uploads/2024/07/Lacerte_tax_software_Logo-1.svg",
-    },
-    {
-      name: "FreshBooks",
-      src: "https://advancefinserv.com/wp-content/uploads/2024/07/Freshbooks_Logo-1.svg",
-    },
-    {
-      name: "CCH Fx",
-      src: "https://advancefinserv.com/wp-content/uploads/2024/07/CCH_Fx_Logo-1.svg",
-    },
-    {
-      name: "UltraTax",
-      src: "https://advancefinserv.com/wp-content/uploads/2024/07/Ultra_Tax_Logo.svg",
-    },
-    {
-      name: "Xero",
-      src: "https://advancefinserv.com/wp-content/uploads/2024/07/Xero_Logo.svg",
-    },
-    {
-      name: "ATX",
-      src: "https://advancefinserv.com/wp-content/uploads/2024/07/ATX_tax_software_Logo-1.svg",
-    },
-    {
-      name: "Caseware",
-      src: "https://advancefinserv.com/wp-content/uploads/2024/07/CaseWare_Logo-1.svg",
-    },
-    {
-      name: "QuickBooks",
-      src: "/images/quickbookslogo.png",
-    },
-  ],
-  // Row 2 (7 items)
-  [
-    {
-      name: "Sage",
-      src: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Sage_logo.svg",
-    },
-    {
-      name: "Zoho Books",
-      src: "https://upload.wikimedia.org/wikipedia/commons/f/fe/ZOHO_logo_2023.svg",
-    },
-    {
-      name: "Gusto",
-      src: "https://upload.wikimedia.org/wikipedia/commons/f/f3/Gusto%2C_Inc._logo.svg",
-    },
-    {
-      name: "Stripe",
-      src: "https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg",
-    },
-    {
-      name: "SAP",
-      src: "https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg",
-    },
-    {
-      name: "TurboTax",
-      src: "https://upload.wikimedia.org/wikipedia/commons/4/41/Turbotax_logo.svg",
-    },
-    {
-      name: "ADP",
-      src: "https://upload.wikimedia.org/wikipedia/commons/3/32/Automatic_Data_Processing_%28logo%29.svg",
-    },
-  ],
-  // Row 3 (8 items)
-  [
-    {
-      name: "Odoo",
-      src: "https://upload.wikimedia.org/wikipedia/commons/2/2c/Odoo_logo.svg",
-    },
-    {
-      name: "PayPal",
-      src: "https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg",
-    },
-    {
-      name: "Salesforce",
-      src: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg",
-    },
-    {
-      name: "Excel",
-      src: "https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg",
-    },
-    {
-      name: "Google Sheets",
-      src: "https://upload.wikimedia.org/wikipedia/commons/3/30/Google_Sheets_logo_%282014-2020%29.svg",
-    },
-    {
-      name: "Shopify",
-      src: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Shopify_logo_2018.svg",
-    },
-    {
-      name: "Slack",
-      src: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg",
-    },
-    {
-      name: "Wave Financial",
-      src: "https://upload.wikimedia.org/wikipedia/commons/7/7a/Wave_Financial_logo.png",
-    },
-  ],
+  ALL_23_LOGOS.slice(0, 8),
+  ALL_23_LOGOS.slice(8, 15),
+  ALL_23_LOGOS.slice(15, 23)
 ];
 
 // Mathematically perfect vertical (pointy-topped) hexagon polygon shape
@@ -205,14 +92,11 @@ export default function Technology() {
           0% {
             background-color: #F79027;
           }
-          30% {
-            background-color: #FFF9F3;
-          }
-          70% {
+          40% {
             background-color: #FFF9F3;
           }
           100% {
-            background-color: #F79027;
+            background-color: #ffffff;
           }
         }
         @keyframes marquee {
@@ -237,6 +121,52 @@ export default function Technology() {
         .marquee-track:hover {
           animation-play-state: paused;
         }
+        .hex-outer {
+          background-color: #e5e7eb;
+          transition: all 0.3s ease-out;
+        }
+        .hex-outer:hover {
+          background-color: #F79027 !important;
+          transform: scale(1.08) !important;
+          box-shadow: 0 10px 25px rgba(247, 144, 39, 0.25) !important;
+        }
+        .hex-inner {
+          background-color: #ffffff;
+          transition: all 0.3s ease-out;
+        }
+        .hex-outer:hover .hex-inner {
+          background-color: #F79027 !important;
+        }
+        .hex-image {
+          transition: all 0.3s ease-in-out;
+          opacity: 1;
+          transform: scale(1);
+        }
+        .hex-outer:hover .hex-image {
+          opacity: 0 !important;
+          transform: scale(0.75) !important;
+        }
+        .hex-text {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 4px;
+          text-align: center;
+          font-size: 9px;
+          font-weight: 800;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          color: #ffffff;
+          opacity: 0;
+          transform: scale(0.75);
+          transition: all 0.3s ease-in-out;
+        }
+        .hex-outer:hover .hex-text {
+          opacity: 1 !important;
+          transform: scale(1) !important;
+        }
       `}</style>
 
       <h2 className="text-[#F58220] text-[20px] sm:text-[24px] font-extrabold text-center tracking-wide mb-8">
@@ -250,7 +180,7 @@ export default function Technology() {
         <div className="absolute top-0 right-0 h-full w-12 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
         <div className="marquee-track flex gap-12 items-center w-max">
-          {[...MOBILE_LOGOS.flat(), ...MOBILE_LOGOS.flat()].map((logo, index) => (
+          {[...MOBILE_LOGOS, ...MOBILE_LOGOS].map((logo, index) => (
             <div
               key={`${logo.name}-${index}`}
               className="flex-shrink-0 flex items-center justify-center"
@@ -279,7 +209,7 @@ export default function Technology() {
               return (
                 <div
                   key={logo.name}
-                  className={`group relative w-[88px] h-[102px] bg-[#F79027] p-[1.5px] transition-all duration-300 ease-out hover:scale-108 hover:shadow-[0_10px_25px_rgba(247,144,39,0.25)] active:scale-[0.97] cursor-pointer ${
+                  className={`hex-outer relative w-[88px] h-[102px] p-[1.5px] active:scale-[0.97] cursor-pointer ${
                     isInView ? "hex-animate-outer" : ""
                   }`}
                   style={{
@@ -288,7 +218,7 @@ export default function Technology() {
                   }}
                 >
                   <div
-                    className={`w-full h-full bg-[#F79027] group-hover:bg-[#FFF9F3] flex items-center justify-center p-2.5 transition-colors duration-300 ease-out ${
+                    className={`hex-inner w-full h-full flex items-center justify-center p-2.5 ${
                       isInView ? "hex-animate-inner" : ""
                     }`}
                     style={{
@@ -299,8 +229,11 @@ export default function Technology() {
                     <img
                       src={logo.src}
                       alt={logo.name}
-                      className="max-w-[80%] max-h-[80%] object-contain transition-all duration-300 ease-in-out group-hover:scale-105"
+                      className="hex-image max-w-[75%] max-h-[75%] object-contain pointer-events-none"
                     />
+                    <span className="hex-text pointer-events-none">
+                      {logo.name}
+                    </span>
                   </div>
                 </div>
               );

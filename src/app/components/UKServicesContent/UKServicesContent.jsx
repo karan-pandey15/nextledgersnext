@@ -4,6 +4,110 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Button from "../utils/Button/Button";
 
+const LOGO_MAP = {
+  "brightpay": "/images/logooUK/brightpay.jpeg",
+  "moneysoft payroll manager": "/images/logooUK/Moneysoft_Australial.jpeg",
+  "moneysoft payroll": "/images/logooUK/Moneysoft_Australial.jpeg",
+  "moneysoft": "/images/logooUK/Moneysoft_Australial.jpeg",
+  "xero payroll": "/images/logooUK/Xero.png",
+  "quickbooks payroll": "/images/logooUK/QuickBooks_Training.png",
+  "sage payroll": "/images/logooUK/Sage.jpg",
+  "freeagent payroll": "/images/logooUK/FreeAgent.png",
+  "nest": "/images/logooUK/NEST_id4rvtkhfhg.png",
+  "the people's pension": "/images/logooUK/thepepole.png",
+  "the peoples pension": "/images/logooUK/thepepole.png",
+  "smart pension": "/images/logooUK/Smart_Pension.jpeg",
+  "xero": "/images/logooUK/Xero.png",
+  "quickbooks online": "/images/logooUK/QuickBooks_Training.png",
+  "quickbooks": "/images/logooUK/QuickBooks_Training.png",
+  "sage business cloud": "/images/logooUK/Sage.jpg",
+  "sage": "/images/logooUK/Sage.jpg",
+  "freeagent": "/images/logooUK/FreeAgent.png",
+  "dext": "/images/logooUK/dext.png",
+  "hubdoc": "/images/logooUK/hubdoc.png",
+  "approvalmax": "/images/logooUK/ApprovalMax.jpeg",
+  "iris personal tax": "/images/logooUK/IRIS_Software.jpeg",
+  "cch personal tax": "/images/logooUK/wolters.png",
+  "taxcalc personal tax": null,
+  "btcsoftware": "/images/logooUK/IRIS_Software.jpeg",
+  "capium personal tax": "/images/logooUK/capium.jpeg",
+  "kashflow": "/images/logooUK/IRIS_KashFlow.jpeg",
+  "iris kashflow": "/images/logooUK/IRIS_KashFlow.jpeg",
+  "a2x": "/images/logooUK/a3ex.jpeg",
+  "shopify": "/images/logooUK/Shopify.jpeg",
+  "amazon": "/images/logooUK/amazon.webp",
+  "ebay": "/images/logooUK/ebay.jpeg",
+  "etsy": "/images/logooUK/esty.jpeg",
+  "woocommerce": "/images/logooUK/WooCommerce.jpeg",
+  "stripe": "/images/logooUK/Stripe.png",
+  "paypal": "/images/logooUK/PayPal_Icon.jpeg",
+  "wise": "/images/logooUK/Wise_Icon.png",
+  "gocardless": "/images/logooUK/GoCardless.png",
+  "accountsiq": "/images/logooUK/Aiq.jpeg",
+  "fathom": "/images/logooUK/Fathom.png",
+  "spotlight reporting": "/images/logooUK/Spotlight.jpeg",
+  "float": "/images/logooUK/Float.png",
+  "futrli": "/images/logooUK/Futrli.png",
+  "microsoft excel": "/images/logooUK/Microsoft_Excel_id.png",
+  "google sheets": "/images/logooUK/Google_Sheets.jpeg",
+  "microsoft 365": "/images/logooUK/Microsoft_Icon.jpeg",
+  "google workspace": "/images/logooUK/Google_Sheets.jpeg",
+  "sharepoint": "/images/logooUK/Microsoft_Icon.jpeg",
+  "inform direct": "/images/logooUK/Inform_Direct/Inform_Direct.jpeg",
+  "companies house webfiling": "/images/logooUK/Companies.jpeg",
+  "virtual cabinet": "/images/logooUK/Virtual_Cabinet.png"
+};
+
+function SoftwareLogoBadge({ name }) {
+  const [clicked, setClicked] = useState(false);
+
+  const normalizedKey = name.toLowerCase().trim();
+  const logoSrc = LOGO_MAP[normalizedKey];
+
+  if (!logoSrc) {
+    return (
+      <div className="flex items-center gap-2 p-3 bg-white rounded-xl border border-gray-200 shadow-sm h-16 sm:h-20 justify-center w-full">
+        <span className="w-1.5 h-1.5 rounded-full bg-[#F58220] flex-shrink-0" />
+        <span className="text-[11px] sm:text-xs font-bold text-gray-700">{name}</span>
+      </div>
+    );
+  }
+
+  return (
+    <div
+      onClick={() => setClicked(!clicked)}
+      onMouseLeave={() => setClicked(false)}
+      className="group relative flex items-center justify-center p-3 bg-white rounded-xl border border-gray-200 shadow-sm h-16 sm:h-20 w-full cursor-pointer select-none transition-all duration-300 hover:border-[#F58220]/40 hover:shadow-md overflow-hidden"
+    >
+      {/* Logo Image */}
+      <div
+        className={`w-full h-full flex items-center justify-center transition-all duration-300 ${
+          clicked ? "opacity-0 scale-75" : "opacity-100 scale-100 group-hover:opacity-0 group-hover:scale-75"
+        }`}
+      >
+        <img
+          src={logoSrc}
+          alt={name}
+          className="max-h-[85%] max-w-[90%] object-contain pointer-events-none"
+        />
+      </div>
+
+      {/* Name on hover/click */}
+      <div
+        className={`absolute inset-0 flex items-center justify-center p-2 bg-white text-center transition-all duration-300 ${
+          clicked
+            ? "opacity-100 scale-100"
+            : "opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-100"
+        }`}
+      >
+        <span className="text-[10px] sm:text-[11px] font-extrabold text-[#0F274A] uppercase tracking-wider leading-tight">
+          {name}
+        </span>
+      </div>
+    </div>
+  );
+}
+
 export default function UKServicesContent() {
   // State for the Business Advisory & CFO interactive services tabs switcher
   const [activeTab, setActiveTab] = useState("advisory");
@@ -408,20 +512,14 @@ export default function UKServicesContent() {
                 <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full inline-block" />
                 Accounting Platforms
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
                 {[
                   { name: "Xero", color: "bg-blue-400" },
                   { name: "QuickBooks Online", color: "bg-green-500" },
                   { name: "Sage Business Cloud", color: "bg-emerald-600" },
                   { name: "FreeAgent", color: "bg-red-400" },
                 ].map((plat, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-center gap-2 bg-[#faf9f6] p-2.5 rounded-lg border border-gray-50 hover:border-[#F58220]/30 transition-all duration-300 hover:shadow-xs group"
-                  >
-                    <span className={`w-2.5 h-2.5 rounded-full ${plat.color} flex-shrink-0 group-hover:scale-125 transition-transform`} />
-                    <span className="text-[#1E1B2A] font-bold text-[11px] sm:text-xs">{plat.name}</span>
-                  </div>
+                  <SoftwareLogoBadge key={idx} name={plat.name} />
                 ))}
               </div>
             </div>
@@ -434,7 +532,7 @@ export default function UKServicesContent() {
                 <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full inline-block" />
                 Reporting & Dashboard Tools
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
                 {[
                   { name: "Fathom", color: "bg-rose-400" },
                   { name: "Syft Analytics", color: "bg-violet-500" },
@@ -444,13 +542,7 @@ export default function UKServicesContent() {
                   { name: "Power BI", color: "bg-yellow-500" },
                   { name: "Google Looker Studio", color: "bg-indigo-400" },
                 ].map((tool, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-center gap-2 bg-[#faf9f6] p-2.5 rounded-lg border border-gray-50 hover:border-[#F58220]/30 transition-all duration-300 hover:shadow-xs group"
-                  >
-                    <span className={`w-2.5 h-2.5 rounded-full ${tool.color} flex-shrink-0 group-hover:scale-125 transition-transform`} />
-                    <span className="text-[#1E1B2A] font-bold text-[11px] sm:text-xs leading-tight">{tool.name}</span>
-                  </div>
+                  <SoftwareLogoBadge key={idx} name={tool.name} />
                 ))}
               </div>
             </div>
@@ -523,7 +615,7 @@ export default function UKServicesContent() {
             { title: "No Additional UK Hiring", desc: "Expand practice capabilities without high local overheads and benefits." },
           ].map((item, idx) => (
             <div key={idx} className="bg-white p-5 rounded-2xl border border-gray-100 hover:border-[#F58220]/30 transition-all duration-300 flex items-start gap-3.5 group shadow-xs">
-              <div className="w-6 h-6 rounded-full bg-[#FEF4E4] flex items-center justify-center flex-shrink-0 text-[#F58220] font-bold text-[10px] group-hover:bg-[#F58220] group-hover:text-white transition-all">
+              <div className="w-6 h-6 rounded-full bg-[#F58220] flex items-center justify-center flex-shrink-0 text-white font-bold text-[10px] transition-all">
                 ✓
               </div>
               <div>
@@ -832,11 +924,12 @@ export default function UKServicesContent() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
             {[
-              { title: "Enhance Accuracy", desc: "Detailed audits and verification checks reduce input mistakes." },
-              { title: "Minimise Errors", desc: "Dual review workflow minimizes deductions and pension calculation problems." },
-              { title: "Better Service Delivery", desc: "Provide consistent, fast, and secure payroll support directly to clients." }
+              { num: "05", title: "Enhance Accuracy", desc: "Detailed audits and verification checks reduce input mistakes." },
+              { num: "06", title: "Minimise Errors", desc: "Dual review workflow minimizes deductions and pension calculation problems." },
+              { num: "07", title: "Better Service Delivery", desc: "Provide consistent, fast, and secure payroll support directly to clients." }
             ].map((item, idx) => (
               <div key={idx} className="bg-[#faf9f6] p-5 rounded-2xl border border-gray-50 shadow-xs relative group hover:border-[#F58220]/20 transition-all duration-300">
+                <span className="absolute top-4 right-4 text-xs font-mono font-bold text-[#F58220]/30 group-hover:text-[#F58220]/50">{item.num}</span>
                 <h4 className="text-xs sm:text-sm font-extrabold text-[#0F274A] mb-2">{item.title}</h4>
                 <p className="text-[11px] text-gray-500 leading-relaxed">{item.desc}</p>
               </div>
@@ -867,12 +960,9 @@ export default function UKServicesContent() {
                 <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
                 Payroll Software
               </h4>
-              <div className="space-y-2">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
                 {["BrightPay", "Moneysoft Payroll Manager", "Xero Payroll", "QuickBooks Payroll", "Sage Payroll", "FreeAgent Payroll"].map((sw, idx) => (
-                  <div key={idx} className="flex items-center gap-2 p-2 bg-[#faf9f6] rounded-lg border border-gray-50">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                    <span className="text-[11px] font-bold text-gray-700">{sw}</span>
-                  </div>
+                  <SoftwareLogoBadge key={idx} name={sw} />
                 ))}
               </div>
             </div>
@@ -883,12 +973,9 @@ export default function UKServicesContent() {
                 <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
                 Pension Platforms
               </h4>
-              <div className="space-y-2">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
                 {["NEST", "The People's Pension", "Smart Pension", "NOW: Pensions"].map((sw, idx) => (
-                  <div key={idx} className="flex items-center gap-2 p-2 bg-[#faf9f6] rounded-lg border border-gray-50">
-                    <span className="w-1.5 h-1.5 rounded-full bg-violet-500" />
-                    <span className="text-[11px] font-bold text-gray-700">{sw}</span>
-                  </div>
+                  <SoftwareLogoBadge key={idx} name={sw} />
                 ))}
               </div>
             </div>
@@ -899,12 +986,9 @@ export default function UKServicesContent() {
                 <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
                 Accounting & Workflow
               </h4>
-              <div className="space-y-2">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
                 {["Xero", "QuickBooks Online", "Sage Business Cloud", "FreeAgent", "Dext", "Hubdoc", "ApprovalMax"].map((sw, idx) => (
-                  <div key={idx} className="flex items-center gap-2 p-2 bg-[#faf9f6] rounded-lg border border-gray-50">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    <span className="text-[11px] font-bold text-gray-700">{sw}</span>
-                  </div>
+                  <SoftwareLogoBadge key={idx} name={sw} />
                 ))}
               </div>
             </div>
@@ -1271,6 +1355,7 @@ export default function UKServicesContent() {
               { title: "Scale Seasonally", desc: "Scale operations efficiently during peak tax seasons without increasing headcount." }
             ].map((card, idx) => (
               <div key={idx} className="bg-[#faf9f6] p-5 rounded-2xl border border-gray-50 hover:border-[#F58220]/25 transition-all duration-300">
+                <span className="text-[#F58220] text-xs font-mono font-bold block mb-1">Step 0{idx + 5}</span>
                 <h4 className="text-xs sm:text-sm font-extrabold text-[#0F274A] mb-2">{card.title}</h4>
                 <p className="text-[11px] text-gray-500 leading-relaxed">{card.desc}</p>
               </div>
@@ -1336,12 +1421,9 @@ export default function UKServicesContent() {
                 <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
                 Personal Tax Software
               </h4>
-              <div className="space-y-2">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
                 {["IRIS Personal Tax", "CCH Personal Tax", "TaxCalc Personal Tax", "BTCSoftware", "Capium Personal Tax", "Absolute Tax", "Forbes Professional"].map((sw, idx) => (
-                  <div key={idx} className="flex items-center gap-2 p-2.5 bg-white rounded-lg border border-gray-100">
-                    <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
-                    <span className="text-[11px] font-bold text-gray-700">{sw}</span>
-                  </div>
+                  <SoftwareLogoBadge key={idx} name={sw} />
                 ))}
               </div>
             </div>
@@ -1352,12 +1434,9 @@ export default function UKServicesContent() {
                 <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
                 Accounting Software
               </h4>
-              <div className="space-y-2">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
                 {["Xero", "QuickBooks Online", "Sage Business Cloud", "FreeAgent"].map((sw, idx) => (
-                  <div key={idx} className="flex items-center gap-2 p-2.5 bg-white rounded-lg border border-gray-100">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                    <span className="text-[11px] font-bold text-gray-700">{sw}</span>
-                  </div>
+                  <SoftwareLogoBadge key={idx} name={sw} />
                 ))}
               </div>
             </div>
@@ -1368,12 +1447,9 @@ export default function UKServicesContent() {
                 <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
                 Document & Workflow Tools
               </h4>
-              <div className="space-y-2">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
                 {["Dext", "Hubdoc", "AutoEntry", "ApprovalMax"].map((sw, idx) => (
-                  <div key={idx} className="flex items-center gap-2 p-2.5 bg-white rounded-lg border border-gray-100">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    <span className="text-[11px] font-bold text-gray-700">{sw}</span>
-                  </div>
+                  <SoftwareLogoBadge key={idx} name={sw} />
                 ))}
               </div>
             </div>
@@ -1639,7 +1715,7 @@ export default function UKServicesContent() {
                     "Bookkeeping Review & Reporting Support"
                   ].map((item, idx) => (
                     <div key={idx} className="flex items-center gap-2 p-2 bg-[#faf9f6] rounded-lg hover:bg-[#FEF4E4]/30 border border-gray-50 transition-colors">
-                      <span className="w-3.5 h-3.5 rounded-full bg-emerald-500 flex items-center justify-center flex-shrink-0 text-white font-bold text-[9px]">✓</span>
+                      <span className="w-5 h-5 rounded-full bg-[#F58220] flex items-center justify-center flex-shrink-0 text-white font-bold text-[10px]">✓</span>
                       <span className="text-[11px] font-bold text-[#0F274A] leading-tight">{item}</span>
                     </div>
                   ))}
@@ -1665,7 +1741,7 @@ export default function UKServicesContent() {
                     "Factoring & Control Account Reconciliations"
                   ].map((item, idx) => (
                     <div key={idx} className="flex items-center gap-2 p-2 bg-[#faf9f6] rounded-lg hover:bg-[#FEF4E4]/30 border border-gray-50 transition-colors">
-                      <span className="w-3.5 h-3.5 rounded-full bg-emerald-500 flex items-center justify-center flex-shrink-0 text-white font-bold text-[9px]">✓</span>
+                      <span className="w-5 h-5 rounded-full bg-[#F58220] flex items-center justify-center flex-shrink-0 text-white font-bold text-[10px]">✓</span>
                       <span className="text-[11px] font-bold text-[#0F274A] leading-tight">{item}</span>
                     </div>
                   ))}
@@ -1851,12 +1927,9 @@ export default function UKServicesContent() {
                 <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
                 Accounting Software
               </h4>
-              <div className="space-y-2">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
                 {["Xero", "QuickBooks Online", "Sage Business Cloud", "FreeAgent", "Capium", "KashFlow"].map((sw, idx) => (
-                  <div key={idx} className="flex items-center gap-2 p-2 bg-[#faf9f6] rounded-lg border border-gray-50">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                    <span className="text-[11px] font-bold text-gray-700">{sw}</span>
-                  </div>
+                  <SoftwareLogoBadge key={idx} name={sw} />
                 ))}
               </div>
             </div>
@@ -1867,12 +1940,9 @@ export default function UKServicesContent() {
                 <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
                 Document Processing
               </h4>
-              <div className="space-y-2">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
                 {["Dext", "Hubdoc", "AutoEntry", "ApprovalMax"].map((sw, idx) => (
-                  <div key={idx} className="flex items-center gap-2 p-2 bg-[#faf9f6] rounded-lg border border-gray-50">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#EA7C24]" />
-                    <span className="text-[11px] font-bold text-gray-700">{sw}</span>
-                  </div>
+                  <SoftwareLogoBadge key={idx} name={sw} />
                 ))}
               </div>
             </div>
@@ -1883,12 +1953,9 @@ export default function UKServicesContent() {
                 <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
                 eCommerce Integration
               </h4>
-              <div className="space-y-2">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
                 {["A2X", "Shopify", "Amazon", "eBay", "Etsy", "WooCommerce"].map((sw, idx) => (
-                  <div key={idx} className="flex items-center gap-2 p-2 bg-[#faf9f6] rounded-lg border border-gray-50">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
-                    <span className="text-[11px] font-bold text-gray-700">{sw}</span>
-                  </div>
+                  <SoftwareLogoBadge key={idx} name={sw} />
                 ))}
               </div>
             </div>
@@ -1899,12 +1966,9 @@ export default function UKServicesContent() {
                 <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
                 Payment Platforms
               </h4>
-              <div className="space-y-2">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
                 {["Stripe", "PayPal", "Wise", "GoCardless"].map((sw, idx) => (
-                  <div key={idx} className="flex items-center gap-2 p-2 bg-[#faf9f6] rounded-lg border border-gray-50">
-                    <span className="w-1.5 h-1.5 rounded-full bg-violet-500" />
-                    <span className="text-[11px] font-bold text-gray-700">{sw}</span>
-                  </div>
+                  <SoftwareLogoBadge key={idx} name={sw} />
                 ))}
               </div>
             </div>
@@ -2183,7 +2247,7 @@ export default function UKServicesContent() {
                   key={idx}
                   className="flex items-center gap-2.5 p-3 bg-[#faf9f6] rounded-xl border border-gray-50 hover:bg-[#FEF4E4]/30 transition-all"
                 >
-                  <div className="w-4.5 h-4.5 rounded-full bg-emerald-500 flex items-center justify-center flex-shrink-0 text-white font-bold text-[9px]">
+                  <div className="w-5 h-5 rounded-full bg-[#F58220] flex items-center justify-center flex-shrink-0 text-white font-bold text-[10px]">
                     ✓
                   </div>
                   <span className="text-[11px] font-bold text-[#0F274A] leading-tight">{item}</span>
@@ -2238,6 +2302,7 @@ export default function UKServicesContent() {
               { title: "Headcount-Free Scale", desc: "Grow practice advisory revenues without adding UK personnel costs." }
             ].map((card, idx) => (
               <div key={idx} className="bg-[#faf9f6] p-5 rounded-2xl border border-gray-50 hover:border-[#F58220]/25 transition-all duration-300">
+                <span className="text-[#F58220] text-xs font-mono font-bold block mb-1">0{idx + 5}</span>
                 <h4 className="text-xs sm:text-sm font-extrabold text-[#0F274A] mb-2">{card.title}</h4>
                 <p className="text-[11px] text-gray-500 leading-relaxed">{card.desc}</p>
               </div>
@@ -2268,12 +2333,9 @@ export default function UKServicesContent() {
                 <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
                 Accounting Software
               </h4>
-              <div className="space-y-2">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
                 {["Xero", "QuickBooks Online", "Sage Business Cloud", "FreeAgent", "AccountsIQ", "iplicit"].map((sw, idx) => (
-                  <div key={idx} className="flex items-center gap-2 p-2.5 bg-[#faf9f6] rounded-lg border border-gray-50">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                    <span className="text-[11px] font-bold text-gray-700">{sw}</span>
-                  </div>
+                  <SoftwareLogoBadge key={idx} name={sw} />
                 ))}
               </div>
             </div>
@@ -2284,12 +2346,9 @@ export default function UKServicesContent() {
                 <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
                 Reporting & Forecasting
               </h4>
-              <div className="space-y-2">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
                 {["Fathom", "Spotlight Reporting", "Syft Analytics", "Float", "Futrli", "Microsoft Excel", "Google Sheets"].map((sw, idx) => (
-                  <div key={idx} className="flex items-center gap-2 p-2.5 bg-[#faf9f6] rounded-lg border border-gray-50">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#EA7C24]" />
-                    <span className="text-[11px] font-bold text-gray-700">{sw}</span>
-                  </div>
+                  <SoftwareLogoBadge key={idx} name={sw} />
                 ))}
               </div>
             </div>
@@ -2300,12 +2359,9 @@ export default function UKServicesContent() {
                 <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
                 Workflow & Collaboration
               </h4>
-              <div className="space-y-2">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
                 {["Dext", "Hubdoc", "ApprovalMax", "Microsoft 365", "Google Workspace"].map((sw, idx) => (
-                  <div key={idx} className="flex items-center gap-2 p-2.5 bg-[#faf9f6] rounded-lg border border-gray-50">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    <span className="text-[11px] font-bold text-gray-700">{sw}</span>
-                  </div>
+                  <SoftwareLogoBadge key={idx} name={sw} />
                 ))}
               </div>
             </div>
@@ -2790,12 +2846,9 @@ export default function UKServicesContent() {
                 <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
                 Secretarial Software
               </h4>
-              <div className="space-y-2">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
                 {["Inform Direct", "Companies House WebFiling", "Virtual Cabinet", "Practice Ignition", "Microsoft Excel"].map((sw, idx) => (
-                  <div key={idx} className="flex items-center gap-2 p-2.5 bg-white rounded-lg border border-gray-100">
-                    <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
-                    <span className="text-[11px] font-bold text-gray-700">{sw}</span>
-                  </div>
+                  <SoftwareLogoBadge key={idx} name={sw} />
                 ))}
               </div>
             </div>
@@ -2806,12 +2859,9 @@ export default function UKServicesContent() {
                 <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
                 Accounting Software
               </h4>
-              <div className="space-y-2">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
                 {["Xero", "QuickBooks Online", "Sage Business Cloud", "FreeAgent", "AccountsIQ", "iplicit"].map((sw, idx) => (
-                  <div key={idx} className="flex items-center gap-2 p-2.5 bg-white rounded-lg border border-gray-100">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                    <span className="text-[11px] font-bold text-gray-700">{sw}</span>
-                  </div>
+                  <SoftwareLogoBadge key={idx} name={sw} />
                 ))}
               </div>
             </div>
@@ -2822,12 +2872,9 @@ export default function UKServicesContent() {
                 <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
                 Document Management
               </h4>
-              <div className="space-y-2">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
                 {["Dext", "Hubdoc", "ApprovalMax", "Microsoft 365", "Google Workspace", "SharePoint"].map((sw, idx) => (
-                  <div key={idx} className="flex items-center gap-2 p-2.5 bg-white rounded-lg border border-gray-100">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    <span className="text-[11px] font-bold text-gray-700">{sw}</span>
-                  </div>
+                  <SoftwareLogoBadge key={idx} name={sw} />
                 ))}
               </div>
             </div>
@@ -2890,7 +2937,7 @@ export default function UKServicesContent() {
                 "Scalable Support Framework"
               ].map((adv, idx) => (
                 <div key={idx} className="flex items-center gap-2">
-                  <span className="w-4 h-4 rounded-full bg-[#F58220] text-white flex items-center justify-center text-[9px] font-bold">✓</span>
+                  <span className="w-5 h-5 rounded-full bg-[#F58220] text-white flex items-center justify-center text-[10px] font-bold">✓</span>
                   <span className="text-gray-800 text-xs sm:text-sm font-semibold">{adv}</span>
                 </div>
               ))}
@@ -3287,12 +3334,9 @@ export default function UKServicesContent() {
                 <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
                 Accounting Software
               </h4>
-              <div className="space-y-2">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
                 {["Xero", "QuickBooks Online", "Sage Business Cloud", "FreeAgent"].map((sw, idx) => (
-                  <div key={idx} className="flex items-center gap-2 p-2 bg-[#faf9f6] rounded-lg border border-gray-50">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                    <span className="text-[11px] font-bold text-gray-700">{sw}</span>
-                  </div>
+                  <SoftwareLogoBadge key={idx} name={sw} />
                 ))}
               </div>
             </div>
@@ -3303,12 +3347,9 @@ export default function UKServicesContent() {
                 <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
                 MTD & VAT Platforms
               </h4>
-              <div className="space-y-2">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
                 {["Xero Tax", "QuickBooks VAT Centre", "Sage VAT Module", "FreeAgent VAT"].map((sw, idx) => (
-                  <div key={idx} className="flex items-center gap-2 p-2 bg-[#faf9f6] rounded-lg border border-gray-50">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#EA7C24]" />
-                    <span className="text-[11px] font-bold text-gray-700">{sw}</span>
-                  </div>
+                  <SoftwareLogoBadge key={idx} name={sw} />
                 ))}
               </div>
             </div>
@@ -3319,12 +3360,9 @@ export default function UKServicesContent() {
                 <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
                 Supporting Tools
               </h4>
-              <div className="space-y-2">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
                 {["Dext", "Hubdoc", "AutoEntry", "ApprovalMax", "A2X"].map((sw, idx) => (
-                  <div key={idx} className="flex items-center gap-2 p-2 bg-[#faf9f6] rounded-lg border border-gray-50">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    <span className="text-[11px] font-bold text-gray-700">{sw}</span>
-                  </div>
+                  <SoftwareLogoBadge key={idx} name={sw} />
                 ))}
               </div>
             </div>
@@ -3382,7 +3420,7 @@ export default function UKServicesContent() {
                 "Scalable Support Without Increasing Overheads"
               ].map((adv, idx) => (
                 <div key={idx} className="flex items-center gap-2">
-                  <span className="w-4 h-4 rounded-full bg-[#F58220] text-white flex items-center justify-center text-[9px] font-bold">✓</span>
+                  <span className="w-5 h-5 rounded-full bg-[#F58220] text-white flex items-center justify-center text-[10px] font-bold">✓</span>
                   <span className="text-gray-800 text-xs sm:text-sm font-semibold">{adv}</span>
                 </div>
               ))}
@@ -3717,12 +3755,9 @@ export default function UKServicesContent() {
                 <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
                 Accounts Production
               </h4>
-              <div className="space-y-2">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
                 {["IRIS Accounts Production", "CCH Accounts Production", "TaxCalc Accounts Production", "Capium", "Xero & QuickBooks Online", "Sage Business Cloud", "FreeAgent"].map((sw, idx) => (
-                  <div key={idx} className="flex items-center gap-2 p-2 bg-[#faf9f6] rounded-lg border border-gray-50">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                    <span className="text-[11px] font-bold text-gray-700">{sw}</span>
-                  </div>
+                  <SoftwareLogoBadge key={idx} name={sw} />
                 ))}
               </div>
             </div>
@@ -3733,12 +3768,9 @@ export default function UKServicesContent() {
                 <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
                 Corporation Tax
               </h4>
-              <div className="space-y-2">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
                 {["IRIS Business Tax", "CCH Corporation Tax", "TaxCalc Corporation Tax", "BTCSoftware Tax", "Capium Corporation Tax"].map((sw, idx) => (
-                  <div key={idx} className="flex items-center gap-2 p-2 bg-[#faf9f6] rounded-lg border border-gray-50">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#EA7C24]" />
-                    <span className="text-[11px] font-bold text-gray-700">{sw}</span>
-                  </div>
+                  <SoftwareLogoBadge key={idx} name={sw} />
                 ))}
               </div>
             </div>
@@ -3749,12 +3781,9 @@ export default function UKServicesContent() {
                 <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
                 Supporting Tools
               </h4>
-              <div className="space-y-2">
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
                 {["Dext", "Hubdoc", "AutoEntry", "ApprovalMax"].map((sw, idx) => (
-                  <div key={idx} className="flex items-center gap-2 p-2 bg-[#faf9f6] rounded-lg border border-gray-50">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    <span className="text-[11px] font-bold text-gray-700">{sw}</span>
-                  </div>
+                  <SoftwareLogoBadge key={idx} name={sw} />
                 ))}
               </div>
             </div>
