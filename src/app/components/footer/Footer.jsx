@@ -203,9 +203,10 @@ export default function Footer() {
                     </div>
 
                     {/* Column 3: Quick Links */}
-                    <div className="space-y-4 lg:col-span-2 md:col-span-2 col-span-1">
+                    <div className="space-y-4 lg:col-span-1 md:col-span-2 col-span-1">
                         <h4 className="text-xs font-black uppercase tracking-wider text-[#F58220]">
-                            QUICK LINKS
+                            LINKS
+                            {/* QUICK  */}
                         </h4>
                         <ul className="space-y-2.5 text-xs font-bold text-white/60">
                             <li>
@@ -237,7 +238,7 @@ export default function Footer() {
                     </div>
 
                     {/* Column 4: Global Connectivity Map Box Widget */}
-                    <div className="lg:col-span-4 md:col-span-3 col-span-1 space-y-4 overflow-visible">
+                    <div className="lg:col-span-5 md:col-span-3 col-span-1 space-y-4 overflow-visible">
                         <h4 className="text-xs font-black uppercase tracking-wider text-[#F58220]">
                             Global Connectivity
                         </h4>
@@ -258,7 +259,7 @@ export default function Footer() {
                                 </defs>
 
                                 {/* Continent Outlines */}
-                                <g className="fill-white/5 stroke-white/10 stroke-1 transition-all duration-700">
+                                <g className="fill-white/5 stroke-white/30 stroke-[1.5px] transition-all duration-700">
                                     <path d={CONTINENT_PATHS.northAmerica} className={timelineStep >= 1 && timelineStep < 12 ? "fill-[#00F0FF]/6 stroke-[#00F0FF]/25" : ""} />
                                     <path d={CONTINENT_PATHS.greenland} />
                                     <path d={CONTINENT_PATHS.southAmerica} />
