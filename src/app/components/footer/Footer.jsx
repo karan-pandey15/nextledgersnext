@@ -21,16 +21,27 @@ const CONTINENT_PATHS = {
 
 // Coordinates mapping on our SVG viewBox "0 0 1000 500"
 const LOCATIONS = {
-    india: { x: 640, y: 220, label: "India", flag: "🇮🇳", textX: 640, textY: 198, align: "middle" },
-    uk: { x: 450, y: 105, label: "UK", flag: "🇬🇧", textX: 450, textY: 88, align: "middle" },
-    usa: { x: 240, y: 155, label: "USA", flag: "🇺🇸", textX: 240, textY: 175, align: "middle" },
-    uae: { x: 585, y: 215, label: "UAE", flag: "🇦🇪", textX: 585, textY: 235, align: "middle" },
-    canada: { x: 235, y: 125, label: "Canada", flag: "🇨🇦", textX: 235, textY: 108, align: "middle" },
-    ireland: { x: 435, y: 102, label: "Ireland", flag: "🇮🇪", textX: 380, textY: 102, align: "end" },
-    australia: { x: 870, y: 380, label: "Australia", flag: "🇦🇺", textX: 870, textY: 362, align: "middle" },
-    singapore: { x: 705, y: 275, label: "Singapore", flag: "🇸🇬", textX: 705, textY: 295, align: "middle" },
-    newZealand: { x: 945, y: 445, label: "New Zealand", flag: "🇳🇿", textX: 945, textY: 428, align: "middle" },
-    netherlands: { x: 475, y: 100, label: "Netherlands", flag: "🇳🇱", textX: 510, textY: 100, align: "start" }
+    india: { x: 640, y: 220, label: "India", code: "in", textX: 640, textY: 170, align: "middle" },
+    uk: { x: 450, y: 105, label: "UK", code: "gb", textX: 450, textY: 70, align: "middle" },
+    usa: { x: 240, y: 155, label: "USA", code: "us", textX: 240, textY: 185, align: "middle" },
+    uae: { x: 585, y: 215, label: "UAE", code: "ae", textX: 585, textY: 245, align: "middle" },
+    canada: { x: 235, y: 125, label: "Canada", code: "ca", textX: 235, textY: 95, align: "middle" },
+    ireland: { x: 435, y: 102, label: "Ireland", code: "ie", textX: 435, textY: 135, align: "middle" },
+    australia: { x: 870, y: 380, label: "Australia", code: "au", textX: 870, textY: 345, align: "middle" },
+    singapore: { x: 705, y: 275, label: "Singapore", code: "sg", textX: 705, textY: 305, align: "middle" },
+    newZealand: { x: 945, y: 445, label: "New Zealand", code: "nz", textX: 945, textY: 410, align: "middle" },
+    netherlands: { x: 475, y: 100, label: "Netherlands", code: "nl", textX: 526, textY: 95, align: "start" }
+};
+
+const getFlagX = (target, flagWidth) => {
+    if (target.align === "middle") {
+        return target.textX - flagWidth / 2;
+    }
+    if (target.align === "end") {
+        return target.textX - flagWidth;
+    }
+    // "start"
+    return target.textX;
 };
 
 // Timeline order for flying lines sequentially from India
@@ -77,17 +88,17 @@ export default function Footer() {
     };
 
     return (
-        <footer className="w-full bg-[#185884] text-white border-t border-white/10 pt-16 pb-8 relative overflow-hidden">
+        <footer className="w-full bg-[#185884] text-white border-t border-white/10 pt-10 pb-4 relative overflow-hidden">
             {/* Background Dot Texture */}
             <div className="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px]"></div>
 
             <div className="max-w-7xl mx-auto px-5 relative z-10">
 
-                {/* Restructured 5-Column Grid Layout (Links + World Map Widget) */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 border-b border-white/10 pb-16">
+                {/* Restructured Grid Layout (Address -> Services 4-4 -> Quick Links -> Map) */}
+                <div className="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12 gap-8 border-b border-white/10 pb-16 items-start">
 
-                    {/* Column 1: Brand & Contact Info */}
-                    <div className="space-y-4 lg:col-span-1">
+                    {/* Column 1: Brand & Contact Info (Address) */}
+                    <div className="space-y-4 lg:col-span-2 md:col-span-3 col-span-1">
                         <div className="flex flex-col gap-1.5">
                             <Link href="/">
                                 <img
@@ -109,7 +120,11 @@ export default function Footer() {
                                 <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center text-[#F58220] group-hover:bg-[#F58220]/15 transition-all">
                                     <Phone className="w-3 h-3" />
                                 </div>
-                                +1 (888) 552-0055
+                                <span className="flex items-center gap-1.5">
+                                    <span>🇺🇸</span>
+                                    <span>🇨🇦</span>
+                                    <span>+1 (888) 552-0055</span>
+                                </span>
                             </a>
 
                             <a
@@ -127,56 +142,68 @@ export default function Footer() {
                                     <MapPin className="w-3 h-3" />
                                 </div>
                                 <div>
-                                    <span className="font-bold text-white block">Next Ledgers HQ</span>
+                                    <span className="font-bold text-white flex items-center gap-1.5">
+                                        <span>🇮🇳</span> Next Ledgers HQ
+                                    </span>
                                     Mayapuri Commercial Area,
                                     <br />
-                                    New Delhi India, 110064
+                                    New Delhi, India 110064
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    {/* Column 2: General Services */}
-                    <div className="space-y-4 lg:col-span-1">
-                        <h4 className="text-xs font-black uppercase tracking-wider text-[#F58220]">
-                            GENERAL SERVICES
+                    {/* Column 2: Our Services In UK (4 4 layout - 2 Columns of 4) */}
+                    <div className="space-y-4 lg:col-span-4 md:col-span-4 col-span-1">
+                        <h4 className="text-xs font-black uppercase tracking-wider text-[#F58220] flex items-center gap-1.5">
+                            <span>🇬🇧</span> Our Services In UK
                         </h4>
-                        <ul className="space-y-2.5 text-xs font-bold text-white/60">
+                        <ul className="grid grid-cols-2 gap-x-4 gap-y-2.5 text-xs font-bold text-white/60">
                             <li>
-                                <Link href="/services/usa-bookkeeping" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    Bookkeeping & Financial Accounting
+                                <Link href="/uk/uk-bookkeeping-service" className="hover:text-[#F58220] transition-colors cursor-pointer block">
+                                    UK Bookkeeping Service
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/services/usa-tax" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    Tax Preparation & Compliance
+                                <Link href="/uk/management-accounts-financial-reporting" className="hover:text-[#F58220] transition-colors cursor-pointer block">
+                                    Management Accounts & Financial Reporting
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/services/usa-ap-ar" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    Accounts Payable & Receivable
+                                <Link href="/uk/vat-service-making-tax-digital-mtd" className="hover:text-[#F58220] transition-colors cursor-pointer block">
+                                    VAT Service & Making Tax Digital (MTD)
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/services/usa-cfo" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    CFO Advisory & Management Reporting
+                                <Link href="/uk/year-end-accounts-corporation-tax" className="hover:text-[#F58220] transition-colors cursor-pointer block">
+                                    Year-End Accounts & Corporation Tax
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/services/canada-compilation" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    Compilation & Review Engagements
+                                <Link href="/uk/payroll-cis-services" className="hover:text-[#F58220] transition-colors cursor-pointer block">
+                                    Payroll & CIS Services
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/services/usa-nonprofit" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    Self-Directed & Non-profit Accounting
+                                <Link href="/uk/personal-tax-services" className="hover:text-[#F58220] transition-colors cursor-pointer block">
+                                    Personal Tax Services
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/uk/uk-business-advisory-virtual-cfo-services" className="hover:text-[#F58220] transition-colors cursor-pointer block">
+                                    UK Business Advisory & Virtual CFO Services
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/uk/uk-company-formation-company-secretarial-services" className="hover:text-[#F58220] transition-colors cursor-pointer block">
+                                    UK Company Formation & Company Secretarial Services
                                 </Link>
                             </li>
                         </ul>
                     </div>
 
                     {/* Column 3: Quick Links */}
-                    <div className="space-y-4 lg:col-span-1">
+                    <div className="space-y-4 lg:col-span-2 md:col-span-2 col-span-1">
                         <h4 className="text-xs font-black uppercase tracking-wider text-[#F58220]">
                             QUICK LINKS
                         </h4>
@@ -209,132 +236,148 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Column 4: Global Connectivity Map Box Widget (Occupies 2 columns on Desktop, next to Quick Links) */}
-                    <div className="lg:col-span-2 md:col-span-2 col-span-1 overflow-visible">
-                        <div className="w-full bg-[#0b2e4d]/85 border border-white/10 rounded-2xl p-4 shadow-[0_8px_32px_0_rgba(15,39,74,0.3)] flex flex-col justify-between h-[280px] group hover:border-[#00F0FF]/30 transition-all duration-300">
+                    {/* Column 4: Global Connectivity Map Box Widget */}
+                    <div className="lg:col-span-4 md:col-span-3 col-span-1 space-y-4 overflow-visible">
+                        <h4 className="text-xs font-black uppercase tracking-wider text-[#F58220]">
+                            Global Connectivity
+                        </h4>
+                        <div className="w-full overflow-hidden">
+                            <svg
+                                viewBox="0 0 1000 500"
+                                className="w-full h-auto object-contain"
+                            >
+                                <defs>
+                                    <filter id="glow-cyan" x="-25%" y="-25%" width="150%" height="150%">
+                                        <feGaussianBlur stdDeviation="5" result="blur" />
+                                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                    </filter>
+                                    <filter id="glow-orange" x="-25%" y="-25%" width="150%" height="150%">
+                                        <feGaussianBlur stdDeviation="6" result="blur" />
+                                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                    </filter>
+                                </defs>
 
-                            {/* Map Canvas */}
-                            <div className="relative flex-1 py-1 flex items-center justify-center overflow-hidden">
-                                <svg
-                                    viewBox="0 0 1000 500"
-                                    className="w-full h-auto max-h-[170px]"
-                                >
-                                    <defs>
-                                        <filter id="glow-cyan" x="-25%" y="-25%" width="150%" height="150%">
-                                            <feGaussianBlur stdDeviation="5" result="blur" />
-                                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                                        </filter>
-                                        <filter id="glow-orange" x="-25%" y="-25%" width="150%" height="150%">
-                                            <feGaussianBlur stdDeviation="6" result="blur" />
-                                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                                        </filter>
-                                    </defs>
+                                {/* Continent Outlines */}
+                                <g className="fill-white/5 stroke-white/10 stroke-1 transition-all duration-700">
+                                    <path d={CONTINENT_PATHS.northAmerica} className={timelineStep >= 1 && timelineStep < 12 ? "fill-[#00F0FF]/6 stroke-[#00F0FF]/25" : ""} />
+                                    <path d={CONTINENT_PATHS.greenland} />
+                                    <path d={CONTINENT_PATHS.southAmerica} />
+                                    <path d={CONTINENT_PATHS.eurasia} className={timelineStep >= 0 && timelineStep < 12 ? "fill-[#00F0FF]/6 stroke-[#00F0FF]/25" : ""} />
+                                    <path d={CONTINENT_PATHS.africa} />
+                                    <path d={CONTINENT_PATHS.australia} className={timelineStep >= 5 && timelineStep < 12 ? "fill-[#00F0FF]/6 stroke-[#00F0FF]/25" : ""} />
+                                    <path d={CONTINENT_PATHS.newZealand} className={timelineStep >= 7 && timelineStep < 12 ? "fill-[#00F0FF]/6 stroke-[#00F0FF]/25" : ""} />
+                                    <path d={CONTINENT_PATHS.uk} className={timelineStep >= 0 && timelineStep < 12 ? "fill-[#00F0FF]/15 stroke-[#00F0FF]/40" : ""} />
+                                    <path d={CONTINENT_PATHS.ireland} className={timelineStep >= 4 && timelineStep < 12 ? "fill-[#00F0FF]/15 stroke-[#00F0FF]/40" : ""} />
+                                    <path d={CONTINENT_PATHS.japan} />
+                                    <path d={CONTINENT_PATHS.madagascar} />
+                                </g>
 
-                                    {/* Continent Outlines */}
-                                    <g className="fill-white/5 stroke-white/10 stroke-1 transition-all duration-700">
-                                        <path d={CONTINENT_PATHS.northAmerica} className={timelineStep >= 1 && timelineStep < 12 ? "fill-[#00F0FF]/6 stroke-[#00F0FF]/25" : ""} />
-                                        <path d={CONTINENT_PATHS.greenland} />
-                                        <path d={CONTINENT_PATHS.southAmerica} />
-                                        <path d={CONTINENT_PATHS.eurasia} className={timelineStep >= 0 && timelineStep < 12 ? "fill-[#00F0FF]/6 stroke-[#00F0FF]/25" : ""} />
-                                        <path d={CONTINENT_PATHS.africa} />
-                                        <path d={CONTINENT_PATHS.australia} className={timelineStep >= 5 && timelineStep < 12 ? "fill-[#00F0FF]/6 stroke-[#00F0FF]/25" : ""} />
-                                        <path d={CONTINENT_PATHS.newZealand} className={timelineStep >= 7 && timelineStep < 12 ? "fill-[#00F0FF]/6 stroke-[#00F0FF]/25" : ""} />
-                                        <path d={CONTINENT_PATHS.uk} className={timelineStep >= 0 && timelineStep < 12 ? "fill-[#00F0FF]/15 stroke-[#00F0FF]/40" : ""} />
-                                        <path d={CONTINENT_PATHS.ireland} className={timelineStep >= 4 && timelineStep < 12 ? "fill-[#00F0FF]/15 stroke-[#00F0FF]/40" : ""} />
-                                        <path d={CONTINENT_PATHS.japan} />
-                                        <path d={CONTINENT_PATHS.madagascar} />
-                                    </g>
+                                {/* India -> Targets Arcs */}
+                                {TIMELINE.map((item, idx) => {
+                                    const isActive = timelineStep >= idx && timelineStep < 12;
+                                    return (
+                                        <path
+                                            key={item.key}
+                                            d={getCurvePath(LOCATIONS.india, item.target)}
+                                            fill="none"
+                                            stroke="#00F0FF"
+                                            strokeWidth="2.2"
+                                            filter="url(#glow-cyan)"
+                                            className="transition-all duration-1000 ease-out"
+                                            style={{
+                                                strokeDasharray: "1000",
+                                                strokeDashoffset: isActive ? 0 : 1000,
+                                                transition: "stroke-dashoffset 1.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.5s ease-in-out",
+                                                opacity: isActive ? 0.8 : 0
+                                            }}
+                                        />
+                                    );
+                                })}
 
-                                    {/* India -> Targets Arcs */}
-                                    {TIMELINE.map((item, idx) => {
-                                        const isActive = timelineStep >= idx && timelineStep < 12;
-                                        return (
-                                            <path
-                                                key={item.key}
-                                                d={getCurvePath(LOCATIONS.india, item.target)}
-                                                fill="none"
-                                                stroke="#00F0FF"
-                                                strokeWidth="2.2"
+                                {/* HQ Node: India */}
+                                <circle cx={LOCATIONS.india.x} cy={LOCATIONS.india.y} r="10" fill="#F58220" opacity="0.3" className="animate-ping" />
+                                <circle cx={LOCATIONS.india.x} cy={LOCATIONS.india.y} r="5" fill="#F58220" filter="url(#glow-orange)" />
+
+                                {/* Target Nodes & Labels */}
+                                {TIMELINE.map((item, idx) => {
+                                    const isActive = timelineStep >= idx && timelineStep < 12;
+                                    return (
+                                        <g key={item.key}>
+                                            {/* Glowing Ripple Pin */}
+                                            <circle
+                                                cx={item.target.x}
+                                                cy={item.target.y}
+                                                r="8"
+                                                fill="#00F0FF"
+                                                className={`transition-all duration-500 ${isActive ? "opacity-100 scale-100 animate-ping" : "opacity-0 scale-50"}`}
+                                            />
+                                            <circle
+                                                cx={item.target.x}
+                                                cy={item.target.y}
+                                                r="3"
+                                                fill="#00F0FF"
                                                 filter="url(#glow-cyan)"
-                                                className="transition-all duration-1000 ease-out"
+                                                className={`transition-all duration-500 ${isActive ? "opacity-100" : "opacity-35"}`}
+                                            />
+                                            {/* Country Text Label */}
+                                            <text
+                                                x={item.target.textX}
+                                                y={item.target.textY}
+                                                fill="#FFFFFF"
+                                                fontSize="19.5"
+                                                fontWeight="900"
+                                                textAnchor={item.target.align}
+                                                className="transition-all duration-500 font-sans tracking-widest uppercase drop-shadow-[0_1.5px_3px_rgba(0,0,0,0.8)]"
                                                 style={{
-                                                    strokeDasharray: "1000",
-                                                    strokeDashoffset: isActive ? 0 : 1000,
-                                                    transition: "stroke-dashoffset 1.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.5s ease-in-out",
-                                                    opacity: isActive ? 0.8 : 0
+                                                    opacity: isActive ? 1 : 0,
+                                                    transform: isActive ? "translateY(0)" : "translateY(3px)",
+                                                    transition: "opacity 0.6s ease-out, transform 0.6s ease-out"
+                                                }}
+                                            >
+                                                {item.target.label}
+                                            </text>
+                                            {/* Country Flag Image */}
+                                            <image
+                                                href={`https://flagcdn.com/w40/${item.target.code}.png`}
+                                                x={getFlagX(item.target, 48)}
+                                                y={item.target.textY + 8}
+                                                width="48"
+                                                height="32"
+                                                className="transition-all duration-500"
+                                                style={{
+                                                    opacity: isActive ? 0.95 : 0,
+                                                    transform: isActive ? "translateY(0)" : "translateY(3px)",
+                                                    transition: "opacity 0.6s ease-out, transform 0.6s ease-out"
                                                 }}
                                             />
-                                        );
-                                    })}
+                                        </g>
+                                    );
+                                })}
 
-                                    {/* HQ Node: India */}
-                                    <circle cx={LOCATIONS.india.x} cy={LOCATIONS.india.y} r="10" fill="#F58220" opacity="0.3" className="animate-ping" />
-                                    <circle cx={LOCATIONS.india.x} cy={LOCATIONS.india.y} r="5" fill="#F58220" filter="url(#glow-orange)" />
-
-                                    {/* Target Nodes & Labels */}
-                                    {TIMELINE.map((item, idx) => {
-                                        const isActive = timelineStep >= idx && timelineStep < 12;
-                                        return (
-                                            <g key={item.key}>
-                                                {/* Glowing Ripple Pin */}
-                                                <circle
-                                                    cx={item.target.x}
-                                                    cy={item.target.y}
-                                                    r="8"
-                                                    fill="#00F0FF"
-                                                    className={`transition-all duration-500 ${isActive ? "opacity-100 scale-100 animate-ping" : "opacity-0 scale-50"}`}
-                                                />
-                                                <circle
-                                                    cx={item.target.x}
-                                                    cy={item.target.y}
-                                                    r="3"
-                                                    fill="#00F0FF"
-                                                    filter="url(#glow-cyan)"
-                                                    className={`transition-all duration-500 ${isActive ? "opacity-100" : "opacity-35"}`}
-                                                />
-                                                {/* Country Text Label */}
-                                                <text
-                                                    x={item.target.textX}
-                                                    y={item.target.textY}
-                                                    fill="#FFFFFF"
-                                                    fontSize="8.5"
-                                                    fontWeight="900"
-                                                    textAnchor={item.target.align}
-                                                    className="transition-all duration-500 font-sans tracking-widest uppercase drop-shadow-[0_1.5px_3px_rgba(0,0,0,0.8)]"
-                                                    style={{
-                                                        opacity: isActive ? 1 : 0,
-                                                        transform: isActive ? "translateY(0)" : "translateY(3px)",
-                                                        transition: "opacity 0.6s ease-out, transform 0.6s ease-out"
-                                                    }}
-                                                >
-                                                    {item.target.flag} {item.target.label}
-                                                </text>
-                                            </g>
-                                        );
-                                    })}
-
-                                    {/* India Label always visible */}
-                                    <text
-                                        x={LOCATIONS.india.textX}
-                                        y={LOCATIONS.india.textY}
-                                        fill="#FFFFFF"
-                                        fontSize="9"
-                                        fontWeight="900"
-                                        textAnchor={LOCATIONS.india.align}
-                                        className="font-sans tracking-widest uppercase drop-shadow-[0_1.5px_3px_rgba(0,0,0,0.8)] opacity-95"
-                                    >
-                                        🇮🇳 India
-                                    </text>
-                                </svg>
-                            </div>
-
-
-
+                                {/* India Label always visible */}
+                                <text
+                                    x={LOCATIONS.india.textX}
+                                    y={LOCATIONS.india.textY}
+                                    fill="#FFFFFF"
+                                    fontSize="20"
+                                    fontWeight="900"
+                                    textAnchor={LOCATIONS.india.align}
+                                    className="font-sans tracking-widest uppercase drop-shadow-[0_1.5px_3px_rgba(0,0,0,0.8)] opacity-95"
+                                >
+                                    India
+                                </text>
+                                <image
+                                    href="https://flagcdn.com/w40/in.png"
+                                    x={getFlagX(LOCATIONS.india, 48)}
+                                    y={LOCATIONS.india.textY + 8}
+                                    width="48"
+                                    height="32"
+                                    className="opacity-95"
+                                />
+                            </svg>
                         </div>
                     </div>
-
                 </div>
-
                 {/* Bottom Rights Notice */}
                 <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-semibold text-white/40">
                     <p>© {new Date().getFullYear()} Next Ledgers. All rights reserved.</p>

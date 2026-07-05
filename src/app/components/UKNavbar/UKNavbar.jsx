@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Button from "../utils/Button/Button";
+import { usePathname } from "next/navigation";
 
 const UK_NAV_LINKS = [
   { id: "home", label: "Home", href: "/" },
@@ -13,14 +14,14 @@ const UK_NAV_LINKS = [
     href: "#services",
     hasDropdown: true,
     dropdownItems: [
-      { label: "Management Accounts & Financial Reporting", href: "/uk/#management-accounts", icon: "📊" },
-      { label: "Payroll & CIS Services", href: "/uk/#payroll-cis", icon: "💰" },
-      { label: "Personal Tax Services", href: "/uk/#personal-tax", icon: "📋" },
-      { label: "UK Bookkeeping Service", href: "/uk/#bookkeeping-vat", icon: "📒" },
-      { label: "UK Business Advisory & Virtual CFO Services", href: "/uk/#advisory", icon: "📈" },
-      { label: "UK Company Formation & Company Secretarial", href: "/uk/#company-formation", icon: "🏢" },
-      { label: "VAT Service & Making Tax Digital (MTD)", href: "/uk/#vat-mtd", icon: "🧾" },
-      { label: "Year-End Accounts & Corporation Tax", href: "/uk/#year-end", icon: "📑" },
+      { label: "UK Bookkeeping Service", href: "/uk/uk-bookkeeping-service", icon: "📒" },
+      { label: "Management Accounts & Financial Reporting", href: "/uk/management-accounts-financial-reporting", icon: "📊" },
+      { label: "VAT Service & Making Tax Digital (MTD)", href: "/uk/vat-service-making-tax-digital-mtd", icon: "🧾" },
+      { label: "Year-End Accounts & Corporation Tax", href: "/uk/year-end-accounts-corporation-tax", icon: "📑" },
+      { label: "Payroll & CIS Services", href: "/uk/payroll-cis-services", icon: "💰" },
+      { label: "Personal Tax Services", href: "/uk/personal-tax-services", icon: "📋" },
+      { label: "UK Business Advisory & Virtual CFO Services", href: "/uk/uk-business-advisory-virtual-cfo-services", icon: "📈" },
+      { label: "UK Company Formation & Company Secretarial Services", href: "/uk/uk-company-formation-company-secretarial-services", icon: "🏢" },
     ],
   },
   { id: "tools", label: "Tools", href: "/tools" },
@@ -35,6 +36,7 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [expandedMobileMenus, setExpandedMobileMenus] = useState({});
   const timeoutRef = useRef(null);
+  const pathname = usePathname();
 
   // Lock body scroll when mobile sidebar is open
   useEffect(() => {
@@ -156,6 +158,19 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
                         onMouseLeave={() => handleMouseLeave(link.id)}
                       >
                         <div className="flex flex-col gap-0.5">
+                          {/* Back To UK Action Header */}
+                          {pathname !== "/uk" && pathname !== "/uk/" && (
+                            <Link
+                              href="/uk"
+                              className="group flex items-center gap-2.5 p-2.5 mb-2 rounded-xl bg-[#F58220]/5 hover:bg-[#F58220]/10 border border-[#F58220]/20 transition-all duration-200 text-left"
+                            >
+                              <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag" className="w-7 h-[18px] object-cover flex-shrink-0 rounded-xs" />
+                              <span className="text-[13px] font-extrabold text-[#F58220]">
+                                Back To UK
+                              </span>
+                            </Link>
+                          )}
+
                           {link.dropdownItems.map((item, idx) => (
                             <Link
                               key={idx}
@@ -278,6 +293,19 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
                     }`}>
                       <div className="overflow-hidden">
                         <div className="bg-[#F58220]/2 border border-[#F58220]/5 rounded-[18px] p-3 flex flex-col gap-1 mx-2">
+                          {pathname !== "/uk" && pathname !== "/uk/" && (
+                            <Link
+                              href="/uk"
+                              onClick={() => setIsSidebarOpen(false)}
+                              className="flex items-center gap-2.5 p-2.5 mb-1.5 rounded-xl bg-[#F58220]/10 border border-[#F58220]/20 text-[#F58220] transition-colors"
+                            >
+                              <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag" className="w-7 h-[18px] object-cover flex-shrink-0 rounded-xs" />
+                              <span className="text-xs font-black">
+                                Back To UK
+                              </span>
+                            </Link>
+                          )}
+
                           {link.dropdownItems.map((item, idx) => (
                             <Link
                               key={idx}
