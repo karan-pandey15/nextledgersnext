@@ -2,14 +2,28 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import RegionSelect from "../RegionSelect/RegionSelect";
 import NavIcon from "./NavIcon";
 import { NAVIGATION_LINKS } from "./navigationData";
 
-export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
+export default function Header({ isSidebarOpen = false, setIsSidebarOpen, onContactClick }) {
+  const pathname = usePathname();
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [expandedMobileMenus, setExpandedMobileMenus] = useState({});
   const timeoutRefs = useRef({});
+
+  const isActiveLink = (href) => {
+    if (href === "/") return pathname === "/";
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
+
+  const desktopLinkClass = (href, isOpen = false) => {
+    const isActive = isActiveLink(href) || isOpen;
+    return `relative px-3 py-2 text-[13px] font-semibold tracking-wide transition-colors duration-200 ${
+      isActive ? "text-[#1A1A1A]" : "text-[#4A4A4A] hover:text-[#1A1A1A]"
+    }`;
+  };
 
   // Lock body scrolling when mobile sidebar is open to prevent double scrollbars
   useEffect(() => {
@@ -54,7 +68,7 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
   };
 
   return (
-    <header className="w-full bg-white border-b border-gray-100 sticky top-0 z-40">
+    <header className="w-full bg-white border-b border-[#ECECEC] sticky top-0 z-40">
       {/* Custom Styles for Nav Dropdown Opening */}
       <style>{`
         @keyframes navDropdownSlideIn {
@@ -80,21 +94,19 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
         }
       `}</style>
 
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          {/* Logo - Shifted left and scaled smaller */}
-          <div className="flex-shrink-0 flex items-center -ml-2 sm:-ml-4 lg:-ml-6">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
+        <div className="flex justify-between items-center h-[72px]">
+          <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="flex items-center group">
               <img
                 src="/images/nextledgerlogo3.png"
                 alt="NextLedgers Logo"
-                className="h-8 md:h-9 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.01]"
+                className="h-10 md:h-11 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.01]"
               />
             </Link>
           </div>
 
-          {/* Navigation Links (Desktop) */}
-          <nav className="hidden lg:flex items-center space-x-2">
+          <nav className="hidden xl:flex items-center gap-1">
             {NAVIGATION_LINKS.map((link) => {
               const isOpen = activeDropdown === link.id;
 
@@ -108,17 +120,12 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
                   >
                     <button
                       onClick={(e) => handleDropdownClick(link.id, e)}
-                      className={`flex items-center gap-1.5 px-4 py-2.5 rounded-full text-sm font-bold tracking-wide transition-all duration-200 cursor-pointer focus:outline-none ${
-                        isOpen
-                          ? "bg-[#F58220]/10 text-[#F58220]"
-                          : "text-[#F58220] hover:bg-[#F58220]/5"
-                      }`}
+                      className={`${desktopLinkClass(link.href, isOpen)} flex items-center gap-1 cursor-pointer focus:outline-none`}
                       aria-expanded={isOpen}
                     >
-                      <NavIcon name={link.icon} className="w-4 h-4" />
                       <span>{link.label}</span>
                       <svg
-                        className={`w-3.5 h-3.5 text-[#F58220] transition-transform duration-300 ease-in-out ${
+                        className={`w-3 h-3 text-current transition-transform duration-300 ease-in-out ${
                           isOpen ? "rotate-180" : ""
                         }`}
                         fill="none"
@@ -128,6 +135,9 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                       </svg>
+                      {isActiveLink(link.href) && (
+                        <span className="absolute left-3 right-3 -bottom-0.5 h-[2px] bg-[#F58220] rounded-full" />
+                      )}
                     </button>
 
                     {/* Dropdown Modal Menu */}
@@ -162,26 +172,40 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
               }
 
               // Normal single links (Home, Contact)
+              if (link.id === "contact" && onContactClick) {
+                return (
+                  <button
+                    key={link.id}
+                    type="button"
+                    onClick={onContactClick}
+                    className={`${desktopLinkClass(link.href)} cursor-pointer focus:outline-none`}
+                  >
+                    <span>{link.label}</span>
+                  </button>
+                );
+              }
+
               return (
                 <Link
                   key={link.id}
                   href={link.href}
-                  className="flex items-center gap-1.5 px-4 py-2.5 rounded-full text-sm font-bold tracking-wide text-[#F58220] hover:bg-[#F58220]/5 transition-all duration-200"
+                  className={desktopLinkClass(link.href)}
                 >
-                  <NavIcon name={link.icon} className="w-4 h-4" />
                   <span>{link.label}</span>
+                  {isActiveLink(link.href) && (
+                    <span className="absolute left-3 right-3 -bottom-0.5 h-[2px] bg-[#F58220] rounded-full" />
+                  )}
                 </Link>
               );
             })}
           </nav>
 
-          {/* Right Action Bar (RegionSelect - Desktop Only) */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden xl:flex items-center gap-4">
             <RegionSelect onRegionChange={handleRegionChange} />
           </div>
 
           {/* Hamburger Menu Icon (Mobile Only) */}
-          <div className="flex lg:hidden items-center">
+          <div className="flex xl:hidden items-center">
             <button
               onClick={() => setIsSidebarOpen(true)}
               className="p-2 -mr-2 rounded-lg text-[#F58220] hover:bg-[#F58220]/5 focus:outline-none transition-all duration-200 cursor-pointer"
@@ -197,7 +221,7 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
 
       {/* Mobile Drawer Sidebar */}
       <div
-        className={`fixed inset-0 z-50 lg:hidden transition-opacity duration-300 ${
+        className={`fixed inset-0 z-50 xl:hidden transition-opacity duration-300 ${
           isSidebarOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
@@ -293,6 +317,23 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
               }
 
               // Simple links (Home, Contact)
+              if (link.id === "contact" && onContactClick) {
+                return (
+                  <button
+                    key={link.id}
+                    type="button"
+                    onClick={() => {
+                      setIsSidebarOpen(false);
+                      onContactClick();
+                    }}
+                    className="flex items-center gap-2.5 px-4 py-3.5 rounded-xl font-bold text-sm text-[#F58220] hover:bg-[#F58220]/4 transition-all duration-200 cursor-pointer w-full text-left"
+                  >
+                    <NavIcon name={link.icon} className="w-4 h-4 text-[#F58220]" />
+                    <span>{link.label}</span>
+                  </button>
+                );
+              }
+
               return (
                 <Link
                   key={link.id}

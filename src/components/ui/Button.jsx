@@ -1,7 +1,7 @@
 export default function Button({ text, onClick, className = "" }) {
-    return (
-        <>
-            <style>{`
+  return (
+    <>
+      <style>{`
         .btn-orange {
           display: inline-flex;
           align-items: center;
@@ -33,12 +33,9 @@ export default function Button({ text, onClick, className = "" }) {
         }
       `}</style>
 
-            <button
-                onClick={onClick}
-                className={`btn-orange ${className}`}
-            >
-                {text}
-            </button>
-        </>
-    );
+      <button onClick={onClick} className={`btn-orange ${className}`}>
+        {text}
+      </button>
+    </>
+  );
 }

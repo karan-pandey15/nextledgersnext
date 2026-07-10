@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import Button from "../utils/Button/Button";
+import Button from "@/components/ui/Button";
 
 const LOGO_MAP = {
   "brightpay": "/images/logooUK/brightpay.jpeg",

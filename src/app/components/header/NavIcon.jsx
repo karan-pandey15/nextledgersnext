@@ -100,6 +100,12 @@ export default function NavIcon({ name, className = "w-5 h-5" }) {
           <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2.4 14H15v-1.6h1.6V17zm0-3H15v-1.6h1.6V14zm0-3H15V9.4h1.6V11zm-3 6h-1.6v-1.6h1.6V17zm0-3h-1.6v-1.6h1.6V14zm0-3h-1.6V9.4h1.6V11zm-3 6H9v-1.6h1.6V17zm0-3H9v-1.6h1.6V14zm0-3H9V9.4h1.6V11zM17 7H7V5h10v2z" />
         </svg>
       );
+    case "briefcase":
+      return (
+        <svg className={className} fill="currentColor" viewBox="0 0 24 24">
+          <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z" />
+        </svg>
+      );
     default:
       return null;
   }

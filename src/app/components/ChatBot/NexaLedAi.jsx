@@ -336,7 +336,7 @@ function formatMessageText(text) {
   });
 }
 
-export default function NexaLedAi() {
+export default function NexaLedAi({ onLauncherClick }) {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
     {
@@ -522,7 +522,13 @@ export default function NexaLedAi() {
     <>
       {/* Floating launcher icon display fixed on bottom-right */}
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => {
+          if (onLauncherClick) {
+            onLauncherClick();
+            return;
+          }
+          setIsOpen(!isOpen);
+        }}
         className={`fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 active:scale-95
           ${isOpen 
             ? "bg-[#0F274A] text-white rotate-90 border border-white/20" 

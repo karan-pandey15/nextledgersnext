@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import Button from "../utils/Button/Button";
+import Button from "@/components/ui/Button";
 import { usePathname } from "next/navigation";
 
 const UK_NAV_LINKS = [
