@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import Button from "@/components/common/Button";
+import Button from "@/components/ui/Button";
 
 export default function AboutSection() {
   return (

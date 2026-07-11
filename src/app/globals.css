@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 body {
-   font-family: 'Marcellus', 'Work Sans', serif;
+   font-family: var(--font-geist-sans), 'Work Sans', sans-serif;
 }
 :root {
   --theme-color: #924A00;
@@ -67,6 +67,20 @@ body {
 
 .animate-blob {
   animation: blob 7s infinite;
+}
+
+@keyframes floatShield {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+.animate-floatShield {
+  animation: floatShield 4.5s ease-in-out infinite;
 }
 
 .animation-delay-2000 {

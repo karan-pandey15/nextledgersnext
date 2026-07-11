@@ -5,7 +5,7 @@ import TopAnnouncementBar from "../../components/TopHeader/TopAnnouncementBar";
 import UKNavbar from "../../components/UKNavbar/UKNavbar";
 import UKServicesContent from "../../components/UKServicesContent/UKServicesContent";
 import Footer from "../../components/footer/Footer";
-import ArtificileIntellegent from "../../components/ArtificialIntellegence/ArtificileIntellegent";
+import ArtificialIntelligence from "../../components/ArtificialIntelligence/ArtificialIntelligence";
 import NexaLedAi from "../../components/ChatBot/NexaLedAi";
 
 export default function ServicePageClient({ serviceSlug }) {
@@ -26,7 +26,7 @@ export default function ServicePageClient({ serviceSlug }) {
       <Footer />
 
       {/* Floating AI Dock */}
-      <ArtificileIntellegent />
+      <ArtificialIntelligence />
 
       {/* Floating AI Chatbot */}
       <NexaLedAi />

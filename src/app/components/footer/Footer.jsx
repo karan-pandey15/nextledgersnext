@@ -1,394 +1,647 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { Phone, Mail, MapPin, Globe } from "lucide-react";
+import FooterGlobalMap from "./FooterGlobalMap";
 
-// Paths for stylized world continents (semi-abstract tech style, scaled to 1000x500)
-const CONTINENT_PATHS = {
-    northAmerica: "M 80 80 L 110 50 L 180 50 L 220 30 L 260 30 L 280 60 L 300 70 L 310 90 L 300 110 L 280 130 L 290 150 L 260 180 L 230 180 L 200 230 L 190 270 L 180 270 L 175 250 L 180 220 L 170 190 L 160 190 L 140 160 L 110 160 L 90 130 L 80 100 Z",
-    greenland: "M 310 30 L 350 20 L 380 40 L 350 70 L 320 60 Z",
-    southAmerica: "M 230 280 L 250 280 L 280 300 L 295 330 L 280 400 L 260 460 L 250 480 L 245 480 L 240 450 L 235 410 L 220 350 L 210 300 Z",
-    eurasia: "M 420 120 L 460 70 L 520 60 L 600 50 L 700 40 L 800 50 L 880 60 L 930 80 L 960 110 L 970 140 L 940 200 L 910 230 L 870 240 L 840 220 L 820 250 L 780 270 L 740 270 L 710 290 L 680 280 L 650 280 L 640 250 L 610 240 L 590 260 L 570 260 L 550 220 L 520 235 L 500 220 L 470 240 L 450 200 L 420 180 L 430 150 Z",
-    africa: "M 450 220 L 510 215 L 560 230 L 590 275 L 585 330 L 555 390 L 530 430 L 515 440 L 510 400 L 490 350 L 460 300 L 440 260 Z",
-    australia: "M 820 340 L 870 330 L 910 350 L 925 385 L 900 420 L 850 415 L 820 375 Z",
-    newZealand: "M 935 430 L 945 425 L 955 450 L 940 465 Z",
-    uk: "M 445 95 L 455 90 L 460 105 L 450 115 Z",
-    ireland: "M 430 100 L 440 95 L 440 105 L 430 110 Z",
-    japan: "M 945 125 L 955 120 L 965 140 L 950 160 Z",
-    madagascar: "M 590 365 L 605 355 L 610 390 L 595 400 Z"
-};
+const ORANGE = "#F58220";
+const BG = "#0B1C33";
 
-// Coordinates mapping on our SVG viewBox "0 0 1000 500"
-const LOCATIONS = {
-    india: { x: 640, y: 220, label: "India", code: "in", textX: 640, textY: 170, align: "middle" },
-    uk: { x: 450, y: 105, label: "UK", code: "gb", textX: 450, textY: 70, align: "middle" },
-    usa: { x: 240, y: 155, label: "USA", code: "us", textX: 240, textY: 185, align: "middle" },
-    uae: { x: 585, y: 215, label: "UAE", code: "ae", textX: 585, textY: 245, align: "middle" },
-    canada: { x: 235, y: 125, label: "Canada", code: "ca", textX: 235, textY: 95, align: "middle" },
-    ireland: { x: 435, y: 102, label: "Ireland", code: "ie", textX: 435, textY: 135, align: "middle" },
-    australia: { x: 870, y: 380, label: "Australia", code: "au", textX: 870, textY: 345, align: "middle" },
-    singapore: { x: 705, y: 275, label: "Singapore", code: "sg", textX: 705, textY: 305, align: "middle" },
-    newZealand: { x: 945, y: 445, label: "New Zealand", code: "nz", textX: 945, textY: 410, align: "middle" },
-    netherlands: { x: 475, y: 100, label: "Netherlands", code: "nl", textX: 526, textY: 95, align: "start" }
-};
-
-const getFlagX = (target, flagWidth) => {
-    if (target.align === "middle") {
-        return target.textX - flagWidth / 2;
-    }
-    if (target.align === "end") {
-        return target.textX - flagWidth;
-    }
-    // "start"
-    return target.textX;
-};
-
-// Timeline order for flying lines sequentially from India
-const TIMELINE = [
-    { key: "uk", target: LOCATIONS.uk, color: "#00F0FF" }, // Cyan
-    { key: "usa", target: LOCATIONS.usa, color: "#00F0FF" },
-    { key: "uae", target: LOCATIONS.uae, color: "#00F0FF" },
-    { key: "canada", target: LOCATIONS.canada, color: "#00F0FF" },
-    { key: "ireland", target: LOCATIONS.ireland, color: "#00F0FF" },
-    { key: "australia", target: LOCATIONS.australia, color: "#00F0FF" },
-    { key: "singapore", target: LOCATIONS.singapore, color: "#00F0FF" },
-    { key: "newZealand", target: LOCATIONS.newZealand, color: "#00F0FF" },
-    { key: "netherlands", target: LOCATIONS.netherlands, color: "#00F0FF" }
+const UK_SERVICES_LEFT = [
+  { label: "UK Bookkeeping Service", href: "/uk/uk-bookkeeping-service" },
+  { label: "VAT Service & Making Tax Digital (MTD)", href: "/uk/vat-service-making-tax-digital-mtd" },
+  { label: "Payroll & CIS Services", href: "/uk/payroll-cis-services" },
+  { label: "UK Business Advisory & Virtual CFO Services", href: "/uk/uk-business-advisory-virtual-cfo-services" },
 ];
 
-export default function Footer() {
-    const [timelineStep, setTimelineStep] = useState(0);
+const UK_SERVICES_RIGHT = [
+  { label: "Management Accounts & Financial Reporting", href: "/uk/management-accounts-financial-reporting" },
+  { label: "Year-End Accounts & Corporation Tax", href: "/uk/year-end-accounts-corporation-tax" },
+  { label: "Personal Tax Services", href: "/uk/personal-tax-services" },
+  { label: "UK Company Formation & Company Secretarial Services", href: "/uk/uk-company-formation-company-secretarial-services" },
+];
 
-    // Animate the line sequences sequentially
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setTimelineStep((prev) => {
-                // Steps 0 to 8: Draw lines to UK, USA, UAE, Canada, Ireland, Australia, Singapore, New Zealand, Netherlands
-                // Steps 9 to 11: Hold all connections glowing to highlight global network
-                // Step 12: Reset
-                if (prev >= 12) {
-                    return 0;
-                }
-                return prev + 1;
-            });
-        }, 1600);
+const QUICK_LINKS = [
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
+  { label: "Our Team", href: "/team" },
+  { label: "Contact Us", href: "/contact", isContact: true },
+  { label: "Articles & Tips", href: "/articles" },
+  { label: "Careers", href: "/careers" },
+];
 
-        return () => clearInterval(interval);
-    }, []);
+/* Software logos — swap any `src` later if needed */
+const SOFTWARE_BRANDS = [
+  { name: "Xero", src: "/images/Logo/Xero/Xero/Xero_Xero_Wordmark_Blue_6.svg" },
+  { name: "QuickBooks", src: "/images/Logo/QuickBooks_/QBO-2.png" },
+  { name: "Sage", src: "/images/Logo/Sage/Sage/sage-green-logo-svg.svg" },
+  { name: "FreeAgent", src: "/images/Logo/FreeAgent/FreeAgent_idNyOOTVhl_2.svg" },
+  { name: "Dext", src: "/images/Logo/Dext/Dext_idpYhYo9DH_1.svg" },
+  { name: "Hubdoc", src: "/images/Logo/Hubdoc/hubdoc.png" },
+  { name: "AutoEntry", src: "/images/Logo/AutoEntry/AutoEntry_idedvbZBMw_2.svg" },
+  { name: "IRIS", src: "/images/Logo/IRIS_KashFlow/IRIS_KashFlow_idvkknyO0A_1.png" },
+  { name: "BrightPay", src: "/images/Logo/BrightPay/BrightPay_id1I-zJRQW_2.svg" },
+  { name: "A2X", src: "/images/Logo/A2X/A2X_id4v1T0Lkg_2.svg" },
+  { name: "Shopify", src: "/images/Logo/Shopify-com/Shopify-com_Logo_0.svg" },
+  { name: "Stripe", src: "/images/Logo/Stripe/Stripe_Logo_0.svg" },
+  { name: "PayPal", src: "/images/Logo/PayPal/PayPal_Logo_0.svg" },
+];
 
-    // Generate curved path data (Bezier) between two locations
-    const getCurvePath = (start, end) => {
-        const dx = end.x - start.x;
-        const dy = end.y - start.y;
-        // Control point coordinate creates a clean upward arc
-        const cx = start.x + dx / 2;
-        const cy = Math.min(start.y, end.y) - 60;
-        return `M ${start.x} ${start.y} Q ${cx} ${cy} ${end.x} ${end.y}`;
-    };
+function IconLaurel({ className = "w-6 h-6" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path
+        d="M11.2 2.8C8 4.6 5.8 7.6 5.2 11.2c-.5 2.6 0 5.1 1.4 7.2"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M12.8 2.8c3.2 1.8 5.4 4.8 6 8.4.5 2.6 0 5.1-1.4 7.2"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M6.6 8.2c1.1.5 2 1.3 2.6 2.3M17.4 8.2c-1.1.5-2 1.3-2.6 2.3M6 12.2c1.3.3 2.4 1 3.2 2M18 12.2c-1.3.3-2.4 1-3.2 2M6.4 16c1.2.2 2.2.7 3 1.4M17.6 16c-1.2.2-2.2.7-3 1.4"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+      />
+      <text
+        x="12"
+        y="12"
+        dominantBaseline="central"
+        textAnchor="middle"
+        fill="currentColor"
+        fontSize="9"
+        fontWeight="800"
+        fontFamily="Arial, system-ui, sans-serif"
+      >
+        1
+      </text>
+    </svg>
+  );
+}
 
-    return (
-        <footer className="w-full bg-[#185884] text-white border-t border-white/10 pt-10 pb-4 relative overflow-hidden">
-            {/* Background Dot Texture */}
-            <div className="absolute inset-0 opacity-5 pointer-events-none bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+function IconShield({ className = "w-6 h-6" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path
+        d="M12 2.8 4.5 5.8v5.5c0 4.6 3.1 8.8 7.5 9.9 4.4-1.1 7.5-5.3 7.5-9.9V5.8L12 2.8Z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+      <path
+        d="m8.2 11.8 2.5 2.5 5.1-5.2"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
-            <div className="max-w-7xl mx-auto px-5 relative z-10">
+function IconTeam({ className = "w-6 h-6" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <circle cx="12" cy="6.8" r="2.6" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="5.5" cy="8.4" r="2.1" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="18.5" cy="8.4" r="2.1" stroke="currentColor" strokeWidth="1.5" />
+      <path
+        d="M7.2 19.2c.8-2.7 2.6-4.1 4.8-4.1s4 1.4 4.8 4.1"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M2.8 18.8c.6-2 1.8-3.1 3.4-3.1M21.2 18.8c-.6-2-1.8-3.1-3.4-3.1"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
 
-                {/* Restructured Grid Layout (Address -> Services 4-4 -> Quick Links -> Map) */}
-                <div className="grid grid-cols-1 md:grid-cols-12 lg:grid-cols-12 gap-8 border-b border-white/10 pb-16 items-start">
+function IconClock({ className = "w-6 h-6" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <circle cx="12" cy="12" r="8.5" stroke="currentColor" strokeWidth="1.6" />
+      <path
+        d="M12 7.2v5.2l3.6 2.1"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
-                    {/* Column 1: Brand & Contact Info (Address) */}
-                    <div className="space-y-4 lg:col-span-2 md:col-span-3 col-span-1">
-                        <div className="flex flex-col gap-1.5">
-                            <Link href="/">
-                                <img
-                                    src="/images/nextledgerlogo3.png"
-                                    alt="Next Ledgers Logo"
-                                    className="h-9 w-auto object-contain"
-                                />
-                            </Link>
-                            <p className="text-[#FEF4E4]/60 text-xs font-semibold tracking-wide">
-                                Your Streamlined Financial Solution
-                            </p>
-                        </div>
+function IconStar({ className = "w-6 h-6" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path
+        d="m12 2.5 2.7 5.8 6.2.7-4.6 4.2 1.3 6.1L12 16.2 6.4 19.3l1.3-6.1L3.1 9l6.2-.7L12 2.5Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
-                        <div className="space-y-3 pt-1">
-                            <a
-                                href="tel:+18885520055"
-                                className="flex items-center gap-3 text-xs font-bold hover:text-[#F58220] transition-colors group cursor-pointer"
-                            >
-                                <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center text-[#F58220] group-hover:bg-[#F58220]/15 transition-all">
-                                    <Phone className="w-3 h-3" />
-                                </div>
-                                <span className="flex items-center gap-1.5">
-                                    <span>🇺🇸</span>
-                                    <span>🇨🇦</span>
-                                    <span>+1 (888) 552-0055</span>
-                                </span>
-                            </a>
+function IconPhone({ className = "w-4 h-4" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path
+        d="M8.2 3.8h2.4l1.2 3.2-1.5 1.1a12.5 12.5 0 0 0 5.6 5.6l1.1-1.5 3.2 1.2v2.4c0 .9-.7 1.7-1.6 1.8A15.7 15.7 0 0 1 3.8 5.4c.1-.9.9-1.6 1.8-1.6Z"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
-                            <a
-                                href="mailto:info@nextledgers.com"
-                                className="flex items-center gap-3 text-xs font-bold hover:text-[#F58220] transition-colors group cursor-pointer"
-                            >
-                                <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center text-[#F58220] group-hover:bg-[#F58220]/15 transition-all">
-                                    <Mail className="w-3 h-3" />
-                                </div>
-                                info@nextledgers.com
-                            </a>
+function IconMail({ className = "w-4 h-4" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <rect x="3.5" y="5.5" width="17" height="13" rx="2" stroke="currentColor" strokeWidth="1.7" />
+      <path d="m5.5 8 6.5 5 6.5-5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
 
-                            <div className="flex items-start gap-3 text-xs font-semibold text-white/70 leading-normal">
-                                <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center text-[#F58220] mt-0.5 flex-shrink-0">
-                                    <MapPin className="w-3 h-3" />
-                                </div>
-                                <div>
-                                    <span className="font-bold text-white flex items-center gap-1.5">
-                                        <span>🇮🇳</span> Next Ledgers HQ
-                                    </span>
-                                    Mayapuri Commercial Area,
-                                    <br />
-                                    New Delhi, India 110064
-                                </div>
-                            </div>
-                        </div>
+function IconPin({ className = "w-4 h-4" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path
+        d="M12 21s6-5.2 6-10.2A6 6 0 0 0 6 10.8C6 15.8 12 21 12 21Z"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinejoin="round"
+      />
+      <circle cx="12" cy="10.5" r="2.2" stroke="currentColor" strokeWidth="1.7" />
+    </svg>
+  );
+}
+
+function IconHeadset({ className = "w-4 h-4" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path d="M4.5 13.5V12a7.5 7.5 0 0 1 15 0v1.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+      <rect x="3.2" y="12.5" width="3.6" height="5.2" rx="1.2" stroke="currentColor" strokeWidth="1.6" />
+      <rect x="17.2" y="12.5" width="3.6" height="5.2" rx="1.2" stroke="currentColor" strokeWidth="1.6" />
+      <path d="M17.5 17.8v.7a2.5 2.5 0 0 1-2.5 2.5H12" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function IconLock({ className = "w-3.5 h-3.5" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <rect x="6" y="11" width="12" height="9" rx="1.5" stroke="currentColor" strokeWidth="1.7" />
+      <path d="M8.5 11V8.5a3.5 3.5 0 0 1 7 0V11" stroke="currentColor" strokeWidth="1.7" />
+    </svg>
+  );
+}
+
+function IconChevron({ className = "w-3 h-3" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path d="m9 6 6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+const VALUE_STATS = [
+  {
+    icon: IconLaurel,
+    title: "10+ Years",
+    subtitle: ["Serving UK", "Accounting Firms"],
+  },
+  {
+    icon: IconShield,
+    title: "ISO 27001",
+    subtitle: ["Certified", "Data Security"],
+  },
+  {
+    icon: IconTeam,
+    title: "150+",
+    subtitle: ["Skilled", "Professionals"],
+  },
+  {
+    icon: IconClock,
+    title: "24/7",
+    subtitle: ["Seamless", "Support"],
+  },
+  {
+    icon: IconStar,
+    title: "100%",
+    subtitle: ["Client", "Satisfaction"],
+  },
+];
+
+/** Horizontal line — fades out on left & right */
+function FadeDividerH({ className = "" }) {
+  return (
+    <div
+      className={`h-px w-full ${className}`}
+      style={{
+        background:
+          "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.22) 18%, rgba(255,255,255,0.22) 82%, transparent 100%)",
+      }}
+      aria-hidden="true"
+    />
+  );
+}
+
+/** Vertical line — fades out on top & bottom */
+function FadeDividerV({ className = "" }) {
+  return (
+    <div
+      className={`w-px self-stretch min-h-[64px] ${className}`}
+      style={{
+        background:
+          "linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.22) 18%, rgba(255,255,255,0.22) 82%, transparent 100%)",
+      }}
+      aria-hidden="true"
+    />
+  );
+}
+
+export default function Footer({ onContactClick }) {
+  return (
+    <footer className="w-full text-white overflow-x-hidden" style={{ backgroundColor: BG }}>
+      {/* Top value proposition */}
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-7 sm:py-9 lg:py-10">
+        <div className="flex flex-col xl:flex-row xl:items-center gap-7 sm:gap-8 xl:gap-0">
+          {/* Left copy */}
+          <div className="xl:w-[30%] xl:max-w-[380px] xl:pr-6 shrink-0 text-center sm:text-left">
+            <h2 className="font-bold text-[22px] sm:text-[25px] lg:text-[27px] leading-[1.22] tracking-[-0.01em] text-white">
+              Your Offshore Team.
+              <br />
+              <span className="text-[#F58220]">Your Competitive Advantage.</span>
+            </h2>
+            <p className="mt-2.5 text-[13px] sm:text-[14px] leading-[1.55] text-[#9AA3B2] max-w-[420px] mx-auto sm:mx-0">
+              We help UK accounting firms save time, cut costs and scale with a dedicated offshore
+              team.
+            </p>
+          </div>
+
+          {/* Stats — 2 / 3 / 5 columns by breakpoint */}
+          <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
+            {VALUE_STATS.map((stat, index) => {
+              const Icon = stat.icon;
+              return (
+                <div key={stat.title} className="flex items-stretch min-w-0">
+                  {index > 0 && <FadeDividerV className="hidden lg:block" />}
+                  <div className="flex-1 flex flex-col items-center justify-center text-center px-1.5 sm:px-2.5 lg:px-3 py-2.5 sm:py-3">
+                    <div className="flex flex-col sm:flex-row min-h-0 sm:min-h-12 w-full items-center justify-center gap-1 sm:gap-2">
+                      <span className="text-[#F58220] inline-flex items-center justify-center shrink-0 w-9 h-9 sm:w-10 sm:h-10 lg:w-12 lg:h-12">
+                        <Icon className="block w-full h-full" />
+                      </span>
+                      <span className="font-bold text-[13px] sm:text-[15px] lg:text-[16px] leading-none text-white whitespace-nowrap">
+                        {stat.title}
+                      </span>
                     </div>
-
-                    {/* Column 2: Our Services In UK (4 4 layout - 2 Columns of 4) */}
-                    <div className="space-y-4 lg:col-span-4 md:col-span-4 col-span-1">
-                        <h4 className="text-xs font-black uppercase tracking-wider text-[#F58220] flex items-center gap-1.5">
-                            <span>🇬🇧</span> Our Services In UK
-                        </h4>
-                        <ul className="grid grid-cols-2 gap-x-4 gap-y-2.5 text-xs font-bold text-white/60">
-                            <li>
-                                <Link href="/uk/uk-bookkeeping-service" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    UK Bookkeeping Service
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/uk/management-accounts-financial-reporting" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    Management Accounts & Financial Reporting
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/uk/vat-service-making-tax-digital-mtd" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    VAT Service & Making Tax Digital (MTD)
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/uk/year-end-accounts-corporation-tax" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    Year-End Accounts & Corporation Tax
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/uk/payroll-cis-services" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    Payroll & CIS Services
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/uk/personal-tax-services" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    Personal Tax Services
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/uk/uk-business-advisory-virtual-cfo-services" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    UK Business Advisory & Virtual CFO Services
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/uk/uk-company-formation-company-secretarial-services" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    UK Company Formation & Company Secretarial Services
-                                </Link>
-                            </li>
-                        </ul>
-                    </div>
-
-                    {/* Column 3: Quick Links */}
-                    <div className="space-y-4 lg:col-span-1 md:col-span-2 col-span-1">
-                        <h4 className="text-xs font-black uppercase tracking-wider text-[#F58220]">
-                            LINKS
-                            {/* QUICK  */}
-                        </h4>
-                        <ul className="space-y-2.5 text-xs font-bold text-white/60">
-                            <li>
-                                <Link href="/" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    Home
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/about" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    About Us
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/team" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    Our Team
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/contact" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    Contact Us
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/articles" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    Articles & Tips
-                                </Link>
-                            </li>
-                        </ul>
-                    </div>
-
-                    {/* Column 4: Global Connectivity Map Box Widget */}
-                    <div className="lg:col-span-5 md:col-span-3 col-span-1 space-y-4 overflow-visible">
-                        <h4 className="text-xs font-black uppercase tracking-wider text-[#F58220]">
-                            Global Connectivity
-                        </h4>
-                        <div className="w-full overflow-hidden">
-                            <svg
-                                viewBox="0 0 1000 500"
-                                className="w-full h-auto object-contain"
-                            >
-                                <defs>
-                                    <filter id="glow-cyan" x="-25%" y="-25%" width="150%" height="150%">
-                                        <feGaussianBlur stdDeviation="5" result="blur" />
-                                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                                    </filter>
-                                    <filter id="glow-orange" x="-25%" y="-25%" width="150%" height="150%">
-                                        <feGaussianBlur stdDeviation="6" result="blur" />
-                                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                                    </filter>
-                                </defs>
-
-                                {/* Continent Outlines */}
-                                <g className="fill-white/5 stroke-white/30 stroke-[1.5px] transition-all duration-700">
-                                    <path d={CONTINENT_PATHS.northAmerica} className={timelineStep >= 1 && timelineStep < 12 ? "fill-[#00F0FF]/6 stroke-[#00F0FF]/25" : ""} />
-                                    <path d={CONTINENT_PATHS.greenland} />
-                                    <path d={CONTINENT_PATHS.southAmerica} />
-                                    <path d={CONTINENT_PATHS.eurasia} className={timelineStep >= 0 && timelineStep < 12 ? "fill-[#00F0FF]/6 stroke-[#00F0FF]/25" : ""} />
-                                    <path d={CONTINENT_PATHS.africa} />
-                                    <path d={CONTINENT_PATHS.australia} className={timelineStep >= 5 && timelineStep < 12 ? "fill-[#00F0FF]/6 stroke-[#00F0FF]/25" : ""} />
-                                    <path d={CONTINENT_PATHS.newZealand} className={timelineStep >= 7 && timelineStep < 12 ? "fill-[#00F0FF]/6 stroke-[#00F0FF]/25" : ""} />
-                                    <path d={CONTINENT_PATHS.uk} className={timelineStep >= 0 && timelineStep < 12 ? "fill-[#00F0FF]/15 stroke-[#00F0FF]/40" : ""} />
-                                    <path d={CONTINENT_PATHS.ireland} className={timelineStep >= 4 && timelineStep < 12 ? "fill-[#00F0FF]/15 stroke-[#00F0FF]/40" : ""} />
-                                    <path d={CONTINENT_PATHS.japan} />
-                                    <path d={CONTINENT_PATHS.madagascar} />
-                                </g>
-
-                                {/* India -> Targets Arcs */}
-                                {TIMELINE.map((item, idx) => {
-                                    const isActive = timelineStep >= idx && timelineStep < 12;
-                                    return (
-                                        <path
-                                            key={item.key}
-                                            d={getCurvePath(LOCATIONS.india, item.target)}
-                                            fill="none"
-                                            stroke="#00F0FF"
-                                            strokeWidth="2.2"
-                                            filter="url(#glow-cyan)"
-                                            className="transition-all duration-1000 ease-out"
-                                            style={{
-                                                strokeDasharray: "1000",
-                                                strokeDashoffset: isActive ? 0 : 1000,
-                                                transition: "stroke-dashoffset 1.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.5s ease-in-out",
-                                                opacity: isActive ? 0.8 : 0
-                                            }}
-                                        />
-                                    );
-                                })}
-
-                                {/* HQ Node: India */}
-                                <circle cx={LOCATIONS.india.x} cy={LOCATIONS.india.y} r="10" fill="#F58220" opacity="0.3" className="animate-ping" />
-                                <circle cx={LOCATIONS.india.x} cy={LOCATIONS.india.y} r="5" fill="#F58220" filter="url(#glow-orange)" />
-
-                                {/* Target Nodes & Labels */}
-                                {TIMELINE.map((item, idx) => {
-                                    const isActive = timelineStep >= idx && timelineStep < 12;
-                                    return (
-                                        <g key={item.key}>
-                                            {/* Glowing Ripple Pin */}
-                                            <circle
-                                                cx={item.target.x}
-                                                cy={item.target.y}
-                                                r="8"
-                                                fill="#00F0FF"
-                                                className={`transition-all duration-500 ${isActive ? "opacity-100 scale-100 animate-ping" : "opacity-0 scale-50"}`}
-                                            />
-                                            <circle
-                                                cx={item.target.x}
-                                                cy={item.target.y}
-                                                r="3"
-                                                fill="#00F0FF"
-                                                filter="url(#glow-cyan)"
-                                                className={`transition-all duration-500 ${isActive ? "opacity-100" : "opacity-35"}`}
-                                            />
-                                            {/* Country Text Label */}
-                                            <text
-                                                x={item.target.textX}
-                                                y={item.target.textY}
-                                                fill="#FFFFFF"
-                                                fontSize="19.5"
-                                                fontWeight="900"
-                                                textAnchor={item.target.align}
-                                                className="transition-all duration-500 font-sans tracking-widest uppercase drop-shadow-[0_1.5px_3px_rgba(0,0,0,0.8)]"
-                                                style={{
-                                                    opacity: isActive ? 1 : 0,
-                                                    transform: isActive ? "translateY(0)" : "translateY(3px)",
-                                                    transition: "opacity 0.6s ease-out, transform 0.6s ease-out"
-                                                }}
-                                            >
-                                                {item.target.label}
-                                            </text>
-                                            {/* Country Flag Image */}
-                                            <image
-                                                href={`https://flagcdn.com/w40/${item.target.code}.png`}
-                                                x={getFlagX(item.target, 48)}
-                                                y={item.target.textY + 8}
-                                                width="48"
-                                                height="32"
-                                                className="transition-all duration-500"
-                                                style={{
-                                                    opacity: isActive ? 0.95 : 0,
-                                                    transform: isActive ? "translateY(0)" : "translateY(3px)",
-                                                    transition: "opacity 0.6s ease-out, transform 0.6s ease-out"
-                                                }}
-                                            />
-                                        </g>
-                                    );
-                                })}
-
-                                {/* India Label always visible */}
-                                <text
-                                    x={LOCATIONS.india.textX}
-                                    y={LOCATIONS.india.textY}
-                                    fill="#FFFFFF"
-                                    fontSize="20"
-                                    fontWeight="900"
-                                    textAnchor={LOCATIONS.india.align}
-                                    className="font-sans tracking-widest uppercase drop-shadow-[0_1.5px_3px_rgba(0,0,0,0.8)] opacity-95"
-                                >
-                                    India
-                                </text>
-                                <image
-                                    href="https://flagcdn.com/w40/in.png"
-                                    x={getFlagX(LOCATIONS.india, 48)}
-                                    y={LOCATIONS.india.textY + 8}
-                                    width="48"
-                                    height="32"
-                                    className="opacity-95"
-                                />
-                            </svg>
-                        </div>
-                    </div>
+                    <p className="mt-1 sm:mt-1.5 min-h-[34px] sm:min-h-[40px] flex flex-col items-center justify-start text-[11px] sm:text-[12px] lg:text-[13px] leading-[1.3] font-semibold text-[#9AA3B2] text-center">
+                      {stat.subtitle.map((line) => (
+                        <span key={line} className="block">
+                          {line}
+                        </span>
+                      ))}
+                    </p>
+                  </div>
                 </div>
-                {/* Bottom Rights Notice */}
-                <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-semibold text-white/40">
-                    <p>© {new Date().getFullYear()} Next Ledgers. All rights reserved.</p>
-                    <div className="flex items-center gap-6">
-                        <Link href="/privacy" className="hover:text-white transition-colors cursor-pointer">Privacy Policy</Link>
-                        <Link href="/terms" className="hover:text-white transition-colors cursor-pointer">Terms of Service</Link>
-                    </div>
-                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
 
+      <FadeDividerH />
+
+      {/* Main 4-column body */}
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-8 sm:py-10 lg:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 gap-8 md:gap-10 xl:gap-0">
+          {/* Column 1 — Brand */}
+          <div className="xl:col-span-3 space-y-4 xl:pr-8">
+            <Link href="/" className="inline-block">
+              <img
+                src="/images/nextledgerlogo3.png"
+                alt="Next Ledgers"
+                className="h-9 sm:h-10 w-auto object-contain"
+              />
+            </Link>
+            <p className="text-[13px] leading-6 text-white/70 max-w-[280px]">
+              We are a leading offshore accounting and bookkeeping service provider trusted by UK
+              firms.
+            </p>
+
+            <div className="space-y-3 pt-1">
+              <a
+                href="tel:+442045714469"
+                className="flex items-center gap-2.5 text-[13px] font-semibold text-white/90 hover:text-[#F58220] transition-colors"
+              >
+                <span className="text-[#F58220]">
+                  <IconPhone className="w-4 h-4" />
+                </span>
+                +44 20 4571 4469
+              </a>
+              <a
+                href="mailto:info@nextledgers.com"
+                className="flex items-center gap-2.5 text-[13px] font-semibold text-white/90 hover:text-[#F58220] transition-colors break-all"
+              >
+                <span className="text-[#F58220] shrink-0">
+                  <IconMail className="w-4 h-4" />
+                </span>
+                info@nextledgers.com
+              </a>
+              <div className="flex items-start gap-2.5 text-[13px] leading-5 text-white/70">
+                <span className="text-[#F58220] mt-0.5 shrink-0">
+                  <IconPin className="w-4 h-4" />
+                </span>
+                <span>
+                  <span className="font-bold text-white">Next Ledgers HQ</span>
+                  <br />
+                  Mayapuri Commercial Area, New Delhi, India 110064.
+                </span>
+              </div>
             </div>
-        </footer>
-    );
+
+            <button
+              type="button"
+              onClick={onContactClick}
+              className="mt-2 w-full sm:w-auto inline-flex items-center justify-center gap-2 h-11 px-5 rounded-[10px] bg-[#F58220] hover:bg-[#e57416] text-white text-[13px] font-bold cursor-pointer transition-colors shadow-[0_8px_20px_rgba(245,130,32,0.25)]"
+            >
+              <IconPhone className="w-4 h-4" />
+              Book a Free Consultation
+            </button>
+          </div>
+
+          {/* Column 2 — UK Services */}
+          <div className="xl:col-span-3 flex">
+            <FadeDividerV className="hidden xl:block mr-6" />
+            <div className="flex-1 xl:pr-4">
+              <h3 className="text-[12px] sm:text-[13px] font-bold tracking-[0.14em] uppercase text-[#F58220] mb-4">
+                Our Services in UK
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2.5">
+                <div className="space-y-2.5">
+                  {UK_SERVICES_LEFT.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="group flex items-start gap-1.5 text-[12px] sm:text-[13px] leading-5 text-white/70 hover:text-[#F58220] transition-colors"
+                    >
+                      <span className="text-[#F58220] mt-0.5 shrink-0">
+                        <IconChevron className="w-3 h-3" />
+                      </span>
+                      <span>{item.label}</span>
+                    </Link>
+                  ))}
+                </div>
+                <div className="space-y-2.5">
+                  {UK_SERVICES_RIGHT.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="group flex items-start gap-1.5 text-[12px] sm:text-[13px] leading-5 text-white/70 hover:text-[#F58220] transition-colors"
+                    >
+                      <span className="text-[#F58220] mt-0.5 shrink-0">
+                        <IconChevron className="w-3 h-3" />
+                      </span>
+                      <span>{item.label}</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Column 3 — Quick Links (narrower so map gets more room) */}
+          <div className="xl:col-span-2 flex">
+            <FadeDividerV className="hidden xl:block mr-4" />
+            <div className="flex-1 xl:pr-3 min-w-0">
+              <h3 className="text-[12px] sm:text-[13px] font-bold tracking-[0.14em] uppercase text-[#F58220] mb-4">
+                Quick Links
+              </h3>
+              <ul className="space-y-2.5">
+                {QUICK_LINKS.map((link) => (
+                  <li key={link.label}>
+                    {link.isContact && onContactClick ? (
+                      <button
+                        type="button"
+                        onClick={onContactClick}
+                        className="text-[13px] font-semibold text-white/75 hover:text-[#F58220] transition-colors cursor-pointer"
+                      >
+                        {link.label}
+                      </button>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className="text-[13px] font-semibold text-white/75 hover:text-[#F58220] transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Column 4 — Global Connectivity (wider for map) */}
+          <div className="xl:col-span-4 flex">
+            <FadeDividerV className="hidden xl:block mr-4" />
+            <div className="flex-1 min-w-0">
+              <h3 className="text-[12px] sm:text-[13px] font-bold tracking-[0.14em] uppercase text-[#F58220] mb-3">
+                Global Connectivity
+              </h3>
+              <FooterGlobalMap />
+
+              <div className="mt-3 rounded-[10px] border border-[#F58220]/50 bg-[#0A1628] px-3 py-3 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-0">
+                <div className="flex items-center gap-3 flex-1 sm:pr-3">
+                  <span
+                    className="text-[#F58220] shrink-0 inline-flex items-center justify-center rounded-full border-[1.5px] border-[#F58220]"
+                    style={{ width: 37, height: 37 }}
+                  >
+                    <IconHeadset className="w-8 h-8" />
+                  </span>
+                  <p className="text-[11px] sm:text-[12px] leading-[1.4] text-white/85">
+                    Working in your time zone to support your business
+                  </p>
+                </div>
+                <div className="hidden sm:block w-px self-stretch min-h-[40px] bg-[#F58220]/35 shrink-0" aria-hidden="true" />
+                <div className="flex items-center gap-3 flex-1 sm:pl-3 sm:border-0 border-t border-[#F58220]/25 pt-3 sm:pt-0">
+                  <span
+                    className="text-[#F58220] shrink-0 inline-flex items-center justify-center rounded-full border-[1.5px] border-[#F58220]"
+                    style={{ width: 37, height: 37 }}
+                  >
+                    <IconClock className="w-8 h-8" />
+                  </span>
+                  <p className="text-[11px] sm:text-[12px] leading-[1.4] text-white/85">
+                    Overlap hours with UK for real-time collaboration
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <FadeDividerH />
+
+      {/* Software bar — single-row marquee (right → left) */}
+      <div>
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 pt-4 sm:pt-5 pb-6 sm:pb-8">
+          <p className="text-left text-[10px] sm:text-[11px] md:text-[12px] font-extrabold tracking-[0.12em] sm:tracking-[0.18em] uppercase text-white/85">
+            Trusted by Top UK Firms Using Leading Software
+          </p>
+
+          <div className="mt-4 sm:mt-5 md:mt-6 overflow-hidden">
+            <div className="footer-logo-marquee flex w-max items-center">
+              {[0, 1].map((copy) => (
+                <div key={copy} className="flex items-center shrink-0" aria-hidden={copy === 1}>
+                  {SOFTWARE_BRANDS.map((brand, index) => (
+                    <div key={`${copy}-${brand.name}`} className="flex items-center">
+                      {(index > 0 || copy === 1) && (
+                        <div
+                          className="w-px h-6 sm:h-7 mx-2.5 sm:mx-4 lg:mx-5 shrink-0"
+                          style={{
+                            background:
+                              "linear-gradient(to bottom, transparent, rgba(255,255,255,0.28), transparent)",
+                          }}
+                          aria-hidden="true"
+                        />
+                      )}
+                      <div className="relative h-6 sm:h-7 md:h-8 w-[64px] sm:w-[72px] md:w-[84px] shrink-0">
+                        <Image
+                          src={brand.src}
+                          alt={copy === 0 ? brand.name : ""}
+                          fill
+                          className="object-contain object-left"
+                          sizes="84px"
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <style>{`
+            @keyframes footerLogoMarquee {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            .footer-logo-marquee {
+              animation: footerLogoMarquee 35s linear infinite;
+            }
+            .footer-logo-marquee:hover {
+              animation-play-state: paused;
+            }
+            @media (prefers-reduced-motion: reduce) {
+              .footer-logo-marquee {
+                animation: none;
+              }
+            }
+          `}</style>
+        </div>
+      </div>
+
+      <FadeDividerH />
+
+      {/* Bottom bar */}
+      <div>
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-4 sm:py-5 flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-5 text-[11px] sm:text-[12px] text-white/50">
+          <p className="text-center lg:text-left order-1">
+            © {new Date().getFullYear()} Next Ledgers. All rights reserved.
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 order-2">
+            <span className="inline-flex items-center gap-2 sm:gap-2.5 text-white/70">
+              <IconShield className="w-6 h-6 sm:w-7 sm:h-7 text-white/70 shrink-0" />
+              <span className="flex flex-col leading-[1.2] text-[11px] sm:text-[12px] font-semibold">
+                <span>ISO 27001</span>
+                <span>Certified</span>
+              </span>
+            </span>
+
+            <div
+              className="w-px h-8 shrink-0"
+              style={{
+                background:
+                  "linear-gradient(to bottom, transparent, rgba(255,255,255,0.28), transparent)",
+              }}
+              aria-hidden="true"
+            />
+
+            <span className="inline-flex items-center gap-2 sm:gap-2.5 text-white/70">
+              <IconLock className="w-6 h-6 sm:w-7 sm:h-7 text-white/70 shrink-0" />
+              <span className="flex flex-col leading-[1.2] text-[11px] sm:text-[12px] font-semibold">
+                <span>GDPR</span>
+                <span>Compliant</span>
+              </span>
+            </span>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 order-3">
+            <div className="flex items-center gap-2 sm:gap-3 text-white/60">
+              <Link href="/privacy" className="hover:text-white transition-colors whitespace-nowrap">
+                Privacy Policy
+              </Link>
+              <span className="text-white/30">|</span>
+              <Link href="/terms" className="hover:text-white transition-colors whitespace-nowrap">
+                Terms of Service
+              </Link>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <a
+                href="https://www.linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-[#F58220] hover:border-[#F58220] transition-colors"
+              >
+                <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="currentColor">
+                  <path d="M6.9 8.8H4V20h2.9V8.8ZM5.4 4A1.7 1.7 0 1 0 5.4 7.4 1.7 1.7 0 0 0 5.4 4ZM20 20h-2.9v-5.6c0-1.5-.6-2.4-1.8-2.4-1 0-1.5.7-1.8 1.3-.1.3-.1.6-.1.9V20H10.5s0-9.4 0-10.4H13.4v1.7c.5-.8 1.5-1.9 3.6-1.9 2.6 0 4.5 1.7 4.5 5.3V20Z" />
+                </svg>
+              </a>
+              <a
+                href="https://www.facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-[#F58220] hover:border-[#F58220] transition-colors"
+              >
+                <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="currentColor">
+                  <path d="M14.5 8.5V6.8c0-.7.2-1.1 1.2-1.1H17V3h-2.3C11.9 3 11 4.6 11 6.6v1.9H9V11h2v10h3.5V11H17l.5-2.5h-3Z" />
+                </svg>
+              </a>
+              <a
+                href="https://www.youtube.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+                className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-[#F58220] hover:border-[#F58220] transition-colors"
+              >
+                <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="currentColor">
+                  <path d="M21.6 7.8a2.5 2.5 0 0 0-1.8-1.8C18.2 5.6 12 5.6 12 5.6s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.8 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.2 2.5 2.5 0 0 0 1.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.2ZM10.2 15.2V8.8L15.5 12l-5.3 3.2Z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 }

@@ -58,7 +58,7 @@ const AI_MODELS = [
   },
 ];
 
-export default function ArtificileIntellegent() {
+export default function ArtificialIntelligence() {
   const [copiedFor, setCopiedFor] = useState("");
 
   const handleAiClick = (ai) => {
