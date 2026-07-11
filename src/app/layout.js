@@ -1,4 +1,3 @@
-
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -13,8 +12,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Next Ledgers: Your Modern Accounting Solution",
-  description: "Providing modern accounting & tax solutions through the perfect blend of AI-powered efficiency and personalised client attention so they are efficient, accurate, and ahead of a changing market. We serve globally to firms and direct businesses services like accounting, bookkeeping, taxation, payroll, advisory and virtual staffing solutions.",
+  title: "Next Ledgers: Your Streamlined Financial Solution",
+  description:
+    "Providing modern accounting & tax solutions through the perfect blend of AI-powered efficiency and personalised client attention so they are efficient, accurate, and ahead of a changing market. We serve globally to firms and direct businesses services like accounting, bookkeeping, taxation, payroll, advisory and virtual staffing solutions.",
+  icons: {
+    icon: [{ url: "/favicon.ico", type: "image/x-icon" }],
+    shortcut: "/favicon.ico",
+    apple: "/images/favicon.ico",
+  },
 };
 
 export default function RootLayout({ children }) {

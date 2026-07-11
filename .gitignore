@@ -38,3 +38,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 nyq-phxo-rzc
+
+# local video originals (not deployed)
+/_video_backup/
