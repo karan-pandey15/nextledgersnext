@@ -5,12 +5,45 @@ import Image from "next/image";
 import Link from "next/link";
 import FooterGlobalMap from "./FooterGlobalMap";
 import { UK_SERVICE_LINKS } from "@/app/uk/ukServiceLinks";
+import { USA_SERVICE_LINKS } from "@/app/usa/usaServiceLinks";
 
 const ORANGE = "#F58220";
 const BG = "#0B1C33";
 
-const UK_SERVICES_LEFT = UK_SERVICE_LINKS.filter((_, i) => i % 2 === 0);
-const UK_SERVICES_RIGHT = UK_SERVICE_LINKS.filter((_, i) => i % 2 === 1);
+const REGION_COPY = {
+  uk: {
+    regionLabel: "UK",
+    valueIntro:
+      "We help UK accounting firms save time, cut costs and scale with a dedicated offshore team.",
+    servingLines: ["Serving UK", "Accounting Firms"],
+    brandBlurb:
+      "We are a leading offshore accounting and bookkeeping service provider trusted by UK firms.",
+    phoneDisplay: "+44 20 4571 4469",
+    phoneHref: "tel:+442045714469",
+    servicesHeading: "Our Services in UK",
+    overlapText: "Overlap hours with UK for real-time collaboration",
+    softwareHeading: "Trusted by Top UK Firms Using Leading Software",
+    complianceLabel: "GDPR",
+    complianceSub: "Compliant",
+    serviceLinks: UK_SERVICE_LINKS,
+  },
+  usa: {
+    regionLabel: "USA",
+    valueIntro:
+      "We help USA accounting firms save time, cut costs and scale with a dedicated offshore team.",
+    servingLines: ["Serving USA", "Accounting Firms"],
+    brandBlurb:
+      "We are a leading offshore accounting and bookkeeping service provider trusted by USA firms.",
+    phoneDisplay: "+1 (888) 552-0055",
+    phoneHref: "tel:+18885520055",
+    servicesHeading: "Our Services in USA",
+    overlapText: "Overlap hours with USA for real-time collaboration",
+    softwareHeading: "Trusted by Top USA Firms Using Leading Software",
+    complianceLabel: "CCPA",
+    complianceSub: "Compliant",
+    serviceLinks: USA_SERVICE_LINKS,
+  },
+};
 
 const QUICK_LINKS = [
   { label: "Home", href: "/" },
@@ -209,11 +242,11 @@ function IconChevron({ className = "w-3 h-3" }) {
   );
 }
 
-const VALUE_STATS = [
+const VALUE_STATS_BASE = [
   {
     icon: IconLaurel,
     title: "10+ Years",
-    subtitle: ["Serving UK", "Accounting Firms"],
+    subtitleKey: "serving",
   },
   {
     icon: IconShield,
@@ -265,7 +298,17 @@ function FadeDividerV({ className = "" }) {
   );
 }
 
-export default function Footer({ onContactClick }) {
+export default function Footer({ onContactClick, region = "uk" }) {
+  const copy = REGION_COPY[region] || REGION_COPY.uk;
+  const serviceLinks = copy.serviceLinks;
+  const servicesLeft = serviceLinks.filter((_, i) => i % 2 === 0);
+  const servicesRight = serviceLinks.filter((_, i) => i % 2 === 1);
+  const valueStats = VALUE_STATS_BASE.map((stat) =>
+    stat.subtitleKey === "serving"
+      ? { ...stat, subtitle: copy.servingLines }
+      : stat
+  );
+
   return (
     <footer className="w-full text-white overflow-x-hidden" style={{ backgroundColor: BG }}>
       {/* Top value proposition */}
@@ -279,14 +322,13 @@ export default function Footer({ onContactClick }) {
               <span className="text-[#F58220]">Your Competitive Advantage.</span>
             </h2>
             <p className="mt-2.5 text-[13px] sm:text-[14px] leading-[1.55] text-[#9AA3B2] max-w-[420px] mx-auto sm:mx-0">
-              We help UK accounting firms save time, cut costs and scale with a dedicated offshore
-              team.
+              {copy.valueIntro}
             </p>
           </div>
 
           {/* Stats — 2 / 3 / 5 columns by breakpoint */}
           <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
-            {VALUE_STATS.map((stat, index) => {
+            {valueStats.map((stat, index) => {
               const Icon = stat.icon;
               return (
                 <div key={stat.title} className="flex items-stretch min-w-0">
@@ -330,19 +372,18 @@ export default function Footer({ onContactClick }) {
               />
             </Link>
             <p className="text-[13px] leading-6 text-white/70 max-w-[280px]">
-              We are a leading offshore accounting and bookkeeping service provider trusted by UK
-              firms.
+              {copy.brandBlurb}
             </p>
 
             <div className="space-y-3 pt-1">
               <a
-                href="tel:+442045714469"
+                href={copy.phoneHref}
                 className="flex items-center gap-2.5 text-[13px] font-semibold text-white/90 hover:text-[#F58220] transition-colors"
               >
                 <span className="text-[#F58220]">
                   <IconPhone className="w-4 h-4" />
                 </span>
-                +44 20 4571 4469
+                {copy.phoneDisplay}
               </a>
               <a
                 href="mailto:info@nextledgers.com"
@@ -385,16 +426,16 @@ export default function Footer({ onContactClick }) {
             )}
           </div>
 
-          {/* Column 2 — UK Services */}
+          {/* Column 2 — Regional Services */}
           <div className="xl:col-span-3 flex">
             <FadeDividerV className="hidden xl:block mr-6" />
             <div className="flex-1 xl:pr-4">
               <h3 className="text-[12px] sm:text-[13px] font-bold tracking-[0.14em] uppercase text-[#F58220] mb-4">
-                Our Services in UK
+                {copy.servicesHeading}
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2.5">
                 <div className="space-y-2.5">
-                  {UK_SERVICES_LEFT.map((item) => (
+                  {servicesLeft.map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
@@ -408,7 +449,7 @@ export default function Footer({ onContactClick }) {
                   ))}
                 </div>
                 <div className="space-y-2.5">
-                  {UK_SERVICES_RIGHT.map((item) => (
+                  {servicesRight.map((item) => (
                     <Link
                       key={item.href}
                       href={item.href}
@@ -477,7 +518,7 @@ export default function Footer({ onContactClick }) {
                     <IconClock className="w-8 h-8" />
                   </span>
                   <p className="text-[11px] sm:text-[12px] leading-[1.4] text-white/85">
-                    Overlap hours with UK for real-time collaboration
+                    {copy.overlapText}
                   </p>
                 </div>
               </div>
@@ -492,16 +533,16 @@ export default function Footer({ onContactClick }) {
       <div>
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 pt-4 sm:pt-5 pb-6 sm:pb-8">
           <p className="text-left text-[10px] sm:text-[11px] md:text-[12px] font-extrabold tracking-[0.12em] sm:tracking-[0.18em] uppercase text-white/85">
-            Trusted by Top UK Firms Using Leading Software
+            {copy.softwareHeading}
           </p>
 
           <div className="mt-4 sm:mt-5 md:mt-6 overflow-hidden">
             <div className="footer-logo-marquee flex w-max items-center">
-              {[0, 1].map((copy) => (
-                <div key={copy} className="flex items-center shrink-0" aria-hidden={copy === 1}>
+              {[0, 1].map((copyIdx) => (
+                <div key={copyIdx} className="flex items-center shrink-0" aria-hidden={copyIdx === 1}>
                   {SOFTWARE_BRANDS.map((brand, index) => (
-                    <div key={`${copy}-${brand.name}`} className="flex items-center">
-                      {(index > 0 || copy === 1) && (
+                    <div key={`${copyIdx}-${brand.name}`} className="flex items-center">
+                      {(index > 0 || copyIdx === 1) && (
                         <div
                           className="w-px h-6 sm:h-7 mx-2.5 sm:mx-4 lg:mx-5 shrink-0"
                           style={{
@@ -514,7 +555,7 @@ export default function Footer({ onContactClick }) {
                       <div className="relative h-6 sm:h-7 md:h-8 w-[64px] sm:w-[72px] md:w-[84px] shrink-0">
                         <Image
                           src={brand.src}
-                          alt={copy === 0 ? brand.name : ""}
+                          alt={copyIdx === 0 ? brand.name : ""}
                           fill
                           className="object-contain object-left"
                           sizes="84px"
@@ -577,8 +618,8 @@ export default function Footer({ onContactClick }) {
             <span className="inline-flex items-center gap-2 sm:gap-2.5 text-white/70">
               <IconLock className="w-6 h-6 sm:w-7 sm:h-7 text-white/70 shrink-0" />
               <span className="flex flex-col leading-[1.2] text-[11px] sm:text-[12px] font-semibold">
-                <span>GDPR</span>
-                <span>Compliant</span>
+                <span>{copy.complianceLabel}</span>
+                <span>{copy.complianceSub}</span>
               </span>
             </span>
           </div>

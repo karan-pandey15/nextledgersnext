@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
+import CtaButton from "@/app/components/ui/CtaButton";
 
 const ORANGE = "#F58220";
 const NAVY = "#0F274A";
@@ -83,20 +83,14 @@ export default function GlobalPartner() {
               </p>
 
               <div className="mt-6 sm:mt-7 flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#F58220] text-white font-semibold text-[13px] sm:text-[14px] px-6 sm:px-7 py-2.5 sm:py-3 hover:bg-[#E0721B] transition-colors duration-200"
-                >
+                <CtaButton href="/contact" variant="primary" size="md">
                   Get Started Today
                   <span aria-hidden="true">→</span>
-                </Link>
-                <Link
-                  href="/services"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-[#F58220] bg-transparent text-[#F58220] font-semibold text-[13px] sm:text-[14px] px-6 sm:px-7 py-2.5 sm:py-3 hover:bg-[#FFF1E6] transition-colors duration-200"
-                >
+                </CtaButton>
+                <CtaButton href="/services" variant="secondary" size="md">
                   Explore Services
                   <span aria-hidden="true">→</span>
-                </Link>
+                </CtaButton>
               </div>
             </div>
 

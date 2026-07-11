@@ -16,8 +16,17 @@ export const DEFAULT_TRUST_BADGES = [
     { icon: UserCheck, label: "Dedicated", sub: "Account Manager" },
 ];
 
+export const USA_TRUST_BADGES = [
+    { icon: ShieldCheck, label: "IRS", sub: "Compliant" },
+    { icon: Shield, label: "ISO 27001", sub: "Certified" },
+    { icon: Lock, label: "CCPA", sub: "Compliant" },
+    { icon: Clock, label: "US Time Zone", sub: "Overlap" },
+    { icon: Award, label: "10+ Years", sub: "Experience" },
+    { icon: UserCheck, label: "Dedicated", sub: "Account Manager" },
+];
+
 /**
- * Responsive trust badges bar used in UK service heroes.
+ * Responsive trust badges bar used in regional service heroes.
  * Phone: 2 cols · Tablet: 3 cols · Desktop: 6 cols — equal gaps & aligned rows.
  */
 export default function TrustBadgesBar({ badges = DEFAULT_TRUST_BADGES, className = "" }) {

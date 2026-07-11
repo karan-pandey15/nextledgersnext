@@ -1,0 +1,980 @@
+"use client";
+
+import USANavbar from "@/app/components/USANavbar/USANavbar";
+import {
+    Calendar,
+    Play,
+    ShieldCheck,
+    Lock,
+    Clock,
+    Users,
+    PuzzleIcon,
+    Headset,
+    Star,
+    BookOpen,
+    BadgeCheck,
+    ClipboardCheck,
+    LockKeyhole,
+    Network,
+    TrendingUp,
+    Handshake,
+    Phone,
+    Send,
+    FileSearch,
+    Coins,
+    Eye,
+    AlertTriangle,
+    Zap,
+    FileCheck,
+    Scale,
+    Lightbulb,
+    Shield,
+    Rocket,
+    ClipboardList,
+    RefreshCw,
+    FileInput,
+    FileOutput,
+    BarChart3,
+    CalendarCheck,
+    History,
+    Briefcase,
+    Monitor,
+    HardHat,
+    HeartPulse,
+    Wrench,
+    ShoppingBag,
+    Package,
+    Store,
+    ShoppingCart,
+    Building2,
+    UtensilsCrossed,
+    MapPin,
+    UserCheck,
+    Award,
+    Layers,
+    FileSpreadsheet,
+} from "lucide-react";
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import CtaButton from "@/app/components/ui/CtaButton";
+import IconDisplayScreen from "@/app/components/ServiceMainPageContent/IcondisplayScreen";
+import TrustBadgesBar, {
+    USA_TRUST_BADGES,
+} from "@/app/components/ServiceMainPageContent/TrustBadgesBar";
+import BookKeepingMatters from "@/app/components/ServiceMainPageContent/BookkeepingMatters";
+import BookkeepingReconcilation from "@/app/components/ServiceMainPageContent/Bookkeepingreconcilation";
+import BookKeepingCompliance from "@/app/components/ServiceMainPageContent/Bookkeepingcompliance";
+import ServiceDeliverablesExplorer from "@/app/components/ServiceMainPageContent/ServiceDeliverablesExplorer";
+import Footer from "@/app/components/footer/Footer";
+import TopAnnouncementBar from "@/app/components/TopHeader/TopAnnouncementBar";
+import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/ArtificialIntelligence";
+import NexaLedAi from "@/app/components/ChatBot/NexaLedAi";
+
+const ORANGE = "#F58220";
+const NAVY = "#0B1F3A";
+const GREY = "#6B7280";
+const PAGE_CREAM = "#FFF9F5";
+
+const softwareExpertiseLogodata = [
+    {
+        heading: "CORE ACCOUNTING PLATFORMS",
+        icon: "user",
+        logos: [
+            "quickbooks online",
+            "quickbooks",
+            "xero",
+            "sage",
+            "zoho books",
+            "freshbooks",
+            "wave accounting",
+        ],
+    },
+    {
+        heading: "PAYROLL PLATFORMS",
+        icon: "briefcase",
+        logos: ["gusto", "quickbooks payroll"],
+    },
+    {
+        heading: "BUSINESS & ECOMMERCE",
+        icon: "tag",
+        logos: ["shopify", "amazon", "stripe", "paypal"],
+    },
+];
+
+const bookkeepingBenefits = [
+    { icon: FileSearch, title: "Maintain accurate financial records" },
+    { icon: Coins, title: "Improve financial reporting accuracy" },
+    { icon: Eye, title: "Strengthen cash flow visibility" },
+    { icon: AlertTriangle, title: "Reduce bookkeeping errors" },
+    { icon: Zap, title: "Accelerate month-end close processes" },
+    { icon: FileCheck, title: "Prepare tax-ready financial records" },
+    { icon: Scale, title: "Improve compliance and audit readiness" },
+    { icon: Lightbulb, title: "Support informed business decisions" },
+    { icon: Shield, title: "Build stronger financial controls" },
+    { icon: Rocket, title: "Create a solid foundation for business growth" },
+];
+
+const bookkeepingTrustItems = [
+    { icon: ShieldCheck, label: "IRS Compliant" },
+    { icon: Lock, label: "Secure & Confidential" },
+    { icon: Clock, label: "US Time Zone Overlap" },
+    { icon: Users, label: "Experienced Offshore Team" },
+];
+
+const serviceLines = [
+    {
+        title: "Daily, Weekly & Monthly Bookkeeping",
+        shortTitle: "Daily Bookkeeping",
+        icon: ClipboardList,
+        items: [
+            "Daily transaction recording",
+            "Revenue and expense categorisation",
+            "General ledger maintenance",
+            "Journal entry processing",
+            "Customer and vendor accounting",
+            "Month-end bookkeeping reviews",
+            "Historical bookkeeping updates",
+            "Ongoing bookkeeping support",
+        ],
+    },
+    {
+        title: "Bank & Credit Card Reconciliations",
+        shortTitle: "Reconciliations",
+        icon: RefreshCw,
+        items: [
+            "Bank reconciliations",
+            "Credit card reconciliations",
+            "Merchant account reconciliations",
+            "Payment gateway reconciliations",
+            "Loan account reconciliations",
+            "Intercompany reconciliations",
+            "Balance Sheet reconciliations",
+            "Reconciliation reporting",
+        ],
+    },
+    {
+        title: "Accounts Payable (AP) Support",
+        shortTitle: "Accounts Payable",
+        icon: FileInput,
+        items: [
+            "Supplier invoice processing",
+            "Bill entry and coding",
+            "Payment scheduling",
+            "Vendor account maintenance",
+            "Vendor statement reconciliations",
+            "Accounts Payable reporting",
+            "Outstanding liability monitoring",
+            "Purchase transaction recording",
+        ],
+    },
+    {
+        title: "Accounts Receivable (AR) Support",
+        shortTitle: "Accounts Receivable",
+        icon: FileOutput,
+        items: [
+            "Customer invoice processing",
+            "Accounts Receivable tracking",
+            "Outstanding balance monitoring",
+            "Customer account reconciliations",
+            "Collection support reporting",
+            "Revenue monitoring",
+            "Receivable ageing reports",
+            "Payment allocation",
+        ],
+    },
+    {
+        title: "Financial Reporting & Management Accounts",
+        shortTitle: "Financial Reporting",
+        icon: BarChart3,
+        items: [
+            "Profit & Loss Statements",
+            "Balance Sheets",
+            "Cash Flow Statements",
+            "Budget vs Actual reports",
+            "Departmental reporting",
+            "Revenue analysis",
+            "Expense trend analysis",
+            "KPI reporting dashboards",
+        ],
+    },
+    {
+        title: "Month-End & Year-End Close Support",
+        shortTitle: "Month / Year-End",
+        icon: CalendarCheck,
+        items: [
+            "Month-end adjustments",
+            "Accruals and prepayments",
+            "Fixed asset accounting",
+            "Depreciation schedules",
+            "Financial review procedures",
+            "Balance Sheet reconciliations",
+            "Year-end accounting support",
+            "CPA-ready financial records",
+        ],
+    },
+    {
+        title: "Catch-Up Bookkeeping & Cleanup",
+        shortTitle: "Catch-Up & Cleanup",
+        icon: History,
+        items: [
+            "Historical bookkeeping reconstruction",
+            "Account reconciliation corrections",
+            "General ledger cleanup",
+            "Misclassified transaction corrections",
+            "Duplicate transaction removal",
+            "Financial statement corrections",
+            "Prior period adjustments",
+            "Accounting data validation",
+        ],
+    },
+];
+
+const specialistHighlights = [
+    { icon: BookOpen, label: "Bookkeeping Outsourcing" },
+    { icon: CalendarCheck, label: "Month-End Accounting" },
+    { icon: FileSpreadsheet, label: "AR & AP Support" },
+    { icon: BarChart3, label: "Financial Reporting" },
+];
+
+const specialistAreaCards = [
+    {
+        icon: BookOpen,
+        title: "Bookkeeping Outsourcing",
+        description:
+            "Providing dedicated offshore bookkeeping resources that integrate seamlessly with your firm's existing workflows and client service model.",
+    },
+    {
+        icon: CalendarCheck,
+        title: "Month-End Accounting",
+        description:
+            "Supporting timely month-end close procedures, reconciliations, journals, and financial reporting to improve reporting accuracy.",
+    },
+    {
+        icon: FileSpreadsheet,
+        title: "Accounts Receivable & Payable",
+        description:
+            "Managing customer invoicing, supplier processing, reconciliations, ageing reports, and cash flow support to strengthen financial controls.",
+    },
+    {
+        icon: BarChart3,
+        title: "Financial Reporting",
+        description:
+            "Preparing management accounts, Balance Sheets, Profit & Loss statements, cash flow reports, and KPI dashboards for business decision-making.",
+    },
+    {
+        icon: History,
+        title: "Bookkeeping Cleanup & Recovery",
+        description:
+            "Correcting historical bookkeeping errors, rebuilding accounting records, and restoring reliable financial information for clients with incomplete books.",
+    },
+];
+
+const industriesWeSupport = [
+    {
+        label: "Professional Service Firms",
+        icon: Briefcase,
+        bg: "#E8F4FF",
+        color: "#0284C7",
+    },
+    {
+        label: "Technology Companies",
+        icon: Monitor,
+        bg: "#E8F1FF",
+        color: "#3B82F6",
+    },
+    {
+        label: "Construction Businesses",
+        icon: HardHat,
+        bg: "#FFF4E5",
+        color: "#EA580C",
+    },
+    {
+        label: "Healthcare Practices",
+        icon: HeartPulse,
+        bg: "#FFE8EE",
+        color: "#E11D48",
+    },
+    {
+        label: "Engineering Firms",
+        icon: Wrench,
+        bg: "#F3E8FF",
+        color: "#9333EA",
+    },
+    {
+        label: "eCommerce & Online Retail",
+        icon: ShoppingBag,
+        bg: "#E8F8EF",
+        color: "#16A34A",
+    },
+    {
+        label: "Amazon Sellers",
+        icon: Package,
+        bg: "#FFF0E8",
+        color: "#F58220",
+    },
+    {
+        label: "Shopify Businesses",
+        icon: Store,
+        bg: "#E8F8EF",
+        color: "#059669",
+    },
+    {
+        label: "Retail Companies",
+        icon: ShoppingCart,
+        bg: "#FFF4EA",
+        color: "#F58220",
+    },
+    {
+        label: "Real Estate Businesses",
+        icon: Building2,
+        bg: "#FFE8EE",
+        color: "#E11D48",
+    },
+    {
+        label: "Hospitality Businesses",
+        icon: UtensilsCrossed,
+        bg: "#FFF0E8",
+        color: "#EA580C",
+    },
+    {
+        label: "Franchise & Multi-Location Businesses",
+        icon: MapPin,
+        bg: "#E8F1FF",
+        color: "#2563EB",
+    },
+];
+
+const whyChooseCards = [
+    {
+        title: "Dedicated Offshore Bookkeeping Professionals",
+        icon: UserCheck,
+    },
+    {
+        title: "Extensive Experience Supporting US CPA Firms",
+        icon: Award,
+    },
+    {
+        title: "White-Label Service Delivery",
+        icon: BadgeCheck,
+    },
+    {
+        title: "Multi-Platform Accounting Expertise",
+        icon: Layers,
+    },
+    {
+        title: "Structured Month-End Close Processes",
+        icon: ClipboardCheck,
+    },
+    {
+        title: "Accurate & Timely Financial Reporting",
+        icon: FileCheck,
+    },
+    {
+        title: "Flexible Engagement Models",
+        icon: Network,
+    },
+    {
+        title: "Secure Data Handling",
+        icon: LockKeyhole,
+    },
+    {
+        title: "Scalable Offshore Accounting Teams",
+        icon: TrendingUp,
+    },
+];
+
+const partnerTrust = [
+    { icon: ShieldCheck, label: "100% IRS Aligned" },
+    { icon: Lock, label: "Secure & Confidential" },
+    { icon: Users, label: "Trusted by US CPA Firms" },
+];
+
+function Stat({ icon, value, label }) {
+    return (
+        <div className="flex flex-col items-center gap-1.5 text-center">
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#F58220]/10 text-[#F58220] sm:h-10 sm:w-10">
+                {icon}
+            </div>
+            <div className="text-[15px] font-extrabold leading-none text-[#0B1F3A] sm:text-[17px]">
+                {value}
+            </div>
+            <div className="max-w-[140px] text-[10px] leading-tight text-gray-500 sm:max-w-[90px] sm:text-[11px]">
+                {label}
+            </div>
+        </div>
+    );
+}
+
+function DotGrid({ className }) {
+    return (
+        <div
+            className={className}
+            aria-hidden="true"
+            style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(5, 4px)",
+                gap: 6,
+            }}
+        >
+            {Array.from({ length: 20 }).map((_, i) => (
+                <span
+                    key={i}
+                    style={{
+                        width: 3.5,
+                        height: 3.5,
+                        borderRadius: "50%",
+                        background: ORANGE,
+                        opacity: 0.45,
+                    }}
+                />
+            ))}
+        </div>
+    );
+}
+
+export default function UsaBookkeeping() {
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+    return (
+        <main className="relative min-h-screen w-full overflow-x-hidden bg-white">
+            <TopAnnouncementBar region="usa" />
+            <USANavbar
+                isSidebarOpen={isSidebarOpen}
+                setIsSidebarOpen={setIsSidebarOpen}
+            />
+
+            {/* 1 — Hero */}
+            <section
+                className="relative w-full overflow-hidden px-4 pb-8 pt-10 sm:px-6 sm:pb-10 sm:pt-12 lg:px-8"
+                style={{
+                    background:
+                        "linear-gradient(165deg, #FFFFFF 0%, #FFF9F5 42%, #FFF4EA 100%)",
+                }}
+            >
+                <div
+                    className="pointer-events-none absolute inset-0 opacity-[0.55]"
+                    style={{
+                        backgroundImage:
+                            "radial-gradient(rgba(245,130,32,0.18) 1px, transparent 1px)",
+                        backgroundSize: "18px 18px",
+                    }}
+                />
+                <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-[#F58220]/15 blur-3xl" />
+                <div className="pointer-events-none absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-[#0B1F3A]/06 blur-3xl" />
+                <div className="pointer-events-none absolute left-1/2 top-1/3 h-40 w-40 -translate-x-1/2 rounded-full bg-[#F58220]/10 blur-2xl" />
+
+                <div className="relative mx-auto flex w-full max-w-5xl flex-col justify-center">
+                    <div className="flex flex-col items-center px-2 text-center">
+                        <span className="mb-3 inline-flex items-center rounded-full border border-[#F58220]/25 bg-white px-3 py-1 text-center text-[10px] font-bold uppercase tracking-wide text-[#F58220] shadow-sm sm:px-4 sm:text-[11px]">
+                            USA Bookkeeping &amp; Outsourced Accounting Services
+                        </span>
+
+                        <h1 className="max-w-[300px] text-2xl font-extrabold leading-snug text-[#0B1F3A] sm:max-w-2xl sm:text-3xl lg:text-[34px]">
+                            USA Bookkeeping &amp;{" "}
+                            <span className="text-[#F58220]">
+                                Outsourced Accounting
+                            </span>{" "}
+                            Services
+                        </h1>
+
+                        <p className="mt-2 max-w-xs text-[12.5px] leading-snug text-slate-600 sm:max-w-xl sm:text-[13px] md:text-sm">
+                            Reliable Offshore Bookkeeping &amp; Accounting Support
+                            for US CPA Firms
+                        </p>
+
+                        <div className="my-3 h-[3px] w-10 rounded-full bg-[#F58220]" />
+
+                        <div className="flex w-full max-w-xs flex-col items-stretch justify-center gap-2.5 sm:w-auto sm:flex-row sm:items-center sm:gap-3">
+                            <CtaButton href="/contact" variant="primary" size="sm">
+                                <Calendar className="h-3.5 w-3.5 shrink-0" />
+                                Book a Discovery Call
+                            </CtaButton>
+                            <CtaButton href="#how-we-work" variant="ghost" size="sm">
+                                <Play className="h-3 w-3 shrink-0 fill-slate-700" />
+                                How We Work
+                            </CtaButton>
+                        </div>
+                    </div>
+                    <TrustBadgesBar badges={USA_TRUST_BADGES} />
+                </div>
+            </section>
+
+            {/* 2 — Reliable Offshore Bookkeeping Support intro */}
+            <section id="how-we-work" className="w-full bg-white">
+                <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
+                    <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12">
+                        <div>
+                            <span className="mb-3 inline-block text-[11px] font-extrabold uppercase tracking-widest text-[#F58220]">
+                                Outsourcing Partnership
+                            </span>
+
+                            <h2 className="mb-3 text-[26px] font-extrabold leading-[1.15] text-[#0B1F3A] sm:text-[30px]">
+                                Reliable Offshore Bookkeeping &amp; Accounting
+                                Support for US CPA Firms
+                            </h2>
+
+                            <div className="mb-4 h-[3px] w-14 rounded-full bg-[#F58220]" />
+
+                            <p className="mb-5 text-[13px] leading-relaxed text-gray-500 sm:text-[14.5px]">
+                                Bookkeeping is the foundation of every successful
+                                accounting engagement — accurate records, timely
+                                reconciliations, and reliable reporting that keep
+                                clients compliant and decision-ready.
+                            </p>
+
+                            <div className="mb-5 space-y-3">
+                                <div className="rounded-[14px] border border-[#F0E6DC] bg-[#FFF9F5] p-4 sm:p-4.5">
+                                    <div className="mb-2 flex items-center gap-2.5">
+                                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-[#F58220] shadow-sm">
+                                            <AlertTriangle
+                                                className="h-4 w-4"
+                                                strokeWidth={2.25}
+                                            />
+                                        </span>
+                                        <h3 className="text-[13.5px] font-bold text-[#0B1F3A] sm:text-[14px]">
+                                            The Challenge
+                                        </h3>
+                                    </div>
+                                    <p className="text-[12.5px] leading-relaxed text-gray-500 sm:text-[13px]">
+                                        Growing client portfolios, staffing shortages,
+                                        rising costs, and tight deadlines make it hard
+                                        for US CPA firms to scale bookkeeping without
+                                        losing quality.
+                                    </p>
+                                </div>
+
+                                <div className="rounded-[14px] border border-[#F0E6DC] bg-white p-4 shadow-[0_4px_16px_rgba(15,23,42,0.04)] sm:p-4.5">
+                                    <div className="mb-2 flex items-center gap-2.5">
+                                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#F58220]">
+                                            <Handshake
+                                                className="h-4 w-4"
+                                                strokeWidth={2.25}
+                                            />
+                                        </span>
+                                        <h3 className="text-[13.5px] font-bold text-[#0B1F3A] sm:text-[14px]">
+                                            How NextLedgers Helps
+                                        </h3>
+                                    </div>
+                                    <p className="text-[12.5px] leading-relaxed text-gray-500 sm:text-[13px]">
+                                        Dedicated offshore bookkeeping professionals
+                                        work as a seamless extension of your team —
+                                        increasing capacity, improving turnaround, and
+                                        delivering accurate white-label support.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <p className="mb-2.5 text-[11px] font-bold uppercase tracking-[0.12em] text-[#0B1F3A]/55">
+                                Support we deliver
+                            </p>
+                            <div className="mb-6 flex flex-wrap gap-2">
+                                {[
+                                    "Ongoing bookkeeping",
+                                    "Month-end accounting",
+                                    "Reconciliations",
+                                    "Financial reporting",
+                                    "Fully outsourced support",
+                                ].map((item) => (
+                                    <span
+                                        key={item}
+                                        className="inline-flex items-center gap-1.5 rounded-full border border-[#F0E6DC] bg-[#FFF9F5] px-3 py-1.5 text-[11.5px] font-semibold text-[#0B1F3A]"
+                                    >
+                                        <BadgeCheck
+                                            className="h-3.5 w-3.5 text-[#F58220]"
+                                            strokeWidth={2.25}
+                                        />
+                                        {item}
+                                    </span>
+                                ))}
+                            </div>
+
+                            <CtaButton href="/contact" variant="primary" size="md">
+                                <Phone className="h-4 w-4" strokeWidth={2.25} />
+                                Book a Discovery Call
+                            </CtaButton>
+                        </div>
+
+                        <div className="relative pb-10 sm:pb-12">
+                            <div className="overflow-hidden rounded-2xl">
+                                <Image
+                                    src="/images/DSC09901.JPG"
+                                    alt="Accounting team providing bookkeeping support"
+                                    width={720}
+                                    height={480}
+                                    className="h-[260px] w-full object-cover sm:h-[320px] lg:h-[340px]"
+                                    priority
+                                />
+                            </div>
+
+                            <div className="absolute bottom-0 left-4 right-4 grid grid-cols-2 gap-2 rounded-xl bg-white px-3 py-4 shadow-lg sm:grid-cols-4 sm:px-5 sm:py-5">
+                                <Stat
+                                    icon={<Users className="h-5 w-5" />}
+                                    value="500+"
+                                    label="US CPA Firms Supported"
+                                />
+                                <Stat
+                                    icon={<PuzzleIcon className="h-5 w-5" />}
+                                    value="30+"
+                                    label="Software Integrations"
+                                />
+                                <Stat
+                                    icon={<ShieldCheck className="h-5 w-5" />}
+                                    value="100%"
+                                    label="IRS-Aligned Processes"
+                                />
+                                <Stat
+                                    icon={<Headset className="h-5 w-5" />}
+                                    value="Dedicated"
+                                    label="Offshore Support Team"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* 3 — Why Bookkeeping & Outsourced Accounting Matter */}
+            <BookKeepingMatters
+                titleBefore="Why "
+                titleAccent="Bookkeeping & Outsourced Accounting"
+                titleAfter=" Matter"
+                intro="Professional bookkeeping goes far beyond recording transactions. Accurate accounting records provide the financial information businesses rely on for tax compliance, cash flow management, financial reporting, budgeting, and strategic decision-making."
+                helpLabelBefore="Effective "
+                helpLabelAccent="bookkeeping processes"
+                helpLabelAfter=" help businesses:"
+                trustItems={bookkeepingTrustItems}
+                benefits={bookkeepingBenefits}
+                bannerTitleBefore="Outsourced capacity. "
+                bannerTitleAccent="Advisory focus."
+                bannerBody="For CPA firms, outsourced bookkeeping increases service capacity, improves operational efficiency, and enables senior staff to focus on advisory and client relationship management."
+            />
+
+            {/* 4 — Bookkeeping services explorer */}
+            <ServiceDeliverablesExplorer
+                titleBefore="Our "
+                titleAccent="Bookkeeping & Outsourced Accounting"
+                titleAfter=" Services Include"
+                subtitle="We process, reconcile, and report every transaction — delivering clean, CPA-ready books for your US clients."
+                services={serviceLines}
+            />
+
+            {/* 4b — Specialist Areas visual */}
+            <BookkeepingReconcilation
+                showServiceCards={false}
+                showSpecialist={true}
+                specialistEyebrow="Specialist Delivery"
+                specialistTitleBefore=""
+                specialistTitleAccent="Specialist Areas"
+                specialistTitleAfter=" We Support"
+                specialistParagraphs={[
+                    "Our dedicated offshore bookkeeping specialists integrate seamlessly with your firm's existing workflows and client service model, delivering consistent white-label support.",
+                    "From month-end close and AR/AP management to financial reporting and cleanup, we strengthen your firm's bookkeeping delivery without adding internal overhead.",
+                ]}
+                specialistImageSrc="/images/bgimage.JPG"
+                specialistImageAlt="Specialist bookkeeping support for US CPA firms"
+                specialistHighlights={specialistHighlights}
+                sealText="ACCURATE • TIMELY • RELIABLE • ACCURATE •"
+            />
+
+            {/* 5 — Specialist Areas detail cards */}
+            <BookKeepingCompliance
+                whyEyebrow="Specialist Areas"
+                whyTitleBefore=""
+                whyTitleAccent="Specialist Areas"
+                whyTitleAfter=" We Support"
+                whySubtitle="Dedicated support areas that strengthen your firm's bookkeeping delivery and client service capacity."
+                whyIntroLabel=""
+                whyCards={specialistAreaCards}
+                showServices={false}
+            />
+
+            {/* 6 — Software Expertise */}
+            <IconDisplayScreen
+                title="Software Expertise"
+                subtitle="We work across the accounting, payroll, and eCommerce platforms your clients already use."
+                logodata={softwareExpertiseLogodata}
+            />
+
+            {/* 7 — Industries We Support */}
+            <section className="relative w-full overflow-hidden bg-white py-10 sm:py-12 lg:py-14">
+                <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
+                    <div
+                        className="rounded-none px-5 py-8 sm:px-8 sm:py-9 lg:px-10 lg:py-10"
+                        style={{ background: PAGE_CREAM }}
+                    >
+                        <div className="mx-auto max-w-[720px] text-center">
+                            <div className="inline-flex items-center justify-center gap-3">
+                                <span
+                                    className="hidden h-px w-8 sm:block"
+                                    style={{ background: ORANGE }}
+                                    aria-hidden="true"
+                                />
+                                <p
+                                    className="text-[11px] font-bold uppercase tracking-[0.22em] sm:text-[12px]"
+                                    style={{ color: ORANGE }}
+                                >
+                                    Our Industry Expertise
+                                </p>
+                                <span
+                                    className="hidden h-px w-8 sm:block"
+                                    style={{ background: ORANGE }}
+                                    aria-hidden="true"
+                                />
+                            </div>
+
+                            <h2
+                                className="mt-3 text-[24px] font-extrabold leading-[1.15] tracking-[-0.01em] sm:text-[30px] lg:text-[34px]"
+                                style={{ color: NAVY }}
+                            >
+                                Industries We{" "}
+                                <span style={{ color: ORANGE }}>Support</span>
+                            </h2>
+
+                            <p
+                                className="mx-auto mt-3 max-w-[560px] text-[13px] leading-relaxed sm:mt-3.5 sm:text-[14px]"
+                                style={{ color: GREY }}
+                            >
+                                We support CPA firms serving clients across a wide
+                                range of industries, including:
+                            </p>
+                        </div>
+
+                        <div className="mt-7 grid grid-cols-2 gap-3 sm:mt-8 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4 lg:gap-5">
+                            {industriesWeSupport.map((item) => {
+                                const Icon = item.icon;
+                                return (
+                                    <div
+                                        key={item.label}
+                                        className="flex min-h-[132px] flex-col items-center justify-center rounded-[16px] border border-[#F0F0F0] bg-white px-3 py-5 text-center shadow-[0_4px_18px_rgba(15,39,74,0.05)] transition-all duration-200 hover:border-[#F58220]/25 hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:min-h-[148px] sm:rounded-[18px] sm:px-4 sm:py-6"
+                                    >
+                                        <div
+                                            className="flex h-14 w-14 items-center justify-center rounded-full sm:h-16 sm:w-16"
+                                            style={{ backgroundColor: item.bg }}
+                                        >
+                                            <Icon
+                                                className="h-6 w-6 sm:h-7 sm:w-7"
+                                                style={{ color: item.color }}
+                                                strokeWidth={1.75}
+                                            />
+                                        </div>
+                                        <p
+                                            className="mt-3 text-[12px] font-bold leading-snug sm:text-[13px]"
+                                            style={{ color: NAVY }}
+                                        >
+                                            {item.label}
+                                        </p>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* 7 — Why Choose NextLedgers (9-card grid: 4 + 5) */}
+            <section className="relative w-full overflow-hidden bg-white px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
+                <DotGrid className="pointer-events-none absolute right-4 top-6 sm:right-10 sm:top-8" />
+                <DotGrid className="pointer-events-none absolute bottom-8 left-4 sm:bottom-10 sm:left-8" />
+
+                <div className="relative mx-auto w-full max-w-6xl">
+                    <div className="mb-7 flex flex-col items-center text-center sm:mb-8">
+                        <span
+                            className="mb-3 inline-flex items-center gap-1.5 rounded-full px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.12em]"
+                            style={{ background: "#FFF4EA", color: ORANGE }}
+                        >
+                            <Star
+                                className="h-3 w-3"
+                                strokeWidth={2.5}
+                                fill={ORANGE}
+                            />
+                            Partner Advantages
+                        </span>
+
+                        <h2
+                            className="max-w-3xl text-[22px] font-extrabold leading-tight sm:text-[26px] lg:text-[28px]"
+                            style={{ color: NAVY }}
+                        >
+                            Why Choose{" "}
+                            <span style={{ color: ORANGE }}>NextLedgers</span> for{" "}
+                            <span style={{ color: ORANGE }}>
+                                Bookkeeping &amp; Accounting
+                            </span>
+                            ?
+                        </h2>
+
+                        <p
+                            className="mx-auto mt-2.5 max-w-xl text-[13px] leading-relaxed sm:text-[14px]"
+                            style={{ color: GREY }}
+                        >
+                            Dedicated offshore bookkeeping specialists who work as
+                            an extension of your practice, ensuring accuracy and
+                            IRS-aligned processes.
+                        </p>
+
+                        <div
+                            className="mx-auto mt-3.5 h-[3px] w-11 rounded-full"
+                            style={{ background: ORANGE }}
+                        />
+                    </div>
+
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+                        {whyChooseCards.slice(0, 4).map(({ title, icon: Icon }) => (
+                            <div
+                                key={title}
+                                className="rounded-[14px] border border-[#F0E6DC] bg-white px-5 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.05)]"
+                            >
+                                <span
+                                    className="mb-3 flex h-9 w-9 items-center justify-center"
+                                    style={{ color: ORANGE }}
+                                >
+                                    <Icon className="h-6 w-6" strokeWidth={1.75} />
+                                </span>
+                                <h3
+                                    className="text-[13.5px] font-bold leading-snug sm:text-[14px]"
+                                    style={{ color: NAVY }}
+                                >
+                                    {title}
+                                </h3>
+                                <div
+                                    className="mt-3 h-[2px] w-8 rounded-full"
+                                    style={{ background: ORANGE }}
+                                />
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:justify-items-stretch lg:mt-5 lg:grid-cols-5 lg:gap-5">
+                        {whyChooseCards.slice(4).map(({ title, icon: Icon }) => (
+                            <div
+                                key={title}
+                                className="rounded-[14px] border border-[#F0E6DC] bg-white px-5 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.05)]"
+                            >
+                                <span
+                                    className="mb-3 flex h-9 w-9 items-center justify-center"
+                                    style={{ color: ORANGE }}
+                                >
+                                    <Icon className="h-6 w-6" strokeWidth={1.75} />
+                                </span>
+                                <h3
+                                    className="text-[13.5px] font-bold leading-snug sm:text-[14px]"
+                                    style={{ color: NAVY }}
+                                >
+                                    {title}
+                                </h3>
+                                <div
+                                    className="mt-3 h-[2px] w-8 rounded-full"
+                                    style={{ background: ORANGE }}
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* 8 — Partner CTA */}
+            <section className="relative w-full bg-white px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
+                <div
+                    className="relative mx-auto max-w-5xl overflow-hidden rounded-[22px] px-5 py-10 text-center sm:rounded-[28px] sm:px-10 sm:py-12 lg:px-14"
+                    style={{ background: PAGE_CREAM }}
+                >
+                    <div
+                        className="pointer-events-none absolute -left-16 bottom-0 h-48 w-48 rounded-full opacity-40"
+                        style={{ background: "rgba(245,130,32,0.18)" }}
+                    />
+                    <div
+                        className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-30"
+                        style={{ background: "rgba(245,130,32,0.15)" }}
+                    />
+                    <DotGrid className="pointer-events-none absolute bottom-6 right-6 opacity-70" />
+
+                    <div className="relative z-10">
+                        <span
+                            className="mb-3 inline-flex items-center gap-1.5 rounded-full px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.12em]"
+                            style={{ background: "#FFF4EA", color: ORANGE }}
+                        >
+                            <Handshake className="h-3.5 w-3.5" strokeWidth={2.25} />
+                            Bookkeeping &amp; Accounting Partner
+                        </span>
+
+                        <h2
+                            className="text-[24px] font-extrabold leading-tight sm:text-[30px] lg:text-[34px]"
+                            style={{ color: NAVY }}
+                        >
+                            Your Offshore{" "}
+                            <span style={{ color: ORANGE }}>
+                                Bookkeeping &amp; Accounting
+                            </span>{" "}
+                            Partner
+                        </h2>
+
+                        <p
+                            className="mx-auto mt-3 max-w-2xl text-[13px] leading-relaxed sm:text-[14.5px]"
+                            style={{ color: GREY }}
+                        >
+                            Bookkeeping requires consistency, accuracy, and
+                            efficient accounting processes. Our experienced
+                            professionals help US CPA firms increase bookkeeping
+                            capacity, improve financial reporting quality,
+                            streamline month-end processes, and deliver reliable
+                            accounting services without increasing internal
+                            staffing costs.
+                        </p>
+
+                        <div className="mx-auto mt-6 flex max-w-3xl items-start gap-4 rounded-2xl bg-white px-4 py-4 text-left shadow-[0_6px_24px_rgba(15,23,42,0.06)] sm:gap-5 sm:px-6 sm:py-5">
+                            <span
+                                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full sm:h-12 sm:w-12"
+                                style={{ background: "#FFF4EA", color: ORANGE }}
+                            >
+                                <UserCheck className="h-5 w-5" strokeWidth={2} />
+                            </span>
+                            <p
+                                className="pt-0.5 text-[12.5px] leading-relaxed sm:text-[13.5px]"
+                                style={{ color: GREY }}
+                            >
+                                Whether you require support with day-to-day
+                                bookkeeping, bank reconciliations, Accounts
+                                Receivable and Accounts Payable management,
+                                financial reporting, month-end close procedures,
+                                bookkeeping cleanup, or dedicated offshore
+                                bookkeeping resources, NextLedgers provides
+                                reliable white-label support that integrates
+                                seamlessly with your accounting practice.
+                            </p>
+                        </div>
+
+                        <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+                            <CtaButton href="/contact" variant="primary" size="lg">
+                                <Phone className="h-4 w-4" strokeWidth={2.25} />
+                                Book a Discovery Call
+                            </CtaButton>
+                            <CtaButton href="/contact" variant="secondary" size="lg">
+                                <Send className="h-4 w-4" strokeWidth={2.25} />
+                                Request a Proposal
+                            </CtaButton>
+                        </div>
+
+                        <div className="mx-auto mt-8 flex max-w-2xl flex-col items-center justify-center gap-4 border-t border-[#F0E0D2] pt-6 sm:flex-row sm:gap-8">
+                            {partnerTrust.map(({ icon: Icon, label }) => (
+                                <div
+                                    key={label}
+                                    className="flex items-center gap-2"
+                                    style={{ color: "#8B7355" }}
+                                >
+                                    <Icon className="h-4 w-4" strokeWidth={2} />
+                                    <span className="text-[12px] font-semibold sm:text-[12.5px]">
+                                        {label}
+                                    </span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <Footer region="usa" />
+            <ArtificialIntelligence />
+            <NexaLedAi />
+        </main>
+    );
+}

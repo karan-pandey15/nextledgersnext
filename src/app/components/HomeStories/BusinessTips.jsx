@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import CtaButton from "@/app/components/ui/CtaButton";
 
 const ORANGE = "#F58220";
 const NAVY = "#0F274A";
@@ -119,19 +120,10 @@ export default function BusinessTips() {
       </div>
 
       <div className="mt-8 sm:mt-10 flex justify-center">
-        <Link
-          href="/blogs"
-          className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full border border-[#F58220] bg-transparent text-[#F58220] font-semibold text-[13px] sm:text-[14px] px-7 sm:px-8 h-11 sm:h-12 min-w-[200px]"
-        >
-          <span
-            className="absolute inset-0 origin-left scale-x-0 bg-[#F58220] transition-transform duration-[400ms] ease-out group-hover:scale-x-100"
-            aria-hidden="true"
-          />
-          <span className="relative z-10 inline-flex items-center gap-2 group-hover:text-white transition-colors duration-[400ms]">
-            View all articles
-            <span aria-hidden="true">→</span>
-          </span>
-        </Link>
+        <CtaButton href="/blogs" variant="secondary" size="md" className="min-w-[200px]">
+          View all articles
+          <span aria-hidden="true">→</span>
+        </CtaButton>
       </div>
     </div>
   );

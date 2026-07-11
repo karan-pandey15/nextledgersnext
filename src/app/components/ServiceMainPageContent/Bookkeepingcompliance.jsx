@@ -12,15 +12,13 @@ import {
     BarChart3,
 } from "lucide-react";
 
-/* ── Palette matched to design ───────────────────────────────────────────── */
 const ORANGE = "#F58220";
 const ORANGE_SOFT = "#FFF4EA";
 const HEADING = "#1A1A1A";
 const BODY = "#666666";
 const CARD_BORDER = "#EBEBEB";
-const PAGE_BG = "#F9F8F6";
+const PAGE_BG = "#FFF9F5";
 
-/* Custom icons that match the reference artwork more closely */
 function IconSearchAlert({ className }) {
     return (
         <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
@@ -142,7 +140,7 @@ function IconBuildingPound({ className }) {
     );
 }
 
-const whyCards = [
+const DEFAULT_WHY_CARDS = [
     {
         icon: ListChecks,
         title: "Meet HMRC Obligations",
@@ -181,7 +179,7 @@ const whyCards = [
     },
 ];
 
-const serviceCards = [
+const DEFAULT_SERVICE_CARDS = [
     {
         icon: IconVatDoc,
         title: "VAT Return Preparation",
@@ -325,13 +323,33 @@ function ServiceCard({ icon: Icon, title, description }) {
     );
 }
 
-export default function BookKeepingCompliance() {
+/**
+ * Compliance / specialist card section — reusable. Defaults keep UK VAT page unchanged.
+ */
+export default function BookKeepingCompliance({
+    whyEyebrow = "HMRC Compliance Auditing",
+    whyTitleBefore = "Why ",
+    whyTitleAccent = "VAT Compliance",
+    whyTitleAfter = " Matters",
+    whySubtitle = "VAT errors can result in penalties, incorrect tax payments, and unnecessary HMRC enquiries.",
+    whyIntroLabel = "Effective VAT management helps businesses:",
+    whyCards: whyCardsProp,
+    showServices = true,
+    servicesEyebrow = "VAT Scope",
+    servicesTitleBefore = "Our ",
+    servicesTitleAccent = "VAT Services",
+    servicesTitleAfter = " Include",
+    servicesSubtitle = "Dedicated VAT operations that keep your clients compliant and audit-ready.",
+    serviceCards: serviceCardsProp,
+}) {
+    const whyCards = whyCardsProp || DEFAULT_WHY_CARDS;
+    const serviceCards = serviceCardsProp || DEFAULT_SERVICE_CARDS;
+
     return (
         <section
-            className="relative w-full overflow-hidden px-4 py-10 sm:px-6 sm:py-11 lg:px-8 lg:py-12"
+            className="relative w-full overflow-hidden px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14"
             style={{ background: PAGE_BG }}
         >
-            {/* Soft topographic waves */}
             <svg
                 className="pointer-events-none absolute inset-x-0 top-0 h-52 w-full opacity-[0.4]"
                 viewBox="0 0 1440 220"
@@ -340,12 +358,13 @@ export default function BookKeepingCompliance() {
             >
                 <path
                     d="M0,90 C200,150 400,30 700,95 C1000,160 1200,50 1440,100 L1440,0 L0,0 Z"
-                    fill="#E9E7E4"
+                    fill="#FFE8D2"
+                    opacity="0.35"
                 />
                 <path
                     d="M0,130 C280,70 560,170 840,110 C1120,50 1280,140 1440,110 L1440,0 L0,0 Z"
-                    fill="#F0EEEC"
-                    opacity="0.8"
+                    fill="#FFF4EA"
+                    opacity="0.55"
                 />
             </svg>
             <svg
@@ -356,7 +375,8 @@ export default function BookKeepingCompliance() {
             >
                 <path
                     d="M0,70 C320,130 640,20 960,80 C1180,120 1320,50 1440,70 L1440,180 L0,180 Z"
-                    fill="#E9E7E4"
+                    fill="#FFE8D2"
+                    opacity="0.4"
                 />
             </svg>
 
@@ -364,47 +384,51 @@ export default function BookKeepingCompliance() {
             <DotGrid className="pointer-events-none absolute bottom-6 left-4 sm:bottom-8 sm:left-8" />
 
             <div className="relative mx-auto w-full max-w-5xl">
-                {/* ── Why VAT Compliance Matters ─────────────────────────── */}
                 <div className="flex flex-col items-center text-center">
                     <span
                         className="mb-3 inline-flex items-center gap-1.5 rounded-full px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.12em] text-white shadow-sm"
                         style={{ background: ORANGE }}
                     >
                         <ShieldCheck className="h-3 w-3" strokeWidth={2.5} />
-                        HMRC Compliance Auditing
+                        {whyEyebrow}
                     </span>
 
                     <h2
                         className="text-[22px] font-extrabold leading-tight sm:text-[26px] lg:text-[28px]"
                         style={{ color: HEADING }}
                     >
-                        Why <span style={{ color: ORANGE }}>VAT Compliance</span> Matters
+                        {whyTitleBefore}
+                        <span style={{ color: ORANGE }}>{whyTitleAccent}</span>
+                        {whyTitleAfter}
                     </h2>
 
                     <p
                         className="mt-2 max-w-xl text-[12.5px] leading-relaxed sm:text-[13px]"
                         style={{ color: BODY }}
                     >
-                        VAT errors can result in penalties, incorrect tax payments, and
-                        unnecessary HMRC enquiries.
+                        {whySubtitle}
                     </p>
 
-                    <div className="mt-3.5 mb-4 flex w-full max-w-md items-center justify-center gap-2.5 sm:max-w-lg sm:gap-3">
-                        <span
-                            className="h-[2px] w-5 shrink-0 rounded-full sm:w-7"
-                            style={{ background: ORANGE }}
-                        />
-                        <span
-                            className="text-[12px] font-semibold whitespace-nowrap sm:text-[12.5px]"
-                            style={{ color: "#555555" }}
-                        >
-                            Effective VAT management helps businesses:
-                        </span>
-                        <span
-                            className="h-[2px] w-5 shrink-0 rounded-full sm:w-7"
-                            style={{ background: ORANGE }}
-                        />
-                    </div>
+                    {whyIntroLabel ? (
+                        <div className="mt-3.5 mb-4 flex w-full max-w-md items-center justify-center gap-2.5 sm:max-w-lg sm:gap-3">
+                            <span
+                                className="h-[2px] w-5 shrink-0 rounded-full sm:w-7"
+                                style={{ background: ORANGE }}
+                            />
+                            <span
+                                className="text-[12px] font-semibold whitespace-nowrap sm:text-[12.5px]"
+                                style={{ color: "#555555" }}
+                            >
+                                {whyIntroLabel}
+                            </span>
+                            <span
+                                className="h-[2px] w-5 shrink-0 rounded-full sm:w-7"
+                                style={{ background: ORANGE }}
+                            />
+                        </div>
+                    ) : (
+                        <div className="mb-4 mt-3.5" />
+                    )}
                 </div>
 
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 lg:gap-3.5">
@@ -413,37 +437,41 @@ export default function BookKeepingCompliance() {
                     ))}
                 </div>
 
-                {/* ── Our VAT Services Include ───────────────────────────── */}
-                <div className="mt-10 flex flex-col items-center text-center sm:mt-11">
-                    <span
-                        className="mb-3 inline-flex items-center gap-1.5 rounded-full px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.12em] text-white shadow-sm"
-                        style={{ background: ORANGE }}
-                    >
-                        <BarChart3 className="h-3 w-3" strokeWidth={2.5} />
-                        VAT Scope
-                    </span>
+                {showServices ? (
+                    <>
+                        <div className="mt-10 flex flex-col items-center text-center sm:mt-11">
+                            <span
+                                className="mb-3 inline-flex items-center gap-1.5 rounded-full px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.12em] text-white shadow-sm"
+                                style={{ background: ORANGE }}
+                            >
+                                <BarChart3 className="h-3 w-3" strokeWidth={2.5} />
+                                {servicesEyebrow}
+                            </span>
 
-                    <h2
-                        className="text-[22px] font-extrabold leading-tight sm:text-[26px] lg:text-[28px]"
-                        style={{ color: HEADING }}
-                    >
-                        Our <span style={{ color: ORANGE }}>VAT Services</span> Include
-                    </h2>
+                            <h2
+                                className="text-[22px] font-extrabold leading-tight sm:text-[26px] lg:text-[28px]"
+                                style={{ color: HEADING }}
+                            >
+                                {servicesTitleBefore}
+                                <span style={{ color: ORANGE }}>{servicesTitleAccent}</span>
+                                {servicesTitleAfter}
+                            </h2>
 
-                    <p
-                        className="mt-2 mb-5 max-w-xl text-[12.5px] leading-relaxed sm:text-[13px]"
-                        style={{ color: BODY }}
-                    >
-                        Dedicated VAT operations that keep your clients compliant and
-                        audit-ready.
-                    </p>
-                </div>
+                            <p
+                                className="mt-2 mb-5 max-w-xl text-[12.5px] leading-relaxed sm:text-[13px]"
+                                style={{ color: BODY }}
+                            >
+                                {servicesSubtitle}
+                            </p>
+                        </div>
 
-                <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-3.5">
-                    {serviceCards.map((card) => (
-                        <ServiceCard key={card.title} {...card} />
-                    ))}
-                </div>
+                        <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-3.5">
+                            {serviceCards.map((card) => (
+                                <ServiceCard key={card.title} {...card} />
+                            ))}
+                        </div>
+                    </>
+                ) : null}
             </div>
         </section>
     );

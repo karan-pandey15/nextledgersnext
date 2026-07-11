@@ -1,9 +1,9 @@
-import Link from "next/link";
 import { Calendar, Play } from "lucide-react";
+import CtaButton from "@/app/components/ui/CtaButton";
 import TrustBadgesBar from "./TrustBadgesBar";
 
 /**
- * ServiceHomePage — reusable UK hero.
+ * ServiceHomePage — reusable regional hero.
  * Defaults are UK hub copy (all services). Pass props to customise per page.
  */
 
@@ -18,20 +18,27 @@ export default function ServiceHomePage({
     secondaryHref = "#services",
     primaryLabel = "Book a Discovery Call",
     secondaryLabel = "Explore Our Services",
+    badges,
 }) {
     return (
-        <section className="relative w-full overflow-hidden bg-gradient-to-br from-[#25404B] via-[#537E91] to-[#537E91] px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+        <section
+            className="relative w-full overflow-hidden px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12"
+            style={{
+                background:
+                    "linear-gradient(165deg, #FFFFFF 0%, #FFF9F5 42%, #FFF4EA 100%)",
+            }}
+        >
             <div
-                className="pointer-events-none absolute inset-0 opacity-[0.45]"
+                className="pointer-events-none absolute inset-0 opacity-[0.55]"
                 style={{
                     backgroundImage:
-                        "radial-gradient(rgba(15,23,42,0.06) 1px, transparent 1px)",
-                    backgroundSize: "16px 16px",
+                        "radial-gradient(rgba(245,130,32,0.18) 1px, transparent 1px)",
+                    backgroundSize: "18px 18px",
                 }}
             />
-            <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-[#F58220]/12 blur-3xl" />
-            <div className="pointer-events-none absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-slate-400/20 blur-3xl" />
-            <div className="pointer-events-none absolute left-1/2 top-1/3 h-40 w-40 -translate-x-1/2 rounded-full bg-white/50 blur-2xl" />
+            <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-[#F58220]/15 blur-3xl" />
+            <div className="pointer-events-none absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-[#0B1F3A]/06 blur-3xl" />
+            <div className="pointer-events-none absolute left-1/2 top-1/3 h-40 w-40 -translate-x-1/2 rounded-full bg-[#F58220]/10 blur-2xl" />
 
             <div className="relative mx-auto flex w-full max-w-5xl flex-col justify-center">
                 <div className="flex flex-col items-center px-2 text-center">
@@ -57,24 +64,18 @@ export default function ServiceHomePage({
                     <div className="my-3 h-[3px] w-10 rounded-full bg-[#F58220]" />
 
                     <div className="flex w-full max-w-[280px] flex-col items-stretch justify-center gap-2.5 sm:w-auto sm:max-w-none sm:flex-row sm:items-center sm:gap-3">
-                        <Link
-                            href={primaryHref}
-                            className="inline-flex items-center justify-center gap-1.5 rounded-md bg-[#F58220] px-4 py-2.5 text-[13px] font-semibold text-white shadow-md shadow-orange-500/25 transition-colors hover:bg-[#e2761b] sm:whitespace-nowrap sm:py-2"
-                        >
+                        <CtaButton href={primaryHref} variant="primary" size="sm">
                             <Calendar className="h-3.5 w-3.5 shrink-0" />
                             {primaryLabel}
-                        </Link>
-                        <a
-                            href={secondaryHref}
-                            className="inline-flex items-center justify-center gap-1.5 rounded-md border border-slate-300 bg-white/80 px-4 py-2.5 text-[13px] font-semibold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-white sm:whitespace-nowrap sm:py-2"
-                        >
+                        </CtaButton>
+                        <CtaButton href={secondaryHref} variant="ghost" size="sm">
                             <Play className="h-3 w-3 shrink-0 fill-slate-700" />
                             {secondaryLabel}
-                        </a>
+                        </CtaButton>
                     </div>
                 </div>
 
-                <TrustBadgesBar />
+                <TrustBadgesBar badges={badges} />
             </div>
         </section>
     );

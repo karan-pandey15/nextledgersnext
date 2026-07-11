@@ -1,41 +1,34 @@
-export default function Button({ text, onClick, className = "" }) {
-  return (
-    <>
-      <style>{`
-        .btn-orange {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          padding: 12px 32px;
-          border-radius: 12px;
-          border: 2px solid #F58220;
-          background-color: #ffffff;
-          color: #F58220;
-          font-weight: 600;
-          font-size: 16px;
-          letter-spacing: 0.025em;
-          cursor: pointer;
-          transition: background-color 0.3s ease, color 0.3s ease, transform 0.15s ease;
-        }
+"use client";
 
-        .btn-orange:hover {
-          background-color: #F58220;
-          color: #ffffff;
-        }
+import { useRouter } from "next/navigation";
+import { ctaClassName } from "@/app/components/ui/CtaButton";
 
-        .btn-orange:active {
-          transform: scale(0.97);
-        }
+/**
+ * Primary CTA used in navbars — same hover/active/focus as page CTAs.
+ */
+export default function Button({
+    text,
+    onClick,
+    className = "",
+    href = "/contact",
+}) {
+    const router = useRouter();
 
-        .btn-orange:focus-visible {
-          outline: 2px solid #F58220;
-          outline-offset: 3px;
+    const handleClick = (e) => {
+        if (onClick) {
+            onClick(e);
+            return;
         }
-      `}</style>
+        router.push(href);
+    };
 
-      <button onClick={onClick} className={`btn-orange ${className}`}>
-        {text}
-      </button>
-    </>
-  );
+    return (
+        <button
+            type="button"
+            onClick={handleClick}
+            className={ctaClassName("primary", "sm", `font-extrabold tracking-wider ${className}`)}
+        >
+            {text}
+        </button>
+    );
 }

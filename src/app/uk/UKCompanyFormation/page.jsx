@@ -40,6 +40,7 @@ import {
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import CtaButton from "@/app/components/ui/CtaButton";
 import IconDisplayScreen from "@/app/components/ServiceMainPageContent/IcondisplayScreen";
 import TrustBadgesBar from "@/app/components/ServiceMainPageContent/TrustBadgesBar";
 import TransformCTA from "@/app/components/HomeImpact/TransformCTA";
@@ -430,20 +431,14 @@ export default function UKCompanyFormation() {
                         <div className="my-3 h-[3px] w-10 rounded-full bg-[#F58220]" />
 
                         <div className="flex w-full max-w-xs flex-col items-stretch justify-center gap-2.5 sm:w-auto sm:flex-row sm:items-center sm:gap-3">
-                            <Link
-                                href="/contact"
-                                className="inline-flex items-center justify-center gap-1.5 rounded-md bg-[#F58220] px-4 py-2.5 text-[13px] font-semibold text-white shadow-md shadow-orange-500/25 transition-colors hover:bg-[#e2761b] sm:whitespace-nowrap sm:py-2"
-                            >
+                            <CtaButton href="/contact" variant="primary" size="sm">
                                 <Calendar className="h-3.5 w-3.5 shrink-0" />
                                 Book a Discovery Call
-                            </Link>
-                            <a
-                                href="#how-we-work"
-                                className="inline-flex items-center justify-center gap-1.5 rounded-md border border-slate-300 bg-white/80 px-4 py-2.5 text-[13px] font-semibold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-white sm:whitespace-nowrap sm:py-2"
-                            >
+                            </CtaButton>
+                            <CtaButton href="#how-we-work" variant="ghost" size="sm">
                                 <Play className="h-3 w-3 shrink-0 fill-slate-700" />
                                 How We Work
-                            </a>
+                            </CtaButton>
                         </div>
                     </div>
                     <TrustBadgesBar badges={trustBadges} />
@@ -491,13 +486,10 @@ export default function UKCompanyFormation() {
                                 without increasing internal staffing costs.
                             </p>
 
-                            <Link
-                                href="/contact"
-                                className="inline-flex items-center gap-2 rounded-full bg-[#F58220] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#e2761b]"
-                            >
-                                <span className="text-base leading-none">📞</span>
+                            <CtaButton href="/contact" variant="primary" size="md">
+                                <Phone className="h-4 w-4" strokeWidth={2.25} />
                                 Book a Discovery Call
-                            </Link>
+                            </CtaButton>
                         </div>
 
                         <div className="relative">

@@ -4,17 +4,17 @@ import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 import { usePathname } from "next/navigation";
-import { UK_SERVICE_LINKS } from "@/app/uk/ukServiceLinks";
+import { USA_SERVICE_LINKS } from "@/app/usa/usaServiceLinks";
 
-const UK_NAV_LINKS = [
+const USA_NAV_LINKS = [
   { id: "home", label: "Home", href: "/" },
   { id: "about", label: "About Us", href: "/about" },
   {
     id: "services",
     label: "Services",
-    href: "/uk#services",
+    href: "/usa#services",
     hasDropdown: true,
-    dropdownItems: UK_SERVICE_LINKS,
+    dropdownItems: USA_SERVICE_LINKS,
   },
   { id: "tools", label: "Tools", href: "/tools" },
   { id: "pricing", label: "Pricing", href: "/pricing" },
@@ -24,13 +24,12 @@ const UK_NAV_LINKS = [
   { id: "free-trial", label: "Free Trial", href: "/free-trial" },
 ];
 
-export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
+export default function USANavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [expandedMobileMenus, setExpandedMobileMenus] = useState({});
   const timeoutRef = useRef(null);
   const pathname = usePathname();
 
-  // Lock body scroll when mobile sidebar is open
   useEffect(() => {
     if (isSidebarOpen) {
       document.body.style.overflow = "hidden";
@@ -68,10 +67,12 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
     }));
   };
 
+  const isUsaHome = pathname === "/usa" || pathname === "/usa/";
+
   return (
     <header className="w-full bg-white border-b border-gray-100 sticky top-0 z-40">
       <style>{`
-        @keyframes ukNavDropdownSlideIn {
+        @keyframes usaNavDropdownSlideIn {
           from {
             opacity: 0;
             transform: translateY(12px) scale(0.97);
@@ -81,13 +82,13 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
             transform: translateY(0) scale(1);
           }
         }
-        .animate-uk-nav-dropdown {
-          animation: ukNavDropdownSlideIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        .animate-usa-nav-dropdown {
+          animation: usaNavDropdownSlideIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-        .uk-no-scrollbar::-webkit-scrollbar {
+        .usa-no-scrollbar::-webkit-scrollbar {
           display: none;
         }
-        .uk-no-scrollbar {
+        .usa-no-scrollbar {
           -ms-overflow-style: none;
           scrollbar-width: none;
         }
@@ -95,7 +96,6 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
 
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 lg:h-[68px]">
-          {/* Logo */}
           <div className="flex-shrink-0 flex items-center -ml-2 sm:-ml-4 lg:-ml-6">
             <Link href="/" className="flex items-center group">
               <img
@@ -106,9 +106,8 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
             </Link>
           </div>
 
-          {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center space-x-0.5 xl:space-x-1">
-            {UK_NAV_LINKS.map((link) => {
+            {USA_NAV_LINKS.map((link) => {
               const isOpen = activeDropdown === link.id;
 
               if (link.hasDropdown) {
@@ -142,41 +141,46 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
                       </svg>
                     </button>
 
-                    {/* Dropdown */}
                     {isOpen && (
                       <div
-                        className="absolute left-0 mt-2 w-[380px] origin-top-left rounded-[20px] bg-white border border-gray-100 p-4 shadow-[0_12px_45px_rgba(0,0,0,0.08)] z-50 animate-uk-nav-dropdown"
+                        className="absolute left-0 mt-2 w-[380px] origin-top-left rounded-[20px] bg-white border border-gray-100 p-4 shadow-[0_12px_45px_rgba(0,0,0,0.08)] z-50 animate-usa-nav-dropdown"
                         onMouseEnter={() => handleMouseEnter(link.id)}
                         onMouseLeave={() => handleMouseLeave(link.id)}
                       >
                         <div className="flex flex-col gap-0.5">
-                          {/* Back To UK Action Header */}
-                          {pathname !== "/uk" && pathname !== "/uk/" && (
+                          {!isUsaHome && (
                             <Link
-                              href="/uk"
+                              href="/usa"
                               className="group flex items-center gap-2.5 p-2.5 mb-2 rounded-xl bg-[#F58220]/5 hover:bg-[#F58220]/10 border border-[#F58220]/20 transition-all duration-200 text-left"
                             >
-                              <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag" className="w-7 h-[18px] object-cover flex-shrink-0 rounded-xs" />
+                              <img
+                                src="https://flagcdn.com/w40/us.png"
+                                alt="USA Flag"
+                                className="w-7 h-[18px] object-cover flex-shrink-0 rounded-xs"
+                              />
                               <span className="text-[13px] font-extrabold text-[#F58220]">
-                                Back To UK
+                                Back To USA
                               </span>
                             </Link>
                           )}
 
-                          {link.dropdownItems.map((item, idx) => (
+                          {link.dropdownItems.map((item, idx) => {
+                            const Icon = item.icon;
+                            return (
                             <Link
                               key={idx}
                               href={item.href}
                               className="group flex items-center gap-3 p-2.5 rounded-xl transition-all duration-200 hover:bg-[#F58220]/5 border-l-2 border-transparent hover:border-[#F58220]/40 text-left"
                             >
-                              <span className="text-lg flex-shrink-0 transition-transform duration-200 group-hover:scale-110">
-                                {item.icon}
+                              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#F58220] transition-transform duration-200 group-hover:scale-110">
+                                <Icon className="h-4 w-4" strokeWidth={2} />
                               </span>
                               <span className="text-[13px] font-bold text-[#1E1B2A]/90 transition-colors duration-200 group-hover:text-[#F58220] leading-snug">
                                 {item.label}
                               </span>
                             </Link>
-                          ))}
+                            );
+                          })}
                         </div>
                       </div>
                     )}
@@ -196,12 +200,13 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
             })}
           </nav>
 
-          {/* BOOK A CALL Button (Desktop) */}
           <div className="hidden lg:flex items-center">
-            <Button text="BOOK A CALL" className="!py-2 !px-6 !text-[13px] !font-extrabold !tracking-wider" />
+            <Button
+              text="BOOK A CALL"
+              className="!py-2 !px-6 !text-[13px] !font-extrabold !tracking-wider"
+            />
           </div>
 
-          {/* Hamburger (Mobile) */}
           <div className="flex lg:hidden items-center">
             <button
               onClick={() => setIsSidebarOpen(true)}
@@ -216,25 +221,21 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
         </div>
       </div>
 
-      {/* Mobile Drawer Sidebar */}
       <div
         className={`fixed inset-0 z-50 lg:hidden transition-opacity duration-300 ${
           isSidebarOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       >
-        {/* Dark Backdrop */}
         <div
           className="absolute inset-0 bg-black/40 backdrop-blur-xs transition-opacity duration-300"
           onClick={() => setIsSidebarOpen(false)}
         />
 
-        {/* Sidebar Panel */}
         <div
           className={`absolute inset-y-0 left-0 w-[300px] bg-white shadow-2xl p-6 flex flex-col gap-5 transform transition-transform duration-300 ease-out ${
             isSidebarOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
-          {/* Logo & Close */}
           <div className="flex items-center justify-between">
             <img
               src="/images/nextledgerlogo3.png"
@@ -254,9 +255,8 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
 
           <div className="border-b border-[#F58220]/20 w-full" />
 
-          {/* Mobile Nav Links */}
-          <nav className="flex-1 flex flex-col gap-2 overflow-y-auto pr-1 uk-no-scrollbar">
-            {UK_NAV_LINKS.map((link) => {
+          <nav className="flex-1 flex flex-col gap-2 overflow-y-auto pr-1 usa-no-scrollbar">
+            {USA_NAV_LINKS.map((link) => {
               const isExpanded = !!expandedMobileMenus[link.id];
 
               if (link.hasDropdown) {
@@ -278,39 +278,48 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
                       )}
                     </button>
 
-                    <div className={`grid transition-all duration-300 ease-in-out ${
-                      isExpanded
-                        ? "grid-rows-[1fr] opacity-100 mt-1"
-                        : "grid-rows-[0fr] opacity-0 pointer-events-none"
-                    }`}>
+                    <div
+                      className={`grid transition-all duration-300 ease-in-out ${
+                        isExpanded
+                          ? "grid-rows-[1fr] opacity-100 mt-1"
+                          : "grid-rows-[0fr] opacity-0 pointer-events-none"
+                      }`}
+                    >
                       <div className="overflow-hidden">
                         <div className="bg-[#F58220]/2 border border-[#F58220]/5 rounded-[18px] p-3 flex flex-col gap-1 mx-2">
-                          {pathname !== "/uk" && pathname !== "/uk/" && (
+                          {!isUsaHome && (
                             <Link
-                              href="/uk"
+                              href="/usa"
                               onClick={() => setIsSidebarOpen(false)}
                               className="flex items-center gap-2.5 p-2.5 mb-1.5 rounded-xl bg-[#F58220]/10 border border-[#F58220]/20 text-[#F58220] transition-colors"
                             >
-                              <img src="https://flagcdn.com/w40/gb.png" alt="UK Flag" className="w-7 h-[18px] object-cover flex-shrink-0 rounded-xs" />
-                              <span className="text-xs font-black">
-                                Back To UK
-                              </span>
+                              <img
+                                src="https://flagcdn.com/w40/us.png"
+                                alt="USA Flag"
+                                className="w-7 h-[18px] object-cover flex-shrink-0 rounded-xs"
+                              />
+                              <span className="text-xs font-black">Back To USA</span>
                             </Link>
                           )}
 
-                          {link.dropdownItems.map((item, idx) => (
+                          {link.dropdownItems.map((item, idx) => {
+                            const Icon = item.icon;
+                            return (
                             <Link
                               key={idx}
                               href={item.href}
                               onClick={() => setIsSidebarOpen(false)}
                               className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-[#F58220]/4 transition-colors"
                             >
-                              <span className="text-base flex-shrink-0">{item.icon}</span>
+                              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#F58220]">
+                                <Icon className="h-3.5 w-3.5" strokeWidth={2} />
+                              </span>
                               <span className="text-xs font-bold text-[#1E1B2A]/90">
                                 {item.label}
                               </span>
                             </Link>
-                          ))}
+                            );
+                          })}
                         </div>
                       </div>
                     </div>
@@ -330,9 +339,11 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
               );
             })}
 
-            {/* Mobile CTA */}
             <div className="pt-3 px-2">
-              <Button text="BOOK A CALL" className="!w-full !py-3 !text-sm !font-extrabold" />
+              <Button
+                text="BOOK A CALL"
+                className="!w-full !py-3 !text-sm !font-extrabold"
+              />
             </div>
           </nav>
         </div>

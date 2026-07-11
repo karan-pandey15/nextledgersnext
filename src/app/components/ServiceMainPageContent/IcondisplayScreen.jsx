@@ -89,6 +89,12 @@ export const LOGO_MAP = {
     "syft analytics": "/images/logooUK/SyftAnalytics.png",
     "power bi": "/images/logooUK/Powerlogo.png",
     "google looker studio": "/images/logooUK/Google_Looker.png",
+    "zoho books": "/images/logooUK/SVG_Brand_zoho_corporation.webp",
+    zoho: "/images/logooUK/SVG_Brand_zoho_corporation.webp",
+    freshbooks: "/images/logooUK/freshbooks.png",
+    "wave accounting": "/images/logooUK/Wave_id.jpeg",
+    wave: "/images/logooUK/Wave_id.jpeg",
+    gusto: "/images/logooUK/Gusto.png",
 };
 
 const CATEGORY_ICONS = {
@@ -322,7 +328,7 @@ export default function IconDisplayScreen({
 
     return (
         <section
-            className={`w-full bg-white px-4 py-12 sm:px-6 sm:py-14 lg:px-8 lg:py-16 ${className}`}
+            className={`w-full bg-white px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12 ${className}`}
         >
             <div className="mx-auto w-full max-w-5xl">
                 <div className="mb-5 text-center sm:mb-6">

@@ -24,16 +24,16 @@ const ORANGE = "#F58220";
 const HEADING = "#1F2937";
 const BODY = "#6B7280";
 const CARD_BORDER = "#F3E4D4";
-const PAGE_BG = "#FAFAF8";
+const PAGE_BG = "#FFF9F5";
 
-const trustItems = [
+const DEFAULT_TRUST_ITEMS = [
     { icon: ShieldCheck, label: "HMRC Compliant" },
     { icon: Lock, label: "Secure & Confidential" },
     { icon: Clock, label: "UK Time Zone Overlap" },
     { icon: Users, label: "Experienced Offshore Team" },
 ];
 
-const benefits = [
+const DEFAULT_BENEFITS = [
     {
         icon: FileSearch,
         title: "Understand Position",
@@ -118,7 +118,6 @@ function BenefitCard({ icon: Icon, title, description }) {
                 boxShadow: "0 2px 10px rgba(0,0,0,0.04)",
             }}
         >
-            {/* Icon — no number badge */}
             <span
                 className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl"
                 style={{ background: "#FFF7F0", color: ORANGE }}
@@ -133,12 +132,14 @@ function BenefitCard({ icon: Icon, title, description }) {
                 >
                     {title}
                 </h4>
-                <p
-                    className="mt-1 text-[11.5px] leading-[1.45] sm:text-[12px]"
-                    style={{ color: BODY }}
-                >
-                    {description}
-                </p>
+                {description ? (
+                    <p
+                        className="mt-1 text-[11.5px] leading-[1.45] sm:text-[12px]"
+                        style={{ color: BODY }}
+                    >
+                        {description}
+                    </p>
+                ) : null}
             </div>
 
             <ChevronRight
@@ -150,13 +151,33 @@ function BenefitCard({ icon: Icon, title, description }) {
     );
 }
 
-export default function BookKeepingMatters() {
+/**
+ * Why bookkeeping matters — reusable. Defaults keep UK page unchanged.
+ */
+export default function BookKeepingMatters({
+    eyebrow = "Financial Foundations",
+    titleBefore = "Why Accurate ",
+    titleAccent = "Bookkeeping Matters",
+    titleAfter = "",
+    intro = "Bookkeeping is much more than recording transactions. It forms the foundation of every financial report, tax return, and business decision.",
+    helpLabelBefore = "Maintaining ",
+    helpLabelAccent = "accurate books",
+    helpLabelAfter = " helps businesses:",
+    imageSrc = "/images/ukPageImg/bookkeepingimage.png",
+    imageAlt = "Laptop with financial dashboard, calculator and plant",
+    trustItems = DEFAULT_TRUST_ITEMS,
+    trustFooterBefore = "Built for Accounting Firms. ",
+    trustFooterAccent = "Trusted by Professionals.",
+    benefits = DEFAULT_BENEFITS,
+    bannerTitleBefore = "Accurate books. Better insights. ",
+    bannerTitleAccent = "Stronger outcomes.",
+    bannerBody = "A solid bookkeeping foundation empowers accounting firms to deliver more value, ensure compliance, and drive growth for their clients.",
+}) {
     return (
         <section
             className="relative w-full overflow-hidden px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14"
             style={{ background: PAGE_BG }}
         >
-            {/* Soft atmosphere */}
             <div
                 className="pointer-events-none absolute -left-16 top-0 h-64 w-64 rounded-full blur-3xl"
                 style={{ background: "rgba(245,130,32,0.10)" }}
@@ -189,13 +210,11 @@ export default function BookKeepingMatters() {
             </div>
 
             <div className="relative mx-auto w-full max-w-6xl">
-                {/* ── Header: image | title | trust card ───────────────────── */}
                 <div className="mb-7 grid grid-cols-1 items-center gap-6 lg:mb-8 lg:grid-cols-[200px_1fr_240px] lg:gap-7 xl:grid-cols-[220px_1fr_250px]">
-                    {/* Left image */}
                     <div className="mx-auto w-full max-w-[220px] lg:mx-0 lg:max-w-none">
                         <Image
-                            src="/images/ukPageImg/bookkeepingimage.png"
-                            alt="Laptop with financial dashboard, calculator and plant"
+                            src={imageSrc}
+                            alt={imageAlt}
                             width={440}
                             height={360}
                             className="h-auto w-full object-contain"
@@ -203,31 +222,29 @@ export default function BookKeepingMatters() {
                         />
                     </div>
 
-                    {/* Centre title */}
                     <div className="text-center">
                         <span
                             className="mb-3 inline-flex items-center gap-1.5 rounded-full px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.14em]"
                             style={{ background: "#FFF4EA", color: ORANGE }}
                         >
                             <Sparkles className="h-3 w-3" strokeWidth={2.5} />
-                            Financial Foundations
+                            {eyebrow}
                         </span>
 
                         <h2
                             className="text-[22px] font-extrabold leading-tight sm:text-[26px] lg:text-[28px]"
                             style={{ color: HEADING }}
                         >
-                            Why Accurate{" "}
-                            <span style={{ color: ORANGE }}>Bookkeeping Matters</span>
+                            {titleBefore}
+                            <span style={{ color: ORANGE }}>{titleAccent}</span>
+                            {titleAfter}
                         </h2>
 
                         <p
                             className="mx-auto mt-2.5 max-w-md text-[12.5px] leading-relaxed sm:text-[13px]"
                             style={{ color: BODY }}
                         >
-                            Bookkeeping is much more than recording transactions. It forms
-                            the foundation of every financial report, tax return, and
-                            business decision.
+                            {intro}
                         </p>
 
                         <div
@@ -239,13 +256,12 @@ export default function BookKeepingMatters() {
                             className="text-[13px] font-bold sm:text-[13.5px]"
                             style={{ color: HEADING }}
                         >
-                            Maintaining{" "}
-                            <span style={{ color: ORANGE }}>accurate books</span> helps
-                            businesses:
+                            {helpLabelBefore}
+                            <span style={{ color: ORANGE }}>{helpLabelAccent}</span>
+                            {helpLabelAfter}
                         </p>
                     </div>
 
-                    {/* Right trust card */}
                     <div
                         className="overflow-hidden rounded-[14px] border bg-white"
                         style={{
@@ -263,20 +279,18 @@ export default function BookKeepingMatters() {
                             className="px-3.5 py-2.5 text-center text-[11px] font-semibold leading-snug sm:px-4"
                             style={{ background: "#FFF4EA", color: HEADING }}
                         >
-                            Built for Accounting Firms.{" "}
-                            <span style={{ color: ORANGE }}>Trusted by Professionals.</span>
+                            {trustFooterBefore}
+                            <span style={{ color: ORANGE }}>{trustFooterAccent}</span>
                         </div>
                     </div>
                 </div>
 
-                {/* ── 3×3 benefit cards — no 01/02 numbers ─────────────────── */}
                 <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 lg:gap-4">
                     {benefits.map((b) => (
                         <BenefitCard key={b.title} {...b} />
                     ))}
                 </div>
 
-                {/* ── Footer banner ────────────────────────────────────────── */}
                 <div
                     className="mt-7 flex flex-col items-center gap-4 rounded-2xl px-5 py-5 sm:mt-8 sm:flex-row sm:gap-5 sm:px-7 sm:py-5"
                     style={{
@@ -296,8 +310,8 @@ export default function BookKeepingMatters() {
                             className="text-[15px] font-extrabold leading-snug sm:text-[16px]"
                             style={{ color: HEADING }}
                         >
-                            Accurate books. Better insights.{" "}
-                            <span style={{ color: ORANGE }}>Stronger outcomes.</span>
+                            {bannerTitleBefore}
+                            <span style={{ color: ORANGE }}>{bannerTitleAccent}</span>
                         </p>
                     </div>
 
@@ -310,11 +324,9 @@ export default function BookKeepingMatters() {
                         className="flex-1 text-center text-[12px] leading-relaxed sm:text-left sm:text-[12.5px]"
                         style={{ color: "#4B5563" }}
                     >
-                        A solid bookkeeping foundation empowers accounting firms to deliver
-                        more value, ensure compliance, and drive growth for their clients.
+                        {bannerBody}
                     </p>
 
-                    {/* Rising chart graphic */}
                     <svg
                         className="hidden shrink-0 sm:block"
                         width="72"

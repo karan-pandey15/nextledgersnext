@@ -584,7 +584,7 @@ export default function UKServicesContent({ serviceSlug }) {
                   <Button
                     text="Book a Discovery Call"
                     onClick={() => window.location.href = "/contact"}
-                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto whitespace-nowrap !py-2.5 !px-6 !text-xs sm:!text-[14px] !font-extrabold !rounded-full uppercase tracking-wider shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
+                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto"
                   />
                 </div>
               </div>
@@ -640,7 +640,7 @@ export default function UKServicesContent({ serviceSlug }) {
                   <Button
                     text="Book a Discovery Call"
                     onClick={() => window.location.href = "/contact"}
-                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto whitespace-nowrap !py-2.5 !px-6 !text-xs sm:!text-[14px] !font-bold !rounded-xl shadow-sm hover:shadow-md"
+                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto"
                   />
                 </div>
               </div>
@@ -990,7 +990,7 @@ export default function UKServicesContent({ serviceSlug }) {
                   <Button
                     text="Book a Discovery Call"
                     onClick={() => window.location.href = "/contact"}
-                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto whitespace-nowrap !py-2.5 !px-6 !text-xs sm:!text-[14px] !font-extrabold !rounded-full uppercase tracking-wider shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
+                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto"
                   />
                 </div>
               </div>
@@ -1048,7 +1048,7 @@ export default function UKServicesContent({ serviceSlug }) {
                   <Button
                     text="Get Started Today"
                     onClick={() => window.location.href = "/contact"}
-                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto whitespace-nowrap !py-2.5 !px-6 !text-xs sm:!text-[14px] !font-bold !rounded-xl shadow-sm hover:shadow-md"
+                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto"
                   />
                 </div>
               </div>
@@ -1376,12 +1376,12 @@ export default function UKServicesContent({ serviceSlug }) {
                   <Button
                     text="Book a Discovery Call"
                     onClick={() => window.location.href = "/contact"}
-                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto whitespace-nowrap !py-2.5 !px-6 !text-xs sm:!text-[14px] !font-extrabold !rounded-full uppercase tracking-wider shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
+                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto"
                   />
                   <Button
                     text="Request a Proposal"
                     onClick={() => window.location.href = "/contact"}
-                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto whitespace-nowrap !py-2.5 !px-6 !text-xs sm:!text-[14px] !font-extrabold !rounded-full uppercase tracking-wider shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
+                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto"
                   />
                 </div>
               </div>
@@ -1439,7 +1439,7 @@ export default function UKServicesContent({ serviceSlug }) {
                   <Button
                     text="Book a Discovery Call"
                     onClick={() => window.location.href = "/contact"}
-                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto whitespace-nowrap !py-2.5 !px-6 !text-xs sm:!text-[14px] !font-bold !rounded-xl shadow-sm hover:shadow-md"
+                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto"
                   />
                 </div>
               </div>
@@ -1528,7 +1528,7 @@ export default function UKServicesContent({ serviceSlug }) {
                   <Button
                     text="Request a Proposal"
                     onClick={() => window.location.href = "/contact"}
-                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto whitespace-nowrap !py-2.5 !px-6 !text-xs sm:!text-[14px] !font-bold !rounded-xl shadow-sm hover:shadow-md"
+                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto"
                   />
                 </div>
               </div>
@@ -1768,12 +1768,12 @@ export default function UKServicesContent({ serviceSlug }) {
                   <Button
                     text="Book a Discovery Call"
                     onClick={() => window.location.href = "/contact"}
-                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto whitespace-nowrap !py-2.5 !px-6 !text-xs sm:!text-[14px] !font-extrabold !rounded-full uppercase tracking-wider shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
+                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto"
                   />
                   <Button
                     text="Request a Proposal"
                     onClick={() => window.location.href = "/contact"}
-                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto whitespace-nowrap !py-2.5 !px-6 !text-xs sm:!text-[14px] !font-extrabold !rounded-full uppercase tracking-wider shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
+                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto"
                   />
                 </div>
               </div>
@@ -1829,7 +1829,7 @@ export default function UKServicesContent({ serviceSlug }) {
                   <Button
                     text="Book a Discovery Call"
                     onClick={() => window.location.href = "/contact"}
-                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto whitespace-nowrap !py-2.5 !px-6 !text-xs sm:!text-[14px] !font-bold !rounded-xl shadow-sm hover:shadow-md"
+                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto"
                   />
                 </div>
               </div>
@@ -2176,7 +2176,7 @@ export default function UKServicesContent({ serviceSlug }) {
                   <Button
                     text="Book a Discovery Call"
                     onClick={() => window.location.href = "/contact"}
-                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto whitespace-nowrap !py-2.5 !px-6 !text-xs sm:!text-[14px] !font-extrabold !rounded-full uppercase tracking-wider shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
+                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto"
                   />
                 </div>
               </div>
@@ -2232,7 +2232,7 @@ export default function UKServicesContent({ serviceSlug }) {
                   <Button
                     text="Book a Discovery Call"
                     onClick={() => window.location.href = "/contact"}
-                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto whitespace-nowrap !py-2.5 !px-6 !text-xs sm:!text-[14px] !font-bold !rounded-xl shadow-sm hover:shadow-md"
+                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto"
                   />
                 </div>
               </div>
@@ -2640,7 +2640,7 @@ export default function UKServicesContent({ serviceSlug }) {
                   <Button
                     text="Book a Discovery Call"
                     onClick={() => window.location.href = "/contact"}
-                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto whitespace-nowrap !py-2.5 !px-6 !text-xs sm:!text-[14px] !font-extrabold !rounded-full uppercase tracking-wider shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
+                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto"
                   />
                 </div>
                 <p className="text-[10px] text-gray-500 leading-relaxed max-w-2xl mx-auto text-left sm:text-center mt-3 border-t border-gray-200/50 pt-3">
@@ -2699,7 +2699,7 @@ export default function UKServicesContent({ serviceSlug }) {
                   <Button
                     text="Book a Discovery Call"
                     onClick={() => window.location.href = "/contact"}
-                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto whitespace-nowrap !py-2.5 !px-6 !text-xs sm:!text-[14px] !font-bold !rounded-xl shadow-sm hover:shadow-md"
+                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto"
                   />
                 </div>
               </div>
@@ -3144,7 +3144,7 @@ export default function UKServicesContent({ serviceSlug }) {
                   <Button
                     text="Book a Discovery Call"
                     onClick={() => window.location.href = "/contact"}
-                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto whitespace-nowrap !py-2.5 !px-6 !text-xs sm:!text-[14px] !font-bold !rounded-xl shadow-sm hover:shadow-md"
+                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto"
                   />
                 </div>
               </div>
@@ -3521,12 +3521,12 @@ export default function UKServicesContent({ serviceSlug }) {
                   <Button
                     text="Book a Discovery Call"
                     onClick={() => window.location.href = "/contact"}
-                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto whitespace-nowrap !py-2.5 !px-6 !text-xs sm:!text-[14px] !font-extrabold !rounded-full uppercase tracking-wider shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
+                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto"
                   />
                   <Button
                     text="Request a Proposal"
                     onClick={() => window.location.href = "/contact"}
-                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto whitespace-nowrap !py-2.5 !px-6 !text-xs sm:!text-[14px] !font-extrabold !rounded-full uppercase tracking-wider shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
+                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto"
                   />
                 </div>
               </div>
