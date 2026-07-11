@@ -166,10 +166,16 @@ export default function TransformCTA({
                   />
                   <span className="relative z-10 inline-flex items-center gap-2">
                     {secondaryLabel}
-                    <Phone
-                      className="w-4 h-4 text-[#F58220] transition-colors duration-[400ms] group-hover:text-white"
-                      aria-hidden="true"
-                    />
+                    {String(secondaryHref).startsWith("tel:") ? (
+                      <Phone
+                        className="w-4 h-4 text-[#F58220] transition-colors duration-[400ms] group-hover:text-white"
+                        aria-hidden="true"
+                      />
+                    ) : (
+                      <span className="text-[15px] leading-none" aria-hidden="true">
+                        →
+                      </span>
+                    )}
                   </span>
                 </a>
               ) : null}

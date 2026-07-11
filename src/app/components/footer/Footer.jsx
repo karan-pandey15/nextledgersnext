@@ -4,23 +4,13 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import FooterGlobalMap from "./FooterGlobalMap";
+import { UK_SERVICE_LINKS } from "@/app/uk/ukServiceLinks";
 
 const ORANGE = "#F58220";
 const BG = "#0B1C33";
 
-const UK_SERVICES_LEFT = [
-  { label: "UK Bookkeeping Service", href: "/uk/uk-bookkeeping-service" },
-  { label: "VAT Service & Making Tax Digital (MTD)", href: "/uk/vat-service-making-tax-digital-mtd" },
-  { label: "Payroll & CIS Services", href: "/uk/payroll-cis-services" },
-  { label: "UK Business Advisory & Virtual CFO Services", href: "/uk/uk-business-advisory-virtual-cfo-services" },
-];
-
-const UK_SERVICES_RIGHT = [
-  { label: "Management Accounts & Financial Reporting", href: "/uk/management-accounts-financial-reporting" },
-  { label: "Year-End Accounts & Corporation Tax", href: "/uk/year-end-accounts-corporation-tax" },
-  { label: "Personal Tax Services", href: "/uk/personal-tax-services" },
-  { label: "UK Company Formation & Company Secretarial Services", href: "/uk/uk-company-formation-company-secretarial-services" },
-];
+const UK_SERVICES_LEFT = UK_SERVICE_LINKS.filter((_, i) => i % 2 === 0);
+const UK_SERVICES_RIGHT = UK_SERVICE_LINKS.filter((_, i) => i % 2 === 1);
 
 const QUICK_LINKS = [
   { label: "Home", href: "/" },

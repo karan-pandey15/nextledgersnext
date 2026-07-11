@@ -1,21 +1,22 @@
-import React from "react";
-import ServicePageClient from "./ServicePageClient";
+import { redirect } from "next/navigation";
+
+/** Old slug URLs → dedicated service page folders */
+const SLUG_REDIRECTS = {
+  "uk-bookkeeping-service": "/uk/UkBookkeeping",
+  "management-accounts-financial-reporting": "/uk/UkManagementAccounts",
+  "vat-service-making-tax-digital-mtd": "/uk/VatServiceuk",
+  "year-end-accounts-corporation-tax": "/uk/YearEndAccount",
+  "payroll-cis-services": "/uk/UKPayroll",
+  "personal-tax-services": "/uk/PersonalTax",
+  "uk-business-advisory-virtual-cfo-services": "/uk/UKBusinessAdvisory",
+  "uk-company-formation-company-secretarial-services": "/uk/UKCompanyFormation",
+};
 
 export default async function ServicePage({ params }) {
   const { serviceSlug } = await params;
-  return <ServicePageClient serviceSlug={serviceSlug} />;
+  redirect(SLUG_REDIRECTS[serviceSlug] || "/uk");
 }
 
-// Generate static params for prerendering all 8 dynamic pages at build time
 export function generateStaticParams() {
-  return [
-    { serviceSlug: "uk-bookkeeping-service" },
-    { serviceSlug: "management-accounts-financial-reporting" },
-    { serviceSlug: "vat-service-making-tax-digital-mtd" },
-    { serviceSlug: "year-end-accounts-corporation-tax" },
-    { serviceSlug: "payroll-cis-services" },
-    { serviceSlug: "personal-tax-services" },
-    { serviceSlug: "uk-business-advisory-virtual-cfo-services" },
-    { serviceSlug: "uk-company-formation-company-secretarial-services" }
-  ];
+  return Object.keys(SLUG_REDIRECTS).map((serviceSlug) => ({ serviceSlug }));
 }

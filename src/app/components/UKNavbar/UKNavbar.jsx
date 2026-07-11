@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 import { usePathname } from "next/navigation";
+import { UK_SERVICE_LINKS } from "@/app/uk/ukServiceLinks";
 
 const UK_NAV_LINKS = [
   { id: "home", label: "Home", href: "/" },
@@ -11,18 +12,9 @@ const UK_NAV_LINKS = [
   {
     id: "services",
     label: "Services",
-    href: "#services",
+    href: "/uk#services",
     hasDropdown: true,
-    dropdownItems: [
-      { label: "UK Bookkeeping Service", href: "/uk/uk-bookkeeping-service", icon: "📒" },
-      { label: "Management Accounts & Financial Reporting", href: "/uk/management-accounts-financial-reporting", icon: "📊" },
-      { label: "VAT Service & Making Tax Digital (MTD)", href: "/uk/vat-service-making-tax-digital-mtd", icon: "🧾" },
-      { label: "Year-End Accounts & Corporation Tax", href: "/uk/year-end-accounts-corporation-tax", icon: "📑" },
-      { label: "Payroll & CIS Services", href: "/uk/payroll-cis-services", icon: "💰" },
-      { label: "Personal Tax Services", href: "/uk/personal-tax-services", icon: "📋" },
-      { label: "UK Business Advisory & Virtual CFO Services", href: "/uk/uk-business-advisory-virtual-cfo-services", icon: "📈" },
-      { label: "UK Company Formation & Company Secretarial Services", href: "/uk/uk-company-formation-company-secretarial-services", icon: "🏢" },
-    ],
+    dropdownItems: UK_SERVICE_LINKS,
   },
   { id: "tools", label: "Tools", href: "/tools" },
   { id: "pricing", label: "Pricing", href: "/pricing" },

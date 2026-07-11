@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Phone, Mail, MapPin, Globe } from "lucide-react";
+import { UK_SERVICE_LINKS } from "@/app/uk/ukServiceLinks";
 
 // Paths for stylized world continents (semi-abstract tech style, scaled to 1000x500)
 const CONTINENT_PATHS = {
@@ -159,46 +160,16 @@ export default function FooterTwo() {
                             <span>🇬🇧</span> Our Services In UK
                         </h4>
                         <ul className="grid grid-cols-2 gap-x-4 gap-y-2.5 text-xs font-bold text-white/60">
-                            <li>
-                                <Link href="/uk/uk-bookkeeping-service" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    UK Bookkeeping Service
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/uk/management-accounts-financial-reporting" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    Management Accounts & Financial Reporting
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/uk/vat-service-making-tax-digital-mtd" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    VAT Service & Making Tax Digital (MTD)
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/uk/year-end-accounts-corporation-tax" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    Year-End Accounts & Corporation Tax
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/uk/payroll-cis-services" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    Payroll & CIS Services
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/uk/personal-tax-services" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    Personal Tax Services
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/uk/uk-business-advisory-virtual-cfo-services" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    UK Business Advisory & Virtual CFO Services
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/uk/uk-company-formation-company-secretarial-services" className="hover:text-[#F58220] transition-colors cursor-pointer block">
-                                    UK Company Formation & Company Secretarial Services
-                                </Link>
-                            </li>
+                            {UK_SERVICE_LINKS.map((service) => (
+                                <li key={service.href}>
+                                    <Link
+                                        href={service.href}
+                                        className="hover:text-[#F58220] transition-colors cursor-pointer block"
+                                    >
+                                        {service.label}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
