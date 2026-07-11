@@ -7,7 +7,7 @@ import RegionSelect from "../RegionSelect/RegionSelect";
 import NavIcon from "./NavIcon";
 import { NAVIGATION_LINKS } from "./navigationData";
 
-export default function Header({ isSidebarOpen = false, setIsSidebarOpen, onContactClick }) {
+export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
   const pathname = usePathname();
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [expandedMobileMenus, setExpandedMobileMenus] = useState({});
@@ -148,22 +148,43 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen, onCont
                         onMouseLeave={() => handleMouseLeave(link.id)}
                       >
                         <div className="flex flex-col gap-1">
-                          {link.dropdownItems.map((item, idx) => (
-                            <Link
-                              key={idx}
-                              href={item.href}
-                              className="group flex items-start gap-3.5 p-3 rounded-xl transition-all duration-200 hover:bg-[#F58220]/4 border-l-2 border-transparent hover:border-[#F58220]/40 text-left"
-                            >
-                              {/* Orange Icon Container */}
-                              <div className="text-[#F58220] flex-shrink-0 mt-0.5 transition-transform duration-200 group-hover:scale-110">
-                                <NavIcon name={item.icon} className="w-5 h-5" />
-                              </div>
-                              {/* Text Label */}
-                              <span className="text-sm font-bold text-[#1E1B2A]/90 transition-colors duration-200 group-hover:text-[#F58220] leading-snug">
-                                {item.label}
-                              </span>
-                            </Link>
-                          ))}
+                          {link.dropdownItems.map((item, idx) => {
+                            const itemClass =
+                              "group flex items-start gap-3.5 p-3 rounded-xl transition-all duration-200 hover:bg-[#F58220]/4 border-l-2 border-transparent hover:border-[#F58220]/40 text-left w-full";
+
+                            if (!item.href) {
+                              return (
+                                <button
+                                  key={idx}
+                                  type="button"
+                                  className={`${itemClass} cursor-default`}
+                                  onClick={(e) => e.preventDefault()}
+                                >
+                                  <div className="text-[#F58220] flex-shrink-0 mt-0.5 transition-transform duration-200 group-hover:scale-110">
+                                    <NavIcon name={item.icon} className="w-5 h-5" />
+                                  </div>
+                                  <span className="text-sm font-bold text-[#1E1B2A]/90 transition-colors duration-200 group-hover:text-[#F58220] leading-snug">
+                                    {item.label}
+                                  </span>
+                                </button>
+                              );
+                            }
+
+                            return (
+                              <Link
+                                key={idx}
+                                href={item.href}
+                                className={itemClass}
+                              >
+                                <div className="text-[#F58220] flex-shrink-0 mt-0.5 transition-transform duration-200 group-hover:scale-110">
+                                  <NavIcon name={item.icon} className="w-5 h-5" />
+                                </div>
+                                <span className="text-sm font-bold text-[#1E1B2A]/90 transition-colors duration-200 group-hover:text-[#F58220] leading-snug">
+                                  {item.label}
+                                </span>
+                              </Link>
+                            );
+                          })}
                         </div>
                       </div>
                     )}
@@ -171,20 +192,7 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen, onCont
                 );
               }
 
-              // Normal single links (Home, Contact)
-              if (link.id === "contact" && onContactClick) {
-                return (
-                  <button
-                    key={link.id}
-                    type="button"
-                    onClick={onContactClick}
-                    className={`${desktopLinkClass(link.href)} cursor-pointer focus:outline-none`}
-                  >
-                    <span>{link.label}</span>
-                  </button>
-                );
-              }
-
+              // Contact Us → contact page
               return (
                 <Link
                   key={link.id}
@@ -294,21 +302,41 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen, onCont
                     }`}>
                       <div className="overflow-hidden">
                         <div className="bg-[#F58220]/2 border border-[#F58220]/5 rounded-[18px] p-3 flex flex-col gap-1 mx-2">
-                          {link.dropdownItems.map((item, idx) => (
-                            <Link
-                              key={idx}
-                              href={item.href}
-                              onClick={() => setIsSidebarOpen(false)}
-                              className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#F58220]/4 transition-colors"
-                            >
-                              <div className="text-[#F58220] flex-shrink-0 mt-0.5">
-                                <NavIcon name={item.icon} className="w-4.5 h-4.5" />
-                              </div>
-                              <span className="text-xs font-bold text-[#1E1B2A]/90">
-                                {item.label}
-                              </span>
-                            </Link>
-                          ))}
+                          {link.dropdownItems.map((item, idx) => {
+                            if (!item.href) {
+                              return (
+                                <button
+                                  key={idx}
+                                  type="button"
+                                  className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#F58220]/4 transition-colors w-full text-left cursor-default"
+                                  onClick={(e) => e.preventDefault()}
+                                >
+                                  <div className="text-[#F58220] flex-shrink-0 mt-0.5">
+                                    <NavIcon name={item.icon} className="w-4.5 h-4.5" />
+                                  </div>
+                                  <span className="text-xs font-bold text-[#1E1B2A]/90">
+                                    {item.label}
+                                  </span>
+                                </button>
+                              );
+                            }
+
+                            return (
+                              <Link
+                                key={idx}
+                                href={item.href}
+                                onClick={() => setIsSidebarOpen(false)}
+                                className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#F58220]/4 transition-colors"
+                              >
+                                <div className="text-[#F58220] flex-shrink-0 mt-0.5">
+                                  <NavIcon name={item.icon} className="w-4.5 h-4.5" />
+                                </div>
+                                <span className="text-xs font-bold text-[#1E1B2A]/90">
+                                  {item.label}
+                                </span>
+                              </Link>
+                            );
+                          })}
                         </div>
                       </div>
                     </div>
@@ -316,24 +344,7 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen, onCont
                 );
               }
 
-              // Simple links (Home, Contact)
-              if (link.id === "contact" && onContactClick) {
-                return (
-                  <button
-                    key={link.id}
-                    type="button"
-                    onClick={() => {
-                      setIsSidebarOpen(false);
-                      onContactClick();
-                    }}
-                    className="flex items-center gap-2.5 px-4 py-3.5 rounded-xl font-bold text-sm text-[#F58220] hover:bg-[#F58220]/4 transition-all duration-200 cursor-pointer w-full text-left"
-                  >
-                    <NavIcon name={link.icon} className="w-4 h-4 text-[#F58220]" />
-                    <span>{link.label}</span>
-                  </button>
-                );
-              }
-
+              // Simple links (Home, About, Contact)
               return (
                 <Link
                   key={link.id}

@@ -36,25 +36,11 @@ const AI_MODELS = [
     url: "https://claude.ai/new",
   },
   {
-    name: "DeepSeek",
-    icon: "https://unpkg.com/@lobehub/icons-static-svg@latest/icons/deepseek.svg",
-    // DeepSeek Blue (#4D6BFE)
-    filter: "invert(40%) sepia(97%) saturate(3015%) hue-rotate(218deg) brightness(101%) contrast(101%)",
-    url: "https://chat.deepseek.com/",
-  },
-  {
     name: "Grok",
     icon: "https://unpkg.com/@lobehub/icons-static-svg@latest/icons/grok.svg",
     // Grok / X Black (#000000)
     filter: "none",
     url: "https://grok.com/",
-  },
-  {
-    name: "Copilot",
-    icon: "https://unpkg.com/@lobehub/icons-static-svg@latest/icons/copilot.svg",
-    // Copilot Blue (#0078D4)
-    filter: "invert(36%) sepia(82%) saturate(4649%) hue-rotate(193deg) brightness(93%) contrast(101%)",
-    url: `https://copilot.microsoft.com/?q=${encodeURIComponent(PROMPT)}`,
   },
 ];
 
@@ -62,8 +48,8 @@ export default function ArtificialIntelligence() {
   const [copiedFor, setCopiedFor] = useState("");
 
   const handleAiClick = (ai) => {
-    // Copy the custom prompt about Next Ledgers services to clipboard
-    navigator.clipboard.writeText(PROMPT)
+    navigator.clipboard
+      .writeText(PROMPT)
       .then(() => {
         setCopiedFor(ai.name);
         setTimeout(() => setCopiedFor(""), 3000);
@@ -72,47 +58,44 @@ export default function ArtificialIntelligence() {
         console.error("Failed to copy prompt to clipboard: ", err);
       });
 
-    // Open chat client in a new tab
     window.open(ai.url, "_blank", "noopener,noreferrer");
   };
 
   return (
-    <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50 flex flex-col items-end gap-3 pr-2">
-      {/* Floating dock using website brand color touches (orange border) and reduced sizing */}
-      <div className="flex flex-col gap-2 bg-white/95 backdrop-blur-md p-1.5 rounded-l-2xl border border-r-0 border-slate-200/80 shadow-[0_10px_30px_rgba(15,23,42,0.10)]">
+    <div className="fixed right-0 top-1/2 z-50 flex -translate-y-1/2 flex-col items-end gap-3 pr-2">
+      <div className="flex flex-col gap-2 rounded-l-2xl border border-r-0 border-slate-200/80 bg-white/95 p-1.5 shadow-[0_10px_30px_rgba(15,23,42,0.10)] backdrop-blur-md">
         {AI_MODELS.map((ai) => {
           const isCopied = copiedFor === ai.name;
 
           return (
             <button
               key={ai.name}
+              type="button"
               onClick={() => handleAiClick(ai)}
-              className="group relative w-[36px] h-[36px] flex items-center justify-center rounded-xl bg-white border border-slate-100 hover:border-[#F58220] hover:bg-[#FFF7F0] transition-all duration-300 shadow-sm hover:shadow-md"
+              className="group relative flex h-[36px] w-[36px] items-center justify-center rounded-xl border border-slate-100 bg-white shadow-sm transition-all duration-300 hover:border-[#F58220] hover:bg-[#FFF7F0] hover:shadow-md"
               aria-label={`Ask ${ai.name} about Next Ledgers`}
             >
-              {/* Tooltip — slate grey palette to match site */}
               <div
-                className={`absolute right-[48px] top-1/2 -translate-y-1/2 px-3 py-1.5 rounded-lg shadow-xl text-[11px] font-bold tracking-wide transition-all duration-300 pointer-events-none whitespace-nowrap flex items-center gap-1.5 border
-                  ${
-                    isCopied
-                      ? "bg-green-600 border-green-700 text-white opacity-100 scale-100 translate-x-0"
-                      : "bg-slate-700 border-slate-600 text-white opacity-0 scale-95 translate-x-2 group-hover:opacity-100 group-hover:scale-100 group-hover:translate-x-0"
-                  }`}
+                className={`pointer-events-none absolute right-[48px] top-1/2 flex -translate-y-1/2 items-center gap-1.5 whitespace-nowrap rounded-lg border px-3 py-1.5 text-[11px] font-bold tracking-wide shadow-xl transition-all duration-300 ${
+                  isCopied
+                    ? "translate-x-0 scale-100 border-green-700 bg-green-600 text-white opacity-100"
+                    : "translate-x-2 scale-95 border-slate-600 bg-slate-700 text-white opacity-0 group-hover:translate-x-0 group-hover:scale-100 group-hover:opacity-100"
+                }`}
               >
                 {isCopied ? (
                   <>
-                    <span className="text-[12px]">✓</span> Prompt Copied! Opening Chat...
+                    <span className="text-[12px]">✓</span> Prompt Copied! Opening
+                    Chat...
                   </>
                 ) : (
                   `Consult ${ai.name}`
                 )}
               </div>
 
-              {/* Real brand logo image colored dynamically using brand SVG filters (width reduced by 10%) */}
               <img
                 src={ai.icon}
                 alt={ai.name}
-                className="w-[18px] h-[18px] object-contain transition-all duration-300 group-hover:scale-110"
+                className="h-[18px] w-[18px] object-contain transition-all duration-300 group-hover:scale-110"
                 style={{ filter: ai.filter }}
               />
             </button>

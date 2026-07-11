@@ -365,14 +365,24 @@ export default function Footer({ onContactClick }) {
               </div>
             </div>
 
-            <button
-              type="button"
-              onClick={onContactClick}
-              className="mt-2 w-full sm:w-auto inline-flex items-center justify-center gap-2 h-11 px-5 rounded-[10px] bg-[#F58220] hover:bg-[#e57416] text-white text-[13px] font-bold cursor-pointer transition-colors shadow-[0_8px_20px_rgba(245,130,32,0.25)]"
-            >
-              <IconPhone className="w-4 h-4" />
-              Book a Free Consultation
-            </button>
+            {onContactClick ? (
+              <button
+                type="button"
+                onClick={onContactClick}
+                className="mt-2 w-full sm:w-auto inline-flex items-center justify-center gap-2 h-11 px-5 rounded-[10px] bg-[#F58220] hover:bg-[#e57416] text-white text-[13px] font-bold cursor-pointer transition-colors shadow-[0_8px_20px_rgba(245,130,32,0.25)]"
+              >
+                <IconPhone className="w-4 h-4" />
+                Book a Free Consultation
+              </button>
+            ) : (
+              <Link
+                href="/contact"
+                className="mt-2 w-full sm:w-auto inline-flex items-center justify-center gap-2 h-11 px-5 rounded-[10px] bg-[#F58220] hover:bg-[#e57416] text-white text-[13px] font-bold cursor-pointer transition-colors shadow-[0_8px_20px_rgba(245,130,32,0.25)]"
+              >
+                <IconPhone className="w-4 h-4" />
+                Book a Free Consultation
+              </Link>
+            )}
           </div>
 
           {/* Column 2 — UK Services */}
@@ -425,22 +435,12 @@ export default function Footer({ onContactClick }) {
               <ul className="space-y-2.5">
                 {QUICK_LINKS.map((link) => (
                   <li key={link.label}>
-                    {link.isContact && onContactClick ? (
-                      <button
-                        type="button"
-                        onClick={onContactClick}
-                        className="text-[13px] font-semibold text-white/75 hover:text-[#F58220] transition-colors cursor-pointer"
-                      >
-                        {link.label}
-                      </button>
-                    ) : (
-                      <Link
-                        href={link.href}
-                        className="text-[13px] font-semibold text-white/75 hover:text-[#F58220] transition-colors"
-                      >
-                        {link.label}
-                      </Link>
-                    )}
+                    <Link
+                      href={link.href}
+                      className="text-[13px] font-semibold text-white/75 hover:text-[#F58220] transition-colors"
+                    >
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>

@@ -1,3 +1,6 @@
+/**
+ * Home page navigation — USA/Canada dropdowns do not navigate yet (href: null).
+ */
 export const NAVIGATION_LINKS = [
   {
     id: "home",
@@ -14,58 +17,75 @@ export const NAVIGATION_LINKS = [
     hasDropdown: false,
   },
   {
-    id: "services",
-    label: "Services",
-    href: "/services",
-    icon: "briefcase",
+    id: "services-usa",
+    label: "Services In USA",
+    href: "#",
+    icon: "flag-usa",
     hasDropdown: true,
-    dropdownWidth: "w-[320px]",
+    dropdownWidth: "w-[380px]",
     dropdownItems: [
       {
-        label: "Bookkeeping Services",
-        href: "/services/bookkeeping",
+        label: "Self-Directed & Nonprofit Accounting Services",
+        href: null,
+        icon: "charity",
+      },
+      {
+        label: "Bookkeeping Services For U.S Businesses",
+        href: null,
         icon: "book",
       },
       {
-        label: "Tax Compliance & Filing",
-        href: "/services/tax",
+        label: "U.S Tax Preparation Services - USA",
+        href: null,
         icon: "tax",
       },
       {
-        label: "Payroll Management",
-        href: "/services/payroll",
+        label: "Accounts Payable Services & Receivable Services - USA",
+        href: null,
         icon: "card",
       },
       {
-        label: "Accounts & Reconciliations",
-        href: "/services/accounts",
-        icon: "document",
-      },
-      {
-        label: "Financial Reporting & Analysis",
-        href: "/services/reporting",
+        label:
+          "Year End Accounts Preparation, Strategic Advisory & CFO-Level-Services - USA",
+        href: null,
         icon: "chart",
-      },
-      {
-        label: "Virtual Staffing Solutions",
-        href: "/services/virtual-staffing",
-        icon: "users",
       },
     ],
   },
   {
-    id: "byot",
-    label: "BYOT",
-    href: "/byot",
-    icon: "building",
-    hasDropdown: false,
-  },
-  {
-    id: "careers",
-    label: "Careers",
-    href: "/careers",
-    icon: "users",
-    hasDropdown: false,
+    id: "services-canada",
+    label: "Services in Canada",
+    href: "#",
+    icon: "flag-canada",
+    hasDropdown: true,
+    dropdownWidth: "w-[340px]",
+    dropdownItems: [
+      {
+        label: "Compilation Engagement Services",
+        href: null,
+        icon: "document",
+      },
+      {
+        label: "Review Engagement Services",
+        href: null,
+        icon: "search",
+      },
+      {
+        label: "Bookkeeping Services For Canada Businesses",
+        href: null,
+        icon: "book-open",
+      },
+      {
+        label: "Investment Accounting Services in Canada",
+        href: null,
+        icon: "pie-chart",
+      },
+      {
+        label: "CA Tax Preparation Services",
+        href: null,
+        icon: "calculator",
+      },
+    ],
   },
   {
     id: "contact",
