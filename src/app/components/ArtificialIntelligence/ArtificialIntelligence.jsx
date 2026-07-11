@@ -79,7 +79,7 @@ export default function ArtificialIntelligence() {
   return (
     <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50 flex flex-col items-end gap-3 pr-2">
       {/* Floating dock using website brand color touches (orange border) and reduced sizing */}
-      <div className="flex flex-col gap-2 bg-white/95 backdrop-blur-md p-1.5 rounded-l-2xl border border-r-0 border-[#F79027]/20 shadow-[0_10px_30px_rgba(247,144,39,0.08)]">
+      <div className="flex flex-col gap-2 bg-white/95 backdrop-blur-md p-1.5 rounded-l-2xl border border-r-0 border-slate-200/80 shadow-[0_10px_30px_rgba(15,23,42,0.10)]">
         {AI_MODELS.map((ai) => {
           const isCopied = copiedFor === ai.name;
 
@@ -87,16 +87,16 @@ export default function ArtificialIntelligence() {
             <button
               key={ai.name}
               onClick={() => handleAiClick(ai)}
-              className="group relative w-[36px] h-[36px] flex items-center justify-center rounded-xl bg-white border border-slate-100 hover:border-[#F79027] hover:bg-[#FEF4E4] transition-all duration-300 shadow-sm hover:shadow-md"
+              className="group relative w-[36px] h-[36px] flex items-center justify-center rounded-xl bg-white border border-slate-100 hover:border-[#F58220] hover:bg-[#FFF7F0] transition-all duration-300 shadow-sm hover:shadow-md"
               aria-label={`Ask ${ai.name} about Next Ledgers`}
             >
-              {/* Tooltip styled with website brand colors (Dark Blue #0F274A & Orange border) */}
+              {/* Tooltip — slate grey palette to match site */}
               <div
                 className={`absolute right-[48px] top-1/2 -translate-y-1/2 px-3 py-1.5 rounded-lg shadow-xl text-[11px] font-bold tracking-wide transition-all duration-300 pointer-events-none whitespace-nowrap flex items-center gap-1.5 border
                   ${
                     isCopied
                       ? "bg-green-600 border-green-700 text-white opacity-100 scale-100 translate-x-0"
-                      : "bg-[#0F274A] border-[#F79027]/30 text-white opacity-0 scale-95 translate-x-2 group-hover:opacity-100 group-hover:scale-100 group-hover:translate-x-0"
+                      : "bg-slate-700 border-slate-600 text-white opacity-0 scale-95 translate-x-2 group-hover:opacity-100 group-hover:scale-100 group-hover:translate-x-0"
                   }`}
               >
                 {isCopied ? (

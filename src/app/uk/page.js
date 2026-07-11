@@ -8,7 +8,7 @@ import UKServicesContent from "../components/UKServicesContent/UKServicesContent
 import Footer from "../components/footer/Footer";
 import ArtificialIntelligence from "../components/ArtificialIntelligence/ArtificialIntelligence";
 import NexaLedAi from "../components/ChatBot/NexaLedAi";
-import HeroSection from "../components/HeroSection/HeroSection";
+import ServiceHomePage from "../components/ServiceMainPageContent/ServiceHomePage";
 
 export default function UKPage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -29,7 +29,7 @@ export default function UKPage() {
       />
        */}
 
-      <HeroSection />
+      <ServiceHomePage />
       {/* UK Services Content — All 4 service sections */}
       <UKServicesContent />
 

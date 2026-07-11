@@ -1,7 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
+import Image from "next/image"; 
+import ServiceHomePage from "../ServiceMainPageContent/ServiceHomePage";
+import BookkeepingHero from "../ServiceMainPageContent/BookkeepingHero";
+import BookKeepingMatters from "../ServiceMainPageContent/BookkeepingMatters";
+import BookkeepingReconcilation from "../ServiceMainPageContent/Bookkeepingreconcilation";
+import BookKeepingCompliance from "../ServiceMainPageContent/Bookkeepingcompliance";
 import Button from "@/components/ui/Button";
 
 const LOGO_MAP = {
@@ -258,6 +263,10 @@ export default function UKServicesContent({ serviceSlug }) {
 
   return (
     <section id="management-accounts" className="w-full bg-white font-sans text-[#1E1B2A] overflow-hidden">
+
+      {/* ── Hero Banner (shown only on main UK services page) ── */}
+
+
       {/* Dynamic Slide In Animation Styles */}
       <style jsx global>{`
         @keyframes fadeUpIn {
@@ -282,129 +291,16 @@ export default function UKServicesContent({ serviceSlug }) {
           {/* ================================================================================= */}
 
           {/* Main Page Title Header (BG is White, Heading color is #EA7C24) */}
-          <div className="w-full bg-white pt-8 pb-4 lg:pt-16 lg:pb-12 text-center px-4 sm:px-6 lg:px-8 border-b border-gray-100">
-            <div className="max-w-4xl mx-auto animate-fade-up">
-              <span className="text-[#F58220] uppercase font-extrabold tracking-widest text-[10px] sm:text-xs bg-[#F58220]/10 px-3 py-1 rounded-full">
-                UK Accounting Outsourcing
-              </span>
-              <h1 className="text-[22px] sm:text-[36px] md:text-[46px] font-extrabold text-[#EA7C24] leading-[1.2] mt-3 mb-4">
-                Management Accounts & <br className="hidden sm:inline" />
-                Financial Reporting Services
-              </h1>
-              <p className="text-gray-600 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
-                Strengthening client relationships and unlocking advisory opportunities for UK accounting firms through high-quality offshore reporting support.
-              </p>
-              <div className="w-16 h-1 bg-[#F58220] mx-auto mt-4 rounded-full" />
-            </div>
-          </div>
+          <BookkeepingHero />
+
 
           {/* Section 1: Turning Financial Data into Meaningful Business Insights (Right image, bg #FEF4E4) */}
-          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[10px] lg:gap-16 items-stretch">
-              {/* Left Content */}
-              <div className="flex flex-col justify-center flex-1 py-2 lg:py-0">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider mb-1">
-                  Value Proposition
-                </span>
-                <h2 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mb-3">
-                  Turning Financial Data into Meaningful Business Insights
-                </h2>
-                <div className="space-y-3 text-gray-700 text-xs sm:text-sm leading-relaxed">
-                  <p>
-                    Many businesses only review their financial performance once a year when preparing statutory accounts and tax returns. However, by then, opportunities may have been missed and challenges may have already impacted profitability and cash flow.
-                  </p>
-                  <p>
-                    Management accounts provide regular financial information throughout the year, helping business owners understand how their business is performing and make informed decisions based on up-to-date financial data.
-                  </p>
-                  <p className="font-semibold text-[#0F274A]">
-                    At NextLedgers, we support UK accounting firms with reliable management reporting and financial analysis services, enabling them to deliver valuable insights and advisory-driven solutions to their clients.
-                  </p>
-                </div>
-                {/* Buttons (using core Button component, compact and centered on mobile) */}
-                <div className="flex flex-col items-center sm:items-start sm:flex-row gap-3 mt-5 w-full">
-                  <Button
-                    text="Get Started Today"
-                    onClick={() => window.location.href = "/contact"}
-                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto whitespace-nowrap !py-2.5 !px-6 !text-xs sm:!text-[14px] !font-bold !rounded-xl shadow-sm hover:shadow-md"
-                  />
-                  <Button
-                    text="Explore Services"
-                    onClick={() => {
-                      const el = document.getElementById("services");
-                      if (el) el.scrollIntoView({ behavior: "smooth" });
-                    }}
-                    className="w-full max-w-[260px] sm:max-w-none sm:w-auto whitespace-nowrap !py-2.5 !px-6 !text-xs sm:!text-[14px] !font-bold !rounded-xl shadow-sm hover:shadow-md"
-                  />
-                </div>
-              </div>
-              {/* Right Image */}
-              <div className="relative h-[220px] sm:h-[300px] lg:h-auto w-full rounded-[18px] overflow-hidden shadow-md group">
-                <Image
-                  src="/images/DSC09901.JPG"
-                  alt="Turning Financial Data into Meaningful Business Insights"
-                  fill
-                  priority
-                  className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 bg-[#0F274A]/5 group-hover:bg-transparent transition-colors duration-300" />
-              </div>
-            </div>
-          </div>
+          <BookKeepingMatters />
 
-          {/* Section 2: Why Management Accounts Matter (Left image, bg #ffffff, Heading color is #EA7C24) */}
-          <div className="w-full bg-white py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[10px] lg:gap-16 items-stretch">
-              {/* Left Image (stands first in grid on large screens) */}
-              <div className="relative h-[220px] sm:h-[300px] lg:h-auto w-full rounded-[18px] overflow-hidden shadow-xs order-2 lg:order-1 group">
-                <Image
-                  src="/images/bgimage.JPG"
-                  alt="Why Management Accounts Matter"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 bg-[#0F274A]/5 group-hover:bg-transparent transition-colors duration-300" />
-              </div>
-              {/* Right Content */}
-              <div className="flex flex-col justify-center flex-1 order-1 lg:order-2 py-2 lg:py-0">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider mb-1">
-                  Strategic Value
-                </span>
-                <h2 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mb-3">
-                  Why Management Accounts Matter
-                </h2>
-                <p className="text-gray-700 text-xs sm:text-sm leading-relaxed mb-4">
-                  Regular management reporting helps businesses answer important questions, such as:
-                </p>
-                {/* Elegant List of Questions */}
-                <div className="space-y-2 mb-4">
-                  {[
-                    "Are we generating sufficient profit?",
-                    "Why is cash flow under pressure despite increasing sales?",
-                    "Which products, services, or departments are performing best?",
-                    "Are expenses increasing faster than revenue?",
-                    "Are we meeting our budgets and financial targets?",
-                    "Can we afford to recruit more staff or invest in growth?",
-                    "What will our financial position look like over the coming months?",
-                  ].map((q, idx) => (
-                    <div key={idx} className="flex items-start gap-2.5">
-                      <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#FEF4E4] border border-[#F58220]/25 flex items-center justify-center mt-0.5">
-                        <span className="text-[#F58220] text-[10px] font-bold">?</span>
-                      </div>
-                      <span className="text-gray-800 text-xs sm:text-sm font-medium leading-normal">
-                        {q}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-                {/* Conclusion text inside the same layout block */}
-                <div className="p-3.5 rounded-xl bg-[#FEF4E4]/50 border-l-4 border-[#F58220] text-gray-800 text-xs sm:text-sm font-semibold leading-relaxed">
-                  Having access to this information allows business owners to make proactive decisions rather than reacting to problems after year-end.
-                </div>
-              </div>
-            </div>
-          </div>
+
+          <BookkeepingReconcilation />
+
+          <BookKeepingCompliance />
 
           {/* Section 3: Our Management Accounting Services (Right image, bg #FEF4E4) */}
           <div id="services" className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
@@ -1601,81 +1497,6 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 3: Bookkeeping & Reconciliation Dual Checklists (bg #FEF4E4) */}
-          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
-            <div className="max-w-7xl mx-auto">
-              <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#F58220]/15 px-3 py-1 rounded-full">
-                  Full Services Deliverables
-                </span>
-                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mt-3 mb-2">
-                  Our UK Bookkeeping & Reconciliation Support
-                </h3>
-                <p className="text-gray-600 text-xs sm:text-sm">
-                  We process, manage, and reconcile every transaction, providing clean and submission-ready accounts.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
-                {/* Bookkeeping Card */}
-                <div className="bg-white rounded-3xl p-5 sm:p-7 border border-[#F58220]/15 shadow-xs flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center gap-2 mb-4">
-                      <span className="text-2xl">📒</span>
-                      <h4 className="text-base sm:text-lg font-extrabold text-[#EA7C24]">Our UK Bookkeeping Services Include</h4>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                      {[
-                        "General Ledger Maintenance",
-                        "Sales & Purchase Ledger Processing",
-                        "Customer & Supplier Ledger Management",
-                        "Fixed Asset Register Maintenance",
-                        "Journal Entries, Accruals & Prepayments",
-                        "Multi-Currency Bookkeeping",
-                        "Accounts Receivable Management",
-                        "Accounts Payable Management",
-                        "Bank & Control Account Reconciliations",
-                        "Month-End Working Papers & Reporting",
-                        "Backlog Bookkeeping Clean-Up",
-                        "Bookkeeping Review & Reporting Support"
-                      ].map((item, idx) => (
-                        <div key={idx} className="flex items-center gap-2 p-2 bg-[#faf9f6] rounded-lg hover:bg-[#FEF4E4]/30 border border-gray-50 transition-colors">
-                          <span className="w-5 h-5 rounded-full bg-[#F58220] flex items-center justify-center flex-shrink-0 text-white font-bold text-[10px]">✓</span>
-                          <span className="text-[11px] font-bold text-[#0F274A] leading-tight">{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Reconciliations Card */}
-                <div className="bg-white rounded-3xl p-5 sm:p-7 border border-[#F58220]/15 shadow-xs flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center gap-2 mb-4">
-                      <span className="text-2xl">🔄</span>
-                      <h4 className="text-base sm:text-lg font-extrabold text-[#EA7C24]">Our Reconciliation Services Include</h4>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                      {[
-                        "Bank Reconciliations",
-                        "Credit Card Reconciliations",
-                        "Payroll Reconciliations",
-                        "Inventory Reconciliations",
-                        "VAT & CIS Reconciliations",
-                        "Intercompany Reconciliations",
-                        "Factoring & Control Account Reconciliations"
-                      ].map((item, idx) => (
-                        <div key={idx} className="flex items-center gap-2 p-2 bg-[#faf9f6] rounded-lg hover:bg-[#FEF4E4]/30 border border-gray-50 transition-colors">
-                          <span className="w-5 h-5 rounded-full bg-[#F58220] flex items-center justify-center flex-shrink-0 text-white font-bold text-[10px]">✓</span>
-                          <span className="text-[11px] font-bold text-[#0F274A] leading-tight">{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
           {/* Section 4: Specialist VAT Support (id="vat-mtd-overview", bg #ffffff, heading color #EA7C24) */}
           <div id="vat-mtd-overview" className="w-full bg-white py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
