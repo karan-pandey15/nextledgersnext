@@ -20,7 +20,6 @@ function CtaBackdrop() {
         </pattern>
         <mask id="ctaMapMask">
           <rect width="1200" height="380" fill="black" />
-          {/* Abstract continent silhouettes — dotted world map */}
           <path
             fill="white"
             d="M210 95c55-40 140-48 210-28 45 12 80 42 120 48 50 8 95-12 140 10 40 20 55 60 35 95-25 45-85 55-135 42-55-14-85-50-140-52-60-2-110 35-165 22-48-12-85-50-65-90 8-18 22-35 0-47z"
@@ -44,7 +43,6 @@ function CtaBackdrop() {
         </mask>
       </defs>
 
-      {/* Dotted world map */}
       <rect
         width="1200"
         height="380"
@@ -53,7 +51,6 @@ function CtaBackdrop() {
         opacity="0.55"
       />
 
-      {/* Left muted bars */}
       <g fill="#2A3F5C" opacity="0.55">
         <rect x="48" y="230" width="18" height="70" rx="3" />
         <rect x="74" y="195" width="18" height="105" rx="3" />
@@ -61,7 +58,6 @@ function CtaBackdrop() {
         <rect x="126" y="115" width="18" height="185" rx="3" />
       </g>
 
-      {/* Right muted bars */}
       <g fill="#2A3F5C" opacity="0.55">
         <rect x="1056" y="230" width="18" height="70" rx="3" />
         <rect x="1082" y="195" width="18" height="105" rx="3" />
@@ -69,7 +65,6 @@ function CtaBackdrop() {
         <rect x="1134" y="115" width="18" height="185" rx="3" />
       </g>
 
-      {/* Left orange trend line + arrow */}
       <path
         d="M40 280 C90 250, 130 180, 175 95"
         fill="none"
@@ -80,7 +75,6 @@ function CtaBackdrop() {
       />
       <path d="M168 88 L178 98 L188 82 Z" fill={ORANGE} opacity="0.9" />
 
-      {/* Right orange trend line + arrow */}
       <path
         d="M1160 280 C1110 250, 1070 180, 1025 95"
         fill="none"
@@ -91,7 +85,6 @@ function CtaBackdrop() {
       />
       <path d="M1032 88 L1022 98 L1012 82 Z" fill={ORANGE} opacity="0.9" />
 
-      {/* Scattered glow dots */}
       <g fill={ORANGE}>
         <circle cx="200" cy="140" r="2.2" opacity="0.7" />
         <circle cx="260" cy="200" r="1.6" opacity="0.5" />
@@ -106,27 +99,48 @@ function CtaBackdrop() {
   );
 }
 
-export default function TransformCTA() {
+/**
+ * Dark navy CTA banner — same visual as homepage Transform CTA.
+ * Pass custom copy via props; defaults keep the original homepage text.
+ */
+export default function TransformCTA({
+  titleWhite = "Ready to Transform Your",
+  titleOrange = "Financial Future?",
+  titleBreak = true,
+  description = "Get started today with a free consultation from our financial experts.",
+  descriptionSecond,
+  primaryLabel = "Start Your Journey",
+  primaryHref = "/contact",
+  showSecondary = true,
+  secondaryLabel = "Call Now",
+  secondaryHref = "tel:+18885520055",
+  className = "",
+}) {
   return (
-    <section className="relative w-full bg-white pt-8 sm:pt-9 lg:pt-10 pb-0">
+    <section className={`relative w-full bg-white pt-8 sm:pt-9 lg:pt-10 pb-0 mb-10 mt-5 ${className}`}>
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
         <div className="relative overflow-hidden rounded-[18px] sm:rounded-[22px] bg-[#07111F] px-5 py-14 sm:px-10 sm:py-16 lg:px-16 lg:py-[72px] text-center">
           <CtaBackdrop />
 
           <div className="relative z-10 max-w-[780px] mx-auto">
             <h2 className="font-bold text-[28px] sm:text-[38px] lg:text-[46px] leading-[1.18] tracking-[-0.02em] text-white">
-              Ready to Transform Your
-              <br />
-              <span style={{ color: ORANGE }}>Financial Future?</span>
+              {titleWhite}
+              {titleBreak ? <br /> : " "}
+              <span style={{ color: ORANGE }}>{titleOrange}</span>
             </h2>
 
-            <p className="mt-4 sm:mt-5 text-[13px] sm:text-[15px] leading-6 sm:leading-7 text-[#B8C2D0] max-w-[540px] mx-auto font-normal">
-              Get started today with a free consultation from our financial experts.
+            <p className="mt-4 sm:mt-5 text-[13px] sm:text-[15px] leading-6 sm:leading-7 text-[#B8C2D0] max-w-[620px] mx-auto font-normal">
+              {description}
             </p>
+            {descriptionSecond ? (
+              <p className="mt-3 text-[13px] sm:text-[15px] leading-6 sm:leading-7 text-[#B8C2D0] max-w-[620px] mx-auto font-normal">
+                {descriptionSecond}
+              </p>
+            ) : null}
 
             <div className="mt-8 sm:mt-9 flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-5">
               <Link
-                href="/contact"
+                href={primaryHref}
                 className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-[10px] border border-[#F58220] bg-transparent text-white font-semibold text-[13px] sm:text-[14px] px-7 sm:px-8 h-11 sm:h-12 min-w-[190px] sm:min-w-[210px]"
               >
                 <span
@@ -134,29 +148,31 @@ export default function TransformCTA() {
                   aria-hidden="true"
                 />
                 <span className="relative z-10 inline-flex items-center gap-2">
-                  Start Your Journey
+                  {primaryLabel}
                   <span className="text-[15px] leading-none" aria-hidden="true">
                     →
                   </span>
                 </span>
               </Link>
 
-              <a
-                href="tel:+18885520055"
-                className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-[10px] border border-[#F58220] bg-transparent text-white font-semibold text-[13px] sm:text-[14px] px-7 sm:px-8 h-11 sm:h-12 min-w-[190px] sm:min-w-[210px]"
-              >
-                <span
-                  className="absolute inset-0 origin-left scale-x-0 bg-[#F58220] transition-transform duration-[400ms] ease-out group-hover:scale-x-100"
-                  aria-hidden="true"
-                />
-                <span className="relative z-10 inline-flex items-center gap-2">
-                  Call Now
-                  <Phone
-                    className="w-4 h-4 text-[#F58220] transition-colors duration-[400ms] group-hover:text-white"
+              {showSecondary ? (
+                <a
+                  href={secondaryHref}
+                  className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-[10px] border border-[#F58220] bg-transparent text-white font-semibold text-[13px] sm:text-[14px] px-7 sm:px-8 h-11 sm:h-12 min-w-[190px] sm:min-w-[210px]"
+                >
+                  <span
+                    className="absolute inset-0 origin-left scale-x-0 bg-[#F58220] transition-transform duration-[400ms] ease-out group-hover:scale-x-100"
                     aria-hidden="true"
                   />
-                </span>
-              </a>
+                  <span className="relative z-10 inline-flex items-center gap-2">
+                    {secondaryLabel}
+                    <Phone
+                      className="w-4 h-4 text-[#F58220] transition-colors duration-[400ms] group-hover:text-white"
+                      aria-hidden="true"
+                    />
+                  </span>
+                </a>
+              ) : null}
             </div>
           </div>
         </div>

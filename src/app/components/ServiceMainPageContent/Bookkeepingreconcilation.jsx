@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import {
     ClipboardList,
@@ -8,37 +10,38 @@ import {
     Settings,
     Users,
     Send,
+    Pencil,
 } from "lucide-react";
 
-const bookkeepingColLeft = [
-    "General Ledger Maintenance",
-    "Customer & Supplier Ledger Management",
-    "Journal Entries, Accruals & Prepayments",
-    "Accounts Receivable Management",
-    "Bank & Control Account Reconciliations",
-    "Backlog Bookkeeping Clean-Up",
-];
+const ORANGE = "#F58220";
+const PAGE_BG = "#FFF9F5";
+const HEADING = "#1A1A1A";
+const BODY = "#555555";
+const PILL_BG = "#FFF4EA";
 
-const bookkeepingColRight = [
+const bookkeepingItems = [
+    "General Ledger Maintenance",
     "Sales & Purchase Ledger Processing",
+    "Customer & Supplier Ledger Management",
     "Fixed Asset Register Maintenance",
+    "Journal Entries, Accruals & Prepayments",
     "Multi-Currency Bookkeeping",
+    "Accounts Receivable Management",
     "Accounts Payable Management",
+    "Bank & Control Account Reconciliations",
     "Month-End Working Papers & Reporting",
+    "Backlog Bookkeeping Clean-Up",
     "Bookkeeping Review & Reporting Support",
 ];
 
-const reconciliationColLeft = [
+const reconciliationItems = [
     "Bank Reconciliations",
-    "Payroll Reconciliations",
-    "VAT & CIS Reconciliations",
-    "Factoring & Control Account Reconciliations",
-];
-
-const reconciliationColRight = [
     "Credit Card Reconciliations",
+    "Payroll Reconciliations",
     "Inventory Reconciliations",
+    "VAT & CIS Reconciliations",
     "Intercompany Reconciliations",
+    "Factoring & Control Account Reconciliations",
 ];
 
 const vatHighlights = [
@@ -48,10 +51,16 @@ const vatHighlights = [
     { icon: Users, label: "Experienced VAT Professionals" },
 ];
 
-function CheckItem({ text }) {
+function CheckPill({ text }) {
     return (
-        <li className="flex items-start gap-2.5">
-            <span className="mt-0.5 flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full bg-[#F58220]">
+        <li
+            className="flex items-center gap-2.5 rounded-full px-3 py-2"
+            style={{ background: PILL_BG }}
+        >
+            <span
+                className="flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full"
+                style={{ background: ORANGE }}
+            >
                 <svg
                     viewBox="0 0 24 24"
                     fill="none"
@@ -64,169 +73,193 @@ function CheckItem({ text }) {
                     <path d="M20 6 9 17l-5-5" />
                 </svg>
             </span>
-            <span className="text-[12px] leading-[1.35] text-slate-700 sm:text-[12.5px]">
+            <span
+                className="text-[11.5px] font-medium leading-snug sm:text-[12px]"
+                style={{ color: HEADING }}
+            >
                 {text}
             </span>
         </li>
     );
 }
 
+function ServiceCard({ icon: Icon, titleBefore, titleAccent, titleAfter, items }) {
+    return (
+        <div
+            className="rounded-[16px] border border-[#F3E6D8] bg-white p-5 sm:p-6 lg:p-7"
+            style={{ boxShadow: "0 8px 28px rgba(15,23,42,0.06)" }}
+        >
+            <div className="mb-4 flex items-center gap-2.5">
+                <span
+                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg"
+                    style={{ background: ORANGE }}
+                >
+                    <Icon className="h-4 w-4 text-white" strokeWidth={2} />
+                </span>
+                <h3
+                    className="text-[14px] font-bold leading-snug sm:text-[15px]"
+                    style={{ color: HEADING }}
+                >
+                    {titleBefore}
+                    <span style={{ color: ORANGE }}>{titleAccent}</span>
+                    {titleAfter}
+                </h3>
+            </div>
+
+            <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-x-3 sm:gap-y-2.5">
+                {items.map((item) => (
+                    <CheckPill key={item} text={item} />
+                ))}
+            </div>
+        </div>
+    );
+}
+
 export default function BookkeepingReconcilation() {
     return (
-        <section className="w-full bg-gradient-to-b from-orange-50 via-orange-50/40 to-white px-5 py-12 md:px-10 lg:px-16">
-            <div className="mx-auto flex w-full max-w-7xl flex-col gap-8">
-                {/* ---------- Header ---------- */}
-                <div className="flex flex-col items-center text-center">
-                    <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[#FFF4EA] px-3.5 py-1 text-[10px] font-extrabold tracking-wide text-[#F58220]">
-                        <svg
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            className="h-3 w-3"
-                            stroke="currentColor"
-                            strokeWidth={2.5}
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        >
-                            <path d="m18 2 4 4-14 14-5 1 1-5Z" />
-                        </svg>
-                        FULL SERVICES DELIVERABLES
+        <section
+            className="relative w-full overflow-hidden px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14"
+            style={{ background: PAGE_BG }}
+        >
+            <div className="relative mx-auto flex w-full max-w-6xl flex-col">
+                {/* ── Header ─────────────────────────────────────────────── */}
+                <div className="mb-7 flex flex-col items-center text-center sm:mb-8">
+                    <span
+                        className="mb-3 inline-flex items-center gap-1.5 rounded-full px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.12em] text-white shadow-sm"
+                        style={{ background: ORANGE }}
+                    >
+                        <Pencil className="h-3 w-3" strokeWidth={2.5} />
+                        Full Services Deliverables
                     </span>
 
-                    <h2 className="max-w-3xl text-[24px] font-extrabold leading-tight text-[#0F274A] sm:text-[28px] lg:text-[32px]">
-                        Our <span className="text-[#F58220]">UK Bookkeeping &amp; Reconciliation</span>{" "}
+                    <h2
+                        className="max-w-3xl text-[22px] font-extrabold leading-tight sm:text-[26px] lg:text-[30px]"
+                        style={{ color: HEADING }}
+                    >
+                        Our{" "}
+                        <span style={{ color: ORANGE }}>
+                            UK Bookkeeping &amp; Reconciliation
+                        </span>{" "}
                         Support
                     </h2>
 
-                    <p className="mt-2.5 max-w-xl text-[12.5px] text-slate-500 sm:text-[13.5px]">
-                        We process, manage, and reconcile every transaction, providing clean and
-                        submission-ready accounts.
+                    <p
+                        className="mt-2.5 max-w-xl text-[12.5px] leading-relaxed sm:text-[13.5px]"
+                        style={{ color: BODY }}
+                    >
+                        We process, manage, and reconcile every transaction, providing clean
+                        and submission-ready accounts.
                     </p>
                 </div>
 
-                {/* ---------- Two Service Cards ---------- */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {/* Bookkeeping Card */}
-                    <div className="rounded-2xl border border-orange-100 bg-white p-5 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.08)] sm:p-6">
-                        <div className="mb-3 flex items-center gap-2.5">
-                            <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-[#F58220]">
-                                <ClipboardList className="h-4 w-4 text-white" strokeWidth={2} />
-                            </span>
-                            <h3 className="text-[14.5px] font-bold text-slate-900 sm:text-[15.5px]">
-                                Our UK <span className="text-[#F58220]">Bookkeeping</span> Services Include
-                            </h3>
-                        </div>
-                        <div className="mb-4 h-[3px] w-9 rounded-full bg-[#F58220]" />
-
-                        <div className="grid grid-cols-1 gap-x-6 gap-y-2.5 sm:grid-cols-2">
-                            <ul className="space-y-2.5">
-                                {bookkeepingColLeft.map((item) => (
-                                    <CheckItem key={item} text={item} />
-                                ))}
-                            </ul>
-                            <ul className="space-y-2.5">
-                                {bookkeepingColRight.map((item) => (
-                                    <CheckItem key={item} text={item} />
-                                ))}
-                            </ul>
-                        </div>
-                    </div>
-
-                    {/* Reconciliation Card */}
-                    <div className="rounded-2xl border border-orange-100 bg-white p-5 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.08)] sm:p-6">
-                        <div className="mb-3 flex items-center gap-2.5">
-                            <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-[#F58220]">
-                                <RefreshCw className="h-4 w-4 text-white" strokeWidth={2} />
-                            </span>
-                            <h3 className="text-[14.5px] font-bold text-slate-900 sm:text-[15.5px]">
-                                Our <span className="text-[#F58220]">Reconciliation</span> Services Include
-                            </h3>
-                        </div>
-                        <div className="mb-4 h-[3px] w-9 rounded-full bg-[#F58220]" />
-
-                        <div className="grid grid-cols-1 gap-x-6 gap-y-2.5 sm:grid-cols-2">
-                            <ul className="space-y-2.5">
-                                {reconciliationColLeft.map((item) => (
-                                    <CheckItem key={item} text={item} />
-                                ))}
-                            </ul>
-                            <ul className="space-y-2.5">
-                                {reconciliationColRight.map((item) => (
-                                    <CheckItem key={item} text={item} />
-                                ))}
-                            </ul>
-                        </div>
-                    </div>
+                {/* ── Two service cards ──────────────────────────────────── */}
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:gap-7">
+                    <ServiceCard
+                        icon={ClipboardList}
+                        titleBefore="Our UK "
+                        titleAccent="Bookkeeping"
+                        titleAfter=" Services Include"
+                        items={bookkeepingItems}
+                    />
+                    <ServiceCard
+                        icon={RefreshCw}
+                        titleBefore="Our "
+                        titleAccent="Reconciliation"
+                        titleAfter=" Services Include"
+                        items={reconciliationItems}
+                    />
                 </div>
 
-                {/* ---------- VAT Support Section ---------- */}
-                <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 pt-8">
-                    {/* Left text content */}
+                {/* ── Specialist VAT Support ─────────────────────────────── */}
+                <div className="mt-12 grid grid-cols-1 items-center gap-8 lg:mt-14 lg:grid-cols-2 lg:gap-12">
+                    {/* Left copy */}
                     <div>
-                        <span className="mb-2.5 inline-block rounded-full bg-orange-100 px-3.5 py-1 text-[9.5px] font-semibold tracking-wide text-orange-600">
-                            MAKING TAX DIGITAL (MTD)
+                        <span
+                            className="mb-3 inline-flex items-center rounded-md px-3 py-[5px] text-[10px] font-bold uppercase tracking-[0.1em] text-white"
+                            style={{ background: ORANGE }}
+                        >
+                            Making Tax Digital (MTD)
                         </span>
 
-                        <h3 className="text-[19px] font-extrabold leading-tight text-slate-900 sm:text-[22px] lg:text-[24px]">
-                            Specialist <span className="text-[#F58220]">VAT Support</span>
-                            <br />
-                            for UK Accounting Firms
+                        <h3
+                            className="mt-1 text-[22px] font-extrabold leading-[1.2] sm:text-[26px] lg:text-[28px]"
+                            style={{ color: HEADING }}
+                        >
+                            Specialist{" "}
+                            <span style={{ color: ORANGE }}>VAT Support</span> for UK
+                            Accounting Firms
                         </h3>
 
-                        <div className="my-3 h-[3px] w-9 rounded-full bg-[#F58220]" />
-
-                        <p className="mb-2.5 text-[12px] leading-relaxed text-slate-500 sm:text-[12.5px]">
-                            VAT remains one of the most technically demanding areas of UK compliance.
-                            Different industries and transaction types often require specialised VAT
-                            treatment and careful review.
+                        <p
+                            className="mt-4 text-[13px] leading-relaxed sm:text-[13.5px]"
+                            style={{ color: BODY }}
+                        >
+                            VAT remains one of the most technically demanding areas of UK
+                            compliance. Different industries and transaction types often
+                            require specialised VAT treatment and careful review.
                         </p>
-                        <p className="mb-5 text-[12px] leading-relaxed text-slate-500 sm:text-[12.5px]">
-                            Our experienced VAT team supports accounting firms with preparation,
-                            reconciliation, and submission-ready VAT workings across multiple
-                            industries and VAT schemes.
+                        <p
+                            className="mt-3 text-[13px] leading-relaxed sm:text-[13.5px]"
+                            style={{ color: BODY }}
+                        >
+                            Our experienced VAT team supports accounting firms with
+                            preparation, reconciliation, and submission-ready VAT workings
+                            across multiple industries and VAT schemes.
                         </p>
 
-                        <button className="inline-flex items-center gap-2 rounded-full border-2 border-[#F58220] px-5 py-2.5 text-[12.5px] font-semibold text-[#F58220] transition-colors hover:bg-[#F58220] hover:text-white">
-                            <Send className="h-3.5 w-3.5" strokeWidth={2} />
+                        <a
+                            href="/contact"
+                            className="mt-6 inline-flex items-center gap-2 rounded-lg border-2 px-5 py-2.5 text-[13px] font-semibold transition-colors hover:bg-[#F58220] hover:text-white"
+                            style={{ borderColor: ORANGE, color: ORANGE }}
+                        >
+                            <Send className="h-3.5 w-3.5" strokeWidth={2.25} />
                             Request a Proposal
-                        </button>
+                        </a>
                     </div>
 
-                    {/* Right image with overlays */}
-                    <div className="relative">
-                        <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-black p-1.5">
-                            <div className="relative h-full w-full overflow-hidden rounded-xl">
-                                <Image
-                                    src="/images/DSC09901.JPG"
-                                    alt="Accountant working on VAT reconciliation"
-                                    fill
-                                    className="object-cover"
-                                    sizes="(max-width: 1024px) 100vw, 50vw"
-                                    priority
-                                />
-                            </div>
+                    {/* Right visual */}
+                    <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
+                        <div className="relative aspect-[16/11] w-full overflow-hidden rounded-2xl">
+                            <Image
+                                src="/images/bgimage.JPG"
+                                alt="Specialist VAT support for UK accounting firms"
+                                fill
+                                className="object-cover"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
+                                priority
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-r from-black/25 via-transparent to-transparent" />
                         </div>
 
-                        {/* Feature callouts with connector line */}
-                        <div className="absolute left-3 top-1/2 flex w-[58%] -translate-y-1/2 items-stretch gap-2.5 sm:left-6">
-                            <div className="relative flex flex-col items-center py-1">
-                                <span className="h-1.5 w-1.5 rounded-full bg-white/80" />
-                                <span className="my-0.5 w-px flex-1 bg-white/40" />
-                                <span className="h-1.5 w-1.5 rounded-full bg-white/80" />
-                                <span className="my-0.5 w-px flex-1 bg-white/40" />
-                                <span className="h-1.5 w-1.5 rounded-full bg-white/80" />
-                                <span className="my-0.5 w-px flex-1 bg-white/40" />
-                                <span className="h-1.5 w-1.5 rounded-full bg-white/80" />
+                        {/* Overlay feature cards + timeline */}
+                        <div className="absolute left-3 top-1/2 flex w-[min(72%,280px)] -translate-y-1/2 items-stretch gap-2 sm:left-5 sm:w-[58%] sm:max-w-[260px]">
+                            {/* Dotted vertical connector aligned to cards */}
+                            <div className="relative flex w-3 shrink-0 flex-col items-center justify-between py-4">
+                                <span className="absolute inset-y-5 left-1/2 w-px -translate-x-1/2 border-l border-dashed border-white/85" />
+                                {vatHighlights.map(({ label }) => (
+                                    <span
+                                        key={label}
+                                        className="relative z-[1] h-2 w-2 rounded-full bg-white shadow-sm ring-2 ring-white/30"
+                                    />
+                                ))}
                             </div>
+
                             <div className="flex flex-1 flex-col justify-between gap-2.5">
                                 {vatHighlights.map(({ icon: Icon, label }) => (
                                     <div
                                         key={label}
-                                        className="flex items-center gap-2.5 rounded-xl bg-white/95 px-3 py-2 shadow-[0_8px_24px_-8px_rgba(0,0,0,0.35)] backdrop-blur-sm"
+                                        className="flex items-center gap-2.5 rounded-xl bg-white px-3 py-2.5 shadow-[0_8px_24px_rgba(0,0,0,0.18)]"
                                     >
-                                        <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg bg-orange-50">
-                                            <Icon className="h-3.5 w-3.5 text-[#F58220]" strokeWidth={2} />
+                                        <span
+                                            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg"
+                                            style={{ background: PILL_BG, color: ORANGE }}
+                                        >
+                                            <Icon className="h-3.5 w-3.5" strokeWidth={2.25} />
                                         </span>
-                                        <span className="text-[11px] font-semibold leading-[1.2] text-slate-900">
+                                        <span
+                                            className="text-[11px] font-bold leading-tight sm:text-[11.5px]"
+                                            style={{ color: HEADING }}
+                                        >
                                             {label}
                                         </span>
                                     </div>
@@ -234,32 +267,42 @@ export default function BookkeepingReconcilation() {
                             </div>
                         </div>
 
-                        {/* Circular badge */}
-                        <div className="absolute -bottom-4 -right-4 flex h-20 w-20 items-center justify-center">
-                            <svg viewBox="0 0 100 100" className="absolute h-full w-full">
+                        {/* Circular seal */}
+                        <div className="absolute -bottom-3 -right-2 flex h-[88px] w-[88px] items-center justify-center sm:-bottom-4 sm:-right-3 sm:h-[96px] sm:w-[96px]">
+                            <svg viewBox="0 0 100 100" className="absolute h-full w-full drop-shadow-lg">
                                 <defs>
                                     <path
-                                        id="badgeCircle"
-                                        d="M 50, 50 m -38, 0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0"
+                                        id="vatBadgeCircle"
+                                        d="M 50, 50 m -34, 0 a 34,34 0 1,1 68,0 a 34,34 0 1,1 -68,0"
                                     />
                                 </defs>
-                                <circle cx="50" cy="50" r="46" className="fill-[#F58220]" />
+                                <circle cx="50" cy="50" r="48" fill={ORANGE} />
                                 <circle
                                     cx="50"
                                     cy="50"
-                                    r="46"
-                                    className="fill-none stroke-white/70"
+                                    r="42"
+                                    fill="none"
+                                    stroke="rgba(255,255,255,0.35)"
                                     strokeWidth="1"
-                                    strokeDasharray="1,3"
+                                    strokeDasharray="2 3"
                                 />
-                                <text fontSize="7" fontWeight="700" fill="white" letterSpacing="1.3">
-                                    <textPath href="#badgeCircle" startOffset="0%">
-                                        ACCURATE &#8226; TIMELY &#8226; RELIABLE &#8226;
+                                <text
+                                    fill="white"
+                                    fontSize="6.2"
+                                    fontWeight="700"
+                                    letterSpacing="1.6"
+                                >
+                                    <textPath href="#vatBadgeCircle" startOffset="0%">
+                                        ACCURATE • TIMELY • RELIABLE • ACCURATE •
                                     </textPath>
                                 </text>
                             </svg>
-                            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white shadow-md">
-                                <CheckCircle2 className="h-4 w-4 text-[#F58220]" strokeWidth={2.5} />
+                            <span className="relative z-[1] flex h-9 w-9 items-center justify-center rounded-full bg-white shadow-md sm:h-10 sm:w-10">
+                                <CheckCircle2
+                                    className="h-5 w-5"
+                                    style={{ color: ORANGE }}
+                                    strokeWidth={2.5}
+                                />
                             </span>
                         </div>
                     </div>

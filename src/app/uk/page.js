@@ -9,7 +9,9 @@ import Footer from "../components/footer/Footer";
 import ArtificialIntelligence from "../components/ArtificialIntelligence/ArtificialIntelligence";
 import NexaLedAi from "../components/ChatBot/NexaLedAi";
 import ServiceHomePage from "../components/ServiceMainPageContent/ServiceHomePage";
-
+import IconDisplayScreen, {
+  DEFAULT_TECH_CATEGORIES,
+} from "../components/ServiceMainPageContent/IcondisplayScreen";
 export default function UKPage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -29,10 +31,11 @@ export default function UKPage() {
       />
        */}
 
-      <ServiceHomePage />
+      <ServiceHomePage /> 
       {/* UK Services Content — All 4 service sections */}
       <UKServicesContent />
-
+  
+         
       {/* Footer */}
       <Footer />
 

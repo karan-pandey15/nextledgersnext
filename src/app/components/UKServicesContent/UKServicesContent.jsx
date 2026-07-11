@@ -7,7 +7,11 @@ import BookkeepingHero from "../ServiceMainPageContent/BookkeepingHero";
 import BookKeepingMatters from "../ServiceMainPageContent/BookkeepingMatters";
 import BookkeepingReconcilation from "../ServiceMainPageContent/Bookkeepingreconcilation";
 import BookKeepingCompliance from "../ServiceMainPageContent/Bookkeepingcompliance";
+ 
 import Button from "@/components/ui/Button";
+import IconDisplayScreen , {
+  DEFAULT_TECH_CATEGORIES,
+} from "../ServiceMainPageContent/IcondisplayScreen";
 
 const LOGO_MAP = {
   "brightpay": "/images/logooUK/brightpay.jpeg",
@@ -301,6 +305,9 @@ export default function UKServicesContent({ serviceSlug }) {
           <BookkeepingReconcilation />
 
           <BookKeepingCompliance />
+          
+          
+                  <IconDisplayScreen logodata={DEFAULT_TECH_CATEGORIES} />
 
           {/* Section 3: Our Management Accounting Services (Right image, bg #FEF4E4) */}
           <div id="services" className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
