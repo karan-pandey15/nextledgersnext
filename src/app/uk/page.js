@@ -26,7 +26,10 @@ export default function UKPage() {
         setIsSidebarOpen={setIsSidebarOpen}
       />
 
-      <ServiceHomePage />
+      <ServiceHomePage
+        secondaryHref="tel:+918285285223"
+        secondaryLabel="Call Us"
+      />
 
       {/* UK Services directory */}
       <section
@@ -127,11 +130,11 @@ export default function UKPage() {
               Book a Discovery Call
             </Link>
             <a
-              href="tel:+18885520055"
+              href="tel:+918285285223"
               className="inline-flex h-11 w-full max-w-[280px] items-center justify-center rounded-[10px] border-2 bg-white px-6 text-[13px] font-bold uppercase tracking-wide transition-colors hover:bg-[#FFF7F0] sm:h-12 sm:w-auto sm:min-w-[200px] sm:text-[14px]"
               style={{ borderColor: ORANGE, color: ORANGE }}
             >
-              Call Now
+              Call Us
             </a>
           </div>
         </div>

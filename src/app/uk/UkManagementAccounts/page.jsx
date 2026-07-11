@@ -4,6 +4,7 @@ import UKNavbar from "@/app/components/UKNavbar/UKNavbar";
 import {
     Calendar,
     Play,
+    Phone,
     Shield,
     ShieldCheck,
     Lock,
@@ -25,6 +26,7 @@ import { useState } from "react";
 import Image from "next/image";
 import IconDisplayScreen from "@/app/components/ServiceMainPageContent/IcondisplayScreen";
 import TrustBadgesBar from "@/app/components/ServiceMainPageContent/TrustBadgesBar";
+import Link from "next/link";
 import TransformCTA from "@/app/components/HomeImpact/TransformCTA";
 import Footer from "@/app/components/footer/Footer";
 
@@ -316,14 +318,20 @@ export default function UkManagementAccounts() {
                         <div className="my-3 h-[3px] w-10 rounded-full bg-[#F58220]" />
 
                         <div className="flex w-full max-w-xs flex-col items-stretch justify-center gap-2.5 xs:max-w-none sm:w-auto sm:flex-row sm:items-center sm:gap-3">
-                            <button className="inline-flex items-center justify-center gap-1.5 rounded-md bg-[#F58220] px-4 py-2.5 text-[13px] font-semibold text-white shadow-md shadow-orange-500/25 transition-colors hover:bg-[#e2761b] sm:py-2 sm:whitespace-nowrap">
+                            <Link
+                                href="/contact"
+                                className="inline-flex items-center justify-center gap-1.5 rounded-md bg-[#F58220] px-4 py-2.5 text-[13px] font-semibold text-white shadow-md shadow-orange-500/25 transition-colors hover:bg-[#e2761b] sm:py-2 sm:whitespace-nowrap"
+                            >
                                 <Calendar className="h-3.5 w-3.5 shrink-0" />
                                 Book a Discovery Call
-                            </button>
-                            <button className="inline-flex items-center justify-center gap-1.5 rounded-md border border-slate-300 bg-white/80 px-4 py-2.5 text-[13px] font-semibold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-white sm:py-2 sm:whitespace-nowrap">
-                                <Play className="h-3 w-3 shrink-0 fill-slate-700" />
-                                How We Work
-                            </button>
+                            </Link>
+                            <a
+                                href="tel:+918285285223"
+                                className="inline-flex items-center justify-center gap-1.5 rounded-md border border-slate-300 bg-white/80 px-4 py-2.5 text-[13px] font-semibold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-white sm:py-2 sm:whitespace-nowrap"
+                            >
+                                <Phone className="h-3.5 w-3.5 shrink-0" />
+                                Call Us
+                            </a>
                         </div>
                     </div>
                     <TrustBadgesBar badges={trustBadges} />
@@ -365,10 +373,13 @@ export default function UkManagementAccounts() {
                                 clients.
                             </p>
 
-                            <button className="inline-flex items-center gap-2 bg-[#F58220] hover:bg-[#e2761b] text-white text-sm font-semibold px-5 py-3 rounded-full transition-colors">
+                            <Link
+                                href="/contact"
+                                className="inline-flex items-center gap-2 bg-[#F58220] hover:bg-[#e2761b] text-white text-sm font-semibold px-5 py-3 rounded-full transition-colors"
+                            >
                                 <span className="text-base leading-none">📞</span>
                                 Book a Discovery Call
-                            </button>
+                            </Link>
                         </div>
 
                         <div className="relative">
@@ -889,7 +900,8 @@ export default function UkManagementAccounts() {
                 descriptionSecond="At NextLedgers, we help UK accounting firms deliver insightful management reporting that strengthens client relationships and creates more opportunities for advisory services."
                 primaryLabel="Book a Discovery Call"
                 primaryHref="/contact"
-                showSecondary={false}
+                secondaryLabel="Call Us"
+                secondaryHref="tel:+918285285223"
                 className="!pt-2 sm:!pt-2.5 lg:!pt-2.5"
             />
 

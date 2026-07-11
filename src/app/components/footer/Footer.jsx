@@ -3,14 +3,27 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import FooterGlobalMap from "./FooterGlobalMap";
 import { UK_SERVICE_LINKS } from "@/app/uk/ukServiceLinks";
+import { POPUP_REGIONS, REGION_ROUTES } from "../RegionSelect/regionData";
 
 const ORANGE = "#F58220";
 const BG = "#0B1C33";
 
 const UK_SERVICES_LEFT = UK_SERVICE_LINKS.filter((_, i) => i % 2 === 0);
 const UK_SERVICES_RIGHT = UK_SERVICE_LINKS.filter((_, i) => i % 2 === 1);
+
+const GLOBAL_REGIONS = POPUP_REGIONS.map((region) => ({
+  code: region.code,
+  name: region.name,
+  flag: region.flag,
+  description: region.description,
+  href: REGION_ROUTES[region.code] || null,
+}));
+
+const GLOBAL_REGIONS_LEFT = GLOBAL_REGIONS.filter((_, i) => i % 2 === 0);
+const GLOBAL_REGIONS_RIGHT = GLOBAL_REGIONS.filter((_, i) => i % 2 === 1);
 
 const QUICK_LINKS = [
   { label: "Home", href: "/" },
@@ -209,7 +222,7 @@ function IconChevron({ className = "w-3 h-3" }) {
   );
 }
 
-const VALUE_STATS = [
+const VALUE_STATS_UK = [
   {
     icon: IconLaurel,
     title: "10+ Years",
@@ -236,6 +249,75 @@ const VALUE_STATS = [
     subtitle: ["Client", "Satisfaction"],
   },
 ];
+
+const VALUE_STATS_GLOBAL = [
+  {
+    icon: IconLaurel,
+    title: "10+ Years",
+    subtitle: ["Serving Firms", "Worldwide"],
+  },
+  {
+    icon: IconShield,
+    title: "ISO 27001",
+    subtitle: ["Certified", "Data Security"],
+  },
+  {
+    icon: IconTeam,
+    title: "150+",
+    subtitle: ["Skilled", "Professionals"],
+  },
+  {
+    icon: IconClock,
+    title: "24/7",
+    subtitle: ["Seamless", "Support"],
+  },
+  {
+    icon: IconStar,
+    title: "100%",
+    subtitle: ["Client", "Satisfaction"],
+  },
+];
+
+function RegionLink({ region }) {
+  const className =
+    "group flex items-start gap-2 text-[12px] sm:text-[13px] leading-5 text-white/70 hover:text-[#F58220] transition-colors";
+
+  const content = (
+    <>
+      <span className="mt-0.5 h-[14px] w-[20px] shrink-0 overflow-hidden rounded-[2px] border border-white/15">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={region.flag}
+          alt=""
+          className="h-full w-full object-cover"
+          loading="lazy"
+        />
+      </span>
+      <span className="min-w-0">
+        <span className="block font-semibold text-white/85 group-hover:text-[#F58220]">
+          {region.name}
+        </span>
+        <span className="mt-0.5 block text-[11px] leading-snug text-white/50 group-hover:text-[#F58220]/80">
+          {region.description}
+        </span>
+      </span>
+    </>
+  );
+
+  if (region.href) {
+    return (
+      <Link href={region.href} className={className}>
+        {content}
+      </Link>
+    );
+  }
+
+  return (
+    <div className={`${className} cursor-default`} role="presentation">
+      {content}
+    </div>
+  );
+}
 
 /** Horizontal line — fades out on left & right */
 function FadeDividerH({ className = "" }) {
@@ -265,7 +347,18 @@ function FadeDividerV({ className = "" }) {
   );
 }
 
-export default function Footer({ onContactClick }) {
+/**
+ * @param {"uk" | "global"} [variant] — auto-detected from path if omitted
+ *   - global (home/about/contact/team): regions list, not UK services
+ *   - uk (/uk/*): current UK services footer
+ */
+export default function Footer({ onContactClick, variant }) {
+  const pathname = usePathname();
+  const isUk =
+    variant === "uk" ||
+    (variant !== "global" && Boolean(pathname?.startsWith("/uk")));
+  const valueStats = isUk ? VALUE_STATS_UK : VALUE_STATS_GLOBAL;
+
   return (
     <footer className="w-full text-white overflow-x-hidden" style={{ backgroundColor: BG }}>
       {/* Top value proposition */}
@@ -279,14 +372,15 @@ export default function Footer({ onContactClick }) {
               <span className="text-[#F58220]">Your Competitive Advantage.</span>
             </h2>
             <p className="mt-2.5 text-[13px] sm:text-[14px] leading-[1.55] text-[#9AA3B2] max-w-[420px] mx-auto sm:mx-0">
-              We help UK accounting firms save time, cut costs and scale with a dedicated offshore
-              team.
+              {isUk
+                ? "We help UK accounting firms save time, cut costs and scale with a dedicated offshore team."
+                : "We help accounting firms worldwide save time, cut costs and scale with a dedicated offshore team."}
             </p>
           </div>
 
           {/* Stats — 2 / 3 / 5 columns by breakpoint */}
           <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
-            {VALUE_STATS.map((stat, index) => {
+            {valueStats.map((stat, index) => {
               const Icon = stat.icon;
               return (
                 <div key={stat.title} className="flex items-stretch min-w-0">
@@ -317,7 +411,7 @@ export default function Footer({ onContactClick }) {
 
       <FadeDividerH />
 
-      {/* Main 4-column body */}
+      {/* Main body — brand + regions + (quick links + wide map) */}
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-8 sm:py-10 lg:py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 gap-8 md:gap-10 xl:gap-0">
           {/* Column 1 — Brand */}
@@ -330,19 +424,20 @@ export default function Footer({ onContactClick }) {
               />
             </Link>
             <p className="text-[13px] leading-6 text-white/70 max-w-[280px]">
-              We are a leading offshore accounting and bookkeeping service provider trusted by UK
-              firms.
+              {isUk
+                ? "We are a leading offshore accounting and bookkeeping service provider trusted by UK firms."
+                : "We are a leading offshore accounting and bookkeeping partner trusted by firms across the UK, USA, Canada, and beyond."}
             </p>
 
             <div className="space-y-3 pt-1">
               <a
-                href="tel:+442045714469"
+                href={isUk ? "tel:+918285285223" : "tel:+442045714469"}
                 className="flex items-center gap-2.5 text-[13px] font-semibold text-white/90 hover:text-[#F58220] transition-colors"
               >
                 <span className="text-[#F58220]">
                   <IconPhone className="w-4 h-4" />
                 </span>
-                +44 20 4571 4469
+                {isUk ? "+91 82852 85223" : "+44 20 4571 4469"}
               </a>
               <a
                 href="mailto:info@nextledgers.com"
@@ -385,100 +480,120 @@ export default function Footer({ onContactClick }) {
             )}
           </div>
 
-          {/* Column 2 — UK Services */}
+          {/* Column 2 — UK Services / Our Regions */}
           <div className="xl:col-span-3 flex">
             <FadeDividerV className="hidden xl:block mr-6" />
             <div className="flex-1 xl:pr-4">
               <h3 className="text-[12px] sm:text-[13px] font-bold tracking-[0.14em] uppercase text-[#F58220] mb-4">
-                Our Services in UK
+                {isUk ? "Our Services in UK" : "Our Regions"}
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2.5">
-                <div className="space-y-2.5">
-                  {UK_SERVICES_LEFT.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="group flex items-start gap-1.5 text-[12px] sm:text-[13px] leading-5 text-white/70 hover:text-[#F58220] transition-colors"
-                    >
-                      <span className="text-[#F58220] mt-0.5 shrink-0">
-                        <IconChevron className="w-3 h-3" />
-                      </span>
-                      <span>{item.label}</span>
-                    </Link>
-                  ))}
+              {isUk ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2.5">
+                  <div className="space-y-2.5">
+                    {UK_SERVICES_LEFT.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="group flex items-start gap-1.5 text-[12px] sm:text-[13px] leading-5 text-white/70 hover:text-[#F58220] transition-colors"
+                      >
+                        <span className="text-[#F58220] mt-0.5 shrink-0">
+                          <IconChevron className="w-3 h-3" />
+                        </span>
+                        <span>{item.label}</span>
+                      </Link>
+                    ))}
+                  </div>
+                  <div className="space-y-2.5">
+                    {UK_SERVICES_RIGHT.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="group flex items-start gap-1.5 text-[12px] sm:text-[13px] leading-5 text-white/70 hover:text-[#F58220] transition-colors"
+                      >
+                        <span className="text-[#F58220] mt-0.5 shrink-0">
+                          <IconChevron className="w-3 h-3" />
+                        </span>
+                        <span>{item.label}</span>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
-                <div className="space-y-2.5">
-                  {UK_SERVICES_RIGHT.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="group flex items-start gap-1.5 text-[12px] sm:text-[13px] leading-5 text-white/70 hover:text-[#F58220] transition-colors"
-                    >
-                      <span className="text-[#F58220] mt-0.5 shrink-0">
-                        <IconChevron className="w-3 h-3" />
-                      </span>
-                      <span>{item.label}</span>
-                    </Link>
-                  ))}
+              ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-4">
+                  <div className="space-y-3.5">
+                    {GLOBAL_REGIONS_LEFT.map((region) => (
+                      <RegionLink key={region.code} region={region} />
+                    ))}
+                  </div>
+                  <div className="space-y-3.5">
+                    {GLOBAL_REGIONS_RIGHT.map((region) => (
+                      <RegionLink key={region.code} region={region} />
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
 
-          {/* Column 3 — Quick Links (narrower so map gets more room) */}
-          <div className="xl:col-span-2 flex">
-            <FadeDividerV className="hidden xl:block mr-4" />
-            <div className="flex-1 xl:pr-3 min-w-0">
-              <h3 className="text-[12px] sm:text-[13px] font-bold tracking-[0.14em] uppercase text-[#F58220] mb-4">
-                Quick Links
-              </h3>
-              <ul className="space-y-2.5">
-                {QUICK_LINKS.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-[13px] font-semibold text-white/75 hover:text-[#F58220] transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Column 4 — Global Connectivity (wider for map) */}
-          <div className="xl:col-span-4 flex">
-            <FadeDividerV className="hidden xl:block mr-4" />
+          {/* Column 3 — Quick Links + Global map */}
+          <div className="md:col-span-2 xl:col-span-6 flex">
+            <FadeDividerV className="hidden xl:block mr-5" />
             <div className="flex-1 min-w-0">
-              <h3 className="text-[12px] sm:text-[13px] font-bold tracking-[0.14em] uppercase text-[#F58220] mb-3">
-                Global Connectivity
-              </h3>
-              <FooterGlobalMap />
-
-              <div className="mt-3 rounded-[10px] border border-[#F58220]/50 bg-[#0A1628] px-3 py-3 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-0">
-                <div className="flex items-center gap-3 flex-1 sm:pr-3">
-                  <span
-                    className="text-[#F58220] shrink-0 inline-flex items-center justify-center rounded-full border-[1.5px] border-[#F58220]"
-                    style={{ width: 37, height: 37 }}
-                  >
-                    <IconHeadset className="w-8 h-8" />
-                  </span>
-                  <p className="text-[11px] sm:text-[12px] leading-[1.4] text-white/85">
-                    Working in your time zone to support your business
-                  </p>
+              <div className="grid grid-cols-1 sm:grid-cols-[140px_minmax(0,1fr)] lg:grid-cols-[150px_minmax(0,1fr)] gap-6 sm:gap-5 lg:gap-6 items-start">
+                <div className="min-w-0">
+                  <h3 className="text-[12px] sm:text-[13px] font-bold tracking-[0.14em] uppercase text-[#F58220] mb-4">
+                    Quick Links
+                  </h3>
+                  <ul className="space-y-2.5">
+                    {QUICK_LINKS.map((link) => (
+                      <li key={link.label}>
+                        <Link
+                          href={link.href}
+                          className="text-[13px] font-semibold text-white/75 hover:text-[#F58220] transition-colors"
+                        >
+                          {link.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <div className="hidden sm:block w-px self-stretch min-h-[40px] bg-[#F58220]/35 shrink-0" aria-hidden="true" />
-                <div className="flex items-center gap-3 flex-1 sm:pl-3 sm:border-0 border-t border-[#F58220]/25 pt-3 sm:pt-0">
-                  <span
-                    className="text-[#F58220] shrink-0 inline-flex items-center justify-center rounded-full border-[1.5px] border-[#F58220]"
-                    style={{ width: 37, height: 37 }}
-                  >
-                    <IconClock className="w-8 h-8" />
-                  </span>
-                  <p className="text-[11px] sm:text-[12px] leading-[1.4] text-white/85">
-                    Overlap hours with UK for real-time collaboration
-                  </p>
+
+                <div className="min-w-0 w-full">
+                  <h3 className="text-[12px] sm:text-[13px] font-bold tracking-[0.14em] uppercase text-[#F58220] mb-3">
+                    Global Connectivity
+                  </h3>
+                  <FooterGlobalMap />
+
+                  <div className="mt-3 rounded-[10px] border border-[#F58220]/50 bg-[#0A1628] px-3 py-3 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-0">
+                    <div className="flex items-center gap-3 flex-1 sm:pr-3">
+                      <span
+                        className="text-[#F58220] shrink-0 inline-flex items-center justify-center rounded-full border-[1.5px] border-[#F58220]"
+                        style={{ width: 37, height: 37 }}
+                      >
+                        <IconHeadset className="w-8 h-8" />
+                      </span>
+                      <p className="text-[11px] sm:text-[12px] leading-[1.4] text-white/85">
+                        Working in your time zone to support your business
+                      </p>
+                    </div>
+                    <div
+                      className="hidden sm:block w-px self-stretch min-h-[40px] bg-[#F58220]/35 shrink-0"
+                      aria-hidden="true"
+                    />
+                    <div className="flex items-center gap-3 flex-1 sm:pl-3 sm:border-0 border-t border-[#F58220]/25 pt-3 sm:pt-0">
+                      <span
+                        className="text-[#F58220] shrink-0 inline-flex items-center justify-center rounded-full border-[1.5px] border-[#F58220]"
+                        style={{ width: 37, height: 37 }}
+                      >
+                        <IconClock className="w-8 h-8" />
+                      </span>
+                      <p className="text-[11px] sm:text-[12px] leading-[1.4] text-white/85">
+                        {isUk
+                          ? "Overlap hours with UK for real-time collaboration"
+                          : "Overlap hours across regions for real-time collaboration"}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -492,7 +607,9 @@ export default function Footer({ onContactClick }) {
       <div>
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 pt-4 sm:pt-5 pb-6 sm:pb-8">
           <p className="text-left text-[10px] sm:text-[11px] md:text-[12px] font-extrabold tracking-[0.12em] sm:tracking-[0.18em] uppercase text-white/85">
-            Trusted by Top UK Firms Using Leading Software
+            {isUk
+              ? "Trusted by Top UK Firms Using Leading Software"
+              : "Trusted by Firms Worldwide Using Leading Software"}
           </p>
 
           <div className="mt-4 sm:mt-5 md:mt-6 overflow-hidden">

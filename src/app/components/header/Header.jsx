@@ -14,12 +14,20 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
   const timeoutRefs = useRef({});
 
   const isActiveLink = (href) => {
+    if (!href || href === "#") return false;
     if (href === "/") return pathname === "/";
     return pathname === href || pathname.startsWith(`${href}/`);
   };
 
-  const desktopLinkClass = (href, isOpen = false) => {
-    const isActive = isActiveLink(href) || isOpen;
+  const isNavItemActive = (link) => {
+    if (isActiveLink(link.href)) return true;
+    return Boolean(
+      link.dropdownItems?.some((item) => item.href && isActiveLink(item.href))
+    );
+  };
+
+  const desktopLinkClass = (href, isOpen = false, link = null) => {
+    const isActive = (link ? isNavItemActive(link) : isActiveLink(href)) || isOpen;
     return `relative px-3 py-2 text-[13px] font-semibold tracking-wide transition-colors duration-200 ${
       isActive ? "text-[#1A1A1A]" : "text-[#4A4A4A] hover:text-[#1A1A1A]"
     }`;
@@ -120,7 +128,7 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
                   >
                     <button
                       onClick={(e) => handleDropdownClick(link.id, e)}
-                      className={`${desktopLinkClass(link.href, isOpen)} flex items-center gap-1 cursor-pointer focus:outline-none`}
+                      className={`${desktopLinkClass(link.href, isOpen, link)} flex items-center gap-1 cursor-pointer focus:outline-none`}
                       aria-expanded={isOpen}
                     >
                       <span>{link.label}</span>
@@ -135,7 +143,7 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
                       >
                         <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                       </svg>
-                      {isActiveLink(link.href) && (
+                      {isNavItemActive(link) && (
                         <span className="absolute left-3 right-3 -bottom-0.5 h-[2px] bg-[#F58220] rounded-full" />
                       )}
                     </button>
@@ -175,6 +183,7 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
                                 key={idx}
                                 href={item.href}
                                 className={itemClass}
+                                onClick={() => setActiveDropdown(null)}
                               >
                                 <div className="text-[#F58220] flex-shrink-0 mt-0.5 transition-transform duration-200 group-hover:scale-110">
                                   <NavIcon name={item.icon} className="w-5 h-5" />

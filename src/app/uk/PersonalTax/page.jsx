@@ -4,6 +4,7 @@ import UKNavbar from "@/app/components/UKNavbar/UKNavbar";
 import {
     Calendar,
     Play,
+    Phone,
     Shield,
     ShieldCheck,
     Lock,
@@ -359,11 +360,11 @@ export default function PersonalTaxPage() {
                                 Book a Discovery Call
                             </a>
                             <a
-                                href="#how-we-help"
+                                href="tel:+918285285223"
                                 className="inline-flex items-center justify-center gap-1.5 rounded-md border border-slate-300 bg-white/80 px-4 py-2.5 text-[13px] font-semibold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-white sm:whitespace-nowrap sm:py-2"
                             >
-                                <Play className="h-3 w-3 shrink-0 fill-slate-700" />
-                                How We Work
+                                <Phone className="h-3.5 w-3.5 shrink-0" />
+                                Call Us
                             </a>
                         </div>
                     </div>
@@ -847,8 +848,8 @@ export default function PersonalTaxPage() {
                 primaryLabel="Book a Discovery Call"
                 primaryHref="/contact"
                 showSecondary={true}
-                secondaryLabel="Request a Proposal"
-                secondaryHref="/contact"
+                secondaryLabel="Call Us"
+                secondaryHref="tel:+918285285223"
                 className="!pt-2 sm:!pt-2.5 lg:!pt-2.5"
             />
 

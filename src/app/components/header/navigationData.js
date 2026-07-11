@@ -1,5 +1,6 @@
 /**
- * Home page navigation — USA/Canada dropdowns do not navigate yet (href: null).
+ * Home page navigation — USA experience (global header).
+ * About has a dropdown; USA/Canada service items stay as placeholders until pages exist.
  */
 export const NAVIGATION_LINKS = [
   {
@@ -11,10 +12,23 @@ export const NAVIGATION_LINKS = [
   },
   {
     id: "about",
-    label: "About Us",
+    label: "About",
     href: "/about",
     icon: "info",
-    hasDropdown: false,
+    hasDropdown: true,
+    dropdownWidth: "w-[240px]",
+    dropdownItems: [
+      {
+        label: "About Us",
+        href: "/about",
+        icon: "info",
+      },
+      {
+        label: "Our Team",
+        href: "/team",
+        icon: "users",
+      },
+    ],
   },
   {
     id: "services-usa",

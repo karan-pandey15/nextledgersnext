@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const ORANGE = "#F58220";
 
-function IconPhone({ className = "w-6 h-6" }) {
+function IconPhone({ className = "w-5 h-5" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
       <path
@@ -18,16 +18,22 @@ function IconPhone({ className = "w-6 h-6" }) {
   );
 }
 
-function IconMail({ className = "w-6 h-6" }) {
+function IconMail({ className = "w-5 h-5" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
       <rect x="3.5" y="5.5" width="17" height="13" rx="2" stroke="currentColor" strokeWidth="1.7" />
-      <path d="m5.5 8 6.5 5 6.5-5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="m5.5 8 6.5 5 6.5-5"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
 
-function IconChat({ className = "w-6 h-6" }) {
+function IconChat({ className = "w-5 h-5" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
       <path
@@ -69,24 +75,22 @@ function ContactCard({ card }) {
   const Icon = card.icon;
   const isConsultation = card.detail === "Schedule a Free Consultation";
   const className =
-    "flex flex-col items-center justify-center text-center rounded-[16px] sm:rounded-[18px] bg-white px-5 py-7 sm:px-6 sm:py-8 min-h-[170px] sm:min-h-[185px] shadow-[0_10px_32px_rgba(0,0,0,0.12)] w-full max-w-[280px] md:max-w-none mx-auto";
+    "flex flex-col items-center justify-center text-center rounded-[14px] bg-white px-3 py-4 sm:px-4 sm:py-5 shadow-[0_8px_24px_rgba(0,0,0,0.1)] w-full";
 
   const content = (
     <>
-      <div className="w-[52px] h-[52px] sm:w-[56px] sm:h-[56px] rounded-full bg-[#FFF1E6] flex items-center justify-center text-[#F58220]">
-        <Icon className="w-6 h-6 sm:w-[26px] sm:h-[26px]" />
+      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FFF1E6] text-[#F58220] sm:h-11 sm:w-11">
+        <Icon className="h-5 w-5" />
       </div>
 
-      <h3 className="mt-4 font-bold text-[15px] sm:text-[16px] text-[#0F274A]">
+      <h3 className="mt-2.5 text-[14px] font-bold text-[#0F274A] sm:mt-3 sm:text-[15px]">
         {card.title}
       </h3>
 
       <p
         className={
-          "mt-2.5 font-bold leading-snug text-[#F58220] px-1 " +
-          (isConsultation
-            ? "text-[14px] sm:text-[15px] lg:text-[16px]"
-            : "text-[16px] sm:text-[17px] lg:text-[18px]")
+          "mt-1.5 px-1 font-bold leading-snug text-[#F58220] " +
+          (isConsultation ? "text-[12px] sm:text-[13px]" : "text-[13px] sm:text-[14px]")
         }
       >
         {card.detail}
@@ -111,7 +115,7 @@ function ContactCard({ card }) {
 
 export default function ContactUsCTA() {
   return (
-    <div className="mt-10 sm:mt-12 lg:mt-14 relative overflow-hidden rounded-[20px] sm:rounded-[24px] bg-[#0B1C33] px-8 sm:px-12 lg:px-16 xl:px-20 pt-10 sm:pt-12 lg:pt-14 pb-10 sm:pb-12">
+    <div className="relative mt-8 overflow-hidden rounded-[18px] bg-[#0B1C33] px-4 py-7 sm:mt-10 sm:rounded-[20px] sm:px-8 sm:py-8 lg:mt-12 lg:px-12 lg:py-9">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.18]"
         aria-hidden="true"
@@ -123,29 +127,29 @@ export default function ContactUsCTA() {
       />
 
       <div
-        className="pointer-events-none absolute -bottom-16 -left-10 w-56 h-56 rounded-full bg-[#F58220]/25 blur-2xl"
+        className="pointer-events-none absolute -bottom-12 -left-8 h-40 w-40 rounded-full bg-[#F58220]/25 blur-2xl"
         aria-hidden="true"
       />
 
       <div className="relative z-10">
-        <div className="text-center max-w-[720px] mx-auto">
+        <div className="mx-auto max-w-[720px] text-center">
           <div className="inline-flex items-center justify-center gap-3">
-            <span className="h-px w-8 sm:w-10 bg-[#F58220]" aria-hidden="true" />
-            <p className="text-[11px] sm:text-[12px] font-bold tracking-[0.22em] uppercase text-[#F58220]">
+            <span className="h-px w-7 bg-[#F58220] sm:w-9" aria-hidden="true" />
+            <p className="text-[11px] font-bold tracking-[0.22em] text-[#F58220] uppercase sm:text-[12px]">
               CONTACT US
             </p>
-            <span className="h-px w-8 sm:w-10 bg-[#F58220]" aria-hidden="true" />
+            <span className="h-px w-7 bg-[#F58220] sm:w-9" aria-hidden="true" />
           </div>
 
-          <h2 className="mt-3 sm:mt-4 font-bold text-[26px] sm:text-[34px] lg:text-[40px] leading-[1.15] tracking-[-0.01em] text-white">
+          <h2 className="mt-2.5 text-[22px] font-bold leading-[1.15] tracking-[-0.01em] text-white sm:mt-3 sm:text-[28px] lg:text-[32px]">
             Let&apos;s Build <span style={{ color: ORANGE }}>Success</span> Together
           </h2>
 
-          <p className="mt-3 text-[13px] sm:text-[14px] leading-6 text-[#C5CED9] max-w-[560px] mx-auto">
+          <p className="mx-auto mt-2 max-w-[520px] text-[12px] leading-5 text-[#C5CED9] sm:text-[13px] sm:leading-6">
             Ready to grow your business? Get in touch with us today!
           </p>
 
-          <p className="mt-4 sm:mt-5 text-center text-[12px] sm:text-[13px] lg:text-[14px] leading-6 sm:leading-7 text-[#C5CED9] max-w-[780px] mx-auto">
+          <p className="mx-auto mt-2.5 max-w-[700px] text-center text-[11px] leading-5 text-[#C5CED9] sm:mt-3 sm:text-[12px] sm:leading-6 lg:text-[13px]">
             At Next Ledgers, we are here to provide the personalised accounting, compliance and
             offshore support designed just for you. Our team combines deep expertise with a
             hands-on approach to help you overcome challenges and keep your focus where it
@@ -153,7 +157,8 @@ export default function ContactUsCTA() {
           </p>
         </div>
 
-        <div className="mt-8 sm:mt-10 grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 max-w-[960px] mx-auto">
+        {/* Mobile: 10px gap between stacked cards */}
+        <div className="mx-auto mt-5 grid max-w-[900px] grid-cols-1 gap-[10px] sm:mt-6 md:grid-cols-3 md:gap-4 lg:gap-5">
           {CONTACT_CARDS.map((card) => (
             <ContactCard key={card.title} card={card} />
           ))}

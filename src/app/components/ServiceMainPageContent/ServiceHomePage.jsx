@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Calendar, Play } from "lucide-react";
+import { Calendar, Play, Phone } from "lucide-react";
 import TrustBadgesBar from "./TrustBadgesBar";
 
 /**
@@ -19,6 +19,8 @@ export default function ServiceHomePage({
     primaryLabel = "Book a Discovery Call",
     secondaryLabel = "Explore Our Services",
 }) {
+    const isCallLink = String(secondaryHref).startsWith("tel:");
+
     return (
         <section className="relative w-full overflow-hidden bg-gradient-to-br from-[#25404B] via-[#537E91] to-[#537E91] px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
             <div
@@ -68,7 +70,11 @@ export default function ServiceHomePage({
                             href={secondaryHref}
                             className="inline-flex items-center justify-center gap-1.5 rounded-md border border-slate-300 bg-white/80 px-4 py-2.5 text-[13px] font-semibold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-white sm:whitespace-nowrap sm:py-2"
                         >
-                            <Play className="h-3 w-3 shrink-0 fill-slate-700" />
+                            {isCallLink ? (
+                                <Phone className="h-3.5 w-3.5 shrink-0" />
+                            ) : (
+                                <Play className="h-3 w-3 shrink-0 fill-slate-700" />
+                            )}
                             {secondaryLabel}
                         </a>
                     </div>

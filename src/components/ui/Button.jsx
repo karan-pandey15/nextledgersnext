@@ -1,4 +1,8 @@
-export default function Button({ text, onClick, className = "" }) {
+import Link from "next/link";
+
+export default function Button({ text, onClick, className = "", href }) {
+  const classes = `btn-orange ${className}`;
+
   return (
     <>
       <style>{`
@@ -16,6 +20,7 @@ export default function Button({ text, onClick, className = "" }) {
           letter-spacing: 0.025em;
           cursor: pointer;
           transition: background-color 0.3s ease, color 0.3s ease, transform 0.15s ease;
+          text-decoration: none;
         }
 
         .btn-orange:hover {
@@ -33,9 +38,15 @@ export default function Button({ text, onClick, className = "" }) {
         }
       `}</style>
 
-      <button onClick={onClick} className={`btn-orange ${className}`}>
-        {text}
-      </button>
+      {href ? (
+        <Link href={href} onClick={onClick} className={classes}>
+          {text}
+        </Link>
+      ) : (
+        <button type="button" onClick={onClick} className={classes}>
+          {text}
+        </button>
+      )}
     </>
   );
 }

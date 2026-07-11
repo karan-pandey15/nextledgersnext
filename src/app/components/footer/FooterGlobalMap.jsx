@@ -23,14 +23,74 @@ const CONTINENT_PATHS = {
   madagascar: "M 590 365 L 605 355 L 610 390 L 595 400 Z",
 };
 
+/**
+ * Pin + flag/label placement tuned so country names stay readable
+ * and AU / NZ are not clipped at the edge.
+ */
 const LOCATIONS = {
-  india: { x: 640, y: 220, label: "INDIA", code: "in", flagX: 655, flagY: 205 },
-  uk: { x: 450, y: 105, label: "UK", code: "gb", flagX: 430, flagY: 78 },
-  usa: { x: 240, y: 155, label: "USA", code: "us", flagX: 210, flagY: 138 },
-  ireland: { x: 435, y: 102, label: "IRELAND", code: "ie", flagX: 400, flagY: 118 },
-  canada: { x: 235, y: 125, label: "CANADA", code: "ca", flagX: 240, flagY: 95 },
-  australia: { x: 870, y: 380, label: "AUSTRALIA", code: "au", flagX: 880, flagY: 352 },
-  newZealand: { x: 945, y: 445, label: "NZ", code: "nz", flagX: 955, flagY: 420 },
+  india: {
+    x: 640,
+    y: 220,
+    label: "INDIA",
+    code: "in",
+    flagX: 652,
+    flagY: 198,
+    labelY: 190,
+  },
+  uk: {
+    x: 450,
+    y: 105,
+    label: "UK",
+    code: "gb",
+    flagX: 418,
+    flagY: 58,
+    labelY: 50,
+  },
+  usa: {
+    x: 240,
+    y: 155,
+    label: "USA",
+    code: "us",
+    flagX: 198,
+    flagY: 122,
+    labelY: 114,
+  },
+  ireland: {
+    x: 435,
+    y: 102,
+    label: "IRELAND",
+    code: "ie",
+    flagX: 368,
+    flagY: 118,
+    labelY: 110,
+  },
+  canada: {
+    x: 235,
+    y: 125,
+    label: "CANADA",
+    code: "ca",
+    flagX: 228,
+    flagY: 72,
+    labelY: 64,
+  },
+  australia: {
+    x: 855,
+    y: 365,
+    label: "AUSTRALIA",
+    code: "au",
+    flagX: 820,
+    flagY: 318,
+    labelY: 310,
+  },
+  newZealand: {
+    x: 920,
+    y: 420,
+    label: "NEW ZEALAND",
+    code: "nz",
+    flagX: 860,
+    flagY: 430,
+    labelY: 422,
+  },
 };
 
 const DESTINATIONS = [
@@ -50,6 +110,57 @@ function getCurvePath(start, end) {
   return `M ${start.x} ${start.y} Q ${cx} ${cy} ${end.x} ${end.y}`;
 }
 
+function CountryMarker({ location, active = true, isHub = false }) {
+  const flagW = isHub ? 48 : 44;
+  const flagH = isHub ? 30 : 28;
+  const fontSize = isHub ? 13 : 12;
+
+  return (
+    <g opacity={active ? 1 : 0.45} className="transition-opacity duration-500">
+      {active && (
+        <circle
+          cx={location.x}
+          cy={location.y}
+          r={isHub ? 14 : 9}
+          fill={ORANGE}
+          opacity="0.28"
+          className={isHub ? "animate-ping" : active ? "animate-ping" : undefined}
+        />
+      )}
+      <circle
+        cx={location.x}
+        cy={location.y}
+        r={isHub ? 5.5 : 3.5}
+        fill={ORANGE}
+        filter="url(#footerOrangeGlow)"
+      />
+
+      {/* Always-visible country label */}
+      <text
+        x={location.flagX + flagW / 2}
+        y={location.labelY}
+        fill="#FFFFFF"
+        fontSize={fontSize}
+        fontWeight="800"
+        textAnchor="middle"
+        letterSpacing="0.04em"
+        style={{ textShadow: "0 1px 3px rgba(0,0,0,0.85)" }}
+      >
+        {location.label}
+      </text>
+
+      <image
+        href={`https://flagcdn.com/w80/${location.code}.png`}
+        x={location.flagX}
+        y={location.flagY}
+        width={flagW}
+        height={flagH}
+        preserveAspectRatio="xMidYMid slice"
+      />
+    </g>
+  );
+}
+
 export default function FooterGlobalMap() {
   const [step, setStep] = useState(0);
 
@@ -61,8 +172,14 @@ export default function FooterGlobalMap() {
   }, []);
 
   return (
-    <div className="relative w-full">
-      <svg viewBox="0 0 1000 500" className="w-full h-auto block" aria-hidden="true">
+    <div className="relative w-full overflow-visible">
+      {/* Slightly taller + wider canvas so labels fit */}
+      <svg
+        viewBox="0 0 1000 480"
+        className="block h-auto w-full min-h-[200px] sm:min-h-[240px] lg:min-h-[280px]"
+        role="img"
+        aria-label="Global connectivity map showing Next Ledgers locations"
+      >
         <defs>
           <pattern id="footerMapDots" width="7" height="7" patternUnits="userSpaceOnUse">
             <circle cx="1.1" cy="1.1" r="1.05" fill="#6B9BB8" />
@@ -81,21 +198,18 @@ export default function FooterGlobalMap() {
           </linearGradient>
         </defs>
 
-        {/* Dotted world continents */}
-        <g fill="url(#footerMapDots)" opacity="0.7">
+        <g fill="url(#footerMapDots)" opacity="0.75">
           {Object.entries(CONTINENT_PATHS).map(([key, d]) => (
             <path key={key} d={d} />
           ))}
         </g>
 
-        {/* Soft outline for shape readability */}
         <g fill="none" stroke="#6B9BB8" strokeWidth="0.6" opacity="0.25">
           {Object.entries(CONTINENT_PATHS).map(([key, d]) => (
             <path key={`o-${key}`} d={d} />
           ))}
         </g>
 
-        {/* Arcs: India → 6 countries */}
         {DESTINATIONS.map((item, idx) => {
           const isActive = step > idx;
           return (
@@ -117,74 +231,15 @@ export default function FooterGlobalMap() {
           );
         })}
 
-        {/* Destination pins */}
-        {DESTINATIONS.map((item, idx) => {
-          const isActive = step > idx;
-          const t = item.target;
-          return (
-            <g key={`node-${item.key}`} opacity={isActive ? 1 : 0.35} className="transition-opacity duration-500">
-              {isActive && (
-                <circle cx={t.x} cy={t.y} r="9" fill={ORANGE} opacity="0.28" className="animate-ping" />
-              )}
-              <circle cx={t.x} cy={t.y} r="3.5" fill={ORANGE} filter="url(#footerOrangeGlow)" />
-              <image
-                href={`https://flagcdn.com/w80/${t.code}.png`}
-                x={t.flagX}
-                y={t.flagY}
-                width="52"
-                height="34"
-                preserveAspectRatio="xMidYMid slice"
-              />
-              <text
-                x={t.flagX + 26}
-                y={t.flagY - 4}
-                fill="#FFFFFF"
-                fontSize="10"
-                fontWeight="700"
-                textAnchor="middle"
-              >
-                {t.label}
-              </text>
-            </g>
-          );
-        })}
+        {DESTINATIONS.map((item, idx) => (
+          <CountryMarker
+            key={`node-${item.key}`}
+            location={item.target}
+            active={step > idx}
+          />
+        ))}
 
-        {/* India hub — always on */}
-        <g>
-          <circle
-            cx={LOCATIONS.india.x}
-            cy={LOCATIONS.india.y}
-            r="16"
-            fill={ORANGE}
-            opacity="0.22"
-            className="animate-ping"
-          />
-          <circle
-            cx={LOCATIONS.india.x}
-            cy={LOCATIONS.india.y}
-            r="5.5"
-            fill={ORANGE}
-            filter="url(#footerOrangeGlow)"
-          />
-          <image
-            href="https://flagcdn.com/w80/in.png"
-            x={LOCATIONS.india.flagX}
-            y={LOCATIONS.india.flagY}
-            width="56"
-            height="36"
-            preserveAspectRatio="xMidYMid slice"
-          />
-          <text
-            x={LOCATIONS.india.flagX + 28}
-            y={LOCATIONS.india.flagY - 4}
-            fill="#FFFFFF"
-            fontSize="11"
-            fontWeight="800"
-            textAnchor="middle"
-          >
-            INDIA
-          </text>
-        </g>
+        <CountryMarker location={LOCATIONS.india} active isHub />
       </svg>
     </div>
   );

@@ -217,11 +217,11 @@ export default function UkBookkeeping() {
                                 Book a Discovery Call
                             </Link>
                             <a
-                                href="#how-we-work"
+                                href="tel:+918285285223"
                                 className="inline-flex items-center justify-center gap-1.5 rounded-md border border-slate-300 bg-white/80 px-4 py-2.5 text-[13px] font-semibold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-white sm:whitespace-nowrap sm:py-2"
                             >
-                                <Play className="h-3 w-3 shrink-0 fill-slate-700" />
-                                How We Work
+                                <Phone className="h-3.5 w-3.5 shrink-0" />
+                                Call Us
                             </a>
                         </div>
                     </div>
@@ -496,17 +496,17 @@ export default function UkBookkeeping() {
                                 className="inline-flex h-11 min-w-[220px] items-center justify-center gap-2 rounded-[10px] px-6 text-[13px] font-bold uppercase tracking-wide text-white shadow-md transition-colors hover:bg-[#e2761b] sm:h-12 sm:text-[14px]"
                                 style={{ background: ORANGE }}
                             >
-                                <Phone className="h-4 w-4" strokeWidth={2.25} />
+                                <Send className="h-4 w-4" strokeWidth={2.25} />
                                 Book a Discovery Call
                             </Link>
-                            <Link
-                                href="/contact"
+                            <a
+                                href="tel:+918285285223"
                                 className="inline-flex h-11 min-w-[220px] items-center justify-center gap-2 rounded-[10px] border-2 bg-white px-6 text-[13px] font-bold uppercase tracking-wide transition-colors hover:bg-[#FFF7F0] sm:h-12 sm:text-[14px]"
                                 style={{ borderColor: ORANGE, color: ORANGE }}
                             >
-                                <Send className="h-4 w-4" strokeWidth={2.25} />
-                                Request a Proposal
-                            </Link>
+                                <Phone className="h-4 w-4" strokeWidth={2.25} />
+                                Call Us
+                            </a>
                         </div>
 
                         <div className="mx-auto mt-8 flex max-w-2xl flex-col items-center justify-center gap-4 border-t border-[#F0E0D2] pt-6 sm:flex-row sm:gap-8">

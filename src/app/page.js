@@ -82,12 +82,19 @@ export default function Home() {
       setSelectedRegion(code);
       localStorage.setItem("selected-region", code);
       setIsRegionOpen(false);
-      if (REGION_ROUTES[code]) {
-        router.push(REGION_ROUTES[code]);
+
+      const route = REGION_ROUTES[code];
+      if (route && route !== "/") {
+        router.push(route);
       }
+      // US (and any region mapped to "/") stays on the home/USA experience
     },
     [router]
   );
+
+  const handleRegionClose = useCallback(() => {
+    setIsRegionOpen(false);
+  }, []);
 
   return (
     <main className="min-h-screen bg-white text-[#1A1A1A] flex flex-col font-sans overflow-x-hidden">
@@ -108,16 +115,15 @@ export default function Home() {
       <HomeStories />
       <HomeTrust />
 
-      {/* Sentinel just above footer — triggers quote popup */}
       <div ref={footerSentinelRef} className="h-px w-full" aria-hidden="true" />
 
-      <Footer onContactClick={() => setIsQuoteOpen(true)} />
+      <Footer onContactClick={() => setIsQuoteOpen(true)} variant="global" />
       <ArtificialIntelligence />
       <NexaLedAi />
 
       <RegionPopup
         isOpen={isRegionOpen}
-        onClose={() => setIsRegionOpen(false)}
+        onClose={handleRegionClose}
         onSelect={handleRegionSelect}
         selectedCode={selectedRegion}
       />

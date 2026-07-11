@@ -11,17 +11,13 @@ const UK_NAV_LINKS = [
   { id: "about", label: "About Us", href: "/about" },
   {
     id: "services",
-    label: "Services",
+    label: "Service in UK",
     href: "/uk#services",
     hasDropdown: true,
     dropdownItems: UK_SERVICE_LINKS,
   },
   { id: "tools", label: "Tools", href: "/tools" },
-  { id: "pricing", label: "Pricing", href: "/pricing" },
-  { id: "process", label: "Process", href: "/process" },
   { id: "contact", label: "Contact Us", href: "/contact" },
-  { id: "blogs", label: "Blogs", href: "/blogs" },
-  { id: "free-trial", label: "Free Trial", href: "/free-trial" },
 ];
 
 export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
@@ -188,7 +184,12 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
                 <Link
                   key={link.id}
                   href={link.href}
-                  className="px-3 py-2 rounded-full text-[13px] font-bold tracking-wide text-[#1E1B2A] hover:text-[#F58220] hover:bg-[#F58220]/5 transition-all duration-200"
+                  className={`px-3 py-2 rounded-full text-[13px] font-bold tracking-wide transition-all duration-200 ${
+                    pathname === link.href ||
+                    (link.href !== "/" && pathname?.startsWith(link.href))
+                      ? "bg-[#F58220]/10 text-[#F58220]"
+                      : "text-[#1E1B2A] hover:text-[#F58220] hover:bg-[#F58220]/5"
+                  }`}
                 >
                   {link.label}
                 </Link>
@@ -198,7 +199,11 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
 
           {/* BOOK A CALL Button (Desktop) */}
           <div className="hidden lg:flex items-center">
-            <Button text="BOOK A CALL" className="!py-2 !px-6 !text-[13px] !font-extrabold !rounded-full !tracking-wider" />
+            <Button
+              text="BOOK A CALL"
+              href="/contact"
+              className="!py-2 !px-6 !text-[13px] !font-extrabold !rounded-full !tracking-wider"
+            />
           </div>
 
           {/* Hamburger (Mobile) */}
@@ -332,7 +337,12 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
 
             {/* Mobile CTA */}
             <div className="pt-3 px-2">
-              <Button text="BOOK A CALL" className="!w-full !py-3 !text-sm !font-extrabold !rounded-full" />
+              <Button
+                text="BOOK A CALL"
+                href="/contact"
+                onClick={() => setIsSidebarOpen(false)}
+                className="!w-full !py-3 !text-sm !font-extrabold !rounded-full"
+              />
             </div>
           </nav>
         </div>
