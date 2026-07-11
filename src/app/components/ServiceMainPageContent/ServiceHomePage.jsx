@@ -1,28 +1,11 @@
 import Link from "next/link";
-import {
-    Calendar,
-    Play,
-    Shield,
-    ShieldCheck,
-    Lock,
-    Clock,
-    Award,
-    UserCheck,
-} from "lucide-react";
+import { Calendar, Play } from "lucide-react";
+import TrustBadgesBar from "./TrustBadgesBar";
 
 /**
  * ServiceHomePage — reusable UK hero.
  * Defaults are UK hub copy (all services). Pass props to customise per page.
  */
-
-const trustBadges = [
-    { icon: ShieldCheck, label: "HMRC", sub: "Compliant" },
-    { icon: Shield, label: "ISO 27001", sub: "Certified" },
-    { icon: Lock, label: "GDPR", sub: "Compliant" },
-    { icon: Clock, label: "UK Time Zone", sub: "Overlap" },
-    { icon: Award, label: "10+ Years", sub: "Experience" },
-    { icon: UserCheck, label: "Dedicated", sub: "Account Manager" },
-];
 
 export default function ServiceHomePage({
     badge = "UK Accounting Outsourcing Partner",
@@ -91,28 +74,7 @@ export default function ServiceHomePage({
                     </div>
                 </div>
 
-                <div className="mt-6 rounded-xl border border-slate-200/80 bg-white/90 px-3 py-4 shadow-[0_8px_30px_rgba(15,23,42,0.06)] backdrop-blur-sm sm:px-6 sm:py-3">
-                    <div className="grid grid-cols-2 gap-x-2 gap-y-4 sm:grid-cols-3 sm:gap-y-3 lg:grid-cols-6 lg:divide-x lg:divide-slate-200">
-                        {trustBadges.map(({ icon: Icon, label, sub }, i) => (
-                            <div
-                                key={label + i}
-                                className="flex items-center justify-center gap-2 px-1 lg:px-3"
-                            >
-                                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[#F58220]/40 bg-[#FFF7F0] text-[#F58220]">
-                                    <Icon className="h-3.5 w-3.5" strokeWidth={2} />
-                                </span>
-                                <span className="text-left leading-tight">
-                                    <span className="block text-[11.5px] font-semibold text-slate-800 sm:text-[12px]">
-                                        {label}
-                                    </span>
-                                    <span className="block text-[10px] text-slate-500 sm:text-[10.5px]">
-                                        {sub}
-                                    </span>
-                                </span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
+                <TrustBadgesBar />
             </div>
         </section>
     );

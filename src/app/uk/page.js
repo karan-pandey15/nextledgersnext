@@ -32,18 +32,13 @@ export default function UKPage() {
       <section
         id="services"
         className="relative w-full overflow-hidden px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14"
-        style={{ background: PAGE_CREAM }}
+        style={{
+          backgroundColor: PAGE_CREAM,
+          backgroundImage:
+            "radial-gradient(rgba(180,150,120,0.35) 1.1px, transparent 1.1px)",
+          backgroundSize: "22px 22px",
+        }}
       >
-        {/* Atmosphere */}
-        <div
-          className="pointer-events-none absolute -left-16 top-10 h-56 w-56 rounded-full opacity-50 blur-3xl"
-          style={{ background: "rgba(245,130,32,0.14)" }}
-        />
-        <div
-          className="pointer-events-none absolute -right-20 bottom-10 h-64 w-64 rounded-full opacity-40 blur-3xl"
-          style={{ background: "rgba(11,31,58,0.08)" }}
-        />
-
         <div className="relative mx-auto w-full max-w-6xl">
           <div className="mb-8 text-center sm:mb-10">
             <span

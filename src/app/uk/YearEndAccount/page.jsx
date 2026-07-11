@@ -42,6 +42,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import IconDisplayScreen from "@/app/components/ServiceMainPageContent/IcondisplayScreen";
+import TrustBadgesBar from "@/app/components/ServiceMainPageContent/TrustBadgesBar";
 import Footer from "@/app/components/footer/Footer";
 import TopAnnouncementBar from "@/app/components/TopHeader/TopAnnouncementBar";
 import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/ArtificialIntelligence";
@@ -476,29 +477,7 @@ export default function YearEndAccount() {
                             </a>
                         </div>
                     </div>
-
-                    <div className="mt-6 rounded-xl border border-slate-200/80 bg-white/90 px-3 py-4 shadow-[0_8px_30px_rgba(15,23,42,0.06)] backdrop-blur-sm sm:px-6 sm:py-3">
-                        <div className="grid grid-cols-2 gap-x-2 gap-y-4 sm:grid-cols-3 sm:gap-y-3 lg:grid-cols-6 lg:divide-x lg:divide-slate-200">
-                            {trustBadges.map(({ icon: Icon, label, sub }, i) => (
-                                <div
-                                    key={label + i}
-                                    className="flex items-center justify-center gap-2 px-1 lg:px-3"
-                                >
-                                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[#F58220]/40 bg-[#FFF7F0] text-[#F58220]">
-                                        <Icon className="h-3.5 w-3.5" strokeWidth={2} />
-                                    </span>
-                                    <span className="text-left leading-tight">
-                                        <span className="block text-[11.5px] font-semibold text-slate-800 sm:text-[12px]">
-                                            {label}
-                                        </span>
-                                        <span className="block text-[10px] text-slate-500 sm:text-[10.5px]">
-                                            {sub}
-                                        </span>
-                                    </span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+                    <TrustBadgesBar badges={trustBadges} />
                 </div>
             </section>
 
