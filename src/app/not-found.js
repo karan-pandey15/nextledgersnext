@@ -7,6 +7,7 @@ import TopAnnouncementBar from "./components/TopHeader/TopAnnouncementBar";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import NexaLedAi from "./components/ChatBot/NexaLedAi";
+import CtaButton from "./components/ui/CtaButton";
 
 export default function NotFound() {
   const router = useRouter();
@@ -51,19 +52,16 @@ export default function NotFound() {
 
           {/* Action Back Button */}
           <div className="flex justify-center">
-            <button
-              onClick={handleBack}
-              className="flex items-center justify-center gap-2 py-3 px-8 rounded-full bg-[#F58220] hover:bg-[#E0721B] text-[#FEF4E4] font-black text-xs sm:text-sm uppercase tracking-wider shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-[1.03] active:scale-[0.97] cursor-pointer"
-            >
-              <ArrowLeft className="w-4 h-4 stroke-[2.5]" />
+            <CtaButton href={null} variant="primary" size="md" onClick={handleBack}>
+              <ArrowLeft className="h-4 w-4" strokeWidth={2.5} />
               Go Back
-            </button>
+            </CtaButton>
           </div>
         </div>
       </div>
 
       {/* Footer */}
-      <Footer />
+      <Footer variant="global" />
 
       {/* Floating AI Chatbot */}
       <NexaLedAi />

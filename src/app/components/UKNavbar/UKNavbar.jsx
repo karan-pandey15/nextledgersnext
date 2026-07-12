@@ -199,11 +199,7 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
 
           {/* BOOK A CALL Button (Desktop) */}
           <div className="hidden lg:flex items-center">
-            <Button
-              text="BOOK A CALL"
-              href="/contact"
-              className="!py-2 !px-6 !text-[13px] !font-extrabold !rounded-full !tracking-wider"
-            />
+            <Button text="BOOK A CALL" className="!py-2 !px-6 !text-[13px] !font-extrabold !tracking-wider" />
           </div>
 
           {/* Hamburger (Mobile) */}
@@ -343,6 +339,7 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
                 onClick={() => setIsSidebarOpen(false)}
                 className="!w-full !py-3 !text-sm !font-extrabold !rounded-full"
               />
+              <Button text="BOOK A CALL" className="!w-full !py-3 !text-sm !font-extrabold" />
             </div>
           </nav>
         </div>

@@ -1,5 +1,6 @@
 import React from "react";
-import { Users, PuzzleIcon, ShieldCheck, Headset } from "lucide-react";
+import { Phone, Users, PuzzleIcon, ShieldCheck, Headset } from "lucide-react";
+import CtaButton from "@/app/components/ui/CtaButton";
 
 export default function BookkeepingHero() {
     return (
@@ -28,10 +29,10 @@ export default function BookkeepingHero() {
                         <p className="text-gray-500 text-[10px] sm:text-[15px] leading-relaxed mb-3">
                             At NextLedgers, we support UK accounting firms with reliable management reporting and financial analysis services, enabling them to deliver valuable insights and advisory-driven solutions to their clients.    </p>
 
-                        <button className="inline-flex items-center gap-2 bg-[#F58220] hover:bg-[#e2761b] text-white text-sm font-semibold px-5 py-3 rounded-full transition-colors">
-                            <span className="text-base leading-none">📞</span>
+                        <CtaButton href="/contact" variant="primary" size="md">
+                            <Phone className="h-4 w-4" strokeWidth={2.25} />
                             Book a Discovery Call
-                        </button>
+                        </CtaButton>
                     </div>
 
                     {/* Right column - image with overlay stat bar */}

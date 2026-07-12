@@ -1,6 +1,8 @@
+import { USA_SERVICE_LINKS } from "@/app/usa/usaServiceLinks";
+
 /**
- * Home page navigation — USA experience (global header).
- * About has a dropdown; USA/Canada service items stay as placeholders until pages exist.
+ * Home page navigation — global header.
+ * USA services come from the canonical USA_SERVICE_LINKS list.
  */
 export const NAVIGATION_LINKS = [
   {
@@ -33,38 +35,17 @@ export const NAVIGATION_LINKS = [
   {
     id: "services-usa",
     label: "Services In USA",
-    href: "#",
+    href: "/usa",
     icon: "flag-usa",
     hasDropdown: true,
-    dropdownWidth: "w-[380px]",
-    dropdownItems: [
-      {
-        label: "Self-Directed & Nonprofit Accounting Services",
-        href: null,
-        icon: "charity",
-      },
-      {
-        label: "Bookkeeping Services For U.S Businesses",
-        href: null,
-        icon: "book",
-      },
-      {
-        label: "U.S Tax Preparation Services - USA",
-        href: null,
-        icon: "tax",
-      },
-      {
-        label: "Accounts Payable Services & Receivable Services - USA",
-        href: null,
-        icon: "card",
-      },
-      {
-        label:
-          "Year End Accounts Preparation, Strategic Advisory & CFO-Level-Services - USA",
-        href: null,
-        icon: "chart",
-      },
-    ],
+    dropdownLayout: "cards",
+    dropdownWidth: "usa-services-dropdown",
+    dropdownItems: USA_SERVICE_LINKS.map((service) => ({
+      label: service.label,
+      href: service.href,
+      icon: service.icon,
+      blurb: service.blurb,
+    })),
   },
   {
     id: "services-canada",

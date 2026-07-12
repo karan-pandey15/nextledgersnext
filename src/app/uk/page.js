@@ -8,6 +8,7 @@ import Footer from "../components/footer/Footer";
 import ArtificialIntelligence from "../components/ArtificialIntelligence/ArtificialIntelligence";
 import NexaLedAi from "../components/ChatBot/NexaLedAi";
 import ServiceHomePage from "../components/ServiceMainPageContent/ServiceHomePage";
+import CtaButton from "../components/ui/CtaButton";
 import { UK_SERVICE_LINKS } from "./ukServiceLinks";
 
 const ORANGE = "#F58220";
@@ -20,7 +21,7 @@ export default function UKPage() {
 
   return (
     <main className="flex min-h-screen flex-col overflow-x-hidden bg-[#faf9f6] font-sans text-[#1E1B2A]">
-      <TopAnnouncementBar isSidebarOpen={isSidebarOpen} />
+      <TopAnnouncementBar isSidebarOpen={isSidebarOpen} region="uk" />
       <UKNavbar
         isSidebarOpen={isSidebarOpen}
         setIsSidebarOpen={setIsSidebarOpen}
@@ -122,13 +123,14 @@ export default function UKPage() {
           </nav>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:mt-10 sm:flex-row sm:gap-4">
-            <Link
+            <CtaButton
               href="/contact"
-              className="inline-flex h-11 w-full max-w-[280px] items-center justify-center rounded-[10px] px-6 text-[13px] font-bold uppercase tracking-wide text-white shadow-md transition-colors hover:bg-[#e2761b] sm:h-12 sm:w-auto sm:min-w-[200px] sm:text-[14px]"
-              style={{ background: ORANGE }}
+              variant="primary"
+              size="lg"
+              className="w-full max-w-[280px] sm:w-auto"
             >
               Book a Discovery Call
-            </Link>
+            </CtaButton>
             <a
               href="tel:+918285285223"
               className="inline-flex h-11 w-full max-w-[280px] items-center justify-center rounded-[10px] border-2 bg-white px-6 text-[13px] font-bold uppercase tracking-wide transition-colors hover:bg-[#FFF7F0] sm:h-12 sm:w-auto sm:min-w-[200px] sm:text-[14px]"
@@ -140,7 +142,7 @@ export default function UKPage() {
         </div>
       </section>
 
-      <Footer />
+      <Footer region="uk" />
       <ArtificialIntelligence />
       <NexaLedAi />
     </main>

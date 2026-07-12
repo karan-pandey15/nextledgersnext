@@ -176,7 +176,7 @@ export default function FooterGlobalMap() {
       {/* Slightly taller + wider canvas so labels fit */}
       <svg
         viewBox="0 0 1000 480"
-        className="block h-auto w-full min-h-[200px] sm:min-h-[240px] lg:min-h-[280px]"
+        className="block h-auto w-full min-h-[220px] sm:min-h-[260px] lg:min-h-[300px]"
         role="img"
         aria-label="Global connectivity map showing Next Ledgers locations"
       >

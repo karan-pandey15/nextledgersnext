@@ -447,7 +447,7 @@ export default function ToolsPage() {
         </div>
       </section>
 
-      <Footer />
+      <Footer variant="global" />
       <ArtificialIntelligence />
       <NexaLedAi />
     </main>

@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import { Phone } from "lucide-react";
+import CtaButton from "@/app/components/ui/CtaButton";
 
 const ORANGE = "#F58220";
 
@@ -139,45 +139,34 @@ export default function TransformCTA({
             ) : null}
 
             <div className="mt-8 sm:mt-9 flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-5">
-              <Link
+              <CtaButton
                 href={primaryHref}
-                className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-[10px] border border-[#F58220] bg-transparent text-white font-semibold text-[13px] sm:text-[14px] px-7 sm:px-8 h-11 sm:h-12 min-w-[190px] sm:min-w-[210px]"
+                variant="primary"
+                size="lg"
+                className="min-w-[190px] sm:min-w-[210px] !normal-case !tracking-normal !font-semibold"
               >
-                <span
-                  className="absolute inset-0 origin-left scale-x-0 bg-[#F58220] transition-transform duration-[400ms] ease-out group-hover:scale-x-100"
-                  aria-hidden="true"
-                />
-                <span className="relative z-10 inline-flex items-center gap-2">
-                  {primaryLabel}
-                  <span className="text-[15px] leading-none" aria-hidden="true">
-                    →
-                  </span>
+                {primaryLabel}
+                <span className="text-[15px] leading-none" aria-hidden="true">
+                  →
                 </span>
-              </Link>
+              </CtaButton>
 
               {showSecondary ? (
-                <a
+                <CtaButton
                   href={secondaryHref}
-                  className="group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-[10px] border border-[#F58220] bg-transparent text-white font-semibold text-[13px] sm:text-[14px] px-7 sm:px-8 h-11 sm:h-12 min-w-[190px] sm:min-w-[210px]"
+                  variant="outline"
+                  size="lg"
+                  className="min-w-[190px] sm:min-w-[210px] !normal-case !tracking-normal !font-semibold"
                 >
-                  <span
-                    className="absolute inset-0 origin-left scale-x-0 bg-[#F58220] transition-transform duration-[400ms] ease-out group-hover:scale-x-100"
-                    aria-hidden="true"
-                  />
-                  <span className="relative z-10 inline-flex items-center gap-2">
-                    {secondaryLabel}
-                    {String(secondaryHref).startsWith("tel:") ? (
-                      <Phone
-                        className="w-4 h-4 text-[#F58220] transition-colors duration-[400ms] group-hover:text-white"
-                        aria-hidden="true"
-                      />
-                    ) : (
-                      <span className="text-[15px] leading-none" aria-hidden="true">
-                        →
-                      </span>
-                    )}
-                  </span>
-                </a>
+                  {secondaryLabel}
+                  {String(secondaryHref).startsWith("tel:") ? (
+                    <Phone className="h-4 w-4" aria-hidden="true" />
+                  ) : (
+                    <span className="text-[15px] leading-none" aria-hidden="true">
+                      →
+                    </span>
+                  )}
+                </CtaButton>
               ) : null}
             </div>
           </div>

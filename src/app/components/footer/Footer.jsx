@@ -6,13 +6,59 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import FooterGlobalMap from "./FooterGlobalMap";
 import { UK_SERVICE_LINKS } from "@/app/uk/ukServiceLinks";
+import { USA_SERVICE_LINKS } from "@/app/usa/usaServiceLinks";
 import { POPUP_REGIONS, REGION_ROUTES } from "../RegionSelect/regionData";
 
 const ORANGE = "#F58220";
 const BG = "#0B1C33";
 
-const UK_SERVICES_LEFT = UK_SERVICE_LINKS.filter((_, i) => i % 2 === 0);
-const UK_SERVICES_RIGHT = UK_SERVICE_LINKS.filter((_, i) => i % 2 === 1);
+const REGION_COPY = {
+  uk: {
+    regionLabel: "UK",
+    valueIntro:
+      "We help UK accounting firms save time, cut costs and scale with a dedicated offshore team.",
+    servingLines: ["Serving UK", "Accounting Firms"],
+    brandBlurb:
+      "We are a leading offshore accounting and bookkeeping service provider trusted by UK firms.",
+    phoneDisplay: "+44 20 4571 4469",
+    phoneHref: "tel:+442045714469",
+    servicesHeading: "Our Services in UK",
+    overlapText: "Overlap hours with UK for real-time collaboration",
+    softwareHeading: "Trusted by Top UK Firms Using Leading Software",
+    complianceLabel: "GDPR",
+    complianceSub: "Compliant",
+    serviceLinks: UK_SERVICE_LINKS,
+  },
+  usa: {
+    regionLabel: "USA",
+    valueIntro:
+      "We help USA accounting firms save time, cut costs and scale with a dedicated offshore team.",
+    servingLines: ["Serving USA", "Accounting Firms"],
+    brandBlurb:
+      "We are a leading offshore accounting and bookkeeping service provider trusted by USA firms.",
+    phoneDisplay: "+1 (888) 552-0055",
+    phoneHref: "tel:+18885520055",
+    servicesHeading: "Our Services in USA",
+    overlapText: "Overlap hours with USA for real-time collaboration",
+    softwareHeading: "Trusted by Top USA Firms Using Leading Software",
+    complianceLabel: "CCPA",
+    complianceSub: "Compliant",
+    serviceLinks: USA_SERVICE_LINKS,
+  },
+};
+
+const GLOBAL_COPY = {
+  valueIntro:
+    "We help accounting firms worldwide save time, cut costs and scale with a dedicated offshore team.",
+  brandBlurb:
+    "We are a leading offshore accounting and bookkeeping partner trusted by firms across the UK, USA, Canada, and beyond.",
+  phoneDisplay: "+44 20 4571 4469",
+  phoneHref: "tel:+442045714469",
+  overlapText: "Overlap hours across regions for real-time collaboration",
+  softwareHeading: "Trusted by Firms Worldwide Using Leading Software",
+  complianceLabel: "GDPR",
+  complianceSub: "Compliant",
+};
 
 const GLOBAL_REGIONS = POPUP_REGIONS.map((region) => ({
   code: region.code,
@@ -222,11 +268,11 @@ function IconChevron({ className = "w-3 h-3" }) {
   );
 }
 
-const VALUE_STATS_UK = [
+const VALUE_STATS_BASE = [
   {
     icon: IconLaurel,
     title: "10+ Years",
-    subtitle: ["Serving UK", "Accounting Firms"],
+    subtitleKey: "serving",
   },
   {
     icon: IconShield,
@@ -304,7 +350,7 @@ function RegionLink({ region }) {
     </>
   );
 
-  if (region.href) {
+  if (region.href && region.href !== "/") {
     return (
       <Link href={region.href} className={className}>
         {content}
@@ -348,23 +394,45 @@ function FadeDividerV({ className = "" }) {
 }
 
 /**
- * @param {"uk" | "global"} [variant] — auto-detected from path if omitted
- *   - global (home/about/contact/team): regions list, not UK services
- *   - uk (/uk/*): current UK services footer
+ * @param {"uk" | "usa"} [region] — regional service footer
+ * @param {"uk" | "usa" | "global"} [variant] — `global` for home/about/team/contact/careers
  */
-export default function Footer({ onContactClick, variant }) {
+export default function Footer({ onContactClick, region, variant }) {
   const pathname = usePathname();
-  const isUk =
-    variant === "uk" ||
-    (variant !== "global" && Boolean(pathname?.startsWith("/uk")));
-  const valueStats = isUk ? VALUE_STATS_UK : VALUE_STATS_GLOBAL;
+
+  const resolvedRegion =
+    region === "uk" || region === "usa"
+      ? region
+      : variant === "usa" || pathname?.startsWith("/usa")
+        ? "usa"
+        : variant === "uk" || pathname?.startsWith("/uk")
+          ? "uk"
+          : null;
+
+  const isGlobal =
+    variant === "global" ||
+    (!resolvedRegion && !pathname?.startsWith("/uk") && !pathname?.startsWith("/usa"));
+
+  const mode = isGlobal ? "global" : resolvedRegion || "uk";
+  const copy = mode === "global" ? GLOBAL_COPY : REGION_COPY[mode] || REGION_COPY.uk;
+
+  const serviceLinks = mode === "global" ? [] : copy.serviceLinks || [];
+  const servicesLeft = serviceLinks.filter((_, i) => i % 2 === 0);
+  const servicesRight = serviceLinks.filter((_, i) => i % 2 === 1);
+
+  const valueStats =
+    mode === "global"
+      ? VALUE_STATS_GLOBAL
+      : VALUE_STATS_BASE.map((stat) =>
+          stat.subtitleKey === "serving"
+            ? { ...stat, subtitle: copy.servingLines }
+            : stat
+        );
 
   return (
     <footer className="w-full text-white overflow-x-hidden" style={{ backgroundColor: BG }}>
-      {/* Top value proposition */}
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-7 sm:py-9 lg:py-10">
         <div className="flex flex-col xl:flex-row xl:items-center gap-7 sm:gap-8 xl:gap-0">
-          {/* Left copy */}
           <div className="xl:w-[30%] xl:max-w-[380px] xl:pr-6 shrink-0 text-center sm:text-left">
             <h2 className="font-bold text-[22px] sm:text-[25px] lg:text-[27px] leading-[1.22] tracking-[-0.01em] text-white">
               Your Offshore Team.
@@ -372,13 +440,10 @@ export default function Footer({ onContactClick, variant }) {
               <span className="text-[#F58220]">Your Competitive Advantage.</span>
             </h2>
             <p className="mt-2.5 text-[13px] sm:text-[14px] leading-[1.55] text-[#9AA3B2] max-w-[420px] mx-auto sm:mx-0">
-              {isUk
-                ? "We help UK accounting firms save time, cut costs and scale with a dedicated offshore team."
-                : "We help accounting firms worldwide save time, cut costs and scale with a dedicated offshore team."}
+              {copy.valueIntro}
             </p>
           </div>
 
-          {/* Stats — 2 / 3 / 5 columns by breakpoint */}
           <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
             {valueStats.map((stat, index) => {
               const Icon = stat.icon;
@@ -411,10 +476,8 @@ export default function Footer({ onContactClick, variant }) {
 
       <FadeDividerH />
 
-      {/* Main body — brand + regions + (quick links + wide map) */}
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-8 sm:py-10 lg:py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 gap-8 md:gap-10 xl:gap-0">
-          {/* Column 1 — Brand */}
           <div className="xl:col-span-3 space-y-4 xl:pr-8">
             <Link href="/" className="inline-block">
               <img
@@ -424,20 +487,18 @@ export default function Footer({ onContactClick, variant }) {
               />
             </Link>
             <p className="text-[13px] leading-6 text-white/70 max-w-[280px]">
-              {isUk
-                ? "We are a leading offshore accounting and bookkeeping service provider trusted by UK firms."
-                : "We are a leading offshore accounting and bookkeeping partner trusted by firms across the UK, USA, Canada, and beyond."}
+              {copy.brandBlurb}
             </p>
 
             <div className="space-y-3 pt-1">
               <a
-                href={isUk ? "tel:+918285285223" : "tel:+442045714469"}
+                href={copy.phoneHref}
                 className="flex items-center gap-2.5 text-[13px] font-semibold text-white/90 hover:text-[#F58220] transition-colors"
               >
                 <span className="text-[#F58220]">
                   <IconPhone className="w-4 h-4" />
                 </span>
-                {isUk ? "+91 82852 85223" : "+44 20 4571 4469"}
+                {copy.phoneDisplay}
               </a>
               <a
                 href="mailto:info@nextledgers.com"
@@ -480,54 +541,53 @@ export default function Footer({ onContactClick, variant }) {
             )}
           </div>
 
-          {/* Column 2 — UK Services / Our Regions */}
           <div className="xl:col-span-3 flex">
             <FadeDividerV className="hidden xl:block mr-6" />
             <div className="flex-1 xl:pr-4">
               <h3 className="text-[12px] sm:text-[13px] font-bold tracking-[0.14em] uppercase text-[#F58220] mb-4">
-                {isUk ? "Our Services in UK" : "Our Regions"}
+                {mode === "global" ? "Our Regions" : copy.servicesHeading}
               </h3>
-              {isUk ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2.5">
-                  <div className="space-y-2.5">
-                    {UK_SERVICES_LEFT.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="group flex items-start gap-1.5 text-[12px] sm:text-[13px] leading-5 text-white/70 hover:text-[#F58220] transition-colors"
-                      >
-                        <span className="text-[#F58220] mt-0.5 shrink-0">
-                          <IconChevron className="w-3 h-3" />
-                        </span>
-                        <span>{item.label}</span>
-                      </Link>
+              {mode === "global" ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-4">
+                  <div className="space-y-3.5">
+                    {GLOBAL_REGIONS_LEFT.map((item) => (
+                      <RegionLink key={item.code} region={item} />
                     ))}
                   </div>
-                  <div className="space-y-2.5">
-                    {UK_SERVICES_RIGHT.map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        className="group flex items-start gap-1.5 text-[12px] sm:text-[13px] leading-5 text-white/70 hover:text-[#F58220] transition-colors"
-                      >
-                        <span className="text-[#F58220] mt-0.5 shrink-0">
-                          <IconChevron className="w-3 h-3" />
-                        </span>
-                        <span>{item.label}</span>
-                      </Link>
+                  <div className="space-y-3.5">
+                    {GLOBAL_REGIONS_RIGHT.map((item) => (
+                      <RegionLink key={item.code} region={item} />
                     ))}
                   </div>
                 </div>
               ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-4">
-                  <div className="space-y-3.5">
-                    {GLOBAL_REGIONS_LEFT.map((region) => (
-                      <RegionLink key={region.code} region={region} />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2.5">
+                  <div className="space-y-2.5">
+                    {servicesLeft.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="group flex items-start gap-1.5 text-[12px] sm:text-[13px] leading-5 text-white/70 hover:text-[#F58220] transition-colors"
+                      >
+                        <span className="text-[#F58220] mt-0.5 shrink-0">
+                          <IconChevron className="w-3 h-3" />
+                        </span>
+                        <span>{item.label}</span>
+                      </Link>
                     ))}
                   </div>
-                  <div className="space-y-3.5">
-                    {GLOBAL_REGIONS_RIGHT.map((region) => (
-                      <RegionLink key={region.code} region={region} />
+                  <div className="space-y-2.5">
+                    {servicesRight.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="group flex items-start gap-1.5 text-[12px] sm:text-[13px] leading-5 text-white/70 hover:text-[#F58220] transition-colors"
+                      >
+                        <span className="text-[#F58220] mt-0.5 shrink-0">
+                          <IconChevron className="w-3 h-3" />
+                        </span>
+                        <span>{item.label}</span>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -535,12 +595,11 @@ export default function Footer({ onContactClick, variant }) {
             </div>
           </div>
 
-          {/* Column 3 — Quick Links + Global map */}
           <div className="md:col-span-2 xl:col-span-6 flex">
-            <FadeDividerV className="hidden xl:block mr-5" />
+            <FadeDividerV className="hidden xl:block mr-4" />
             <div className="flex-1 min-w-0">
-              <div className="grid grid-cols-1 sm:grid-cols-[140px_minmax(0,1fr)] lg:grid-cols-[150px_minmax(0,1fr)] gap-6 sm:gap-5 lg:gap-6 items-start">
-                <div className="min-w-0">
+              <div className="flex w-full flex-row items-start gap-[10px]">
+                <div className="w-[110px] shrink-0 sm:w-[118px]">
                   <h3 className="text-[12px] sm:text-[13px] font-bold tracking-[0.14em] uppercase text-[#F58220] mb-4">
                     Quick Links
                   </h3>
@@ -558,7 +617,7 @@ export default function Footer({ onContactClick, variant }) {
                   </ul>
                 </div>
 
-                <div className="min-w-0 w-full">
+                <div className="min-w-0 flex-1">
                   <h3 className="text-[12px] sm:text-[13px] font-bold tracking-[0.14em] uppercase text-[#F58220] mb-3">
                     Global Connectivity
                   </h3>
@@ -588,9 +647,7 @@ export default function Footer({ onContactClick, variant }) {
                         <IconClock className="w-8 h-8" />
                       </span>
                       <p className="text-[11px] sm:text-[12px] leading-[1.4] text-white/85">
-                        {isUk
-                          ? "Overlap hours with UK for real-time collaboration"
-                          : "Overlap hours across regions for real-time collaboration"}
+                        {copy.overlapText}
                       </p>
                     </div>
                   </div>
@@ -603,22 +660,19 @@ export default function Footer({ onContactClick, variant }) {
 
       <FadeDividerH />
 
-      {/* Software bar — single-row marquee (right → left) */}
       <div>
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 pt-4 sm:pt-5 pb-6 sm:pb-8">
           <p className="text-left text-[10px] sm:text-[11px] md:text-[12px] font-extrabold tracking-[0.12em] sm:tracking-[0.18em] uppercase text-white/85">
-            {isUk
-              ? "Trusted by Top UK Firms Using Leading Software"
-              : "Trusted by Firms Worldwide Using Leading Software"}
+            {copy.softwareHeading}
           </p>
 
           <div className="mt-4 sm:mt-5 md:mt-6 overflow-hidden">
             <div className="footer-logo-marquee flex w-max items-center">
-              {[0, 1].map((copy) => (
-                <div key={copy} className="flex items-center shrink-0" aria-hidden={copy === 1}>
+              {[0, 1].map((copyIdx) => (
+                <div key={copyIdx} className="flex items-center shrink-0" aria-hidden={copyIdx === 1}>
                   {SOFTWARE_BRANDS.map((brand, index) => (
-                    <div key={`${copy}-${brand.name}`} className="flex items-center">
-                      {(index > 0 || copy === 1) && (
+                    <div key={`${copyIdx}-${brand.name}`} className="flex items-center">
+                      {(index > 0 || copyIdx === 1) && (
                         <div
                           className="w-px h-6 sm:h-7 mx-2.5 sm:mx-4 lg:mx-5 shrink-0"
                           style={{
@@ -631,7 +685,7 @@ export default function Footer({ onContactClick, variant }) {
                       <div className="relative h-6 sm:h-7 md:h-8 w-[64px] sm:w-[72px] md:w-[84px] shrink-0">
                         <Image
                           src={brand.src}
-                          alt={copy === 0 ? brand.name : ""}
+                          alt={copyIdx === 0 ? brand.name : ""}
                           fill
                           className="object-contain object-left"
                           sizes="84px"
@@ -666,7 +720,6 @@ export default function Footer({ onContactClick, variant }) {
 
       <FadeDividerH />
 
-      {/* Bottom bar */}
       <div>
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-4 sm:py-5 flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-5 text-[11px] sm:text-[12px] text-white/50">
           <p className="text-center lg:text-left order-1">
@@ -694,8 +747,8 @@ export default function Footer({ onContactClick, variant }) {
             <span className="inline-flex items-center gap-2 sm:gap-2.5 text-white/70">
               <IconLock className="w-6 h-6 sm:w-7 sm:h-7 text-white/70 shrink-0" />
               <span className="flex flex-col leading-[1.2] text-[11px] sm:text-[12px] font-semibold">
-                <span>GDPR</span>
-                <span>Compliant</span>
+                <span>{copy.complianceLabel}</span>
+                <span>{copy.complianceSub}</span>
               </span>
             </span>
           </div>
@@ -742,7 +795,7 @@ export default function Footer({ onContactClick, variant }) {
                 className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-[#F58220] hover:border-[#F58220] transition-colors"
               >
                 <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="currentColor">
-                  <path d="M21.6 7.8a2.5 2.5 0 0 0-1.8-1.8C18.2 5.6 12 5.6 12 5.6s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.8 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.2 2.5 2.5 0 0 0 1.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.2ZM10.2 15.2V8.8L15.5 12l-5.3 3.2Z" />
+                  <path d="M21.6 7.8a2.5 2.5 0 0 0-1.8-1.8C18.2 5.6 12 5.6 12 5.6s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.8 26 26 0 0 0 .4 4.2 2.5 2.5 0 0 0 1.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.2ZM10.2 15.2V8.8L15.5 12l-5.3 3.2Z" />
                 </svg>
               </a>
             </div>
@@ -752,3 +805,4 @@ export default function Footer({ onContactClick, variant }) {
     </footer>
   );
 }
+

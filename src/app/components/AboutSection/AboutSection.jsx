@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import Button from "@/components/ui/Button";
+import CtaButton from "@/app/components/ui/CtaButton";
 
 export default function AboutSection() {
   return (
@@ -20,8 +20,12 @@ export default function AboutSection() {
             clients, your business and your success.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-6 items-center justify-center w-auto">
-            <Button text="Get Started Today" />
-            <Button text="Explore Services" />
+            <CtaButton href="/contact" variant="primary" size="md">
+              Get Started Today
+            </CtaButton>
+            <CtaButton href="/services" variant="secondary" size="md">
+              Explore Services
+            </CtaButton>
           </div>
         </div>
 

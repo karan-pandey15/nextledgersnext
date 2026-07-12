@@ -306,7 +306,7 @@ export default function TeamPage() {
         </div>
       </section>
 
-      <Footer />
+      <Footer variant="global" />
       <ArtificialIntelligence />
       <NexaLedAi />
     </main>

@@ -332,7 +332,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <Footer />
+      <Footer variant="global" />
       <ArtificialIntelligence />
       <NexaLedAi />
     </main>

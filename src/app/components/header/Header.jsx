@@ -7,6 +7,19 @@ import RegionSelect from "../RegionSelect/RegionSelect";
 import NavIcon from "./NavIcon";
 import { NAVIGATION_LINKS } from "./navigationData";
 
+function DropdownItemIcon({ icon, className = "w-5 h-5" }) {
+  if (!icon) return null;
+  // Lucide icons are forwardRef components (objects), not plain functions
+  if (typeof icon === "function" || (typeof icon === "object" && icon.$$typeof)) {
+    const Icon = icon;
+    return <Icon className={className} strokeWidth={2} aria-hidden="true" />;
+  }
+  if (typeof icon === "string") {
+    return <NavIcon name={icon} className={className} />;
+  }
+  return null;
+}
+
 export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
   const pathname = usePathname();
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -76,29 +89,33 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
   };
 
   return (
-    <header className="w-full bg-white border-b border-[#ECECEC] sticky top-0 z-40">
+    <header className="sticky top-0 z-40 w-full overflow-visible border-b border-[#ECECEC] bg-white">
       {/* Custom Styles for Nav Dropdown Opening */}
       <style>{`
         @keyframes navDropdownSlideIn {
           from {
             opacity: 0;
-            transform: translateY(12px) scale(0.97);
+            transform: translateY(8px);
           }
           to {
             opacity: 1;
-            transform: translateY(0) scale(1);
+            transform: translateY(0);
           }
         }
         .animate-nav-dropdown {
-          animation: navDropdownSlideIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          animation: navDropdownSlideIn 0.2s ease-out forwards;
         }
-        /* Hide scrollbars on mobile layout menus */
         .no-scrollbar::-webkit-scrollbar {
           display: none;
         }
         .no-scrollbar {
           -ms-overflow-style: none;
           scrollbar-width: none;
+        }
+        .usa-services-dropdown {
+          width: 420px;
+          min-width: 420px;
+          max-width: min(420px, calc(100vw - 2rem));
         }
       `}</style>
 
@@ -114,7 +131,7 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
             </Link>
           </div>
 
-          <nav className="hidden xl:flex items-center gap-1">
+          <nav className="hidden items-center gap-1 overflow-visible xl:flex">
             {NAVIGATION_LINKS.map((link) => {
               const isOpen = activeDropdown === link.id;
 
@@ -122,7 +139,7 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
                 return (
                   <div
                     key={link.id}
-                    className="relative"
+                    className="relative overflow-visible"
                     onMouseEnter={() => handleMouseEnter(link.id)}
                     onMouseLeave={() => handleMouseLeave(link.id)}
                   >
@@ -151,50 +168,97 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
                     {/* Dropdown Modal Menu */}
                     {isOpen && (
                       <div
-                        className={`absolute left-0 mt-2 ${link.dropdownWidth} origin-top-left rounded-[24px] bg-white border border-gray-100 p-5 shadow-[0_12px_45px_rgba(0,0,0,0.08)] z-50 animate-nav-dropdown`}
+                        className={`absolute left-0 top-full z-50 mt-2 origin-top-left rounded-[20px] border border-gray-100 bg-white p-4 shadow-[0_12px_45px_rgba(0,0,0,0.08)] animate-nav-dropdown ${
+                          link.dropdownLayout === "cards"
+                            ? "usa-services-dropdown"
+                            : link.dropdownWidth || "w-[340px]"
+                        }`}
                         onMouseEnter={() => handleMouseEnter(link.id)}
                         onMouseLeave={() => handleMouseLeave(link.id)}
                       >
-                        <div className="flex flex-col gap-1">
-                          {link.dropdownItems.map((item, idx) => {
-                            const itemClass =
-                              "group flex items-start gap-3.5 p-3 rounded-xl transition-all duration-200 hover:bg-[#F58220]/4 border-l-2 border-transparent hover:border-[#F58220]/40 text-left w-full";
+                        {link.dropdownLayout === "cards" ? (
+                          <div className="flex flex-col gap-0.5">
+                            <Link
+                              href="/usa"
+                              className="group mb-2 flex items-center gap-2.5 rounded-xl border border-[#F58220]/20 bg-[#F58220]/5 p-2.5 text-left transition-all duration-200 hover:bg-[#F58220]/10"
+                              onClick={() => setActiveDropdown(null)}
+                            >
+                              {/* eslint-disable-next-line @next/next/no-img-element */}
+                              <img
+                                src="https://flagcdn.com/w40/us.png"
+                                alt=""
+                                className="h-[18px] w-7 shrink-0 rounded-sm object-cover"
+                              />
+                              <span className="text-[13px] font-extrabold text-[#F58220]">
+                                All USA Services
+                              </span>
+                            </Link>
 
-                            if (!item.href) {
+                            {link.dropdownItems.map((item) => (
+                              <Link
+                                key={item.href}
+                                href={item.href}
+                                onClick={() => setActiveDropdown(null)}
+                                className="group flex items-start gap-3 rounded-xl border-l-2 border-transparent p-2.5 text-left transition-all duration-200 hover:border-[#F58220]/40 hover:bg-[#F58220]/5"
+                              >
+                                <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#F58220] transition-transform duration-200 group-hover:scale-110">
+                                  <DropdownItemIcon icon={item.icon} className="h-4 w-4" />
+                                </span>
+                                <span className="min-w-0">
+                                  <span className="block text-[13px] font-bold leading-snug text-[#1E1B2A]/90 transition-colors duration-200 group-hover:text-[#F58220]">
+                                    {item.label}
+                                  </span>
+                                  {item.blurb ? (
+                                    <span className="mt-0.5 block text-[11px] leading-relaxed text-[#6B7280]">
+                                      {item.blurb}
+                                    </span>
+                                  ) : null}
+                                </span>
+                              </Link>
+                            ))}
+                          </div>
+                        ) : (
+                          <div className="flex flex-col gap-1">
+                            {link.dropdownItems.map((item, idx) => {
+                              const itemClass =
+                                "group flex items-start gap-3.5 p-3 rounded-xl transition-all duration-200 hover:bg-[#F58220]/4 border-l-2 border-transparent hover:border-[#F58220]/40 text-left w-full";
+
+                              if (!item.href) {
+                                return (
+                                  <button
+                                    key={idx}
+                                    type="button"
+                                    className={`${itemClass} cursor-default`}
+                                    onClick={(e) => e.preventDefault()}
+                                  >
+                                    <div className="text-[#F58220] flex-shrink-0 mt-0.5 transition-transform duration-200 group-hover:scale-110">
+                                      <DropdownItemIcon icon={item.icon} className="w-5 h-5" />
+                                    </div>
+                                    <span className="text-sm font-bold text-[#1E1B2A]/90 transition-colors duration-200 group-hover:text-[#F58220] leading-snug">
+                                      {item.label}
+                                    </span>
+                                  </button>
+                                );
+                              }
+
                               return (
-                                <button
+                                <Link
                                   key={idx}
-                                  type="button"
-                                  className={`${itemClass} cursor-default`}
-                                  onClick={(e) => e.preventDefault()}
+                                  href={item.href}
+                                  className={itemClass}
+                                  onClick={() => setActiveDropdown(null)}
                                 >
                                   <div className="text-[#F58220] flex-shrink-0 mt-0.5 transition-transform duration-200 group-hover:scale-110">
-                                    <NavIcon name={item.icon} className="w-5 h-5" />
+                                    <DropdownItemIcon icon={item.icon} className="w-5 h-5" />
                                   </div>
                                   <span className="text-sm font-bold text-[#1E1B2A]/90 transition-colors duration-200 group-hover:text-[#F58220] leading-snug">
                                     {item.label}
                                   </span>
-                                </button>
+                                </Link>
                               );
-                            }
-
-                            return (
-                              <Link
-                                key={idx}
-                                href={item.href}
-                                className={itemClass}
-                                onClick={() => setActiveDropdown(null)}
-                              >
-                                <div className="text-[#F58220] flex-shrink-0 mt-0.5 transition-transform duration-200 group-hover:scale-110">
-                                  <NavIcon name={item.icon} className="w-5 h-5" />
-                                </div>
-                                <span className="text-sm font-bold text-[#1E1B2A]/90 transition-colors duration-200 group-hover:text-[#F58220] leading-snug">
-                                  {item.label}
-                                </span>
-                              </Link>
-                            );
-                          })}
-                        </div>
+                            })}
+                          </div>
+                        )}
                       </div>
                     )}
                   </div>
@@ -321,7 +385,7 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
                                   onClick={(e) => e.preventDefault()}
                                 >
                                   <div className="text-[#F58220] flex-shrink-0 mt-0.5">
-                                    <NavIcon name={item.icon} className="w-4.5 h-4.5" />
+                                    <DropdownItemIcon icon={item.icon} className="w-4.5 h-4.5" />
                                   </div>
                                   <span className="text-xs font-bold text-[#1E1B2A]/90">
                                     {item.label}
@@ -332,16 +396,23 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
 
                             return (
                               <Link
-                                key={idx}
+                                key={item.href || idx}
                                 href={item.href}
                                 onClick={() => setIsSidebarOpen(false)}
                                 className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#F58220]/4 transition-colors"
                               >
-                                <div className="text-[#F58220] flex-shrink-0 mt-0.5">
-                                  <NavIcon name={item.icon} className="w-4.5 h-4.5" />
-                                </div>
-                                <span className="text-xs font-bold text-[#1E1B2A]/90">
-                                  {item.label}
+                                <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#F58220]">
+                                  <DropdownItemIcon icon={item.icon} className="w-4 h-4" />
+                                </span>
+                                <span className="min-w-0">
+                                  <span className="block text-xs font-bold text-[#1E1B2A]/90 leading-snug">
+                                    {item.label}
+                                  </span>
+                                  {item.blurb ? (
+                                    <span className="mt-0.5 block text-[10.5px] leading-relaxed text-[#6B7280]">
+                                      {item.blurb}
+                                    </span>
+                                  ) : null}
                                 </span>
                               </Link>
                             );

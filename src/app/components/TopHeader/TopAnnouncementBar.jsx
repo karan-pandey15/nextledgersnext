@@ -1,13 +1,31 @@
 "use client";
 
-import Link from "next/link";
 import { Phone, Sparkles } from "lucide-react";
 import RegionSelect from "../RegionSelect/RegionSelect";
+import CtaButton from "../ui/CtaButton";
 
 const ORANGE = "#F58220";
 const NAVY = "#0B1F3A";
 
-export default function TopAnnouncementBar({ isSidebarOpen = false }) {
+const REGION_COPY = {
+  uk: {
+    desktop:
+      "Trusted offshore partner for UK accounting firms — bookkeeping, VAT, payroll, tax & advisory",
+    mobile: "Offshore support for UK accounting firms",
+  },
+  usa: {
+    desktop:
+      "Trusted offshore partner for USA accounting firms — bookkeeping, sales tax, payroll, tax & advisory",
+    mobile: "Offshore support for USA accounting firms",
+  },
+};
+
+export default function TopAnnouncementBar({
+  isSidebarOpen = false,
+  region = "uk",
+}) {
+  const copy = REGION_COPY[region] || REGION_COPY.uk;
+
   const handleRegionChange = (regionCode) => {
     console.log("Region changed in Announcement Bar:", regionCode);
   };
@@ -39,30 +57,23 @@ export default function TopAnnouncementBar({ isSidebarOpen = false }) {
           <p className="truncate text-[11px] font-medium leading-snug text-white/95 sm:text-[12.5px]">
             <span className="font-semibold text-[#F58220]">NextLedgers</span>
             <span className="text-white/70"> — </span>
-            <span className="hidden sm:inline">
-              Trusted offshore partner for UK accounting firms — bookkeeping,
-              VAT, payroll, tax &amp; advisory
-            </span>
-            <span className="sm:hidden">
-              Offshore support for UK accounting firms
-            </span>
+            <span className="hidden lg:inline">{copy.desktop}</span>
+            <span className="lg:hidden">{copy.mobile}</span>
           </p>
         </div>
 
         {/* CTA + region */}
         <div className="flex shrink-0 items-center gap-2.5 sm:gap-3">
-          <Link
+          <CtaButton
             href="/contact"
-            className="hidden items-center gap-1.5 rounded-full px-4 py-1.5 text-[11px] font-bold tracking-wide text-white shadow-sm transition-all duration-200 hover:brightness-110 sm:text-xs lg:inline-flex"
-            style={{
-              background: ORANGE,
-              boxShadow: "0 4px 14px rgba(245,130,32,0.35)",
-            }}
+            variant="primary"
+            size="sm"
+            className="hidden !px-4 !py-1.5 !text-[11px] font-bold tracking-wide sm:!text-xs lg:inline-flex"
           >
             <Phone className="h-3 w-3" strokeWidth={2.5} />
             Book a Discovery Call
             <span aria-hidden="true">→</span>
-          </Link>
+          </CtaButton>
 
           <div className="block scale-90 origin-right xl:hidden z-50">
             <RegionSelect

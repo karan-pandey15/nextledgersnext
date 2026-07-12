@@ -3,7 +3,6 @@
 import UKNavbar from "@/app/components/UKNavbar/UKNavbar";
 import {
     Calendar,
-    Play,
     Shield,
     ShieldCheck,
     Lock,
@@ -26,7 +25,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import CtaButton from "@/app/components/ui/CtaButton";
 import IconDisplayScreen from "@/app/components/ServiceMainPageContent/IcondisplayScreen";
 import TrustBadgesBar from "@/app/components/ServiceMainPageContent/TrustBadgesBar";
 import BookKeepingMatters from "@/app/components/ServiceMainPageContent/BookkeepingMatters";
@@ -166,25 +165,31 @@ export default function UkBookkeeping() {
 
     return (
         <main className="relative min-h-screen w-full overflow-x-hidden bg-white">
-            <TopAnnouncementBar />
+            <TopAnnouncementBar isSidebarOpen={isSidebarOpen} region="uk" />
             <UKNavbar
                 isSidebarOpen={isSidebarOpen}
                 setIsSidebarOpen={setIsSidebarOpen}
             />
 
             {/* 1 — Hero */}
-            <section className="relative w-full overflow-hidden bg-gradient-to-br from-[#25404B] via-[#537E91] to-[#537E91] px-4 pb-2 pt-8 sm:px-6 sm:pb-2 sm:pt-10 lg:px-8">
+            <section
+                className="relative w-full overflow-hidden px-4 pb-8 pt-10 sm:px-6 sm:pb-10 sm:pt-12 lg:px-8"
+                style={{
+                    background:
+                        "linear-gradient(165deg, #FFFFFF 0%, #FFF9F5 42%, #FFF4EA 100%)",
+                }}
+            >
                 <div
-                    className="pointer-events-none absolute inset-0 opacity-[0.45]"
+                    className="pointer-events-none absolute inset-0 opacity-[0.55]"
                     style={{
                         backgroundImage:
-                            "radial-gradient(rgba(15,23,42,0.06) 1px, transparent 1px)",
-                        backgroundSize: "16px 16px",
+                            "radial-gradient(rgba(245,130,32,0.18) 1px, transparent 1px)",
+                        backgroundSize: "18px 18px",
                     }}
                 />
-                <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-[#F58220]/12 blur-3xl" />
-                <div className="pointer-events-none absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-slate-400/20 blur-3xl" />
-                <div className="pointer-events-none absolute left-1/2 top-1/3 h-40 w-40 -translate-x-1/2 rounded-full bg-white/50 blur-2xl" />
+                <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-[#F58220]/15 blur-3xl" />
+                <div className="pointer-events-none absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-[#0B1F3A]/06 blur-3xl" />
+                <div className="pointer-events-none absolute left-1/2 top-1/3 h-40 w-40 -translate-x-1/2 rounded-full bg-[#F58220]/10 blur-2xl" />
 
                 <div className="relative mx-auto flex w-full max-w-5xl flex-col justify-center">
                     <div className="flex flex-col items-center px-2 text-center">
@@ -209,13 +214,10 @@ export default function UkBookkeeping() {
                         <div className="my-3 h-[3px] w-10 rounded-full bg-[#F58220]" />
 
                         <div className="flex w-full max-w-xs flex-col items-stretch justify-center gap-2.5 sm:w-auto sm:flex-row sm:items-center sm:gap-3">
-                            <Link
-                                href="/contact"
-                                className="inline-flex items-center justify-center gap-1.5 rounded-md bg-[#F58220] px-4 py-2.5 text-[13px] font-semibold text-white shadow-md shadow-orange-500/25 transition-colors hover:bg-[#e2761b] sm:whitespace-nowrap sm:py-2"
-                            >
+                            <CtaButton href="/contact" variant="primary" size="sm">
                                 <Calendar className="h-3.5 w-3.5 shrink-0" />
                                 Book a Discovery Call
-                            </Link>
+                            </CtaButton>
                             <a
                                 href="tel:+918285285223"
                                 className="inline-flex items-center justify-center gap-1.5 rounded-md border border-slate-300 bg-white/80 px-4 py-2.5 text-[13px] font-semibold text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-white sm:whitespace-nowrap sm:py-2"
@@ -231,7 +233,7 @@ export default function UkBookkeeping() {
 
             {/* 2 — Reliable Bookkeeping Support intro */}
             <section id="how-we-work" className="w-full bg-white">
-                <div className="mx-auto max-w-6xl px-4 py-2 sm:px-6 sm:py-2.5 lg:px-8">
+                <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
                     <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12">
                         <div>
                             <span className="mb-3 inline-block text-[11px] font-extrabold uppercase tracking-widest text-[#F58220]">
@@ -267,13 +269,10 @@ export default function UkBookkeeping() {
                                 workflow.
                             </p>
 
-                            <Link
-                                href="/contact"
-                                className="inline-flex items-center gap-2 rounded-full bg-[#F58220] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#e2761b]"
-                            >
+                            <CtaButton href="/contact" variant="primary" size="md">
                                 <Phone className="h-4 w-4" strokeWidth={2.25} />
                                 Book a Discovery Call
-                            </Link>
+                            </CtaButton>
                         </div>
 
                         <div className="relative pb-10 sm:pb-12">
@@ -329,12 +328,11 @@ export default function UkBookkeeping() {
                 title="Software Expertise"
                 subtitle="We work across the accounting, document, eCommerce, and payment platforms your clients already use."
                 logodata={softwareExpertiseLogodata}
-                className="!py-2 sm:!py-2.5 lg:!py-2.5"
             />
 
             {/* 7 — Why Choose NextLedgers (7-card grid) */}
             <section
-                className="relative w-full overflow-hidden bg-white px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-11"
+                className="relative w-full overflow-hidden bg-white px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14"
             >
                 <DotGrid className="pointer-events-none absolute right-4 top-6 sm:right-10 sm:top-8" />
                 <DotGrid className="pointer-events-none absolute bottom-8 left-4 sm:bottom-10 sm:left-8" />
@@ -427,7 +425,7 @@ export default function UkBookkeeping() {
             </section>
 
             {/* 8 — Partner CTA (cream mockup) */}
-            <section className="relative w-full bg-white px-4 pb-10 pt-2 sm:px-6 sm:pb-12 sm:pt-2.5 lg:px-8">
+            <section className="relative w-full bg-white px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
                 <div
                     className="relative mx-auto max-w-5xl overflow-hidden rounded-[22px] px-5 py-10 text-center sm:rounded-[28px] sm:px-10 sm:py-12 lg:px-14"
                     style={{ background: PAGE_CREAM }}
@@ -491,22 +489,14 @@ export default function UkBookkeeping() {
                         </div>
 
                         <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-                            <Link
-                                href="/contact"
-                                className="inline-flex h-11 min-w-[220px] items-center justify-center gap-2 rounded-[10px] px-6 text-[13px] font-bold uppercase tracking-wide text-white shadow-md transition-colors hover:bg-[#e2761b] sm:h-12 sm:text-[14px]"
-                                style={{ background: ORANGE }}
-                            >
-                                <Send className="h-4 w-4" strokeWidth={2.25} />
-                                Book a Discovery Call
-                            </Link>
-                            <a
-                                href="tel:+918285285223"
-                                className="inline-flex h-11 min-w-[220px] items-center justify-center gap-2 rounded-[10px] border-2 bg-white px-6 text-[13px] font-bold uppercase tracking-wide transition-colors hover:bg-[#FFF7F0] sm:h-12 sm:text-[14px]"
-                                style={{ borderColor: ORANGE, color: ORANGE }}
-                            >
+                            <CtaButton href="/contact" variant="primary" size="lg">
                                 <Phone className="h-4 w-4" strokeWidth={2.25} />
-                                Call Us
-                            </a>
+                                Book a Discovery Call
+                            </CtaButton>
+                            <CtaButton href="/contact" variant="secondary" size="lg">
+                                <Send className="h-4 w-4" strokeWidth={2.25} />
+                                Request a Proposal
+                            </CtaButton>
                         </div>
 
                         <div className="mx-auto mt-8 flex max-w-2xl flex-col items-center justify-center gap-4 border-t border-[#F0E0D2] pt-6 sm:flex-row sm:gap-8">
@@ -527,7 +517,7 @@ export default function UkBookkeeping() {
                 </div>
             </section>
 
-            <Footer />
+            <Footer region="uk" />
             <ArtificialIntelligence />
             <NexaLedAi />
         </main>
