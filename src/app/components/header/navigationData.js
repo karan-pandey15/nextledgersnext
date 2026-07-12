@@ -1,8 +1,9 @@
 import { USA_SERVICE_LINKS } from "@/app/usa/usaServiceLinks";
+import { CANADA_SERVICE_LINKS } from "@/app/canada/canadaServiceLinks";
 
 /**
  * Home page navigation — global header.
- * USA services come from the canonical USA_SERVICE_LINKS list.
+ * USA/Canada services come from canonical regional service link lists.
  */
 export const NAVIGATION_LINKS = [
   {
@@ -40,6 +41,12 @@ export const NAVIGATION_LINKS = [
     hasDropdown: true,
     dropdownLayout: "cards",
     dropdownWidth: "usa-services-dropdown",
+    regionHub: {
+      href: "/usa",
+      label: "All USA Services",
+      flagSrc: "https://flagcdn.com/w40/us.png",
+      flagAlt: "United States flag",
+    },
     dropdownItems: USA_SERVICE_LINKS.map((service) => ({
       label: service.label,
       href: service.href,
@@ -49,38 +56,24 @@ export const NAVIGATION_LINKS = [
   },
   {
     id: "services-canada",
-    label: "Services in Canada",
-    href: "#",
+    label: "Services In Canada",
+    href: "/canada",
     icon: "flag-canada",
     hasDropdown: true,
-    dropdownWidth: "w-[340px]",
-    dropdownItems: [
-      {
-        label: "Compilation Engagement Services",
-        href: null,
-        icon: "document",
-      },
-      {
-        label: "Review Engagement Services",
-        href: null,
-        icon: "search",
-      },
-      {
-        label: "Bookkeeping Services For Canada Businesses",
-        href: null,
-        icon: "book-open",
-      },
-      {
-        label: "Investment Accounting Services in Canada",
-        href: null,
-        icon: "pie-chart",
-      },
-      {
-        label: "CA Tax Preparation Services",
-        href: null,
-        icon: "calculator",
-      },
-    ],
+    dropdownLayout: "cards",
+    dropdownWidth: "canada-services-dropdown",
+    regionHub: {
+      href: "/canada",
+      label: "All Canada Services",
+      flagSrc: "https://flagcdn.com/w40/ca.png",
+      flagAlt: "Canada flag",
+    },
+    dropdownItems: CANADA_SERVICE_LINKS.map((service) => ({
+      label: service.label,
+      href: service.href,
+      icon: service.icon,
+      blurb: service.blurb,
+    })),
   },
   {
     id: "contact",

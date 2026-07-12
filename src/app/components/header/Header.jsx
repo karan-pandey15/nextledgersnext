@@ -117,6 +117,11 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
           min-width: 420px;
           max-width: min(420px, calc(100vw - 2rem));
         }
+        .canada-services-dropdown {
+          width: 420px;
+          min-width: 420px;
+          max-width: min(420px, calc(100vw - 2rem));
+        }
       `}</style>
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
@@ -170,7 +175,7 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
                       <div
                         className={`absolute left-0 top-full z-50 mt-2 origin-top-left rounded-[20px] border border-gray-100 bg-white p-4 shadow-[0_12px_45px_rgba(0,0,0,0.08)] animate-nav-dropdown ${
                           link.dropdownLayout === "cards"
-                            ? "usa-services-dropdown"
+                            ? link.dropdownWidth || "usa-services-dropdown"
                             : link.dropdownWidth || "w-[340px]"
                         }`}
                         onMouseEnter={() => handleMouseEnter(link.id)}
@@ -179,18 +184,18 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
                         {link.dropdownLayout === "cards" ? (
                           <div className="flex flex-col gap-0.5">
                             <Link
-                              href="/usa"
+                              href={link.regionHub?.href || link.href}
                               className="group mb-2 flex items-center gap-2.5 rounded-xl border border-[#F58220]/20 bg-[#F58220]/5 p-2.5 text-left transition-all duration-200 hover:bg-[#F58220]/10"
                               onClick={() => setActiveDropdown(null)}
                             >
                               {/* eslint-disable-next-line @next/next/no-img-element */}
                               <img
-                                src="https://flagcdn.com/w40/us.png"
-                                alt=""
+                                src={link.regionHub?.flagSrc || "https://flagcdn.com/w40/us.png"}
+                                alt={link.regionHub?.flagAlt || ""}
                                 className="h-[18px] w-7 shrink-0 rounded-sm object-cover"
                               />
                               <span className="text-[13px] font-extrabold text-[#F58220]">
-                                All USA Services
+                                {link.regionHub?.label || "All Services"}
                               </span>
                             </Link>
 

@@ -18,6 +18,11 @@ const REGION_COPY = {
       "Trusted offshore partner for USA accounting firms — bookkeeping, sales tax, payroll, tax & advisory",
     mobile: "Offshore support for USA accounting firms",
   },
+  canada: {
+    desktop:
+      "Trusted offshore partner for Canadian accounting firms — bookkeeping, GST/HST, payroll, tax & advisory",
+    mobile: "Offshore support for Canadian accounting firms",
+  },
 };
 
 export default function TopAnnouncementBar({

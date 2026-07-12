@@ -25,6 +25,15 @@ export const USA_TRUST_BADGES = [
     { icon: UserCheck, label: "Dedicated", sub: "Account Manager" },
 ];
 
+export const CANADA_TRUST_BADGES = [
+    { icon: ShieldCheck, label: "CRA", sub: "Compliant" },
+    { icon: Shield, label: "ISO 27001", sub: "Certified" },
+    { icon: Lock, label: "PIPEDA", sub: "Compliant" },
+    { icon: Clock, label: "CA Time Zone", sub: "Overlap" },
+    { icon: Award, label: "10+ Years", sub: "Experience" },
+    { icon: UserCheck, label: "Dedicated", sub: "Account Manager" },
+];
+
 /**
  * Responsive trust badges bar used in regional service heroes.
  * Phone: 2 cols · Tablet: 3 cols · Desktop: 6 cols — equal gaps & aligned rows.

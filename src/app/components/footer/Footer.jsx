@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import FooterGlobalMap from "./FooterGlobalMap";
 import { UK_SERVICE_LINKS } from "@/app/uk/ukServiceLinks";
 import { USA_SERVICE_LINKS } from "@/app/usa/usaServiceLinks";
+import { CANADA_SERVICE_LINKS } from "@/app/canada/canadaServiceLinks";
 import { POPUP_REGIONS, REGION_ROUTES } from "../RegionSelect/regionData";
 
 const ORANGE = "#F58220";
@@ -44,6 +45,22 @@ const REGION_COPY = {
     complianceLabel: "CCPA",
     complianceSub: "Compliant",
     serviceLinks: USA_SERVICE_LINKS,
+  },
+  canada: {
+    regionLabel: "Canada",
+    valueIntro:
+      "We help Canadian accounting firms save time, cut costs and scale with a dedicated offshore team.",
+    servingLines: ["Serving Canada", "Accounting Firms"],
+    brandBlurb:
+      "We are a leading offshore accounting and bookkeeping service provider trusted by Canadian CPA firms.",
+    phoneDisplay: "+1 (888) 552-0055",
+    phoneHref: "tel:+18885520055",
+    servicesHeading: "Our Services in Canada",
+    overlapText: "Overlap hours with Canada for real-time collaboration",
+    softwareHeading: "Trusted by Top Canadian Firms Using Leading Software",
+    complianceLabel: "PIPEDA",
+    complianceSub: "Compliant",
+    serviceLinks: CANADA_SERVICE_LINKS,
   },
 };
 
@@ -394,24 +411,29 @@ function FadeDividerV({ className = "" }) {
 }
 
 /**
- * @param {"uk" | "usa"} [region] — regional service footer
- * @param {"uk" | "usa" | "global"} [variant] — `global` for home/about/team/contact/careers
+ * @param {"uk" | "usa" | "canada"} [region] — regional service footer
+ * @param {"uk" | "usa" | "canada" | "global"} [variant] — `global` for home/about/team/contact/careers
  */
 export default function Footer({ onContactClick, region, variant }) {
   const pathname = usePathname();
 
   const resolvedRegion =
-    region === "uk" || region === "usa"
+    region === "uk" || region === "usa" || region === "canada"
       ? region
-      : variant === "usa" || pathname?.startsWith("/usa")
-        ? "usa"
-        : variant === "uk" || pathname?.startsWith("/uk")
-          ? "uk"
-          : null;
+      : variant === "canada" || pathname?.startsWith("/canada")
+        ? "canada"
+        : variant === "usa" || pathname?.startsWith("/usa")
+          ? "usa"
+          : variant === "uk" || pathname?.startsWith("/uk")
+            ? "uk"
+            : null;
 
   const isGlobal =
     variant === "global" ||
-    (!resolvedRegion && !pathname?.startsWith("/uk") && !pathname?.startsWith("/usa"));
+    (!resolvedRegion &&
+      !pathname?.startsWith("/uk") &&
+      !pathname?.startsWith("/usa") &&
+      !pathname?.startsWith("/canada"));
 
   const mode = isGlobal ? "global" : resolvedRegion || "uk";
   const copy = mode === "global" ? GLOBAL_COPY : REGION_COPY[mode] || REGION_COPY.uk;

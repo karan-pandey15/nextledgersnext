@@ -46,7 +46,7 @@ export const POPUP_REGIONS = [
 export const REGION_ROUTES = {
   UK: "/uk",
   US: "/usa",
-  CA: "/",
+  CA: "/canada",
   IE: "/",
   AU: "/",
   NZ: "/",
