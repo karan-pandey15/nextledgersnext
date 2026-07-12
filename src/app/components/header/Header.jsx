@@ -222,6 +222,34 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
                               </Link>
                             ))}
                           </div>
+                        ) : link.dropdownLayout === "services-list" ? (
+                          <div className="flex flex-col gap-0.5">
+                            <p className="mb-2 px-1 text-[11px] font-extrabold uppercase tracking-[0.16em] text-[#F58220]">
+                              Our Services
+                            </p>
+                            {link.dropdownItems.map((item, idx) => (
+                              <Link
+                                key={item.label || idx}
+                                href={item.href || "/"}
+                                onClick={() => setActiveDropdown(null)}
+                                className="group flex items-center gap-2.5 rounded-xl px-2.5 py-2.5 text-left transition-all duration-200 hover:bg-[#F58220]/6"
+                              >
+                                <svg
+                                  className="h-3 w-3 shrink-0 text-[#F58220]"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  strokeWidth="2.5"
+                                  viewBox="0 0 24 24"
+                                  aria-hidden="true"
+                                >
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="m9 6 6 6-6 6" />
+                                </svg>
+                                <span className="text-[13px] font-semibold text-[#1E1B2A]/90 transition-colors duration-200 group-hover:text-[#F58220]">
+                                  {item.label}
+                                </span>
+                              </Link>
+                            ))}
+                          </div>
                         ) : (
                           <div className="flex flex-col gap-1">
                             {link.dropdownItems.map((item, idx) => {
@@ -381,6 +409,31 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
                       <div className="overflow-hidden">
                         <div className="bg-[#F58220]/2 border border-[#F58220]/5 rounded-[18px] p-3 flex flex-col gap-1 mx-2">
                           {link.dropdownItems.map((item, idx) => {
+                            if (link.dropdownLayout === "services-list") {
+                              return (
+                                <Link
+                                  key={item.label || idx}
+                                  href={item.href || "/"}
+                                  onClick={() => setIsSidebarOpen(false)}
+                                  className="flex items-center gap-2.5 p-2.5 rounded-xl hover:bg-[#F58220]/4 transition-colors"
+                                >
+                                  <svg
+                                    className="h-3 w-3 shrink-0 text-[#F58220]"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2.5"
+                                    viewBox="0 0 24 24"
+                                    aria-hidden="true"
+                                  >
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="m9 6 6 6-6 6" />
+                                  </svg>
+                                  <span className="text-xs font-bold text-[#1E1B2A]/90">
+                                    {item.label}
+                                  </span>
+                                </Link>
+                              );
+                            }
+
                             if (!item.href) {
                               return (
                                 <button
@@ -429,7 +482,7 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
                 );
               }
 
-              // Simple links (Home, About, Contact)
+              // Simple links (Home, BYOT, Careers, Contact)
               return (
                 <Link
                   key={link.id}
@@ -443,6 +496,10 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
               );
             })}
           </nav>
+
+          <div className="pt-2 border-t border-[#F58220]/15">
+            <RegionSelect onRegionChange={handleRegionChange} className="w-full [&_button]:w-full [&_button]:justify-between" />
+          </div>
         </div>
       </div>
     </header>

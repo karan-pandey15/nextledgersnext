@@ -21,18 +21,18 @@ export const POPUP_REGIONS = [
     description: "Compliant services for Irish businesses",
   },
   {
-    code: "CA",
-    displayCode: "CA",
-    name: "Canada",
-    flag: "https://flagcdn.com/ca.svg",
-    description: "Expert accounting for Canadian businesses",
-  },
-  {
     code: "AU",
     displayCode: "AU",
     name: "Australia",
     flag: "https://flagcdn.com/au.svg",
     description: "Supporting businesses across Australia",
+  },
+  {
+    code: "CA",
+    displayCode: "CA",
+    name: "Canada",
+    flag: "https://flagcdn.com/ca.svg",
+    description: "Expert accounting for Canadian businesses",
   },
   {
     code: "NZ",
@@ -41,13 +41,37 @@ export const POPUP_REGIONS = [
     flag: "https://flagcdn.com/nz.svg",
     description: "Dedicated support for NZ businesses",
   },
+  {
+    code: "NL",
+    displayCode: "NL",
+    name: "Netherlands",
+    flag: "https://flagcdn.com/nl.svg",
+    description: "Dedicated support for Dutch businesses",
+  },
+  {
+    code: "AE",
+    displayCode: "AE",
+    name: "United Arab Emirates",
+    flag: "https://flagcdn.com/ae.svg",
+    description: "Accounting solutions for UAE businesses",
+  },
+  {
+    code: "SG",
+    displayCode: "SG",
+    name: "Singapore",
+    flag: "https://flagcdn.com/sg.svg",
+    description: "Expert support for Singapore businesses",
+  },
 ];
 
 export const REGION_ROUTES = {
-  UK: "/uk",
   US: "/usa",
   CA: "/canada",
+  UK: "/uk",
   IE: "/",
+  NL: "/",
+  AE: "/",
+  SG: "/",
   AU: "/",
   NZ: "/",
 };

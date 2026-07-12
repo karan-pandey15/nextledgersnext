@@ -249,15 +249,22 @@ const INDUSTRIES = [
     ),
   },
   {
-    label: "Non-Profit Organizations",
-    bg: "#FFECEC",
+    label: "Crypto",
+    bg: "#FFF4E5",
     icon: (
       <svg viewBox="0 0 48 48" className="w-8 h-8" aria-hidden="true">
-        <path
-          d="M24 36s-11-7-11-15a6.5 6.5 0 0 1 11-4 6.5 6.5 0 0 1 11 4c0 8-11 15-11 15Z"
-          fill="#EF5350"
-        />
-        <path d="M14 38c4-3 7-3 10-1 3-2 6-2 10 1" fill="none" stroke="#E57373" strokeWidth="2" strokeLinecap="round" />
+        <circle cx="24" cy="24" r="16" fill="#F7931A" />
+        <text
+          x="24"
+          y="29"
+          textAnchor="middle"
+          fill="#fff"
+          fontSize="18"
+          fontWeight="800"
+          fontFamily="Arial, sans-serif"
+        >
+          ₿
+        </text>
       </svg>
     ),
   },
@@ -330,19 +337,22 @@ export default function IndustryExpertise() {
 
           {/* Featured bottom bar */}
           <Link
-            href="/industries/non-profit"
+            href="/industries/crypto"
             className="mt-5 sm:mt-6 flex items-center gap-3 sm:gap-4 rounded-[14px] sm:rounded-[16px] bg-white border border-[#F58220]/15 px-4 sm:px-6 py-3.5 sm:py-4 hover:bg-[#FFF1E6] transition-colors duration-200 group"
           >
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#F58220] flex items-center justify-center shrink-0 text-white">
-              <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" aria-hidden="true">
-                <circle cx="9" cy="9" r="2.2" stroke="currentColor" strokeWidth="1.8" />
-                <circle cx="15.5" cy="9.5" r="1.8" stroke="currentColor" strokeWidth="1.8" />
-                <path
-                  d="M4.8 17c.5-2 2-3.2 4.2-3.2s3.6 1.2 4.1 3.2M13.2 17c.3-1.5 1.5-2.5 2.9-2.5.9 0 1.7.4 2.2 1"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                />
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#F7931A] flex items-center justify-center shrink-0 text-white">
+              <svg viewBox="0 0 24 24" className="w-5 h-5" aria-hidden="true">
+                <text
+                  x="12"
+                  y="17"
+                  textAnchor="middle"
+                  fill="currentColor"
+                  fontSize="16"
+                  fontWeight="800"
+                  fontFamily="Arial, sans-serif"
+                >
+                  ₿
+                </text>
               </svg>
             </div>
 
@@ -350,7 +360,7 @@ export default function IndustryExpertise() {
               className="flex-1 font-semibold text-[13px] sm:text-[14px] leading-snug"
               style={{ color: NAVY }}
             >
-              Non-Profit Organizations / 501 Sections Organizations
+              Crypto / Digital Assets & Blockchain Accounting
             </p>
 
             <span

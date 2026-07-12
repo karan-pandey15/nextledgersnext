@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useId, useState } from "react";
 
 const ORANGE = "#F58220";
 
@@ -24,118 +24,118 @@ const CONTINENT_PATHS = {
 };
 
 /**
- * Pin + flag/label placement tuned so country names stay readable
- * and AU / NZ are not clipped at the edge.
+ * Pin (x,y) = exact line target on the map.
+ * Flag/label sit directly above that same pin so the arc always hits the country.
  */
+function makeLocation({ x, y, label, code, isHub = false }) {
+  const flagW = isHub ? 40 : 34;
+  const flagH = isHub ? 26 : 22;
+  return {
+    x,
+    y,
+    label,
+    code,
+    flagX: x - flagW / 2,
+    flagY: y - flagH - 18,
+    labelY: y - flagH - 24,
+  };
+}
+
 const LOCATIONS = {
-  india: {
-    x: 640,
-    y: 220,
-    label: "INDIA",
+  india: makeLocation({
+    x: 685,
+    y: 240,
+    label: "INDIA HQ",
     code: "in",
-    flagX: 652,
-    flagY: 198,
-    labelY: 190,
-  },
-  uk: {
-    x: 450,
-    y: 105,
-    label: "UK",
-    code: "gb",
-    flagX: 418,
-    flagY: 58,
-    labelY: 50,
-  },
-  usa: {
-    x: 240,
-    y: 155,
-    label: "USA",
-    code: "us",
-    flagX: 198,
-    flagY: 122,
-    labelY: 114,
-  },
-  ireland: {
-    x: 435,
-    y: 102,
-    label: "IRELAND",
-    code: "ie",
-    flagX: 368,
-    flagY: 118,
-    labelY: 110,
-  },
-  canada: {
-    x: 235,
-    y: 125,
-    label: "CANADA",
-    code: "ca",
-    flagX: 228,
-    flagY: 72,
-    labelY: 64,
-  },
-  australia: {
-    x: 855,
-    y: 365,
-    label: "AUSTRALIA",
-    code: "au",
-    flagX: 820,
-    flagY: 318,
-    labelY: 310,
-  },
-  newZealand: {
-    x: 920,
-    y: 420,
-    label: "NEW ZEALAND",
-    code: "nz",
-    flagX: 860,
-    flagY: 430,
-    labelY: 422,
-  },
+    isHub: true,
+  }),
+  // North America
+  canada: makeLocation({ x: 205, y: 95, label: "CANADA", code: "ca" }),
+  usa: makeLocation({ x: 195, y: 170, label: "USA", code: "us" }),
+  // Europe
+  ireland: makeLocation({ x: 425, y: 108, label: "IRELAND", code: "ie" }),
+  uk: makeLocation({ x: 455, y: 95, label: "UK", code: "gb" }),
+  netherlands: makeLocation({ x: 500, y: 118, label: "NETHERLANDS", code: "nl" }),
+  // Middle East / Asia / Oceania
+  uae: makeLocation({ x: 600, y: 218, label: "UAE", code: "ae" }),
+  singapore: makeLocation({ x: 788, y: 282, label: "SINGAPORE", code: "sg" }),
+  australia: makeLocation({ x: 865, y: 370, label: "AUSTRALIA", code: "au" }),
+  newZealand: makeLocation({ x: 940, y: 432, label: "NEW ZEALAND", code: "nz" }),
 };
 
+/** Animation order — each line draws from India HQ to one country only */
 const DESTINATIONS = [
+  { key: "uae", target: LOCATIONS.uae },
+  { key: "singapore", target: LOCATIONS.singapore },
   { key: "uk", target: LOCATIONS.uk },
-  { key: "usa", target: LOCATIONS.usa },
+  { key: "netherlands", target: LOCATIONS.netherlands },
   { key: "ireland", target: LOCATIONS.ireland },
+  { key: "usa", target: LOCATIONS.usa },
   { key: "canada", target: LOCATIONS.canada },
   { key: "australia", target: LOCATIONS.australia },
   { key: "newZealand", target: LOCATIONS.newZealand },
 ];
 
+/**
+ * Quadratic curve India → country pin.
+ * Mild lift only — endpoint is always the exact country (x,y).
+ */
 function getCurvePath(start, end) {
   const dx = end.x - start.x;
   const dy = end.y - start.y;
-  const cx = start.x + dx / 2;
-  const cy = Math.min(start.y, end.y) - Math.max(50, Math.abs(dx) * 0.2);
-  return `M ${start.x} ${start.y} Q ${cx} ${cy} ${end.x} ${end.y}`;
+  const dist = Math.hypot(dx, dy);
+
+  // Short hops (UAE, Singapore): almost straight so they don't miss the pin
+  // Long hops (USA, Canada): gentle upward arc
+  const lift =
+    dist < 160 ? Math.max(12, dist * 0.08) : Math.min(70, dist * 0.12);
+
+  const midX = start.x + dx * 0.5;
+  const midY = start.y + dy * 0.5 - lift;
+
+  return `M ${start.x} ${start.y} Q ${midX} ${midY} ${end.x} ${end.y}`;
 }
 
 function CountryMarker({ location, active = true, isHub = false }) {
-  const flagW = isHub ? 48 : 44;
-  const flagH = isHub ? 30 : 28;
-  const fontSize = isHub ? 13 : 12;
+  const flagW = isHub ? 40 : 34;
+  const flagH = isHub ? 26 : 22;
+  const fontSize = isHub ? 11 : 10;
 
   return (
-    <g opacity={active ? 1 : 0.45} className="transition-opacity duration-500">
+    <g
+      opacity={active ? 1 : 0.35}
+      style={{ transition: "opacity 0.45s ease" }}
+    >
       {active && (
         <circle
           cx={location.x}
           cy={location.y}
-          r={isHub ? 14 : 9}
+          r={isHub ? 12 : 8}
           fill={ORANGE}
           opacity="0.28"
-          className={isHub ? "animate-ping" : active ? "animate-ping" : undefined}
-        />
+        >
+          <animate
+            attributeName="r"
+            values={isHub ? "10;16;10" : "7;12;7"}
+            dur="2s"
+            repeatCount="indefinite"
+          />
+          <animate
+            attributeName="opacity"
+            values="0.3;0.06;0.3"
+            dur="2s"
+            repeatCount="indefinite"
+          />
+        </circle>
       )}
+
       <circle
         cx={location.x}
         cy={location.y}
-        r={isHub ? 5.5 : 3.5}
+        r={isHub ? 6 : 4}
         fill={ORANGE}
-        filter="url(#footerOrangeGlow)"
       />
 
-      {/* Always-visible country label */}
       <text
         x={location.flagX + flagW / 2}
         y={location.labelY}
@@ -161,44 +161,71 @@ function CountryMarker({ location, active = true, isHub = false }) {
   );
 }
 
+/** One India → country arc. Hidden until its turn; never links country↔country. */
+function HubArc({ pathD, active }) {
+  return (
+    <g
+      opacity={active ? 1 : 0}
+      style={{
+        transition: "opacity 0.35s ease",
+        pointerEvents: "none",
+      }}
+    >
+      <path
+        d={pathD}
+        fill="none"
+        stroke={ORANGE}
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeDasharray="6 7"
+      />
+
+      {/* Pulse rides this arc only — no orphan dots off the path */}
+      {active && (
+        <circle r="3.2" fill={ORANGE}>
+          <animateMotion dur="2s" repeatCount="indefinite" path={pathD} />
+        </circle>
+      )}
+    </g>
+  );
+}
+
 export default function FooterGlobalMap() {
+  const uid = useId().replace(/:/g, "");
   const [step, setStep] = useState(0);
+
+  // step 0 = only India
+  // step 1..N = draw arc to destination[step-1]
+  // then pause, then reset
+  const totalSteps = DESTINATIONS.length + 2;
 
   useEffect(() => {
     const id = setInterval(() => {
-      setStep((prev) => (prev >= DESTINATIONS.length + 3 ? 0 : prev + 1));
-    }, 900);
+      setStep((prev) => (prev >= totalSteps - 1 ? 0 : prev + 1));
+    }, 800);
     return () => clearInterval(id);
-  }, []);
+  }, [totalSteps]);
 
   return (
     <div className="relative w-full overflow-visible">
-      {/* Slightly taller + wider canvas so labels fit */}
       <svg
         viewBox="0 0 1000 480"
         className="block h-auto w-full min-h-[220px] sm:min-h-[260px] lg:min-h-[300px]"
         role="img"
-        aria-label="Global connectivity map showing Next Ledgers locations"
+        aria-label="Global connectivity map from India HQ to USA, Canada, UK, Ireland, Netherlands, UAE, Singapore, Australia and New Zealand"
       >
         <defs>
-          <pattern id="footerMapDots" width="7" height="7" patternUnits="userSpaceOnUse">
+          <pattern
+            id={`footerMapDots-${uid}`}
+            width="7"
+            height="7"
+            patternUnits="userSpaceOnUse"
+          >
             <circle cx="1.1" cy="1.1" r="1.05" fill="#6B9BB8" />
           </pattern>
-          <filter id="footerOrangeGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="3.5" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-          <linearGradient id="footerArcGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor={ORANGE} stopOpacity="0.4" />
-            <stop offset="45%" stopColor={ORANGE} stopOpacity="1" />
-            <stop offset="100%" stopColor={ORANGE} stopOpacity="0.55" />
-          </linearGradient>
         </defs>
 
-        <g fill="url(#footerMapDots)" opacity="0.75">
+        <g fill={`url(#footerMapDots-${uid})`} opacity="0.75">
           {Object.entries(CONTINENT_PATHS).map(([key, d]) => (
             <path key={key} d={d} />
           ))}
@@ -210,24 +237,14 @@ export default function FooterGlobalMap() {
           ))}
         </g>
 
+        {/* Hub-and-spoke: ONLY India → each country. No country-to-country links. */}
         {DESTINATIONS.map((item, idx) => {
-          const isActive = step > idx;
+          const pathD = getCurvePath(LOCATIONS.india, item.target);
+          // step 0 = India only; step 1 reveals first arc, etc.
+          const active = step > idx;
+
           return (
-            <path
-              key={item.key}
-              d={getCurvePath(LOCATIONS.india, item.target)}
-              fill="none"
-              stroke="url(#footerArcGrad)"
-              strokeWidth="2.2"
-              filter="url(#footerOrangeGlow)"
-              strokeLinecap="round"
-              style={{
-                strokeDasharray: 1200,
-                strokeDashoffset: isActive ? 0 : 1200,
-                opacity: isActive ? 0.95 : 0.12,
-                transition: "stroke-dashoffset 0.9s ease-out, opacity 0.35s ease",
-              }}
-            />
+            <HubArc key={item.key} pathD={pathD} active={active} />
           );
         })}
 

@@ -8,7 +8,7 @@ import FooterGlobalMap from "./FooterGlobalMap";
 import { UK_SERVICE_LINKS } from "@/app/uk/ukServiceLinks";
 import { USA_SERVICE_LINKS } from "@/app/usa/usaServiceLinks";
 import { CANADA_SERVICE_LINKS } from "@/app/canada/canadaServiceLinks";
-import { POPUP_REGIONS, REGION_ROUTES } from "../RegionSelect/regionData";
+import { GLOBAL_SERVICE_LINKS } from "../header/navigationData";
 
 const ORANGE = "#F58220";
 const BG = "#0B1C33";
@@ -67,34 +67,20 @@ const REGION_COPY = {
 const GLOBAL_COPY = {
   valueIntro:
     "We help accounting firms worldwide save time, cut costs and scale with a dedicated offshore team.",
-  brandBlurb:
-    "We are a leading offshore accounting and bookkeeping partner trusted by firms across the UK, USA, Canada, and beyond.",
   phoneDisplay: "+44 20 4571 4469",
   phoneHref: "tel:+442045714469",
   overlapText: "Overlap hours across regions for real-time collaboration",
-  softwareHeading: "Trusted by Firms Worldwide Using Leading Software",
   complianceLabel: "GDPR",
   complianceSub: "Compliant",
 };
-
-const GLOBAL_REGIONS = POPUP_REGIONS.map((region) => ({
-  code: region.code,
-  name: region.name,
-  flag: region.flag,
-  description: region.description,
-  href: REGION_ROUTES[region.code] || null,
-}));
-
-const GLOBAL_REGIONS_LEFT = GLOBAL_REGIONS.filter((_, i) => i % 2 === 0);
-const GLOBAL_REGIONS_RIGHT = GLOBAL_REGIONS.filter((_, i) => i % 2 === 1);
 
 const QUICK_LINKS = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "Our Team", href: "/team" },
-  { label: "Contact Us", href: "/contact", isContact: true },
+  { label: "Gallery", href: "/gallery" },
   { label: "Articles & Tips", href: "/articles" },
-  { label: "Careers", href: "/careers" },
+  { label: "Contact Us", href: "/contact", isContact: true },
 ];
 
 /* Software logos — swap any `src` later if needed */
@@ -298,7 +284,7 @@ const VALUE_STATS_BASE = [
   },
   {
     icon: IconTeam,
-    title: "150+",
+    title: "75+",
     subtitle: ["Skilled", "Professionals"],
   },
   {
@@ -316,7 +302,7 @@ const VALUE_STATS_BASE = [
 const VALUE_STATS_GLOBAL = [
   {
     icon: IconLaurel,
-    title: "10+ Years",
+    title: "9+ Years",
     subtitle: ["Serving Firms", "Worldwide"],
   },
   {
@@ -326,7 +312,7 @@ const VALUE_STATS_GLOBAL = [
   },
   {
     icon: IconTeam,
-    title: "150+",
+    title: "75+",
     subtitle: ["Skilled", "Professionals"],
   },
   {
@@ -340,47 +326,6 @@ const VALUE_STATS_GLOBAL = [
     subtitle: ["Client", "Satisfaction"],
   },
 ];
-
-function RegionLink({ region }) {
-  const className =
-    "group flex items-start gap-2 text-[12px] sm:text-[13px] leading-5 text-white/70 hover:text-[#F58220] transition-colors";
-
-  const content = (
-    <>
-      <span className="mt-0.5 h-[14px] w-[20px] shrink-0 overflow-hidden rounded-[2px] border border-white/15">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={region.flag}
-          alt=""
-          className="h-full w-full object-cover"
-          loading="lazy"
-        />
-      </span>
-      <span className="min-w-0">
-        <span className="block font-semibold text-white/85 group-hover:text-[#F58220]">
-          {region.name}
-        </span>
-        <span className="mt-0.5 block text-[11px] leading-snug text-white/50 group-hover:text-[#F58220]/80">
-          {region.description}
-        </span>
-      </span>
-    </>
-  );
-
-  if (region.href && region.href !== "/") {
-    return (
-      <Link href={region.href} className={className}>
-        {content}
-      </Link>
-    );
-  }
-
-  return (
-    <div className={`${className} cursor-default`} role="presentation">
-      {content}
-    </div>
-  );
-}
 
 /** Horizontal line — fades out on left & right */
 function FadeDividerH({ className = "" }) {
@@ -438,7 +383,8 @@ export default function Footer({ onContactClick, region, variant }) {
   const mode = isGlobal ? "global" : resolvedRegion || "uk";
   const copy = mode === "global" ? GLOBAL_COPY : REGION_COPY[mode] || REGION_COPY.uk;
 
-  const serviceLinks = mode === "global" ? [] : copy.serviceLinks || [];
+  const serviceLinks =
+    mode === "global" ? GLOBAL_SERVICE_LINKS : copy.serviceLinks || [];
   const servicesLeft = serviceLinks.filter((_, i) => i % 2 === 0);
   const servicesRight = serviceLinks.filter((_, i) => i % 2 === 1);
 
@@ -508,9 +454,11 @@ export default function Footer({ onContactClick, region, variant }) {
                 className="h-9 sm:h-10 w-auto object-contain"
               />
             </Link>
-            <p className="text-[13px] leading-6 text-white/70 max-w-[280px]">
-              {copy.brandBlurb}
-            </p>
+            {mode !== "global" && copy.brandBlurb ? (
+              <p className="text-[13px] leading-6 text-white/70 max-w-[280px]">
+                {copy.brandBlurb}
+              </p>
+            ) : null}
 
             <div className="space-y-3 pt-1">
               <a
@@ -543,51 +491,56 @@ export default function Footer({ onContactClick, region, variant }) {
               </div>
             </div>
 
-            {onContactClick ? (
-              <button
-                type="button"
-                onClick={onContactClick}
-                className="mt-2 w-full sm:w-auto inline-flex items-center justify-center gap-2 h-11 px-5 rounded-[10px] bg-[#F58220] hover:bg-[#e57416] text-white text-[13px] font-bold cursor-pointer transition-colors shadow-[0_8px_20px_rgba(245,130,32,0.25)]"
-              >
-                <IconPhone className="w-4 h-4" />
-                Book a Free Consultation
-              </button>
-            ) : (
-              <Link
-                href="/contact"
-                className="mt-2 w-full sm:w-auto inline-flex items-center justify-center gap-2 h-11 px-5 rounded-[10px] bg-[#F58220] hover:bg-[#e57416] text-white text-[13px] font-bold cursor-pointer transition-colors shadow-[0_8px_20px_rgba(245,130,32,0.25)]"
-              >
-                <IconPhone className="w-4 h-4" />
-                Book a Free Consultation
-              </Link>
-            )}
+            {mode !== "global" ? (
+              onContactClick ? (
+                <button
+                  type="button"
+                  onClick={onContactClick}
+                  className="mt-2 w-full sm:w-auto inline-flex items-center justify-center gap-2 h-11 px-5 rounded-[10px] bg-[#F58220] hover:bg-[#e57416] text-white text-[13px] font-bold cursor-pointer transition-colors shadow-[0_8px_20px_rgba(245,130,32,0.25)]"
+                >
+                  <IconPhone className="w-4 h-4" />
+                  Book a Free Consultation
+                </button>
+              ) : (
+                <Link
+                  href="/contact"
+                  className="mt-2 w-full sm:w-auto inline-flex items-center justify-center gap-2 h-11 px-5 rounded-[10px] bg-[#F58220] hover:bg-[#e57416] text-white text-[13px] font-bold cursor-pointer transition-colors shadow-[0_8px_20px_rgba(245,130,32,0.25)]"
+                >
+                  <IconPhone className="w-4 h-4" />
+                  Book a Free Consultation
+                </Link>
+              )
+            ) : null}
           </div>
 
           <div className="xl:col-span-3 flex">
             <FadeDividerV className="hidden xl:block mr-6" />
             <div className="flex-1 xl:pr-4">
               <h3 className="text-[12px] sm:text-[13px] font-bold tracking-[0.14em] uppercase text-[#F58220] mb-4">
-                {mode === "global" ? "Our Regions" : copy.servicesHeading}
+                {mode === "global" ? "Our Services" : copy.servicesHeading}
               </h3>
               {mode === "global" ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-4">
-                  <div className="space-y-3.5">
-                    {GLOBAL_REGIONS_LEFT.map((item) => (
-                      <RegionLink key={item.code} region={item} />
-                    ))}
-                  </div>
-                  <div className="space-y-3.5">
-                    {GLOBAL_REGIONS_RIGHT.map((item) => (
-                      <RegionLink key={item.code} region={item} />
-                    ))}
-                  </div>
-                </div>
+                <ul className="space-y-2.5">
+                  {serviceLinks.map((item) => (
+                    <li key={item.label}>
+                      <Link
+                        href={item.href}
+                        className="group flex items-start gap-1.5 text-[12px] sm:text-[13px] leading-5 text-white/70 hover:text-[#F58220] transition-colors"
+                      >
+                        <span className="text-[#F58220] mt-0.5 shrink-0">
+                          <IconChevron className="w-3 h-3" />
+                        </span>
+                        <span>{item.label}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2.5">
                   <div className="space-y-2.5">
                     {servicesLeft.map((item) => (
                       <Link
-                        key={item.href}
+                        key={item.label}
                         href={item.href}
                         className="group flex items-start gap-1.5 text-[12px] sm:text-[13px] leading-5 text-white/70 hover:text-[#F58220] transition-colors"
                       >
@@ -601,7 +554,7 @@ export default function Footer({ onContactClick, region, variant }) {
                   <div className="space-y-2.5">
                     {servicesRight.map((item) => (
                       <Link
-                        key={item.href}
+                        key={item.label}
                         href={item.href}
                         className="group flex items-start gap-1.5 text-[12px] sm:text-[13px] leading-5 text-white/70 hover:text-[#F58220] transition-colors"
                       >
@@ -682,65 +635,67 @@ export default function Footer({ onContactClick, region, variant }) {
 
       <FadeDividerH />
 
-      <div>
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 pt-4 sm:pt-5 pb-6 sm:pb-8">
-          <p className="text-left text-[10px] sm:text-[11px] md:text-[12px] font-extrabold tracking-[0.12em] sm:tracking-[0.18em] uppercase text-white/85">
-            {copy.softwareHeading}
-          </p>
+      {mode !== "global" ? (
+        <div>
+          <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 pt-4 sm:pt-5 pb-6 sm:pb-8">
+            <p className="text-left text-[10px] sm:text-[11px] md:text-[12px] font-extrabold tracking-[0.12em] sm:tracking-[0.18em] uppercase text-white/85">
+              {copy.softwareHeading}
+            </p>
 
-          <div className="mt-4 sm:mt-5 md:mt-6 overflow-hidden">
-            <div className="footer-logo-marquee flex w-max items-center">
-              {[0, 1].map((copyIdx) => (
-                <div key={copyIdx} className="flex items-center shrink-0" aria-hidden={copyIdx === 1}>
-                  {SOFTWARE_BRANDS.map((brand, index) => (
-                    <div key={`${copyIdx}-${brand.name}`} className="flex items-center">
-                      {(index > 0 || copyIdx === 1) && (
-                        <div
-                          className="w-px h-6 sm:h-7 mx-2.5 sm:mx-4 lg:mx-5 shrink-0"
-                          style={{
-                            background:
-                              "linear-gradient(to bottom, transparent, rgba(255,255,255,0.28), transparent)",
-                          }}
-                          aria-hidden="true"
-                        />
-                      )}
-                      <div className="relative h-6 sm:h-7 md:h-8 w-[64px] sm:w-[72px] md:w-[84px] shrink-0">
-                        <Image
-                          src={brand.src}
-                          alt={copyIdx === 0 ? brand.name : ""}
-                          fill
-                          className="object-contain object-left"
-                          sizes="84px"
-                        />
+            <div className="mt-4 sm:mt-5 md:mt-6 overflow-hidden">
+              <div className="footer-logo-marquee flex w-max items-center">
+                {[0, 1].map((copyIdx) => (
+                  <div key={copyIdx} className="flex items-center shrink-0" aria-hidden={copyIdx === 1}>
+                    {SOFTWARE_BRANDS.map((brand, index) => (
+                      <div key={`${copyIdx}-${brand.name}`} className="flex items-center">
+                        {(index > 0 || copyIdx === 1) && (
+                          <div
+                            className="w-px h-6 sm:h-7 mx-2.5 sm:mx-4 lg:mx-5 shrink-0"
+                            style={{
+                              background:
+                                "linear-gradient(to bottom, transparent, rgba(255,255,255,0.28), transparent)",
+                            }}
+                            aria-hidden="true"
+                          />
+                        )}
+                        <div className="relative h-6 sm:h-7 md:h-8 w-[64px] sm:w-[72px] md:w-[84px] shrink-0">
+                          <Image
+                            src={brand.src}
+                            alt={copyIdx === 0 ? brand.name : ""}
+                            fill
+                            className="object-contain object-left"
+                            sizes="84px"
+                          />
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
-              ))}
+                    ))}
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
 
-          <style>{`
-            @keyframes footerLogoMarquee {
-              0% { transform: translateX(0); }
-              100% { transform: translateX(-50%); }
-            }
-            .footer-logo-marquee {
-              animation: footerLogoMarquee 35s linear infinite;
-            }
-            .footer-logo-marquee:hover {
-              animation-play-state: paused;
-            }
-            @media (prefers-reduced-motion: reduce) {
-              .footer-logo-marquee {
-                animation: none;
+            <style>{`
+              @keyframes footerLogoMarquee {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
               }
-            }
-          `}</style>
+              .footer-logo-marquee {
+                animation: footerLogoMarquee 35s linear infinite;
+              }
+              .footer-logo-marquee:hover {
+                animation-play-state: paused;
+              }
+              @media (prefers-reduced-motion: reduce) {
+                .footer-logo-marquee {
+                  animation: none;
+                }
+              }
+            `}</style>
+          </div>
         </div>
-      </div>
+      ) : null}
 
-      <FadeDividerH />
+      {mode !== "global" ? <FadeDividerH /> : null}
 
       <div>
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-4 sm:py-5 flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-5 text-[11px] sm:text-[12px] text-white/50">

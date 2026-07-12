@@ -8,6 +8,9 @@ import CoreServices from "./components/CoreServices/CoreServices";
 import Technology from "./components/Technology/Technology";
 import GlobalPartner from "./components/GlobalPartner/GlobalPartner";
 import WhyChooseUs from "./components/WhyChooseUs/WhyChooseUs";
+import HiringComparison from "./components/HiringComparison/HiringComparison";
+import OurProcess from "./components/OurProcess/OurProcess";
+import GlobalPresence from "./components/GlobalPresence/GlobalPresence";
 import HomeImpact from "./components/HomeImpact/HomeImpact";
 import HomeStories from "./components/HomeStories/HomeStories";
 import RealFeedback from "./components/HomeStories/RealFeedback";
@@ -110,6 +113,9 @@ export default function Home() {
       <Technology />
       <GlobalPartner />
       <WhyChooseUs />
+      <HiringComparison />
+      <OurProcess />
+      <GlobalPresence />
       <HomeImpact />
       <RealFeedback />
       <HomeStories />

@@ -68,7 +68,7 @@ function splitServiceTitle(title) {
 
 export default function CoreServices() {
   return (
-    <section className="w-full bg-[#FAFAFA] pt-8 pb-9 sm:pt-9 sm:pb-10 lg:pt-10 lg:pb-11">
+    <section id="core-services" className="w-full bg-[#FAFAFA] pt-8 pb-9 sm:pt-9 sm:pb-10 lg:pt-10 lg:pb-11">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
         {/* Header */}
         <div className="text-center max-w-[820px] mx-auto">

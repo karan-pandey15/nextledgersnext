@@ -1,10 +1,47 @@
-import { USA_SERVICE_LINKS } from "@/app/usa/usaServiceLinks";
-import { CANADA_SERVICE_LINKS } from "@/app/canada/canadaServiceLinks";
-
 /**
  * Home page navigation — global header.
- * USA/Canada services come from canonical regional service link lists.
+ * Order: Home → About Us → Services → BYOT → Gallery → Contact Us
+ * (Regions sits beside the nav via RegionSelect)
  */
+
+export const GLOBAL_SERVICE_LINKS = [
+  {
+    label: "Accounting & Bookkeeping",
+    href: "/#core-services",
+    icon: "book",
+  },
+  {
+    label: "Financial Reporting",
+    href: "/#core-services",
+    icon: "chart",
+  },
+  {
+    label: "Tax Preparation & Planning",
+    href: "/#core-services",
+    icon: "tax",
+  },
+  {
+    label: "Payroll & HR Services",
+    href: "/#core-services",
+    icon: "users",
+  },
+  {
+    label: "Management Reporting",
+    href: "/#core-services",
+    icon: "document",
+  },
+  {
+    label: "CFO & Advisory Services",
+    href: "/#core-services",
+    icon: "building",
+  },
+  {
+    label: "Business Setup & Consulting",
+    href: "/#core-services",
+    icon: "briefcase",
+  },
+];
+
 export const NAVIGATION_LINKS = [
   {
     id: "home",
@@ -15,7 +52,7 @@ export const NAVIGATION_LINKS = [
   },
   {
     id: "about",
-    label: "About",
+    label: "About Us",
     href: "/about",
     icon: "info",
     hasDropdown: true,
@@ -34,46 +71,28 @@ export const NAVIGATION_LINKS = [
     ],
   },
   {
-    id: "services-usa",
-    label: "Services In USA",
-    href: "/usa",
-    icon: "flag-usa",
+    id: "services",
+    label: "Services",
+    href: "/#core-services",
+    icon: "briefcase",
     hasDropdown: true,
-    dropdownLayout: "cards",
-    dropdownWidth: "usa-services-dropdown",
-    regionHub: {
-      href: "/usa",
-      label: "All USA Services",
-      flagSrc: "https://flagcdn.com/w40/us.png",
-      flagAlt: "United States flag",
-    },
-    dropdownItems: USA_SERVICE_LINKS.map((service) => ({
-      label: service.label,
-      href: service.href,
-      icon: service.icon,
-      blurb: service.blurb,
-    })),
+    dropdownLayout: "services-list",
+    dropdownWidth: "w-[300px]",
+    dropdownItems: GLOBAL_SERVICE_LINKS,
   },
   {
-    id: "services-canada",
-    label: "Services In Canada",
-    href: "/canada",
-    icon: "flag-canada",
-    hasDropdown: true,
-    dropdownLayout: "cards",
-    dropdownWidth: "canada-services-dropdown",
-    regionHub: {
-      href: "/canada",
-      label: "All Canada Services",
-      flagSrc: "https://flagcdn.com/w40/ca.png",
-      flagAlt: "Canada flag",
-    },
-    dropdownItems: CANADA_SERVICE_LINKS.map((service) => ({
-      label: service.label,
-      href: service.href,
-      icon: service.icon,
-      blurb: service.blurb,
-    })),
+    id: "byot",
+    label: "BYOT",
+    href: "/tools",
+    icon: "users",
+    hasDropdown: false,
+  },
+  {
+    id: "gallery",
+    label: "Gallery",
+    href: "/gallery",
+    icon: "book",
+    hasDropdown: false,
   },
   {
     id: "contact",

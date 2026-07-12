@@ -217,7 +217,7 @@ export default function RealFeedback() {
               className="mt-3 text-balance text-[18px] font-bold leading-[1.2] tracking-[-0.01em] sm:mt-4 sm:text-[24px] lg:text-[28px]"
               style={{ color: NAVY }}
             >
-              Real Feedback from{" "}
+               Feedback from{" "}
               <span style={{ color: ORANGE }}>Businesses</span> Like Yours.
             </h2>
           </div>

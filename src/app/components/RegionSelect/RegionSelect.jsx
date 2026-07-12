@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { POPUP_REGIONS, REGION_ROUTES } from "./regionData";
 
 const NAVY = "#0F274A";
+const CODE = "#5B4B8A";
 const TRIGGER_FLAGS = POPUP_REGIONS;
 
 export default function RegionSelect({
@@ -31,6 +32,8 @@ export default function RegionSelect({
     const saved = localStorage.getItem("selected-region");
     if (saved && POPUP_REGIONS.some((r) => r.code === saved)) {
       setSelectedRegion(saved);
+    } else if (saved === "IN") {
+      localStorage.removeItem("selected-region");
     }
   }, []);
 
@@ -39,17 +42,16 @@ export default function RegionSelect({
     if (!trigger) return;
 
     const rect = trigger.getBoundingClientRect();
-    const menuWidth = Math.min(340, window.innerWidth - 16);
-    let left = rect.left;
+    const menuWidth = Math.min(280, window.innerWidth - 16);
+    let left = rect.right - menuWidth;
 
-    // Keep menu on-screen; prefer left-align with trigger (as in mockup)
-    if (left + menuWidth > window.innerWidth - 8) {
-      left = Math.max(8, rect.right - menuWidth);
-    }
     if (left < 8) left = 8;
+    if (left + menuWidth > window.innerWidth - 8) {
+      left = Math.max(8, window.innerWidth - menuWidth - 8);
+    }
 
     setMenuPos({
-      top: rect.bottom + 10,
+      top: rect.bottom + 6,
       left,
     });
   }, []);
@@ -101,7 +103,7 @@ export default function RegionSelect({
   };
 
   const activeRegion =
-    POPUP_REGIONS.find((r) => r.code === selectedRegion) || POPUP_REGIONS[1];
+    POPUP_REGIONS.find((r) => r.code === selectedRegion) || POPUP_REGIONS[0];
 
   const dropdown =
     mounted && isOpen
@@ -110,116 +112,236 @@ export default function RegionSelect({
             ref={menuRef}
             role="listbox"
             aria-label="Choose your region"
-            style={{ top: menuPos.top, left: menuPos.left }}
-            className="fixed z-[130] w-[min(92vw,320px)] rounded-[22px] bg-white px-4 py-5 shadow-[0_16px_40px_rgba(15,39,74,0.16)] sm:w-[340px] sm:px-5 sm:py-6"
+            style={{
+              position: "fixed",
+              top: menuPos.top,
+              left: menuPos.left,
+              zIndex: 130,
+              width: "min(92vw, 280px)",
+              borderRadius: 16,
+              background: "#ffffff",
+              padding: "12px 10px 10px",
+              boxShadow: "0 12px 32px rgba(15,39,74,0.14)",
+            }}
           >
-            <p className="text-center text-[12px] font-bold uppercase tracking-[0.18em] text-[#9CA3AF] sm:text-[13px]">
+            <p
+              style={{
+                margin: "0 0 8px",
+                textAlign: "center",
+                fontSize: 10,
+                fontWeight: 700,
+                letterSpacing: "0.16em",
+                textTransform: "uppercase",
+                color: "#9CA3AF",
+              }}
+            >
               Choose Your Region
             </p>
 
-            <ul className="mt-4 flex flex-col gap-0.5 sm:mt-5">
+            {/* Single-column list — flag | code | name (matches reference) */}
+            <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
               {POPUP_REGIONS.map((region) => {
                 const isSelected = region.code === selectedRegion;
                 return (
-                  <li key={region.code}>
-                    <button
-                      type="button"
-                      role="option"
-                      aria-selected={isSelected}
-                      onClick={() => handleSelect(region.code)}
-                      className={`flex w-full items-center gap-3 rounded-xl px-2.5 py-2.5 text-left transition-colors duration-150 hover:bg-[#FFF7F0] sm:gap-3.5 sm:px-3 sm:py-3 ${
-                        isSelected ? "bg-[#FFF7F0]" : ""
-                      }`}
+                  <button
+                    key={region.code}
+                    type="button"
+                    role="option"
+                    aria-selected={isSelected}
+                    onClick={() => handleSelect(region.code)}
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      alignItems: "center",
+                      gap: 10,
+                      width: "100%",
+                      margin: 0,
+                      padding: "8px 10px",
+                      border: "none",
+                      borderRadius: 10,
+                      cursor: "pointer",
+                      background: isSelected ? "#FFF7F0" : "transparent",
+                      textAlign: "left",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = "#FFF7F0";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = isSelected
+                        ? "#FFF7F0"
+                        : "transparent";
+                    }}
+                  >
+                    <span
+                      style={{
+                        display: "inline-flex",
+                        width: 22,
+                        height: 15,
+                        flexShrink: 0,
+                        overflow: "hidden",
+                        borderRadius: 2,
+                        border: "1px solid #E5E7EB",
+                        boxShadow: "0 1px 2px rgba(0,0,0,0.06)",
+                      }}
                     >
-                      <div className="h-5 w-8 shrink-0 overflow-hidden rounded-[3px] border border-[#E5E7EB] shadow-sm sm:h-6 sm:w-9">
-                        <img
-                          src={region.flag}
-                          alt=""
-                          className="h-full w-full object-cover"
-                          loading="lazy"
-                        />
-                      </div>
-                      <span
-                        className="w-7 shrink-0 text-[12px] font-extrabold sm:w-8 sm:text-[13px]"
-                        style={{ color: "#5B4B8A" }}
-                      >
-                        {region.displayCode || region.code}
-                      </span>
-                      <span
-                        className="min-w-0 flex-1 text-[13px] font-bold sm:text-[14px]"
-                        style={{ color: NAVY }}
-                      >
-                        {region.name}
-                      </span>
-                    </button>
-                  </li>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={region.flag}
+                        alt=""
+                        style={{
+                          display: "block",
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                        }}
+                        loading="lazy"
+                      />
+                    </span>
+
+                    <span
+                      style={{
+                        width: 26,
+                        flexShrink: 0,
+                        fontSize: 12,
+                        fontWeight: 800,
+                        lineHeight: 1,
+                        color: CODE,
+                      }}
+                    >
+                      {region.displayCode || region.code}
+                    </span>
+
+                    <span
+                      style={{
+                        flex: 1,
+                        minWidth: 0,
+                        fontSize: 13,
+                        fontWeight: 700,
+                        lineHeight: 1.2,
+                        color: NAVY,
+                        overflow: "hidden",
+                        textOverflow: "ellipsis",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      {region.name}
+                    </span>
+                  </button>
                 );
               })}
-            </ul>
+            </div>
           </div>,
           document.body
         )
       : null;
 
   return (
-    <div ref={rootRef} className={`relative inline-block text-left ${className}`}>
+    <div
+      ref={rootRef}
+      className={`relative inline-block text-left ${className}`}
+    >
       <button
         type="button"
         onClick={() => setIsOpen((open) => !open)}
-        className={`flex items-center gap-2 sm:gap-2.5 cursor-pointer focus:outline-none transition-all duration-200 ${
+        className={`inline-flex items-center cursor-pointer focus:outline-none transition-all duration-200 ${
           isDark
-            ? "rounded-full border border-white/20 bg-white/10 px-2.5 py-1.5 hover:bg-white/15"
-            : "rounded-full border border-[#ECEFF3] bg-white px-3 py-1.5 shadow-[0_4px_14px_rgba(15,39,74,0.08)] hover:shadow-[0_6px_18px_rgba(15,39,74,0.12)]"
+            ? "rounded-full border border-white/20 bg-white/10 px-2.5 py-1.5 gap-2 hover:bg-white/15"
+            : "rounded-full border border-[#D1D5DB] bg-white px-2.5 py-1.5 gap-2 shadow-[0_2px_8px_rgba(15,39,74,0.06)] hover:shadow-[0_4px_12px_rgba(15,39,74,0.1)]"
         }`}
         aria-expanded={isOpen}
         aria-haspopup="listbox"
       >
-        <div className="flex items-center">
-          {minimize ? (
-            <div className="relative flex h-3.5 w-5 flex-shrink-0 overflow-hidden rounded-sm border border-white/80 shadow-xs">
-              <img
-                src={activeRegion.flag}
-                alt={activeRegion.name}
-                className="h-full w-full object-cover"
-              />
-            </div>
-          ) : (
-            <div className="flex items-center">
-              {TRIGGER_FLAGS.map((region, index) => (
-                <div
+        {minimize ? (
+          <div className="relative flex h-3.5 w-5 flex-shrink-0 overflow-hidden rounded-sm border border-white/80 shadow-xs">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={activeRegion.flag}
+              alt={activeRegion.name}
+              className="h-full w-full object-cover"
+            />
+          </div>
+        ) : (
+          <>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 3,
+                flexShrink: 0,
+              }}
+              aria-hidden="true"
+            >
+              {TRIGGER_FLAGS.map((region) => (
+                <span
                   key={region.code}
-                  className="relative overflow-hidden rounded-sm border border-white shadow-xs"
                   style={{
-                    width: "18px",
-                    height: "13px",
-                    marginLeft: index === 0 ? "0px" : "-7px",
-                    zIndex: TRIGGER_FLAGS.length - index,
+                    display: "inline-flex",
+                    width: 16,
+                    height: 11,
+                    flexShrink: 0,
+                    overflow: "hidden",
+                    borderRadius: 2,
+                    border: "1px solid #E5E7EB",
+                    background: "#fff",
                   }}
                 >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={region.flag}
-                    alt={region.name}
-                    className="h-full w-full object-cover"
+                    alt=""
+                    style={{
+                      display: "block",
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
                     loading="lazy"
+                    draggable={false}
                   />
-                </div>
+                </span>
               ))}
             </div>
-          )}
-        </div>
+
+            <span
+              className={`h-3.5 w-px shrink-0 ${isDark ? "bg-white/25" : "bg-[#D1D5DB]"}`}
+              aria-hidden="true"
+            />
+
+            <span
+              className={`inline-flex items-center justify-center shrink-0 ${
+                isDark ? "text-white/80" : "text-[#6B7280]"
+              }`}
+            >
+              <svg
+                className="h-3.5 w-3.5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="9" />
+                <path
+                  d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </span>
+          </>
+        )}
 
         <span
-          className={`font-bold text-[11px] tracking-[0.14em] uppercase ${
-            isDark ? "text-white" : "text-[#0F274A]"
+          className={`font-bold text-[11px] tracking-[0.14em] uppercase leading-none ${
+            isDark ? "text-white" : "text-[#374151]"
           }`}
         >
           {minimize ? selectedRegion : "Regions"}
         </span>
 
         <svg
-          className={`h-3.5 w-3.5 text-[#F58220] transition-transform duration-200 ease-in-out ${
+          className={`h-3.5 w-3.5 shrink-0 transition-transform duration-200 ease-in-out ${
             isOpen ? "rotate-180" : ""
-          }`}
+          } ${isDark ? "text-white/70" : "text-[#6B7280]"}`}
           fill="none"
           stroke="currentColor"
           strokeWidth="2.5"
