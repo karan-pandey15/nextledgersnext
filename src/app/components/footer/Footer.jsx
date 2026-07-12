@@ -261,13 +261,12 @@ function FadeDividerH({ className = "" }) {
 }
 
 /** Vertical line — fades out on top & bottom */
-function FadeDividerV({ className = "" }) {
+function FadeDividerV({ className = "", opacity = 0.18 }) {
   return (
     <div
       className={`w-px self-stretch min-h-[48px] ${className}`}
       style={{
-        background:
-          "linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.18) 18%, rgba(255,255,255,0.18) 82%, transparent 100%)",
+        background: `linear-gradient(180deg, transparent 0%, rgba(255,255,255,${opacity}) 18%, rgba(255,255,255,${opacity}) 82%, transparent 100%)`,
       }}
       aria-hidden="true"
     />
@@ -363,7 +362,7 @@ export default function Footer({ region, variant }) {
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-3.5 sm:py-4 lg:py-5">
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 items-start gap-5 md:gap-6 xl:gap-0">
-          <div className="xl:col-span-3 space-y-2.5 xl:pr-5">
+          <div className="xl:col-span-3 space-y-2.5 xl:pr-6">
             <Link href="/" className="inline-block">
               <img
                 src="/images/nextledgerlogo3.png"
@@ -406,7 +405,12 @@ export default function Footer({ region, variant }) {
             </div>
           </div>
 
-          <div className="xl:col-span-3 xl:border-l xl:border-white/30 xl:pl-5">
+          <div className="relative xl:col-span-3 xl:pl-8">
+            <span
+              className="pointer-events-none absolute left-0 top-0 bottom-0 hidden w-[1px] xl:block"
+              style={{ backgroundColor: "rgba(255,255,255,0.35)" }}
+              aria-hidden="true"
+            />
             <h3 className="text-[11px] sm:text-[12px] font-bold tracking-[0.14em] uppercase text-[#F58220] mb-2.5">
               {servicesHeading}
             </h3>
@@ -427,7 +431,12 @@ export default function Footer({ region, variant }) {
             </ul>
           </div>
 
-          <div className="xl:col-span-2 xl:border-l xl:border-white/30 xl:pl-5">
+          <div className="relative xl:col-span-2 xl:pl-8">
+            <span
+              className="pointer-events-none absolute left-0 top-0 bottom-0 hidden w-[1px] xl:block"
+              style={{ backgroundColor: "rgba(255,255,255,0.35)" }}
+              aria-hidden="true"
+            />
             <h3 className="text-[11px] sm:text-[12px] font-bold tracking-[0.14em] uppercase text-[#F58220] mb-2.5">
               Quick Links
             </h3>
@@ -445,38 +454,48 @@ export default function Footer({ region, variant }) {
             </ul>
           </div>
 
-          <div className="md:col-span-2 xl:col-span-4 xl:border-l xl:border-white/30 xl:pl-5">
+          <div className="relative md:col-span-2 xl:col-span-4 xl:pl-8">
+            <span
+              className="pointer-events-none absolute left-0 top-0 bottom-0 hidden w-[1px] xl:block"
+              style={{ backgroundColor: "rgba(255,255,255,0.35)" }}
+              aria-hidden="true"
+            />
             <h3 className="text-[11px] sm:text-[12px] font-bold tracking-[0.14em] uppercase text-[#F58220] mb-1.5">
               Global Connectivity
             </h3>
             <FooterGlobalMap />
 
-            <div className="mt-1.5 rounded-[8px] border border-[#F58220]/50 bg-[#0A1628] px-2.5 py-2 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-0">
-              <div className="flex items-center gap-2 flex-1 sm:pr-2.5">
-                <span
-                  className="text-[#F58220] shrink-0 inline-flex items-center justify-center rounded-full border-[1.5px] border-[#F58220]"
-                  style={{ width: 30, height: 30 }}
-                >
-                  <IconHeadset className="w-6 h-6" />
-                </span>
-                <p className="text-[10px] sm:text-[11px] leading-[1.35] text-white/85">
-                  Working in your time zone to support your business
-                </p>
-              </div>
-              <div
-                className="hidden sm:block w-px self-stretch min-h-[32px] bg-[#F58220]/35 shrink-0"
+            <div className="relative mt-1.5 rounded-[8px] border border-[#F58220]/50 bg-[#0A1628] px-2.5 py-2.5">
+              {/* Exact center vertical divider */}
+              <span
+                className="pointer-events-none absolute left-1/2 top-2.5 bottom-2.5 hidden w-px -translate-x-1/2 sm:block"
+                style={{ backgroundColor: "rgba(245, 130, 32, 0.5)" }}
                 aria-hidden="true"
               />
-              <div className="flex items-center gap-2 flex-1 sm:pl-2.5 sm:border-0 border-t border-[#F58220]/25 pt-2 sm:pt-0">
-                <span
-                  className="text-[#F58220] shrink-0 inline-flex items-center justify-center rounded-full border-[1.5px] border-[#F58220]"
-                  style={{ width: 30, height: 30 }}
-                >
-                  <IconClock className="w-6 h-6" />
-                </span>
-                <p className="text-[10px] sm:text-[11px] leading-[1.35] text-white/85">
-                  {copy.overlapText}
-                </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 sm:items-center">
+                <div className="flex items-center gap-2 sm:pr-4 max-sm:pb-2 max-sm:border-b max-sm:border-[#F58220]/25">
+                  <span
+                    className="text-[#F58220] shrink-0 inline-flex items-center justify-center rounded-full border-[1.5px] border-[#F58220]"
+                    style={{ width: 30, height: 30 }}
+                  >
+                    <IconHeadset className="w-6 h-6" />
+                  </span>
+                  <p className="text-[10px] sm:text-[11px] leading-[1.35] text-white/85">
+                    Working in your time zone to support your business
+                  </p>
+                </div>
+                <div className="flex items-center gap-2 sm:pl-4 max-sm:pt-2">
+                  <span
+                    className="text-[#F58220] shrink-0 inline-flex items-center justify-center rounded-full border-[1.5px] border-[#F58220]"
+                    style={{ width: 30, height: 30 }}
+                  >
+                    <IconClock className="w-6 h-6" />
+                  </span>
+                  <p className="text-[10px] sm:text-[11px] leading-[1.35] text-white/85">
+                    {copy.overlapText}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
