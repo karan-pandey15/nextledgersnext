@@ -210,7 +210,7 @@ export default function FooterGlobalMap() {
     <div className="relative w-full overflow-visible">
       <svg
         viewBox="0 0 1000 480"
-        className="block h-auto w-full min-h-[220px] sm:min-h-[260px] lg:min-h-[300px]"
+        className="block h-auto w-full min-h-[140px] sm:min-h-[160px] lg:min-h-[180px]"
         role="img"
         aria-label="Global connectivity map from India HQ to USA, Canada, UK, Ireland, Netherlands, UAE, Singapore, Australia and New Zealand"
       >

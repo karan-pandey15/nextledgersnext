@@ -20,7 +20,7 @@ export const CTA_VARIANTS = {
 };
 
 export const CTA_SIZES = {
-    sm: "rounded-[10px] px-4 py-2.5 text-[13px] sm:whitespace-nowrap sm:py-2",
+    sm: "rounded-[10px] px-3.5 py-2 text-[12px] sm:whitespace-nowrap sm:px-4 sm:py-2 sm:text-[13px]",
     md: "rounded-[10px] px-5 py-3 text-sm",
     lg: "h-11 min-w-[200px] rounded-[10px] px-6 text-[13px] font-bold uppercase tracking-wide sm:h-12 sm:min-w-[220px] sm:text-[14px]",
 };

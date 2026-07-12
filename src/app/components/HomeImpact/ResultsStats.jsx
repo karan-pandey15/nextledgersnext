@@ -42,129 +42,97 @@ const STATS = [
 ];
 
 function PhoneVideo() {
-  const sectionRef = useRef(null);
   const videoRef = useRef(null);
+  const wrapRef = useRef(null);
   const [failed, setFailed] = useState(false);
 
   useEffect(() => {
-    const section = sectionRef.current;
     const video = videoRef.current;
-    if (!section || !video) return undefined;
-
-    // Autoplay policies: must be muted + playsInline before play()
-    video.muted = true;
-    video.defaultMuted = true;
-    video.volume = 0;
-    video.setAttribute("muted", "");
-    video.setAttribute("playsinline", "");
-    video.setAttribute("webkit-playsinline", "");
-    video.playsInline = true;
+    const wrap = wrapRef.current;
+    if (!video || !wrap) return undefined;
 
     let cancelled = false;
 
+    const forceMuted = () => {
+      video.muted = true;
+      video.defaultMuted = true;
+      video.volume = 0;
+      video.setAttribute("muted", "");
+      video.setAttribute("playsinline", "");
+      video.setAttribute("webkit-playsinline", "");
+      video.playsInline = true;
+    };
+
+    forceMuted();
+
     const tryPlay = async () => {
-      if (cancelled || !video) return;
+      if (cancelled) return;
+      forceMuted();
       try {
-        video.muted = true;
-        video.volume = 0;
         await video.play();
       } catch {
-        // Retry after buffer progresses (common on slower CDNs)
-        window.setTimeout(() => {
-          if (cancelled) return;
-          video.muted = true;
-          video.play().catch(() => {});
-        }, 600);
+        // Autoplay can fail until more data is buffered
       }
     };
 
-    const onCanPlay = () => {
-      const rect = section.getBoundingClientRect();
-      const inView =
-        rect.top < window.innerHeight * 0.9 &&
-        rect.bottom > window.innerHeight * 0.1;
-      if (inView) tryPlay();
+    const onError = () => {
+      if (!cancelled) setFailed(true);
     };
 
-    const onError = () => setFailed(true);
-
-    video.addEventListener("canplay", onCanPlay);
-    video.addEventListener("loadeddata", onCanPlay);
+    video.addEventListener("canplay", tryPlay);
+    video.addEventListener("loadeddata", tryPlay);
     video.addEventListener("error", onError);
 
-    // Kick off network fetch early
-    try {
-      video.load();
-    } catch {
-      // ignore
-    }
-
     const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
+      ([entry]) => {
         if (!entry) return;
-
         if (entry.isIntersecting) {
           tryPlay();
         } else if (!video.paused) {
           video.pause();
         }
       },
-      { threshold: 0.2, rootMargin: "80px 0px 80px 0px" }
+      { threshold: 0.1, rootMargin: "100px 0px" }
     );
 
-    observer.observe(section);
+    observer.observe(wrap);
+    tryPlay();
 
     return () => {
       cancelled = true;
-      video.removeEventListener("canplay", onCanPlay);
-      video.removeEventListener("loadeddata", onCanPlay);
+      video.removeEventListener("canplay", tryPlay);
+      video.removeEventListener("loadeddata", tryPlay);
       video.removeEventListener("error", onError);
       observer.disconnect();
     };
   }, []);
 
   return (
-    <div
-      ref={sectionRef}
-      className="relative flex h-full w-full items-center justify-center py-2 sm:py-4"
-    >
-      <div className="relative w-full max-w-[198px] sm:max-w-[231px] md:max-w-[248px] lg:max-w-[264px]">
+    <div ref={wrapRef} className="flex w-full items-center justify-center py-2 sm:py-3">
+      {/* Thick black phone bezel — same style as shared UI, +10% size */}
+      <div
+        className="relative shrink-0 overflow-hidden bg-black"
+        style={{
+          width: "clamp(200px, 24vw, 279px)",
+          padding: "11px",
+          borderRadius: "42px",
+          boxShadow: "0 16px 40px rgba(15,39,74,0.22)",
+        }}
+      >
         <div
-          className="relative overflow-hidden rounded-[28px] sm:rounded-[34px] bg-black p-[8px] sm:p-[10px]"
+          className="relative overflow-hidden bg-[#0a0a0a]"
           style={{
-            boxShadow:
-              "0 24px 60px rgba(15,39,74,0.28), inset 0 0 0 1px rgba(255,255,255,0.12)",
+            aspectRatio: "9 / 16",
+            width: "100%",
+            borderRadius: "32px",
           }}
         >
-          <span
-            className="absolute -left-[2px] top-[18%] h-6 w-[2.5px] rounded-l-sm bg-[#2A2A2A] sm:h-8"
-            aria-hidden="true"
-          />
-          <span
-            className="absolute -left-[2px] top-[28%] h-9 w-[2.5px] rounded-l-sm bg-[#2A2A2A] sm:h-11"
-            aria-hidden="true"
-          />
-          <span
-            className="absolute -left-[2px] top-[42%] h-9 w-[2.5px] rounded-l-sm bg-[#2A2A2A] sm:h-11"
-            aria-hidden="true"
-          />
-          <span
-            className="absolute -right-[2px] top-[30%] h-12 w-[2.5px] rounded-r-sm bg-[#2A2A2A] sm:h-16"
-            aria-hidden="true"
-          />
-
-          <div className="relative aspect-[9/19.5] overflow-hidden rounded-[22px] sm:rounded-[26px] bg-[#111]">
-            <div
-              className="absolute left-1/2 top-2 z-20 h-[18px] w-[64px] -translate-x-1/2 rounded-full bg-black sm:top-2.5 sm:h-[20px] sm:w-[72px]"
-              aria-hidden="true"
-            >
-              <span className="absolute right-2.5 top-1/2 h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-[#1a1a1a] ring-1 ring-[#333] sm:h-2 sm:w-2" />
-            </div>
-
+          {!failed ? (
             <video
               ref={videoRef}
-              className="absolute inset-0 h-full w-full object-cover"
+              src={VIDEO_SRC}
+              className="block h-full w-full object-cover"
+              style={{ aspectRatio: "9 / 16", borderRadius: "32px" }}
               muted
               playsInline
               loop
@@ -173,22 +141,13 @@ function PhoneVideo() {
               controls={false}
               disablePictureInPicture
               aria-label="Next Ledgers results video"
-            >
-              {/* Absolute URL path works on Vercel CDN; type helps MIME sniffing */}
-              <source src={VIDEO_SRC} type="video/mp4" />
-            </video>
-
-            {failed ? (
-              <div className="absolute inset-0 z-30 flex items-center justify-center bg-[#111] px-3 text-center text-[11px] text-white/70">
-                Video unavailable
-              </div>
-            ) : null}
-
-            <div
-              className="pointer-events-none absolute inset-x-0 top-0 z-10 h-14 bg-gradient-to-b from-black/35 to-transparent"
-              aria-hidden="true"
+              onError={() => setFailed(true)}
             />
-          </div>
+          ) : (
+            <div className="flex h-full min-h-[280px] w-full items-center justify-center px-3 text-center text-[11px] text-white/70">
+              Video unavailable
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -199,8 +158,9 @@ export default function ResultsStats() {
   return (
     <section className="relative w-full bg-white pt-0 pb-0">
       <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
-        <div className="bg-[#FFF7F0] px-5 pb-8 pt-0 sm:px-8 sm:pb-10 lg:px-10 lg:pb-12">
-          <div className="grid grid-cols-1 items-stretch gap-6 lg:grid-cols-2 lg:gap-8 xl:gap-10">
+        <div className="bg-[#FFF7F0] px-3 pb-8 pt-0 sm:px-8 sm:pb-10 lg:px-10 lg:pb-12">
+          <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-2 lg:gap-8 xl:gap-10">
+            {/* Left — stats */}
             <div className="flex min-w-0 flex-col">
               <div className="inline-flex items-center gap-3">
                 <span className="h-px w-7 shrink-0 bg-[#F58220] sm:w-9" aria-hidden="true" />
@@ -270,7 +230,7 @@ export default function ResultsStats() {
                         </p>
 
                         <p
-                          className="mt-1.5 max-w-[130px] text-[11px] leading-[1.35] sm:text-[12px]"
+                          className="mt-1.5 max-w-[140px] text-[10px] leading-[1.35] sm:max-w-none sm:text-[12px]"
                           style={{ color: NAVY }}
                         >
                           {stat.label}
@@ -282,7 +242,8 @@ export default function ResultsStats() {
               </div>
             </div>
 
-            <div className="relative flex w-full min-h-[352px] items-center justify-center sm:min-h-[396px] lg:min-h-full">
+            {/* Right — phone video */}
+            <div className="relative flex w-full items-center justify-center lg:justify-end lg:pr-6 xl:pr-10">
               <PhoneVideo />
             </div>
           </div>

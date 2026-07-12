@@ -91,10 +91,15 @@ export const LOGO_MAP = {
     "google looker studio": "/images/logooUK/Google_Looker.png",
     "zoho books": "/images/logooUK/SVG_Brand_zoho_corporation.webp",
     zoho: "/images/logooUK/SVG_Brand_zoho_corporation.webp",
+    "zoho payroll": "/images/logooUK/SVG_Brand_zoho_corporation.webp",
+    "zoho prime": "/images/logooUK/SVG_Brand_zoho_corporation.webp",
     freshbooks: "/images/logooUK/freshbooks.png",
     "wave accounting": "/images/logooUK/Wave_id.jpeg",
     wave: "/images/logooUK/Wave_id.jpeg",
     gusto: "/images/logooUK/Gusto.png",
+    taxcalc: "/images/Logo/TaxCalc/TaxCalc_Logo_6.svg",
+    "wolters kluwer": "/images/logooUK/wolters.png",
+    "wolter kluwer": "/images/logooUK/wolters.png",
 };
 
 const CATEGORY_ICONS = {

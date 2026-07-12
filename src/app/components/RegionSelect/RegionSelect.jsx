@@ -9,11 +9,16 @@ const NAVY = "#0F274A";
 const CODE = "#5B4B8A";
 const TRIGGER_FLAGS = POPUP_REGIONS;
 
+/** Primary flags shown in compact trigger (matches announcement-bar design) */
+const COMPACT_FLAGS = POPUP_REGIONS.slice(0, 5);
+
 export default function RegionSelect({
   onRegionChange,
   className = "",
   minimize = false,
   variant = "light",
+  /** Fewer flags + tighter chrome — for phone announcement bar */
+  compact = false,
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedRegion, setSelectedRegion] = useState("US");
@@ -243,23 +248,60 @@ export default function RegionSelect({
       <button
         type="button"
         onClick={() => setIsOpen((open) => !open)}
-        className={`inline-flex items-center cursor-pointer focus:outline-none transition-all duration-200 ${
+        className={`inline-flex max-w-full items-center cursor-pointer focus:outline-none transition-all duration-200 min-w-0 ${
           isDark
-            ? "rounded-full border border-white/20 bg-white/10 px-2.5 py-1.5 gap-2 hover:bg-white/15"
-            : "rounded-full border border-[#D1D5DB] bg-white px-2.5 py-1.5 gap-2 shadow-[0_2px_8px_rgba(15,39,74,0.06)] hover:shadow-[0_4px_12px_rgba(15,39,74,0.1)]"
+            ? `rounded-full border border-white/20 bg-white/10 hover:bg-white/15 ${
+                compact ? "px-1.5 py-1 gap-1 sm:px-2 sm:py-1.5 sm:gap-1.5" : "px-2.5 py-1.5 gap-2"
+              }`
+            : `rounded-full border border-[#D1D5DB] bg-white shadow-[0_2px_8px_rgba(15,39,74,0.06)] hover:shadow-[0_4px_12px_rgba(15,39,74,0.1)] ${
+                compact ? "px-1.5 py-1 gap-1 sm:px-2.5 sm:py-1.5 sm:gap-2" : "px-2.5 py-1.5 gap-2"
+              }`
         }`}
         aria-expanded={isOpen}
         aria-haspopup="listbox"
       >
-        {minimize ? (
-          <div className="relative flex h-3.5 w-5 flex-shrink-0 overflow-hidden rounded-sm border border-white/80 shadow-xs">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={activeRegion.flag}
-              alt={activeRegion.name}
-              className="h-full w-full object-cover"
-            />
-          </div>
+        {minimize || compact ? (
+          <>
+            {/* Phone: selected flag only — never clips */}
+            <div
+              className={`relative flex flex-shrink-0 overflow-hidden rounded-sm border shadow-xs ${
+                isDark ? "border-white/80" : "border-[#E5E7EB]"
+              } ${compact ? "h-3 w-[18px] sm:h-3.5 sm:w-5" : "h-3.5 w-5"}`}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={activeRegion.flag}
+                alt={activeRegion.name}
+                className="h-full w-full object-cover"
+              />
+            </div>
+
+            {/* Compact: also show up to 4 more flags from sm+ */}
+            {compact && !minimize ? (
+              <div
+                className="hidden sm:flex items-center gap-0.5 flex-shrink-0"
+                aria-hidden="true"
+              >
+                {COMPACT_FLAGS.filter((r) => r.code !== activeRegion.code)
+                  .slice(0, 4)
+                  .map((region) => (
+                    <span
+                      key={region.code}
+                      className="inline-flex h-[11px] w-4 flex-shrink-0 overflow-hidden rounded-sm border border-white/70 bg-white"
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={region.flag}
+                        alt=""
+                        className="block h-full w-full object-cover"
+                        loading="lazy"
+                        draggable={false}
+                      />
+                    </span>
+                  ))}
+              </div>
+            ) : null}
+          </>
         ) : (
           <>
             <div
@@ -271,7 +313,7 @@ export default function RegionSelect({
               }}
               aria-hidden="true"
             >
-              {TRIGGER_FLAGS.map((region) => (
+              {TRIGGER_FLAGS.slice(0, 5).map((region) => (
                 <span
                   key={region.code}
                   style={{
@@ -331,11 +373,13 @@ export default function RegionSelect({
         )}
 
         <span
-          className={`font-bold text-[11px] tracking-[0.14em] uppercase leading-none ${
-            isDark ? "text-white" : "text-[#374151]"
-          }`}
+          className={`font-bold uppercase leading-none shrink-0 ${
+            compact
+              ? "text-[9px] tracking-[0.1em] sm:text-[10px] sm:tracking-[0.12em]"
+              : "text-[11px] tracking-[0.14em]"
+          } ${isDark ? "text-white" : "text-[#374151]"}`}
         >
-          {minimize ? selectedRegion : "Regions"}
+          {minimize || compact ? selectedRegion : "Regions"}
         </span>
 
         <svg

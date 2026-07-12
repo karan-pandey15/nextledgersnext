@@ -350,20 +350,27 @@ export default function HiringComparison() {
           }
         }
 
-        /* Very small phones — slightly tighter cells */
-        @media (max-width: 380px) {
+        /* Very small phones — stack icon above text, wrap freely */
+        @media (max-width: 420px) {
           .hire-header {
-            font-size: 11px;
-            padding: 12px 8px;
+            font-size: 10px;
+            padding: 10px 6px;
+            line-height: 1.25;
           }
           .hire-cell {
-            font-size: 11px;
-            padding: 10px 8px;
-            gap: 6px;
+            font-size: 10px;
+            padding: 8px 6px;
+            gap: 4px;
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          .hire-cell span:last-child {
+            overflow-wrap: anywhere;
+            word-break: break-word;
           }
           .hire-icon {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
           }
         }
       `}</style>

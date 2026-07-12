@@ -68,7 +68,7 @@ function Stars({ light = false }) {
         <svg
           key={i}
           viewBox="0 0 20 20"
-          className="h-3.5 w-3.5 sm:h-4 sm:w-4"
+          className="h-3 w-3 sm:h-3.5 sm:w-3.5"
           fill={light ? "#FFFFFF" : ORANGE}
           aria-hidden="true"
         >
@@ -82,7 +82,7 @@ function Stars({ light = false }) {
 function QuoteMark({ className = "", light = false }) {
   return (
     <span
-      className={`pointer-events-none select-none font-serif text-[56px] leading-none sm:text-[68px] ${className}`}
+      className={`pointer-events-none select-none font-serif text-[40px] leading-none sm:text-[48px] ${className}`}
       style={{ color: light ? "rgba(255,255,255,0.35)" : "rgba(245,130,32,0.22)" }}
       aria-hidden="true"
     >
@@ -96,20 +96,20 @@ function TestimonialCard({ item }) {
 
   return (
     <div
-      className={`relative flex flex-col items-center rounded-[16px] px-4 py-5 text-center shadow-[0_10px_36px_rgba(15,39,74,0.07)] sm:min-h-[360px] sm:rounded-[20px] sm:px-6 sm:pb-8 sm:pt-9 ${
-        featured ? "bg-[#F58220] text-white lg:scale-[1.03] lg:z-10" : "bg-white"
+      className={`relative flex flex-col items-center rounded-[14px] px-3.5 py-4 text-center shadow-[0_10px_36px_rgba(15,39,74,0.07)] sm:min-h-0 sm:rounded-[18px] sm:px-5 sm:py-5 ${
+        featured ? "bg-[#F58220] text-white lg:scale-[1.02] lg:z-10" : "bg-white"
       }`}
     >
-      <QuoteMark className="absolute top-1.5 left-3 sm:top-3 sm:left-5" light={featured} />
+      <QuoteMark className="absolute top-0.5 left-2.5 sm:top-1.5 sm:left-4" light={featured} />
       <span
-        className="pointer-events-none absolute bottom-0.5 right-3 select-none font-serif text-[44px] leading-none sm:bottom-2 sm:right-5 sm:text-[68px]"
+        className="pointer-events-none absolute bottom-0 right-2.5 select-none font-serif text-[32px] leading-none sm:bottom-1 sm:right-4 sm:text-[48px]"
         style={{ color: featured ? "rgba(255,255,255,0.35)" : "rgba(245,130,32,0.22)" }}
         aria-hidden="true"
       >
         &rdquo;
       </span>
 
-      <div className="relative h-[64px] w-[64px] shrink-0 overflow-hidden rounded-full bg-[#FFF1E6] shadow-md ring-2 ring-white/40 sm:h-[80px] sm:w-[80px]">
+      <div className="relative h-[52px] w-[52px] shrink-0 overflow-hidden rounded-full bg-[#FFF1E6] shadow-md ring-2 ring-white/40 sm:h-[64px] sm:w-[64px]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={item.image}
@@ -120,37 +120,37 @@ function TestimonialCard({ item }) {
             e.currentTarget.onerror = null;
             e.currentTarget.src = "/images/nextledgerlogo3.png";
             e.currentTarget.className =
-              "absolute inset-0 h-full w-full object-contain object-center p-3 bg-white";
+              "absolute inset-0 h-full w-full object-contain object-center p-2.5 bg-white";
           }}
         />
       </div>
 
-      <div className="mt-2 sm:mt-3.5">
+      <div className="mt-1.5 sm:mt-2">
         <Stars light={featured} />
       </div>
 
       <h3
-        className="mt-2 text-[14px] font-bold leading-snug sm:mt-3 sm:text-[16px]"
+        className="mt-1.5 text-[13px] font-bold leading-snug sm:mt-2 sm:text-[14px]"
         style={{ color: featured ? "#FFFFFF" : NAVY }}
       >
         {item.name}
       </h3>
 
       <p
-        className="mt-0.5 text-[12px] font-bold sm:mt-1 sm:text-[13px]"
+        className="mt-0.5 text-[11px] font-bold sm:text-[12px]"
         style={{ color: featured ? "rgba(255,255,255,0.92)" : ORANGE }}
       >
         {item.role}
       </p>
 
       <div
-        className="mb-2 mt-2 h-px w-10 sm:mb-3 sm:mt-3"
+        className="mb-1.5 mt-1.5 h-px w-8 sm:mb-2 sm:mt-2"
         style={{ backgroundColor: featured ? "rgba(255,255,255,0.45)" : "#E8E8E8" }}
         aria-hidden="true"
       />
 
       <p
-        className="w-full max-w-none text-[12px] leading-[1.5] sm:max-w-[300px] sm:text-[13px] sm:leading-[1.55]"
+        className="w-full max-w-none text-[11px] leading-[1.45] sm:max-w-[300px] sm:text-[12px] sm:leading-[1.5]"
         style={{ color: featured ? "rgba(255,255,255,0.95)" : GREY }}
       >
         {item.quote}
@@ -200,7 +200,7 @@ export default function RealFeedback() {
   return (
     <section className="relative w-full bg-white pt-0 pb-0">
       <div className="mx-auto max-w-[1440px] px-2 sm:px-6 lg:px-10">
-        <div className="bg-[#FFF7F0] px-2.5 pb-8 pt-0 sm:px-8 sm:pb-10 lg:px-10">
+        <div className="bg-[#FFF7F0] px-2 pb-8 pt-0 sm:px-8 sm:pb-10 lg:px-10">
           <div className="mx-auto max-w-[980px] px-1 text-center sm:px-0">
             <div className="inline-flex items-center justify-center gap-3">
               <span className="h-px w-8 bg-[#F58220] sm:w-10" aria-hidden="true" />
@@ -222,8 +222,8 @@ export default function RealFeedback() {
             </h2>
           </div>
 
-          {/* Mobile: full-width cards + overlay arrows so content isn't squeezed */}
-          <div className="relative mt-6 sm:mt-10">
+          {/* Mobile: arrows outside cards so content isn't covered */}
+          <div className="relative mt-5 sm:mt-7 px-10 sm:px-0">
             <div className="absolute left-0 top-1/2 z-20 -translate-y-1/2 sm:hidden">
               <NavArrow direction="left" onClick={prevSlide} label="Previous testimonials" />
             </div>
@@ -244,7 +244,7 @@ export default function RealFeedback() {
                   {SLIDES.map((group, slideIndex) => (
                     <div
                       key={slideIndex}
-                      className="grid w-full shrink-0 grid-cols-1 gap-3 md:grid-cols-3 sm:gap-5 lg:gap-6"
+                      className="grid w-full shrink-0 grid-cols-1 gap-2.5 md:grid-cols-3 sm:gap-4 lg:gap-4"
                     >
                       {group.map((item) => (
                         <TestimonialCard

@@ -93,9 +93,9 @@ const REASONS = [
 export default function WhyChooseUs() {
   return (
     <section className="relative w-full overflow-hidden bg-white pt-6 sm:pt-7 lg:pt-8 pb-9 sm:pb-10 lg:pb-11">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
+      <div className="max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-10">
         {/* Same horizontal inset as GlobalPartner peach card so image width/align matches */}
-        <div className="px-5 sm:px-8 lg:px-10">
+        <div className="px-3 sm:px-8 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 xl:gap-12 items-center">
             {/* Left content */}
             <div className="relative z-10 w-full">

@@ -347,7 +347,7 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
 
         {/* Sidebar Panel Drawer */}
         <div
-          className={`absolute inset-y-0 left-0 w-[300px] bg-white shadow-2xl p-6 flex flex-col gap-5 transform transition-transform duration-300 ease-out ${
+          className={`absolute inset-y-0 left-0 w-[min(300px,85vw)] bg-white shadow-2xl p-5 sm:p-6 flex flex-col gap-5 transform transition-transform duration-300 ease-out ${
             isSidebarOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
@@ -498,7 +498,11 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
           </nav>
 
           <div className="pt-2 border-t border-[#F58220]/15">
-            <RegionSelect onRegionChange={handleRegionChange} className="w-full [&_button]:w-full [&_button]:justify-between" />
+            <RegionSelect
+              onRegionChange={handleRegionChange}
+              compact
+              className="w-full [&_button]:w-full [&_button]:justify-between [&_button]:min-w-0"
+            />
           </div>
         </div>
       </div>

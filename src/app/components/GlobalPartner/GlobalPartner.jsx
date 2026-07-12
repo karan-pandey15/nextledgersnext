@@ -53,8 +53,8 @@ export default function GlobalPartner() {
   return (
     <section className="relative w-full overflow-hidden bg-white pt-8 sm:pt-9 lg:pt-10 pb-0">
       {/* Same alignment pattern as CoreServices / Technology — side gutters stay white */}
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
-        <div className="bg-[#FFF7F0]  px-5 sm:px-8 lg:px-10 py-8 sm:py-9 lg:py-10">
+      <div className="max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-10">
+        <div className="bg-[#FFF7F0] px-3 sm:px-8 lg:px-10 py-8 sm:py-9 lg:py-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 xl:gap-12 items-center">
             {/* Left content */}
             <div className="relative z-10 w-full">

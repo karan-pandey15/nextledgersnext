@@ -117,36 +117,36 @@ export default function TransformCTA({
   className = "",
 }) {
   return (
-    <section className={`relative w-full bg-white pt-8 sm:pt-9 lg:pt-10 pb-0 mb-10 mt-5 ${className}`}>
+    <section className={`relative w-full bg-white pt-4 sm:pt-5 lg:pt-6 pb-0 mb-8 mt-3 ${className}`}>
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
-        <div className="relative overflow-hidden rounded-[18px] sm:rounded-[22px] bg-[#07111F] px-5 py-14 sm:px-10 sm:py-16 lg:px-16 lg:py-[72px] text-center">
+        <div className="relative overflow-hidden rounded-[18px] sm:rounded-[22px] bg-[#07111F] px-5 py-6 sm:px-10 sm:py-7 lg:px-14 lg:py-8 text-center">
           <CtaBackdrop />
 
-          <div className="relative z-10 max-w-[780px] mx-auto">
-            <h2 className="font-bold text-[28px] sm:text-[38px] lg:text-[46px] leading-[1.18] tracking-[-0.02em] text-white">
+          <div className="relative z-10 max-w-[720px] mx-auto">
+            <h2 className="font-bold text-[22px] sm:text-[30px] lg:text-[34px] leading-[1.2] tracking-[-0.02em] text-white">
               {titleWhite}
               {titleBreak ? <br /> : " "}
               <span style={{ color: ORANGE }}>{titleOrange}</span>
             </h2>
 
-            <p className="mt-4 sm:mt-5 text-[13px] sm:text-[15px] leading-6 sm:leading-7 text-[#B8C2D0] max-w-[620px] mx-auto font-normal">
+            <p className="mt-2 sm:mt-2.5 text-[12px] sm:text-[13.5px] leading-5 sm:leading-6 text-[#B8C2D0] max-w-[560px] mx-auto font-normal">
               {description}
             </p>
             {descriptionSecond ? (
-              <p className="mt-3 text-[13px] sm:text-[15px] leading-6 sm:leading-7 text-[#B8C2D0] max-w-[620px] mx-auto font-normal">
+              <p className="mt-1.5 text-[12px] sm:text-[13.5px] leading-5 sm:leading-6 text-[#B8C2D0] max-w-[560px] mx-auto font-normal">
                 {descriptionSecond}
               </p>
             ) : null}
 
-            <div className="mt-8 sm:mt-9 flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-5">
+            <div className="mt-4 sm:mt-5 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2.5 sm:gap-3 w-full max-w-[320px] sm:max-w-none mx-auto">
               <CtaButton
                 href={primaryHref}
                 variant="primary"
-                size="lg"
-                className="min-w-[190px] sm:min-w-[210px] !normal-case !tracking-normal !font-semibold"
+                size="sm"
+                className="w-full sm:w-auto sm:min-w-[180px] !py-2.5 sm:!py-2 !normal-case !tracking-normal !font-semibold !text-[13px]"
               >
                 {primaryLabel}
-                <span className="text-[15px] leading-none" aria-hidden="true">
+                <span className="text-[13px] leading-none" aria-hidden="true">
                   →
                 </span>
               </CtaButton>
@@ -155,14 +155,14 @@ export default function TransformCTA({
                 <CtaButton
                   href={secondaryHref}
                   variant="outline"
-                  size="lg"
-                  className="min-w-[190px] sm:min-w-[210px] !normal-case !tracking-normal !font-semibold"
+                  size="sm"
+                  className="w-full sm:w-auto sm:min-w-[180px] !py-2.5 sm:!py-2 !normal-case !tracking-normal !font-semibold !text-[13px]"
                 >
                   {secondaryLabel}
                   {String(secondaryHref).startsWith("tel:") ? (
-                    <Phone className="h-4 w-4" aria-hidden="true" />
+                    <Phone className="h-3.5 w-3.5" aria-hidden="true" />
                   ) : (
-                    <span className="text-[15px] leading-none" aria-hidden="true">
+                    <span className="text-[13px] leading-none" aria-hidden="true">
                       →
                     </span>
                   )}

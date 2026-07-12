@@ -38,7 +38,7 @@ export default function BusinessTips() {
       </div>
 
       <div className="mt-8 flex justify-center sm:mt-10">
-        <CtaButton href="/articles" variant="secondary" size="md" className="min-w-[200px]">
+        <CtaButton href="/articles" variant="secondary" size="md" className="w-full max-w-[240px] sm:w-auto sm:min-w-[200px]">
           View all articles
           <span aria-hidden="true">→</span>
         </CtaButton>

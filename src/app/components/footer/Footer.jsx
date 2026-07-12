@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import FooterGlobalMap from "./FooterGlobalMap";
@@ -10,68 +9,33 @@ import { USA_SERVICE_LINKS } from "@/app/usa/usaServiceLinks";
 import { CANADA_SERVICE_LINKS } from "@/app/canada/canadaServiceLinks";
 import { GLOBAL_SERVICE_LINKS } from "../header/navigationData";
 
-const ORANGE = "#F58220";
 const BG = "#0B1C33";
 
-const REGION_COPY = {
-  uk: {
-    regionLabel: "UK",
-    valueIntro:
-      "We help UK accounting firms save time, cut costs and scale with a dedicated offshore team.",
-    servingLines: ["Serving UK", "Accounting Firms"],
-    brandBlurb:
-      "We are a leading offshore accounting and bookkeeping service provider trusted by UK firms.",
-    phoneDisplay: "+44 20 4571 4469",
-    phoneHref: "tel:+442045714469",
-    servicesHeading: "Our Services in UK",
-    overlapText: "Overlap hours with UK for real-time collaboration",
-    softwareHeading: "Trusted by Top UK Firms Using Leading Software",
-    complianceLabel: "GDPR",
-    complianceSub: "Compliant",
-    serviceLinks: UK_SERVICE_LINKS,
-  },
-  usa: {
-    regionLabel: "USA",
-    valueIntro:
-      "We help USA accounting firms save time, cut costs and scale with a dedicated offshore team.",
-    servingLines: ["Serving USA", "Accounting Firms"],
-    brandBlurb:
-      "We are a leading offshore accounting and bookkeeping service provider trusted by USA firms.",
-    phoneDisplay: "+1 (888) 552-0055",
-    phoneHref: "tel:+18885520055",
-    servicesHeading: "Our Services in USA",
-    overlapText: "Overlap hours with USA for real-time collaboration",
-    softwareHeading: "Trusted by Top USA Firms Using Leading Software",
-    complianceLabel: "CCPA",
-    complianceSub: "Compliant",
-    serviceLinks: USA_SERVICE_LINKS,
-  },
-  canada: {
-    regionLabel: "Canada",
-    valueIntro:
-      "We help Canadian accounting firms save time, cut costs and scale with a dedicated offshore team.",
-    servingLines: ["Serving Canada", "Accounting Firms"],
-    brandBlurb:
-      "We are a leading offshore accounting and bookkeeping service provider trusted by Canadian CPA firms.",
-    phoneDisplay: "+1 (888) 552-0055",
-    phoneHref: "tel:+18885520055",
-    servicesHeading: "Our Services in Canada",
-    overlapText: "Overlap hours with Canada for real-time collaboration",
-    softwareHeading: "Trusted by Top Canadian Firms Using Leading Software",
-    complianceLabel: "PIPEDA",
-    complianceSub: "Compliant",
-    serviceLinks: CANADA_SERVICE_LINKS,
-  },
-};
-
-const GLOBAL_COPY = {
+/** Shared home-footer copy — used on every page */
+const HOME_COPY = {
   valueIntro:
     "We help accounting firms worldwide save time, cut costs and scale with a dedicated offshore team.",
-  phoneDisplay: "+44 20 4571 4469",
-  phoneHref: "tel:+442045714469",
+  phoneDisplay: "+1 (888) 552-0055",
+  phoneHref: "tel:+18885520055",
   overlapText: "Overlap hours across regions for real-time collaboration",
   complianceLabel: "GDPR",
   complianceSub: "Compliant",
+};
+
+/** Only services heading + links change by region */
+const REGION_SERVICES = {
+  uk: {
+    servicesHeading: "Our Services in UK",
+    serviceLinks: UK_SERVICE_LINKS,
+  },
+  usa: {
+    servicesHeading: "Our Services in USA",
+    serviceLinks: USA_SERVICE_LINKS,
+  },
+  canada: {
+    servicesHeading: "Our Services in Canada",
+    serviceLinks: CANADA_SERVICE_LINKS,
+  },
 };
 
 const QUICK_LINKS = [
@@ -81,23 +45,6 @@ const QUICK_LINKS = [
   { label: "Gallery", href: "/gallery" },
   { label: "Articles & Tips", href: "/articles" },
   { label: "Contact Us", href: "/contact", isContact: true },
-];
-
-/* Software logos — swap any `src` later if needed */
-const SOFTWARE_BRANDS = [
-  { name: "Xero", src: "/images/Logo/Xero/Xero/Xero_Xero_Wordmark_Blue_6.svg" },
-  { name: "QuickBooks", src: "/images/Logo/QuickBooks_/QBO-2.png" },
-  { name: "Sage", src: "/images/Logo/Sage/Sage/sage-green-logo-svg.svg" },
-  { name: "FreeAgent", src: "/images/Logo/FreeAgent/FreeAgent_idNyOOTVhl_2.svg" },
-  { name: "Dext", src: "/images/Logo/Dext/Dext_idpYhYo9DH_1.svg" },
-  { name: "Hubdoc", src: "/images/Logo/Hubdoc/hubdoc.png" },
-  { name: "AutoEntry", src: "/images/Logo/AutoEntry/AutoEntry_idedvbZBMw_2.svg" },
-  { name: "IRIS", src: "/images/Logo/IRIS_KashFlow/IRIS_KashFlow_idvkknyO0A_1.png" },
-  { name: "BrightPay", src: "/images/Logo/BrightPay/BrightPay_id1I-zJRQW_2.svg" },
-  { name: "A2X", src: "/images/Logo/A2X/A2X_id4v1T0Lkg_2.svg" },
-  { name: "Shopify", src: "/images/Logo/Shopify-com/Shopify-com_Logo_0.svg" },
-  { name: "Stripe", src: "/images/Logo/Stripe/Stripe_Logo_0.svg" },
-  { name: "PayPal", src: "/images/Logo/PayPal/PayPal_Logo_0.svg" },
 ];
 
 function IconLaurel({ className = "w-6 h-6" }) {
@@ -271,35 +218,7 @@ function IconChevron({ className = "w-3 h-3" }) {
   );
 }
 
-const VALUE_STATS_BASE = [
-  {
-    icon: IconLaurel,
-    title: "10+ Years",
-    subtitleKey: "serving",
-  },
-  {
-    icon: IconShield,
-    title: "ISO 27001",
-    subtitle: ["Certified", "Data Security"],
-  },
-  {
-    icon: IconTeam,
-    title: "75+",
-    subtitle: ["Skilled", "Professionals"],
-  },
-  {
-    icon: IconClock,
-    title: "24/7",
-    subtitle: ["Seamless", "Support"],
-  },
-  {
-    icon: IconStar,
-    title: "100%",
-    subtitle: ["Client", "Satisfaction"],
-  },
-];
-
-const VALUE_STATS_GLOBAL = [
+const VALUE_STATS = [
   {
     icon: IconLaurel,
     title: "9+ Years",
@@ -334,7 +253,7 @@ function FadeDividerH({ className = "" }) {
       className={`h-px w-full ${className}`}
       style={{
         background:
-          "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.22) 18%, rgba(255,255,255,0.22) 82%, transparent 100%)",
+          "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.18) 18%, rgba(255,255,255,0.18) 82%, transparent 100%)",
       }}
       aria-hidden="true"
     />
@@ -345,10 +264,10 @@ function FadeDividerH({ className = "" }) {
 function FadeDividerV({ className = "" }) {
   return (
     <div
-      className={`w-px self-stretch min-h-[64px] ${className}`}
+      className={`w-px self-stretch min-h-[48px] ${className}`}
       style={{
         background:
-          "linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.22) 18%, rgba(255,255,255,0.22) 82%, transparent 100%)",
+          "linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.18) 18%, rgba(255,255,255,0.18) 82%, transparent 100%)",
       }}
       aria-hidden="true"
     />
@@ -356,10 +275,13 @@ function FadeDividerV({ className = "" }) {
 }
 
 /**
- * @param {"uk" | "usa" | "canada"} [region] — regional service footer
- * @param {"uk" | "usa" | "canada" | "global"} [variant] — `global` for home/about/team/contact/careers
+ * Same footer as home on every page.
+ * Only Our Services heading + links change by region (uk / usa / canada).
+ *
+ * @param {"uk" | "usa" | "canada"} [region]
+ * @param {"uk" | "usa" | "canada" | "global"} [variant]
  */
-export default function Footer({ onContactClick, region, variant }) {
+export default function Footer({ region, variant }) {
   const pathname = usePathname();
 
   const resolvedRegion =
@@ -381,53 +303,48 @@ export default function Footer({ onContactClick, region, variant }) {
       !pathname?.startsWith("/canada"));
 
   const mode = isGlobal ? "global" : resolvedRegion || "uk";
-  const copy = mode === "global" ? GLOBAL_COPY : REGION_COPY[mode] || REGION_COPY.uk;
+  const regionServices = mode === "global" ? null : REGION_SERVICES[mode];
 
-  const serviceLinks =
-    mode === "global" ? GLOBAL_SERVICE_LINKS : copy.serviceLinks || [];
-  const servicesLeft = serviceLinks.filter((_, i) => i % 2 === 0);
-  const servicesRight = serviceLinks.filter((_, i) => i % 2 === 1);
-
-  const valueStats =
-    mode === "global"
-      ? VALUE_STATS_GLOBAL
-      : VALUE_STATS_BASE.map((stat) =>
-          stat.subtitleKey === "serving"
-            ? { ...stat, subtitle: copy.servingLines }
-            : stat
-        );
+  // Exact same home copy + stats everywhere
+  const copy = HOME_COPY;
+  const serviceLinks = regionServices
+    ? regionServices.serviceLinks
+    : GLOBAL_SERVICE_LINKS;
+  const servicesHeading = regionServices
+    ? regionServices.servicesHeading
+    : "Our Services";
 
   return (
     <footer className="w-full text-white overflow-x-hidden" style={{ backgroundColor: BG }}>
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-7 sm:py-9 lg:py-10">
-        <div className="flex flex-col xl:flex-row xl:items-center gap-7 sm:gap-8 xl:gap-0">
-          <div className="xl:w-[30%] xl:max-w-[380px] xl:pr-6 shrink-0 text-center sm:text-left">
-            <h2 className="font-bold text-[22px] sm:text-[25px] lg:text-[27px] leading-[1.22] tracking-[-0.01em] text-white">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-3.5 sm:py-4 lg:py-5">
+        <div className="flex flex-col xl:flex-row xl:items-center gap-3 sm:gap-4 xl:gap-0">
+          <div className="xl:w-[30%] xl:max-w-[380px] xl:pr-5 shrink-0 text-center sm:text-left">
+            <h2 className="font-bold text-[20px] sm:text-[23px] lg:text-[25px] leading-[1.2] tracking-[-0.01em] text-white">
               Your Offshore Team.
               <br />
               <span className="text-[#F58220]">Your Competitive Advantage.</span>
             </h2>
-            <p className="mt-2.5 text-[13px] sm:text-[14px] leading-[1.55] text-[#9AA3B2] max-w-[420px] mx-auto sm:mx-0">
+            <p className="mt-1.5 text-[12px] sm:text-[13px] leading-[1.45] text-[#9AA3B2] max-w-[420px] mx-auto sm:mx-0">
               {copy.valueIntro}
             </p>
           </div>
 
           <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
-            {valueStats.map((stat, index) => {
+            {VALUE_STATS.map((stat, index) => {
               const Icon = stat.icon;
               return (
                 <div key={stat.title} className="flex items-stretch min-w-0">
                   {index > 0 && <FadeDividerV className="hidden lg:block" />}
-                  <div className="flex-1 flex flex-col items-center justify-center text-center px-1.5 sm:px-2.5 lg:px-3 py-2.5 sm:py-3">
-                    <div className="flex flex-col sm:flex-row min-h-0 sm:min-h-12 w-full items-center justify-center gap-1 sm:gap-2">
-                      <span className="text-[#F58220] inline-flex items-center justify-center shrink-0 w-9 h-9 sm:w-10 sm:h-10 lg:w-12 lg:h-12">
+                  <div className="flex-1 flex flex-col items-center justify-center text-center px-1 sm:px-2 lg:px-2.5 py-1.5 sm:py-2">
+                    <div className="flex flex-col sm:flex-row min-h-0 sm:min-h-10 w-full items-center justify-center gap-0.5 sm:gap-1.5">
+                      <span className="text-[#F58220] inline-flex items-center justify-center shrink-0 w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10">
                         <Icon className="block w-full h-full" />
                       </span>
-                      <span className="font-bold text-[13px] sm:text-[15px] lg:text-[16px] leading-none text-white whitespace-nowrap">
+                      <span className="font-bold text-[12px] sm:text-[14px] lg:text-[15px] leading-none text-white whitespace-nowrap">
                         {stat.title}
                       </span>
                     </div>
-                    <p className="mt-1 sm:mt-1.5 min-h-[34px] sm:min-h-[40px] flex flex-col items-center justify-start text-[11px] sm:text-[12px] lg:text-[13px] leading-[1.3] font-semibold text-[#9AA3B2] text-center">
+                    <p className="mt-0.5 sm:mt-1 min-h-0 flex flex-col items-center justify-start text-[10px] sm:text-[11px] lg:text-[12px] leading-[1.25] font-semibold text-[#9AA3B2] text-center">
                       {stat.subtitle.map((line) => (
                         <span key={line} className="block">
                           {line}
@@ -444,189 +361,122 @@ export default function Footer({ onContactClick, region, variant }) {
 
       <FadeDividerH />
 
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-8 sm:py-10 lg:py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 gap-8 md:gap-10 xl:gap-0">
-          <div className="xl:col-span-3 space-y-4 xl:pr-8">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-3.5 sm:py-4 lg:py-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 items-start gap-5 md:gap-6 xl:gap-0">
+          <div className="xl:col-span-3 space-y-2.5 xl:pr-5">
             <Link href="/" className="inline-block">
               <img
                 src="/images/nextledgerlogo3.png"
                 alt="Next Ledgers"
-                className="h-9 sm:h-10 w-auto object-contain"
+                className="h-8 sm:h-9 w-auto object-contain"
               />
             </Link>
-            {mode !== "global" && copy.brandBlurb ? (
-              <p className="text-[13px] leading-6 text-white/70 max-w-[280px]">
-                {copy.brandBlurb}
-              </p>
-            ) : null}
 
-            <div className="space-y-3 pt-1">
+            <div className="flex flex-col gap-2.5 pt-0.5">
               <a
                 href={copy.phoneHref}
-                className="flex items-center gap-2.5 text-[13px] font-semibold text-white/90 hover:text-[#F58220] transition-colors"
+                className="flex items-center gap-2 text-[12px] sm:text-[13px] font-semibold text-white/90 hover:text-[#F58220] transition-colors"
               >
                 <span className="text-[#F58220]">
-                  <IconPhone className="w-4 h-4" />
+                  <IconPhone className="w-3.5 h-3.5" />
                 </span>
                 {copy.phoneDisplay}
               </a>
               <a
                 href="mailto:info@nextledgers.com"
-                className="flex items-center gap-2.5 text-[13px] font-semibold text-white/90 hover:text-[#F58220] transition-colors break-all"
+                className="flex items-center gap-2 text-[12px] sm:text-[13px] font-semibold text-white/90 hover:text-[#F58220] transition-colors break-all"
               >
                 <span className="text-[#F58220] shrink-0">
-                  <IconMail className="w-4 h-4" />
+                  <IconMail className="w-3.5 h-3.5" />
                 </span>
                 info@nextledgers.com
               </a>
-              <div className="flex items-start gap-2.5 text-[13px] leading-5 text-white/70">
+              <div className="flex items-start gap-2 text-[12px] sm:text-[13px] leading-[1.4] text-white/70">
                 <span className="text-[#F58220] mt-0.5 shrink-0">
-                  <IconPin className="w-4 h-4" />
+                  <IconPin className="w-3.5 h-3.5" />
                 </span>
                 <span>
                   <span className="font-bold text-white">Next Ledgers HQ</span>
                   <br />
-                  Mayapuri Commercial Area, New Delhi, India 110064.
+                  Mayapuri Commercial Area,
+                  <br />
+                  New Delhi, India 110064.
                 </span>
               </div>
             </div>
-
-            {mode !== "global" ? (
-              onContactClick ? (
-                <button
-                  type="button"
-                  onClick={onContactClick}
-                  className="mt-2 w-full sm:w-auto inline-flex items-center justify-center gap-2 h-11 px-5 rounded-[10px] bg-[#F58220] hover:bg-[#e57416] text-white text-[13px] font-bold cursor-pointer transition-colors shadow-[0_8px_20px_rgba(245,130,32,0.25)]"
-                >
-                  <IconPhone className="w-4 h-4" />
-                  Book a Free Consultation
-                </button>
-              ) : (
-                <Link
-                  href="/contact"
-                  className="mt-2 w-full sm:w-auto inline-flex items-center justify-center gap-2 h-11 px-5 rounded-[10px] bg-[#F58220] hover:bg-[#e57416] text-white text-[13px] font-bold cursor-pointer transition-colors shadow-[0_8px_20px_rgba(245,130,32,0.25)]"
-                >
-                  <IconPhone className="w-4 h-4" />
-                  Book a Free Consultation
-                </Link>
-              )
-            ) : null}
           </div>
 
-          <div className="xl:col-span-3 flex">
-            <FadeDividerV className="hidden xl:block mr-6" />
-            <div className="flex-1 xl:pr-4">
-              <h3 className="text-[12px] sm:text-[13px] font-bold tracking-[0.14em] uppercase text-[#F58220] mb-4">
-                {mode === "global" ? "Our Services" : copy.servicesHeading}
-              </h3>
-              {mode === "global" ? (
-                <ul className="space-y-2.5">
-                  {serviceLinks.map((item) => (
-                    <li key={item.label}>
-                      <Link
-                        href={item.href}
-                        className="group flex items-start gap-1.5 text-[12px] sm:text-[13px] leading-5 text-white/70 hover:text-[#F58220] transition-colors"
-                      >
-                        <span className="text-[#F58220] mt-0.5 shrink-0">
-                          <IconChevron className="w-3 h-3" />
-                        </span>
-                        <span>{item.label}</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2.5">
-                  <div className="space-y-2.5">
-                    {servicesLeft.map((item) => (
-                      <Link
-                        key={item.label}
-                        href={item.href}
-                        className="group flex items-start gap-1.5 text-[12px] sm:text-[13px] leading-5 text-white/70 hover:text-[#F58220] transition-colors"
-                      >
-                        <span className="text-[#F58220] mt-0.5 shrink-0">
-                          <IconChevron className="w-3 h-3" />
-                        </span>
-                        <span>{item.label}</span>
-                      </Link>
-                    ))}
-                  </div>
-                  <div className="space-y-2.5">
-                    {servicesRight.map((item) => (
-                      <Link
-                        key={item.label}
-                        href={item.href}
-                        className="group flex items-start gap-1.5 text-[12px] sm:text-[13px] leading-5 text-white/70 hover:text-[#F58220] transition-colors"
-                      >
-                        <span className="text-[#F58220] mt-0.5 shrink-0">
-                          <IconChevron className="w-3 h-3" />
-                        </span>
-                        <span>{item.label}</span>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
+          <div className="xl:col-span-3 xl:border-l xl:border-white/30 xl:pl-5">
+            <h3 className="text-[11px] sm:text-[12px] font-bold tracking-[0.14em] uppercase text-[#F58220] mb-2.5">
+              {servicesHeading}
+            </h3>
+            <ul className="flex flex-col gap-2">
+              {serviceLinks.map((item) => (
+                <li key={`${item.href}-${item.label}`}>
+                  <Link
+                    href={item.href}
+                    className="group flex items-start gap-1.5 py-0.5 text-[12px] leading-[1.4] text-white/70 hover:text-[#F58220] transition-colors"
+                  >
+                    <span className="text-[#F58220] mt-0.5 shrink-0">
+                      <IconChevron className="w-3 h-3" />
+                    </span>
+                    <span>{item.label}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div className="md:col-span-2 xl:col-span-6 flex">
-            <FadeDividerV className="hidden xl:block mr-4" />
-            <div className="flex-1 min-w-0">
-              <div className="flex w-full flex-row items-start gap-[10px]">
-                <div className="w-[110px] shrink-0 sm:w-[118px]">
-                  <h3 className="text-[12px] sm:text-[13px] font-bold tracking-[0.14em] uppercase text-[#F58220] mb-4">
-                    Quick Links
-                  </h3>
-                  <ul className="space-y-2.5">
-                    {QUICK_LINKS.map((link) => (
-                      <li key={link.label}>
-                        <Link
-                          href={link.href}
-                          className="text-[13px] font-semibold text-white/75 hover:text-[#F58220] transition-colors"
-                        >
-                          {link.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+          <div className="xl:col-span-2 xl:border-l xl:border-white/30 xl:pl-5">
+            <h3 className="text-[11px] sm:text-[12px] font-bold tracking-[0.14em] uppercase text-[#F58220] mb-2.5">
+              Quick Links
+            </h3>
+            <ul className="flex flex-col gap-2">
+              {QUICK_LINKS.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    className="inline-block py-0.5 text-[12px] sm:text-[13px] font-semibold text-white/75 hover:text-[#F58220] transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-                <div className="min-w-0 flex-1">
-                  <h3 className="text-[12px] sm:text-[13px] font-bold tracking-[0.14em] uppercase text-[#F58220] mb-3">
-                    Global Connectivity
-                  </h3>
-                  <FooterGlobalMap />
+          <div className="md:col-span-2 xl:col-span-4 xl:border-l xl:border-white/30 xl:pl-5">
+            <h3 className="text-[11px] sm:text-[12px] font-bold tracking-[0.14em] uppercase text-[#F58220] mb-1.5">
+              Global Connectivity
+            </h3>
+            <FooterGlobalMap />
 
-                  <div className="mt-3 rounded-[10px] border border-[#F58220]/50 bg-[#0A1628] px-3 py-3 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-0">
-                    <div className="flex items-center gap-3 flex-1 sm:pr-3">
-                      <span
-                        className="text-[#F58220] shrink-0 inline-flex items-center justify-center rounded-full border-[1.5px] border-[#F58220]"
-                        style={{ width: 37, height: 37 }}
-                      >
-                        <IconHeadset className="w-8 h-8" />
-                      </span>
-                      <p className="text-[11px] sm:text-[12px] leading-[1.4] text-white/85">
-                        Working in your time zone to support your business
-                      </p>
-                    </div>
-                    <div
-                      className="hidden sm:block w-px self-stretch min-h-[40px] bg-[#F58220]/35 shrink-0"
-                      aria-hidden="true"
-                    />
-                    <div className="flex items-center gap-3 flex-1 sm:pl-3 sm:border-0 border-t border-[#F58220]/25 pt-3 sm:pt-0">
-                      <span
-                        className="text-[#F58220] shrink-0 inline-flex items-center justify-center rounded-full border-[1.5px] border-[#F58220]"
-                        style={{ width: 37, height: 37 }}
-                      >
-                        <IconClock className="w-8 h-8" />
-                      </span>
-                      <p className="text-[11px] sm:text-[12px] leading-[1.4] text-white/85">
-                        {copy.overlapText}
-                      </p>
-                    </div>
-                  </div>
-                </div>
+            <div className="mt-1.5 rounded-[8px] border border-[#F58220]/50 bg-[#0A1628] px-2.5 py-2 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-0">
+              <div className="flex items-center gap-2 flex-1 sm:pr-2.5">
+                <span
+                  className="text-[#F58220] shrink-0 inline-flex items-center justify-center rounded-full border-[1.5px] border-[#F58220]"
+                  style={{ width: 30, height: 30 }}
+                >
+                  <IconHeadset className="w-6 h-6" />
+                </span>
+                <p className="text-[10px] sm:text-[11px] leading-[1.35] text-white/85">
+                  Working in your time zone to support your business
+                </p>
+              </div>
+              <div
+                className="hidden sm:block w-px self-stretch min-h-[32px] bg-[#F58220]/35 shrink-0"
+                aria-hidden="true"
+              />
+              <div className="flex items-center gap-2 flex-1 sm:pl-2.5 sm:border-0 border-t border-[#F58220]/25 pt-2 sm:pt-0">
+                <span
+                  className="text-[#F58220] shrink-0 inline-flex items-center justify-center rounded-full border-[1.5px] border-[#F58220]"
+                  style={{ width: 30, height: 30 }}
+                >
+                  <IconClock className="w-6 h-6" />
+                </span>
+                <p className="text-[10px] sm:text-[11px] leading-[1.35] text-white/85">
+                  {copy.overlapText}
+                </p>
               </div>
             </div>
           </div>
@@ -635,70 +485,8 @@ export default function Footer({ onContactClick, region, variant }) {
 
       <FadeDividerH />
 
-      {mode !== "global" ? (
-        <div>
-          <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 pt-4 sm:pt-5 pb-6 sm:pb-8">
-            <p className="text-left text-[10px] sm:text-[11px] md:text-[12px] font-extrabold tracking-[0.12em] sm:tracking-[0.18em] uppercase text-white/85">
-              {copy.softwareHeading}
-            </p>
-
-            <div className="mt-4 sm:mt-5 md:mt-6 overflow-hidden">
-              <div className="footer-logo-marquee flex w-max items-center">
-                {[0, 1].map((copyIdx) => (
-                  <div key={copyIdx} className="flex items-center shrink-0" aria-hidden={copyIdx === 1}>
-                    {SOFTWARE_BRANDS.map((brand, index) => (
-                      <div key={`${copyIdx}-${brand.name}`} className="flex items-center">
-                        {(index > 0 || copyIdx === 1) && (
-                          <div
-                            className="w-px h-6 sm:h-7 mx-2.5 sm:mx-4 lg:mx-5 shrink-0"
-                            style={{
-                              background:
-                                "linear-gradient(to bottom, transparent, rgba(255,255,255,0.28), transparent)",
-                            }}
-                            aria-hidden="true"
-                          />
-                        )}
-                        <div className="relative h-6 sm:h-7 md:h-8 w-[64px] sm:w-[72px] md:w-[84px] shrink-0">
-                          <Image
-                            src={brand.src}
-                            alt={copyIdx === 0 ? brand.name : ""}
-                            fill
-                            className="object-contain object-left"
-                            sizes="84px"
-                          />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <style>{`
-              @keyframes footerLogoMarquee {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(-50%); }
-              }
-              .footer-logo-marquee {
-                animation: footerLogoMarquee 35s linear infinite;
-              }
-              .footer-logo-marquee:hover {
-                animation-play-state: paused;
-              }
-              @media (prefers-reduced-motion: reduce) {
-                .footer-logo-marquee {
-                  animation: none;
-                }
-              }
-            `}</style>
-          </div>
-        </div>
-      ) : null}
-
-      {mode !== "global" ? <FadeDividerH /> : null}
-
       <div>
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-4 sm:py-5 flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-5 text-[11px] sm:text-[12px] text-white/50">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-2.5 sm:py-3 flex flex-col lg:flex-row items-center justify-between gap-2.5 sm:gap-3 text-[11px] sm:text-[12px] text-white/50">
           <p className="text-center lg:text-left order-1">
             © {new Date().getFullYear()} Next Ledgers. All rights reserved.
           </p>
@@ -782,4 +570,3 @@ export default function Footer({ onContactClick, region, variant }) {
     </footer>
   );
 }
-
