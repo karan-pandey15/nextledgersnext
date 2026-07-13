@@ -58,7 +58,6 @@ export default function HiringComparison() {
         <div className="hire-layout">
           {/* Left intro */}
           <div className="hire-copy">
-            <p className="hire-eyebrow">Hiring</p>
             <h2 className="hire-title">
               Hiring In-House{" "}
               <span className="hire-title-vs">vs</span>
