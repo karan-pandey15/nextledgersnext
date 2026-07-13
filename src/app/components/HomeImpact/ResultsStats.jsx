@@ -7,49 +7,112 @@ const ORANGE = "#F58220";
 const NAVY = "#0F274A";
 /* Optimized H.264 baseline + faststart — required for reliable Vercel/Chrome playback */
 const VIDEO_SRC = "/video/IMG_1995.mp4";
+const COUNT_DURATION_MS = 1600;
 
 const STATS = [
   {
-    value: "105+",
+    end: 105,
+    suffix: "+",
     label: "Clients Across Globally",
     icon: Users,
   },
   {
-    value: "9+",
+    end: 9,
+    suffix: "+",
     label: "Years in Global Accounting Outsourcing",
     icon: Globe2,
   },
   {
-    value: "75+",
+    end: 75,
+    suffix: "+",
     label: "Qualified Finance Professionals",
     icon: UserCheck,
   },
   {
-    value: "70%",
+    end: 70,
+    suffix: "%",
     label: "of Business via Referrals",
     icon: BarChart3,
   },
   {
-    value: "95%+",
+    end: 95,
+    suffix: "%+",
     label: "Client Retention Rate",
     icon: RefreshCw,
   },
   {
-    value: "36+ hrs",
+    end: 36,
+    suffix: "+ hrs",
     label: "Onboarding Process",
     icon: Clock3,
   },
 ];
 
-function PhoneVideo() {
+function easeOutCubic(t) {
+  return 1 - (1 - t) ** 3;
+}
+
+function useSectionInView(threshold = 0.25) {
+  const ref = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry) return;
+        setInView(entry.isIntersecting);
+      },
+      { threshold, rootMargin: "0px 0px -8% 0px" }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [threshold]);
+
+  return [ref, inView];
+}
+
+function AnimatedStatValue({ end, suffix, active }) {
+  const [display, setDisplay] = useState(0);
+  const startedRef = useRef(false);
+  const rafRef = useRef(0);
+
+  useEffect(() => {
+    if (!active || startedRef.current) return undefined;
+    startedRef.current = true;
+
+    const start = performance.now();
+
+    const tick = (now) => {
+      const progress = Math.min(1, (now - start) / COUNT_DURATION_MS);
+      setDisplay(Math.round(end * easeOutCubic(progress)));
+      if (progress < 1) {
+        rafRef.current = requestAnimationFrame(tick);
+      }
+    };
+
+    rafRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, [active, end]);
+
+  return (
+    <>
+      {display}
+      {suffix}
+    </>
+  );
+}
+
+function PhoneVideo({ active }) {
   const videoRef = useRef(null);
-  const wrapRef = useRef(null);
   const [failed, setFailed] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
-    const wrap = wrapRef.current;
-    if (!video || !wrap) return undefined;
+    if (!video) return undefined;
 
     let cancelled = false;
 
@@ -66,7 +129,7 @@ function PhoneVideo() {
     forceMuted();
 
     const tryPlay = async () => {
-      if (cancelled) return;
+      if (cancelled || !active) return;
       forceMuted();
       try {
         await video.play();
@@ -79,36 +142,26 @@ function PhoneVideo() {
       if (!cancelled) setFailed(true);
     };
 
-    video.addEventListener("canplay", tryPlay);
-    video.addEventListener("loadeddata", tryPlay);
+    if (active) {
+      video.addEventListener("canplay", tryPlay);
+      video.addEventListener("loadeddata", tryPlay);
+      tryPlay();
+    } else if (!video.paused) {
+      video.pause();
+    }
+
     video.addEventListener("error", onError);
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry) return;
-        if (entry.isIntersecting) {
-          tryPlay();
-        } else if (!video.paused) {
-          video.pause();
-        }
-      },
-      { threshold: 0.1, rootMargin: "100px 0px" }
-    );
-
-    observer.observe(wrap);
-    tryPlay();
 
     return () => {
       cancelled = true;
       video.removeEventListener("canplay", tryPlay);
       video.removeEventListener("loadeddata", tryPlay);
       video.removeEventListener("error", onError);
-      observer.disconnect();
     };
-  }, []);
+  }, [active]);
 
   return (
-    <div ref={wrapRef} className="flex w-full items-center justify-center py-2 sm:py-3">
+    <div className="flex w-full items-center justify-center py-2 sm:py-3">
       {/* Thick black phone bezel — same style as shared UI, +10% size */}
       <div
         className="relative shrink-0 overflow-hidden bg-black"
@@ -136,8 +189,7 @@ function PhoneVideo() {
               muted
               playsInline
               loop
-              autoPlay
-              preload="auto"
+              preload="metadata"
               controls={false}
               disablePictureInPicture
               aria-label="Next Ledgers results video"
@@ -155,8 +207,10 @@ function PhoneVideo() {
 }
 
 export default function ResultsStats() {
+  const [sectionRef, inView] = useSectionInView(0.3);
+
   return (
-    <section className="relative w-full bg-white pt-0 pb-0">
+    <section ref={sectionRef} className="relative w-full bg-white pt-0 pb-0">
       <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
         <div className="bg-[#FFF7F0] px-3 pb-8 pt-0 sm:px-8 sm:pb-10 lg:px-10 lg:pb-12">
           <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-2 lg:gap-8 xl:gap-10">
@@ -226,7 +280,7 @@ export default function ResultsStats() {
                           className="mt-2.5 text-[24px] font-bold leading-none tracking-[-0.02em] sm:mt-3 sm:text-[28px] lg:text-[30px]"
                           style={{ color: ORANGE }}
                         >
-                          {stat.value}
+                          <AnimatedStatValue end={stat.end} suffix={stat.suffix} active={inView} />
                         </p>
 
                         <p
@@ -244,7 +298,7 @@ export default function ResultsStats() {
 
             {/* Right — phone video */}
             <div className="relative flex w-full items-center justify-center lg:justify-end lg:pr-6 xl:pr-10">
-              <PhoneVideo />
+              <PhoneVideo active={inView} />
             </div>
           </div>
         </div>

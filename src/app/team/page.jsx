@@ -21,6 +21,12 @@ const LEADERSHIP = [
     image: "/images/TeamImage/Durgesh_Pandey-removebg-preview.png",
   },
   {
+    name: "John Muchai",
+    credentials: "CPA & CGMA",
+    role: "Partner",
+    image: "/images/TeamImage/John_Muchai.jpg?v=3",
+  },
+  {
     name: "Anjali Sharma",
     credentials: "MBA",
     role: "Non Profit Accounting Partner",
@@ -57,6 +63,11 @@ const SENIOR_MANAGERS = [
 
 const SUPPORT_TEAM = [
   {
+    name: "Praveen Kumar, CMA",
+    role: "Audit & Tax Partner, Canada",
+    image: "/images/TeamImage/Praveen_Kumar-removebg-preview.png",
+  },
+  {
     name: "Dharmesh Kumar",
     role: "Client Onboarding Specialist",
     image: "/images/TeamImage/Dharmesh_Kumar-removebg-preview.png",
@@ -79,7 +90,7 @@ const SUPPORT_TEAM = [
   {
     name: "Karan Kapoor",
     role: "Marketing Manager",
-    image: "/images/TeamImage/Karan_Kapoor.jpg",
+    image: null,
   },
   {
     name: "Kirti Kapoor",
@@ -100,6 +111,7 @@ const SUPPORT_TEAM = [
 
 function getInitials(name) {
   return name
+    .split(",")[0]
     .split(" ")
     .filter(Boolean)
     .slice(0, 2)
@@ -128,7 +140,7 @@ function SectionTitle({ children }) {
 
 function TeamAvatar({ src, name, bordered = false }) {
   const [failed, setFailed] = useState(!src);
-  const isCutout = Boolean(src?.includes("removebg") || src?.includes("TeamImage"));
+  const isCutout = Boolean(src?.includes("removebg"));
 
   return (
     <div
@@ -136,17 +148,17 @@ function TeamAvatar({ src, name, bordered = false }) {
         bordered
           ? "ring-[2.5px] ring-[#F58220] ring-offset-2"
           : "ring-1 ring-[#E5E7EB]"
-      } ${failed ? "bg-[#FFF1E6]" : "bg-[#FFF7F0]"}`}
+      } ${failed || !src ? "bg-[#FFF1E6]" : isCutout ? "bg-[#FFF7F0]" : "bg-[#E8EEF5]"}`}
     >
-      {!failed && src ? (
+      {src && !failed ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img
           src={src}
-          alt={name}
+          alt=""
           className={
             isCutout
               ? "h-[92%] w-[92%] object-contain object-bottom"
-              : "h-full w-full object-cover object-top"
+              : "h-full w-full object-cover object-center"
           }
           loading="lazy"
           onError={() => setFailed(true)}
@@ -155,6 +167,7 @@ function TeamAvatar({ src, name, bordered = false }) {
         <span
           className="text-[28px] font-bold tracking-wide sm:text-[32px]"
           style={{ color: ORANGE }}
+          aria-hidden="true"
         >
           {getInitials(name)}
         </span>
@@ -211,15 +224,15 @@ function SeniorManagerCard({ member }) {
 
 function SupportCard({ member }) {
   return (
-    <div className="flex w-full flex-col items-center rounded-[16px] border border-[#D1D5DB] bg-white px-4 py-6 text-center shadow-[0_8px_22px_rgba(15,39,74,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#F58220]/35 hover:shadow-[0_12px_28px_rgba(15,39,74,0.1)] sm:px-5 sm:py-7">
+    <div className="flex h-full w-full max-w-[220px] flex-col items-center rounded-[16px] border border-[#D1D5DB] bg-white px-3 py-5 text-center shadow-[0_8px_22px_rgba(15,39,74,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#F58220]/35 hover:shadow-[0_12px_28px_rgba(15,39,74,0.1)] sm:px-4 sm:py-6">
       <TeamAvatar src={member.image} name={member.name} />
       <h3
-        className="mt-3.5 text-[14px] font-bold leading-snug sm:text-[15px]"
+        className="mt-3.5 text-[13px] font-bold leading-snug sm:text-[14px]"
         style={{ color: NAVY }}
       >
         {member.name}
       </h3>
-      <p className="mt-1 text-[12px] leading-snug sm:text-[13px]" style={{ color: GREY }}>
+      <p className="mt-1 text-[11px] leading-snug sm:text-[12px]" style={{ color: GREY }}>
         {member.role}
       </p>
     </div>
@@ -291,10 +304,18 @@ export default function TeamPage() {
           <div className="px-5 sm:px-8 lg:px-10">
             <SectionTitle>Senior Professional & Support Team</SectionTitle>
 
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 md:grid-cols-3 lg:grid-cols-4 lg:gap-6">
-              {SUPPORT_TEAM.map((member) => (
-                <SupportCard key={member.name} member={member} />
-              ))}
+            {/* Row 1: 4 cards · Row 2: 5 cards — same card size, centered */}
+            <div className="flex flex-col gap-4 sm:gap-5 lg:gap-6">
+              <div className="flex flex-wrap justify-center gap-4 sm:gap-5 lg:gap-5">
+                {SUPPORT_TEAM.slice(0, 4).map((member) => (
+                  <SupportCard key={member.name} member={member} />
+                ))}
+              </div>
+              <div className="flex flex-wrap justify-center gap-4 sm:gap-5 lg:gap-5">
+                {SUPPORT_TEAM.slice(4).map((member) => (
+                  <SupportCard key={member.name} member={member} />
+                ))}
+              </div>
             </div>
           </div>
         </div>
