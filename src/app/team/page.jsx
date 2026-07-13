@@ -13,7 +13,9 @@ const NAVY = "#0F274A";
 const GREY = "#6B7280";
 
 /** Photos from public/images/TeamImage */
-const LEADERSHIP = [
+
+/** TOP ROW — 2 cards */
+const TOP_LEADERSHIP = [
   {
     name: "Durgesh Pandey",
     credentials: "ACCA",
@@ -26,15 +28,16 @@ const LEADERSHIP = [
     role: "Partner",
     image: "/images/TeamImage/John_Muchai.jpg?v=3",
   },
+];
+
+/** SECOND ROW — Anjali + Senior Managers, SAME card size/style as top row */
+const SECOND_ROW = [
   {
     name: "Anjali Sharma",
     credentials: "MBA",
     role: "Non Profit Accounting Partner",
     image: "/images/TeamImage/Anjali_Sharma-removebg-preview.png",
   },
-];
-
-const SENIOR_MANAGERS = [
   {
     name: "Akash Gangwar",
     credentials: "M.com, EA",
@@ -176,44 +179,34 @@ function TeamAvatar({ src, name, bordered = false }) {
   );
 }
 
-function LeadershipCard({ member }) {
+/**
+ * UNIFIED LEADERSHIP CARD
+ * Used for BOTH the top row (Durgesh, John Muchai) and the
+ * second row (Anjali + Senior Managers) so every card is
+ * IDENTICAL in width, height, padding, border, and font weight —
+ * matching the reference image exactly.
+ *
+ * Fixed height (h-[300px]) + flex layout keeps names/roles of
+ * different lengths from changing the card's box size.
+ */
+function TeamMemberCard({ member }) {
   return (
-    <div className="flex w-full max-w-[320px] flex-col items-center rounded-[18px] border-[1.5px] border-[#F58220] bg-white px-5 py-7 text-center shadow-[0_10px_28px_rgba(15,39,74,0.06)] sm:px-6 sm:py-8">
+    <div
+      className="flex h-[300px] w-full max-w-[260px] flex-col items-center justify-start rounded-[16px] border-2 bg-white px-4 py-6 text-center shadow-[0_8px_22px_rgba(15,39,74,0.06)] transition-shadow duration-200 hover:shadow-[0_12px_28px_rgba(15,39,74,0.1)] sm:px-5 sm:py-7"
+      style={{ borderColor: ORANGE }}
+    >
       <TeamAvatar src={member.image} name={member.name} bordered />
       <h3
-        className="mt-4 text-[16px] font-bold leading-snug sm:text-[17px]"
+        className="mt-4 text-[15px] font-bold leading-snug sm:text-[16px]"
         style={{ color: ORANGE }}
       >
         {member.name}
       </h3>
-      <p className="mt-1.5 text-[13px] font-medium text-[#1A1A1A] sm:text-[14px]">
+      <p className="mt-1.5 text-[12px] font-medium text-[#1A1A1A] sm:text-[13px]">
         {member.credentials}
       </p>
       <p
         className="mt-1 text-[12px] font-bold leading-snug sm:text-[13px]"
-        style={{ color: NAVY }}
-      >
-        {member.role}
-      </p>
-    </div>
-  );
-}
-
-function SeniorManagerCard({ member }) {
-  return (
-    <div className="flex w-full flex-col items-center rounded-[16px] border border-[#F58220]/40 bg-white px-4 py-6 text-center shadow-[0_8px_24px_rgba(15,39,74,0.06)] transition-shadow duration-200 hover:shadow-[0_12px_32px_rgba(15,39,74,0.1)] sm:px-5 sm:py-7">
-      <TeamAvatar src={member.image} name={member.name} bordered />
-      <h3
-        className="mt-3.5 text-[14px] font-bold leading-snug sm:text-[15px]"
-        style={{ color: ORANGE }}
-      >
-        {member.name}
-      </h3>
-      <p className="mt-1 text-[12px] font-medium text-[#1A1A1A] sm:text-[13px]">
-        {member.credentials}
-      </p>
-      <p
-        className="mt-1 text-[11px] font-bold leading-snug sm:text-[12px]"
         style={{ color: NAVY }}
       >
         {member.role}
@@ -277,21 +270,24 @@ export default function TeamPage() {
         </div>
       </section>
 
-      {/* Leadership — cream bg like Global Partner (2nd reference) */}
+      {/* Leadership section — ALL cards use the same TeamMemberCard component,
+          so top row (2) and second row (5) are pixel-identical in size */}
       <section className="relative w-full overflow-hidden bg-white pt-8 pb-0 sm:pt-9 lg:pt-10">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
           <div className="bg-[#FFFFFF] px-5 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-12">
             <SectionTitle>Leadership Team</SectionTitle>
 
-            <div className="flex flex-col items-center justify-center gap-5 sm:flex-row sm:gap-6 lg:gap-8">
-              {LEADERSHIP.map((member) => (
-                <LeadershipCard key={member.name} member={member} />
+            {/* TOP ROW — Durgesh, John Muchai */}
+            <div className="flex flex-wrap items-stretch justify-center gap-5 sm:gap-6 lg:gap-8">
+              {TOP_LEADERSHIP.map((member) => (
+                <TeamMemberCard key={member.name} member={member} />
               ))}
             </div>
 
-            <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
-              {SENIOR_MANAGERS.map((member) => (
-                <SeniorManagerCard key={member.name} member={member} />
+            {/* SECOND ROW — Anjali + 4 Senior Managers, identical card style/size */}
+            <div className="mt-6 flex flex-wrap items-stretch justify-center gap-5 sm:mt-8 sm:gap-6 lg:gap-6">
+              {SECOND_ROW.map((member) => (
+                <TeamMemberCard key={member.name} member={member} />
               ))}
             </div>
           </div>
