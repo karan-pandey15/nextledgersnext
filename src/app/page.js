@@ -101,7 +101,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-white text-[#1A1A1A] flex flex-col font-sans overflow-x-hidden">
-      <TopAnnouncementBar isSidebarOpen={isSidebarOpen} />
+      {/* <TopAnnouncementBar isSidebarOpen={isSidebarOpen} /> */}
 
       <Header
         isSidebarOpen={isSidebarOpen}
