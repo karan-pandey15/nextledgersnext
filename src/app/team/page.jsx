@@ -14,7 +14,7 @@ const NAVY = "#0F274A";
 
 
 /** TOP ROW — 2 cards */
-const TOP_LEADERSHIP = [
+const LEADERSHIP = [
   {
     name: "Durgesh Pandey",
     credentials: "ACCA, CPA Pursuing",
