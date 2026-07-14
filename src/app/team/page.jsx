@@ -266,7 +266,7 @@ export default function TeamPage() {
 
             {/* Below: Anjali + managers — same card size */}
             <div className="mt-7 flex flex-wrap justify-center gap-5 sm:mt-8 sm:gap-6">
-              {SENIOR_MANAGERS.map((member) => (
+              {SECOND_ROW.map((member) => (
                 <TeamMemberCard key={member.name} member={member} />
               ))}
             </div>
