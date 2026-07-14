@@ -1,4 +1,4 @@
-L"use client";
+"use client";
 
 import { useState } from "react";
 import TopAnnouncementBar from "../components/TopHeader/TopAnnouncementBar";
