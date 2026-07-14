@@ -111,13 +111,13 @@ export default function IndustryExpertise() {
             href="/industries/non-profit"
             className="mt-5 sm:mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-4 rounded-[14px] sm:rounded-[16px] bg-white border border-[#FF6A00]/15 px-3.5 sm:px-6 py-3 sm:py-4 hover:bg-[#FFF1E6] transition-colors duration-200 group"
           >
-            <div className="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center shrink-0">
+            <div className="w-[60px] h-[60px] sm:w-[66px] sm:h-[66px] flex items-center justify-center shrink-0">
               <Image
                 src={`/images/industry-icons/non-profit.png?${V}`}
                 alt="Non-Profit Organizations"
-                width={44}
-                height={44}
-                className="w-10 h-10 sm:w-11 sm:h-11 object-contain"
+                width={66}
+                height={66}
+                className="w-[60px] h-[60px] sm:w-[66px] sm:h-[66px] object-contain"
                 unoptimized
               />
             </div>
