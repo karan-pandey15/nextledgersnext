@@ -2,8 +2,9 @@
 
 import React from "react";
 import Image from "next/image";
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
-const ORANGE = "#F58220";
+const ORANGE = BRAND_ORANGE;
 const NAVY = "#0F274A";
 const GREY = "#6B7280";
 
@@ -37,7 +38,6 @@ function FastIcon({ className = "w-5 h-5" }) {
 function PricingIcon({ className = "w-5 h-5" }) {
   return (
     <svg viewBox="0 0 24 24" className={className} aria-hidden="true" {...iconBase}>
-      <circle cx="12" cy="12" r="8" />
       <path d="M12 7.5v9" />
       <path d="M10 9.4c.5-.8 1.2-1.1 2-1.1 1.2 0 2 .6 2 1.5s-.8 1.4-2 1.4-2 .5-2 1.5.9 1.6 2.1 1.6c.8 0 1.5-.3 2-1" />
     </svg>
@@ -47,7 +47,6 @@ function PricingIcon({ className = "w-5 h-5" }) {
 function AlwaysAvailableIcon({ className = "w-5 h-5" }) {
   return (
     <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
-      <circle cx="12" cy="12" r="8.2" fill="none" stroke="currentColor" strokeWidth="1.8" />
       <text
         x="12"
         y="13.2"
@@ -124,8 +123,8 @@ export default function WhyChooseUs() {
                   return (
                     <div key={reason.title}>
                       <div className="flex items-start gap-3 py-1.5 sm:py-2">
-                        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#F58220] flex items-center justify-center shrink-0 text-white shadow-[0_6px_16px_rgba(245,130,32,0.25)]">
-                          <Icon className="w-4 h-4 sm:w-[18px] sm:h-[18px]" />
+                        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#FF6A00] flex items-center justify-center shrink-0 text-white shadow-[0_6px_16px_rgba(255, 106, 0,0.25)]">
+                          <Icon className="w-8 h-8 sm:w-9 sm:h-9" />
                         </div>
 
                         <div className="min-w-0">

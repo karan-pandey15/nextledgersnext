@@ -1,13 +1,14 @@
 "use client";
 
 import React from "react";
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
-const ORANGE = "#F58220";
+const ORANGE = BRAND_ORANGE;
 const NAVY = "#0F274A";
 const GREY = "#6B7280";
 const BORDER = "#E5E7EB";
 const LEFT_HEADER_BG = "#F3F4F6";
-const ROW_ALT = "#FAFAFA";
+const ROW_ALT = "#FFF7F0";
 
 const ROWS = [
   { left: "Recruitment Cost", right: "No Hiring Cost" },
@@ -59,8 +60,7 @@ export default function HiringComparison() {
           {/* Left intro */}
           <div className="hire-copy">
             <h2 className="hire-title">
-              Hiring In-House{" "}
-              <span className="hire-title-vs">vs</span>
+              Hiring In-House <span className="hire-title-vs">vs</span>
               <br />
               <span className="hire-title-accent">Next Ledgers</span>
             </h2>
@@ -126,7 +126,7 @@ export default function HiringComparison() {
         }
         .hire-copy {
           text-align: center;
-          max-width: 420px;
+          max-width: 520px;
           margin: 0 auto;
         }
         .hire-eyebrow {
@@ -140,9 +140,9 @@ export default function HiringComparison() {
         .hire-title {
           margin: 0;
           color: ${NAVY};
-          font-size: 28px;
+          font-size: 22px;
           font-weight: 800;
-          line-height: 1.15;
+          line-height: 1.2;
           letter-spacing: -0.02em;
         }
         .hire-title-vs {
@@ -242,12 +242,12 @@ export default function HiringComparison() {
         .hire-cell {
           display: flex;
           align-items: center;
-          gap: 8px;
-          padding: 12px 10px;
+          gap: 7px;
+          padding: 5px 10px;
           font-size: 12px;
           font-weight: 600;
           color: ${NAVY};
-          line-height: 1.35;
+          line-height: 1.2;
           min-width: 0;
         }
         .hire-cell span:last-child {
@@ -263,8 +263,8 @@ export default function HiringComparison() {
         }
 
         .hire-icon {
-          width: 22px;
-          height: 22px;
+          width: 18px;
+          height: 18px;
           border-radius: 9999px;
           display: inline-flex;
           align-items: center;
@@ -283,16 +283,16 @@ export default function HiringComparison() {
             padding: 48px 24px 32px;
           }
           .hire-title {
-            font-size: 32px;
+            font-size: 28px;
           }
           .hire-header {
-            padding: 16px 18px;
+            padding: 12px 18px;
             font-size: 13px;
           }
           .hire-cell {
-            padding: 13px 16px;
+            padding: 6px 16px;
             font-size: 13px;
-            gap: 10px;
+            gap: 8px;
           }
           .hire-vs {
             width: 40px;
@@ -312,27 +312,26 @@ export default function HiringComparison() {
           }
           .hire-copy {
             text-align: left;
-            width: 280px;
-            max-width: 300px;
+            width: 340px;
+            max-width: 360px;
             margin: 0;
             flex-shrink: 0;
           }
           .hire-title {
-            font-size: 34px;
+            font-size: 28px;
           }
-          .hire-desc {
             font-size: 14.5px;
-            max-width: 260px;
+            max-width: 320px;
           }
           .hire-table {
             border-radius: 18px;
           }
           .hire-header {
-            padding: 16px 20px;
+            padding: 12px 20px;
             font-size: 14px;
           }
           .hire-cell {
-            padding: 14px 18px;
+            padding: 6px 18px;
             font-size: 13.5px;
           }
         }
@@ -342,10 +341,11 @@ export default function HiringComparison() {
             gap: 48px;
           }
           .hire-copy {
-            width: 300px;
+            width: 380px;
+            max-width: 400px;
           }
           .hire-title {
-            font-size: 36px;
+            font-size: 30px;
           }
         }
 
@@ -358,7 +358,7 @@ export default function HiringComparison() {
           }
           .hire-cell {
             font-size: 10px;
-            padding: 8px 6px;
+            padding: 5px 6px;
             gap: 4px;
             flex-direction: column;
             align-items: flex-start;

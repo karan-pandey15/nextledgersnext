@@ -13,8 +13,9 @@ import {
     Pencil,
 } from "lucide-react";
 import CtaButton from "@/app/components/ui/CtaButton";
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
-const ORANGE = "#F58220";
+const ORANGE = BRAND_ORANGE;
 const PAGE_BG = "#FFFFFF";
 const HEADING = "#1A1A1A";
 const BODY = "#555555";

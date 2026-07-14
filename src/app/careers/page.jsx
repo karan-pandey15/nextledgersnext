@@ -7,8 +7,9 @@ import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import ArtificialIntelligence from "../components/ArtificialIntelligence/ArtificialIntelligence";
 import NexaLedAi from "../components/ChatBot/NexaLedAi";
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
-const ORANGE = "#F58220";
+const ORANGE = BRAND_ORANGE;
 const NAVY = "#0F274A";
 
 const DEPARTMENTS = [
@@ -184,7 +185,7 @@ function FormField({ icon, label, required, children }) {
     <div className="min-w-0">
       <div className="mb-2 flex items-center gap-2">
         <span
-          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-[7px] bg-[#FFF1E6] text-[#F58220]"
+          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-[7px] bg-[#FFF1E6] text-[#FF6A00]"
           aria-hidden="true"
         >
           {icon}
@@ -200,7 +201,7 @@ function FormField({ icon, label, required, children }) {
 }
 
 const inputClass =
-  "w-full h-[46px] sm:h-[48px] rounded-[10px] border border-[#E5E7EB] bg-white px-3.5 text-[13px] sm:text-[14px] text-[#0F274A] placeholder:text-[#9CA3AF] outline-none transition-colors focus:border-[#F58220] focus:ring-2 focus:ring-[#F58220]/15";
+  "w-full h-[46px] sm:h-[48px] rounded-[10px] border border-[#E5E7EB] bg-white px-3.5 text-[13px] sm:text-[14px] text-[#0F274A] placeholder:text-[#9CA3AF] outline-none transition-colors focus:border-[#FF6A00] focus:ring-2 focus:ring-[#FF6A00]/15";
 
 export default function CareersPage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -227,7 +228,7 @@ export default function CareersPage() {
             className="rounded-[18px] border border-[#ECEFF3] bg-white px-5 py-8 shadow-[0_16px_48px_rgba(15,39,74,0.08)] sm:rounded-[22px] sm:px-8 sm:py-10 lg:px-10"
           >
             <div className="mx-auto max-w-[620px] text-center">
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#FFF1E6] text-[#F58220] sm:h-14 sm:w-14">
+              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#FFF1E6] text-[#FF6A00] sm:h-14 sm:w-14">
                 <IconBriefcaseHero className="h-6 w-6 sm:h-7 sm:w-7" />
               </div>
 
@@ -379,7 +380,7 @@ export default function CareersPage() {
                 required
                 checked={form.agree}
                 onChange={(e) => update("agree", e.target.checked)}
-                className="mt-0.5 h-4 w-4 cursor-pointer rounded border-[#D1D5DB] accent-[#F58220]"
+                className="mt-0.5 h-4 w-4 cursor-pointer rounded border-[#D1D5DB] accent-[#FF6A00]"
               />
               <span className="text-[12px] leading-5 text-[#4B5563] sm:text-[13px]">
                 I have read and agree to the{" "}
@@ -395,7 +396,7 @@ export default function CareersPage() {
 
             <button
               type="submit"
-              className="mx-auto mt-5 flex h-[48px] w-full max-w-[480px] cursor-pointer items-center justify-center gap-2.5 rounded-[10px] bg-[#F58220] text-[13px] font-bold tracking-[0.08em] text-white uppercase shadow-[0_8px_20px_rgba(245,130,32,0.28)] transition-colors hover:bg-[#e57416] sm:mt-6 sm:h-[52px] sm:text-[14px]"
+              className="mx-auto mt-5 flex h-[48px] w-full max-w-[480px] cursor-pointer items-center justify-center gap-2.5 rounded-[10px] bg-[#FF6A00] text-[13px] font-bold tracking-[0.08em] text-white uppercase shadow-[0_8px_20px_rgba(255, 106, 0,0.28)] transition-colors hover:bg-[#e57416] sm:mt-6 sm:h-[52px] sm:text-[14px]"
             >
               <IconSend className="h-[15px] w-[15px]" />
               SUBMIT APPLICATION

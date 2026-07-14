@@ -11,7 +11,7 @@ export default function VideoComponent({
   return (
     <div className={`w-full flex flex-col items-center ${className}`}>
       {/* Top Border Bar in brand orange */}
-      <div className="h-1 sm:h-1.5 bg-[#F58220] w-full" />
+      <div className="h-1 sm:h-1.5 bg-[#FF6A00] w-full" />
 
       {/* Video Container - Full-bleed on all screen sizes, heights responsive */}
       <div className="relative w-full overflow-hidden h-[50vh] md:h-[40vh] lg:h-[30vh]">
@@ -26,7 +26,7 @@ export default function VideoComponent({
         />
 
         {/* Warm Orange overlay matching screenshot */}
-        <div className="absolute inset-0 bg-[#F58220]/20 flex flex-col items-center justify-center text-center px-6 sm:px-12">
+        <div className="absolute inset-0 bg-[#FF6A00]/20 flex flex-col items-center justify-center text-center px-6 sm:px-12">
           {/* Subtitle */}
           <p 
             className="text-white text-[10px] sm:text-xs md:text-sm font-semibold tracking-wide uppercase mb-3 sm:mb-4 max-w-xl"

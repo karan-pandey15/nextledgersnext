@@ -3,8 +3,9 @@
 import { Phone, Sparkles } from "lucide-react";
 import Link from "next/link";
 import RegionSelect from "../RegionSelect/RegionSelect";
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
-const ORANGE = "#F58220";
+const ORANGE = BRAND_ORANGE;
 const NAVY = "#0B1F3A";
 
 const REGION_COPY = {
@@ -58,7 +59,7 @@ export default function TopAnnouncementBar({
         <div className="flex min-w-0 flex-1 items-center gap-2 overflow-hidden">
           <span
             className="hidden h-7 w-7 shrink-0 items-center justify-center rounded-full sm:inline-flex"
-            style={{ background: "rgba(245,130,32,0.18)", color: ORANGE }}
+            style={{ background: "rgba(255, 106, 0,0.18)", color: ORANGE }}
             aria-hidden="true"
           >
             <Sparkles className="h-3.5 w-3.5" strokeWidth={2.25} />
@@ -92,7 +93,7 @@ export default function TopAnnouncementBar({
           <div className="hidden lg:block">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#F58220] px-3.5 py-1.5 text-[11px] font-bold tracking-wide text-white shadow-sm transition-colors hover:bg-[#e2761b] sm:text-xs sm:px-4"
+              className="inline-flex items-center justify-center gap-1.5 rounded-full bg-[#FF6A00] px-3.5 py-1.5 text-[11px] font-bold tracking-wide text-white shadow-sm transition-colors hover:bg-[#E85E00] sm:text-xs sm:px-4"
             >
               <Phone className="h-3 w-3" strokeWidth={2.5} aria-hidden="true" />
               <span>Book a Discovery Call</span>

@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { Check, Pencil } from "lucide-react";
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
-const ORANGE = "#F58220";
+const ORANGE = BRAND_ORANGE;
 const NAVY = "#0B1F3A";
 const GREY = "#6B7280";
 const PAGE_CREAM = "#FFF9F5";
@@ -77,7 +78,7 @@ export default function ServiceDeliverablesExplorer({
                                 onClick={() => setActiveIndex(index)}
                                 className={`inline-flex shrink-0 items-center gap-2 rounded-full border px-3.5 py-2 text-[12px] font-bold transition-colors ${
                                     isActive
-                                        ? "border-[#F58220] bg-[#F58220] text-white"
+                                        ? "border-[#FF6A00] bg-[#FF6A00] text-white"
                                         : "border-[#F0E6DC] bg-white text-[#0B1F3A]"
                                 }`}
                             >
@@ -114,8 +115,8 @@ export default function ServiceDeliverablesExplorer({
                                             <span
                                                 className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${
                                                     isActive
-                                                        ? "bg-[#F58220] text-white"
-                                                        : "bg-[#FFF4EA] text-[#F58220]"
+                                                        ? "bg-[#FF6A00] text-white"
+                                                        : "bg-[#FFF4EA] text-[#FF6A00]"
                                                 }`}
                                             >
                                                 {Icon ? (
@@ -128,7 +129,7 @@ export default function ServiceDeliverablesExplorer({
                                             <span
                                                 className={`min-w-0 flex-1 text-[13px] font-bold leading-snug ${
                                                     isActive
-                                                        ? "text-[#F58220]"
+                                                        ? "text-[#FF6A00]"
                                                         : "text-[#0B1F3A]"
                                                 }`}
                                             >
@@ -137,7 +138,7 @@ export default function ServiceDeliverablesExplorer({
                                             <span
                                                 className={`h-1.5 w-1.5 shrink-0 rounded-full ${
                                                     isActive
-                                                        ? "bg-[#F58220]"
+                                                        ? "bg-[#FF6A00]"
                                                         : "bg-transparent"
                                                 }`}
                                             />
@@ -152,13 +153,13 @@ export default function ServiceDeliverablesExplorer({
                     {active ? (
                         <div className="rounded-[18px] border border-[#F0E6DC] bg-white p-5 shadow-[0_4px_18px_rgba(15,23,42,0.04)] sm:p-6 lg:p-7">
                             <div className="mb-5 flex items-start gap-3 border-b border-[#F5EDE4] pb-4">
-                                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#FFF4EA] text-[#F58220]">
+                                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#FFF4EA] text-[#FF6A00]">
                                     {ActiveIcon ? (
                                         <ActiveIcon className="h-5 w-5" strokeWidth={2} />
                                     ) : null}
                                 </span>
                                 <div className="min-w-0">
-                                    <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#F58220]">
+                                    <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#FF6A00]">
                                         Service line{" "}
                                         {String(activeIndex + 1).padStart(2, "0")} of{" "}
                                         {String(services.length).padStart(2, "0")}
@@ -175,7 +176,7 @@ export default function ServiceDeliverablesExplorer({
                                         key={item}
                                         className="flex items-start gap-2.5 rounded-[12px] bg-[#FFF9F5] px-3.5 py-3"
                                     >
-                                        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#F58220]">
+                                        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FF6A00]">
                                             <Check
                                                 className="h-3 w-3 text-white"
                                                 strokeWidth={3}

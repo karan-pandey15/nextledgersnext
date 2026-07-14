@@ -4,6 +4,7 @@ import React from "react";
 
 const WHATSAPP_NUMBER = "918285285223"; // India (+91) + 8285285223
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
+const CALL_US_HREF = "tel:+18885520055";
 
 function WhatsAppIcon({ className = "w-7 h-7" }) {
   return (
@@ -18,20 +19,52 @@ function WhatsAppIcon({ className = "w-7 h-7" }) {
   );
 }
 
+function PhoneIcon({ className = "w-7 h-7" }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      className={className}
+      aria-hidden="true"
+    >
+      <path
+        d="M8.2 3.8h2.4l1.2 3.2-1.5 1.1a12.5 12.5 0 0 0 5.6 5.6l1.1-1.5 3.2 1.2v2.4c0 .9-.7 1.7-1.6 1.8A15.7 15.7 0 0 1 3.8 5.4c.1-.9.9-1.6 1.8-1.6Z"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+const FLOAT_BTN =
+  "flex h-14 w-14 items-center justify-center rounded-full text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl active:scale-95";
+
 /**
- * Floating WhatsApp button (replaces the old orange AI chatbot launcher).
+ * Floating contact actions — Call Us (left) + WhatsApp (right) on every screen.
  */
 export default function NexaLedAi() {
   return (
-    <a
-      href={WHATSAPP_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-all duration-300 hover:scale-105 hover:bg-[#20BD5A] hover:shadow-2xl active:scale-95"
-      aria-label="Chat with us on WhatsApp"
-      title="Chat on WhatsApp"
-    >
-      <WhatsAppIcon className="h-7 w-7" />
-    </a>
+    <>
+      <a
+        href={CALL_US_HREF}
+        className={`fixed bottom-6 left-6 z-50 ${FLOAT_BTN} bg-[#FF6A00] hover:bg-[#E85E00]`}
+        aria-label="Call Us at +1 (888) 552-0055"
+        title="Call Us"
+      >
+        <PhoneIcon className="h-7 w-7" />
+      </a>
+
+      <a
+        href={WHATSAPP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`fixed bottom-6 right-6 z-50 ${FLOAT_BTN} bg-[#25D366] hover:bg-[#20BD5A]`}
+        aria-label="Chat with us on WhatsApp"
+        title="Chat on WhatsApp"
+      >
+        <WhatsAppIcon className="h-7 w-7" />
+      </a>
+    </>
   );
 }

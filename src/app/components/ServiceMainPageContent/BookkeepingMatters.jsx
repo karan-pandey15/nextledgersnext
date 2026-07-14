@@ -19,8 +19,9 @@ import {
     Sparkles,
     ChevronRight,
 } from "lucide-react";
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
-const ORANGE = "#F58220";
+const ORANGE = BRAND_ORANGE;
 const HEADING = "#1F2937";
 const BODY = "#6B7280";
 const CARD_BORDER = "#F3E4D4";
@@ -180,11 +181,11 @@ export default function BookKeepingMatters({
         >
             <div
                 className="pointer-events-none absolute -left-16 top-0 h-64 w-64 rounded-full blur-3xl"
-                style={{ background: "rgba(245,130,32,0.10)" }}
+                style={{ background: "rgba(255, 106, 0,0.10)" }}
             />
             <div
                 className="pointer-events-none absolute -right-20 bottom-24 h-72 w-72 rounded-full blur-3xl"
-                style={{ background: "rgba(245,130,32,0.08)" }}
+                style={{ background: "rgba(255, 106, 0,0.08)" }}
             />
             <div
                 className="pointer-events-none absolute left-6 top-6 opacity-40"
@@ -296,7 +297,7 @@ export default function BookKeepingMatters({
                     style={{
                         background:
                             "linear-gradient(105deg, #FFF4EA 0%, #FFE8D2 45%, #FFF8F1 100%)",
-                        boxShadow: "0 4px 20px rgba(245,130,32,0.08)",
+                        boxShadow: "0 4px 20px rgba(255, 106, 0,0.08)",
                     }}
                 >
                     <div className="flex items-center gap-3.5 sm:shrink-0">

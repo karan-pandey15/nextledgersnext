@@ -1,10 +1,29 @@
 @import "tailwindcss";
 
+/* Brand accent — pure vivid orange (not muted/brown) */
+@theme {
+  --color-brand-orange: #FF6A00;
+}
+
+:root {
+  --theme-color: #FF6A00;
+  --brand-orange: #FF6A00;
+}
+
+.text-brand-orange {
+  color: var(--brand-orange) !important;
+}
+
+.bg-brand-orange {
+  background-color: var(--brand-orange) !important;
+}
+
+.border-brand-orange {
+  border-color: var(--brand-orange) !important;
+}
+
 body {
    font-family: var(--font-geist-sans), 'Work Sans', sans-serif;
-}
-:root {
-  --theme-color: #924A00;
 }
 .text-gray-700 {
   color: #000000 !important; 
@@ -20,6 +39,46 @@ body {
 
 .bg-white {
   background-color: #FFFFFF !important;
+}
+
+/* Outline CTAs — orange fill on hover/click (beats .bg-white !important) */
+.cta-fill-orange {
+  border: 2px solid #FF6A00 !important;
+  background-color: #FFFFFF !important;
+  color: #FF6A00 !important;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.cta-fill-orange:hover,
+.cta-fill-orange:focus-visible,
+.cta-fill-orange:active {
+  background-color: #FF6A00 !important;
+  color: #FFFFFF !important;
+  border-color: #FF6A00 !important;
+  box-shadow: 0 4px 14px rgba(255, 106, 0, 0.25);
+}
+
+/* Same fill for dark navy panels (Call Now style) */
+.cta-fill-orange-dark {
+  border: 2px solid #FF6A00 !important;
+  background-color: transparent !important;
+  color: #FFFFFF !important;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.cta-fill-orange-dark:hover,
+.cta-fill-orange-dark:focus-visible,
+.cta-fill-orange-dark:active {
+  background-color: #FF6A00 !important;
+  color: #FFFFFF !important;
+  border-color: #FF6A00 !important;
+  box-shadow: 0 4px 14px rgba(255, 106, 0, 0.25);
 }
 
 @keyframes fadeInUp {

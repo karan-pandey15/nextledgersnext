@@ -35,8 +35,9 @@ import Footer from "@/app/components/footer/Footer";
 import TopAnnouncementBar from "@/app/components/TopHeader/TopAnnouncementBar";
 import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/ArtificialIntelligence";
 import NexaLedAi from "@/app/components/ChatBot/NexaLedAi";
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
-const ORANGE = "#F58220";
+const ORANGE = BRAND_ORANGE;
 const NAVY = "#0B1F3A";
 const GREY = "#6B7280";
 const PAGE_CREAM = "#FFF9F5";
@@ -120,7 +121,7 @@ const partnerTrust = [
 function Stat({ icon, value, label }) {
     return (
         <div className="flex flex-col items-center gap-1.5 text-center">
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#F58220]/10 text-[#F58220] sm:h-10 sm:w-10">
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#FF6A00]/10 text-[#FF6A00] sm:h-10 sm:w-10">
                 {icon}
             </div>
             <div className="text-[15px] font-extrabold leading-none text-[#0B1F3A] sm:text-[17px]">
@@ -183,23 +184,23 @@ export default function UkBookkeeping() {
                     className="pointer-events-none absolute inset-0 opacity-[0.55]"
                     style={{
                         backgroundImage:
-                            "radial-gradient(rgba(245,130,32,0.18) 1px, transparent 1px)",
+                            "radial-gradient(rgba(255, 106, 0,0.18) 1px, transparent 1px)",
                         backgroundSize: "18px 18px",
                     }}
                 />
-                <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-[#F58220]/15 blur-3xl" />
+                <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-[#FF6A00]/15 blur-3xl" />
                 <div className="pointer-events-none absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-[#0B1F3A]/06 blur-3xl" />
-                <div className="pointer-events-none absolute left-1/2 top-1/3 h-40 w-40 -translate-x-1/2 rounded-full bg-[#F58220]/10 blur-2xl" />
+                <div className="pointer-events-none absolute left-1/2 top-1/3 h-40 w-40 -translate-x-1/2 rounded-full bg-[#FF6A00]/10 blur-2xl" />
 
                 <div className="relative mx-auto flex w-full max-w-5xl flex-col justify-center">
                     <div className="flex flex-col items-center px-2 text-center">
-                        <span className="mb-3 inline-flex items-center rounded-full border border-[#F58220]/25 bg-white px-3 py-1 text-center text-[10px] font-bold uppercase tracking-wide text-[#F58220] shadow-sm sm:px-4 sm:text-[11px]">
+                        <span className="mb-3 inline-flex items-center rounded-full border border-[#FF6A00]/25 bg-white px-3 py-1 text-center text-[10px] font-bold uppercase tracking-wide text-[#FF6A00] shadow-sm sm:px-4 sm:text-[11px]">
                             Outsource UK Bookkeeping &amp; VAT
                         </span>
 
                         <h1 className="max-w-[300px] text-2xl font-extrabold leading-snug text-[#0B1F3A] sm:max-w-2xl sm:text-3xl lg:text-[34px]">
                             UK Bookkeeping &amp;{" "}
-                            <span className="text-[#F58220]">VAT Outsourcing</span>{" "}
+                            <span className="text-[#FF6A00]">VAT Outsourcing</span>{" "}
                             Services
                         </h1>
 
@@ -211,7 +212,7 @@ export default function UkBookkeeping() {
                             compliance.
                         </p>
 
-                        <div className="my-3 h-[3px] w-10 rounded-full bg-[#F58220]" />
+                        <div className="my-3 h-[3px] w-10 rounded-full bg-[#FF6A00]" />
 
                         <div className="flex w-full max-w-xs flex-col items-stretch justify-center gap-2.5 sm:w-auto sm:flex-row sm:items-center sm:gap-3">
                             <CtaButton href="/contact" variant="primary" size="sm">
@@ -236,7 +237,7 @@ export default function UkBookkeeping() {
                 <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
                     <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12">
                         <div>
-                            <span className="mb-3 inline-block text-[11px] font-extrabold uppercase tracking-widest text-[#F58220]">
+                            <span className="mb-3 inline-block text-[11px] font-extrabold uppercase tracking-widest text-[#FF6A00]">
                                 Outsourcing Partnership
                             </span>
 
@@ -244,7 +245,7 @@ export default function UkBookkeeping() {
                                 Reliable Bookkeeping Support for Growing Practices
                             </h2>
 
-                            <div className="mb-5 h-[3px] w-14 rounded-full bg-[#F58220]" />
+                            <div className="mb-5 h-[3px] w-14 rounded-full bg-[#FF6A00]" />
 
                             <p className="mb-3 text-[13px] leading-relaxed text-gray-500 sm:text-[15px]">
                                 As accounting firms continue to grow, bookkeeping and VAT
@@ -432,11 +433,11 @@ export default function UkBookkeeping() {
                 >
                     <div
                         className="pointer-events-none absolute -left-16 bottom-0 h-48 w-48 rounded-full opacity-40"
-                        style={{ background: "rgba(245,130,32,0.18)" }}
+                        style={{ background: "rgba(255, 106, 0,0.18)" }}
                     />
                     <div
                         className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-30"
-                        style={{ background: "rgba(245,130,32,0.15)" }}
+                        style={{ background: "rgba(255, 106, 0,0.15)" }}
                     />
                     <DotGrid className="pointer-events-none absolute bottom-6 right-6 opacity-70" />
 

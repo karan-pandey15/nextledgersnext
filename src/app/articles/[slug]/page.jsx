@@ -12,8 +12,9 @@ import NexaLedAi from "../../components/ChatBot/NexaLedAi";
 import CtaButton from "../../components/ui/CtaButton";
 import ArticleCard from "../ArticleCard";
 import { getArticleBySlug, getRelatedArticles } from "../articlesData";
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
-const ORANGE = "#F58220";
+const ORANGE = BRAND_ORANGE;
 const NAVY = "#0F274A";
 const GREY = "#6B7280";
 const PAGE_CREAM = "#FFF9F5";
@@ -58,7 +59,7 @@ export default function ArticleDetailPage() {
         <div className="mx-auto max-w-[900px] px-4 py-8 sm:px-6 sm:py-12 lg:px-10 lg:py-14">
           <Link
             href="/articles"
-            className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#F58220] transition-colors hover:text-[#E0721B]"
+            className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#FF6A00] transition-colors hover:text-[#E85E00]"
           >
             ← Back to articles
           </Link>
@@ -90,7 +91,7 @@ export default function ArticleDetailPage() {
                   {article.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="inline-flex items-center rounded-full bg-[#FFF1E6] px-2.5 py-0.5 text-[9px] font-bold tracking-[0.06em] text-[#F58220] uppercase sm:text-[10px]"
+                      className="inline-flex items-center rounded-full bg-[#FFF1E6] px-2.5 py-0.5 text-[9px] font-bold tracking-[0.06em] text-[#FF6A00] uppercase sm:text-[10px]"
                     >
                       {tag}
                     </span>
@@ -116,7 +117,7 @@ export default function ArticleDetailPage() {
                 ))}
               </div>
 
-              <div className="mt-8 rounded-[16px] border border-[#F58220]/25 bg-[#FFF7F0] px-5 py-5 sm:mt-10 sm:px-6">
+              <div className="mt-8 rounded-[16px] border border-[#FF6A00]/25 bg-[#FFF7F0] px-5 py-5 sm:mt-10 sm:px-6">
                 <h2 className="text-[16px] font-bold sm:text-[18px]" style={{ color: NAVY }}>
                   Need help putting this into practice?
                 </h2>

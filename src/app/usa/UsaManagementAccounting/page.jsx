@@ -44,8 +44,9 @@ import TrustBadgesBar, {
 } from "@/app/components/ServiceMainPageContent/TrustBadgesBar";
 import Footer from "@/app/components/footer/Footer";
 import TopAnnouncementBar from "@/app/components/TopHeader/TopAnnouncementBar";
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
-const ORANGE = "#F58220";
+const ORANGE = BRAND_ORANGE;
 const NAVY = "#0B1F3A";
 const GREY = "#6B7280";
 const PAGE_CREAM = "#FFF9F5";
@@ -186,7 +187,7 @@ const specialistAreas = [
             "Monthly management accounts, KPI reporting, profitability analysis, and business performance monitoring.",
         icon: Building2,
         bg: "#FFF0E8",
-        color: "#F58220",
+        color: BRAND_ORANGE,
     },
     {
         label: "Multi-Entity & Group Businesses",
@@ -300,7 +301,7 @@ function HelpCard({ icon: Icon, titleBefore, titleAccent, titleAfter, items }) {
 function Stat({ icon, value, label }) {
     return (
         <div className="flex flex-col items-center gap-1.5 text-center">
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#F58220]/10 text-[#F58220] sm:h-10 sm:w-10">
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#FF6A00]/10 text-[#FF6A00] sm:h-10 sm:w-10">
                 {icon}
             </div>
             <div className="text-[15px] font-extrabold leading-none text-[#0B1F3A] sm:text-[17px]">
@@ -363,24 +364,24 @@ export default function UsaManagementAccounting() {
                     className="pointer-events-none absolute inset-0 opacity-[0.55]"
                     style={{
                         backgroundImage:
-                            "radial-gradient(rgba(245,130,32,0.18) 1px, transparent 1px)",
+                            "radial-gradient(rgba(255, 106, 0,0.18) 1px, transparent 1px)",
                         backgroundSize: "18px 18px",
                     }}
                 />
-                <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-[#F58220]/15 blur-3xl" />
+                <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-[#FF6A00]/15 blur-3xl" />
                 <div className="pointer-events-none absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-[#0B1F3A]/06 blur-3xl" />
-                <div className="pointer-events-none absolute left-1/2 top-1/3 h-40 w-40 -translate-x-1/2 rounded-full bg-[#F58220]/10 blur-2xl" />
+                <div className="pointer-events-none absolute left-1/2 top-1/3 h-40 w-40 -translate-x-1/2 rounded-full bg-[#FF6A00]/10 blur-2xl" />
 
                 <div className="relative mx-auto flex w-full max-w-5xl flex-col justify-center">
                     <div className="flex flex-col items-center px-2 text-center">
-                        <span className="mb-3 inline-flex items-center rounded-full border border-[#F58220]/25 bg-white px-3 py-1 text-center text-[10px] font-bold uppercase tracking-wide text-[#F58220] shadow-sm sm:px-4 sm:text-[11px]">
+                        <span className="mb-3 inline-flex items-center rounded-full border border-[#FF6A00]/25 bg-white px-3 py-1 text-center text-[10px] font-bold uppercase tracking-wide text-[#FF6A00] shadow-sm sm:px-4 sm:text-[11px]">
                             USA Management Accounting &amp; Virtual CFO
                             Outsourcing Services
                         </span>
 
                         <h1 className="max-w-[300px] text-2xl font-extrabold leading-snug text-[#0B1F3A] sm:max-w-2xl sm:text-3xl lg:text-[34px]">
                             USA Management Accounting &amp;{" "}
-                            <span className="text-[#F58220]">Virtual CFO</span>{" "}
+                            <span className="text-[#FF6A00]">Virtual CFO</span>{" "}
                             Outsourcing Services
                         </h1>
 
@@ -389,7 +390,7 @@ export default function UsaManagementAccounting() {
                             Support for US CPA Firms and Accounting Practices
                         </p>
 
-                        <div className="my-3 h-[3px] w-10 rounded-full bg-[#F58220]" />
+                        <div className="my-3 h-[3px] w-10 rounded-full bg-[#FF6A00]" />
 
                         <div className="flex w-full max-w-xs flex-col items-stretch justify-center gap-2.5 sm:w-auto sm:flex-row sm:items-center sm:gap-3">
                             <CtaButton href="/contact" variant="primary" size="sm">
@@ -411,7 +412,7 @@ export default function UsaManagementAccounting() {
                 <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
                     <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12">
                         <div>
-                            <span className="mb-3 inline-block text-[11px] font-extrabold uppercase tracking-widest text-[#F58220]">
+                            <span className="mb-3 inline-block text-[11px] font-extrabold uppercase tracking-widest text-[#FF6A00]">
                                 Outsourcing Partnership
                             </span>
 
@@ -420,7 +421,7 @@ export default function UsaManagementAccounting() {
                                 CFO Support for US CPA Firms
                             </h2>
 
-                            <div className="mb-4 h-[3px] w-14 rounded-full bg-[#F58220]" />
+                            <div className="mb-4 h-[3px] w-14 rounded-full bg-[#FF6A00]" />
 
                             <p className="mb-5 text-[13px] leading-relaxed text-gray-500 sm:text-[14.5px]">
                                 Management Accounting and Virtual CFO services
@@ -433,7 +434,7 @@ export default function UsaManagementAccounting() {
                             <div className="mb-5 space-y-3">
                                 <div className="rounded-[14px] border border-[#F0E6DC] bg-[#FFF9F5] p-4 sm:p-4.5">
                                     <div className="mb-2 flex items-center gap-2.5">
-                                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-[#F58220] shadow-sm">
+                                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-[#FF6A00] shadow-sm">
                                             <AlertTriangle
                                                 className="h-4 w-4"
                                                 strokeWidth={2.25}
@@ -454,7 +455,7 @@ export default function UsaManagementAccounting() {
 
                                 <div className="rounded-[14px] border border-[#F0E6DC] bg-white p-4 shadow-[0_4px_16px_rgba(15,23,42,0.04)] sm:p-4.5">
                                     <div className="mb-2 flex items-center gap-2.5">
-                                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#F58220]">
+                                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#FF6A00]">
                                             <Handshake
                                                 className="h-4 w-4"
                                                 strokeWidth={2.25}
@@ -492,7 +493,7 @@ export default function UsaManagementAccounting() {
                                         className="inline-flex items-center gap-1.5 rounded-full border border-[#F0E6DC] bg-[#FFF9F5] px-3 py-1.5 text-[11.5px] font-semibold text-[#0B1F3A]"
                                     >
                                         <BadgeCheck
-                                            className="h-3.5 w-3.5 text-[#F58220]"
+                                            className="h-3.5 w-3.5 text-[#FF6A00]"
                                             strokeWidth={2.25}
                                         />
                                         {item}
@@ -559,7 +560,7 @@ export default function UsaManagementAccounting() {
                             className="mb-3 inline-flex items-center gap-1.5 rounded-full border px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.12em]"
                             style={{
                                 background: PILL_BG,
-                                borderColor: "rgba(245,130,32,0.35)",
+                                borderColor: "rgba(255, 106, 0,0.35)",
                                 color: ORANGE,
                             }}
                         >
@@ -603,7 +604,7 @@ export default function UsaManagementAccounting() {
                                     style={{
                                         background: ORANGE,
                                         boxShadow:
-                                            "0 6px 16px rgba(245,130,32,0.28)",
+                                            "0 6px 16px rgba(255, 106, 0,0.28)",
                                     }}
                                 >
                                     <Icon className="h-5 w-5" strokeWidth={2} />
@@ -650,7 +651,7 @@ export default function UsaManagementAccounting() {
                     aria-hidden="true"
                     style={{
                         backgroundImage:
-                            "radial-gradient(rgba(245,130,32,0.18) 1px, transparent 1px)",
+                            "radial-gradient(rgba(255, 106, 0,0.18) 1px, transparent 1px)",
                         backgroundSize: "14px 14px",
                     }}
                 />
@@ -688,7 +689,7 @@ export default function UsaManagementAccounting() {
                                 {managementServices.map((service) => (
                                     <div
                                         key={service}
-                                        className="flex items-center gap-2.5 rounded-xl border border-white/80 bg-white/80 px-3 py-2.5 shadow-[0_2px_10px_rgba(15,23,42,0.04)] backdrop-blur-sm transition-shadow hover:shadow-[0_4px_16px_rgba(245,130,32,0.12)]"
+                                        className="flex items-center gap-2.5 rounded-xl border border-white/80 bg-white/80 px-3 py-2.5 shadow-[0_2px_10px_rgba(15,23,42,0.04)] backdrop-blur-sm transition-shadow hover:shadow-[0_4px_16px_rgba(255, 106, 0,0.12)]"
                                     >
                                         <span
                                             className="flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full"
@@ -763,7 +764,7 @@ export default function UsaManagementAccounting() {
                             className="mb-3 inline-flex items-center gap-1.5 rounded-full border px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.12em]"
                             style={{
                                 background: PILL_BG,
-                                borderColor: "rgba(245,130,32,0.35)",
+                                borderColor: "rgba(255, 106, 0,0.35)",
                                 color: ORANGE,
                             }}
                         >
@@ -869,7 +870,7 @@ export default function UsaManagementAccounting() {
                                 return (
                                     <div
                                         key={item.label}
-                                        className="flex min-h-[168px] flex-col items-center justify-start rounded-[16px] border border-[#F0F0F0] bg-white px-3 py-5 text-center shadow-[0_4px_18px_rgba(15,39,74,0.05)] transition-all duration-200 hover:border-[#F58220]/25 hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:min-h-[180px] sm:rounded-[18px] sm:px-4 sm:py-6"
+                                        className="flex min-h-[168px] flex-col items-center justify-start rounded-[16px] border border-[#F0F0F0] bg-white px-3 py-5 text-center shadow-[0_4px_18px_rgba(15,39,74,0.05)] transition-all duration-200 hover:border-[#FF6A00]/25 hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:min-h-[180px] sm:rounded-[18px] sm:px-4 sm:py-6"
                                     >
                                         <div
                                             className="flex h-14 w-14 items-center justify-center rounded-full sm:h-16 sm:w-16"
@@ -1005,11 +1006,11 @@ export default function UsaManagementAccounting() {
                 >
                     <div
                         className="pointer-events-none absolute -left-16 bottom-0 h-48 w-48 rounded-full opacity-40"
-                        style={{ background: "rgba(245,130,32,0.18)" }}
+                        style={{ background: "rgba(255, 106, 0,0.18)" }}
                     />
                     <div
                         className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-30"
-                        style={{ background: "rgba(245,130,32,0.15)" }}
+                        style={{ background: "rgba(255, 106, 0,0.15)" }}
                     />
                     <DotGrid className="pointer-events-none absolute bottom-6 right-6 opacity-70" />
 

@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
-const ORANGE = "#F58220";
+const ORANGE = BRAND_ORANGE;
 const NAVY = "#0F274A";
 const GREY = "#6B7280";
 const MAP_LAND = "#B8C9D9";
@@ -284,7 +285,7 @@ export default function GlobalPresence() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 xl:gap-14 items-center">
           <div className="order-1 text-center lg:text-left">
             <p
-              className="text-[11px] sm:text-[12px] font-bold tracking-[0.2em] uppercase"
+              className="text-[11px] sm:text-[12px] font-extrabold tracking-[0.2em] uppercase"
               style={{ color: ORANGE }}
             >
               GLOBAL PRESENCE
@@ -294,8 +295,9 @@ export default function GlobalPresence() {
               className="mt-2.5 font-bold text-[26px] sm:text-[32px] lg:text-[36px] leading-[1.15] tracking-[-0.015em] max-w-[480px] mx-auto lg:mx-0"
               style={{ color: NAVY }}
             >
-              Trusted by Businesses Across{" "}
-              <span style={{ color: ORANGE }}>9+</span> Countries
+              Trusted by Businesses
+              <br />
+              Across <span style={{ color: ORANGE }}>9+ Countries</span>
             </h2>
 
             <p
@@ -311,11 +313,8 @@ export default function GlobalPresence() {
                 const Icon = feature.icon;
                 return (
                   <div key={feature.label} className="flex items-center gap-3">
-                    <span
-                      className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full"
-                      style={{ color: ORANGE, backgroundColor: "rgba(245,130,32,0.12)" }}
-                    >
-                      <Icon className="w-[18px] h-[18px]" />
+                    <span className="inline-flex shrink-0 items-center justify-center" style={{ color: ORANGE }}>
+                      <Icon className="w-[27px] h-[27px]" />
                     </span>
                     <span
                       className="text-[13px] sm:text-[14px] font-semibold leading-snug"

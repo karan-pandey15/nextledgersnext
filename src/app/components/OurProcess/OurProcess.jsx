@@ -1,8 +1,9 @@
 "use client";
 
 import React from "react";
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
-const ORANGE = "#F58220";
+const ORANGE = BRAND_ORANGE;
 const BG = "#0B1C33";
 const ICON_BLUE = "#1E4A6E";
 const WHITE = "#FFFFFF";
@@ -55,7 +56,7 @@ const STEPS = [
 
 function HeadsetIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" width="22" height="22" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" width="33" height="33" aria-hidden="true">
       <path d="M4.5 13.5V12a7.5 7.5 0 0 1 15 0v1.5" stroke={ICON_BLUE} strokeWidth="1.65" strokeLinecap="round" />
       <rect x="3.2" y="12.5" width="3.5" height="5" rx="1.1" stroke={ICON_BLUE} strokeWidth="1.55" />
       <rect x="17.3" y="12.5" width="3.5" height="5" rx="1.1" stroke={ICON_BLUE} strokeWidth="1.55" />
@@ -66,7 +67,7 @@ function HeadsetIcon() {
 
 function WorkflowIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" width="22" height="22" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" width="33" height="33" aria-hidden="true">
       <rect x="4" y="3.5" width="11.5" height="15.5" rx="1.4" stroke={ICON_BLUE} strokeWidth="1.55" />
       <path d="M7 8h6M7 11.5h6M7 15h3.2" stroke={ICON_BLUE} strokeWidth="1.55" strokeLinecap="round" />
       <circle cx="17.2" cy="16.2" r="3" stroke={ICON_BLUE} strokeWidth="1.55" />
@@ -77,7 +78,7 @@ function WorkflowIcon() {
 
 function TeamIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" width="22" height="22" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" width="33" height="33" aria-hidden="true">
       <circle cx="12" cy="7" r="2.3" stroke={ICON_BLUE} strokeWidth="1.55" />
       <circle cx="6" cy="8.2" r="1.9" stroke={ICON_BLUE} strokeWidth="1.55" />
       <circle cx="18" cy="8.2" r="1.9" stroke={ICON_BLUE} strokeWidth="1.55" />
@@ -89,7 +90,7 @@ function TeamIcon() {
 
 function TransferIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" width="22" height="22" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" width="33" height="33" aria-hidden="true">
       <rect x="3.5" y="4" width="12.5" height="9.5" rx="1.1" stroke={ICON_BLUE} strokeWidth="1.55" />
       <path d="M6.2 7h7M6.2 10h4.2" stroke={ICON_BLUE} strokeWidth="1.45" strokeLinecap="round" />
       <circle cx="16.2" cy="16" r="2.1" stroke={ICON_BLUE} strokeWidth="1.55" />
@@ -100,7 +101,7 @@ function TransferIcon() {
 
 function GearIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" width="22" height="22" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" width="33" height="33" aria-hidden="true">
       <circle cx="12" cy="12" r="2.8" stroke={ICON_BLUE} strokeWidth="1.55" />
       <path
         d="M12 3.8v2M12 18.2v2M3.8 12h2M18.2 12h2M6 6l1.4 1.4M16.6 16.6 18 18M6 18l1.4-1.4M16.6 7.4 18 6"
@@ -114,7 +115,7 @@ function GearIcon() {
 
 function ChartIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" width="22" height="22" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" width="33" height="33" aria-hidden="true">
       <path d="M4 19h16" stroke={ICON_BLUE} strokeWidth="1.55" strokeLinecap="round" />
       <path d="M7 16V11M11.5 16V8M16 16v-3.5" stroke={ICON_BLUE} strokeWidth="1.7" strokeLinecap="round" />
       <path d="M14.5 7.5h4.5V12" stroke={ICON_BLUE} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -125,7 +126,7 @@ function ChartIcon() {
 
 function ScaleIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" width="22" height="22" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" width="33" height="33" aria-hidden="true">
       <path d="M4 18.5h16" stroke={ICON_BLUE} strokeWidth="1.55" strokeLinecap="round" />
       <path d="M5 15.5 9.5 10l3.2 3.2L18.5 6.5" stroke={ICON_BLUE} strokeWidth="1.65" strokeLinecap="round" strokeLinejoin="round" />
       <path d="M15 6.5h3.5V10" stroke={ICON_BLUE} strokeWidth="1.55" strokeLinecap="round" strokeLinejoin="round" />

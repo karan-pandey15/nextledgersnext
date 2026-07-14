@@ -32,8 +32,9 @@ import Footer from "@/app/components/footer/Footer";
 import TopAnnouncementBar from "@/app/components/TopHeader/TopAnnouncementBar";
 import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/ArtificialIntelligence";
 import NexaLedAi from "@/app/components/ChatBot/NexaLedAi";
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
-const ORANGE = "#F58220";
+const ORANGE = BRAND_ORANGE;
 const NAVY = "#0B1F3A";
 const GREY = "#6B7280";
 const PAGE_CREAM = "#FFF9F5";
@@ -133,7 +134,7 @@ const specialistAreas = [
             "Self-employment income reporting, expense reviews, and tax computations.",
         icon: UserRound,
         bg: "#FFF0E8",
-        color: "#F58220",
+        color: BRAND_ORANGE,
     },
     {
         title: "Partnerships & LLP Members",
@@ -265,7 +266,7 @@ function HelpCard({ icon: Icon, titleBefore, titleAccent, titleAfter, items }) {
 function Stat({ icon, value, label }) {
     return (
         <div className="flex flex-col items-center text-center gap-1.5">
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#F58220]/10 text-[#F58220] sm:h-10 sm:w-10">
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#FF6A00]/10 text-[#FF6A00] sm:h-10 sm:w-10">
                 {icon}
             </div>
             <div className="text-[15px] font-extrabold leading-none text-[#0B1F3A] sm:text-[17px]">
@@ -284,7 +285,7 @@ function ServiceCheckGrid({ items }) {
             {items.map((service) => (
                 <div
                     key={service}
-                    className="flex items-center gap-2.5 rounded-xl border border-white/80 bg-white/80 px-3 py-2.5 shadow-[0_2px_10px_rgba(15,23,42,0.04)] backdrop-blur-sm transition-shadow hover:shadow-[0_4px_16px_rgba(245,130,32,0.12)]"
+                    className="flex items-center gap-2.5 rounded-xl border border-white/80 bg-white/80 px-3 py-2.5 shadow-[0_2px_10px_rgba(15,23,42,0.04)] backdrop-blur-sm transition-shadow hover:shadow-[0_4px_16px_rgba(255, 106, 0,0.12)]"
                 >
                     <span
                         className="flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full"
@@ -333,25 +334,25 @@ export default function PersonalTaxPage() {
                         backgroundSize: "16px 16px",
                     }}
                 />
-                <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-[#F58220]/12 blur-3xl" />
+                <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-[#FF6A00]/12 blur-3xl" />
                 <div className="pointer-events-none absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-slate-400/20 blur-3xl" />
 
                 <div className="relative mx-auto flex w-full max-w-5xl flex-col justify-center">
                     <div className="flex flex-col items-center px-2 text-center">
-                        <span className="mb-3 inline-flex items-center rounded-full border border-[#F58220]/25 bg-white px-3 py-1 text-center text-[10px] font-bold uppercase tracking-wide text-[#F58220] shadow-sm sm:px-4 sm:text-[11px]">
+                        <span className="mb-3 inline-flex items-center rounded-full border border-[#FF6A00]/25 bg-white px-3 py-1 text-center text-[10px] font-bold uppercase tracking-wide text-[#FF6A00] shadow-sm sm:px-4 sm:text-[11px]">
                             UK Personal Tax Outsourcing
                         </span>
 
                         <h1 className="max-w-3xl text-2xl font-extrabold leading-snug text-[#0B1F3A] sm:text-3xl lg:text-[34px]">
                             UK Personal Tax{" "}
-                            <span className="text-[#F58220]">Outsourcing Services</span>
+                            <span className="text-[#FF6A00]">Outsourcing Services</span>
                         </h1>
 
                         <p className="mt-2 max-w-xl text-[13px] leading-snug text-slate-700 sm:text-sm">
                             Specialist Personal Tax Support for UK Accounting Firms
                         </p>
 
-                        <div className="my-3 h-[3px] w-10 rounded-full bg-[#F58220]" />
+                        <div className="my-3 h-[3px] w-10 rounded-full bg-[#FF6A00]" />
 
                         <div className="flex w-full max-w-xs flex-col items-stretch justify-center gap-2.5 sm:w-auto sm:flex-row sm:items-center sm:gap-3">
                             <CtaButton href="/contact" variant="primary" size="sm">
@@ -373,17 +374,17 @@ export default function PersonalTaxPage() {
                 <div className="mx-auto max-w-6xl px-4 py-2 sm:px-6 sm:py-2.5 lg:px-8">
                     <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12">
                         <div>
-                            <span className="mb-3 inline-block text-[11px] font-extrabold uppercase tracking-widest text-[#F58220]">
+                            <span className="mb-3 inline-block text-[11px] font-extrabold uppercase tracking-widest text-[#FF6A00]">
                                 Outsourcing Partnership
                             </span>
 
                             <h2 className="mb-3 text-[28px] font-extrabold leading-[1.15] text-[#0B1F3A] sm:text-[34px] lg:text-[30px]">
                                 Specialist Personal Tax{" "}
-                                <span className="text-[#F58220]">Support</span> for UK Accounting
+                                <span className="text-[#FF6A00]">Support</span> for UK Accounting
                                 Firms
                             </h2>
 
-                            <div className="mb-5 h-[3px] w-14 rounded-full bg-[#F58220]" />
+                            <div className="mb-5 h-[3px] w-14 rounded-full bg-[#FF6A00]" />
 
                             <p className="mb-3 text-[15px] leading-relaxed text-gray-500">
                                 Personal Tax remains one of the most important services offered by
@@ -479,7 +480,7 @@ export default function PersonalTaxPage() {
                                                     style={{
                                                         background: ORANGE,
                                                         boxShadow:
-                                                            "0 6px 16px rgba(245,130,32,0.28)",
+                                                            "0 6px 16px rgba(255, 106, 0,0.28)",
                                                     }}
                                                 >
                                                     <Icon className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
@@ -531,7 +532,7 @@ export default function PersonalTaxPage() {
                             aria-hidden="true"
                             style={{
                                 backgroundImage:
-                                    "radial-gradient(rgba(245,130,32,0.22) 1px, transparent 1px)",
+                                    "radial-gradient(rgba(255, 106, 0,0.22) 1px, transparent 1px)",
                                 backgroundSize: "12px 12px",
                                 maskImage:
                                     "radial-gradient(ellipse at center, black 35%, transparent 80%)",
@@ -564,7 +565,7 @@ export default function PersonalTaxPage() {
                     aria-hidden="true"
                     style={{
                         backgroundImage:
-                            "radial-gradient(rgba(245,130,32,0.18) 1px, transparent 1px)",
+                            "radial-gradient(rgba(255, 106, 0,0.18) 1px, transparent 1px)",
                         backgroundSize: "14px 14px",
                     }}
                 />
@@ -641,7 +642,7 @@ export default function PersonalTaxPage() {
                             className="mb-3 inline-flex items-center gap-1.5 rounded-full border px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.12em]"
                             style={{
                                 background: PILL_BG,
-                                borderColor: "rgba(245,130,32,0.35)",
+                                borderColor: "rgba(255, 106, 0,0.35)",
                                 color: ORANGE,
                             }}
                         >
@@ -783,7 +784,7 @@ export default function PersonalTaxPage() {
                                                     style={{
                                                         background: ORANGE,
                                                         boxShadow:
-                                                            "0 6px 16px rgba(245,130,32,0.28)",
+                                                            "0 6px 16px rgba(255, 106, 0,0.28)",
                                                     }}
                                                 >
                                                     <svg

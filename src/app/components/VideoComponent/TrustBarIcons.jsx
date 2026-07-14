@@ -1,6 +1,7 @@
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 const baseProps = {
   fill: "none",
-  stroke: "#F58220",
+  stroke: BRAND_ORANGE,
   strokeWidth: 1.75,
   strokeLinecap: "round",
   strokeLinejoin: "round",
@@ -20,7 +21,7 @@ export function PadlockIcon({ className = "h-full w-full" }) {
     <svg viewBox="0 0 24 24" className={className} aria-hidden="true" {...baseProps}>
       <rect x="6.8" y="10.6" width="10.4" height="8.6" rx="1.4" />
       <path d="M8.7 10.6V8.4a3.3 3.3 0 0 1 6.6 0v2.2" />
-      <circle cx="12" cy="14.7" r="1" fill="#F58220" stroke="none" />
+      <circle cx="12" cy="14.7" r="1" fill={BRAND_ORANGE} stroke="none" />
     </svg>
   );
 }

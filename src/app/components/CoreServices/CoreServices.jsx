@@ -10,8 +10,9 @@ import {
   Receipt,
   RefreshCw,
 } from "lucide-react";
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
-const ORANGE = "#F58220";
+const ORANGE = BRAND_ORANGE;
 const NAVY = "#0F274A";
 const GREY = "#6B7280";
 
@@ -73,7 +74,7 @@ export default function CoreServices() {
         {/* Header */}
         <div className="text-center max-w-[820px] mx-auto">
           <span
-            className="inline-flex items-center rounded-full border border-[#F58220]/35 bg-[#FFF7F0] text-[#F58220] text-[10px] sm:text-[11px] font-bold tracking-[0.22em] uppercase px-[18px] py-[4px]"
+            className="inline-flex items-center rounded-full border border-[#FF6A00]/35 bg-[#FFF7F0] text-[#FF6A00] text-[10px] sm:text-[11px] font-bold tracking-[0.22em] uppercase px-[18px] py-[4px]"
             style={{ color: ORANGE }}
           >
             Our Core Services
@@ -106,7 +107,7 @@ export default function CoreServices() {
               <Link
                 key={service.title}
                 href={service.href}
-                className="group flex h-full min-h-[210px] w-full min-w-0 flex-col items-center bg-white rounded-[14px] px-3 pt-[18px] pb-3 shadow-[0_2px_14px_rgba(15,39,74,0.07)] hover:shadow-[0_6px_24px_rgba(245,130,32,0.12)] transition-shadow duration-300"
+                className="group flex h-full min-h-[210px] w-full min-w-0 flex-col items-center bg-white rounded-[14px] px-3 pt-[18px] pb-3 shadow-[0_2px_14px_rgba(15,39,74,0.07)] hover:shadow-[0_6px_24px_rgba(255, 106, 0,0.12)] transition-shadow duration-300"
               >
                 <div className="flex w-full flex-col items-center text-center">
                   <div className="w-[52px] h-[52px] rounded-full bg-[#FFF7F0] flex items-center justify-center mb-2">
@@ -151,8 +152,7 @@ export default function CoreServices() {
         <div className="mt-6 sm:mt-7 flex justify-center">
           <Link
             href="/services"
-            className="inline-flex items-center gap-[6px] rounded-full border border-[#F58220] bg-white font-semibold text-[13px] sm:text-[14px] px-[26px] py-2 hover:bg-[#FFF7F0] transition-colors duration-200"
-            style={{ color: ORANGE }}
+            className="cta-fill-orange inline-flex items-center gap-[6px] rounded-full px-[26px] py-2 text-[13px] font-semibold sm:text-[14px]"
           >
             Explore All Services
             <span className="text-[15px] leading-none" aria-hidden="true">

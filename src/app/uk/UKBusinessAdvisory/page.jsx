@@ -52,8 +52,9 @@ import Footer from "@/app/components/footer/Footer";
 import TopAnnouncementBar from "@/app/components/TopHeader/TopAnnouncementBar";
 import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/ArtificialIntelligence";
 import NexaLedAi from "@/app/components/ChatBot/NexaLedAi";
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
-const ORANGE = "#F58220";
+const ORANGE = BRAND_ORANGE;
 const NAVY = "#0B1F3A";
 const GREY = "#6B7280";
 const PAGE_CREAM = "#FFF9F5";
@@ -247,9 +248,9 @@ const softwareExpertiseLogodata = [
 
 const industriesWeSupport = [
     { label: "Professional Service Firms", icon: Briefcase, bg: "#E8F4FF", color: "#0284C7" },
-    { label: "Construction & Trades", icon: HardHat, bg: "#FFF4E5", color: "#EA580C" },
+    { label: "Construction & Trades", icon: HardHat, bg: "#FFF4E5", color: "#FF6A00" },
     { label: "E-Commerce Businesses", icon: ShoppingBag, bg: "#E8F8EF", color: "#16A34A" },
-    { label: "Retail Businesses", icon: Store, bg: "#FFF0E8", color: "#F58220" },
+    { label: "Retail Businesses", icon: Store, bg: "#FFF0E8", color: BRAND_ORANGE },
     { label: "Manufacturing Companies", icon: Factory, bg: "#F3E8FF", color: "#9333EA" },
     { label: "Hospitality Businesses", icon: UtensilsCrossed, bg: "#FFE8EE", color: "#E11D48" },
     { label: "Healthcare Providers", icon: HeartPulse, bg: "#E8F1FF", color: "#3B82F6" },
@@ -281,7 +282,7 @@ const partnerTrust = [
 function Stat({ icon, value, label }) {
     return (
         <div className="flex flex-col items-center gap-1.5 text-center">
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#F58220]/10 text-[#F58220] sm:h-10 sm:w-10">
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#FF6A00]/10 text-[#FF6A00] sm:h-10 sm:w-10">
                 {icon}
             </div>
             <div className="text-[15px] font-extrabold leading-none text-[#0B1F3A] sm:text-[17px]">
@@ -437,19 +438,19 @@ export default function UKBusinessAdvisory() {
                         backgroundSize: "16px 16px",
                     }}
                 />
-                <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-[#F58220]/12 blur-3xl" />
+                <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-[#FF6A00]/12 blur-3xl" />
                 <div className="pointer-events-none absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-slate-400/20 blur-3xl" />
                 <div className="pointer-events-none absolute left-1/2 top-1/3 h-40 w-40 -translate-x-1/2 rounded-full bg-white/50 blur-2xl" />
 
                 <div className="relative mx-auto flex w-full max-w-5xl flex-col justify-center">
                     <div className="flex flex-col items-center px-2 text-center">
-                        <span className="mb-3 inline-flex items-center rounded-full border border-[#F58220]/25 bg-white px-3 py-1 text-center text-[10px] font-bold uppercase tracking-wide text-[#F58220] shadow-sm sm:px-4 sm:text-[11px]">
+                        <span className="mb-3 inline-flex items-center rounded-full border border-[#FF6A00]/25 bg-white px-3 py-1 text-center text-[10px] font-bold uppercase tracking-wide text-[#FF6A00] shadow-sm sm:px-4 sm:text-[11px]">
                             Business Advisory &amp; Virtual CFO
                         </span>
 
                         <h1 className="max-w-[320px] text-2xl font-extrabold leading-snug text-[#0B1F3A] sm:max-w-3xl sm:text-3xl lg:text-[34px]">
                             UK Business Advisory &amp;{" "}
-                            <span className="text-[#F58220]">Virtual CFO</span> Outsourcing
+                            <span className="text-[#FF6A00]">Virtual CFO</span> Outsourcing
                             Services
                         </h1>
 
@@ -458,7 +459,7 @@ export default function UKBusinessAdvisory() {
                             Accounting Firms
                         </p>
 
-                        <div className="my-3 h-[3px] w-10 rounded-full bg-[#F58220]" />
+                        <div className="my-3 h-[3px] w-10 rounded-full bg-[#FF6A00]" />
 
                         <div className="flex w-full max-w-xs flex-col items-stretch justify-center gap-2.5 sm:w-auto sm:flex-row sm:items-center sm:gap-3">
                             <CtaButton href="/contact" variant="primary" size="sm">
@@ -480,7 +481,7 @@ export default function UKBusinessAdvisory() {
                 <div className="mx-auto max-w-6xl px-4 py-2 sm:px-6 sm:py-2.5 lg:px-8">
                     <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12">
                         <div>
-                            <span className="mb-3 inline-block text-[11px] font-extrabold uppercase tracking-widest text-[#F58220]">
+                            <span className="mb-3 inline-block text-[11px] font-extrabold uppercase tracking-widest text-[#FF6A00]">
                                 Outsourcing Partnership
                             </span>
 
@@ -489,7 +490,7 @@ export default function UKBusinessAdvisory() {
                                 Accounting Firms
                             </h2>
 
-                            <div className="mb-5 h-[3px] w-14 rounded-full bg-[#F58220]" />
+                            <div className="mb-5 h-[3px] w-14 rounded-full bg-[#FF6A00]" />
 
                             <p className="mb-3 text-[13px] leading-relaxed text-gray-500 sm:text-[15px]">
                                 Today&apos;s businesses expect far more than compliance and
@@ -836,7 +837,7 @@ export default function UKBusinessAdvisory() {
                             className="mb-3 inline-flex items-center gap-1.5 rounded-full border px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.12em]"
                             style={{
                                 background: PILL_BG,
-                                borderColor: "rgba(245,130,32,0.35)",
+                                borderColor: "rgba(255, 106, 0,0.35)",
                                 color: ORANGE,
                             }}
                         >
@@ -937,7 +938,7 @@ export default function UKBusinessAdvisory() {
                                 return (
                                     <div
                                         key={item.label}
-                                        className="flex min-h-[132px] flex-col items-center justify-center rounded-[16px] border border-[#F0F0F0] bg-white px-3 py-5 text-center shadow-[0_4px_18px_rgba(15,39,74,0.05)] transition-all duration-200 hover:border-[#F58220]/25 hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:min-h-[148px] sm:rounded-[18px] sm:px-4 sm:py-6"
+                                        className="flex min-h-[132px] flex-col items-center justify-center rounded-[16px] border border-[#F0F0F0] bg-white px-3 py-5 text-center shadow-[0_4px_18px_rgba(15,39,74,0.05)] transition-all duration-200 hover:border-[#FF6A00]/25 hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:min-h-[148px] sm:rounded-[18px] sm:px-4 sm:py-6"
                                     >
                                         <div
                                             className="flex h-14 w-14 items-center justify-center rounded-full sm:h-16 sm:w-16"
@@ -1089,11 +1090,11 @@ export default function UKBusinessAdvisory() {
                 >
                     <div
                         className="pointer-events-none absolute -left-16 bottom-0 h-48 w-48 rounded-full opacity-40"
-                        style={{ background: "rgba(245,130,32,0.18)" }}
+                        style={{ background: "rgba(255, 106, 0,0.18)" }}
                     />
                     <div
                         className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full opacity-30"
-                        style={{ background: "rgba(245,130,32,0.15)" }}
+                        style={{ background: "rgba(255, 106, 0,0.15)" }}
                     />
                     <DotGrid className="pointer-events-none absolute bottom-6 right-6 opacity-70" />
 

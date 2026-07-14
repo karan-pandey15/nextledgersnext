@@ -2,8 +2,9 @@
 
 import React from "react";
 import SecurityShieldMotion from "./SecurityShieldMotion";
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
-const ORANGE = "#F58220";
+const ORANGE = BRAND_ORANGE;
 const NAVY = "#0F274A";
 const GREY = "#6B7280";
 
@@ -91,36 +92,37 @@ export default function DataSecurity() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 xl:gap-14 items-center">
       <div>
-        <span className="inline-flex items-center rounded-md bg-[#FFF1E6] text-[#F58220] text-[10px] sm:text-[11px] font-bold tracking-[0.16em] uppercase px-3 py-1.5">
+        <span className="inline-flex items-center rounded-md bg-[#FFF1E6] text-[#FF6A00] text-[10px] sm:text-[11px] font-bold tracking-[0.16em] uppercase px-3 py-1.5">
           DATA SECURITY
         </span>
 
         <h2
-          className="mt-4 font-bold text-[28px] sm:text-[36px] lg:text-[42px] leading-[1.12] tracking-[-0.02em]"
+          className="mt-3 font-bold text-[28px] sm:mt-3.5 sm:text-[36px] lg:text-[42px] leading-[1.12] tracking-[-0.02em]"
           style={{ color: NAVY }}
         >
-          Your Data.{" "}
+          Your Data.
+          <br />
           <span style={{ color: ORANGE }}>Our Highest Priority.</span>
         </h2>
 
         <p
-          className="mt-4 text-[13px] sm:text-[14px] leading-6 sm:leading-7 max-w-[520px]"
+          className="mt-2.5 max-w-[520px] text-[13px] leading-6 sm:mt-3 sm:text-[14px] sm:leading-7"
           style={{ color: GREY }}
         >
           We treat your financial information with the highest level of care. From encrypted
           workflows to controlled access, security is built into everything we do.
         </p>
 
-        <ul className="mt-6 sm:mt-8 space-y-4 sm:space-y-[18px]">
+        <ul className="mt-4 space-y-2.5 sm:mt-5 sm:space-y-3">
           {FEATURES.map((feature) => {
             const Icon = feature.icon;
             return (
-              <li key={feature.text} className="flex items-center gap-3.5 sm:gap-4">
-                <span className="shrink-0 text-[#F58220] w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center">
-                  <Icon className="w-5 h-5 sm:w-[22px] sm:h-[22px]" />
+              <li key={feature.text} className="flex items-center gap-3 sm:gap-3.5">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center text-[#FF6A00] sm:h-[42px] sm:w-[42px]">
+                  <Icon className="h-[30px] w-[30px] sm:h-[33px] sm:w-[33px]" />
                 </span>
                 <p
-                  className="text-[13px] sm:text-[14px] leading-[1.45] font-medium"
+                  className="text-[13px] font-medium leading-[1.35] sm:text-[14px]"
                   style={{ color: NAVY }}
                 >
                   {feature.text}

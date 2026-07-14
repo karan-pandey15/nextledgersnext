@@ -11,8 +11,9 @@ import {
     Headphones,
     BarChart3,
 } from "lucide-react";
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
-const ORANGE = "#F58220";
+const ORANGE = BRAND_ORANGE;
 const ORANGE_SOFT = "#FFF4EA";
 const HEADING = "#1A1A1A";
 const BODY = "#666666";

@@ -3,8 +3,9 @@
 import React, { useEffect } from "react";
 import { createPortal } from "react-dom";
 import { POPUP_REGIONS } from "./regionData";
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
-const ORANGE = "#F58220";
+const ORANGE = BRAND_ORANGE;
 const NAVY = "#0F274A";
 
 function ShieldCheckIcon({ className = "w-5 h-5" }) {
@@ -153,12 +154,12 @@ export default function RegionPopup({
         <button
           type="button"
           onClick={onClose}
-          className="group absolute top-3 right-3 z-20 flex h-8 w-8 items-center justify-center rounded-[8px] border border-[#E5E7EB] bg-white transition-all duration-200 hover:border-[#F58220] hover:bg-[#FFF0E4] sm:top-4 sm:right-4"
+          className="group absolute top-3 right-3 z-20 flex h-8 w-8 items-center justify-center rounded-[8px] border border-[#E5E7EB] bg-white transition-all duration-200 hover:border-[#FF6A00] hover:bg-[#FFF0E4] sm:top-4 sm:right-4"
           aria-label="Close"
         >
           <svg
             viewBox="0 0 24 24"
-            className="h-3.5 w-3.5 text-black transition-colors duration-200 group-hover:text-[#F58220]"
+            className="h-3.5 w-3.5 text-black transition-colors duration-200 group-hover:text-[#FF6A00]"
             fill="none"
             stroke="currentColor"
             strokeWidth="2.4"
@@ -202,7 +203,7 @@ export default function RegionPopup({
                   key={region.code}
                   type="button"
                   onClick={() => onSelect(region.code)}
-                  className="group flex min-h-[72px] items-center gap-3 rounded-[12px] border bg-white px-3.5 py-3 text-left shadow-[0_2px_10px_rgba(15,39,74,0.04)] transition-all duration-200 hover:border-[#F58220]/50 hover:shadow-[0_6px_18px_rgba(15,39,74,0.08)] sm:min-h-[78px] sm:gap-3.5 sm:px-4 sm:py-3.5"
+                  className="group flex min-h-[72px] items-center gap-3 rounded-[12px] border bg-white px-3.5 py-3 text-left shadow-[0_2px_10px_rgba(15,39,74,0.04)] transition-all duration-200 hover:border-[#FF6A00]/50 hover:shadow-[0_6px_18px_rgba(15,39,74,0.08)] sm:min-h-[78px] sm:gap-3.5 sm:px-4 sm:py-3.5"
                   style={{
                     borderColor: isSelected ? ORANGE : "#E8ECF0",
                     borderWidth: isSelected ? 1.5 : 1,
@@ -231,7 +232,7 @@ export default function RegionPopup({
                   </span>
 
                   <span
-                    className="shrink-0 text-[18px] font-light leading-none text-[#F58220] transition-transform duration-200 group-hover:translate-x-0.5"
+                    className="shrink-0 text-[18px] font-light leading-none text-[#FF6A00] transition-transform duration-200 group-hover:translate-x-0.5"
                     aria-hidden="true"
                   >
                     ›
@@ -241,8 +242,8 @@ export default function RegionPopup({
             })}
           </div>
 
-          <div className="relative z-10 mt-5 flex items-start gap-3 rounded-[12px] border border-[#F58220]/20 bg-[#FFF7F0] px-3.5 py-3 sm:mt-6 sm:items-center sm:gap-3.5 sm:px-5 sm:py-3.5">
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#F58220]/35 bg-white/70 text-[#F58220] sm:h-10 sm:w-10">
+          <div className="relative z-10 mt-5 flex items-start gap-3 rounded-[12px] border border-[#FF6A00]/20 bg-[#FFF7F0] px-3.5 py-3 sm:mt-6 sm:items-center sm:gap-3.5 sm:px-5 sm:py-3.5">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#FF6A00]/35 bg-white/70 text-[#FF6A00] sm:h-10 sm:w-10">
               <ShieldCheckIcon className="h-5 w-5" />
             </div>
             <div className="min-w-0">

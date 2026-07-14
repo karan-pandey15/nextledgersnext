@@ -79,7 +79,7 @@ function AiDockPanel({ copiedFor, onAiClick }) {
             key={ai.name}
             type="button"
             onClick={() => onAiClick(ai)}
-            className="group relative flex h-[36px] w-[36px] items-center justify-center rounded-xl border border-slate-100 bg-white shadow-sm transition-all duration-300 hover:border-[#F58220] hover:bg-[#FFF7F0] hover:shadow-md"
+            className="group relative flex h-[36px] w-[36px] items-center justify-center rounded-xl border border-slate-100 bg-white shadow-sm transition-all duration-300 hover:border-[#FF6A00] hover:bg-[#FFF7F0] hover:shadow-md"
             aria-label={`Ask ${ai.name} about Next Ledgers`}
           >
             <div
@@ -248,7 +248,7 @@ export default function ArtificialIntelligence() {
               mass: 0.9,
             }}
             whileTap={{ scale: 0.94 }}
-            className="flex h-12 w-7 items-center justify-center rounded-l-xl border border-r-0 border-slate-200/80 bg-white/95 text-[#F58220] shadow-[0_10px_28px_rgba(15,23,42,0.14)] backdrop-blur-md"
+            className="flex h-12 w-7 items-center justify-center rounded-l-xl border border-r-0 border-slate-200/80 bg-white/95 text-[#FF6A00] shadow-[0_10px_28px_rgba(15,23,42,0.14)] backdrop-blur-md"
           >
             <motion.span
               animate={{ x: [0, -3, 0] }}

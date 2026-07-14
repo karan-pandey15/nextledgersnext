@@ -9,8 +9,9 @@ import NexaLedAi from "../components/ChatBot/NexaLedAi";
 import CtaButton from "../components/ui/CtaButton";
 import ArticleCard from "./ArticleCard";
 import { ARTICLES } from "./articlesData";
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
-const ORANGE = "#F58220";
+const ORANGE = BRAND_ORANGE;
 const NAVY = "#0F274A";
 const GREY = "#6B7280";
 const PAGE_CREAM = "#FFF9F5";
@@ -67,8 +68,8 @@ export default function ArticlesPage() {
                   onClick={() => setActiveFilter(filter)}
                   className={`cursor-pointer rounded-full px-3.5 py-1.5 text-[11px] font-bold tracking-wide uppercase transition-colors sm:text-[12px] ${
                     isActive
-                      ? "bg-[#F58220] text-white"
-                      : "border border-[#F0E6DC] bg-white text-[#0F274A] hover:border-[#F58220]/40"
+                      ? "bg-[#FF6A00] text-white"
+                      : "border border-[#F0E6DC] bg-white text-[#0F274A] hover:border-[#FF6A00]/40"
                   }`}
                 >
                   {filter}
@@ -77,7 +78,7 @@ export default function ArticlesPage() {
             })}
           </div>
 
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-10 md:grid-cols-2 md:gap-5 lg:grid-cols-3 lg:gap-6">
+          <div className="mt-8 grid grid-cols-1 justify-items-center gap-4 sm:mt-10 md:grid-cols-2 md:gap-5 lg:grid-cols-3 lg:gap-5">
             {filtered.map((article) => (
               <ArticleCard key={article.slug} article={article} />
             ))}

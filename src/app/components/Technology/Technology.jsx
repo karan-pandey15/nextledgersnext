@@ -8,8 +8,9 @@ import {
   Settings2,
   ShieldCheck,
 } from "lucide-react";
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
-const ORANGE = "#F58220";
+const ORANGE = BRAND_ORANGE;
 const NAVY = "#0F274A";
 const GREY = "#6B7280";
 
@@ -185,9 +186,9 @@ export default function Technology() {
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
         {/* Header — same alignment pattern as CoreServices */}
         <div className="text-center max-w-[820px] mx-auto">
-          <div className="inline-flex items-center gap-2.5 rounded-full bg-[#FFF1E6] border border-[#F58220]/20 px-4 sm:px-5 py-[6px]">
+          <div className="inline-flex items-center gap-2.5 rounded-full bg-[#FFF1E6] border border-[#FF6A00]/20 px-4 sm:px-5 py-[6px]">
             <span
-              className="hidden sm:inline text-[#F58220] text-[12px] leading-none"
+              className="hidden sm:inline text-[#FF6A00] text-[12px] leading-none"
               aria-hidden="true"
             >
               →
@@ -201,7 +202,7 @@ export default function Technology() {
             </span>
 
             <span
-              className="hidden sm:inline text-[#F58220] text-[12px] leading-none"
+              className="hidden sm:inline text-[#FF6A00] text-[12px] leading-none"
               aria-hidden="true"
             >
               ←
@@ -294,7 +295,7 @@ export default function Technology() {
         </div>
 
         {/* Feature bar — design "issue part" */}
-        <div className="mt-8 sm:mt-10 w-full rounded-[16px] bg-[#FFF7F0] border border-[#F58220]/10 px-4 sm:px-5 lg:px-4 py-5 sm:py-6">
+        <div className="mt-8 sm:mt-10 w-full rounded-[16px] bg-[#FFF7F0] border border-[#FF6A00]/10 px-4 sm:px-5 lg:px-4 py-5 sm:py-6">
           <div className="flex flex-col sm:grid sm:grid-cols-2 lg:flex lg:flex-row lg:items-center">
             {FEATURES.map((feature, index) => {
               const Icon = feature.icon;
@@ -303,7 +304,7 @@ export default function Technology() {
               return (
                 <React.Fragment key={feature.title}>
                   <div className="flex flex-1 items-center gap-3 min-w-0 px-1 lg:px-3 py-3 lg:py-0">
-                    <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shrink-0 shadow-[0_2px_8px_rgba(245,130,32,0.12)]">
+                    <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shrink-0 shadow-[0_2px_8px_rgba(255, 106, 0,0.12)]">
                       <Icon
                         className="w-6 h-6"
                         style={{ color: ORANGE }}

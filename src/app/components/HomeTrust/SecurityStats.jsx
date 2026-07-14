@@ -1,11 +1,12 @@
 "use client";
 
 import React from "react";
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
-const ORANGE = "#F58220";
+const ORANGE = BRAND_ORANGE;
 const NAVY = "#0F274A";
 
-function IconShieldCheck({ className = "w-7 h-7" }) {
+function IconShieldCheck({ className = "w-[42px] h-[42px]" }) {
   return (
     <svg viewBox="0 0 28 28" fill="none" className={className} aria-hidden="true">
       <path
@@ -19,7 +20,7 @@ function IconShieldCheck({ className = "w-7 h-7" }) {
   );
 }
 
-function IconGlobe({ className = "w-7 h-7" }) {
+function IconGlobe({ className = "w-[42px] h-[42px]" }) {
   return (
     <svg viewBox="0 0 28 28" fill="none" className={className} aria-hidden="true">
       <circle cx="14" cy="14" r="9.5" stroke="currentColor" strokeWidth="1.7" />
@@ -29,7 +30,7 @@ function IconGlobe({ className = "w-7 h-7" }) {
   );
 }
 
-function IconClock24({ className = "w-7 h-7" }) {
+function IconClock24({ className = "w-[42px] h-[42px]" }) {
   return (
     <svg viewBox="0 0 28 28" fill="none" className={className} aria-hidden="true">
       <circle cx="14" cy="14" r="9.5" stroke="currentColor" strokeWidth="1.7" />
@@ -49,7 +50,7 @@ function IconClock24({ className = "w-7 h-7" }) {
   );
 }
 
-function IconCloudUp({ className = "w-7 h-7" }) {
+function IconCloudUp({ className = "w-[42px] h-[42px]" }) {
   return (
     <svg viewBox="0 0 28 28" fill="none" className={className} aria-hidden="true">
       <path
@@ -101,8 +102,8 @@ export default function SecurityStats() {
                 !isLast ? "lg:border-r lg:border-[#E5DDD4]" : ""
               }`}
             >
-              <span className="text-[#F58220]">
-                <Icon className="w-7 h-7 sm:w-8 sm:h-8" />
+              <span className="text-[#FF6A00]">
+                <Icon className="h-[42px] w-[42px] sm:h-12 sm:w-12" />
               </span>
 
               <p
@@ -113,7 +114,7 @@ export default function SecurityStats() {
               </p>
 
               <p
-                className="mt-2 text-[11px] sm:text-[12px] leading-[1.4] max-w-[160px]"
+                className="mt-2 max-w-[160px] text-[11px] font-semibold leading-[1.4] sm:text-[12px]"
                 style={{ color: NAVY }}
               >
                 {stat.label}

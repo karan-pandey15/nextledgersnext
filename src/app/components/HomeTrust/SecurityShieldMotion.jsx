@@ -1,14 +1,14 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
 /** Orbiting icons around the shield */
 const SATELLITES = [
   { id: "cloud", angle: -20, color: "#3B82F6", type: "cloud" },
   { id: "check", angle: 40, color: "#22C55E", type: "check" },
   { id: "doc", angle: 110, color: "#8B5CF6", type: "doc" },
-  { id: "server", angle: 200, color: "#F58220", type: "server" },
+  { id: "server", angle: 200, color: BRAND_ORANGE, type: "server" },
   { id: "user", angle: 280, color: "#3B82F6", type: "user" },
 ];
 
@@ -87,7 +87,7 @@ function SteppedBase() {
     <div className="relative w-[200px] sm:w-[240px] lg:w-[260px] mx-auto" aria-hidden="true">
       <div className="mx-auto h-3 sm:h-3.5 w-[72%] rounded-full bg-[#FFD4B8] shadow-inner" />
       <div className="mx-auto -mt-1 h-3.5 sm:h-4 w-[86%] rounded-full bg-[#FFE0CC]" />
-      <div className="mx-auto -mt-1 h-4 sm:h-5 w-full rounded-full bg-gradient-to-b from-[#FFE8D6] to-[#FFD0B0] shadow-[0_8px_24px_rgba(245,130,32,0.2)]" />
+      <div className="mx-auto -mt-1 h-4 sm:h-5 w-full rounded-full bg-gradient-to-b from-[#FFE8D6] to-[#FFD0B0] shadow-[0_8px_24px_rgba(255, 106, 0,0.2)]" />
       <div className="absolute inset-x-[8%] top-0 h-2 rounded-full bg-white/50 blur-[1px]" />
     </div>
   );
@@ -98,13 +98,13 @@ function ProtectShield() {
   return (
     <svg
       viewBox="0 0 160 180"
-      className="w-[120px] sm:w-[150px] lg:w-[168px] h-auto drop-shadow-[0_16px_36px_rgba(245,130,32,0.4)]"
+      className="w-[120px] sm:w-[150px] lg:w-[168px] h-auto drop-shadow-[0_16px_36px_rgba(255, 106, 0,0.4)]"
       aria-hidden="true"
     >
       <defs>
         <linearGradient id="protectGrad" x1="0" y1="0" x2="1" y2="1">
           <stop offset="0%" stopColor="#FF9A4A" />
-          <stop offset="45%" stopColor="#F58220" />
+          <stop offset="45%" stopColor={BRAND_ORANGE} />
           <stop offset="100%" stopColor="#D9620F" />
         </linearGradient>
       </defs>
@@ -116,18 +116,18 @@ function ProtectShield() {
       {/* Lock body */}
       <rect x="58" y="78" width="44" height="36" rx="6" fill="#fff" />
       <path d="M66 78V68a14 14 0 0 1 28 0v10" stroke="#fff" strokeWidth="7" fill="none" strokeLinecap="round" />
-      <path d="M66 78V68a14 14 0 0 1 28 0v10" stroke="#F58220" strokeWidth="3.2" fill="none" strokeLinecap="round" />
-      <circle cx="80" cy="96" r="4" fill="#F58220" />
+      <path d="M66 78V68a14 14 0 0 1 28 0v10" stroke={BRAND_ORANGE} strokeWidth="3.2" fill="none" strokeLinecap="round" />
+      <circle cx="80" cy="96" r="4" fill={BRAND_ORANGE} />
     </svg>
   );
 }
 
 /**
- * Protect icon on stepped base — shield rotates 360°, satellites orbit around it
+ * Protect icon on stepped base — static (no rotation / orbit motion)
  */
 export default function SecurityShieldMotion() {
   return (
-    <div className="relative w-full max-w-[440px] mx-auto aspect-square flex items-center justify-center">
+    <div className="relative mx-auto flex aspect-square w-full max-w-[440px] items-center justify-center">
       {/* Soft glow */}
       <div className="absolute inset-[10%] rounded-full bg-[#FFE8D4]/80 blur-2xl" aria-hidden="true" />
 
@@ -143,65 +143,36 @@ export default function SecurityShieldMotion() {
         aria-hidden="true"
       />
 
-      {/* Orbiting icons */}
-      <motion.div
-        className="absolute inset-0 z-20"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
-      >
-        {SATELLITES.map((sat, index) => {
+      {/* Satellite icons — fixed positions */}
+      <div className="absolute inset-0 z-20">
+        {SATELLITES.map((sat) => {
           const rad = ((sat.angle - 90) * Math.PI) / 180;
           const radiusPercent = 40;
           const x = 50 + radiusPercent * Math.cos(rad);
           const y = 50 + radiusPercent * Math.sin(rad);
 
           return (
-            <motion.div
+            <div
               key={sat.id}
               className="absolute"
               style={{
                 left: `${x}%`,
                 top: `${y}%`,
-                translateX: "-50%",
-                translateY: "-50%",
+                translate: "-50% -50%",
               }}
             >
-              <motion.div
-                animate={{ rotate: -360 }}
-                transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
-              >
-                <SatelliteIcon type={sat.type} color={sat.color} />
-              </motion.div>
-            </motion.div>
+              <SatelliteIcon type={sat.type} color={sat.color} />
+            </div>
           );
         })}
-      </motion.div>
+      </div>
 
-      {/* Center stack: rotating protect icon + stepped base */}
+      {/* Center stack: static protect icon + stepped base */}
       <div className="relative z-10 flex flex-col items-center">
-        <motion.div
-          className="relative z-10 -mb-3 sm:-mb-4"
-          initial={{ opacity: 0, scale: 0.85 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          animate={{ rotate: [-40, 40, -40] }}
-          transition={{
-            rotate: { duration: 6, repeat: Infinity, ease: "easeInOut" },
-            opacity: { duration: 0.5 },
-            scale: { duration: 0.5 },
-          }}
-        >
+        <div className="relative z-10 -mb-3 sm:-mb-4">
           <ProtectShield />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-        >
-          <SteppedBase />
-        </motion.div>
+        </div>
+        <SteppedBase />
       </div>
     </div>
   );

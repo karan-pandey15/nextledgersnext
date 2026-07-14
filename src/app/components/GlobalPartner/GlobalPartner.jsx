@@ -3,8 +3,9 @@
 import React from "react";
 import Image from "next/image";
 import CtaButton from "@/app/components/ui/CtaButton";
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
-const ORANGE = "#F58220";
+const ORANGE = BRAND_ORANGE;
 const NAVY = "#0F274A";
 const GREY = "#6B7280";
 
@@ -17,7 +18,7 @@ function DottedWorldMap() {
     >
       <defs>
         <pattern id="dotMap" width="10" height="10" patternUnits="userSpaceOnUse">
-          <circle cx="1.5" cy="1.5" r="1.2" fill="#F58220" />
+          <circle cx="1.5" cy="1.5" r="1.2" fill={BRAND_ORANGE} />
         </pattern>
         <mask id="continentsMask">
           <rect width="640" height="360" fill="black" />

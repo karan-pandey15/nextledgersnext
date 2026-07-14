@@ -3,20 +3,22 @@ import Link from "next/link";
 /**
  * Shared CTA button styles — use across USA/UK service pages for consistent
  * shape, hover, focus, and active behavior.
+ *
+ * Light outline buttons use `.cta-fill-orange` (globals.css) so orange fill
+ * wins over global `.bg-white { !important }`.
+ * Dark-panel outlines use `.cta-fill-orange-dark` (Call Now style).
  */
 export const CTA_BASE =
-    "inline-flex items-center justify-center gap-2 font-semibold transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F58220] active:scale-[0.98]";
+    "inline-flex items-center justify-center gap-2 font-semibold transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF6A00] active:scale-[0.98]";
 
 export const CTA_VARIANTS = {
     primary:
-        "bg-[#F58220] text-white shadow-md shadow-orange-500/25 hover:bg-[#e2761b] hover:shadow-lg hover:shadow-orange-500/30",
-    secondary:
-        "border-2 border-[#F58220] bg-white text-[#F58220] hover:bg-[#FFF7F0] hover:border-[#e2761b]",
-    ghost:
-        "border border-slate-300 bg-white text-slate-700 shadow-sm hover:border-[#F58220]/50 hover:bg-[#FFF7F0] hover:text-[#0B1F3A]",
-    /** Outline CTA for dark backgrounds (navy panels) */
-    outline:
-        "border-2 border-[#F58220] bg-transparent text-white hover:bg-[#F58220] hover:shadow-md hover:shadow-orange-500/25",
+        "bg-[#FF6A00] text-white shadow-md shadow-orange-500/25 hover:bg-[#E85E00] hover:shadow-lg hover:shadow-orange-500/30",
+    /** Light bg — white + orange border → orange fill + white text */
+    secondary: "cta-fill-orange",
+    ghost: "cta-fill-orange",
+    /** Dark navy panels — transparent + orange border → orange fill */
+    outline: "cta-fill-orange-dark",
 };
 
 export const CTA_SIZES = {

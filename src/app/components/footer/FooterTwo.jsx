@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Phone, Mail, MapPin, Globe } from "lucide-react";
 import { UK_SERVICE_LINKS } from "@/app/uk/ukServiceLinks";
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
 // Paths for stylized world continents (semi-abstract tech style, scaled to 1000x500)
 const CONTINENT_PATHS = {
@@ -116,9 +117,9 @@ export default function FooterTwo() {
                         <div className="space-y-3 pt-1">
                             <a
                                 href="tel:+18885520055"
-                                className="flex items-center gap-3 text-xs font-bold hover:text-[#F58220] transition-colors group cursor-pointer"
+                                className="flex items-center gap-3 text-xs font-bold hover:text-[#FF6A00] transition-colors group cursor-pointer"
                             >
-                                <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center text-[#F58220] group-hover:bg-[#F58220]/15 transition-all">
+                                <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center text-[#FF6A00] group-hover:bg-[#FF6A00]/15 transition-all">
                                     <Phone className="w-3 h-3" />
                                 </div>
                                 <span className="flex items-center gap-1.5">
@@ -130,16 +131,16 @@ export default function FooterTwo() {
 
                             <a
                                 href="mailto:info@nextledgers.com"
-                                className="flex items-center gap-3 text-xs font-bold hover:text-[#F58220] transition-colors group cursor-pointer"
+                                className="flex items-center gap-3 text-xs font-bold hover:text-[#FF6A00] transition-colors group cursor-pointer"
                             >
-                                <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center text-[#F58220] group-hover:bg-[#F58220]/15 transition-all">
+                                <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center text-[#FF6A00] group-hover:bg-[#FF6A00]/15 transition-all">
                                     <Mail className="w-3 h-3" />
                                 </div>
                                 info@nextledgers.com
                             </a>
 
                             <div className="flex items-start gap-3 text-xs font-semibold text-white/70 leading-normal">
-                                <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center text-[#F58220] mt-0.5 flex-shrink-0">
+                                <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center text-[#FF6A00] mt-0.5 flex-shrink-0">
                                     <MapPin className="w-3 h-3" />
                                 </div>
                                 <div>
@@ -156,7 +157,7 @@ export default function FooterTwo() {
 
                     {/* Column 2: Our Services In UK (4 4 layout - 2 Columns of 4) */}
                     <div className="space-y-4 lg:col-span-4 md:col-span-4 col-span-1">
-                        <h4 className="text-xs font-black uppercase tracking-wider text-[#F58220] flex items-center gap-1.5">
+                        <h4 className="text-xs font-black uppercase tracking-wider text-[#FF6A00] flex items-center gap-1.5">
                             <span>🇬🇧</span> Our Services In UK
                         </h4>
                         <ul className="grid grid-cols-2 gap-x-4 gap-y-2.5 text-xs font-bold text-white/60">
@@ -164,7 +165,7 @@ export default function FooterTwo() {
                                 <li key={service.href}>
                                     <Link
                                         href={service.href}
-                                        className="hover:text-[#F58220] transition-colors cursor-pointer block"
+                                        className="hover:text-[#FF6A00] transition-colors cursor-pointer block"
                                     >
                                         {service.label}
                                     </Link>
@@ -175,33 +176,33 @@ export default function FooterTwo() {
 
                     {/* Column 3: Quick Links */}
                     <div className="space-y-4 lg:col-span-1 md:col-span-2 col-span-1">
-                        <h4 className="text-xs font-black uppercase tracking-wider text-[#F58220]">
+                        <h4 className="text-xs font-black uppercase tracking-wider text-[#FF6A00]">
                             LINKS
                             {/* QUICK  */}
                         </h4>
                         <ul className="space-y-2.5 text-xs font-bold text-white/60">
                             <li>
-                                <Link href="/" className="hover:text-[#F58220] transition-colors cursor-pointer block">
+                                <Link href="/" className="hover:text-[#FF6A00] transition-colors cursor-pointer block">
                                     Home
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/about" className="hover:text-[#F58220] transition-colors cursor-pointer block">
+                                <Link href="/about" className="hover:text-[#FF6A00] transition-colors cursor-pointer block">
                                     About Us
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/team" className="hover:text-[#F58220] transition-colors cursor-pointer block">
+                                <Link href="/team" className="hover:text-[#FF6A00] transition-colors cursor-pointer block">
                                     Our Team
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/contact" className="hover:text-[#F58220] transition-colors cursor-pointer block">
+                                <Link href="/contact" className="hover:text-[#FF6A00] transition-colors cursor-pointer block">
                                     Contact Us
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/articles" className="hover:text-[#F58220] transition-colors cursor-pointer block">
+                                <Link href="/articles" className="hover:text-[#FF6A00] transition-colors cursor-pointer block">
                                     Articles & Tips
                                 </Link>
                             </li>
@@ -210,7 +211,7 @@ export default function FooterTwo() {
 
                     {/* Column 4: Global Connectivity Map Box Widget */}
                     <div className="lg:col-span-5 md:col-span-3 col-span-1 space-y-4 overflow-visible">
-                        <h4 className="text-xs font-black uppercase tracking-wider text-[#F58220]">
+                        <h4 className="text-xs font-black uppercase tracking-wider text-[#FF6A00]">
                             Global Connectivity
                         </h4>
                         <div className="w-full overflow-hidden">
@@ -267,8 +268,8 @@ export default function FooterTwo() {
                                 })}
 
                                 {/* HQ Node: India */}
-                                <circle cx={LOCATIONS.india.x} cy={LOCATIONS.india.y} r="10" fill="#F58220" opacity="0.3" className="animate-ping" />
-                                <circle cx={LOCATIONS.india.x} cy={LOCATIONS.india.y} r="5" fill="#F58220" filter="url(#glow-orange)" />
+                                <circle cx={LOCATIONS.india.x} cy={LOCATIONS.india.y} r="10" fill={BRAND_ORANGE} opacity="0.3" className="animate-ping" />
+                                <circle cx={LOCATIONS.india.x} cy={LOCATIONS.india.y} r="5" fill={BRAND_ORANGE} filter="url(#glow-orange)" />
 
                                 {/* Target Nodes & Labels */}
                                 {TIMELINE.map((item, idx) => {

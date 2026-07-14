@@ -5,8 +5,9 @@ import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { POPUP_REGIONS } from "../RegionSelect/regionData";
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
-const ORANGE = "#F58220";
+const ORANGE = BRAND_ORANGE;
 const NAVY = "#0F274A";
 
 const COUNTRIES = POPUP_REGIONS.map((r) => ({
@@ -189,7 +190,7 @@ function IconSend({ className = "w-4 h-4" }) {
 
 function FieldIcon({ children }) {
   return (
-    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[10px] bg-[#FFF1E6] text-[#F58220] sm:h-10 sm:w-10">
+    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[10px] bg-[#FFF1E6] text-[#FF6A00] sm:h-10 sm:w-10">
       {children}
     </div>
   );
@@ -214,7 +215,7 @@ function FormField({ icon, label, required, children }) {
 }
 
 const inputClass =
-  "w-full h-[38px] sm:h-[42px] rounded-[8px] border border-[#E5E7EB] bg-white px-3 text-[13px] sm:text-[14px] text-[#0F274A] placeholder:text-[#9CA3AF] outline-none transition-colors focus:border-[#F58220] focus:ring-1 focus:ring-[#F58220]/25";
+  "w-full h-[38px] sm:h-[42px] rounded-[8px] border border-[#E5E7EB] bg-white px-3 text-[13px] sm:text-[14px] text-[#0F274A] placeholder:text-[#9CA3AF] outline-none transition-colors focus:border-[#FF6A00] focus:ring-1 focus:ring-[#FF6A00]/25";
 
 const FEATURES = [
   {
@@ -333,12 +334,12 @@ export default function QuotePopup({ isOpen, onClose }) {
             <button
               type="button"
               onClick={onClose}
-              className="group absolute top-3 right-3 z-20 flex h-8 w-8 cursor-pointer items-center justify-center rounded-[8px] border border-[#E5E7EB] bg-white transition-all duration-200 hover:border-[#F58220] hover:bg-[#FFF0E4] sm:top-4 sm:right-4 sm:h-9 sm:w-9"
+              className="group absolute top-3 right-3 z-20 flex h-8 w-8 cursor-pointer items-center justify-center rounded-[8px] border border-[#E5E7EB] bg-white transition-all duration-200 hover:border-[#FF6A00] hover:bg-[#FFF0E4] sm:top-4 sm:right-4 sm:h-9 sm:w-9"
               aria-label="Close"
             >
               <svg
                 viewBox="0 0 24 24"
-                className="h-4 w-4 text-black transition-colors duration-200 group-hover:text-[#F58220]"
+                className="h-4 w-4 text-black transition-colors duration-200 group-hover:text-[#FF6A00]"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2.4"
@@ -358,7 +359,7 @@ export default function QuotePopup({ isOpen, onClose }) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1, duration: 0.35, ease: "easeOut" }}
                 >
-                  <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-[#FFF1E6] text-[#F58220] sm:h-12 sm:w-12">
+                  <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-full bg-[#FFF1E6] text-[#FF6A00] sm:h-12 sm:w-12">
                     <IconDocLock className="h-5 w-5 sm:h-6 sm:w-6" />
                   </div>
 
@@ -489,7 +490,7 @@ export default function QuotePopup({ isOpen, onClose }) {
                       required
                       checked={form.agree}
                       onChange={(e) => update("agree", e.target.checked)}
-                      className="mt-0.5 h-4 w-4 cursor-pointer rounded border-[#D1D5DB] accent-[#F58220] text-[#F58220]"
+                      className="mt-0.5 h-4 w-4 cursor-pointer rounded border-[#D1D5DB] accent-[#FF6A00] text-[#FF6A00]"
                     />
                     <span className="text-[11px] leading-4 text-[#4B5563] sm:text-[13px] sm:leading-5">
                       I have read and agree to the{" "}
@@ -507,7 +508,7 @@ export default function QuotePopup({ isOpen, onClose }) {
                     type="submit"
                     whileHover={{ scale: 1.015 }}
                     whileTap={{ scale: 0.98 }}
-                    className="mx-auto mt-3.5 flex h-[44px] w-full max-w-[420px] cursor-pointer items-center justify-center gap-2.5 rounded-[10px] bg-[#F58220] text-[12px] font-bold tracking-[0.08em] text-white uppercase shadow-[0_8px_20px_rgba(245,130,32,0.28)] transition-colors hover:bg-[#e57416] sm:mt-4 sm:h-[48px] sm:max-w-[480px] sm:text-[14px]"
+                    className="mx-auto mt-3.5 flex h-[44px] w-full max-w-[420px] cursor-pointer items-center justify-center gap-2.5 rounded-[10px] bg-[#FF6A00] text-[12px] font-bold tracking-[0.08em] text-white uppercase shadow-[0_8px_20px_rgba(255, 106, 0,0.28)] transition-colors hover:bg-[#e57416] sm:mt-4 sm:h-[48px] sm:max-w-[480px] sm:text-[14px]"
                   >
                     <IconSend className="h-[15px] w-[15px]" />
                     SUBMIT FORM
@@ -527,7 +528,7 @@ export default function QuotePopup({ isOpen, onClose }) {
                             index > 0 ? "lg:border-l lg:border-[#E8D5C4] lg:pl-5" : ""
                           } ${index < FEATURES.length - 1 ? "lg:pr-5" : ""}`}
                         >
-                          <div className="mt-0.5 shrink-0 text-[#F58220]">
+                          <div className="mt-0.5 shrink-0 text-[#FF6A00]">
                             <Icon className="h-5 w-5" />
                           </div>
                           <div className="min-w-0">

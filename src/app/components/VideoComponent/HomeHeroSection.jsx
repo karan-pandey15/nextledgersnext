@@ -32,7 +32,7 @@ export default function HomeHeroSection() {
         <div className="max-w-[760px]">
           <p className="text-white/90 text-[13px] sm:text-[14px] font-medium mb-4 sm:mb-5">
             Proudly supporting businesses across{" "}
-            <span className="text-[#F58220] font-semibold">globally</span> since 2018
+            <span className="text-[#FF6A00] font-semibold">globally</span> since 2018
           </p>
 
           <h1 className="text-white font-bold text-[30px] sm:text-[38px] md:text-[46px] lg:text-[52px] leading-[1.08] tracking-tight">
@@ -40,7 +40,7 @@ export default function HomeHeroSection() {
             <br />
             Tax & Virtual Staffing
             <br />
-            <span className="text-[#F58220]">Solutions.</span>
+            <span className="text-[#FF6A00]">Solutions.</span>
           </h1>
 
           <p className="mt-4 sm:mt-5 max-w-[620px] text-white/85 text-[14px] sm:text-[15px] leading-7">
@@ -50,17 +50,20 @@ export default function HomeHeroSection() {
         </div>
 
         <div className="mt-8 lg:mt-0">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-4">
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-3">
             {TRUST_ITEMS.map(({ icon: Icon, lines }, index) => (
               <React.Fragment key={lines.join("-")}>
-                <div className="flex items-center gap-2.5 text-[13px] sm:text-[14px]">
+                <div className="flex items-center gap-2 text-[14px] sm:text-[15px]">
                   <div
                     className="shrink-0 aspect-square"
-                    style={{ width: "calc(2 * 1.12 * 1em)", height: "calc(2 * 1.12 * 1em)" }}
+                    style={{
+                      width: "calc(2 * 1.12 * 1.9 * 1em)",
+                      height: "calc(2 * 1.12 * 1.9 * 1em)",
+                    }}
                   >
                     <Icon />
                   </div>
-                  <div className="flex flex-col leading-[1.12]">
+                  <div className="flex flex-col leading-[1.15]">
                     <span className="text-white font-semibold">{lines[0]}</span>
                     <span className="text-white font-semibold">{lines[1]}</span>
                   </div>
@@ -68,7 +71,7 @@ export default function HomeHeroSection() {
 
                 {index < TRUST_ITEMS.length - 1 && (
                   <div
-                    className="hidden sm:block w-px bg-white/35 mx-4 lg:mx-6 self-center h-[calc(2*1.12*13px)] sm:h-[calc(2*1.12*14px)]"
+                    className="hidden sm:block w-px bg-white/35 mx-1.5 self-center h-[calc(2*1.12*1.9*14px)] sm:h-[calc(2*1.12*1.9*15px)]"
                     aria-hidden="true"
                   />
                 )}

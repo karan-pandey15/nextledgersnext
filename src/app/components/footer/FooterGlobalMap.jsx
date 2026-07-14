@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useEffect, useId, useState } from "react";
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
-const ORANGE = "#F58220";
+const ORANGE = BRAND_ORANGE;
 const DOT = "#7EB6D4";
 
 /** Dotted continent silhouettes — viewBox 0 0 1000 520 */

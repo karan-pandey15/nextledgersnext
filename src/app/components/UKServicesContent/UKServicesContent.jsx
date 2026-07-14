@@ -95,7 +95,7 @@ function SoftwareLogoBadge({ name }) {
   if (!logoSrc) {
     return (
       <div className="flex items-center gap-2 p-3 bg-white rounded-xl border border-gray-200 shadow-sm h-16 sm:h-20 justify-center w-full">
-        <span className="w-1.5 h-1.5 rounded-full bg-[#F58220] flex-shrink-0" />
+        <span className="w-1.5 h-1.5 rounded-full bg-[#FF6A00] flex-shrink-0" />
         <span className="text-[11px] sm:text-xs font-bold text-gray-700">{name}</span>
       </div>
     );
@@ -105,7 +105,7 @@ function SoftwareLogoBadge({ name }) {
     <div
       onClick={() => setClicked(!clicked)}
       onMouseLeave={() => setClicked(false)}
-      className="group relative flex items-center justify-center p-3 bg-white rounded-xl border border-gray-200 shadow-sm h-16 sm:h-20 w-full cursor-pointer select-none transition-all duration-300 hover:border-[#F58220]/40 hover:shadow-md overflow-hidden"
+      className="group relative flex items-center justify-center p-3 bg-white rounded-xl border border-gray-200 shadow-sm h-16 sm:h-20 w-full cursor-pointer select-none transition-all duration-300 hover:border-[#FF6A00]/40 hover:shadow-md overflow-hidden"
     >
       {/* Logo Image */}
       <div
@@ -294,7 +294,7 @@ export default function UKServicesContent({ serviceSlug }) {
           {/* SECTION AREA A: MANAGEMENT ACCOUNTS & FINANCIAL REPORTING                         */}
           {/* ================================================================================= */}
 
-          {/* Main Page Title Header (BG is White, Heading color is #EA7C24) */}
+          {/* Main Page Title Header (BG is White, Heading color is #FF6A00) */}
           <BookkeepingHero />
 
 
@@ -310,11 +310,11 @@ export default function UKServicesContent({ serviceSlug }) {
                   <IconDisplayScreen logodata={DEFAULT_TECH_CATEGORIES} />
 
           {/* Section 3: Our Management Accounting Services (Right image, bg #FEF4E4) */}
-          <div id="services" className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
+          <div id="services" className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#FF6A00]/10">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[10px] lg:gap-16 items-stretch">
               {/* Left Content */}
               <div className="flex flex-col justify-center flex-1 py-2 lg:py-0">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider mb-1">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider mb-1">
                   Our Deliverables
                 </span>
                 <h2 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mb-3">
@@ -340,9 +340,9 @@ export default function UKServicesContent({ serviceSlug }) {
                   ].map((service, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center gap-3 bg-white/70 backdrop-blur-xs p-2.5 rounded-xl border border-white hover:border-[#F58220]/30 transition-all duration-300 hover:shadow-xs"
+                      className="flex items-center gap-3 bg-white/70 backdrop-blur-xs p-2.5 rounded-xl border border-white hover:border-[#FF6A00]/30 transition-all duration-300 hover:shadow-xs"
                     >
-                      <div className="flex-shrink-0 w-4 h-4 rounded-full bg-[#F58220] flex items-center justify-center">
+                      <div className="flex-shrink-0 w-4 h-4 rounded-full bg-[#FF6A00] flex items-center justify-center">
                         <svg className="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                         </svg>
@@ -368,7 +368,7 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 4: How We Help Businesses (Left image, bg #ffffff, Heading color is #EA7C24) */}
+          {/* Section 4: How We Help Businesses (Left image, bg #ffffff, Heading color is #FF6A00) */}
           <div className="w-full bg-white py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[10px] lg:gap-16 items-stretch">
               {/* Left Image */}
@@ -384,10 +384,10 @@ export default function UKServicesContent({ serviceSlug }) {
               </div>
               {/* Right Content */}
               <div className="flex flex-col justify-center flex-1 order-1 lg:order-2 py-2 lg:py-0">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider mb-1">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider mb-1">
                   Business Transformation
                 </span>
-                <h2 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mb-3">
+                <h2 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mb-3">
                   How We Help Businesses
                 </h2>
                 <p className="text-gray-700 text-xs sm:text-sm leading-relaxed mb-6">
@@ -405,8 +405,8 @@ export default function UKServicesContent({ serviceSlug }) {
                     "Make faster and more informed decisions",
                   ].map((item, idx) => (
                     <div key={idx} className="flex items-start gap-2.5 group">
-                      <div className="flex-shrink-0 w-5 h-5 rounded bg-[#FEF4E4] flex items-center justify-center mt-0.5 group-hover:bg-[#F58220] transition-colors duration-300">
-                        <svg className="w-2.5 h-2.5 text-[#F58220] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                      <div className="flex-shrink-0 w-5 h-5 rounded bg-[#FEF4E4] flex items-center justify-center mt-0.5 group-hover:bg-[#FF6A00] transition-colors duration-300">
+                        <svg className="w-2.5 h-2.5 text-[#FF6A00] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
                         </svg>
                       </div>
@@ -421,9 +421,9 @@ export default function UKServicesContent({ serviceSlug }) {
           </div>
 
           {/* Section 5: Software Expertise (bg #FEF4E4) - No Image, Premium Full Width Grid */}
-          <div className="w-full bg-[#FEF4E4] py-[10px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
+          <div className="w-full bg-[#FEF4E4] py-[10px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#FF6A00]/10">
             <div className="max-w-7xl mx-auto text-center mb-8">
-              <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider mb-1 block">
+              <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider mb-1 block">
                 Technology Stack
               </span>
               <h2 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mb-3">
@@ -436,10 +436,10 @@ export default function UKServicesContent({ serviceSlug }) {
 
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
               {/* Left Column: Accounting Platforms */}
-              <div className="bg-white rounded-3xl p-5 sm:p-7 border border-[#F58220]/15 shadow-xs flex flex-col justify-between">
+              <div className="bg-white rounded-3xl p-5 sm:p-7 border border-[#FF6A00]/15 shadow-xs flex flex-col justify-between">
                 <div>
                   <h3 className="text-[#0F274A] font-extrabold text-xs sm:text-sm uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full inline-block" />
+                    <span className="w-1.5 h-3.5 bg-[#FF6A00] rounded-full inline-block" />
                     Accounting Platforms
                   </h3>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
@@ -456,10 +456,10 @@ export default function UKServicesContent({ serviceSlug }) {
               </div>
 
               {/* Right Column: Reporting & Dashboard Tools */}
-              <div className="bg-white rounded-3xl p-5 sm:p-7 border border-[#F58220]/15 shadow-xs flex flex-col justify-between">
+              <div className="bg-white rounded-3xl p-5 sm:p-7 border border-[#FF6A00]/15 shadow-xs flex flex-col justify-between">
                 <div>
                   <h3 className="text-[#0F274A] font-extrabold text-xs sm:text-sm uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full inline-block" />
+                    <span className="w-1.5 h-3.5 bg-[#FF6A00] rounded-full inline-block" />
                     Reporting & Dashboard Tools
                   </h3>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
@@ -480,13 +480,13 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 6: Industries We Support (bg #ffffff, Heading color is #EA7C24) - No Image, Premium Card Grid */}
+          {/* Section 6: Industries We Support (bg #ffffff, Heading color is #FF6A00) - No Image, Premium Card Grid */}
           <div className="w-full bg-white py-[10px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="max-w-7xl mx-auto text-center mb-8">
-              <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider mb-1 block">
+              <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider mb-1 block">
                 Sectors Covered
               </span>
-              <h2 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mb-3">
+              <h2 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mb-3">
                 Reacting to client needs
               </h2>
               <p className="text-gray-700 text-xs sm:text-sm leading-relaxed max-w-2xl mx-auto">
@@ -507,7 +507,7 @@ export default function UKServicesContent({ serviceSlug }) {
               ].map((ind, idx) => (
                 <div
                   key={idx}
-                  className="flex flex-col items-center justify-center text-center p-4 bg-[#FEF4E4]/40 rounded-2xl border border-[#F58220]/15 hover:border-[#F58220]/30 hover:bg-[#FEF4E4]/65 transition-all duration-300 group hover:shadow-xs"
+                  className="flex flex-col items-center justify-center text-center p-4 bg-[#FEF4E4]/40 rounded-2xl border border-[#FF6A00]/15 hover:border-[#FF6A00]/30 hover:bg-[#FEF4E4]/65 transition-all duration-300 group hover:shadow-xs"
                 >
                   <span className="text-3xl mb-2 flex-shrink-0 group-hover:scale-110 transition-transform">
                     {ind.icon}
@@ -521,9 +521,9 @@ export default function UKServicesContent({ serviceSlug }) {
           </div>
 
           {/* Section 7: Why Choose NextLedgers? (bg #FEF4E4) - No Image, Premium Benefit Cards Grid */}
-          <div className="w-full bg-[#FEF4E4] py-[10px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
+          <div className="w-full bg-[#FEF4E4] py-[10px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#FF6A00]/10">
             <div className="max-w-7xl mx-auto text-center mb-8">
-              <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider mb-1 block">
+              <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider mb-1 block">
                 The NextLedgers Advantage
               </span>
               <h2 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mb-3">
@@ -544,8 +544,8 @@ export default function UKServicesContent({ serviceSlug }) {
                 { title: "Flexible Engagement", desc: "Scale resources up or down depending on seasonal client cycles." },
                 { title: "No Additional UK Hiring", desc: "Expand practice capabilities without high local overheads and benefits." },
               ].map((item, idx) => (
-                <div key={idx} className="bg-white p-5 rounded-2xl border border-gray-100 hover:border-[#F58220]/30 transition-all duration-300 flex items-start gap-3.5 group shadow-xs">
-                  <div className="w-6 h-6 rounded-full bg-[#F58220] flex items-center justify-center flex-shrink-0 text-white font-bold text-[10px] transition-all">
+                <div key={idx} className="bg-white p-5 rounded-2xl border border-gray-100 hover:border-[#FF6A00]/30 transition-all duration-300 flex items-start gap-3.5 group shadow-xs">
+                  <div className="w-6 h-6 rounded-full bg-[#FF6A00] flex items-center justify-center flex-shrink-0 text-white font-bold text-[10px] transition-all">
                     ✓
                   </div>
                   <div>
@@ -557,18 +557,18 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 8: More Than Compliance Reporting (Centered CTA Card, No Image, bg #ffffff, Heading color is #EA7C24) */}
+          {/* Section 8: More Than Compliance Reporting (Centered CTA Card, No Image, bg #ffffff, Heading color is #FF6A00) */}
           <div className="w-full bg-white py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="w-[90%] max-w-7xl mx-auto text-center">
-              <div className="bg-[#FEF4E4]/40 border border-[#F58220]/25 rounded-[24px] p-6 sm:p-10 lg:p-14 shadow-[0_20px_50px_rgba(245,130,32,0.04)] relative overflow-hidden group hover:shadow-[0_20px_50px_rgba(245,130,32,0.08)] transition-all duration-500">
+              <div className="bg-[#FEF4E4]/40 border border-[#FF6A00]/25 rounded-[24px] p-6 sm:p-10 lg:p-14 shadow-[0_20px_50px_rgba(255, 106, 0,0.04)] relative overflow-hidden group hover:shadow-[0_20px_50px_rgba(255, 106, 0,0.08)] transition-all duration-500">
                 {/* Background design accents */}
-                <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-[#F58220]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
-                <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-[#F58220]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
+                <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-[#FF6A00]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
+                <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-[#FF6A00]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
 
-                <span className="text-[#F58220] font-extrabold text-[10px] sm:text-xs uppercase tracking-widest bg-white border border-[#F58220]/20 px-3 py-1 rounded-full inline-block mb-4 shadow-xs">
+                <span className="text-[#FF6A00] font-extrabold text-[10px] sm:text-xs uppercase tracking-widest bg-white border border-[#FF6A00]/20 px-3 py-1 rounded-full inline-block mb-4 shadow-xs">
                   Beyond Compliance
                 </span>
-                <h2 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mb-4">
+                <h2 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mb-4">
                   More Than Compliance Reporting
                 </h2>
                 <div className="space-y-4 text-gray-700 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed mb-6">
@@ -600,28 +600,28 @@ export default function UKServicesContent({ serviceSlug }) {
           {/* SECTION AREA B: UK PAYROLL & CIS OUTSOURCING SERVICES                              */}
           {/* ================================================================================= */}
 
-          {/* Section Divider & Header (id="payroll-cis", bg #ffffff, heading #EA7C24) */}
+          {/* Section Divider & Header (id="payroll-cis", bg #ffffff, heading #FF6A00) */}
           <div id="payroll-cis" className="w-full bg-white pt-8 pb-4 lg:pt-16 lg:pb-12 text-center px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="max-w-4xl mx-auto animate-fade-up">
-              <span className="text-[#F58220] uppercase font-extrabold tracking-widest text-[10px] sm:text-xs bg-[#F58220]/10 px-3 py-1 rounded-full">
+              <span className="text-[#FF6A00] uppercase font-extrabold tracking-widest text-[10px] sm:text-xs bg-[#FF6A00]/10 px-3 py-1 rounded-full">
                 Outsource UK Payroll & CIS
               </span>
-              <h2 className="text-[22px] sm:text-[36px] md:text-[46px] font-extrabold text-[#EA7C24] leading-[1.2] mt-3 mb-4">
+              <h2 className="text-[22px] sm:text-[36px] md:text-[46px] font-extrabold text-[#FF6A00] leading-[1.2] mt-3 mb-4">
                 UK Payroll & CIS Outsourcing Services
               </h2>
               <p className="text-gray-600 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
                 Reliable Payroll & CIS Support for UK Accounting Firms — increase practice capacity and ensure strict HMRC compliance.
               </p>
-              <div className="w-16 h-1 bg-[#F58220] mx-auto mt-4 rounded-full" />
+              <div className="w-16 h-1 bg-[#FF6A00] mx-auto mt-4 rounded-full" />
             </div>
           </div>
 
           {/* Section 1: Overview with HMRC Dashboard Mock UI (bg #FEF4E4) */}
-          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
+          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#FF6A00]/10">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[10px] lg:gap-16 items-stretch">
               {/* Left Content */}
               <div className="flex flex-col justify-center flex-1 py-2 lg:py-0">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider mb-1">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider mb-1">
                   Service Overview
                 </span>
                 <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mb-3">
@@ -659,14 +659,14 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 2: Why Payroll & CIS Matter (3x2 Grid Cards, bg #ffffff, heading #EA7C24) */}
+          {/* Section 2: Why Payroll & CIS Matter (3x2 Grid Cards, bg #ffffff, heading #FF6A00) */}
           <div className="w-full bg-white py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-3xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
                   Strategic Value
                 </span>
-                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mt-3 mb-3">
+                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mt-3 mb-3">
                   Why Payroll & CIS Matter
                 </h3>
                 <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
@@ -690,9 +690,9 @@ export default function UKServicesContent({ serviceSlug }) {
                 ].map((item, idx) => (
                   <div
                     key={idx}
-                    className="bg-[#FEF4E4]/25 p-5 rounded-2xl border border-[#F58220]/15 hover:border-[#F58220]/30 hover:bg-[#FEF4E4]/45 transition-all duration-300 hover:shadow-xs group"
+                    className="bg-[#FEF4E4]/25 p-5 rounded-2xl border border-[#FF6A00]/15 hover:border-[#FF6A00]/30 hover:bg-[#FEF4E4]/45 transition-all duration-300 hover:shadow-xs group"
                   >
-                    <div className="w-8 h-8 rounded-xl bg-white border border-[#F58220]/20 flex items-center justify-center text-lg mb-3 shadow-xs group-hover:scale-105 transition-transform">
+                    <div className="w-8 h-8 rounded-xl bg-white border border-[#FF6A00]/20 flex items-center justify-center text-lg mb-3 shadow-xs group-hover:scale-105 transition-transform">
                       {item.icon}
                     </div>
                     <h4 className="text-sm font-extrabold text-[#0F274A] mb-2">{item.title}</h4>
@@ -704,10 +704,10 @@ export default function UKServicesContent({ serviceSlug }) {
           </div>
 
           {/* Section 3: Dual comparative list for Payroll vs CIS deliverables (bg #FEF4E4) */}
-          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
+          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#FF6A00]/10">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#F58220]/15 px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#FF6A00]/15 px-3 py-1 rounded-full">
                   Full Services Deliverables
                 </span>
                 <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mt-3 mb-2">
@@ -720,11 +720,11 @@ export default function UKServicesContent({ serviceSlug }) {
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
                 {/* Payroll Card */}
-                <div className="bg-white rounded-3xl p-5 sm:p-7 border border-[#F58220]/15 shadow-xs flex flex-col justify-between">
+                <div className="bg-white rounded-3xl p-5 sm:p-7 border border-[#FF6A00]/15 shadow-xs flex flex-col justify-between">
                   <div>
                     <div className="flex items-center gap-2 mb-4">
                       <span className="text-2xl">📊</span>
-                      <h4 className="text-base sm:text-lg font-extrabold text-[#EA7C24]">Our Payroll Services Include</h4>
+                      <h4 className="text-base sm:text-lg font-extrabold text-[#FF6A00]">Our Payroll Services Include</h4>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                       {[
@@ -750,11 +750,11 @@ export default function UKServicesContent({ serviceSlug }) {
                 </div>
 
                 {/* CIS Card */}
-                <div className="bg-white rounded-3xl p-5 sm:p-7 border border-[#F58220]/15 shadow-xs flex flex-col justify-between">
+                <div className="bg-white rounded-3xl p-5 sm:p-7 border border-[#FF6A00]/15 shadow-xs flex flex-col justify-between">
                   <div>
                     <div className="flex items-center gap-2 mb-4">
                       <span className="text-2xl">🏗️</span>
-                      <h4 className="text-base sm:text-lg font-extrabold text-[#EA7C24]">Our CIS Services Include</h4>
+                      <h4 className="text-base sm:text-lg font-extrabold text-[#FF6A00]">Our CIS Services Include</h4>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                       {[
@@ -779,14 +779,14 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 4: How We Help Accounting Firms (bg #ffffff, heading #EA7C24) */}
+          {/* Section 4: How We Help Accounting Firms (bg #ffffff, heading #FF6A00) */}
           <div className="w-full bg-white py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
                   Accounting Practice Scaling
                 </span>
-                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mt-3 mb-2">
+                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mt-3 mb-2">
                   How We Help Accounting Firms
                 </h3>
                 <p className="text-gray-600 text-xs sm:text-sm">
@@ -801,7 +801,7 @@ export default function UKServicesContent({ serviceSlug }) {
                   { num: "03", title: "Reduce Admin Load", desc: "Free up in-house staff from calculations and portal uploads." },
                   { num: "04", title: "Scale Headcount-Free", desc: "Grow practice revenues without onboarding local employees." }
                 ].map((item, idx) => (
-                  <div key={idx} className="bg-white p-5 rounded-2xl border border-gray-100 shadow-[0_10px_35px_rgba(0,0,0,0.015)] relative group hover:border-[#F58220]/20 transition-all duration-300">
+                  <div key={idx} className="bg-white p-5 rounded-2xl border border-gray-100 shadow-[0_10px_35px_rgba(0,0,0,0.015)] relative group hover:border-[#FF6A00]/20 transition-all duration-300">
 
                     <h4 className="text-xs sm:text-sm font-extrabold text-[#0F274A] mb-2">{item.title}</h4>
                     <p className="text-[11px] text-gray-500 leading-relaxed">{item.desc}</p>
@@ -815,7 +815,7 @@ export default function UKServicesContent({ serviceSlug }) {
                   { num: "06", title: "Minimise Errors", desc: "Dual review workflow minimizes deductions and pension calculation problems." },
                   { num: "07", title: "Better Service Delivery", desc: "Provide consistent, fast, and secure payroll support directly to clients." }
                 ].map((item, idx) => (
-                  <div key={idx} className="bg-[#faf9f6] p-5 rounded-2xl border border-gray-50 shadow-xs relative group hover:border-[#F58220]/20 transition-all duration-300">
+                  <div key={idx} className="bg-[#faf9f6] p-5 rounded-2xl border border-gray-50 shadow-xs relative group hover:border-[#FF6A00]/20 transition-all duration-300">
 
                     <h4 className="text-xs sm:text-sm font-extrabold text-[#0F274A] mb-2">{item.title}</h4>
                     <p className="text-[11px] text-gray-500 leading-relaxed">{item.desc}</p>
@@ -826,10 +826,10 @@ export default function UKServicesContent({ serviceSlug }) {
           </div>
 
           {/* Section 5: Software & Pensions 3-column stack cards (bg #FEF4E4) */}
-          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
+          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#FF6A00]/10">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#F58220]/15 px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#FF6A00]/15 px-3 py-1 rounded-full">
                   Software Integration
                 </span>
                 <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mt-3 mb-2">
@@ -843,8 +843,8 @@ export default function UKServicesContent({ serviceSlug }) {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 {/* Column 1 */}
                 <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-xs">
-                  <h4 className="text-xs sm:text-sm font-extrabold text-[#EA7C24] uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
+                  <h4 className="text-xs sm:text-sm font-extrabold text-[#FF6A00] uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <span className="w-1.5 h-3.5 bg-[#FF6A00] rounded-full" />
                     Payroll Software
                   </h4>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
@@ -856,8 +856,8 @@ export default function UKServicesContent({ serviceSlug }) {
 
                 {/* Column 2 */}
                 <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-xs">
-                  <h4 className="text-xs sm:text-sm font-extrabold text-[#EA7C24] uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
+                  <h4 className="text-xs sm:text-sm font-extrabold text-[#FF6A00] uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <span className="w-1.5 h-3.5 bg-[#FF6A00] rounded-full" />
                     Pension Platforms
                   </h4>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
@@ -869,8 +869,8 @@ export default function UKServicesContent({ serviceSlug }) {
 
                 {/* Column 3 */}
                 <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-xs">
-                  <h4 className="text-xs sm:text-sm font-extrabold text-[#EA7C24] uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
+                  <h4 className="text-xs sm:text-sm font-extrabold text-[#FF6A00] uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <span className="w-1.5 h-3.5 bg-[#FF6A00] rounded-full" />
                     Accounting & Workflow
                   </h4>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
@@ -883,14 +883,14 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 6: Industries We Support (bg #ffffff, heading #EA7C24) */}
+          {/* Section 6: Industries We Support (bg #ffffff, heading #FF6A00) */}
           <div className="w-full bg-white py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
                   Sectors Served
                 </span>
-                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mt-3 mb-2">
+                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mt-3 mb-2">
                   Reacting to client needs
                 </h3>
                 <p className="text-gray-600 text-xs sm:text-sm">
@@ -909,7 +909,7 @@ export default function UKServicesContent({ serviceSlug }) {
                 ].map((ind, idx) => (
                   <div
                     key={idx}
-                    className="bg-[#FEF4E4]/40 p-4 rounded-xl border border-[#F58220]/15 text-center hover:bg-[#FEF4E4]/70 hover:shadow-xs hover:border-[#F58220]/30 transition-all duration-300 group"
+                    className="bg-[#FEF4E4]/40 p-4 rounded-xl border border-[#FF6A00]/15 text-center hover:bg-[#FEF4E4]/70 hover:shadow-xs hover:border-[#FF6A00]/30 transition-all duration-300 group"
                   >
                     <div className="text-2xl mb-2 group-hover:scale-110 transition-transform">{ind.icon}</div>
                     <span className="text-[#0F274A] font-extrabold text-[11px] sm:text-xs leading-snug block">
@@ -922,10 +922,10 @@ export default function UKServicesContent({ serviceSlug }) {
           </div>
 
           {/* Section 7: Why Choose NextLedgers? (bg #FEF4E4) */}
-          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
+          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#FF6A00]/10">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#F58220]/15 px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#FF6A00]/15 px-3 py-1 rounded-full">
                   Offshore Advantages
                 </span>
                 <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mt-3 mb-2">
@@ -949,9 +949,9 @@ export default function UKServicesContent({ serviceSlug }) {
                 ].map((adv, idx) => (
                   <div
                     key={idx}
-                    className="bg-white p-4.5 rounded-2xl border border-gray-100 hover:border-[#F58220]/35 hover:shadow-xs transition-all duration-300 flex items-center gap-3.5 group"
+                    className="bg-white p-4.5 rounded-2xl border border-gray-100 hover:border-[#FF6A00]/35 hover:shadow-xs transition-all duration-300 flex items-center gap-3.5 group"
                   >
-                    <div className="w-5 h-5 rounded-full bg-[#F58220] flex items-center justify-center flex-shrink-0 text-white font-bold text-[10px] group-hover:scale-105 transition-transform">
+                    <div className="w-5 h-5 rounded-full bg-[#FF6A00] flex items-center justify-center flex-shrink-0 text-white font-bold text-[10px] group-hover:scale-105 transition-transform">
                       ✓
                     </div>
                     <span className="text-gray-800 font-extrabold text-xs sm:text-[13px] leading-tight">
@@ -963,18 +963,18 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 8: Your Offshore Payroll Partner (Centered Card CTA, bg #ffffff, heading #EA7C24) */}
+          {/* Section 8: Your Offshore Payroll Partner (Centered Card CTA, bg #ffffff, heading #FF6A00) */}
           <div className="w-full bg-white py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="w-[90%] max-w-7xl mx-auto text-center">
-              <div className="bg-[#FEF4E4]/40 border border-[#F58220]/25 rounded-[24px] p-6 sm:p-10 lg:p-14 shadow-[0_20px_50px_rgba(245,130,32,0.04)] relative overflow-hidden group hover:shadow-[0_20px_50px_rgba(245,130,32,0.08)] transition-all duration-500">
+              <div className="bg-[#FEF4E4]/40 border border-[#FF6A00]/25 rounded-[24px] p-6 sm:p-10 lg:p-14 shadow-[0_20px_50px_rgba(255, 106, 0,0.04)] relative overflow-hidden group hover:shadow-[0_20px_50px_rgba(255, 106, 0,0.08)] transition-all duration-500">
                 {/* Background design accents */}
-                <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-[#F58220]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
-                <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-[#F58220]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
+                <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-[#FF6A00]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
+                <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-[#FF6A00]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
 
-                <span className="text-[#F58220] font-extrabold text-[10px] sm:text-xs uppercase tracking-widest bg-white border border-[#F58220]/20 px-3 py-1 rounded-full inline-block mb-4 shadow-xs">
+                <span className="text-[#FF6A00] font-extrabold text-[10px] sm:text-xs uppercase tracking-widest bg-white border border-[#FF6A00]/20 px-3 py-1 rounded-full inline-block mb-4 shadow-xs">
                   Delivery Partner
                 </span>
-                <h2 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mb-4">
+                <h2 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mb-4">
                   Your Offshore Payroll & CIS Delivery Partner
                 </h2>
                 <div className="space-y-4 text-gray-700 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed mb-6">
@@ -1006,28 +1006,28 @@ export default function UKServicesContent({ serviceSlug }) {
           {/* SECTION AREA C: UK PERSONAL TAX OUTSOURCING SERVICES                              */}
           {/* ================================================================================= */}
 
-          {/* Section Divider & Header (id="personal-tax", bg #ffffff, heading #EA7C24) */}
+          {/* Section Divider & Header (id="personal-tax", bg #ffffff, heading #FF6A00) */}
           <div id="personal-tax" className="w-full bg-white pt-8 pb-4 lg:pt-16 lg:pb-12 text-center px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="max-w-4xl mx-auto animate-fade-up">
-              <span className="text-[#F58220] uppercase font-extrabold tracking-widest text-[10px] sm:text-xs bg-[#F58220]/10 px-3 py-1 rounded-full">
+              <span className="text-[#FF6A00] uppercase font-extrabold tracking-widest text-[10px] sm:text-xs bg-[#FF6A00]/10 px-3 py-1 rounded-full">
                 Outsource UK Personal Tax
               </span>
-              <h2 className="text-[22px] sm:text-[36px] md:text-[46px] font-extrabold text-[#EA7C24] leading-[1.2] mt-3 mb-4">
+              <h2 className="text-[22px] sm:text-[36px] md:text-[46px] font-extrabold text-[#FF6A00] leading-[1.2] mt-3 mb-4">
                 UK Personal Tax Outsourcing Services
               </h2>
               <p className="text-gray-600 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
                 Specialist Personal Tax Support for UK Accounting Firms — manage compliance efficiently and improve turnaround times during peak seasons.
               </p>
-              <div className="w-16 h-1 bg-[#F58220] mx-auto mt-4 rounded-full" />
+              <div className="w-16 h-1 bg-[#FF6A00] mx-auto mt-4 rounded-full" />
             </div>
           </div>
 
           {/* Section 1: Overview (Image/Content Alternating Layout, bg #FEF4E4) */}
-          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
+          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#FF6A00]/10">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[10px] lg:gap-16 items-stretch">
               {/* Left Content */}
               <div className="flex flex-col justify-center flex-1 py-2 lg:py-0">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider mb-1">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider mb-1">
                   Personal Tax Overview
                 </span>
                 <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mb-3">
@@ -1066,7 +1066,7 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 2: Why Personal Tax Matters (with Self Assessment Dashboard Mockup, bg #ffffff, heading #EA7C24) */}
+          {/* Section 2: Why Personal Tax Matters (with Self Assessment Dashboard Mockup, bg #ffffff, heading #FF6A00) */}
           <div className="w-full bg-white py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[10px] lg:gap-16 items-stretch">
               {/* Left Side: Team Image */}
@@ -1083,10 +1083,10 @@ export default function UKServicesContent({ serviceSlug }) {
 
               {/* Right Side: Why Personal Tax Matters content */}
               <div className="flex flex-col justify-center flex-1 order-1 lg:order-2 py-2 lg:py-0">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider mb-1">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider mb-1">
                   Filing & Regulations
                 </span>
-                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mb-3">
+                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mb-3">
                   Why Personal Tax Matters
                 </h3>
                 <p className="text-gray-700 text-xs sm:text-sm leading-relaxed mb-4">
@@ -1105,8 +1105,8 @@ export default function UKServicesContent({ serviceSlug }) {
                     "Make informed financial and tax planning decisions"
                   ].map((benefit, idx) => (
                     <div key={idx} className="flex items-start gap-2.5">
-                      <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#FEF4E4] border border-[#F58220]/20 flex items-center justify-center mt-0.5">
-                        <span className="text-[#F58220] text-[10px] font-bold">✓</span>
+                      <div className="flex-shrink-0 w-5 h-5 rounded-full bg-[#FEF4E4] border border-[#FF6A00]/20 flex items-center justify-center mt-0.5">
+                        <span className="text-[#FF6A00] text-[10px] font-bold">✓</span>
                       </div>
                       <span className="text-gray-800 text-xs sm:text-sm font-semibold leading-normal">
                         {benefit}
@@ -1114,7 +1114,7 @@ export default function UKServicesContent({ serviceSlug }) {
                     </div>
                   ))}
                 </div>
-                <div className="p-3.5 rounded-xl bg-[#FEF4E4]/50 border-l-4 border-[#F58220] text-gray-800 text-xs sm:text-sm font-bold leading-relaxed">
+                <div className="p-3.5 rounded-xl bg-[#FEF4E4]/50 border-l-4 border-[#FF6A00] text-gray-800 text-xs sm:text-sm font-bold leading-relaxed">
                   For accounting firms, delivering reliable personal tax services helps build stronger client relationships and creates opportunities for higher-value advisory services.
                 </div>
               </div>
@@ -1122,10 +1122,10 @@ export default function UKServicesContent({ serviceSlug }) {
           </div>
 
           {/* Section 3: Our Personal Tax Services Include (bg-[#FEF4E4]) */}
-          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
+          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#FF6A00]/10">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#F58220]/15 px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#FF6A00]/15 px-3 py-1 rounded-full">
                   Full Deliverables List
                 </span>
                 <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mt-3 mb-2">
@@ -1136,7 +1136,7 @@ export default function UKServicesContent({ serviceSlug }) {
                 </p>
               </div>
 
-              <div className="bg-white rounded-3xl p-5 sm:p-8 border border-[#F58220]/15 shadow-xs">
+              <div className="bg-white rounded-3xl p-5 sm:p-8 border border-[#FF6A00]/15 shadow-xs">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                   {[
                     "Self Assessment Tax Returns",
@@ -1155,7 +1155,7 @@ export default function UKServicesContent({ serviceSlug }) {
                     "Personal Tax Planning Support"
                   ].map((service, idx) => (
                     <div key={idx} className="flex items-center gap-2.5 p-3 bg-[#faf9f6] rounded-xl hover:bg-[#FEF4E4]/30 border border-gray-50 transition-colors group">
-                      <div className="w-4.5 h-4.5 rounded-full bg-[#F58220] flex items-center justify-center flex-shrink-0 text-white font-bold text-[8px] group-hover:scale-110 transition-transform">
+                      <div className="w-4.5 h-4.5 rounded-full bg-[#FF6A00] flex items-center justify-center flex-shrink-0 text-white font-bold text-[8px] group-hover:scale-110 transition-transform">
                         ✓
                       </div>
                       <span className="text-[11px] font-bold text-[#0F274A] leading-tight">{service}</span>
@@ -1166,14 +1166,14 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 4: How We Help Accounting Firms (bg #ffffff, heading #EA7C24) */}
+          {/* Section 4: How We Help Accounting Firms (bg #ffffff, heading #FF6A00) */}
           <div className="w-full bg-white py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
                   Scale Practice Operations
                 </span>
-                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mt-3 mb-2">
+                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mt-3 mb-2">
                   How We Help Accounting Firms
                 </h3>
                 <p className="text-gray-600 text-xs sm:text-sm">
@@ -1188,7 +1188,7 @@ export default function UKServicesContent({ serviceSlug }) {
                   { title: "Reduce Pressure", desc: "Reduce stress and workload during the busy January filing peak." },
                   { title: "Enhance Accuracy", desc: "Ensure consistent compliance checks and filing accuracy." }
                 ].map((card, idx) => (
-                  <div key={idx} className="bg-white p-5 rounded-2xl border border-gray-100 shadow-[0_10px_35px_rgba(0,0,0,0.01)] hover:border-[#F58220]/25 transition-all duration-300">
+                  <div key={idx} className="bg-white p-5 rounded-2xl border border-gray-100 shadow-[0_10px_35px_rgba(0,0,0,0.01)] hover:border-[#FF6A00]/25 transition-all duration-300">
 
                     <h4 className="text-xs sm:text-sm font-extrabold text-[#0F274A] mb-2">{card.title}</h4>
                     <p className="text-[11px] text-gray-500 leading-relaxed">{card.desc}</p>
@@ -1203,7 +1203,7 @@ export default function UKServicesContent({ serviceSlug }) {
                   { title: "Improve Profitability", desc: "Improve profitability per tax return using a dedicated offshore delivery model." },
                   { title: "Scale Seasonally", desc: "Scale operations efficiently during peak tax seasons without increasing headcount." }
                 ].map((card, idx) => (
-                  <div key={idx} className="bg-[#faf9f6] p-5 rounded-2xl border border-gray-50 hover:border-[#F58220]/25 transition-all duration-300">
+                  <div key={idx} className="bg-[#faf9f6] p-5 rounded-2xl border border-gray-50 hover:border-[#FF6A00]/25 transition-all duration-300">
 
                     <h4 className="text-xs sm:text-sm font-extrabold text-[#0F274A] mb-2">{card.title}</h4>
                     <p className="text-[11px] text-gray-500 leading-relaxed">{card.desc}</p>
@@ -1214,10 +1214,10 @@ export default function UKServicesContent({ serviceSlug }) {
           </div>
 
           {/* Section 5: Specialist Areas We Support (bg #FEF4E4) */}
-          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
+          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#FF6A00]/10">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#F58220]/15 px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#FF6A00]/15 px-3 py-1 rounded-full">
                   Sectors and Taxpayers
                 </span>
                 <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mt-3 mb-2">
@@ -1236,10 +1236,10 @@ export default function UKServicesContent({ serviceSlug }) {
                   { title: "Property Investors", desc: "Rental income reporting, property expenses, and capital gains calculations.", icon: "🏢" },
                   { title: "HNWIs & International", desc: "Complex returns involving investments, foreign income, and cross-border reporting.", icon: "🌐" }
                 ].map((card, idx) => (
-                  <div key={idx} className="bg-white p-5 rounded-2xl border border-gray-100 hover:border-[#F58220]/30 hover:shadow-xs transition-all duration-300 flex flex-col justify-between">
+                  <div key={idx} className="bg-white p-5 rounded-2xl border border-gray-100 hover:border-[#FF6A00]/30 hover:shadow-xs transition-all duration-300 flex flex-col justify-between">
                     <div>
                       <div className="text-2xl mb-3">{card.icon}</div>
-                      <h4 className="text-xs sm:text-sm font-extrabold text-[#EA7C24] mb-2">{card.title}</h4>
+                      <h4 className="text-xs sm:text-sm font-extrabold text-[#FF6A00] mb-2">{card.title}</h4>
                       <p className="text-[11px] text-gray-500 leading-relaxed">{card.desc}</p>
                     </div>
                   </div>
@@ -1248,14 +1248,14 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 6: Software Expertise (bg #ffffff, heading #EA7C24) */}
+          {/* Section 6: Software Expertise (bg #ffffff, heading #FF6A00) */}
           <div className="w-full bg-white py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
                   Software Stack
                 </span>
-                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mt-3 mb-2">
+                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mt-3 mb-2">
                   Software Expertise
                 </h3>
                 <p className="text-gray-600 text-xs sm:text-sm">
@@ -1267,7 +1267,7 @@ export default function UKServicesContent({ serviceSlug }) {
                 {/* Column 1 */}
                 <div className="bg-[#faf9f6] rounded-2xl p-5 border border-gray-50 shadow-xs">
                   <h4 className="text-xs sm:text-sm font-extrabold text-[#0F274A] uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
+                    <span className="w-1.5 h-3.5 bg-[#FF6A00] rounded-full" />
                     Personal Tax Software
                   </h4>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
@@ -1280,7 +1280,7 @@ export default function UKServicesContent({ serviceSlug }) {
                 {/* Column 2 */}
                 <div className="bg-[#faf9f6] rounded-2xl p-5 border border-gray-50 shadow-xs">
                   <h4 className="text-xs sm:text-sm font-extrabold text-[#0F274A] uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
+                    <span className="w-1.5 h-3.5 bg-[#FF6A00] rounded-full" />
                     Accounting Software
                   </h4>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
@@ -1293,7 +1293,7 @@ export default function UKServicesContent({ serviceSlug }) {
                 {/* Column 3 */}
                 <div className="bg-[#faf9f6] rounded-2xl p-5 border border-gray-50 shadow-xs">
                   <h4 className="text-xs sm:text-sm font-extrabold text-[#0F274A] uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
+                    <span className="w-1.5 h-3.5 bg-[#FF6A00] rounded-full" />
                     Document & Workflow Tools
                   </h4>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
@@ -1307,10 +1307,10 @@ export default function UKServicesContent({ serviceSlug }) {
           </div>
 
           {/* Section 7: Why Choose NextLedgers? (bg #FEF4E4) */}
-          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
+          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#FF6A00]/10">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#F58220]/15 px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#FF6A00]/15 px-3 py-1 rounded-full">
                   Firm Benefits
                 </span>
                 <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mt-3 mb-2">
@@ -1335,9 +1335,9 @@ export default function UKServicesContent({ serviceSlug }) {
                 ].map((adv, idx) => (
                   <div
                     key={idx}
-                    className="bg-white p-4.5 rounded-2xl border border-gray-100 hover:border-[#F58220]/35 hover:shadow-xs transition-all duration-300 flex items-center gap-3.5 group"
+                    className="bg-white p-4.5 rounded-2xl border border-gray-100 hover:border-[#FF6A00]/35 hover:shadow-xs transition-all duration-300 flex items-center gap-3.5 group"
                   >
-                    <div className="w-5 h-5 rounded-full bg-[#F58220] flex items-center justify-center flex-shrink-0 text-white font-bold text-[10px] group-hover:scale-105 transition-transform">
+                    <div className="w-5 h-5 rounded-full bg-[#FF6A00] flex items-center justify-center flex-shrink-0 text-white font-bold text-[10px] group-hover:scale-105 transition-transform">
                       ✓
                     </div>
                     <span className="text-gray-800 font-extrabold text-xs sm:text-[13px] leading-tight">
@@ -1349,18 +1349,18 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 8: Your Offshore Personal Tax Compliance Partner (Centered Card CTA, bg #ffffff, heading #EA7C24) */}
+          {/* Section 8: Your Offshore Personal Tax Compliance Partner (Centered Card CTA, bg #ffffff, heading #FF6A00) */}
           <div className="w-full bg-white py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="w-[90%] max-w-7xl mx-auto text-center">
-              <div className="bg-[#FEF4E4]/40 border border-[#F58220]/25 rounded-[24px] p-6 sm:p-10 lg:p-14 shadow-[0_20px_50px_rgba(245,130,32,0.04)] relative overflow-hidden group hover:shadow-[0_20px_50px_rgba(245,130,32,0.08)] transition-all duration-500">
+              <div className="bg-[#FEF4E4]/40 border border-[#FF6A00]/25 rounded-[24px] p-6 sm:p-10 lg:p-14 shadow-[0_20px_50px_rgba(255, 106, 0,0.04)] relative overflow-hidden group hover:shadow-[0_20px_50px_rgba(255, 106, 0,0.08)] transition-all duration-500">
                 {/* Background design accents */}
-                <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-[#F58220]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
-                <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-[#F58220]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
+                <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-[#FF6A00]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
+                <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-[#FF6A00]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
 
-                <span className="text-[#F58220] font-extrabold text-[10px] sm:text-xs uppercase tracking-widest bg-white border border-[#F58220]/20 px-3 py-1 rounded-full inline-block mb-4 shadow-xs">
+                <span className="text-[#FF6A00] font-extrabold text-[10px] sm:text-xs uppercase tracking-widest bg-white border border-[#FF6A00]/20 px-3 py-1 rounded-full inline-block mb-4 shadow-xs">
                   Tax Compliance Partner
                 </span>
-                <h2 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mb-4">
+                <h2 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mb-4">
                   Your Offshore Personal Tax Compliance Partner
                 </h2>
                 <div className="space-y-4 text-gray-700 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed mb-6">
@@ -1397,28 +1397,28 @@ export default function UKServicesContent({ serviceSlug }) {
           {/* SECTION AREA D: UK BOOKKEEPING & VAT OUTSOURCING SERVICES                         */}
           {/* ================================================================================= */}
 
-          {/* Section Divider & Header (id="bookkeeping-vat", bg #ffffff, heading #EA7C24) */}
+          {/* Section Divider & Header (id="bookkeeping-vat", bg #ffffff, heading #FF6A00) */}
           <div id="bookkeeping-vat" className="w-full bg-white pt-8 pb-4 lg:pt-16 lg:pb-12 text-center px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="max-w-4xl mx-auto animate-fade-up">
-              <span className="text-[#F58220] uppercase font-extrabold tracking-widest text-[10px] sm:text-xs bg-[#F58220]/10 px-3 py-1 rounded-full">
+              <span className="text-[#FF6A00] uppercase font-extrabold tracking-widest text-[10px] sm:text-xs bg-[#FF6A00]/10 px-3 py-1 rounded-full">
                 Outsource UK Bookkeeping & VAT
               </span>
-              <h2 className="text-[22px] sm:text-[36px] md:text-[46px] font-extrabold text-[#EA7C24] leading-[1.2] mt-3 mb-4">
+              <h2 className="text-[22px] sm:text-[36px] md:text-[46px] font-extrabold text-[#FF6A00] leading-[1.2] mt-3 mb-4">
                 UK Bookkeeping & VAT Outsourcing Services
               </h2>
               <p className="text-gray-600 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
                 Accurate Bookkeeping. Better Decisions. Stronger Business Growth. Streamline day-to-day transaction processing with strict HMRC compliance.
               </p>
-              <div className="w-16 h-1 bg-[#F58220] mx-auto mt-4 rounded-full" />
+              <div className="w-16 h-1 bg-[#FF6A00] mx-auto mt-4 rounded-full" />
             </div>
           </div>
 
           {/* Section 1: Overview with Live Reconciliation Mockup (bg #FEF4E4) */}
-          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
+          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#FF6A00]/10">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[10px] lg:gap-16 items-stretch">
               {/* Left Content */}
               <div className="flex flex-col justify-center flex-1 py-2 lg:py-0">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider mb-1">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider mb-1">
                   Outsourcing Partnership
                 </span>
                 <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mb-3">
@@ -1458,14 +1458,14 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 2: Why Accurate Bookkeeping Matters (bg #ffffff, heading color #EA7C24) */}
+          {/* Section 2: Why Accurate Bookkeeping Matters (bg #ffffff, heading color #FF6A00) */}
           <div className="w-full bg-white py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
                   Financial Foundations
                 </span>
-                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mt-3 mb-2">
+                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mt-3 mb-2">
                   Why Accurate Bookkeeping Matters
                 </h3>
                 <p className="text-gray-600 text-xs sm:text-sm">
@@ -1491,9 +1491,9 @@ export default function UKServicesContent({ serviceSlug }) {
                 ].map((item, idx) => (
                   <div
                     key={idx}
-                    className="bg-[#FEF4E4]/25 p-5 rounded-2xl border border-[#F58220]/15 hover:border-[#F58220]/30 hover:bg-[#FEF4E4]/45 transition-all duration-300 group"
+                    className="bg-[#FEF4E4]/25 p-5 rounded-2xl border border-[#FF6A00]/15 hover:border-[#FF6A00]/30 hover:bg-[#FEF4E4]/45 transition-all duration-300 group"
                   >
-                    <div className="w-8 h-8 rounded-xl bg-white border border-[#F58220]/20 flex items-center justify-center text-lg mb-3 shadow-xs group-hover:scale-105 transition-transform">
+                    <div className="w-8 h-8 rounded-xl bg-white border border-[#FF6A00]/20 flex items-center justify-center text-lg mb-3 shadow-xs group-hover:scale-105 transition-transform">
                       {item.icon}
                     </div>
                     <h4 className="text-sm font-extrabold text-[#0F274A] mb-2">{item.title}</h4>
@@ -1505,15 +1505,15 @@ export default function UKServicesContent({ serviceSlug }) {
           </div>
 
 
-          {/* Section 4: Specialist VAT Support (id="vat-mtd-overview", bg #ffffff, heading color #EA7C24) */}
+          {/* Section 4: Specialist VAT Support (id="vat-mtd-overview", bg #ffffff, heading color #FF6A00) */}
           <div id="vat-mtd-overview" className="w-full bg-white py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[10px] lg:gap-16 items-stretch">
               {/* Left Content */}
               <div className="flex flex-col justify-center flex-1 py-2 lg:py-0">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider mb-1">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider mb-1">
                   Making Tax Digital (MTD)
                 </span>
-                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mb-3">
+                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mb-3">
                   Specialist VAT Support for UK Accounting Firms
                 </h3>
                 <div className="space-y-3 text-gray-700 text-xs sm:text-sm leading-relaxed">
@@ -1548,10 +1548,10 @@ export default function UKServicesContent({ serviceSlug }) {
           </div>
 
           {/* Section 5: Why VAT Compliance Matters (bg #FEF4E4) */}
-          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
+          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#FF6A00]/10">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#F58220]/15 px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#FF6A00]/15 px-3 py-1 rounded-full">
                   HMRC Compliance Auditing
                 </span>
                 <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mt-3 mb-2">
@@ -1577,7 +1577,7 @@ export default function UKServicesContent({ serviceSlug }) {
                 ].map((item, idx) => (
                   <div
                     key={idx}
-                    className="bg-white p-5 rounded-2xl border border-[#F58220]/10 hover:border-[#F58220]/30 transition-all duration-300 flex flex-col justify-between group shadow-xs"
+                    className="bg-white p-5 rounded-2xl border border-[#FF6A00]/10 hover:border-[#FF6A00]/30 transition-all duration-300 flex flex-col justify-between group shadow-xs"
                   >
                     <div>
                       <h4 className="text-xs sm:text-sm font-extrabold text-[#0F274A] mb-2">{item.title}</h4>
@@ -1589,14 +1589,14 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 6: Our VAT Services Include (bg #ffffff, heading color #EA7C24) */}
+          {/* Section 6: Our VAT Services Include (bg #ffffff, heading color #FF6A00) */}
           <div className="w-full bg-white py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
                   VAT Scope
                 </span>
-                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mt-3 mb-2">
+                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mt-3 mb-2">
                   Our VAT Services Include
                 </h3>
                 <p className="text-gray-600 text-xs sm:text-sm">
@@ -1617,9 +1617,9 @@ export default function UKServicesContent({ serviceSlug }) {
                 ].map((srv, idx) => (
                   <div
                     key={idx}
-                    className="bg-[#FEF4E4]/40 p-4 rounded-xl border border-[#F58220]/15 hover:bg-[#FEF4E4]/70 hover:shadow-xs hover:border-[#F58220]/30 transition-all duration-300"
+                    className="bg-[#FEF4E4]/40 p-4 rounded-xl border border-[#FF6A00]/15 hover:bg-[#FEF4E4]/70 hover:shadow-xs hover:border-[#FF6A00]/30 transition-all duration-300"
                   >
-                    <span className="text-[#F58220] font-extrabold text-xs sm:text-sm leading-tight block mb-1">
+                    <span className="text-[#FF6A00] font-extrabold text-xs sm:text-sm leading-tight block mb-1">
                       {srv.name}
                     </span>
                     <span className="text-gray-500 text-[10px] leading-tight block">{srv.desc}</span>
@@ -1630,10 +1630,10 @@ export default function UKServicesContent({ serviceSlug }) {
           </div>
 
           {/* Section 7: Software, eCommerce & Payment platforms 4-column tech stack (bg #FEF4E4) */}
-          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
+          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#FF6A00]/10">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#F58220]/15 px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#FF6A00]/15 px-3 py-1 rounded-full">
                   Full Software Stack
                 </span>
                 <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mt-3 mb-2">
@@ -1647,8 +1647,8 @@ export default function UKServicesContent({ serviceSlug }) {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                 {/* Column 1 */}
                 <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-xs">
-                  <h4 className="text-xs sm:text-sm font-extrabold text-[#EA7C24] uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
+                  <h4 className="text-xs sm:text-sm font-extrabold text-[#FF6A00] uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <span className="w-1.5 h-3.5 bg-[#FF6A00] rounded-full" />
                     Accounting Software
                   </h4>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
@@ -1660,8 +1660,8 @@ export default function UKServicesContent({ serviceSlug }) {
 
                 {/* Column 2 */}
                 <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-xs">
-                  <h4 className="text-xs sm:text-sm font-extrabold text-[#EA7C24] uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
+                  <h4 className="text-xs sm:text-sm font-extrabold text-[#FF6A00] uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <span className="w-1.5 h-3.5 bg-[#FF6A00] rounded-full" />
                     Document Processing
                   </h4>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
@@ -1673,8 +1673,8 @@ export default function UKServicesContent({ serviceSlug }) {
 
                 {/* Column 3 */}
                 <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-xs">
-                  <h4 className="text-xs sm:text-sm font-extrabold text-[#EA7C24] uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
+                  <h4 className="text-xs sm:text-sm font-extrabold text-[#FF6A00] uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <span className="w-1.5 h-3.5 bg-[#FF6A00] rounded-full" />
                     eCommerce Integration
                   </h4>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
@@ -1686,8 +1686,8 @@ export default function UKServicesContent({ serviceSlug }) {
 
                 {/* Column 4 */}
                 <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-xs">
-                  <h4 className="text-xs sm:text-sm font-extrabold text-[#EA7C24] uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
+                  <h4 className="text-xs sm:text-sm font-extrabold text-[#FF6A00] uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <span className="w-1.5 h-3.5 bg-[#FF6A00] rounded-full" />
                     Payment Platforms
                   </h4>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
@@ -1700,14 +1700,14 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 8: Why Choose NextLedgers? (bg #ffffff, heading #EA7C24) */}
+          {/* Section 8: Why Choose NextLedgers? (bg #ffffff, heading #FF6A00) */}
           <div className="w-full bg-white py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
                   Partner Advantages
                 </span>
-                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mt-3 mb-2">
+                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mt-3 mb-2">
                   Why Choose NextLedgers for Bookkeeping & VAT?
                 </h3>
                 <p className="text-gray-600 text-xs sm:text-sm">
@@ -1727,9 +1727,9 @@ export default function UKServicesContent({ serviceSlug }) {
                 ].map((adv, idx) => (
                   <div
                     key={idx}
-                    className="bg-[#faf9f6] p-4.5 rounded-2xl border border-gray-100 hover:border-[#F58220]/35 hover:shadow-xs transition-all duration-300 flex items-center gap-3.5 group"
+                    className="bg-[#faf9f6] p-4.5 rounded-2xl border border-gray-100 hover:border-[#FF6A00]/35 hover:shadow-xs transition-all duration-300 flex items-center gap-3.5 group"
                   >
-                    <div className="w-5 h-5 rounded-full bg-[#F58220] flex items-center justify-center flex-shrink-0 text-white font-bold text-[10px] group-hover:scale-105 transition-transform">
+                    <div className="w-5 h-5 rounded-full bg-[#FF6A00] flex items-center justify-center flex-shrink-0 text-white font-bold text-[10px] group-hover:scale-105 transition-transform">
                       ✓
                     </div>
                     <span className="text-gray-800 font-extrabold text-xs sm:text-[13px] leading-tight">
@@ -1744,15 +1744,15 @@ export default function UKServicesContent({ serviceSlug }) {
           {/* Section 9: Your Offshore Bookkeeping & VAT Partner (Centered Card CTA, bg #FEF4E4 outer, bg #ffffff card inner) */}
           <div className="w-full bg-[#FEF4E4] py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="w-[90%] max-w-7xl mx-auto text-center">
-              <div className="bg-white border border-[#F58220]/25 rounded-[24px] p-6 sm:p-10 lg:p-14 shadow-[0_20px_50px_rgba(245,130,32,0.04)] relative overflow-hidden group hover:shadow-[0_20px_50px_rgba(245,130,32,0.08)] transition-all duration-500">
+              <div className="bg-white border border-[#FF6A00]/25 rounded-[24px] p-6 sm:p-10 lg:p-14 shadow-[0_20px_50px_rgba(255, 106, 0,0.04)] relative overflow-hidden group hover:shadow-[0_20px_50px_rgba(255, 106, 0,0.08)] transition-all duration-500">
                 {/* Background design accents */}
-                <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-[#F58220]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
-                <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-[#F58220]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
+                <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-[#FF6A00]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
+                <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-[#FF6A00]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
 
-                <span className="text-[#F58220] font-extrabold text-[10px] sm:text-xs uppercase tracking-widest bg-[#FEF4E4] border border-[#F58220]/20 px-3 py-1 rounded-full inline-block mb-4 shadow-xs">
+                <span className="text-[#FF6A00] font-extrabold text-[10px] sm:text-xs uppercase tracking-widest bg-[#FEF4E4] border border-[#FF6A00]/20 px-3 py-1 rounded-full inline-block mb-4 shadow-xs">
                   Bookkeeping & VAT Partner
                 </span>
-                <h2 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mb-4">
+                <h2 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mb-4">
                   Your Offshore Bookkeeping & VAT Partner
                 </h2>
                 <div className="space-y-4 text-gray-700 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed mb-6">
@@ -1789,29 +1789,29 @@ export default function UKServicesContent({ serviceSlug }) {
           {/* SECTION AREA E: UK BUSINESS ADVISORY & VIRTUAL CFO OUTSOURCING SERVICES           */}
           {/* ================================================================================= */}
 
-          {/* Section Divider & Header (id="advisory", bg #ffffff, heading #EA7C24) */}
+          {/* Section Divider & Header (id="advisory", bg #ffffff, heading #FF6A00) */}
           <div id="advisory" className="w-full bg-white pt-8 pb-4 lg:pt-16 lg:pb-12 text-center px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="max-w-4xl mx-auto animate-fade-up">
-              <span className="text-[#F58220] uppercase font-extrabold tracking-widest text-[10px] sm:text-xs bg-[#F58220]/10 px-3 py-1 rounded-full">
+              <span className="text-[#FF6A00] uppercase font-extrabold tracking-widest text-[10px] sm:text-xs bg-[#FF6A00]/10 px-3 py-1 rounded-full">
                 Outsource Business Advisory & CFO
               </span>
-              <h2 className="text-[22px] sm:text-[36px] md:text-[46px] font-extrabold text-[#EA7C24] leading-[1.2] mt-3 mb-4">
+              <h2 className="text-[22px] sm:text-[36px] md:text-[46px] font-extrabold text-[#FF6A00] leading-[1.2] mt-3 mb-4">
                 UK Business Advisory & <br className="hidden sm:inline" />
                 Virtual CFO Outsourcing Services
               </h2>
               <p className="text-gray-600 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
                 Reliable Business Advisory & Virtual CFO Support for UK Accounting Firms — deliver strategic financial leadership and high-value advisory.
               </p>
-              <div className="w-16 h-1 bg-[#F58220] mx-auto mt-4 rounded-full" />
+              <div className="w-16 h-1 bg-[#FF6A00] mx-auto mt-4 rounded-full" />
             </div>
           </div>
 
           {/* Section 1: Overview with CFO console mockup (bg #FEF4E4) */}
-          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
+          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#FF6A00]/10">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[10px] lg:gap-16 items-stretch">
               {/* Left Content */}
               <div className="flex flex-col justify-center flex-1 py-2 lg:py-0">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider mb-1">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider mb-1">
                   Strategic Financial Guidance
                 </span>
                 <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mb-3">
@@ -1848,14 +1848,14 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 2: Why Business Advisory & Virtual CFO Services Matter (bg #ffffff, heading #EA7C24) */}
+          {/* Section 2: Why Business Advisory & Virtual CFO Services Matter (bg #ffffff, heading #FF6A00) */}
           <div className="w-full bg-white py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
                   Strategic Advisory
                 </span>
-                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mt-3 mb-2">
+                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mt-3 mb-2">
                   Why Business Advisory & Virtual CFO Services Matter
                 </h3>
                 <p className="text-gray-600 text-xs sm:text-sm">
@@ -1881,9 +1881,9 @@ export default function UKServicesContent({ serviceSlug }) {
                 ].map((item, idx) => (
                   <div
                     key={idx}
-                    className="bg-[#FEF4E4]/25 p-5 rounded-2xl border border-[#F58220]/15 hover:border-[#F58220]/30 hover:bg-[#FEF4E4]/45 transition-all duration-300 group"
+                    className="bg-[#FEF4E4]/25 p-5 rounded-2xl border border-[#FF6A00]/15 hover:border-[#FF6A00]/30 hover:bg-[#FEF4E4]/45 transition-all duration-300 group"
                   >
-                    <div className="w-8 h-8 rounded-xl bg-white border border-[#F58220]/20 flex items-center justify-center text-lg mb-3 shadow-xs group-hover:scale-105 transition-transform">
+                    <div className="w-8 h-8 rounded-xl bg-white border border-[#FF6A00]/20 flex items-center justify-center text-lg mb-3 shadow-xs group-hover:scale-105 transition-transform">
                       {item.icon}
                     </div>
                     <h4 className="text-sm font-extrabold text-[#0F274A] mb-2">{item.title}</h4>
@@ -1895,10 +1895,10 @@ export default function UKServicesContent({ serviceSlug }) {
           </div>
 
           {/* Section 3: Interactive Tabbed Service Suite (bg #FEF4E4) */}
-          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
+          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#FF6A00]/10">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#F58220]/15 px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#FF6A00]/15 px-3 py-1 rounded-full">
                   Dynamic Services Switcher
                 </span>
                 <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mt-3 mb-2">
@@ -1923,8 +1923,8 @@ export default function UKServicesContent({ serviceSlug }) {
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
                     className={`px-4 py-2 text-xs sm:text-sm font-extrabold rounded-full border transition-all duration-300 ${activeTab === tab.id
-                      ? "bg-[#F58220] text-white border-[#F58220] shadow-sm"
-                      : "bg-white text-gray-600 border-gray-200 hover:border-[#F58220]/30 hover:text-[#F58220]"
+                      ? "bg-[#FF6A00] text-white border-[#FF6A00] shadow-sm"
+                      : "bg-white text-gray-600 border-gray-200 hover:border-[#FF6A00]/30 hover:text-[#FF6A00]"
                       }`}
                   >
                     {tab.label}
@@ -1933,14 +1933,14 @@ export default function UKServicesContent({ serviceSlug }) {
               </div>
 
               {/* Tab content grid */}
-              <div className="bg-white rounded-3xl p-5 sm:p-8 border border-[#F58220]/15 shadow-xs">
+              <div className="bg-white rounded-3xl p-5 sm:p-8 border border-[#FF6A00]/15 shadow-xs">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
                   {getTabItems().map((item, idx) => (
                     <div
                       key={idx}
                       className="flex items-center gap-2.5 p-3 bg-[#faf9f6] rounded-xl border border-gray-50 hover:bg-[#FEF4E4]/30 transition-all"
                     >
-                      <div className="w-5 h-5 rounded-full bg-[#F58220] flex items-center justify-center flex-shrink-0 text-white font-bold text-[10px]">
+                      <div className="w-5 h-5 rounded-full bg-[#FF6A00] flex items-center justify-center flex-shrink-0 text-white font-bold text-[10px]">
                         ✓
                       </div>
                       <span className="text-[11px] font-bold text-[#0F274A] leading-tight">{item}</span>
@@ -1957,14 +1957,14 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 4: How We Help UK Accounting Firms (bg #ffffff, heading #EA7C24) */}
+          {/* Section 4: How We Help UK Accounting Firms (bg #ffffff, heading #FF6A00) */}
           <div className="w-full bg-white py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
                   Practice Capabilities
                 </span>
-                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mt-3 mb-2">
+                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mt-3 mb-2">
                   How We Help UK Accounting Firms
                 </h3>
                 <p className="text-gray-600 text-xs sm:text-sm">
@@ -1979,7 +1979,7 @@ export default function UKServicesContent({ serviceSlug }) {
                   { title: "Improve Turnarounds", desc: "Process forecasting and marginal reviews ahead of budget cycles." },
                   { title: "Deliver High Value", desc: "Elevate your client service offerings from compliance to guidance." }
                 ].map((card, idx) => (
-                  <div key={idx} className="bg-white p-5 rounded-2xl border border-gray-100 shadow-[0_10px_35px_rgba(0,0,0,0.01)] hover:border-[#F58220]/25 transition-all duration-300">
+                  <div key={idx} className="bg-white p-5 rounded-2xl border border-gray-100 shadow-[0_10px_35px_rgba(0,0,0,0.01)] hover:border-[#FF6A00]/25 transition-all duration-300">
 
                     <h4 className="text-xs sm:text-sm font-extrabold text-[#0F274A] mb-2">{card.title}</h4>
                     <p className="text-[11px] text-gray-500 leading-relaxed">{card.desc}</p>
@@ -1994,7 +1994,7 @@ export default function UKServicesContent({ serviceSlug }) {
                   { title: "Operational Efficiency", desc: "Streamline data ingestion directly into Syft or Fathom." },
                   { title: "Headcount-Free Scale", desc: "Grow practice advisory revenues without adding UK personnel costs." }
                 ].map((card, idx) => (
-                  <div key={idx} className="bg-[#faf9f6] p-5 rounded-2xl border border-gray-50 hover:border-[#F58220]/25 transition-all duration-300">
+                  <div key={idx} className="bg-[#faf9f6] p-5 rounded-2xl border border-gray-50 hover:border-[#FF6A00]/25 transition-all duration-300">
 
                     <h4 className="text-xs sm:text-sm font-extrabold text-[#0F274A] mb-2">{card.title}</h4>
                     <p className="text-[11px] text-gray-500 leading-relaxed">{card.desc}</p>
@@ -2005,10 +2005,10 @@ export default function UKServicesContent({ serviceSlug }) {
           </div>
 
           {/* Section 5: Software Expertise (bg #FEF4E4) */}
-          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
+          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#FF6A00]/10">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#F58220]/15 px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#FF6A00]/15 px-3 py-1 rounded-full">
                   Advisory Integrations
                 </span>
                 <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mt-3 mb-2">
@@ -2022,8 +2022,8 @@ export default function UKServicesContent({ serviceSlug }) {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 {/* Column 1 */}
                 <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-xs">
-                  <h4 className="text-xs sm:text-sm font-extrabold text-[#EA7C24] uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
+                  <h4 className="text-xs sm:text-sm font-extrabold text-[#FF6A00] uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <span className="w-1.5 h-3.5 bg-[#FF6A00] rounded-full" />
                     Accounting Software
                   </h4>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
@@ -2035,8 +2035,8 @@ export default function UKServicesContent({ serviceSlug }) {
 
                 {/* Column 2 */}
                 <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-xs">
-                  <h4 className="text-xs sm:text-sm font-extrabold text-[#EA7C24] uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
+                  <h4 className="text-xs sm:text-sm font-extrabold text-[#FF6A00] uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <span className="w-1.5 h-3.5 bg-[#FF6A00] rounded-full" />
                     Reporting & Forecasting
                   </h4>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
@@ -2048,8 +2048,8 @@ export default function UKServicesContent({ serviceSlug }) {
 
                 {/* Column 3 */}
                 <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-xs">
-                  <h4 className="text-xs sm:text-sm font-extrabold text-[#EA7C24] uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
+                  <h4 className="text-xs sm:text-sm font-extrabold text-[#FF6A00] uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <span className="w-1.5 h-3.5 bg-[#FF6A00] rounded-full" />
                     Workflow & Collaboration
                   </h4>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
@@ -2062,14 +2062,14 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 6: Industries We Support (bg #ffffff, heading #EA7C24) */}
+          {/* Section 6: Industries We Support (bg #ffffff, heading #FF6A00) */}
           <div className="w-full bg-white py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
                   Sectors Covered
                 </span>
-                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mt-3 mb-2">
+                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mt-3 mb-2">
                   Industries We Support
                 </h3>
                 <p className="text-gray-600 text-xs sm:text-sm">
@@ -2092,7 +2092,7 @@ export default function UKServicesContent({ serviceSlug }) {
                 ].map((ind, idx) => (
                   <div
                     key={idx}
-                    className="bg-[#FEF4E4]/40 p-4 rounded-xl border border-[#F58220]/15 text-center hover:bg-[#FEF4E4]/70 hover:shadow-xs hover:border-[#F58220]/30 transition-all duration-300 group"
+                    className="bg-[#FEF4E4]/40 p-4 rounded-xl border border-[#FF6A00]/15 text-center hover:bg-[#FEF4E4]/70 hover:shadow-xs hover:border-[#FF6A00]/30 transition-all duration-300 group"
                   >
                     <div className="text-2xl mb-2 group-hover:scale-110 transition-transform">{ind.icon}</div>
                     <span className="text-[#0F274A] font-extrabold text-[11px] sm:text-xs leading-snug block">
@@ -2105,10 +2105,10 @@ export default function UKServicesContent({ serviceSlug }) {
           </div>
 
           {/* Section 7: Why Choose NextLedgers? (bg #FEF4E4) */}
-          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
+          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#FF6A00]/10">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#F58220]/15 px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#FF6A00]/15 px-3 py-1 rounded-full">
                   Offshore Advantages
                 </span>
                 <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mt-3 mb-2">
@@ -2135,9 +2135,9 @@ export default function UKServicesContent({ serviceSlug }) {
                 ].map((adv, idx) => (
                   <div
                     key={idx}
-                    className="bg-white p-4.5 rounded-2xl border border-gray-100 hover:border-[#F58220]/35 hover:shadow-xs transition-all duration-300 flex items-center gap-3.5 group"
+                    className="bg-white p-4.5 rounded-2xl border border-gray-100 hover:border-[#FF6A00]/35 hover:shadow-xs transition-all duration-300 flex items-center gap-3.5 group"
                   >
-                    <div className="w-5 h-5 rounded-full bg-[#F58220] flex items-center justify-center flex-shrink-0 text-white font-bold text-[10px] group-hover:scale-105 transition-transform">
+                    <div className="w-5 h-5 rounded-full bg-[#FF6A00] flex items-center justify-center flex-shrink-0 text-white font-bold text-[10px] group-hover:scale-105 transition-transform">
                       ✓
                     </div>
                     <span className="text-gray-800 font-extrabold text-xs sm:text-[13px] leading-tight">
@@ -2149,18 +2149,18 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 8: Your Offshore Business Advisory & CFO Partner (Centered Card CTA, bg #ffffff, heading #EA7C24) */}
+          {/* Section 8: Your Offshore Business Advisory & CFO Partner (Centered Card CTA, bg #ffffff, heading #FF6A00) */}
           <div className="w-full bg-white py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="w-[90%] max-w-7xl mx-auto text-center">
-              <div className="bg-[#FEF4E4]/40 border border-[#F58220]/25 rounded-[24px] p-6 sm:p-10 lg:p-14 shadow-[0_20px_50px_rgba(245,130,32,0.04)] relative overflow-hidden group hover:shadow-[0_20px_50px_rgba(245,130,32,0.08)] transition-all duration-500">
+              <div className="bg-[#FEF4E4]/40 border border-[#FF6A00]/25 rounded-[24px] p-6 sm:p-10 lg:p-14 shadow-[0_20px_50px_rgba(255, 106, 0,0.04)] relative overflow-hidden group hover:shadow-[0_20px_50px_rgba(255, 106, 0,0.08)] transition-all duration-500">
                 {/* Background design accents */}
-                <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-[#F58220]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
-                <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-[#F58220]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
+                <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-[#FF6A00]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
+                <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-[#FF6A00]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
 
-                <span className="text-[#F58220] font-extrabold text-[10px] sm:text-xs uppercase tracking-widest bg-white border border-[#F58220]/20 px-3 py-1 rounded-full inline-block mb-4 shadow-xs">
+                <span className="text-[#FF6A00] font-extrabold text-[10px] sm:text-xs uppercase tracking-widest bg-white border border-[#FF6A00]/20 px-3 py-1 rounded-full inline-block mb-4 shadow-xs">
                   Advisory & CFO Partner
                 </span>
-                <h2 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mb-4">
+                <h2 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mb-4">
                   Your Offshore Business Advisory & Virtual CFO Delivery Partner
                 </h2>
                 <div className="space-y-4 text-gray-700 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed mb-6">
@@ -2192,29 +2192,29 @@ export default function UKServicesContent({ serviceSlug }) {
           {/* SECTION AREA F: UK COMPANY FORMATION & COMPANY SECRETARIAL SERVICES               */}
           {/* ================================================================================= */}
 
-          {/* Section Divider & Header (id="company-formation", bg #ffffff, heading #EA7C24) */}
+          {/* Section Divider & Header (id="company-formation", bg #ffffff, heading #FF6A00) */}
           <div id="company-formation" className="w-full bg-white pt-8 pb-4 lg:pt-16 lg:pb-12 text-center px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="max-w-4xl mx-auto animate-fade-up">
-              <span className="text-[#F58220] uppercase font-extrabold tracking-widest text-[10px] sm:text-xs bg-[#F58220]/10 px-3 py-1 rounded-full">
+              <span className="text-[#FF6A00] uppercase font-extrabold tracking-widest text-[10px] sm:text-xs bg-[#FF6A00]/10 px-3 py-1 rounded-full">
                 Company Formation & Secretarial Support
               </span>
-              <h2 className="text-[22px] sm:text-[36px] md:text-[46px] font-extrabold text-[#EA7C24] leading-[1.2] mt-3 mb-4">
+              <h2 className="text-[22px] sm:text-[36px] md:text-[46px] font-extrabold text-[#FF6A00] leading-[1.2] mt-3 mb-4">
                 UK Company Formation & <br className="hidden sm:inline" />
                 Company Secretarial Outsourcing Services
               </h2>
               <p className="text-gray-600 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
                 Reliable Company Formation & Company Secretarial Support for UK Accounting Firms — streamline statutory filing and client incorporations.
               </p>
-              <div className="w-16 h-1 bg-[#F58220] mx-auto mt-4 rounded-full" />
+              <div className="w-16 h-1 bg-[#FF6A00] mx-auto mt-4 rounded-full" />
             </div>
           </div>
 
           {/* Section 1: Overview with Companies House portal mockup (bg #FEF4E4) */}
-          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
+          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#FF6A00]/10">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[10px] lg:gap-16 items-stretch">
               {/* Left Content */}
               <div className="flex flex-col justify-center flex-1 py-2 lg:py-0">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider mb-1">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider mb-1">
                   Corporate Compliance
                 </span>
                 <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mb-3">
@@ -2251,14 +2251,14 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 2: Why Company Secretarial Matters (Asymmetrical Grid Cards, bg #ffffff, heading #EA7C24) */}
+          {/* Section 2: Why Company Secretarial Matters (Asymmetrical Grid Cards, bg #ffffff, heading #FF6A00) */}
           <div className="w-full bg-white py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
                   Corporate Governance
                 </span>
-                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mt-3 mb-2">
+                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mt-3 mb-2">
                   Why Company Formation & Company Secretarial Services Matter
                 </h3>
                 <p className="text-gray-600 text-xs sm:text-sm">
@@ -2283,7 +2283,7 @@ export default function UKServicesContent({ serviceSlug }) {
                 ].map((item, idx) => (
                   <div
                     key={idx}
-                    className="bg-[#faf9f6] p-5 rounded-2xl hover:bg-white border-l-2 border-l-gray-200 hover:border-l-[6px] hover:border-l-[#F58220] border-y border-r border-gray-100 hover:shadow-xs transition-all duration-200"
+                    className="bg-[#faf9f6] p-5 rounded-2xl hover:bg-white border-l-2 border-l-gray-200 hover:border-l-[6px] hover:border-l-[#FF6A00] border-y border-r border-gray-100 hover:shadow-xs transition-all duration-200"
                   >
                     <h4 className="text-xs sm:text-sm font-extrabold text-[#0F274A] mb-2">{item.title}</h4>
                     <p className="text-[11px] text-gray-500 leading-relaxed">{item.desc}</p>
@@ -2294,10 +2294,10 @@ export default function UKServicesContent({ serviceSlug }) {
           </div>
 
           {/* Section 3: Statutory Lifecycle Flow for Formation vs Secretarial (bg #FEF4E4) */}
-          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
+          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#FF6A00]/10">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#F58220]/15 px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#FF6A00]/15 px-3 py-1 rounded-full">
                   Compliance Timeline
                 </span>
                 <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mt-3 mb-2">
@@ -2310,8 +2310,8 @@ export default function UKServicesContent({ serviceSlug }) {
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
                 {/* Formation Card */}
-                <div className="bg-white rounded-3xl p-5 sm:p-7 border border-[#F58220]/15 shadow-xs relative">
-                  <span className="absolute -top-3.5 left-6 bg-[#F58220] text-white text-[9px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full">
+                <div className="bg-white rounded-3xl p-5 sm:p-7 border border-[#FF6A00]/15 shadow-xs relative">
+                  <span className="absolute -top-3.5 left-6 bg-[#FF6A00] text-white text-[9px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full">
                     Phase 1: Company Formation
                   </span>
                   <div className="mt-2.5">
@@ -2331,7 +2331,7 @@ export default function UKServicesContent({ serviceSlug }) {
                         "Director & Shareholder Compliance Guidance"
                       ].map((item, idx) => (
                         <div key={idx} className="flex items-center gap-2.5 p-2 bg-[#faf9f6] rounded-xl hover:bg-[#FEF4E4]/30 transition-colors">
-                          <span className="w-5 h-5 rounded-full bg-[#FEF4E4] border border-[#F58220]/25 flex items-center justify-center flex-shrink-0 text-[#F58220] text-[9px] font-bold">
+                          <span className="w-5 h-5 rounded-full bg-[#FEF4E4] border border-[#FF6A00]/25 flex items-center justify-center flex-shrink-0 text-[#FF6A00] text-[9px] font-bold">
                             {idx + 1}
                           </span>
                           <span className="text-[11px] font-bold text-[#0F274A] leading-tight">{item}</span>
@@ -2342,7 +2342,7 @@ export default function UKServicesContent({ serviceSlug }) {
                 </div>
 
                 {/* Secretarial Card */}
-                <div className="bg-white rounded-3xl p-5 sm:p-7 border border-[#F58220]/15 shadow-xs relative">
+                <div className="bg-white rounded-3xl p-5 sm:p-7 border border-[#FF6A00]/15 shadow-xs relative">
                   <span className="absolute -top-3.5 left-6 bg-[#0F274A] text-white text-[9px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full">
                     Phase 2: Ongoing Secretarial
                   </span>
@@ -2363,7 +2363,7 @@ export default function UKServicesContent({ serviceSlug }) {
                         "Company Secretarial Record Maintenance"
                       ].map((item, idx) => (
                         <div key={idx} className="flex items-center gap-2.5 p-2 bg-[#faf9f6] rounded-xl hover:bg-[#FEF4E4]/30 transition-colors">
-                          <span className="w-5 h-5 rounded-full bg-[#FEF4E4] border border-[#F58220]/25 flex items-center justify-center flex-shrink-0 text-[#F58220] text-[9px] font-bold">
+                          <span className="w-5 h-5 rounded-full bg-[#FEF4E4] border border-[#FF6A00]/25 flex items-center justify-center flex-shrink-0 text-[#FF6A00] text-[9px] font-bold">
                             {idx + 1}
                           </span>
                           <span className="text-[11px] font-bold text-[#0F274A] leading-tight">{item}</span>
@@ -2376,14 +2376,14 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 4: Companies House Compliance & Business Start-up support (bg #ffffff, heading #EA7C24) */}
+          {/* Section 4: Companies House Compliance & Business Start-up support (bg #ffffff, heading #FF6A00) */}
           <div className="w-full bg-white py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
                   Filing Operations
                 </span>
-                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mt-3 mb-2">
+                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mt-3 mb-2">
                   Companies House Compliance & Business Start-Up
                 </h3>
                 <p className="text-gray-600 text-xs sm:text-sm">
@@ -2395,7 +2395,7 @@ export default function UKServicesContent({ serviceSlug }) {
                 {/* Column A: Companies House Compliance */}
                 <div className="bg-[#faf9f6] p-5 rounded-3xl border border-gray-100">
                   <h4 className="text-xs sm:text-sm font-extrabold text-[#0F274A] uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
+                    <span className="w-1.5 h-3.5 bg-[#FF6A00] rounded-full" />
                     Companies House Compliance
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -2420,7 +2420,7 @@ export default function UKServicesContent({ serviceSlug }) {
                 {/* Column B: Business Start-Up */}
                 <div className="bg-[#faf9f6] p-5 rounded-3xl border border-gray-100">
                   <h4 className="text-xs sm:text-sm font-extrabold text-[#0F274A] uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
+                    <span className="w-1.5 h-3.5 bg-[#FF6A00] rounded-full" />
                     Business Start-Up & Corporate Compliance
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -2446,10 +2446,10 @@ export default function UKServicesContent({ serviceSlug }) {
           </div>
 
           {/* Section 5: How We Help UK Accounting Firms (bg #FEF4E4) */}
-          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
+          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#FF6A00]/10">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#F58220]/15 px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#FF6A00]/15 px-3 py-1 rounded-full">
                   Practice Capacity
                 </span>
                 <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mt-3 mb-2">
@@ -2467,7 +2467,7 @@ export default function UKServicesContent({ serviceSlug }) {
                   { num: "03", title: "Reduce Admin Workload", desc: "Free up in-house staff from statutory logging chores." },
                   { num: "04", title: "Improve Accuracy", desc: "Ensure digital filings are formatted strictly to Companies House requirements." }
                 ].map((item, idx) => (
-                  <div key={idx} className="bg-white p-5 rounded-2xl border border-gray-100 shadow-[0_10px_35px_rgba(0,0,0,0.01)] relative group hover:border-[#F58220]/25 transition-all duration-300">
+                  <div key={idx} className="bg-white p-5 rounded-2xl border border-gray-100 shadow-[0_10px_35px_rgba(0,0,0,0.01)] relative group hover:border-[#FF6A00]/25 transition-all duration-300">
 
                     <h4 className="text-xs sm:text-sm font-extrabold text-[#0F274A] mb-2">{item.title}</h4>
                     <p className="text-[11px] text-gray-500 leading-relaxed">{item.desc}</p>
@@ -2482,7 +2482,7 @@ export default function UKServicesContent({ serviceSlug }) {
                   { title: "Value-Added Services", desc: "Create opportunities to expand corporate advisory and restructure consulting." },
                   { title: "Headcount-Free Scale", desc: "Scale back-office secretarial capacity without local recruitment costs." }
                 ].map((item, idx) => (
-                  <div key={idx} className="bg-[#faf9f6] p-5 rounded-2xl border border-gray-50 hover:border-[#F58220]/25 transition-all duration-300">
+                  <div key={idx} className="bg-[#faf9f6] p-5 rounded-2xl border border-gray-50 hover:border-[#FF6A00]/25 transition-all duration-300">
                     <h4 className="text-xs sm:text-sm font-extrabold text-[#0F274A] mb-2">{item.title}</h4>
                     <p className="text-[11px] text-gray-500 leading-relaxed">{item.desc}</p>
                   </div>
@@ -2491,14 +2491,14 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 6: Software Expertise (bg #ffffff, heading #EA7C24) */}
+          {/* Section 6: Software Expertise (bg #ffffff, heading #FF6A00) */}
           <div className="w-full bg-white py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
                   Filing Stack
                 </span>
-                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mt-3 mb-2">
+                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mt-3 mb-2">
                   Filing Software & Document Tools
                 </h3>
                 <p className="text-gray-600 text-xs sm:text-sm">
@@ -2510,7 +2510,7 @@ export default function UKServicesContent({ serviceSlug }) {
                 {/* Column 1 */}
                 <div className="bg-[#faf9f6] rounded-2xl p-5 border border-gray-50 shadow-xs">
                   <h4 className="text-xs sm:text-sm font-extrabold text-[#0F274A] uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
+                    <span className="w-1.5 h-3.5 bg-[#FF6A00] rounded-full" />
                     Secretarial Software
                   </h4>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
@@ -2523,7 +2523,7 @@ export default function UKServicesContent({ serviceSlug }) {
                 {/* Column 2 */}
                 <div className="bg-[#faf9f6] rounded-2xl p-5 border border-gray-50 shadow-xs">
                   <h4 className="text-xs sm:text-sm font-extrabold text-[#0F274A] uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
+                    <span className="w-1.5 h-3.5 bg-[#FF6A00] rounded-full" />
                     Accounting Software
                   </h4>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
@@ -2536,7 +2536,7 @@ export default function UKServicesContent({ serviceSlug }) {
                 {/* Column 3 */}
                 <div className="bg-[#faf9f6] rounded-2xl p-5 border border-gray-50 shadow-xs">
                   <h4 className="text-xs sm:text-sm font-extrabold text-[#0F274A] uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
+                    <span className="w-1.5 h-3.5 bg-[#FF6A00] rounded-full" />
                     Document Management
                   </h4>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
@@ -2550,11 +2550,11 @@ export default function UKServicesContent({ serviceSlug }) {
           </div>
 
           {/* Section 7: Industries We Support & Why Choose NextLedgers? (bg #FEF4E4) */}
-          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
+          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#FF6A00]/10">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[10px] lg:gap-16 items-stretch">
               {/* Left: Industries We Support tag cloud */}
               <div className="flex flex-col justify-center flex-1 py-2 lg:py-0">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider mb-1">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider mb-1">
                   Sectors Covered
                 </span>
                 <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mb-3">
@@ -2575,7 +2575,7 @@ export default function UKServicesContent({ serviceSlug }) {
                   ].map((ind, idx) => (
                     <span
                       key={idx}
-                      className="bg-white border border-gray-100 text-[#0F274A] font-bold text-[10px] sm:text-xs px-3.5 py-1.5 rounded-full shadow-xs hover:border-[#F58220]/30 transition-all cursor-default"
+                      className="bg-white border border-gray-100 text-[#0F274A] font-bold text-[10px] sm:text-xs px-3.5 py-1.5 rounded-full shadow-xs hover:border-[#FF6A00]/30 transition-all cursor-default"
                     >
                       {ind}
                     </span>
@@ -2585,7 +2585,7 @@ export default function UKServicesContent({ serviceSlug }) {
 
               {/* Right: Why Choose NextLedgers checklist */}
               <div className="flex flex-col justify-center flex-1 py-2 lg:py-0">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider mb-1">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider mb-1">
                   Outsourcing Advantages
                 </span>
                 <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mb-3">
@@ -2604,7 +2604,7 @@ export default function UKServicesContent({ serviceSlug }) {
                     "Scalable Support Framework"
                   ].map((adv, idx) => (
                     <div key={idx} className="flex items-center gap-2">
-                      <span className="w-5 h-5 rounded-full bg-[#F58220] text-white flex items-center justify-center text-[10px] font-bold">✓</span>
+                      <span className="w-5 h-5 rounded-full bg-[#FF6A00] text-white flex items-center justify-center text-[10px] font-bold">✓</span>
                       <span className="text-gray-800 text-xs sm:text-sm font-semibold">{adv}</span>
                     </div>
                   ))}
@@ -2613,18 +2613,18 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 8: Your Offshore Company Secretarial Delivery Partner (Centered CTA Card, bg #ffffff, heading #EA7C24) */}
+          {/* Section 8: Your Offshore Company Secretarial Delivery Partner (Centered CTA Card, bg #ffffff, heading #FF6A00) */}
           <div className="w-full bg-white py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="w-[90%] max-w-7xl mx-auto text-center">
-              <div className="bg-[#FEF4E4]/40 border border-[#F58220]/25 rounded-[24px] p-6 sm:p-10 lg:p-14 shadow-[0_20px_50px_rgba(245,130,32,0.04)] relative overflow-hidden group hover:shadow-[0_20px_50px_rgba(245,130,32,0.08)] transition-all duration-500">
+              <div className="bg-[#FEF4E4]/40 border border-[#FF6A00]/25 rounded-[24px] p-6 sm:p-10 lg:p-14 shadow-[0_20px_50px_rgba(255, 106, 0,0.04)] relative overflow-hidden group hover:shadow-[0_20px_50px_rgba(255, 106, 0,0.08)] transition-all duration-500">
                 {/* Background design accents */}
-                <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-[#F58220]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
-                <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-[#F58220]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
+                <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-[#FF6A00]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
+                <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-[#FF6A00]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
 
-                <span className="text-[#F58220] font-extrabold text-[10px] sm:text-xs uppercase tracking-widest bg-white border border-[#F58220]/20 px-3 py-1 rounded-full inline-block mb-4 shadow-xs">
+                <span className="text-[#FF6A00] font-extrabold text-[10px] sm:text-xs uppercase tracking-widest bg-white border border-[#FF6A00]/20 px-3 py-1 rounded-full inline-block mb-4 shadow-xs">
                   Secretarial Partner
                 </span>
-                <h2 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mb-4">
+                <h2 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mb-4">
                   Your Offshore Company Formation & Company Secretarial Delivery Partner
                 </h2>
                 <div className="space-y-4 text-gray-700 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed mb-6">
@@ -2659,29 +2659,29 @@ export default function UKServicesContent({ serviceSlug }) {
           {/* SECTION AREA G: UK VAT & MAKING TAX DIGITAL (MTD) OUTSOURCING SERVICES            */}
           {/* ================================================================================= */}
 
-          {/* Section Divider & Header (id="vat-mtd", bg #ffffff, heading #EA7C24) */}
+          {/* Section Divider & Header (id="vat-mtd", bg #ffffff, heading #FF6A00) */}
           <div id="vat-mtd" className="w-full bg-white pt-8 pb-4 lg:pt-16 lg:pb-12 text-center px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="max-w-4xl mx-auto animate-fade-up">
-              <span className="text-[#F58220] uppercase font-extrabold tracking-widest text-[10px] sm:text-xs bg-[#F58220]/10 px-3 py-1 rounded-full">
+              <span className="text-[#FF6A00] uppercase font-extrabold tracking-widest text-[10px] sm:text-xs bg-[#FF6A00]/10 px-3 py-1 rounded-full">
                 Outsource UK VAT & MTD
               </span>
-              <h2 className="text-[22px] sm:text-[36px] md:text-[46px] font-extrabold text-[#EA7C24] leading-[1.2] mt-3 mb-4">
+              <h2 className="text-[22px] sm:text-[36px] md:text-[46px] font-extrabold text-[#FF6A00] leading-[1.2] mt-3 mb-4">
                 UK VAT & Making Tax Digital <br className="hidden sm:inline" />
                 (MTD) Outsourcing Services
               </h2>
               <p className="text-gray-600 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
                 Specialist VAT Compliance Support for UK Accounting Firms — increase capacity and manage Making Tax Digital compliance.
               </p>
-              <div className="w-16 h-1 bg-[#F58220] mx-auto mt-4 rounded-full" />
+              <div className="w-16 h-1 bg-[#FF6A00] mx-auto mt-4 rounded-full" />
             </div>
           </div>
 
           {/* Section 1: Overview with VAT computation panel mockup (bg #FEF4E4) */}
-          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
+          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#FF6A00]/10">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[10px] lg:gap-16 items-stretch">
               {/* Left Content */}
               <div className="flex flex-col justify-center flex-1 py-2 lg:py-0">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider mb-1">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider mb-1">
                   VAT Compliance
                 </span>
                 <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mb-3">
@@ -2718,14 +2718,14 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 2: Why VAT & MTD Matter (Asymmetrical Grid Cards, bg #ffffff, heading #EA7C24) */}
+          {/* Section 2: Why VAT & MTD Matter (Asymmetrical Grid Cards, bg #ffffff, heading #FF6A00) */}
           <div className="w-full bg-white py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
                   Computational Accuracy
                 </span>
-                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mt-3 mb-2">
+                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mt-3 mb-2">
                   Why VAT & MTD Matter
                 </h3>
                 <p className="text-gray-600 text-xs sm:text-sm">
@@ -2748,9 +2748,9 @@ export default function UKServicesContent({ serviceSlug }) {
                 ].map((item, idx) => (
                   <div
                     key={idx}
-                    className="bg-[#FEF4E4]/25 p-5 rounded-2xl border border-[#F58220]/15 hover:border-[#F58220]/30 hover:bg-[#FEF4E4]/45 transition-all duration-300 group"
+                    className="bg-[#FEF4E4]/25 p-5 rounded-2xl border border-[#FF6A00]/15 hover:border-[#FF6A00]/30 hover:bg-[#FEF4E4]/45 transition-all duration-300 group"
                   >
-                    <div className="w-8 h-8 rounded-xl bg-white border border-[#F58220]/20 flex items-center justify-center text-lg mb-3 shadow-xs group-hover:scale-105 transition-transform">
+                    <div className="w-8 h-8 rounded-xl bg-white border border-[#FF6A00]/20 flex items-center justify-center text-lg mb-3 shadow-xs group-hover:scale-105 transition-transform">
                       {item.icon}
                     </div>
                     <h4 className="text-sm font-extrabold text-[#0F274A] mb-2">{item.title}</h4>
@@ -2762,10 +2762,10 @@ export default function UKServicesContent({ serviceSlug }) {
           </div>
 
           {/* Section 3: Our VAT Services Include (bg #FEF4E4) */}
-          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
+          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#FF6A00]/10">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#F58220]/15 px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#FF6A00]/15 px-3 py-1 rounded-full">
                   Full Services Deliverables
                 </span>
                 <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mt-3 mb-2">
@@ -2776,7 +2776,7 @@ export default function UKServicesContent({ serviceSlug }) {
                 </p>
               </div>
 
-              <div className="bg-white rounded-3xl p-5 sm:p-8 border border-[#F58220]/15 shadow-xs">
+              <div className="bg-white rounded-3xl p-5 sm:p-8 border border-[#FF6A00]/15 shadow-xs">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
                   {[
                     "VAT Registration & Deregistration Support",
@@ -2791,7 +2791,7 @@ export default function UKServicesContent({ serviceSlug }) {
                     "Industry-Specific VAT Analysis"
                   ].map((service, idx) => (
                     <div key={idx} className="flex flex-col justify-between p-4 bg-[#faf9f6] rounded-xl hover:bg-[#FEF4E4]/30 border border-gray-50 transition-colors group">
-                      <div className="w-4.5 h-4.5 rounded-full bg-[#F58220] flex items-center justify-center text-white font-bold text-[9px] mb-3 group-hover:scale-110 transition-transform">✓</div>
+                      <div className="w-4.5 h-4.5 rounded-full bg-[#FF6A00] flex items-center justify-center text-white font-bold text-[9px] mb-3 group-hover:scale-110 transition-transform">✓</div>
                       <span className="text-[11px] font-extrabold text-[#0F274A] leading-snug">{service}</span>
                     </div>
                   ))}
@@ -2800,14 +2800,14 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 4: Making Tax Digital Journey (bg #ffffff, heading #EA7C24) */}
+          {/* Section 4: Making Tax Digital Journey (bg #ffffff, heading #FF6A00) */}
           <div className="w-full bg-white py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
                   MTD Journey
                 </span>
-                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mt-3 mb-2">
+                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mt-3 mb-2">
                   Making Tax Digital (MTD) Support Journey
                 </h3>
                 <p className="text-gray-600 text-xs sm:text-sm">
@@ -2817,7 +2817,7 @@ export default function UKServicesContent({ serviceSlug }) {
 
               <div className="relative max-w-3xl mx-auto">
                 {/* Timeline Line */}
-                <div className="absolute left-4 top-2 bottom-2 w-0.5 bg-[#F58220]/25 hidden sm:block" />
+                <div className="absolute left-4 top-2 bottom-2 w-0.5 bg-[#FF6A00]/25 hidden sm:block" />
 
                 <div className="space-y-4">
                   {[
@@ -2831,10 +2831,10 @@ export default function UKServicesContent({ serviceSlug }) {
                   ].map((step, idx) => (
                     <div key={idx} className="flex flex-col sm:flex-row items-start gap-4 relative group">
                       {/* Number Node */}
-                      <div className="w-8 h-8 rounded-full bg-[#FEF4E4] border border-[#F58220]/30 flex items-center justify-center text-xs font-bold text-[#F58220] z-10 group-hover:bg-[#F58220] group-hover:text-white transition-colors duration-300">
+                      <div className="w-8 h-8 rounded-full bg-[#FEF4E4] border border-[#FF6A00]/30 flex items-center justify-center text-xs font-bold text-[#FF6A00] z-10 group-hover:bg-[#FF6A00] group-hover:text-white transition-colors duration-300">
                         {idx + 1}
                       </div>
-                      <div className="bg-[#faf9f6] p-4.5 rounded-2xl border border-gray-100 flex-1 group-hover:border-[#F58220]/25 transition-all duration-300">
+                      <div className="bg-[#faf9f6] p-4.5 rounded-2xl border border-gray-100 flex-1 group-hover:border-[#FF6A00]/25 transition-all duration-300">
                         <h4 className="text-xs sm:text-sm font-extrabold text-[#0F274A] mb-1.5">{step.title}</h4>
                         <p className="text-[11px] text-gray-500 leading-relaxed">{step.desc}</p>
                       </div>
@@ -2846,10 +2846,10 @@ export default function UKServicesContent({ serviceSlug }) {
           </div>
 
           {/* Section 5: VAT Schemes We Support (Scheme Matrix, bg #FEF4E4) */}
-          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
+          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#FF6A00]/10">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#F58220]/15 px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#FF6A00]/15 px-3 py-1 rounded-full">
                   Filing Schemes
                 </span>
                 <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mt-3 mb-2">
@@ -2862,9 +2862,9 @@ export default function UKServicesContent({ serviceSlug }) {
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
                 {/* Core Schemes */}
-                <div className="bg-white rounded-3xl p-5 sm:p-7 border border-[#F58220]/15 shadow-xs">
-                  <h4 className="text-sm sm:text-base font-extrabold text-[#EA7C24] uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
+                <div className="bg-white rounded-3xl p-5 sm:p-7 border border-[#FF6A00]/15 shadow-xs">
+                  <h4 className="text-sm sm:text-base font-extrabold text-[#FF6A00] uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <span className="w-1.5 h-3.5 bg-[#FF6A00] rounded-full" />
                     Core VAT Schemes
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -2876,7 +2876,7 @@ export default function UKServicesContent({ serviceSlug }) {
                       "VAT Retail Schemes",
                       "VAT Margin Schemes"
                     ].map((item, idx) => (
-                      <div key={idx} className="p-3 bg-[#faf9f6] rounded-xl border border-gray-100 hover:border-[#F58220]/25 transition-all">
+                      <div key={idx} className="p-3 bg-[#faf9f6] rounded-xl border border-gray-100 hover:border-[#FF6A00]/25 transition-all">
                         <span className="text-[11px] font-bold text-[#0F274A] block leading-snug">{item}</span>
                       </div>
                     ))}
@@ -2884,7 +2884,7 @@ export default function UKServicesContent({ serviceSlug }) {
                 </div>
 
                 {/* Specialist & International */}
-                <div className="bg-white rounded-3xl p-5 sm:p-7 border border-[#F58220]/15 shadow-xs">
+                <div className="bg-white rounded-3xl p-5 sm:p-7 border border-[#FF6A00]/15 shadow-xs">
                   <h4 className="text-sm sm:text-base font-extrabold text-[#0F274A] uppercase tracking-wider mb-4 flex items-center gap-2">
                     <span className="w-1.5 h-3.5 bg-[#0F274A] rounded-full" />
                     Specialist & International VAT
@@ -2898,7 +2898,7 @@ export default function UKServicesContent({ serviceSlug }) {
                       "Cross-Border Transactions",
                       "Marketplace & eCommerce VAT"
                     ].map((item, idx) => (
-                      <div key={idx} className="p-3 bg-[#faf9f6] rounded-xl border border-gray-100 hover:border-[#F58220]/25 transition-all">
+                      <div key={idx} className="p-3 bg-[#faf9f6] rounded-xl border border-gray-100 hover:border-[#FF6A00]/25 transition-all">
                         <span className="text-[11px] font-bold text-gray-700 block leading-snug">{item}</span>
                       </div>
                     ))}
@@ -2908,14 +2908,14 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 6: VAT Reconciliation & Compliance Reviews (Audit Magnifier Cards, bg #ffffff, heading #EA7C24) */}
+          {/* Section 6: VAT Reconciliation & Compliance Reviews (Audit Magnifier Cards, bg #ffffff, heading #FF6A00) */}
           <div className="w-full bg-white py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
                   VAT Auditing
                 </span>
-                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mt-3 mb-2">
+                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mt-3 mb-2">
                   VAT Reconciliation & Compliance Reviews
                 </h3>
                 <p className="text-gray-600 text-xs sm:text-sm">
@@ -2936,7 +2936,7 @@ export default function UKServicesContent({ serviceSlug }) {
                 ].map((item, idx) => (
                   <div
                     key={idx}
-                    className="bg-white p-5 rounded-2xl border border-gray-100 hover:border-[#F58220]/25 transition-all duration-300 flex flex-col justify-between shadow-[0_10px_35px_rgba(0,0,0,0.01)]"
+                    className="bg-white p-5 rounded-2xl border border-gray-100 hover:border-[#FF6A00]/25 transition-all duration-300 flex flex-col justify-between shadow-[0_10px_35px_rgba(0,0,0,0.01)]"
                   >
                     <div>
                       <span className="text-lg block mb-3">🔍</span>
@@ -2950,10 +2950,10 @@ export default function UKServicesContent({ serviceSlug }) {
           </div>
 
           {/* Section 7: Software Expertise badge deck (bg #FEF4E4) */}
-          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
+          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#FF6A00]/10">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#F58220]/15 px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#FF6A00]/15 px-3 py-1 rounded-full">
                   Filing Integration
                 </span>
                 <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mt-3 mb-2">
@@ -2967,8 +2967,8 @@ export default function UKServicesContent({ serviceSlug }) {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 {/* Column 1 */}
                 <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-xs">
-                  <h4 className="text-xs sm:text-sm font-extrabold text-[#EA7C24] uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
+                  <h4 className="text-xs sm:text-sm font-extrabold text-[#FF6A00] uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <span className="w-1.5 h-3.5 bg-[#FF6A00] rounded-full" />
                     Accounting Software
                   </h4>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
@@ -2980,8 +2980,8 @@ export default function UKServicesContent({ serviceSlug }) {
 
                 {/* Column 2 */}
                 <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-xs">
-                  <h4 className="text-xs sm:text-sm font-extrabold text-[#EA7C24] uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
+                  <h4 className="text-xs sm:text-sm font-extrabold text-[#FF6A00] uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <span className="w-1.5 h-3.5 bg-[#FF6A00] rounded-full" />
                     MTD & VAT Platforms
                   </h4>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
@@ -2993,8 +2993,8 @@ export default function UKServicesContent({ serviceSlug }) {
 
                 {/* Column 3 */}
                 <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-xs">
-                  <h4 className="text-xs sm:text-sm font-extrabold text-[#EA7C24] uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
+                  <h4 className="text-xs sm:text-sm font-extrabold text-[#FF6A00] uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <span className="w-1.5 h-3.5 bg-[#FF6A00] rounded-full" />
                     Supporting Tools
                   </h4>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
@@ -3007,15 +3007,15 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 8: Industries & Why Choose NextLedgers (bg #ffffff, heading #EA7C24) */}
+          {/* Section 8: Industries & Why Choose NextLedgers (bg #ffffff, heading #FF6A00) */}
           <div className="w-full bg-white py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[10px] lg:gap-16 items-stretch">
               {/* Left: Industries We Support tag cloud */}
               <div className="flex flex-col justify-center flex-1 py-2 lg:py-0">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider mb-1">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider mb-1">
                   Sectors Covered
                 </span>
-                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mb-3">
+                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mb-3">
                   Industries We Support
                 </h3>
                 <div className="flex flex-wrap gap-2">
@@ -3029,7 +3029,7 @@ export default function UKServicesContent({ serviceSlug }) {
                   ].map((ind, idx) => (
                     <span
                       key={idx}
-                      className="bg-[#FEF4E4]/40 border border-[#F58220]/15 text-[#0F274A] font-bold text-[10px] sm:text-xs px-3.5 py-1.5 rounded-full hover:bg-[#FEF4E4]/70 transition-all cursor-default"
+                      className="bg-[#FEF4E4]/40 border border-[#FF6A00]/15 text-[#0F274A] font-bold text-[10px] sm:text-xs px-3.5 py-1.5 rounded-full hover:bg-[#FEF4E4]/70 transition-all cursor-default"
                     >
                       {ind}
                     </span>
@@ -3039,10 +3039,10 @@ export default function UKServicesContent({ serviceSlug }) {
 
               {/* Right: Why Choose NextLedgers checklist */}
               <div className="flex flex-col justify-center flex-1 py-2 lg:py-0">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider mb-1">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider mb-1">
                   Outsourcing Advantages
                 </span>
-                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mb-3">
+                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mb-3">
                   Why Choose NextLedgers?
                 </h3>
                 <div className="space-y-2.5">
@@ -3057,7 +3057,7 @@ export default function UKServicesContent({ serviceSlug }) {
                     "Scalable Support Without Increasing Overheads"
                   ].map((adv, idx) => (
                     <div key={idx} className="flex items-center gap-2">
-                      <span className="w-5 h-5 rounded-full bg-[#F58220] text-white flex items-center justify-center text-[10px] font-bold">✓</span>
+                      <span className="w-5 h-5 rounded-full bg-[#FF6A00] text-white flex items-center justify-center text-[10px] font-bold">✓</span>
                       <span className="text-gray-800 text-xs sm:text-sm font-semibold">{adv}</span>
                     </div>
                   ))}
@@ -3069,15 +3069,15 @@ export default function UKServicesContent({ serviceSlug }) {
           {/* Section 9: Your Offshore VAT Compliance Partner (Centered CTA Card, bg #FEF4E4 outer, bg #ffffff card inner) */}
           <div className="w-full bg-[#FEF4E4] py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
             <div className="w-[90%] max-w-7xl mx-auto text-center">
-              <div className="bg-white border border-[#F58220]/25 rounded-[24px] p-6 sm:p-10 lg:p-14 shadow-[0_20px_50px_rgba(245,130,32,0.04)] relative overflow-hidden group hover:shadow-[0_20px_50px_rgba(245,130,32,0.08)] transition-all duration-500">
+              <div className="bg-white border border-[#FF6A00]/25 rounded-[24px] p-6 sm:p-10 lg:p-14 shadow-[0_20px_50px_rgba(255, 106, 0,0.04)] relative overflow-hidden group hover:shadow-[0_20px_50px_rgba(255, 106, 0,0.08)] transition-all duration-500">
                 {/* Background design accents */}
-                <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-[#F58220]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
-                <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-[#F58220]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
+                <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-[#FF6A00]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
+                <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-[#FF6A00]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
 
-                <span className="text-[#F58220] font-extrabold text-[10px] sm:text-xs uppercase tracking-widest bg-[#FEF4E4] border border-[#F58220]/20 px-3 py-1 rounded-full inline-block mb-4 shadow-xs">
+                <span className="text-[#FF6A00] font-extrabold text-[10px] sm:text-xs uppercase tracking-widest bg-[#FEF4E4] border border-[#FF6A00]/20 px-3 py-1 rounded-full inline-block mb-4 shadow-xs">
                   VAT & MTD Partner
                 </span>
-                <h2 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mb-4">
+                <h2 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mb-4">
                   Your Offshore VAT & MTD Compliance Partner
                 </h2>
                 <div className="space-y-4 text-gray-700 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed mb-6">
@@ -3101,29 +3101,29 @@ export default function UKServicesContent({ serviceSlug }) {
           {/* SECTION AREA H: UK YEAR-END ACCOUNTS & CORPORATION TAX OUTSOURCING SERVICES       */}
           {/* ================================================================================= */}
 
-          {/* Section Divider & Header (id="year-end", bg #ffffff, heading #EA7C24) */}
+          {/* Section Divider & Header (id="year-end", bg #ffffff, heading #FF6A00) */}
           <div id="year-end" className="w-full bg-white pt-8 pb-4 lg:pt-16 lg:pb-12 text-center px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="max-w-4xl mx-auto animate-fade-up">
-              <span className="text-[#F58220] uppercase font-extrabold tracking-widest text-[10px] sm:text-xs bg-[#F58220]/10 px-3 py-1 rounded-full">
+              <span className="text-[#FF6A00] uppercase font-extrabold tracking-widest text-[10px] sm:text-xs bg-[#FF6A00]/10 px-3 py-1 rounded-full">
                 Outsource UK Year-End & Tax
               </span>
-              <h2 className="text-[22px] sm:text-[36px] md:text-[46px] font-extrabold text-[#EA7C24] leading-[1.2] mt-3 mb-4">
+              <h2 className="text-[22px] sm:text-[36px] md:text-[46px] font-extrabold text-[#FF6A00] leading-[1.2] mt-3 mb-4">
                 UK Year-End Accounts & <br className="hidden sm:inline" />
                 Corporation Tax Outsourcing Services
               </h2>
               <p className="text-gray-600 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
                 Reliable Year-End Compliance Support for UK Accounting Firms — statutory accounts, FRS production, and CT600 tax filings.
               </p>
-              <div className="w-16 h-1 bg-[#F58220] mx-auto mt-4 rounded-full" />
+              <div className="w-16 h-1 bg-[#FF6A00] mx-auto mt-4 rounded-full" />
             </div>
           </div>
 
           {/* Section 1: Overview with Image (bg #FEF4E4) */}
-          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
+          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#FF6A00]/10">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[10px] lg:gap-16 items-stretch">
               {/* Left Content */}
               <div className="flex flex-col justify-center flex-1 py-2 lg:py-0">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider mb-1">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider mb-1">
                   Filing Compliance
                 </span>
                 <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mb-3">
@@ -3163,14 +3163,14 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 2: Why Year-End & Tax Compliance Matters (bg #ffffff, heading #EA7C24) */}
+          {/* Section 2: Why Year-End & Tax Compliance Matters (bg #ffffff, heading #FF6A00) */}
           <div className="w-full bg-white py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
                   Filing Foundations
                 </span>
-                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mt-3 mb-2">
+                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mt-3 mb-2">
                   Why Year-End Accounts & Corporation Tax Matter
                 </h3>
                 <p className="text-gray-600 text-xs sm:text-sm">
@@ -3194,9 +3194,9 @@ export default function UKServicesContent({ serviceSlug }) {
                 ].map((item, idx) => (
                   <div
                     key={idx}
-                    className="bg-[#FEF4E4]/25 p-5 rounded-2xl border border-[#F58220]/15 hover:border-[#F58220]/30 hover:bg-[#FEF4E4]/45 transition-all duration-300"
+                    className="bg-[#FEF4E4]/25 p-5 rounded-2xl border border-[#FF6A00]/15 hover:border-[#FF6A00]/30 hover:bg-[#FEF4E4]/45 transition-all duration-300"
                   >
-                    <span className="w-6 h-6 rounded-lg bg-white border border-[#F58220]/20 flex items-center justify-center text-[10px] font-bold text-[#F58220] mb-3">✓</span>
+                    <span className="w-6 h-6 rounded-lg bg-white border border-[#FF6A00]/20 flex items-center justify-center text-[10px] font-bold text-[#FF6A00] mb-3">✓</span>
                     <h4 className="text-xs sm:text-sm font-extrabold text-[#0F274A] mb-2">{item.title}</h4>
                     <p className="text-[11px] text-gray-500 leading-relaxed">{item.desc}</p>
                   </div>
@@ -3206,10 +3206,10 @@ export default function UKServicesContent({ serviceSlug }) {
           </div>
 
           {/* Section 3: Accounts Production vs Corporation Tax (bg #FEF4E4) */}
-          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
+          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#FF6A00]/10">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#F58220]/15 px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#FF6A00]/15 px-3 py-1 rounded-full">
                   Full Services Deliverables
                 </span>
                 <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mt-3 mb-2">
@@ -3222,11 +3222,11 @@ export default function UKServicesContent({ serviceSlug }) {
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
                 {/* Accounts Production Card */}
-                <div className="bg-white rounded-3xl p-5 sm:p-7 border border-[#F58220]/15 shadow-xs flex flex-col justify-between">
+                <div className="bg-white rounded-3xl p-5 sm:p-7 border border-[#FF6A00]/15 shadow-xs flex flex-col justify-between">
                   <div>
                     <div className="flex items-center gap-2 mb-4">
                       <span className="text-2xl">📑</span>
-                      <h4 className="text-base sm:text-lg font-extrabold text-[#EA7C24]">Our Year-End Accounts Services Include</h4>
+                      <h4 className="text-base sm:text-lg font-extrabold text-[#FF6A00]">Our Year-End Accounts Services Include</h4>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                       {[
@@ -3253,11 +3253,11 @@ export default function UKServicesContent({ serviceSlug }) {
                 </div>
 
                 {/* Corporation Tax Card */}
-                <div className="bg-white rounded-3xl p-5 sm:p-7 border border-[#F58220]/15 shadow-xs flex flex-col justify-between">
+                <div className="bg-white rounded-3xl p-5 sm:p-7 border border-[#FF6A00]/15 shadow-xs flex flex-col justify-between">
                   <div>
                     <div className="flex items-center gap-2 mb-4">
                       <span className="text-2xl">💰</span>
-                      <h4 className="text-base sm:text-lg font-extrabold text-[#EA7C24]">Our Corporation Tax Services Include</h4>
+                      <h4 className="text-base sm:text-lg font-extrabold text-[#FF6A00]">Our Corporation Tax Services Include</h4>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                       {[
@@ -3284,14 +3284,14 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 4: Specialist Support (bg #ffffff, heading #EA7C24) */}
+          {/* Section 4: Specialist Support (bg #ffffff, heading #FF6A00) */}
           <div className="w-full bg-white py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-[#FEF4E4] px-3 py-1 rounded-full">
                   Compliance Formats
                 </span>
-                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mt-3 mb-2">
+                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mt-3 mb-2">
                   Specialist Year-End Formats & Adjustments
                 </h3>
                 <p className="text-gray-600 text-xs sm:text-sm">
@@ -3304,7 +3304,7 @@ export default function UKServicesContent({ serviceSlug }) {
                 <div className="bg-[#faf9f6] rounded-2xl p-5 border border-gray-100 flex flex-col justify-between">
                   <div>
                     <h4 className="text-xs sm:text-sm font-extrabold text-[#0F274A] uppercase tracking-wider mb-4 flex items-center gap-2">
-                      <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
+                      <span className="w-1.5 h-3.5 bg-[#FF6A00] rounded-full" />
                       Statutory Accounts Production
                     </h4>
                     <div className="space-y-2">
@@ -3328,7 +3328,7 @@ export default function UKServicesContent({ serviceSlug }) {
                 <div className="bg-[#faf9f6] rounded-2xl p-5 border border-gray-100 flex flex-col justify-between">
                   <div>
                     <h4 className="text-xs sm:text-sm font-extrabold text-[#0F274A] uppercase tracking-wider mb-4 flex items-center gap-2">
-                      <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
+                      <span className="w-1.5 h-3.5 bg-[#FF6A00] rounded-full" />
                       Year-End Adjustments
                     </h4>
                     <div className="space-y-2">
@@ -3352,7 +3352,7 @@ export default function UKServicesContent({ serviceSlug }) {
                 <div className="bg-[#faf9f6] rounded-2xl p-5 border border-gray-100 flex flex-col justify-between">
                   <div>
                     <h4 className="text-xs sm:text-sm font-extrabold text-[#0F274A] uppercase tracking-wider mb-4 flex items-center gap-2">
-                      <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
+                      <span className="w-1.5 h-3.5 bg-[#FF6A00] rounded-full" />
                       Director Accounts & Allowances
                     </h4>
                     <div className="space-y-2">
@@ -3376,10 +3376,10 @@ export default function UKServicesContent({ serviceSlug }) {
           </div>
 
           {/* Section 5: Software & Pensions (bg #FEF4E4) */}
-          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#F58220]/10">
+          <div className="w-full bg-[#FEF4E4] py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-[#FF6A00]/10">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#F58220]/15 px-3 py-1 rounded-full">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#FF6A00]/15 px-3 py-1 rounded-full">
                   Filing Stack
                 </span>
                 <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mt-3 mb-2">
@@ -3393,8 +3393,8 @@ export default function UKServicesContent({ serviceSlug }) {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 {/* Column 1 */}
                 <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-xs">
-                  <h4 className="text-xs sm:text-sm font-extrabold text-[#EA7C24] uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
+                  <h4 className="text-xs sm:text-sm font-extrabold text-[#FF6A00] uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <span className="w-1.5 h-3.5 bg-[#FF6A00] rounded-full" />
                     Accounts Production
                   </h4>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
@@ -3406,8 +3406,8 @@ export default function UKServicesContent({ serviceSlug }) {
 
                 {/* Column 2 */}
                 <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-xs">
-                  <h4 className="text-xs sm:text-sm font-extrabold text-[#EA7C24] uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
+                  <h4 className="text-xs sm:text-sm font-extrabold text-[#FF6A00] uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <span className="w-1.5 h-3.5 bg-[#FF6A00] rounded-full" />
                     Corporation Tax
                   </h4>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
@@ -3419,8 +3419,8 @@ export default function UKServicesContent({ serviceSlug }) {
 
                 {/* Column 3 */}
                 <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-xs">
-                  <h4 className="text-xs sm:text-sm font-extrabold text-[#EA7C24] uppercase tracking-wider mb-4 flex items-center gap-2">
-                    <span className="w-1.5 h-3.5 bg-[#F58220] rounded-full" />
+                  <h4 className="text-xs sm:text-sm font-extrabold text-[#FF6A00] uppercase tracking-wider mb-4 flex items-center gap-2">
+                    <span className="w-1.5 h-3.5 bg-[#FF6A00] rounded-full" />
                     Supporting Tools
                   </h4>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
@@ -3433,15 +3433,15 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 6: Industries & Why Choose NextLedgers (bg #ffffff, heading #EA7C24) */}
+          {/* Section 6: Industries & Why Choose NextLedgers (bg #ffffff, heading #FF6A00) */}
           <div className="w-full bg-white py-[5px] lg:py-16 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[10px] lg:gap-16 items-stretch">
               {/* Left: Industries We Support tag cloud */}
               <div className="flex flex-col justify-center flex-1 py-2 lg:py-0">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider mb-1">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider mb-1">
                   Sectors Covered
                 </span>
-                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mb-3">
+                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mb-3">
                   Industries We Support
                 </h3>
                 <div className="flex flex-wrap gap-2">
@@ -3456,7 +3456,7 @@ export default function UKServicesContent({ serviceSlug }) {
                   ].map((ind, idx) => (
                     <span
                       key={idx}
-                      className="bg-[#FEF4E4]/40 border border-[#F58220]/15 text-[#0F274A] font-bold text-[10px] sm:text-xs px-3.5 py-1.5 rounded-full hover:bg-[#FEF4E4]/70 transition-all cursor-default"
+                      className="bg-[#FEF4E4]/40 border border-[#FF6A00]/15 text-[#0F274A] font-bold text-[10px] sm:text-xs px-3.5 py-1.5 rounded-full hover:bg-[#FEF4E4]/70 transition-all cursor-default"
                     >
                       {ind}
                     </span>
@@ -3466,10 +3466,10 @@ export default function UKServicesContent({ serviceSlug }) {
 
               {/* Right: Why Choose NextLedgers checklist */}
               <div className="flex flex-col justify-center flex-1 py-2 lg:py-0">
-                <span className="text-[#F58220] font-bold text-[10px] uppercase tracking-wider mb-1">
+                <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider mb-1">
                   Outsourcing Advantages
                 </span>
-                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mb-3">
+                <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mb-3">
                   Why Choose NextLedgers?
                 </h3>
                 <div className="space-y-2.5">
@@ -3485,7 +3485,7 @@ export default function UKServicesContent({ serviceSlug }) {
                     "Secure Data Handling"
                   ].map((adv, idx) => (
                     <div key={idx} className="flex items-center gap-2">
-                      <span className="w-4 h-4 rounded-full bg-[#F58220] text-white flex items-center justify-center text-[9px] font-bold">✓</span>
+                      <span className="w-4 h-4 rounded-full bg-[#FF6A00] text-white flex items-center justify-center text-[9px] font-bold">✓</span>
                       <span className="text-gray-800 text-xs sm:text-sm font-semibold">{adv}</span>
                     </div>
                   ))}
@@ -3497,15 +3497,15 @@ export default function UKServicesContent({ serviceSlug }) {
           {/* Section 7: Your Offshore Compliance Partner (Centered CTA Card, bg #FEF4E4 outer, bg #ffffff card inner) */}
           <div className="w-full bg-[#FEF4E4] py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="w-[90%] max-w-7xl mx-auto text-center">
-              <div className="bg-white border border-[#F58220]/25 rounded-[24px] p-6 sm:p-10 lg:p-14 shadow-[0_20px_50px_rgba(245,130,32,0.04)] relative overflow-hidden group hover:shadow-[0_20px_50px_rgba(245,130,32,0.08)] transition-all duration-500">
+              <div className="bg-white border border-[#FF6A00]/25 rounded-[24px] p-6 sm:p-10 lg:p-14 shadow-[0_20px_50px_rgba(255, 106, 0,0.04)] relative overflow-hidden group hover:shadow-[0_20px_50px_rgba(255, 106, 0,0.08)] transition-all duration-500">
                 {/* Background design accents */}
-                <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-[#F58220]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
-                <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-[#F58220]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
+                <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-[#FF6A00]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
+                <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg-[#FF6A00]/5 pointer-events-none transition-transform duration-500 group-hover:scale-110" />
 
-                <span className="text-[#F58220] font-extrabold text-[10px] sm:text-xs uppercase tracking-widest bg-[#FEF4E4] border border-[#F58220]/20 px-3 py-1 rounded-full inline-block mb-4 shadow-xs">
+                <span className="text-[#FF6A00] font-extrabold text-[10px] sm:text-xs uppercase tracking-widest bg-[#FEF4E4] border border-[#FF6A00]/20 px-3 py-1 rounded-full inline-block mb-4 shadow-xs">
                   Compliance Partner
                 </span>
-                <h2 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#EA7C24] leading-snug mb-4">
+                <h2 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mb-4">
                   Your Offshore Year-End Compliance Partner
                 </h2>
                 <div className="space-y-4 text-gray-700 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed mb-6">
@@ -3540,7 +3540,7 @@ export default function UKServicesContent({ serviceSlug }) {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 left-6 z-50 bg-[#F58220] hover:bg-[#EA7C24] text-white p-3.5 rounded-full shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center border border-[#F58220]/20"
+          className="fixed bottom-6 left-6 z-50 bg-[#FF6A00] hover:bg-[#FF6A00] text-white p-3.5 rounded-full shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center border border-[#FF6A00]/20"
           title="Go to Top"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">

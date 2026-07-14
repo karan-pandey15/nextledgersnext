@@ -4,8 +4,9 @@ import React from "react";
 import CtaButton from "@/app/components/ui/CtaButton";
 import ArticleCard from "@/app/articles/ArticleCard";
 import { ARTICLES } from "@/app/articles/articlesData";
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
-const ORANGE = "#F58220";
+const ORANGE = BRAND_ORANGE;
 const NAVY = "#0F274A";
 const GREY = "#6B7280";
 
@@ -31,14 +32,19 @@ export default function BusinessTips() {
         </p>
       </div>
 
-      <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-10 md:grid-cols-3 sm:gap-5 lg:gap-6">
+      <div className="mt-8 grid grid-cols-1 justify-items-center gap-4 sm:mt-10 md:grid-cols-3 sm:gap-5 lg:mx-auto lg:max-w-[1140px] lg:gap-5">
         {FEATURED.map((article) => (
           <ArticleCard key={article.slug} article={article} />
         ))}
       </div>
 
       <div className="mt-8 flex justify-center sm:mt-10">
-        <CtaButton href="/articles" variant="secondary" size="md" className="w-full max-w-[240px] sm:w-auto sm:min-w-[200px]">
+        <CtaButton
+          href="/articles"
+          variant="secondary"
+          size="md"
+          className="w-full max-w-[240px] sm:w-auto sm:min-w-[200px]"
+        >
           View all articles
           <span aria-hidden="true">→</span>
         </CtaButton>

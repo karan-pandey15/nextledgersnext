@@ -11,8 +11,9 @@ import ServiceHomePage from "../components/ServiceMainPageContent/ServiceHomePag
 import { CANADA_TRUST_BADGES } from "../components/ServiceMainPageContent/TrustBadgesBar";
 import CtaButton from "../components/ui/CtaButton";
 import { CANADA_SERVICE_LINKS } from "./canadaServiceLinks";
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
-const ORANGE = "#F58220";
+const ORANGE = BRAND_ORANGE;
 const NAVY = "#0B1F3A";
 const GREY = "#6B7280";
 const PAGE_CREAM = "#FFF9F5";
@@ -84,7 +85,7 @@ export default function CanadaPage() {
                   <li key={service.href} className="min-w-0">
                     <Link
                       href={service.href}
-                      className="group relative flex h-full min-h-[88px] items-start gap-3 overflow-hidden rounded-[16px] border border-[#F0E6DC] bg-white px-3.5 py-4 shadow-[0_4px_18px_rgba(15,23,42,0.04)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#F58220]/35 hover:shadow-[0_10px_28px_rgba(15,23,42,0.08)] sm:min-h-[100px] sm:gap-4 sm:rounded-[18px] sm:px-5 sm:py-5"
+                      className="group relative flex h-full min-h-[88px] items-start gap-3 overflow-hidden rounded-[16px] border border-[#F0E6DC] bg-white px-3.5 py-4 shadow-[0_4px_18px_rgba(15,23,42,0.04)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#FF6A00]/35 hover:shadow-[0_10px_28px_rgba(15,23,42,0.08)] sm:min-h-[100px] sm:gap-4 sm:rounded-[18px] sm:px-5 sm:py-5"
                     >
                       <span
                         className="absolute inset-y-0 left-0 w-[3px] origin-top scale-y-0 transition-transform duration-200 group-hover:scale-y-100"
@@ -92,14 +93,14 @@ export default function CanadaPage() {
                         aria-hidden="true"
                       />
                       <span
-                        className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-[#F58220] sm:h-11 sm:w-11"
+                        className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-[#FF6A00] sm:h-11 sm:w-11"
                         style={{ background: "#FFF4EA" }}
                         aria-hidden="true"
                       >
                         <Icon className="h-[18px] w-[18px] sm:h-5 sm:w-5" strokeWidth={2} />
                       </span>
                       <div className="min-w-0 flex-1 text-left">
-                        <span className="block text-[13px] font-bold leading-snug text-[#0B1F3A] transition-colors duration-200 group-hover:text-[#F58220] sm:text-[14.5px] lg:text-[15px]">
+                        <span className="block text-[13px] font-bold leading-snug text-[#0B1F3A] transition-colors duration-200 group-hover:text-[#FF6A00] sm:text-[14.5px] lg:text-[15px]">
                           {service.label}
                         </span>
                         {service.blurb ? (
@@ -112,7 +113,7 @@ export default function CanadaPage() {
                         ) : null}
                       </div>
                       <span
-                        className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#F0E6DC] text-[14px] text-[#F58220] transition-all duration-200 group-hover:border-[#F58220] group-hover:bg-[#FFF4EA] sm:h-9 sm:w-9"
+                        className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#F0E6DC] text-[14px] text-[#FF6A00] transition-all duration-200 group-hover:border-[#FF6A00] group-hover:bg-[#FFF4EA] sm:h-9 sm:w-9"
                         aria-hidden="true"
                       >
                         →

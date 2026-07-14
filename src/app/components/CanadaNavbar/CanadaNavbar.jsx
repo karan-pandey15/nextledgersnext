@@ -122,15 +122,15 @@ export default function CanadaNavbar({ isSidebarOpen = false, setIsSidebarOpen }
                       onClick={(e) => handleDropdownClick(link.id, e)}
                       className={`flex items-center gap-1 px-3 py-2 rounded-full text-[13px] font-bold tracking-wide transition-all duration-200 cursor-pointer focus:outline-none ${
                         isOpen
-                          ? "bg-[#F58220]/10 text-[#F58220]"
-                          : "text-[#1E1B2A] hover:text-[#F58220] hover:bg-[#F58220]/5"
+                          ? "bg-[#FF6A00]/10 text-[#FF6A00]"
+                          : "text-[#1E1B2A] hover:text-[#FF6A00] hover:bg-[#FF6A00]/5"
                       }`}
                       aria-expanded={isOpen}
                     >
                       <span>{link.label}</span>
                       <svg
                         className={`w-3 h-3 transition-transform duration-300 ease-in-out ${
-                          isOpen ? "rotate-180 text-[#F58220]" : "text-gray-400"
+                          isOpen ? "rotate-180 text-[#FF6A00]" : "text-gray-400"
                         }`}
                         fill="none"
                         stroke="currentColor"
@@ -151,14 +151,14 @@ export default function CanadaNavbar({ isSidebarOpen = false, setIsSidebarOpen }
                           {!isCanadaHome && (
                             <Link
                               href="/canada"
-                              className="group flex items-center gap-2.5 p-2.5 mb-2 rounded-xl bg-[#F58220]/5 hover:bg-[#F58220]/10 border border-[#F58220]/20 transition-all duration-200 text-left"
+                              className="group flex items-center gap-2.5 p-2.5 mb-2 rounded-xl bg-[#FF6A00]/5 hover:bg-[#FF6A00]/10 border border-[#FF6A00]/20 transition-all duration-200 text-left"
                             >
                               <img
                                 src="https://flagcdn.com/w40/ca.png"
                                 alt="Canada Flag"
                                 className="w-7 h-[18px] object-cover flex-shrink-0 rounded-xs"
                               />
-                              <span className="text-[13px] font-extrabold text-[#F58220]">
+                              <span className="text-[13px] font-extrabold text-[#FF6A00]">
                                 Back To Canada
                               </span>
                             </Link>
@@ -170,12 +170,12 @@ export default function CanadaNavbar({ isSidebarOpen = false, setIsSidebarOpen }
                             <Link
                               key={idx}
                               href={item.href}
-                              className="group flex items-center gap-3 p-2.5 rounded-xl transition-all duration-200 hover:bg-[#F58220]/5 border-l-2 border-transparent hover:border-[#F58220]/40 text-left"
+                              className="group flex items-center gap-3 p-2.5 rounded-xl transition-all duration-200 hover:bg-[#FF6A00]/5 border-l-2 border-transparent hover:border-[#FF6A00]/40 text-left"
                             >
-                              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#F58220] transition-transform duration-200 group-hover:scale-110">
+                              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#FF6A00] transition-transform duration-200 group-hover:scale-110">
                                 <Icon className="h-4 w-4" strokeWidth={2} />
                               </span>
-                              <span className="text-[13px] font-bold text-[#1E1B2A]/90 transition-colors duration-200 group-hover:text-[#F58220] leading-snug">
+                              <span className="text-[13px] font-bold text-[#1E1B2A]/90 transition-colors duration-200 group-hover:text-[#FF6A00] leading-snug">
                                 {item.label}
                               </span>
                             </Link>
@@ -192,7 +192,7 @@ export default function CanadaNavbar({ isSidebarOpen = false, setIsSidebarOpen }
                 <Link
                   key={link.id}
                   href={link.href}
-                  className="px-3 py-2 rounded-full text-[13px] font-bold tracking-wide text-[#1E1B2A] hover:text-[#F58220] hover:bg-[#F58220]/5 transition-all duration-200"
+                  className="px-3 py-2 rounded-full text-[13px] font-bold tracking-wide text-[#1E1B2A] hover:text-[#FF6A00] hover:bg-[#FF6A00]/5 transition-all duration-200"
                 >
                   {link.label}
                 </Link>
@@ -210,7 +210,7 @@ export default function CanadaNavbar({ isSidebarOpen = false, setIsSidebarOpen }
           <div className="flex lg:hidden items-center">
             <button
               onClick={() => setIsSidebarOpen(true)}
-              className="p-2 -mr-2 rounded-lg text-[#F58220] hover:bg-[#F58220]/5 focus:outline-none transition-all duration-200 cursor-pointer"
+              className="p-2 -mr-2 rounded-lg text-[#FF6A00] hover:bg-[#FF6A00]/5 focus:outline-none transition-all duration-200 cursor-pointer"
               aria-label="Open navigation menu"
             >
               <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
@@ -244,7 +244,7 @@ export default function CanadaNavbar({ isSidebarOpen = false, setIsSidebarOpen }
             />
             <button
               onClick={() => setIsSidebarOpen(false)}
-              className="p-1.5 rounded-lg text-[#F58220] hover:bg-[#F58220]/5 cursor-pointer transition-all duration-200"
+              className="p-1.5 rounded-lg text-[#FF6A00] hover:bg-[#FF6A00]/5 cursor-pointer transition-all duration-200"
               aria-label="Close navigation menu"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
@@ -253,7 +253,7 @@ export default function CanadaNavbar({ isSidebarOpen = false, setIsSidebarOpen }
             </button>
           </div>
 
-          <div className="border-b border-[#F58220]/20 w-full" />
+          <div className="border-b border-[#FF6A00]/20 w-full" />
 
           <nav className="flex-1 flex flex-col gap-2 overflow-y-auto pr-1 canada-no-scrollbar">
             {CANADA_NAV_LINKS.map((link) => {
@@ -266,15 +266,15 @@ export default function CanadaNavbar({ isSidebarOpen = false, setIsSidebarOpen }
                       onClick={() => toggleMobileMenu(link.id)}
                       className={`flex items-center justify-between w-full text-left px-4 py-3.5 rounded-xl font-bold text-sm tracking-wide transition-all duration-200 cursor-pointer ${
                         isExpanded
-                          ? "bg-[#F58220]/6 text-[#F58220]"
-                          : "text-[#1E1B2A] hover:text-[#F58220] hover:bg-[#F58220]/4"
+                          ? "bg-[#FF6A00]/6 text-[#FF6A00]"
+                          : "text-[#1E1B2A] hover:text-[#FF6A00] hover:bg-[#FF6A00]/4"
                       }`}
                     >
                       <span>{link.label}</span>
                       {isExpanded ? (
-                        <span className="text-[10px] text-[#F58220] select-none">▲</span>
+                        <span className="text-[10px] text-[#FF6A00] select-none">▲</span>
                       ) : (
-                        <span className="text-[16px] font-bold text-[#F58220] select-none">+</span>
+                        <span className="text-[16px] font-bold text-[#FF6A00] select-none">+</span>
                       )}
                     </button>
 
@@ -286,12 +286,12 @@ export default function CanadaNavbar({ isSidebarOpen = false, setIsSidebarOpen }
                       }`}
                     >
                       <div className="overflow-hidden">
-                        <div className="bg-[#F58220]/2 border border-[#F58220]/5 rounded-[18px] p-3 flex flex-col gap-1 mx-2">
+                        <div className="bg-[#FF6A00]/2 border border-[#FF6A00]/5 rounded-[18px] p-3 flex flex-col gap-1 mx-2">
                           {!isCanadaHome && (
                             <Link
                               href="/canada"
                               onClick={() => setIsSidebarOpen(false)}
-                              className="flex items-center gap-2.5 p-2.5 mb-1.5 rounded-xl bg-[#F58220]/10 border border-[#F58220]/20 text-[#F58220] transition-colors"
+                              className="flex items-center gap-2.5 p-2.5 mb-1.5 rounded-xl bg-[#FF6A00]/10 border border-[#FF6A00]/20 text-[#FF6A00] transition-colors"
                             >
                               <img
                                 src="https://flagcdn.com/w40/ca.png"
@@ -309,9 +309,9 @@ export default function CanadaNavbar({ isSidebarOpen = false, setIsSidebarOpen }
                               key={idx}
                               href={item.href}
                               onClick={() => setIsSidebarOpen(false)}
-                              className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-[#F58220]/4 transition-colors"
+                              className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-[#FF6A00]/4 transition-colors"
                             >
-                              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#F58220]">
+                              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#FF6A00]">
                                 <Icon className="h-3.5 w-3.5" strokeWidth={2} />
                               </span>
                               <span className="text-xs font-bold text-[#1E1B2A]/90">
@@ -332,7 +332,7 @@ export default function CanadaNavbar({ isSidebarOpen = false, setIsSidebarOpen }
                   key={link.id}
                   href={link.href}
                   onClick={() => setIsSidebarOpen(false)}
-                  className="flex items-center px-4 py-3.5 rounded-xl font-bold text-sm text-[#1E1B2A] hover:text-[#F58220] hover:bg-[#F58220]/4 transition-all duration-200"
+                  className="flex items-center px-4 py-3.5 rounded-xl font-bold text-sm text-[#1E1B2A] hover:text-[#FF6A00] hover:bg-[#FF6A00]/4 transition-all duration-200"
                 >
                   {link.label}
                 </Link>

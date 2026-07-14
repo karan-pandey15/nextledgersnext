@@ -53,7 +53,7 @@ export default function TrustBadgesBar({ badges = DEFAULT_TRUST_BADGES, classNam
                                 : ""
                         }`}
                     >
-                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#F58220]/40 bg-[#FFF7F0] text-[#F58220] sm:h-8 sm:w-8">
+                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#FF6A00]/40 bg-[#FFF7F0] text-[#FF6A00] sm:h-8 sm:w-8">
                             <Icon className="h-3.5 w-3.5" strokeWidth={2} />
                         </span>
                         <span className="min-w-0 flex-1 text-left leading-tight lg:flex-none">

@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState, useCallback } from "react";
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
-const ORANGE = "#F58220";
+const ORANGE = BRAND_ORANGE;
 const NAVY = "#0F274A";
 const GREY = "#6B7280";
 
@@ -83,7 +84,7 @@ function QuoteMark({ className = "", light = false }) {
   return (
     <span
       className={`pointer-events-none select-none font-serif text-[40px] leading-none sm:text-[48px] ${className}`}
-      style={{ color: light ? "rgba(255,255,255,0.35)" : "rgba(245,130,32,0.22)" }}
+      style={{ color: light ? "rgba(255,255,255,0.35)" : "rgba(255, 106, 0,0.22)" }}
       aria-hidden="true"
     >
       &ldquo;
@@ -97,13 +98,13 @@ function TestimonialCard({ item }) {
   return (
     <div
       className={`relative flex flex-col items-center rounded-[14px] px-3.5 py-4 text-center shadow-[0_10px_36px_rgba(15,39,74,0.07)] sm:min-h-0 sm:rounded-[18px] sm:px-5 sm:py-5 ${
-        featured ? "bg-[#F58220] text-white lg:scale-[1.02] lg:z-10" : "bg-white"
+        featured ? "bg-[#FF6A00] text-white lg:scale-[1.02] lg:z-10" : "bg-white"
       }`}
     >
       <QuoteMark className="absolute top-0.5 left-2.5 sm:top-1.5 sm:left-4" light={featured} />
       <span
         className="pointer-events-none absolute bottom-0 right-2.5 select-none font-serif text-[32px] leading-none sm:bottom-1 sm:right-4 sm:text-[48px]"
-        style={{ color: featured ? "rgba(255,255,255,0.35)" : "rgba(245,130,32,0.22)" }}
+        style={{ color: featured ? "rgba(255,255,255,0.35)" : "rgba(255, 106, 0,0.22)" }}
         aria-hidden="true"
       >
         &rdquo;
@@ -165,7 +166,7 @@ function NavArrow({ direction, onClick, label }) {
       type="button"
       onClick={onClick}
       aria-label={label}
-      className="flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-full border border-[#E5E7EB] bg-white text-[#0F274A] shadow-[0_6px_18px_rgba(15,39,74,0.12)] transition-all duration-200 hover:border-[#F58220] hover:text-[#F58220] sm:h-11 sm:w-11"
+      className="flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-full border border-[#E5E7EB] bg-white text-[#0F274A] shadow-[0_6px_18px_rgba(15,39,74,0.12)] transition-all duration-200 hover:border-[#FF6A00] hover:text-[#FF6A00] sm:h-11 sm:w-11"
     >
       <svg
         viewBox="0 0 24 24"
@@ -203,14 +204,14 @@ export default function RealFeedback() {
         <div className="bg-[#FFF7F0] px-2 pb-8 pt-0 sm:px-8 sm:pb-10 lg:px-10">
           <div className="mx-auto max-w-[980px] px-1 text-center sm:px-0">
             <div className="inline-flex items-center justify-center gap-3">
-              <span className="h-px w-8 bg-[#F58220] sm:w-10" aria-hidden="true" />
+              <span className="h-px w-8 bg-[#FF6A00] sm:w-10" aria-hidden="true" />
               <p
                 className="text-[11px] font-bold tracking-[0.22em] uppercase sm:text-[12px]"
                 style={{ color: ORANGE }}
               >
                 REAL FEEDBACK
               </p>
-              <span className="h-px w-8 bg-[#F58220] sm:w-10" aria-hidden="true" />
+              <span className="h-px w-8 bg-[#FF6A00] sm:w-10" aria-hidden="true" />
             </div>
 
             <h2
@@ -271,7 +272,7 @@ export default function RealFeedback() {
                 aria-label={`Go to slide ${index + 1}`}
                 onClick={() => setSlide(index)}
                 className={`h-2 rounded-full transition-all duration-300 ${
-                  slide === index ? "w-6 bg-[#F58220]" : "w-2 bg-[#F58220]/30 hover:bg-[#F58220]/50"
+                  slide === index ? "w-6 bg-[#FF6A00]" : "w-2 bg-[#FF6A00]/30 hover:bg-[#FF6A00]/50"
                 }`}
               />
             ))}

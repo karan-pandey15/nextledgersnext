@@ -16,8 +16,9 @@ import {
   TeamIcon,
   TimerIcon,
 } from "../components/VideoComponent/TrustBarIcons";
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
-const ORANGE = "#F58220";
+const ORANGE = BRAND_ORANGE;
 const NAVY = "#0F274A";
 const GREY = "#6B7280";
 
@@ -236,7 +237,7 @@ function DottedWorldMap() {
     >
       <defs>
         <pattern id="aboutDotMap" width="10" height="10" patternUnits="userSpaceOnUse">
-          <circle cx="1.5" cy="1.5" r="1.2" fill="#F58220" />
+          <circle cx="1.5" cy="1.5" r="1.2" fill={BRAND_ORANGE} />
         </pattern>
         <mask id="aboutContinentsMask">
           <rect width="640" height="360" fill="black" />
@@ -288,7 +289,7 @@ export default function AboutPage() {
           >
             <p className="mb-4 text-[13px] font-medium text-white/90 sm:mb-5 sm:text-[14px]">
               Founded in 2024 — journey began over a{" "}
-              <span className="font-semibold text-[#F58220]">decade</span> ago
+              <span className="font-semibold text-[#FF6A00]">decade</span> ago
             </p>
 
             <h1 className="text-[30px] font-bold leading-[1.08] tracking-tight text-white sm:text-[38px] md:text-[46px] lg:text-[52px]">
@@ -296,7 +297,7 @@ export default function AboutPage() {
               <br />
               Redefining International
               <br />
-              <span className="text-[#F58220]">Accounting Support.</span>
+              <span className="text-[#FF6A00]">Accounting Support.</span>
             </h1>
 
             <p className="mt-4 max-w-[620px] text-[14px] leading-7 text-white/85 sm:mt-5 sm:text-[15px]">
@@ -312,27 +313,27 @@ export default function AboutPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.45, ease: "easeOut" }}
           >
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-4">
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-3">
               {TRUST_ITEMS.map(({ icon: Icon, lines }, index) => (
                 <React.Fragment key={lines.join("-")}>
-                  <div className="flex items-center gap-2.5 text-[13px] sm:text-[14px]">
+                  <div className="flex items-center gap-2 text-[14px] sm:text-[15px]">
                     <div
                       className="aspect-square shrink-0"
                       style={{
-                        width: "calc(2 * 1.12 * 1em)",
-                        height: "calc(2 * 1.12 * 1em)",
+                        width: "calc(2 * 1.12 * 1.9 * 1em)",
+                        height: "calc(2 * 1.12 * 1.9 * 1em)",
                       }}
                     >
                       <Icon />
                     </div>
-                    <div className="flex flex-col leading-[1.12]">
+                    <div className="flex flex-col leading-[1.15]">
                       <span className="font-semibold text-white">{lines[0]}</span>
                       <span className="font-semibold text-white">{lines[1]}</span>
                     </div>
                   </div>
                   {index < TRUST_ITEMS.length - 1 && (
                     <div
-                      className="mx-4 hidden h-[calc(2*1.12*13px)] w-px self-center bg-white/35 sm:block sm:h-[calc(2*1.12*14px)] lg:mx-6"
+                      className="mx-1.5 hidden h-[calc(2*1.12*1.9*14px)] w-px self-center bg-white/35 sm:block sm:h-[calc(2*1.12*1.9*15px)]"
                       aria-hidden="true"
                     />
                   )}
@@ -400,14 +401,14 @@ export default function AboutPage() {
                 <div className="mt-5 flex flex-col gap-3 sm:mt-6 sm:flex-row sm:gap-4">
                   <Link
                     href="/contact"
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#F58220] px-6 py-2.5 text-[13px] font-semibold text-white transition-colors duration-200 hover:bg-[#E0721B] sm:px-7 sm:py-3 sm:text-[14px]"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#FF6A00] px-6 py-2.5 text-[13px] font-semibold text-white transition-colors duration-200 hover:bg-[#E85E00] sm:px-7 sm:py-3 sm:text-[14px]"
                   >
                     Get Started Today
                     <span aria-hidden="true">→</span>
                   </Link>
                   <Link
                     href="/team"
-                    className="inline-flex items-center justify-center gap-2 rounded-full border border-[#F58220] bg-transparent px-6 py-2.5 text-[13px] font-semibold text-[#F58220] transition-colors duration-200 hover:bg-[#FFF1E6] sm:px-7 sm:py-3 sm:text-[14px]"
+                    className="cta-fill-orange inline-flex items-center justify-center gap-2 rounded-full px-6 py-2.5 text-[13px] font-semibold sm:px-7 sm:py-3 sm:text-[14px]"
                   >
                     Meet Our Team
                     <span aria-hidden="true">→</span>
@@ -460,7 +461,7 @@ export default function AboutPage() {
                     return (
                       <div key={item.title}>
                         <div className="flex items-start gap-3 py-1.5 sm:py-2">
-                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#F58220] text-white shadow-[0_6px_16px_rgba(245,130,32,0.25)] sm:h-10 sm:w-10">
+                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#FF6A00] text-white shadow-[0_6px_16px_rgba(255, 106, 0,0.25)] sm:h-10 sm:w-10">
                             <Icon className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
                           </div>
                           <div className="min-w-0">
@@ -520,9 +521,9 @@ export default function AboutPage() {
             return (
               <div
                 key={item.title}
-                className="flex items-start gap-3.5 rounded-[16px] border border-[#F58220]/15 bg-white px-4 py-4 sm:gap-4 sm:px-5 sm:py-5"
+                className="flex items-start gap-3.5 rounded-[16px] border border-[#FF6A00]/15 bg-white px-4 py-4 sm:gap-4 sm:px-5 sm:py-5"
               >
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#F58220] text-white shadow-[0_6px_16px_rgba(245,130,32,0.25)]">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FF6A00] text-white shadow-[0_6px_16px_rgba(255, 106, 0,0.25)]">
                   <Icon className="h-[18px] w-[18px]" />
                 </div>
                 <div className="min-w-0">
@@ -573,7 +574,7 @@ export default function AboutPage() {
                     return (
                       <div key={value.title}>
                         <div className="flex items-start gap-3 py-1.5 sm:py-2">
-                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#F58220] text-white shadow-[0_6px_16px_rgba(245,130,32,0.25)] sm:h-10 sm:w-10">
+                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#FF6A00] text-white shadow-[0_6px_16px_rgba(255, 106, 0,0.25)] sm:h-10 sm:w-10">
                             <Icon className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
                           </div>
                           <div className="min-w-0">

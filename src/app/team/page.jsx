@@ -1,4 +1,4 @@
-"use client";
+L"use client";
 
 import { useState } from "react";
 import TopAnnouncementBar from "../components/TopHeader/TopAnnouncementBar";
@@ -7,19 +7,18 @@ import Footer from "../components/footer/Footer";
 import ArtificialIntelligence from "../components/ArtificialIntelligence/ArtificialIntelligence";
 import NexaLedAi from "../components/ChatBot/NexaLedAi";
 import ContactUsCTA from "../components/HomeTrust/ContactUsCTA";
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
-const ORANGE = "#F58220";
+const ORANGE = BRAND_ORANGE;
 const NAVY = "#0F274A";
-const GREY = "#6B7280";
 
-/** Photos from public/images/TeamImage */
 
 /** TOP ROW — 2 cards */
 const TOP_LEADERSHIP = [
   {
     name: "Durgesh Pandey",
-    credentials: "ACCA",
-    role: "CPA Pursuing · Managing Partner",
+    credentials: "ACCA, CPA Pursuing",
+    role: "Managing Partner",
     image: "/images/TeamImage/Durgesh_Pandey-removebg-preview.png",
   },
   {
@@ -132,11 +131,10 @@ function SectionTitle({ children }) {
       >
         {children}
       </h2>
-      <div
-        className="mx-auto mt-2.5 h-[3px] w-16 rounded-full sm:w-20"
-        style={{ backgroundColor: ORANGE }}
-        aria-hidden="true"
-      />
+      <div className="relative mx-auto mt-3 flex h-[3px] w-28 items-center justify-center sm:w-32">
+        <span className="absolute inset-x-0 top-1/2 h-[2px] -translate-y-1/2 rounded-full bg-[#FF6A00]" />
+        <span className="relative z-[1] h-2.5 w-2.5 rounded-full bg-[#FF6A00]" aria-hidden="true" />
+      </div>
     </div>
   );
 }
@@ -147,10 +145,8 @@ function TeamAvatar({ src, name, bordered = false }) {
 
   return (
     <div
-      className={`relative mx-auto flex h-[110px] w-[110px] items-center justify-center overflow-hidden rounded-full sm:h-[120px] sm:w-[120px] ${
-        bordered
-          ? "ring-[2.5px] ring-[#F58220] ring-offset-2"
-          : "ring-1 ring-[#E5E7EB]"
+      className={`relative mx-auto flex h-[100px] w-[100px] shrink-0 items-center justify-center overflow-hidden rounded-full sm:h-[108px] sm:w-[108px] ${
+        bordered ? "ring-[2px] ring-[#FF6A00]" : "ring-1 ring-[#E5E7EB]"
       } ${failed || !src ? "bg-[#FFF1E6]" : isCutout ? "bg-[#FFF7F0]" : "bg-[#E8EEF5]"}`}
     >
       {src && !failed ? (
@@ -168,7 +164,7 @@ function TeamAvatar({ src, name, bordered = false }) {
         />
       ) : (
         <span
-          className="text-[28px] font-bold tracking-wide sm:text-[32px]"
+          className="text-[26px] font-bold tracking-wide sm:text-[28px]"
           style={{ color: ORANGE }}
           aria-hidden="true"
         >
@@ -179,55 +175,40 @@ function TeamAvatar({ src, name, bordered = false }) {
   );
 }
 
-/**
- * UNIFIED LEADERSHIP CARD
- * Used for BOTH the top row (Durgesh, John Muchai) and the
- * second row (Anjali + Senior Managers) so every card is
- * IDENTICAL in width, height, padding, border, and font weight —
- * matching the reference image exactly.
- *
- * Fixed height (h-[300px]) + flex layout keeps names/roles of
- * different lengths from changing the card's box size.
- */
-function TeamMemberCard({ member }) {
+/** One fixed size for every team card */
+const CARD_BOX =
+  "box-border flex h-[290px] w-[220px] flex-col items-center rounded-[14px] bg-white px-4 py-6 text-center transition-all duration-300 ease-out hover:-translate-y-1.5";
+
+function TeamMemberCard({ member, accent = true }) {
   return (
     <div
-      className="flex h-[300px] w-full max-w-[260px] flex-col items-center justify-start rounded-[16px] border-2 bg-white px-4 py-6 text-center shadow-[0_8px_22px_rgba(15,39,74,0.06)] transition-shadow duration-200 hover:shadow-[0_12px_28px_rgba(15,39,74,0.1)] sm:px-5 sm:py-7"
-      style={{ borderColor: ORANGE }}
+      className={`${CARD_BOX} ${
+        accent
+          ? "border border-[#FF6A00] shadow-[0_4px_20px_rgba(255, 106, 0,0.18)] hover:shadow-[0_12px_32px_rgba(255, 106, 0,0.32)]"
+          : "border border-[#D1D5DB] shadow-[0_4px_16px_rgba(15,39,74,0.06)] hover:border-[#FF6A00] hover:shadow-[0_12px_32px_rgba(255, 106, 0,0.28)]"
+      }`}
     >
-      <TeamAvatar src={member.image} name={member.name} bordered />
-      <h3
-        className="mt-4 text-[15px] font-bold leading-snug sm:text-[16px]"
-        style={{ color: ORANGE }}
-      >
-        {member.name}
-      </h3>
-      <p className="mt-1.5 text-[12px] font-medium text-[#1A1A1A] sm:text-[13px]">
-        {member.credentials}
-      </p>
-      <p
-        className="mt-1 text-[12px] font-bold leading-snug sm:text-[13px]"
-        style={{ color: NAVY }}
-      >
-        {member.role}
-      </p>
-    </div>
-  );
-}
-
-function SupportCard({ member }) {
-  return (
-    <div className="flex h-full w-full max-w-[220px] flex-col items-center rounded-[16px] border border-[#D1D5DB] bg-white px-3 py-5 text-center shadow-[0_8px_22px_rgba(15,39,74,0.06)] transition-all duration-200 hover:-translate-y-0.5 hover:border-[#F58220]/35 hover:shadow-[0_12px_28px_rgba(15,39,74,0.1)] sm:px-4 sm:py-6">
-      <TeamAvatar src={member.image} name={member.name} />
-      <h3
-        className="mt-3.5 text-[13px] font-bold leading-snug sm:text-[14px]"
-        style={{ color: NAVY }}
-      >
-        {member.name}
-      </h3>
-      <p className="mt-1 text-[11px] leading-snug sm:text-[12px]" style={{ color: GREY }}>
-        {member.role}
-      </p>
+      <TeamAvatar src={member.image} name={member.name} bordered={accent} />
+      <div className="mt-3.5 flex w-full flex-1 flex-col items-center">
+        <h3
+          className="text-[14px] font-bold leading-snug sm:text-[15px]"
+          style={{ color: accent ? ORANGE : NAVY }}
+        >
+          {member.name}
+        </h3>
+        {member.credentials ? (
+          <p className="mt-1 text-[12px] leading-snug text-[#1A1A1A] sm:text-[13px]">
+            {member.credentials}
+          </p>
+        ) : null}
+        <p
+          className={`mt-0.5 text-[12px] leading-snug sm:text-[13px] ${
+            accent ? "text-[#1A1A1A]" : "text-[#6B7280]"
+          }`}
+        >
+          {member.role}
+        </p>
+      </div>
     </div>
   );
 }
@@ -257,10 +238,10 @@ export default function TeamPage() {
           <div className="max-w-[720px]">
             <p className="mb-3 text-[13px] font-medium text-white/90 sm:mb-4 sm:text-[14px]">
               The people behind{" "}
-              <span className="font-semibold text-[#F58220]">Next Ledgers</span>
+              <span className="font-semibold text-[#FF6A00]">Next Ledgers</span>
             </p>
             <h1 className="text-[30px] font-bold leading-[1.08] tracking-tight text-white sm:text-[40px] lg:text-[48px]">
-              Our <span className="text-[#F58220]">Team.</span>
+              Our <span className="text-[#FF6A00]">Team.</span>
             </h1>
             <p className="mt-3 max-w-[540px] text-[14px] leading-7 text-white/85 sm:mt-4 sm:text-[15px]">
               Experienced professionals dedicated to delivering accurate, secure,
@@ -270,23 +251,22 @@ export default function TeamPage() {
         </div>
       </section>
 
-      {/* Leadership section — ALL cards use the same TeamMemberCard component,
-          so top row (2) and second row (5) are pixel-identical in size */}
-      <section className="relative w-full overflow-hidden bg-white pt-8 pb-0 sm:pt-9 lg:pt-10">
+      {/* Leadership — every card same fixed size */}
+      <section className="relative w-full overflow-hidden bg-[#F4F4F4] pt-8 pb-2 sm:pt-10 lg:pt-12">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
-          <div className="bg-[#FFFFFF] px-5 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-12">
+          <div className="px-2 py-6 sm:px-4 sm:py-8 lg:px-6 lg:py-10">
             <SectionTitle>Leadership Team</SectionTitle>
 
-            {/* TOP ROW — Durgesh, John Muchai */}
-            <div className="flex flex-wrap items-stretch justify-center gap-5 sm:gap-6 lg:gap-8">
-              {TOP_LEADERSHIP.map((member) => (
+            {/* Top: Durgesh + John */}
+            <div className="flex flex-wrap justify-center gap-5 sm:gap-6">
+              {LEADERSHIP.map((member) => (
                 <TeamMemberCard key={member.name} member={member} />
               ))}
             </div>
 
-            {/* SECOND ROW — Anjali + 4 Senior Managers, identical card style/size */}
-            <div className="mt-6 flex flex-wrap items-stretch justify-center gap-5 sm:mt-8 sm:gap-6 lg:gap-6">
-              {SECOND_ROW.map((member) => (
+            {/* Below: Anjali + managers — same card size */}
+            <div className="mt-7 flex flex-wrap justify-center gap-5 sm:mt-8 sm:gap-6">
+              {SENIOR_MANAGERS.map((member) => (
                 <TeamMemberCard key={member.name} member={member} />
               ))}
             </div>
@@ -294,22 +274,21 @@ export default function TeamPage() {
         </div>
       </section>
 
-      {/* Support — white bg like Why Choose Us (3rd reference) */}
+      {/* Support — same card size as leadership */}
       <section className="relative w-full overflow-hidden bg-white pb-9 pt-6 sm:pb-10 sm:pt-8 lg:pb-12 lg:pt-10">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
           <div className="px-5 sm:px-8 lg:px-10">
             <SectionTitle>Senior Professional & Support Team</SectionTitle>
 
-            {/* Row 1: 4 cards · Row 2: 5 cards — same card size, centered */}
-            <div className="flex flex-col gap-4 sm:gap-5 lg:gap-6">
-              <div className="flex flex-wrap justify-center gap-4 sm:gap-5 lg:gap-5">
+            <div className="flex flex-col gap-5 sm:gap-6">
+              <div className="flex flex-wrap justify-center gap-5 sm:gap-6">
                 {SUPPORT_TEAM.slice(0, 4).map((member) => (
-                  <SupportCard key={member.name} member={member} />
+                  <TeamMemberCard key={member.name} member={member} accent={false} />
                 ))}
               </div>
-              <div className="flex flex-wrap justify-center gap-4 sm:gap-5 lg:gap-5">
+              <div className="flex flex-wrap justify-center gap-5 sm:gap-6">
                 {SUPPORT_TEAM.slice(4).map((member) => (
-                  <SupportCard key={member.name} member={member} />
+                  <TeamMemberCard key={member.name} member={member} accent={false} />
                 ))}
               </div>
             </div>

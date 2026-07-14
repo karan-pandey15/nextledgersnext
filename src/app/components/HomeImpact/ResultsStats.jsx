@@ -2,9 +2,11 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { Users, Globe2, UserCheck, BarChart3, RefreshCw, Clock3 } from "lucide-react";
+import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
-const ORANGE = "#F58220";
+const ORANGE = BRAND_ORANGE;
 const NAVY = "#0F274A";
+const BROWN = "#6B4423";
 /* Optimized H.264 baseline + faststart — required for reliable Vercel/Chrome playback */
 const VIDEO_SRC = "/video/IMG_1995.mp4";
 const COUNT_DURATION_MS = 1600;
@@ -161,14 +163,14 @@ function PhoneVideo({ active }) {
   }, [active]);
 
   return (
-    <div className="flex w-full items-center justify-center py-2 sm:py-3">
-      {/* Thick black phone bezel — same style as shared UI, +10% size */}
+    <div className="flex w-full items-center justify-center py-0 sm:py-1 lg:justify-end lg:py-0">
+      {/* Thick black phone bezel — right edge fixed; growth toward stats */}
       <div
         className="relative shrink-0 overflow-hidden bg-black"
         style={{
-          width: "clamp(200px, 24vw, 279px)",
-          padding: "11px",
-          borderRadius: "42px",
+          width: "clamp(176px, 22.4vw, 248px)",
+          padding: "9px",
+          borderRadius: "36px",
           boxShadow: "0 16px 40px rgba(15,39,74,0.22)",
         }}
       >
@@ -177,15 +179,15 @@ function PhoneVideo({ active }) {
           style={{
             aspectRatio: "9 / 16",
             width: "100%",
-            borderRadius: "32px",
+            borderRadius: "28px",
           }}
         >
           {!failed ? (
             <video
               ref={videoRef}
               src={VIDEO_SRC}
-              className="block h-full w-full object-cover"
-              style={{ aspectRatio: "9 / 16", borderRadius: "32px" }}
+              className="block h-full w-full object-cover object-top"
+              style={{ aspectRatio: "9 / 16", borderRadius: "28px" }}
               muted
               playsInline
               loop
@@ -213,20 +215,21 @@ export default function ResultsStats() {
     <section ref={sectionRef} className="relative w-full bg-white pt-0 pb-0">
       <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
         <div className="bg-[#FFF7F0] px-3 pb-8 pt-0 sm:px-8 sm:pb-10 lg:px-10 lg:pb-12">
-          <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-2 lg:gap-8 xl:gap-10">
-            {/* Left — stats */}
-            <div className="flex min-w-0 flex-col">
-              <div className="inline-flex items-center gap-3">
-                <span className="h-px w-7 shrink-0 bg-[#F58220] sm:w-9" aria-hidden="true" />
-                <p className="text-[11px] font-bold tracking-[0.18em] uppercase sm:text-[12px]">
-                  <span style={{ color: NAVY }}>NUMBERS THAT </span>
-                  <span style={{ color: ORANGE }}>MATTER</span>
-                </p>
-                <span className="h-px w-7 shrink-0 bg-[#F58220] sm:w-9" aria-hidden="true" />
-              </div>
+          {/* Eyebrow sits above — phone top will align with the h2 line below */}
+          <div className="inline-flex items-center gap-3">
+            <span className="h-px w-7 shrink-0 bg-[#FF6A00] sm:w-9" aria-hidden="true" />
+            <p className="text-[11px] font-bold tracking-[0.18em] uppercase sm:text-[12px]">
+              <span style={{ color: BROWN }}>NUMBERS THAT </span>
+              <span style={{ color: ORANGE }}>MATTER</span>
+            </p>
+            <span className="h-px w-7 shrink-0 bg-[#FF6A00] sm:w-9" aria-hidden="true" />
+          </div>
 
+          <div className="mt-3 grid grid-cols-1 items-start gap-5 sm:mt-4 lg:grid-cols-[minmax(0,1.2fr)_minmax(260px,0.8fr)] lg:items-end lg:gap-0">
+            {/* Left — heading + stats */}
+            <div className="relative z-10 flex min-w-0 flex-col">
               <h2
-                className="mt-3 text-[26px] font-bold leading-[1.15] tracking-[-0.01em] sm:mt-4 sm:text-[34px] lg:text-[40px]"
+                className="whitespace-nowrap text-[18px] font-bold leading-[1.15] tracking-[-0.02em] sm:text-[30px] lg:text-[36px] xl:text-[38px]"
                 style={{ color: NAVY }}
               >
                 Results That{" "}
@@ -272,7 +275,7 @@ export default function ResultsStats() {
                           />
                         )}
 
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FFE8D4] text-[#F58220] sm:h-11 sm:w-11">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FFE8D4] text-[#FF6A00] sm:h-11 sm:w-11">
                           <Icon className="h-[18px] w-[18px] sm:h-5 sm:w-5" strokeWidth={1.8} />
                         </div>
 
@@ -296,8 +299,8 @@ export default function ResultsStats() {
               </div>
             </div>
 
-            {/* Right — phone video */}
-            <div className="relative flex w-full items-center justify-center lg:justify-end lg:pr-6 xl:pr-10">
+            {/* Right — phone bottom aligns with stats card */}
+            <div className="relative z-0 flex w-full items-end justify-center lg:justify-end lg:-ml-20 xl:-ml-28 2xl:-ml-32">
               <PhoneVideo active={inView} />
             </div>
           </div>

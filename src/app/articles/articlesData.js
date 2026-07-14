@@ -9,7 +9,7 @@ export const ARTICLES = [
     tags: ["TAXES", "SMALL BUSINESS"],
     excerpt:
       "Discover practical strategies to reduce your tax burden this year while staying fully compliant with the latest regulations.",
-    image: "/images/DSC09781.JPG",
+    image: "/images/articles/bookkeeping.jpg",
     category: "Tax",
     readTime: "6 min read",
     content: [
@@ -27,7 +27,7 @@ export const ARTICLES = [
     tags: ["BOOKKEEPING", "FINANCE"],
     excerpt:
       "Avoid these common bookkeeping pitfalls that quietly drain profits and create compliance risk for growing companies.",
-    image: "/images/DSC09901.JPG",
+    image: "/images/articles/bookkeeping.jpg",
     category: "Bookkeeping",
     readTime: "5 min read",
     content: [
@@ -46,7 +46,7 @@ export const ARTICLES = [
     tags: ["TAXES", "PLANNING"],
     excerpt:
       "A clear, step-by-step guide to estimating, scheduling, and filing quarterly taxes with confidence.",
-    image: "/images/DSC09794.JPG",
+    image: "/images/articles/bookkeeping.jpg",
     category: "Tax",
     readTime: "7 min read",
     content: [
@@ -64,7 +64,7 @@ export const ARTICLES = [
     tags: ["VAT", "UK"],
     excerpt:
       "Stay ahead of MTD deadlines with practical VAT process tips for UK accounting practices and their clients.",
-    image: "/images/DSC09879.JPG",
+    image: "/images/articles/vat-mtd.jpg",
     category: "VAT",
     readTime: "6 min read",
     content: [
@@ -81,7 +81,7 @@ export const ARTICLES = [
     tags: ["SALES TAX", "USA"],
     excerpt:
       "Understand economic nexus, multi-state filings, and how outsourced sales tax support keeps eCommerce clients compliant.",
-    image: "/images/DSC09677.JPG",
+    image: "/images/articles/sales-tax.jpg",
     category: "Sales Tax",
     readTime: "5 min read",
     content: [
@@ -98,7 +98,7 @@ export const ARTICLES = [
     tags: ["PAYROLL", "CIS"],
     excerpt:
       "Keep payroll accurate, on time, and compliant — including Construction Industry Scheme obligations for UK clients.",
-    image: "/images/DSC09554.JPG",
+    image: "/images/articles/payroll.jpg",
     category: "Payroll",
     readTime: "5 min read",
     content: [
@@ -115,7 +115,7 @@ export const ARTICLES = [
     tags: ["REPORTING", "CFO"],
     excerpt:
       "Turn month-end packs into decision tools — KPIs, cash flow, and commentary clients will actually use.",
-    image: "/images/DSC09669.JPG",
+    image: "/images/articles/management.jpg",
     category: "Management Accounts",
     readTime: "6 min read",
     content: [
@@ -132,7 +132,7 @@ export const ARTICLES = [
     tags: ["YEAR-END", "COMPLIANCE"],
     excerpt:
       "A practical checklist to close books cleanly — from adjustments to statutory filings — without last-minute chaos.",
-    image: "/images/DSC09486.JPG",
+    image: "/images/articles/year-end.jpg",
     category: "Year-End",
     readTime: "7 min read",
     content: [
@@ -149,7 +149,7 @@ export const ARTICLES = [
     tags: ["OUTSOURCING", "GROWTH"],
     excerpt:
       "How accounting firms use white-label offshore teams to grow capacity while staying the face of every client relationship.",
-    image: "/images/DSC09894.JPG",
+    image: "/images/articles/outsourcing.jpg",
     category: "Outsourcing",
     readTime: "5 min read",
     content: [
