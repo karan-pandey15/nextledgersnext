@@ -84,20 +84,20 @@ export default function IndustryExpertise() {
             {INDUSTRIES.map((item) => (
               <div
                 key={item.label}
-                className="flex flex-col items-center justify-center text-center rounded-[14px] sm:rounded-[18px] bg-white border border-[#F0F0F0] shadow-[0_4px_18px_rgba(15,39,74,0.05)] px-2 py-4 sm:px-4 sm:py-6 min-h-[120px] sm:min-h-[148px] hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] hover:border-[#FF6A00]/25 transition-all duration-200 overflow-visible"
+                className="flex flex-col items-center justify-center text-center rounded-[14px] sm:rounded-[18px] bg-white border border-[#F0F0F0] shadow-[0_4px_18px_rgba(15,39,74,0.05)] px-2 py-3 sm:px-3 sm:py-4 min-h-[118px] sm:min-h-[146px] hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] hover:border-[#FF6A00]/25 transition-all duration-200 overflow-hidden"
               >
-                <div className="flex items-center justify-center w-[57px] h-[57px] sm:w-[79px] sm:h-[79px] shrink-0 overflow-visible">
+                <div className="flex items-center justify-center w-[78px] h-[78px] sm:w-[104px] sm:h-[104px] shrink-0">
                   <Image
                     src={item.src}
                     alt={item.label}
-                    width={79}
-                    height={79}
-                    className="w-[48px] h-[48px] sm:w-[70px] sm:h-[70px] object-contain"
+                    width={104}
+                    height={104}
+                    className="w-full h-full object-contain scale-[1.12]"
                     unoptimized
                   />
                 </div>
                 <p
-                  className="mt-2 sm:mt-3 font-bold text-[10px] sm:text-[13px] leading-snug px-0.5"
+                  className="mt-1 sm:mt-1.5 font-bold text-[10px] sm:text-[13px] leading-snug px-0.5"
                   style={{ color: NAVY }}
                 >
                   {item.label}
