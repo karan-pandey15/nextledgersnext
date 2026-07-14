@@ -57,8 +57,8 @@ export default function HomeHeroSection() {
                   <div
                     className="shrink-0 aspect-square"
                     style={{
-                      width: "calc(2 * 1.12 * 1.9 * 1em)",
-                      height: "calc(2 * 1.12 * 1.9 * 1em)",
+                      width: "calc(2 * 1.12 * 1.9 * 1em - 2px)",
+                      height: "calc(2 * 1.12 * 1.9 * 1em - 2px)",
                     }}
                   >
                     <Icon />
@@ -71,7 +71,7 @@ export default function HomeHeroSection() {
 
                 {index < TRUST_ITEMS.length - 1 && (
                   <div
-                    className="hidden sm:block w-px bg-white/35 mx-1.5 self-center h-[calc(2*1.12*1.9*14px)] sm:h-[calc(2*1.12*1.9*15px)]"
+                    className="hidden sm:block w-px bg-white/35 mx-1.5 self-center h-[calc(2*1.12*1.9*14px-2px)] sm:h-[calc(2*1.12*1.9*15px-2px)]"
                     aria-hidden="true"
                   />
                 )}
