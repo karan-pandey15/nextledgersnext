@@ -95,7 +95,7 @@ export default function WhyChooseUs() {
       <div className="max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-10">
         {/* Same horizontal inset as GlobalPartner peach card so image width/align matches */}
         <div className="px-3 sm:px-8 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 xl:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 xl:gap-12 items-end">
             {/* Left content */}
             <div className="relative z-10 w-full">
               <div className="text-center">
@@ -150,7 +150,7 @@ export default function WhyChooseUs() {
               </div>
             </div>
 
-            {/* Right image — same as GlobalPartner */}
+            {/* Right image — bottom-aligned with Always Available text; size unchanged */}
             <div className="relative w-full max-w-[520px] lg:max-w-none lg:justify-self-end h-[220px] sm:h-[260px] lg:h-[300px] overflow-hidden rounded-[20px] sm:rounded-[24px] shadow-[0_12px_40px_rgba(15,39,74,0.08)]">
               <Image
                 src="/images/DSC09669.JPG"

@@ -9,7 +9,7 @@ export const ARTICLES = [
     tags: ["TAXES", "SMALL BUSINESS"],
     excerpt:
       "Discover practical strategies to reduce your tax burden this year while staying fully compliant with the latest regulations.",
-    image: "/images/articles/bookkeeping.jpg",
+    image: "/images/articles/year-end.jpg",
     category: "Tax",
     readTime: "6 min read",
     content: [
@@ -46,7 +46,7 @@ export const ARTICLES = [
     tags: ["TAXES", "PLANNING"],
     excerpt:
       "A clear, step-by-step guide to estimating, scheduling, and filing quarterly taxes with confidence.",
-    image: "/images/articles/bookkeeping.jpg",
+    image: "/images/articles/sales-tax.jpg",
     category: "Tax",
     readTime: "7 min read",
     content: [
