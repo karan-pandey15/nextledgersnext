@@ -7,38 +7,33 @@
 export const GLOBAL_SERVICE_LINKS = [
   {
     label: "Accounting & Bookkeeping",
-    href: "/#core-services",
+    href: "/services/bookkeeping",
     icon: "book",
   },
   {
     label: "Financial Reporting",
-    href: "/#core-services",
+    href: "/services/financial-reporting",
     icon: "chart",
   },
   {
     label: "Tax Preparation & Planning",
-    href: "/#core-services",
+    href: "/services/tax",
     icon: "tax",
   },
   {
     label: "Payroll & HR Services",
-    href: "/#core-services",
+    href: "/services/payroll",
     icon: "users",
   },
   {
     label: "Management Reporting",
-    href: "/#core-services",
+    href: "/services/management-reporting",
     icon: "document",
   },
   {
     label: "CFO & Advisory Services",
-    href: "/#core-services",
+    href: "/services/cfo-advisory",
     icon: "building",
-  },
-  {
-    label: "Business Setup & Consulting",
-    href: "/#core-services",
-    icon: "briefcase",
   },
 ];
 
@@ -73,7 +68,7 @@ export const NAVIGATION_LINKS = [
   {
     id: "services",
     label: "Services",
-    href: "/#core-services",
+    href: "/services",
     icon: "briefcase",
     hasDropdown: true,
     dropdownLayout: "services-list",
@@ -83,7 +78,7 @@ export const NAVIGATION_LINKS = [
   {
     id: "byot",
     label: "BYOT",
-    href: "/tools",
+    href: "/byot",
     icon: "users",
     hasDropdown: false,
   },

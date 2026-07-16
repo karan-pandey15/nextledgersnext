@@ -12,7 +12,7 @@ export const DEFAULT_TRUST_BADGES = [
     { icon: Shield, label: "ISO 27001", sub: "Certified" },
     { icon: Lock, label: "GDPR", sub: "Compliant" },
     { icon: Clock, label: "UK Time Zone", sub: "Overlap" },
-    { icon: Award, label: "10+ Years", sub: "Experience" },
+    { icon: Award, label: "9+ Years", sub: "Experience" },
     { icon: UserCheck, label: "Dedicated", sub: "Account Manager" },
 ];
 
@@ -21,7 +21,7 @@ export const USA_TRUST_BADGES = [
     { icon: Shield, label: "ISO 27001", sub: "Certified" },
     { icon: Lock, label: "CCPA", sub: "Compliant" },
     { icon: Clock, label: "US Time Zone", sub: "Overlap" },
-    { icon: Award, label: "10+ Years", sub: "Experience" },
+    { icon: Award, label: "9+ Years", sub: "Experience" },
     { icon: UserCheck, label: "Dedicated", sub: "Account Manager" },
 ];
 
@@ -30,7 +30,7 @@ export const CANADA_TRUST_BADGES = [
     { icon: Shield, label: "ISO 27001", sub: "Certified" },
     { icon: Lock, label: "PIPEDA", sub: "Compliant" },
     { icon: Clock, label: "CA Time Zone", sub: "Overlap" },
-    { icon: Award, label: "10+ Years", sub: "Experience" },
+    { icon: Award, label: "9+ Years", sub: "Experience" },
     { icon: UserCheck, label: "Dedicated", sub: "Account Manager" },
 ];
 

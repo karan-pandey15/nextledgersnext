@@ -2,11 +2,22 @@
 
 import React, { useEffect } from "react";
 import { createPortal } from "react-dom";
+import { AnimatePresence, motion } from "framer-motion";
 import { POPUP_REGIONS } from "./regionData";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
 const ORANGE = BRAND_ORANGE;
 const NAVY = "#0F274A";
+
+const BACKDROP_TRANSITION = {
+  duration: 0.45,
+  ease: [0.22, 1, 0.36, 1],
+};
+
+const PANEL_TRANSITION = {
+  duration: 0.55,
+  ease: [0.22, 1, 0.36, 1],
+};
 
 function ShieldCheckIcon({ className = "w-5 h-5" }) {
   return (
@@ -61,7 +72,6 @@ function PopupWorldMap() {
         </linearGradient>
       </defs>
 
-      {/* Simplified continent silhouettes filled with dots */}
       <g fill="url(#regionPopupDots)" opacity="0.55">
         <path d="M70 70 L110 45 L190 42 L230 55 L250 90 L235 130 L200 160 L170 145 L140 120 L100 110 Z" />
         <path d="M200 170 L235 175 L255 210 L245 255 L220 250 L195 210 Z" />
@@ -71,7 +81,6 @@ function PopupWorldMap() {
         <path d="M780 245 L800 240 L805 265 L785 275 Z" />
       </g>
 
-      {/* Arcs from hub up to pins */}
       {pins.map((p, i) => {
         const cx = (hub.x + p.x) / 2;
         const cy = Math.min(hub.y, p.y) - 35 - (i % 3) * 8;
@@ -102,8 +111,7 @@ function PopupWorldMap() {
 }
 
 /**
- * Centered "Select Your Region" modal — matches screenshot layout.
- * 9 countries in a clean 3-column grid with readable card text.
+ * Centered "Select Your Region" modal — smooth open / close motion.
  */
 export default function RegionPopup({
   isOpen,
@@ -134,154 +142,179 @@ export default function RegionPopup({
     };
   }, [isOpen, onClose]);
 
-  if (!mounted || !isOpen) return null;
+  if (!mounted) return null;
 
   return createPortal(
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-5">
-      <button
-        type="button"
-        className="absolute inset-0 bg-[#0B1C33]/45 backdrop-blur-[2px]"
-        aria-label="Close region selector"
-        onClick={onClose}
-      />
-
-      <div
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="region-popup-title"
-        className="relative z-10 w-full max-w-[820px] max-h-[min(92vh,760px)] overflow-y-auto rounded-[18px] bg-white shadow-[0_24px_64px_rgba(15,39,74,0.22)] sm:rounded-[22px]"
-      >
-        <button
-          type="button"
-          onClick={onClose}
-          className="group absolute top-3 right-3 z-20 flex h-8 w-8 items-center justify-center rounded-[8px] border border-[#E5E7EB] bg-white transition-all duration-200 hover:border-[#FF6A00] hover:bg-[#FFF0E4] sm:top-4 sm:right-4"
-          aria-label="Close"
+    <AnimatePresence>
+      {isOpen ? (
+        <motion.div
+          key="region-popup"
+          className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-5"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={BACKDROP_TRANSITION}
         >
-          <svg
-            viewBox="0 0 24 24"
-            className="h-3.5 w-3.5 text-black transition-colors duration-200 group-hover:text-[#FF6A00]"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.4"
+          <motion.button
+            type="button"
+            className="absolute inset-0 bg-[#0B1C33]/45 backdrop-blur-[2px]"
+            aria-label="Close region selector"
+            onClick={onClose}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={BACKDROP_TRANSITION}
+          />
+
+          <motion.div
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="region-popup-title"
+            className="relative z-10 w-full max-w-[820px] max-h-[min(92vh,760px)] overflow-y-auto rounded-[18px] bg-white shadow-[0_24px_64px_rgba(15,39,74,0.22)] sm:rounded-[22px]"
+            initial={{ opacity: 0, y: 28, scale: 0.94 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 16, scale: 0.96 }}
+            transition={PANEL_TRANSITION}
           >
-            <path strokeLinecap="round" d="M6 6l12 12M18 6L6 18" />
-          </svg>
-        </button>
-
-        <div className="relative overflow-hidden px-4 pb-5 pt-8 sm:px-7 sm:pb-6 sm:pt-9 lg:px-8">
-          <PopupWorldMap />
-
-          <div className="relative z-10 mx-auto max-w-[520px] text-center">
-            <h2
-              id="region-popup-title"
-              className="text-[24px] font-bold leading-[1.15] tracking-[-0.01em] sm:text-[30px]"
-              style={{ color: NAVY }}
+            <button
+              type="button"
+              onClick={onClose}
+              className="group absolute top-3 right-3 z-20 flex h-8 w-8 items-center justify-center rounded-[8px] border border-[#E5E7EB] bg-white transition-all duration-200 hover:border-[#FF6A00] hover:bg-[#FFF0E4] sm:top-4 sm:right-4"
+              aria-label="Close"
             >
-              Select Your{" "}
-              <span className="relative inline-block" style={{ color: ORANGE }}>
-                Region
-                <span
-                  className="absolute left-[6%] -bottom-1 h-[3px] w-[88%] rounded-full"
-                  style={{ backgroundColor: ORANGE }}
-                  aria-hidden="true"
-                />
-              </span>
-            </h2>
+              <svg
+                viewBox="0 0 24 24"
+                className="h-3.5 w-3.5 text-black transition-colors duration-200 group-hover:text-[#FF6A00]"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.4"
+              >
+                <path strokeLinecap="round" d="M6 6l12 12M18 6L6 18" />
+              </svg>
+            </button>
 
-            <p className="mt-3 text-[13px] leading-5 text-[#6B7280] sm:mt-3.5 sm:text-[14px] sm:leading-6">
-              Choose your region to explore our accounting and advisory services
-              tailored for your business.
-            </p>
-          </div>
+            <div className="relative overflow-hidden px-4 pb-5 pt-8 sm:px-7 sm:pb-6 sm:pt-9 lg:px-8">
+              <PopupWorldMap />
 
-          {/* 9 countries — 3 columns on desktop, readable text */}
-          <div className="region-popup-grid relative z-10 mt-6 sm:mt-7">
-            {POPUP_REGIONS.map((region) => {
-              const isSelected = region.code === selectedCode;
-              return (
-                <button
-                  key={region.code}
-                  type="button"
-                  onClick={() => onSelect(region.code)}
-                  className="group flex min-h-[72px] items-center gap-3 rounded-[12px] border bg-white px-3.5 py-3 text-left shadow-[0_2px_10px_rgba(15,39,74,0.04)] transition-all duration-200 hover:border-[#FF6A00]/50 hover:shadow-[0_6px_18px_rgba(15,39,74,0.08)] sm:min-h-[78px] sm:gap-3.5 sm:px-4 sm:py-3.5"
-                  style={{
-                    borderColor: isSelected ? ORANGE : "#E8ECF0",
-                    borderWidth: isSelected ? 1.5 : 1,
-                  }}
+              <div className="relative z-10 mx-auto max-w-[520px] text-center">
+                <h2
+                  id="region-popup-title"
+                  className="text-[24px] font-bold leading-[1.15] tracking-[-0.01em] sm:text-[30px]"
+                  style={{ color: NAVY }}
                 >
-                  <span className="inline-flex h-[18px] w-[26px] shrink-0 overflow-hidden rounded-[3px] border border-[#E5E7EB] sm:h-[20px] sm:w-[30px]">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={region.flag}
-                      alt=""
-                      className="block h-full w-full object-cover"
-                      loading="lazy"
+                  Select Your{" "}
+                  <span className="relative inline-block" style={{ color: ORANGE }}>
+                    Region
+                    <span
+                      className="absolute left-[6%] -bottom-1 h-[3px] w-[88%] rounded-full"
+                      style={{ backgroundColor: ORANGE }}
+                      aria-hidden="true"
                     />
                   </span>
+                </h2>
 
-                  <span className="min-w-0 flex-1">
-                    <span
-                      className="block text-[13px] font-bold leading-snug sm:text-[14px]"
-                      style={{ color: NAVY }}
+                <p className="mt-3 text-[13px] leading-5 text-[#6B7280] sm:mt-3.5 sm:text-[14px] sm:leading-6">
+                  Choose your region to explore our accounting and advisory services
+                  tailored for your business.
+                </p>
+              </div>
+
+              <div className="region-popup-grid relative z-10 mt-6 sm:mt-7">
+                {POPUP_REGIONS.map((region, index) => {
+                  const isSelected = region.code === selectedCode;
+                  return (
+                    <motion.button
+                      key={region.code}
+                      type="button"
+                      onClick={() => onSelect(region.code)}
+                      className="group flex min-h-[72px] items-center gap-3 rounded-[12px] border bg-white px-3.5 py-3 text-left shadow-[0_2px_10px_rgba(15,39,74,0.04)] transition-all duration-200 hover:border-[#FF6A00]/50 hover:shadow-[0_6px_18px_rgba(15,39,74,0.08)] sm:min-h-[78px] sm:gap-3.5 sm:px-4 sm:py-3.5"
+                      style={{
+                        borderColor: isSelected ? ORANGE : "#E8ECF0",
+                        borderWidth: isSelected ? 1.5 : 1,
+                      }}
+                      initial={{ opacity: 0, y: 12 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{
+                        delay: 0.18 + index * 0.035,
+                        duration: 0.4,
+                        ease: [0.22, 1, 0.36, 1],
+                      }}
                     >
-                      {region.name}
-                    </span>
-                    <span className="mt-0.5 block text-[11px] leading-[1.35] text-[#6B7280] sm:text-[12px] sm:leading-snug">
-                      {region.description}
-                    </span>
-                  </span>
+                      <span className="inline-flex h-[18px] w-[26px] shrink-0 overflow-hidden rounded-[3px] border border-[#E5E7EB] sm:h-[20px] sm:w-[30px]">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={region.flag}
+                          alt=""
+                          className="block h-full w-full object-cover"
+                          loading="lazy"
+                        />
+                      </span>
 
-                  <span
-                    className="shrink-0 text-[18px] font-light leading-none text-[#FF6A00] transition-transform duration-200 group-hover:translate-x-0.5"
-                    aria-hidden="true"
+                      <span className="min-w-0 flex-1">
+                        <span
+                          className="block text-[13px] font-bold leading-snug sm:text-[14px]"
+                          style={{ color: NAVY }}
+                        >
+                          {region.name}
+                        </span>
+                        <span className="mt-0.5 block text-[11px] leading-[1.35] text-[#6B7280] sm:text-[12px] sm:leading-snug">
+                          {region.description}
+                        </span>
+                      </span>
+
+                      <span
+                        className="shrink-0 text-[18px] font-light leading-none text-[#FF6A00] transition-transform duration-200 group-hover:translate-x-0.5"
+                        aria-hidden="true"
+                      >
+                        ›
+                      </span>
+                    </motion.button>
+                  );
+                })}
+              </div>
+
+              <div className="relative z-10 mt-5 flex items-start gap-3 rounded-[12px] border border-[#FF6A00]/20 bg-[#FFF7F0] px-3.5 py-3 sm:mt-6 sm:items-center sm:gap-3.5 sm:px-5 sm:py-3.5">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#FF6A00]/35 bg-white/70 text-[#FF6A00] sm:h-10 sm:w-10">
+                  <ShieldCheckIcon className="h-5 w-5" />
+                </div>
+                <div className="min-w-0">
+                  <p
+                    className="text-[13px] font-bold leading-snug sm:text-[14px]"
+                    style={{ color: NAVY }}
                   >
-                    ›
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-
-          <div className="relative z-10 mt-5 flex items-start gap-3 rounded-[12px] border border-[#FF6A00]/20 bg-[#FFF7F0] px-3.5 py-3 sm:mt-6 sm:items-center sm:gap-3.5 sm:px-5 sm:py-3.5">
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-[#FF6A00]/35 bg-white/70 text-[#FF6A00] sm:h-10 sm:w-10">
-              <ShieldCheckIcon className="h-5 w-5" />
+                    Global Standards. Local Expertise.
+                  </p>
+                  <p className="mt-0.5 text-[12px] leading-5 text-[#6B7280]">
+                    Wherever your business is, we deliver secure, accurate, and
+                    reliable accounting services.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div className="min-w-0">
-              <p
-                className="text-[13px] font-bold leading-snug sm:text-[14px]"
-                style={{ color: NAVY }}
-              >
-                Global Standards. Local Expertise.
-              </p>
-              <p className="mt-0.5 text-[12px] leading-5 text-[#6B7280]">
-                Wherever your business is, we deliver secure, accurate, and
-                reliable accounting services.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+          </motion.div>
 
-      <style>{`
-        .region-popup-grid {
-          display: grid;
-          grid-template-columns: 1fr;
-          gap: 10px;
-        }
-        @media (min-width: 560px) {
-          .region-popup-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 12px;
-          }
-        }
-        @media (min-width: 768px) {
-          .region-popup-grid {
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 12px;
-          }
-        }
-      `}</style>
-    </div>,
+          <style>{`
+            .region-popup-grid {
+              display: grid;
+              grid-template-columns: 1fr;
+              gap: 10px;
+            }
+            @media (min-width: 560px) {
+              .region-popup-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 12px;
+              }
+            }
+            @media (min-width: 768px) {
+              .region-popup-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 12px;
+              }
+            }
+          `}</style>
+        </motion.div>
+      ) : null}
+    </AnimatePresence>,
     document.body
   );
 }

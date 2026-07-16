@@ -280,7 +280,10 @@ function CloudIcon({ className = "w-5 h-5" }) {
 
 export default function GlobalPresence() {
   return (
-    <section className="w-full overflow-hidden bg-white">
+    <section
+      id="trusted-by-businesses"
+      className="w-full overflow-hidden bg-white scroll-mt-24"
+    >
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-12 lg:py-14">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 xl:gap-14 items-center">
           <div className="order-1 text-center lg:text-left">

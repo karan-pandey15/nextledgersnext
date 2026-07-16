@@ -260,10 +260,10 @@ function WhyCard({ icon: Icon, title, description }) {
             }}
         >
             <span
-                className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full"
+                className="mt-0.5 flex h-14 w-14 shrink-0 items-center justify-center rounded-full"
                 style={{ background: ORANGE_SOFT, color: ORANGE }}
             >
-                <Icon className="h-[17px] w-[17px]" strokeWidth={1.75} />
+                <Icon className="h-9 w-9" strokeWidth={1.75} />
             </span>
 
             <div className="min-w-0 flex-1 text-left">
@@ -298,10 +298,10 @@ function ServiceCard({ icon: Icon, title, description }) {
             }}
         >
             <span
-                className="mb-2 flex h-9 w-9 items-center justify-center rounded-full"
+                className="mb-2 flex h-14 w-14 items-center justify-center rounded-full"
                 style={{ background: ORANGE_SOFT, color: ORANGE }}
             >
-                <Icon className="h-[17px] w-[17px]" strokeWidth={1.75} />
+                <Icon className="h-9 w-9" strokeWidth={1.75} />
             </span>
 
             <h4
@@ -432,11 +432,28 @@ export default function BookKeepingCompliance({
                     )}
                 </div>
 
-                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 lg:gap-3.5">
-                    {whyCards.map((card) => (
+                <div
+                    className={`grid grid-cols-1 gap-3 lg:gap-3.5 ${
+                        whyCards.length % 3 === 2
+                            ? "lg:grid-cols-3"
+                            : "sm:grid-cols-2 lg:grid-cols-3"
+                    }`}
+                >
+                    {(whyCards.length % 3 === 2
+                        ? whyCards.slice(0, whyCards.length - 2)
+                        : whyCards
+                    ).map((card) => (
                         <WhyCard key={card.title} {...card} />
                     ))}
                 </div>
+
+                {whyCards.length % 3 === 2 ? (
+                    <div className="mx-auto mt-3 grid max-w-full grid-cols-1 gap-3 sm:max-w-[680px] sm:grid-cols-2 lg:mt-3.5 lg:gap-3.5">
+                        {whyCards.slice(-2).map((card) => (
+                            <WhyCard key={card.title} {...card} />
+                        ))}
+                    </div>
+                ) : null}
 
                 {showServices ? (
                     <>

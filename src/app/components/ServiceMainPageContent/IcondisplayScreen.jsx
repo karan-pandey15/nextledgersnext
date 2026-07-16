@@ -78,6 +78,8 @@ export const LOGO_MAP = {
     "microsoft excel": "/images/logooUK/Microsoft_Excel_id.png",
     "google sheets": "/images/logooUK/Google_Sheets.jpeg",
     "microsoft 365": "/images/logooUK/Microsoft_Icon.jpeg",
+    "microsoft teams": "/images/logooUK/Microsoft_Icon.jpeg",
+    teams: "/images/logooUK/Microsoft_Icon.jpeg",
     "google workspace": "/images/logooUK/Google_Sheets.jpeg",
     sharepoint: "/images/logooUK/Microsoft_Icon.jpeg",
     "inform direct": "/images/logooUK/Inform_Direct/Inform_Direct.jpeg",
@@ -91,6 +93,7 @@ export const LOGO_MAP = {
     "google looker studio": "/images/logooUK/Google_Looker.png",
     "zoho books": "/images/logooUK/SVG_Brand_zoho_corporation.webp",
     zoho: "/images/logooUK/SVG_Brand_zoho_corporation.webp",
+    "zoho people": "/images/logooUK/SVG_Brand_zoho_corporation.webp",
     "zoho payroll": "/images/logooUK/SVG_Brand_zoho_corporation.webp",
     "zoho prime": "/images/logooUK/SVG_Brand_zoho_corporation.webp",
     freshbooks: "/images/logooUK/freshbooks.png",
@@ -98,6 +101,8 @@ export const LOGO_MAP = {
     wave: "/images/logooUK/Wave_id.jpeg",
     gusto: "/images/logooUK/Gusto.png",
     taxcalc: "/images/Logo/TaxCalc/TaxCalc_Logo_6.svg",
+    "intuit proconnect": "/images/Logo/Intuit_TurboTax/Intuit_TurboTax_idDvGjEKNo_3.svg",
+    proconnect: "/images/Logo/Intuit_TurboTax/Intuit_TurboTax_idDvGjEKNo_3.svg",
     "wolters kluwer": "/images/logooUK/wolters.png",
     "wolter kluwer": "/images/logooUK/wolters.png",
 };
@@ -213,40 +218,48 @@ function formatLogoLabel(name) {
         .replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
-function CategoryIcon({ icon }) {
+function CategoryIcon({ icon, className = "h-4 w-4" }) {
     if (React.isValidElement(icon)) return icon;
 
     if (typeof icon === "string") {
         const IconCmp = CATEGORY_ICONS[icon.toLowerCase()] || User;
-        return <IconCmp className="h-4 w-4" strokeWidth={1.75} />;
+        return <IconCmp className={className} strokeWidth={1.75} />;
     }
 
     if (typeof icon === "function") {
         const IconCmp = icon;
-        return <IconCmp className="h-4 w-4" strokeWidth={1.75} />;
+        return <IconCmp className={className} strokeWidth={1.75} />;
     }
 
-    return <User className="h-4 w-4" strokeWidth={1.75} />;
+    return <User className={className} strokeWidth={1.75} />;
 }
 
 function LogoItem({ name, src }) {
     return (
         <div
-            className="relative flex h-9 w-full max-w-[110px] items-center justify-center sm:h-10"
+            className="relative h-9 w-[88px] shrink-0 sm:h-10 sm:w-[100px]"
             title={formatLogoLabel(name)}
         >
             <Image
                 src={src}
                 alt={formatLogoLabel(name)}
                 fill
-                sizes="110px"
+                sizes="100px"
                 className="object-contain"
             />
         </div>
     );
 }
 
-function CategoryRow({ heading, icon, logos, logoMap, isLast }) {
+function CategoryRow({
+    heading,
+    icon,
+    logos,
+    logoMap,
+    isLast,
+    categoryIconClassName = "h-4 w-4",
+    categoryIconColorClass = "text-slate-500",
+}) {
     const items = normalizeLogos(logos, logoMap);
     const lines = chunkLogos(items, MAX_LOGOS_PER_ROW);
 
@@ -257,26 +270,24 @@ function CategoryRow({ heading, icon, logos, logoMap, isLast }) {
             }`}
         >
             {/* Left: category label */}
-            <div className="flex w-full shrink-0 items-center gap-2.5 sm:w-[160px] sm:pt-1.5 md:w-[180px]">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center text-slate-500">
-                    <CategoryIcon icon={icon} />
+            <div className="flex w-full shrink-0 items-center gap-2.5 sm:w-[180px] sm:pt-1.5 md:w-[200px]">
+                <span
+                    className={`flex shrink-0 items-center justify-center ${categoryIconColorClass}`}
+                >
+                    <CategoryIcon icon={icon} className={categoryIconClassName} />
                 </span>
                 <span className="text-[12px] font-bold uppercase tracking-[0.08em] text-slate-800 sm:text-[13px]">
                     {heading}
                 </span>
             </div>
 
-            {/* Right: logos — max 7 per line, equal gap */}
+            {/* Right: logos — left-aligned, tight packing */}
             <div className="flex min-w-0 flex-1 flex-col" style={{ gap: LOGO_GAP }}>
                 {lines.map((line, lineIndex) => (
                     <div
                         key={lineIndex}
-                        className="grid w-full items-center"
-                        style={{
-                            gridTemplateColumns: `repeat(${MAX_LOGOS_PER_ROW}, minmax(0, 1fr))`,
-                            columnGap: LOGO_GAP,
-                            rowGap: LOGO_GAP,
-                        }}
+                        className="flex flex-wrap items-center"
+                        style={{ gap: LOGO_GAP }}
                     >
                         {line.map((logo) => (
                             <LogoItem
@@ -322,6 +333,10 @@ export default function IconDisplayScreen({
     subtitle = "We integrate seamlessly with the accounting software and business platforms your clients already use.",
     logoMap = LOGO_MAP,
     className = "",
+    /** e.g. "h-8 w-8" (2× default h-4 w-4) */
+    categoryIconClassName = "h-4 w-4",
+    /** e.g. "text-[#FF6A00]" */
+    categoryIconColorClass = "text-slate-500",
     // legacy alias
     categories,
 }) {
@@ -356,6 +371,8 @@ export default function IconDisplayScreen({
                             logos={row.logos || row.icons || row.images}
                             logoMap={logoMap}
                             isLast={index === rows.length - 1}
+                            categoryIconClassName={categoryIconClassName}
+                            categoryIconColorClass={categoryIconColorClass}
                         />
                     ))}
                 </div>

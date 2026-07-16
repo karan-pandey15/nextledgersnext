@@ -120,10 +120,10 @@ function BenefitCard({ icon: Icon, title, description }) {
             }}
         >
             <span
-                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl"
-                style={{ background: "#FFF7F0", color: ORANGE }}
+                className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full"
+                style={{ background: "#FFF4EA", color: ORANGE }}
             >
-                <Icon className="h-5 w-5" strokeWidth={1.75} />
+                <Icon className="h-9 w-9" strokeWidth={1.75} />
             </span>
 
             <div className="min-w-0 flex-1 text-left">
