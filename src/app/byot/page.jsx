@@ -5,7 +5,6 @@ import Header from "@/app/components/header/Header";
 import Footer from "@/app/components/footer/Footer";
 import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/ArtificialIntelligence";
 import NexaLedAi from "@/app/components/ChatBot/NexaLedAi";
-import HiringComparison from "@/app/components/HiringComparison/HiringComparison";
 import ByotHero from "@/app/components/BYOT/ByotHero";
 import ByotHowItWorks from "@/app/components/BYOT/ByotHowItWorks";
 import ByotWhyLove from "@/app/components/BYOT/ByotWhyLove";
@@ -28,8 +27,8 @@ export default function ByotPage() {
       <ByotHowItWorks />
       <ByotWhyLove />
       <ByotIndustries />
+      <div className="mt-4" ></div>
       <ByotVsHiring />
-      <HiringComparison />
       <ByotWhyChoose />
       <ByotConnect />
 

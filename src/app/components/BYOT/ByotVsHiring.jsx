@@ -1,18 +1,19 @@
 "use client";
 
 import {
+  Briefcase,
+  Building2,
   Check,
+  ClipboardList,
   Clock3,
   DollarSign,
+  Gauge,
   GraduationCap,
-  Building2,
-  HeartHandshake,
   RefreshCw,
-  Scaling,
   ShieldCheck,
+  SlidersHorizontal,
   TrendingUp,
   Users,
-  Wallet,
 } from "lucide-react";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
@@ -60,7 +61,7 @@ const TABLE_ROWS = [
     traditional: "Employee Benefits",
     label: "Benefits",
     byot: "No Benefits",
-    icon: HeartHandshake,
+    icon: Briefcase,
   },
   {
     traditional: "Office Space & Equipment",
@@ -78,41 +79,42 @@ const TABLE_ROWS = [
     traditional: "Payroll Management",
     label: "Payroll",
     byot: "We Handle Everything",
-    icon: Wallet,
+    icon: ClipboardList,
   },
   {
     traditional: "High Overhead",
     label: "Overhead Costs",
     byot: "Low Overhead",
-    icon: DollarSign,
+    icon: Gauge,
   },
   {
     traditional: "Limited Flexibility",
     label: "Scalability",
     byot: "Scale Up or Down Anytime",
-    icon: Scaling,
+    icon: SlidersHorizontal,
   },
 ];
 
 export default function ByotVsHiring() {
   return (
-    <section className="w-full bg-white py-10 sm:py-12 lg:py-14">
-      <div className="mx-auto grid max-w-[1440px] grid-cols-1 items-start gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:gap-10 lg:px-10">
-        <div>
+    <section className="w-full bg-white pt-[10px] pb-8 sm:pb-10">
+      <div className="mx-auto grid max-w-[1440px] grid-cols-1 items-stretch gap-6 px-4 sm:px-6 lg:grid-cols-[1fr_1.05fr] lg:gap-8 lg:px-10">
+        {/* Left content aligned to table height */}
+        <div className="flex h-full flex-col justify-center">
           <h2
-            className="text-[26px] font-bold leading-tight sm:text-[32px]"
+            className="text-[26px] font-bold leading-[1.15] sm:text-[32px] lg:text-[34px]"
             style={{ color: NAVY }}
           >
             BYOT vs Traditional Hiring.
           </h2>
           <p
-            className="mt-1 text-[22px] font-bold sm:text-[26px]"
+            className="mt-1 text-[22px] font-bold leading-tight sm:text-[26px] lg:text-[28px]"
             style={{ color: ORANGE }}
           >
             The Smarter Choice for Growth.
           </p>
           <p
-            className="mt-3 max-w-lg text-[14px] leading-relaxed"
+            className="mt-3 max-w-xl text-[14px] leading-relaxed sm:text-[15px]"
             style={{ color: GREY }}
           >
             Skip the long hiring cycle, overhead costs, and administrative
@@ -120,73 +122,91 @@ export default function ByotVsHiring() {
             seeing results faster.
           </p>
 
-          <div className="mt-7 grid grid-cols-1 gap-5 sm:grid-cols-2">
+          <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-5 sm:grid-cols-4">
             {HIGHLIGHTS.map(({ title, desc, icon: Icon }) => (
-              <div key={title} className="flex items-start gap-3">
-                <span
-                  className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-full"
-                  style={{ background: "#FFF4EA", color: ORANGE }}
+              <div key={title} className="flex flex-col items-start">
+                <Icon
+                  className="mb-2 h-6 w-6"
+                  style={{ color: ORANGE }}
+                  strokeWidth={1.75}
+                />
+                <h3
+                  className="text-[13px] font-bold leading-snug sm:text-[14px]"
+                  style={{ color: ORANGE }}
                 >
-                  <Icon className="h-5 w-5" strokeWidth={1.75} />
-                </span>
-                <div>
-                  <h3 className="text-[14px] font-bold" style={{ color: NAVY }}>
-                    {title}
-                  </h3>
-                  <p className="mt-0.5 text-[12.5px] leading-snug" style={{ color: GREY }}>
-                    {desc}
-                  </p>
-                </div>
+                  {title}
+                </h3>
+                <p
+                  className="mt-1 text-[11.5px] leading-snug sm:text-[12px]"
+                  style={{ color: GREY }}
+                >
+                  {desc}
+                </p>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="overflow-hidden rounded-[18px] border border-[#E8ECF0] bg-white shadow-[0_10px_32px_rgba(15,39,74,0.08)]">
-          <div className="grid grid-cols-[1fr_auto_1fr]">
-            <div className="bg-[#F3F4F6] px-3 py-3 text-center text-[12px] font-bold sm:px-4 sm:text-[13px]" style={{ color: NAVY }}>
-              Traditional Hiring
+        {/* 3-column comparison table */}
+        <div className="h-full overflow-hidden rounded-[16px] border border-[#E5E7EB] bg-white shadow-[0_8px_28px_rgba(15,39,74,0.08)]">
+          <div className="grid h-full grid-rows-[auto_repeat(8,1fr)]">
+            <div className="grid grid-cols-[1.05fr_0.95fr_1.2fr]">
+              <div
+                className="bg-[#E8EAED] px-2 py-2.5 text-center text-[12px] font-bold sm:text-[13px]"
+                style={{ color: NAVY }}
+              >
+                Traditional Hiring
+              </div>
+              <div className="bg-white" />
+              <div
+                className="px-2 py-2.5 text-center text-[12px] font-bold text-white sm:text-[13px]"
+                style={{ background: ORANGE }}
+              >
+                NextLedgers BYOT
+              </div>
             </div>
-            <div className="w-16 bg-white sm:w-24" />
-            <div
-              className="px-3 py-3 text-center text-[12px] font-bold text-white sm:px-4 sm:text-[13px]"
-              style={{ background: ORANGE }}
-            >
-              NextLedgers BYOT
-            </div>
-          </div>
 
-          {TABLE_ROWS.map(({ traditional, label, byot, icon: Icon }, index) => (
-            <div
-              key={label}
-              className={`grid grid-cols-[1fr_auto_1fr] items-center border-t border-[#F0F0F0] ${
-                index % 2 === 1 ? "bg-[#FFF9F5]" : "bg-white"
-              }`}
-            >
+            {TABLE_ROWS.map(({ traditional, label, byot, icon: Icon }) => (
               <div
-                className="px-3 py-3 text-center text-[11px] sm:px-4 sm:text-[12.5px]"
-                style={{ color: GREY }}
+                key={label}
+                className="grid grid-cols-[1.05fr_0.95fr_1.2fr] items-stretch border-t border-[#EEEEEE]"
               >
-                {traditional}
-              </div>
-              <div className="flex w-16 flex-col items-center gap-0.5 px-1 py-2 sm:w-24">
-                <Icon className="h-4 w-4" style={{ color: ORANGE }} strokeWidth={1.75} />
-                <span
-                  className="text-center text-[9px] font-bold uppercase tracking-wide sm:text-[10px]"
-                  style={{ color: NAVY }}
+                <div
+                  className="flex items-center justify-center bg-[#F3F4F6] px-2 py-[2px] text-center text-[11px] leading-tight sm:text-[12px]"
+                  style={{ color: "#4B5563" }}
                 >
-                  {label}
-                </span>
+                  {traditional}
+                </div>
+
+                <div className="relative z-[1] flex items-center justify-start gap-1.5 bg-white px-2 py-[2px] shadow-[2px_0_8px_rgba(15,39,74,0.04)]">
+                  <Icon
+                    className="h-3.5 w-3.5 shrink-0"
+                    style={{ color: "#6B7280" }}
+                    strokeWidth={1.6}
+                  />
+                  <span
+                    className="text-[10px] font-semibold leading-tight sm:text-[11px]"
+                    style={{ color: NAVY }}
+                  >
+                    {label}
+                  </span>
+                </div>
+
+                <div
+                  className="flex items-center justify-between gap-1 bg-[#FFF4EA] px-2 py-[2px] text-[11px] font-semibold leading-tight sm:text-[12px]"
+                  style={{ color: ORANGE }}
+                >
+                  <span className="flex-1 text-center">{byot}</span>
+                  <span
+                    className="inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full text-white"
+                    style={{ background: ORANGE }}
+                  >
+                    <Check className="h-2.5 w-2.5" strokeWidth={3} />
+                  </span>
+                </div>
               </div>
-              <div
-                className="flex items-center justify-center gap-1.5 px-3 py-3 text-center text-[11px] font-semibold sm:px-4 sm:text-[12.5px]"
-                style={{ color: ORANGE }}
-              >
-                <Check className="h-3.5 w-3.5 shrink-0" strokeWidth={2.5} />
-                {byot}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
