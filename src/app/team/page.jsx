@@ -97,7 +97,7 @@ const SUPPORT_TEAM = [
   {
     name: "Karan Kapoor",
     role: "Marketing Manager",
-    image: null,
+    image:  "/images/TeamImage/Karan Kapoor.jpg",
   },
   {
     name: "Kirti Kapoor",
@@ -152,7 +152,7 @@ function TeamAvatar({ src, name, bordered = false }) {
 
   return (
     <div
-      className={`relative mx-auto flex h-[88px] w-[88px] shrink-0 items-center justify-center overflow-hidden rounded-full sm:h-[92px] sm:w-[92px] ${
+      className={`relative mx-auto flex h-[124px] w-[124px] shrink-0 items-center justify-center overflow-hidden rounded-full sm:h-[132px] sm:w-[132px] ${
         bordered ? "ring-[2px] ring-[#FF6A00]" : "ring-1 ring-[#E5E7EB]"
       } ${failed || !src ? "bg-[#FFF1E6]" : isCutout ? "bg-[#FFF7F0]" : "bg-[#E8EEF5]"}`}
     >
@@ -163,7 +163,7 @@ function TeamAvatar({ src, name, bordered = false }) {
           alt=""
           className={
             isCutout
-              ? "h-[92%] w-[92%] object-contain object-bottom"
+              ? "h-[94%] w-[94%] object-contain object-bottom"
               : "h-full w-full object-cover object-center"
           }
           loading="lazy"
@@ -171,7 +171,7 @@ function TeamAvatar({ src, name, bordered = false }) {
         />
       ) : (
         <span
-          className="text-[22px] font-bold tracking-wide sm:text-[24px]"
+          className="text-[28px] font-bold tracking-wide sm:text-[30px]"
           style={{ color: ORANGE }}
           aria-hidden="true"
         >
@@ -182,9 +182,9 @@ function TeamAvatar({ src, name, bordered = false }) {
   );
 }
 
-/** Same size for every card — matches screenshot proportions */
+/** ~10% larger — height follows content so no empty gap under designation */
 const CARD_BOX =
-  "box-border flex h-[235px] w-[200px] flex-col items-center rounded-[12px] bg-white px-3 pt-5 pb-4 text-center transition-all duration-300 ease-out hover:-translate-y-1.5 sm:h-[242px] sm:w-[210px]";
+  "box-border flex w-[230px] flex-col items-center rounded-[13px] bg-white px-4 pt-5 pb-4 text-center transition-all duration-300 ease-out hover:-translate-y-1.5 sm:w-[242px]";
 
 function TeamMemberCard({ member, accent = true }) {
   return (
@@ -196,20 +196,20 @@ function TeamMemberCard({ member, accent = true }) {
       }`}
     >
       <TeamAvatar src={member.image} name={member.name} bordered={accent} />
-      <div className="mt-3 flex w-full flex-col items-center justify-start px-1">
+      <div className="mt-3.5 flex w-full flex-col items-center px-1">
         <h3
-          className="text-[13px] font-bold leading-tight sm:text-[14px]"
+          className="text-[14px] font-bold leading-tight sm:text-[15px]"
           style={{ color: accent ? ORANGE : "#4B5563" }}
         >
           {member.name}
         </h3>
         {member.credentials ? (
-          <p className="mt-1 text-[11px] font-normal leading-tight text-[#4B5563] sm:text-[12px]">
+          <p className="mt-1.5 text-[12px] font-normal leading-tight text-[#4B5563] sm:text-[13px]">
             {member.credentials}
           </p>
         ) : null}
         <p
-          className={`mt-1 max-w-full text-[11px] leading-tight sm:text-[12px] ${
+          className={`mt-1.5 max-w-full text-[12px] leading-tight sm:text-[13px] ${
             accent ? "font-bold text-[#1A1A1A]" : "font-normal text-[#1A1A1A]"
           }`}
         >
@@ -222,7 +222,7 @@ function TeamMemberCard({ member, accent = true }) {
 
 function CardRow({ members, accent = true }) {
   return (
-    <div className="flex flex-wrap justify-center gap-5 sm:gap-6">
+    <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
       {members.map((member) => (
         <TeamMemberCard key={member.name} member={member} accent={accent} />
       ))}
@@ -234,7 +234,7 @@ export default function TeamPage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <main className="flex min-h-screen flex-col overflow-x-hidden bg-white font-sans text-[#1A1A1A]">
+    <main className="flex min-h-screen flex-col overflow-x-hidden bg-[#F8F9FA] font-sans text-[#1A1A1A]">
       <TopAnnouncementBar isSidebarOpen={isSidebarOpen} />
       <Header isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
 
@@ -268,7 +268,7 @@ export default function TeamPage() {
       </section>
 
       {/* Leadership — 2 / 3 / 3 */}
-      <section className="relative w-full overflow-hidden bg-[#F4F4F4] pt-8 pb-2 sm:pt-10 lg:pt-12">
+      <section className="relative w-full overflow-hidden bg-[#F8F9FA] pt-8 pb-2 sm:pt-10 lg:pt-12">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
           <div className="px-2 py-6 sm:px-4 sm:py-8 lg:px-6 lg:py-10">
             <SectionTitle>Leadership Team</SectionTitle>
@@ -283,7 +283,7 @@ export default function TeamPage() {
       </section>
 
       {/* Support — 4 / 4 */}
-      <section className="relative w-full overflow-hidden bg-white pb-9 pt-6 sm:pb-10 sm:pt-8 lg:pb-12 lg:pt-10">
+      <section className="relative w-full overflow-hidden bg-[#F8F9FA] pb-9 pt-6 sm:pb-10 sm:pt-8 lg:pb-12 lg:pt-10">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
           <div className="px-2 sm:px-4 lg:px-6">
             <SectionTitle>Senior Professional & Support Team</SectionTitle>
@@ -296,7 +296,7 @@ export default function TeamPage() {
         </div>
       </section>
 
-      <section className="w-full bg-white px-4 pb-10 pt-2 sm:px-6 sm:pb-12 lg:px-10 lg:pb-14">
+      <section className="w-full bg-[#F8F9FA] px-4 pb-10 pt-2 sm:px-6 sm:pb-12 lg:px-10 lg:pb-14">
         <div className="mx-auto max-w-[1440px]">
           <ContactUsCTA />
         </div>
