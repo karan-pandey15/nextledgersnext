@@ -47,6 +47,17 @@ const QUICK_LINKS = [
   { label: "Contact Us", href: "/contact", isContact: true },
 ];
 
+/** BYOT footer — team roles (shown only on /byot) */
+const BYOT_SERVICE_LINKS = [
+  { label: "Dedicated Accountants", href: "/byot" },
+  { label: "Bookkeepers", href: "/byot" },
+  { label: "Payroll Specialists", href: "/byot" },
+  { label: "Tax Professionals", href: "/byot" },
+  { label: "Management Accountants", href: "/byot" },
+  { label: "Virtual CFOs", href: "/byot" },
+  { label: "Admin & Back Office Support", href: "/byot" },
+];
+
 function IconLaurel({ className = "w-6 h-6" }) {
   return (
     <svg
@@ -315,19 +326,16 @@ export default function Footer({ region, variant }) {
   // Exact same home copy + stats everywhere
   const copy = HOME_COPY;
   const isByotPage = pathname === "/byot" || pathname?.startsWith("/byot/");
-  const rawServiceLinks = regionServices
-    ? regionServices.serviceLinks
-    : GLOBAL_SERVICE_LINKS;
   const serviceLinks = isByotPage
-    ? rawServiceLinks.filter(
-        (item) =>
-          item.href !== "/services/payroll" &&
-          !/payroll\s*&\s*hr/i.test(item.label || "")
-      )
-    : rawServiceLinks;
-  const servicesHeading = regionServices
-    ? regionServices.servicesHeading
-    : "Our Services";
+    ? BYOT_SERVICE_LINKS
+    : regionServices
+      ? regionServices.serviceLinks
+      : GLOBAL_SERVICE_LINKS;
+  const servicesHeading = isByotPage
+    ? "Our Services"
+    : regionServices
+      ? regionServices.servicesHeading
+      : "Our Services";
 
   return (
     <footer className="w-full text-white overflow-x-hidden" style={{ backgroundColor: BG }}>

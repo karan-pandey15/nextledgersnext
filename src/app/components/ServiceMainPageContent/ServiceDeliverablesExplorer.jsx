@@ -152,13 +152,13 @@ export default function ServiceDeliverablesExplorer({
                     {/* Active service panel */}
                     {active ? (
                         <div className="rounded-[18px] border border-[#F0E6DC] bg-white p-5 shadow-[0_4px_18px_rgba(15,23,42,0.04)] sm:p-6 lg:p-7">
-                            <div className="mb-5 flex items-start gap-3 border-b border-[#F5EDE4] pb-4">
+                            <div className="mb-5 flex items-center gap-3 border-b border-[#F5EDE4] pb-4">
                                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#FFF4EA] text-[#FF6A00]">
                                     {ActiveIcon ? (
                                         <ActiveIcon className="h-5 w-5" strokeWidth={2} />
                                     ) : null}
                                 </span>
-                                <div className="min-w-0">
+                                <div className="flex min-h-11 min-w-0 flex-1 items-center">
                                     <h3 className="text-[18px] font-extrabold leading-snug text-[#0B1F3A] sm:text-[20px]">
                                         {active.title}
                                     </h3>
@@ -169,9 +169,9 @@ export default function ServiceDeliverablesExplorer({
                                 {active.items.map((item) => (
                                     <li
                                         key={item}
-                                        className="flex items-start gap-2.5 rounded-[12px] bg-[#FFF9F5] px-3.5 py-3"
+                                        className="flex items-center gap-2.5 rounded-[12px] bg-[#FFF9F5] px-3.5 py-3"
                                     >
-                                        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FF6A00]">
+                                        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FF6A00]">
                                             <Check
                                                 className="h-3 w-3 text-white"
                                                 strokeWidth={3}

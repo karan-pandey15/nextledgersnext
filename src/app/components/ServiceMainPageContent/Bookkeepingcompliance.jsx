@@ -253,14 +253,14 @@ function DotGrid({ className }) {
 function WhyCard({ icon: Icon, title, description }) {
     return (
         <div
-            className="flex items-start gap-3 rounded-[12px] border bg-white px-3.5 py-3.5 transition-shadow duration-200 hover:shadow-[0_6px_16px_rgba(0,0,0,0.06)]"
+            className="flex items-center gap-3 rounded-[12px] border bg-white px-3.5 py-3.5 transition-shadow duration-200 hover:shadow-[0_6px_16px_rgba(0,0,0,0.06)]"
             style={{
                 borderColor: CARD_BORDER,
                 boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
             }}
         >
             <span
-                className="mt-0.5 flex h-14 w-14 shrink-0 items-center justify-center rounded-full"
+                className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full"
                 style={{ background: ORANGE_SOFT, color: ORANGE }}
             >
                 <Icon className="h-9 w-9" strokeWidth={1.75} />
