@@ -340,21 +340,6 @@ export default function BookKeepingMatters({
                         <rect x="19" y="26" width="11" height="22" rx="2.5" fill={ORANGE} opacity="0.55" />
                         <rect x="34" y="16" width="11" height="32" rx="2.5" fill={ORANGE} opacity="0.75" />
                         <rect x="49" y="6" width="11" height="42" rx="2.5" fill={ORANGE} />
-                        <path
-                            d="M9 32 L24 24 L39 14 L54 4"
-                            stroke={ORANGE}
-                            strokeWidth="2.2"
-                            strokeLinecap="round"
-                            fill="none"
-                        />
-                        <path
-                            d="M49 4 H62 V12"
-                            stroke={ORANGE}
-                            strokeWidth="2.2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            fill="none"
-                        />
                     </svg>
                 </div>
             </div>
