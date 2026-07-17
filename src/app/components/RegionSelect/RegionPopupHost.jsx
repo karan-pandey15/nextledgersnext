@@ -5,14 +5,14 @@ import { usePathname, useRouter } from "next/navigation";
 import RegionPopup from "./RegionPopup";
 import { REGION_ROUTES } from "./regionData";
 
-const REGION_POPUP_DELAY_MS = 30000; // 30s fallback if section not reached
+const REGION_POPUP_DELAY_MS = 25000; // 25s on non-home pages
 const TRUSTED_SECTION_ID = "trusted-by-businesses";
 const SESSION_KEY = "nl-region-popup-shown";
 
 /**
  * Site-wide region popup.
- * Opens when the user scrolls to "Trusted by Businesses Across 9+ Countries",
- * or after 30 seconds if they never reach that section.
+ * Home: opens when the user scrolls to "Trusted by Businesses Across 9+ Countries".
+ * All other pages: opens after 25 seconds.
  * Shows at most once per browser session.
  */
 export default function RegionPopupHost() {
@@ -23,6 +23,8 @@ export default function RegionPopupHost() {
   const triggeredRef = useRef(false);
   const timerRef = useRef(null);
   const observerRef = useRef(null);
+
+  const isHome = pathname === "/";
 
   const clearObserver = useCallback(() => {
     if (observerRef.current) {
@@ -51,48 +53,49 @@ export default function RegionPopupHost() {
     setIsOpen(true);
   }, [clearTimer, clearObserver]);
 
+  const alreadyShown = useCallback(() => {
+    try {
+      if (sessionStorage.getItem(SESSION_KEY)) {
+        triggeredRef.current = true;
+        return true;
+      }
+    } catch {
+      /* ignore */
+    }
+    return triggeredRef.current;
+  }, []);
+
   useEffect(() => {
     if (typeof window === "undefined") return;
     const saved = localStorage.getItem("selected-region");
     if (saved) setSelectedRegion(saved);
   }, []);
 
-  // 30s fallback — starts once on mount, not reset on route changes
+  // Non-home pages: open after 25 seconds
   useEffect(() => {
     if (typeof window === "undefined") return undefined;
-
-    try {
-      if (sessionStorage.getItem(SESSION_KEY)) {
-        triggeredRef.current = true;
-        return undefined;
-      }
-    } catch {
-      /* ignore */
+    if (isHome) {
+      clearTimer();
+      return undefined;
     }
+    if (alreadyShown()) return undefined;
 
-    if (triggeredRef.current) return undefined;
-
+    clearTimer();
     timerRef.current = window.setTimeout(openPopup, REGION_POPUP_DELAY_MS);
 
     return () => {
       clearTimer();
     };
-  }, [openPopup, clearTimer]);
+  }, [isHome, pathname, openPopup, clearTimer, alreadyShown]);
 
-  // Scroll trigger — watch the Trusted by Businesses section when present (home)
+  // Home only: open when scrolling to Trusted by Businesses section
   useEffect(() => {
     if (typeof window === "undefined") return undefined;
-
-    try {
-      if (sessionStorage.getItem(SESSION_KEY)) {
-        triggeredRef.current = true;
-        return undefined;
-      }
-    } catch {
-      /* ignore */
+    if (!isHome) {
+      clearObserver();
+      return undefined;
     }
-
-    if (triggeredRef.current) return undefined;
+    if (alreadyShown()) return undefined;
 
     clearObserver();
 
@@ -126,7 +129,7 @@ export default function RegionPopupHost() {
       window.clearTimeout(retryId2);
       clearObserver();
     };
-  }, [pathname, openPopup, clearObserver]);
+  }, [isHome, pathname, openPopup, clearObserver, alreadyShown]);
 
   const handleSelect = useCallback(
     (code) => {

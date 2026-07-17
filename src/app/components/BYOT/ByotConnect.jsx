@@ -94,7 +94,7 @@ const INITIAL = {
 };
 
 const inputClass =
-  "h-[44px] w-full rounded-[8px] border border-[#D0D5DD] bg-white px-3.5 text-[13px] text-[#0F274A] outline-none transition placeholder:text-[#98A2B3] focus:border-[#FF6A00]";
+  "h-[46px] w-full rounded-[10px] border border-transparent bg-[#F5F7FA] px-3.5 text-[13px] text-[#0F274A] outline-none transition-all duration-200 placeholder:text-[#98A2B3] hover:bg-[#EFF2F6] focus:border-[#FF6A00] focus:bg-white focus:ring-2 focus:ring-[#FF6A00]/15";
 
 export default function ByotConnect() {
   const [form, setForm] = useState(INITIAL);
@@ -273,11 +273,11 @@ export default function ByotConnect() {
               </div>
             </div>
 
-            {/* Form card (overlaps photo on desktop) — no box shadow */}
+            {/* Form card (overlaps photo on desktop) — no border, no box shadow */}
             <form
               id="byot-connect-form"
               onSubmit={onSubmit}
-              className="relative z-10 order-1 w-full rounded-[16px] border border-[#EAECEF] bg-white p-5 sm:p-6 lg:order-none lg:w-[62%]"
+              className="relative z-10 order-1 w-full rounded-[16px] bg-white p-5 sm:p-6 lg:order-none lg:w-[62%]"
             >
               <div className="mb-1 flex items-center justify-center gap-2.5">
                 <span className="flex items-center gap-1">
@@ -358,7 +358,7 @@ export default function ByotConnect() {
                   placeholder="How can we help you?*"
                   required
                   rows={4}
-                  className="min-h-[96px] w-full resize-none rounded-[8px] border border-[#D0D5DD] bg-white px-3.5 py-2.5 text-[13px] text-[#0F274A] outline-none transition placeholder:text-[#98A2B3] focus:border-[#FF6A00] sm:col-span-2"
+                  className="min-h-[104px] w-full resize-none rounded-[10px] border border-transparent bg-[#F5F7FA] px-3.5 py-3 text-[13px] text-[#0F274A] outline-none transition-all duration-200 placeholder:text-[#98A2B3] hover:bg-[#EFF2F6] focus:border-[#FF6A00] focus:bg-white focus:ring-2 focus:ring-[#FF6A00]/15 sm:col-span-2"
                 />
 
                 <label
@@ -387,7 +387,7 @@ export default function ByotConnect() {
 
                 <button
                   type="submit"
-                  className="mt-1 inline-flex w-full items-center justify-center gap-2 rounded-[8px] bg-[#FF6A00] px-4 py-3.5 text-[13px] font-bold uppercase tracking-wide text-white transition hover:bg-[#E85E00] sm:col-span-2"
+                  className="mt-1 inline-flex w-full items-center justify-center gap-2 rounded-[10px] bg-[#FF6A00] px-4 py-3.5 text-[13px] font-bold uppercase tracking-wide text-white shadow-[0_8px_20px_rgba(255,106,0,0.28)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#E85E00] hover:shadow-[0_10px_24px_rgba(255,106,0,0.34)] sm:col-span-2"
                 >
                   {sent ? "Message Sent" : "Send Message"}
                   <Send className="h-4 w-4" strokeWidth={2.2} />

@@ -42,6 +42,7 @@ import Image from "next/image";
 import CtaButton from "@/app/components/ui/CtaButton";
 import IconDisplayScreen from "@/app/components/ServiceMainPageContent/IcondisplayScreen";
 import TrustBadgesBar from "@/app/components/ServiceMainPageContent/TrustBadgesBar";
+import IndustriesWeSupportGrid from "@/app/components/ServiceMainPageContent/IndustriesWeSupportGrid";
 import ServiceDeliverablesExplorer from "@/app/components/ServiceMainPageContent/ServiceDeliverablesExplorer";
 import BookKeepingCompliance from "@/app/components/ServiceMainPageContent/Bookkeepingcompliance";
 import Footer from "@/app/components/footer/Footer";
@@ -539,7 +540,56 @@ export default function AccountingBookkeepingPage() {
                 </div>
             </section>
 
-            {/* 7 — Closing CTA */}
+            {/* 7 — Industries We Support */}
+            <section className="relative w-full overflow-hidden bg-white py-10 sm:py-12 lg:py-14">
+                <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
+                    <div
+                        className="rounded-none px-5 py-8 sm:px-8 sm:py-9 lg:px-10 lg:py-10"
+                        style={{ background: PAGE_CREAM }}
+                    >
+                        <div className="mx-auto max-w-[720px] text-center">
+                            <div className="inline-flex items-center justify-center gap-3">
+                                <span
+                                    className="hidden h-px w-8 sm:block"
+                                    style={{ background: ORANGE }}
+                                    aria-hidden="true"
+                                />
+                                <p
+                                    className="text-[11px] font-bold uppercase tracking-[0.22em] sm:text-[12px]"
+                                    style={{ color: ORANGE }}
+                                >
+                                    Our Industry Expertise
+                                </p>
+                                <span
+                                    className="hidden h-px w-8 sm:block"
+                                    style={{ background: ORANGE }}
+                                    aria-hidden="true"
+                                />
+                            </div>
+
+                            <h2
+                                className="mt-3 text-[24px] font-extrabold leading-[1.15] tracking-[-0.01em] sm:text-[30px] lg:text-[34px]"
+                                style={{ color: NAVY }}
+                            >
+                                Industries We{" "}
+                                <span style={{ color: ORANGE }}>Support</span>
+                            </h2>
+
+                            <p
+                                className="mx-auto mt-3 max-w-[560px] text-[13px] leading-relaxed sm:mt-3.5 sm:text-[14px]"
+                                style={{ color: GREY }}
+                            >
+                                We provide Accounting &amp; Bookkeeping Services to
+                                businesses across a wide range of industries, including:
+                            </p>
+                        </div>
+
+                        <IndustriesWeSupportGrid />
+                    </div>
+                </div>
+            </section>
+
+            {/* 8 — Closing CTA */}
             <section className="relative w-full bg-white px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
                 <div
                     className="relative mx-auto max-w-5xl overflow-hidden rounded-[22px] px-5 py-10 text-center sm:rounded-[28px] sm:px-10 sm:py-12 lg:px-14"
