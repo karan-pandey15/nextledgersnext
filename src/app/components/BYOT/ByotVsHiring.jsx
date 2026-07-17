@@ -12,7 +12,6 @@ import {
   RefreshCw,
   ShieldCheck,
   SlidersHorizontal,
-  TrendingUp,
   UserCheck,
 } from "lucide-react";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
@@ -20,6 +19,24 @@ import { BRAND_ORANGE } from "@/app/lib/brandColors";
 const ORANGE = BRAND_ORANGE;
 const NAVY = "#0F274A";
 const GREY = "#6B7280";
+
+/** Bars only — no trend arrow */
+function IconScaleBars({ className, strokeWidth: _strokeWidth, style }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      style={style}
+      fill="none"
+      aria-hidden
+    >
+      <rect x="2.5" y="14" width="3.5" height="7" rx="1" fill="#FFD2B0" />
+      <rect x="7.5" y="10.5" width="3.5" height="10.5" rx="1" fill="#FFB07A" />
+      <rect x="12.5" y="7" width="3.5" height="14" rx="1" fill="#FF8A3D" />
+      <rect x="17.5" y="3.5" width="3.5" height="17.5" rx="1" fill={ORANGE} />
+    </svg>
+  );
+}
 
 const HIGHLIGHTS = [
   {
@@ -30,7 +47,7 @@ const HIGHLIGHTS = [
   {
     title: "Scale Instantly",
     desc: "Add or remove resources as your business needs.",
-    icon: TrendingUp,
+    icon: IconScaleBars,
   },
   {
     title: "Dedicated Experts",

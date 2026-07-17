@@ -12,31 +12,46 @@ import { BRAND_ORANGE } from "@/app/lib/brandColors";
 const ORANGE = BRAND_ORANGE;
 const NAVY = "#0F274A";
 
-
-/** TOP ROW — 2 cards */
-const LEADERSHIP = [
+/** Leadership — row 1: 2 cards (centered) */
+const LEADERSHIP_ROW_1 = [
   {
-    name: "Durgesh Pandey",
-    credentials: "ACCA, CPA Pursuing",
+    name: "Durgesh Pandey ACCA",
+    credentials: "CPA Pursuing",
     role: "Managing Partner",
     image: "/images/TeamImage/Durgesh_Pandey-removebg-preview.png",
   },
   {
-    name: "John Muchai",
-    credentials: "CPA & CGMA",
-    role: "Partner",
+    name: "John Muchai, CPA",
+    credentials: "CGMA",
+    role: "Partner, North America",
     image: "/images/TeamImage/John_Muchai.jpg?v=3",
   },
 ];
 
-/** SECOND ROW — Anjali + Senior Managers, SAME card size/style as top row */
-const SECOND_ROW = [
+/** Leadership — row 2: 3 cards */
+const LEADERSHIP_ROW_2 = [
   {
     name: "Anjali Sharma",
     credentials: "MBA",
-    role: "Non Profit Accounting Partner",
+    role: "Non-Profit Accounting, Partner",
     image: "/images/TeamImage/Anjali_Sharma-removebg-preview.png",
   },
+  {
+    name: "Praveen Kumar",
+    credentials: "CMA",
+    role: "Audit & Tax Partner, Canada",
+    image: "/images/TeamImage/Praveen_Kumar-removebg-preview.png",
+  },
+  {
+    name: "Ankita Varde",
+    credentials: "CPA",
+    role: "Head of Tax & Compliance",
+    image: "/images/TeamImage/Ankita-removebg-preview.png",
+  },
+];
+
+/** Leadership — row 3: 3 cards */
+const LEADERSHIP_ROW_3 = [
   {
     name: "Akash Gangwar",
     credentials: "M.com, EA",
@@ -50,12 +65,6 @@ const SECOND_ROW = [
     image: "/images/TeamImage/Parwinder_Singh-removebg-preview.png",
   },
   {
-    name: "Ankita Varde",
-    credentials: "CPA",
-    role: "Head of Tax & Compliance",
-    image: "/images/TeamImage/Ankita-removebg-preview.png",
-  },
-  {
     name: "Prince Mishra",
     credentials: "MBA, Finance",
     role: "Sr. Manager, Canada Audit & Accounting",
@@ -63,12 +72,8 @@ const SECOND_ROW = [
   },
 ];
 
+/** Support — 4 + 4 */
 const SUPPORT_TEAM = [
-  {
-    name: "Praveen Kumar, CMA",
-    role: "Audit & Tax Partner, Canada",
-    image: "/images/TeamImage/Praveen_Kumar-removebg-preview.png",
-  },
   {
     name: "Dharmesh Kumar",
     role: "Client Onboarding Specialist",
@@ -116,6 +121,7 @@ function getInitials(name) {
     .split(",")[0]
     .split(" ")
     .filter(Boolean)
+    .filter((part) => !/^(ACCA|CPA|CMA|MBA|EA|CGMA)$/i.test(part))
     .slice(0, 2)
     .map((part) => part[0])
     .join("")
@@ -131,10 +137,11 @@ function SectionTitle({ children }) {
       >
         {children}
       </h2>
-      <div className="relative mx-auto mt-3 flex h-[3px] w-28 items-center justify-center sm:w-32">
-        <span className="absolute inset-x-0 top-1/2 h-[2px] -translate-y-1/2 rounded-full bg-[#FF6A00]" />
-        <span className="relative z-[1] h-2.5 w-2.5 rounded-full bg-[#FF6A00]" aria-hidden="true" />
-      </div>
+      <div
+        className="mx-auto mt-3 h-[3px] w-16 rounded-full sm:w-20"
+        style={{ backgroundColor: ORANGE }}
+        aria-hidden="true"
+      />
     </div>
   );
 }
@@ -145,7 +152,7 @@ function TeamAvatar({ src, name, bordered = false }) {
 
   return (
     <div
-      className={`relative mx-auto flex h-[100px] w-[100px] shrink-0 items-center justify-center overflow-hidden rounded-full sm:h-[108px] sm:w-[108px] ${
+      className={`relative mx-auto flex h-[88px] w-[88px] shrink-0 items-center justify-center overflow-hidden rounded-full sm:h-[92px] sm:w-[92px] ${
         bordered ? "ring-[2px] ring-[#FF6A00]" : "ring-1 ring-[#E5E7EB]"
       } ${failed || !src ? "bg-[#FFF1E6]" : isCutout ? "bg-[#FFF7F0]" : "bg-[#E8EEF5]"}`}
     >
@@ -164,7 +171,7 @@ function TeamAvatar({ src, name, bordered = false }) {
         />
       ) : (
         <span
-          className="text-[26px] font-bold tracking-wide sm:text-[28px]"
+          className="text-[22px] font-bold tracking-wide sm:text-[24px]"
           style={{ color: ORANGE }}
           aria-hidden="true"
         >
@@ -175,40 +182,50 @@ function TeamAvatar({ src, name, bordered = false }) {
   );
 }
 
-/** One fixed size for every team card */
+/** Same size for every card — matches screenshot proportions */
 const CARD_BOX =
-  "box-border flex h-[290px] w-[220px] flex-col items-center rounded-[14px] bg-white px-4 py-6 text-center transition-all duration-300 ease-out hover:-translate-y-1.5";
+  "box-border flex h-[235px] w-[200px] flex-col items-center rounded-[12px] bg-white px-3 pt-5 pb-4 text-center transition-all duration-300 ease-out hover:-translate-y-1.5 sm:h-[242px] sm:w-[210px]";
 
 function TeamMemberCard({ member, accent = true }) {
   return (
     <div
       className={`${CARD_BOX} ${
         accent
-          ? "border border-[#FF6A00] shadow-[0_4px_20px_rgba(255, 106, 0,0.18)] hover:shadow-[0_12px_32px_rgba(255, 106, 0,0.32)]"
-          : "border border-[#D1D5DB] shadow-[0_4px_16px_rgba(15,39,74,0.06)] hover:border-[#FF6A00] hover:shadow-[0_12px_32px_rgba(255, 106, 0,0.28)]"
+          ? "border border-[#FF6A00] shadow-[0_4px_20px_rgba(255,106,0,0.18)] hover:shadow-[0_12px_32px_rgba(255,106,0,0.32)]"
+          : "border border-[#D1D5DB] shadow-[0_4px_16px_rgba(15,39,74,0.06)] hover:border-[#FF6A00] hover:shadow-[0_12px_32px_rgba(255,106,0,0.28)]"
       }`}
     >
       <TeamAvatar src={member.image} name={member.name} bordered={accent} />
-      <div className="mt-3.5 flex w-full flex-1 flex-col items-center">
+      <div className="mt-3 flex w-full flex-col items-center justify-start px-1">
         <h3
-          className="text-[14px] font-bold leading-snug sm:text-[15px]"
-          style={{ color: accent ? ORANGE : NAVY }}
+          className="text-[13px] font-bold leading-tight sm:text-[14px]"
+          style={{ color: accent ? ORANGE : "#4B5563" }}
         >
           {member.name}
         </h3>
         {member.credentials ? (
-          <p className="mt-1 text-[12px] leading-snug text-[#1A1A1A] sm:text-[13px]">
+          <p className="mt-1 text-[11px] font-normal leading-tight text-[#4B5563] sm:text-[12px]">
             {member.credentials}
           </p>
         ) : null}
         <p
-          className={`mt-0.5 text-[12px] leading-snug sm:text-[13px] ${
-            accent ? "text-[#1A1A1A]" : "text-[#6B7280]"
+          className={`mt-1 max-w-full text-[11px] leading-tight sm:text-[12px] ${
+            accent ? "font-bold text-[#1A1A1A]" : "font-normal text-[#1A1A1A]"
           }`}
         >
           {member.role}
         </p>
       </div>
+    </div>
+  );
+}
+
+function CardRow({ members, accent = true }) {
+  return (
+    <div className="flex flex-wrap justify-center gap-5 sm:gap-6">
+      {members.map((member) => (
+        <TeamMemberCard key={member.name} member={member} accent={accent} />
+      ))}
     </div>
   );
 }
@@ -221,7 +238,6 @@ export default function TeamPage() {
       <TopAnnouncementBar isSidebarOpen={isSidebarOpen} />
       <Header isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
 
-      {/* Video hero — height fits text, same overlay as About/Home */}
       <section className="relative w-full overflow-hidden bg-[#111111]">
         <video
           src="/images/finalvideo.mp4"
@@ -251,46 +267,30 @@ export default function TeamPage() {
         </div>
       </section>
 
-      {/* Leadership — every card same fixed size */}
+      {/* Leadership — 2 / 3 / 3 */}
       <section className="relative w-full overflow-hidden bg-[#F4F4F4] pt-8 pb-2 sm:pt-10 lg:pt-12">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
           <div className="px-2 py-6 sm:px-4 sm:py-8 lg:px-6 lg:py-10">
             <SectionTitle>Leadership Team</SectionTitle>
 
-            {/* Top: Durgesh + John */}
-            <div className="flex flex-wrap justify-center gap-5 sm:gap-6">
-              {LEADERSHIP.map((member) => (
-                <TeamMemberCard key={member.name} member={member} />
-              ))}
-            </div>
-
-            {/* Below: Anjali + managers — same card size */}
-            <div className="mt-7 flex flex-wrap justify-center gap-5 sm:mt-8 sm:gap-6">
-              {SECOND_ROW.map((member) => (
-                <TeamMemberCard key={member.name} member={member} />
-              ))}
+            <div className="flex flex-col gap-5 sm:gap-6">
+              <CardRow members={LEADERSHIP_ROW_1} />
+              <CardRow members={LEADERSHIP_ROW_2} />
+              <CardRow members={LEADERSHIP_ROW_3} />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Support — same card size as leadership */}
+      {/* Support — 4 / 4 */}
       <section className="relative w-full overflow-hidden bg-white pb-9 pt-6 sm:pb-10 sm:pt-8 lg:pb-12 lg:pt-10">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
-          <div className="px-5 sm:px-8 lg:px-10">
+          <div className="px-2 sm:px-4 lg:px-6">
             <SectionTitle>Senior Professional & Support Team</SectionTitle>
 
             <div className="flex flex-col gap-5 sm:gap-6">
-              <div className="flex flex-wrap justify-center gap-5 sm:gap-6">
-                {SUPPORT_TEAM.slice(0, 4).map((member) => (
-                  <TeamMemberCard key={member.name} member={member} accent={false} />
-                ))}
-              </div>
-              <div className="flex flex-wrap justify-center gap-5 sm:gap-6">
-                {SUPPORT_TEAM.slice(4).map((member) => (
-                  <TeamMemberCard key={member.name} member={member} accent={false} />
-                ))}
-              </div>
+              <CardRow members={SUPPORT_TEAM.slice(0, 4)} accent={false} />
+              <CardRow members={SUPPORT_TEAM.slice(4)} accent={false} />
             </div>
           </div>
         </div>
