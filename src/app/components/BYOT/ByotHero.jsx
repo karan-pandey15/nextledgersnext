@@ -29,36 +29,36 @@ const ROLES = [
   { label: "Admin & Back Office Support", icon: Headphones },
 ];
 
-/** Hexagon orbit around center — angles from +x axis (CSS y grows down). */
+/** Hexagon orbit — photos matched to real /team roles (excl. Durgesh & Anjali) */
 const ORBIT = [
   {
     label: "Accountant",
-    src: "/images/TeamImage/Avneesh_Mishra-removebg-preview.png",
+    src: "/images/TeamImage/Akash_Gangwar-removebg-preview.png",
     angle: -90,
   },
   {
     label: "Payroll Specialist",
-    src: "/images/TeamImage/Durgesh_Pandey-removebg-preview.png",
+    src: "/images/TeamImage/Varun_Chauhan-removebg-preview.png",
     angle: -30,
   },
   {
     label: "Virtual CFO",
-    src: "/images/TeamImage/Akash_Gangwar-removebg-preview.png",
+    src: "/images/TeamImage/Parwinder_Singh-removebg-preview.png",
     angle: 30,
   },
   {
     label: "Management Accountant",
-    src: "/images/TeamImage/Kirti_Kapoor-removebg-preview.png",
+    src: "/images/TeamImage/Praveen_Kumar-removebg-preview.png",
     angle: 90,
   },
   {
     label: "Tax Professional",
-    src: "/images/TeamImage/Nikhil_Kushwaha-removebg-preview.png",
+    src: "/images/TeamImage/Ankita-removebg-preview.png",
     angle: 150,
   },
   {
     label: "Bookkeeper",
-    src: "/images/TeamImage/Ankita-removebg-preview.png",
+    src: "/images/TeamImage/Nikhil_Kushwaha-removebg-preview.png",
     angle: 210,
   },
 ];
