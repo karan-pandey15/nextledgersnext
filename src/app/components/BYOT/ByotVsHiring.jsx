@@ -176,7 +176,7 @@ export default function ByotVsHiring() {
               {/* Header */}
               <div className="grid grid-cols-[1.1fr_0.95fr_1.25fr]">
                 <div
-                  className="flex items-center justify-center bg-[#E8EAED] px-3 py-3.5 text-center text-[12px] font-bold sm:text-[13px] lg:text-[14px]"
+                  className="flex items-center justify-center bg-[#C5CAD3] px-3 py-3.5 text-center text-[12px] font-bold sm:text-[13px] lg:text-[14px]"
                   style={{ color: NAVY }}
                 >
                   Traditional Hiring
@@ -197,13 +197,13 @@ export default function ByotVsHiring() {
                   className="grid grid-cols-[1.1fr_0.95fr_1.25fr] items-stretch border-t border-[#EEEEEE]"
                 >
                   <div
-                    className="flex items-center justify-center bg-[#F3F4F6] px-2.5 py-3 text-center text-[11px] leading-snug sm:px-3 sm:py-3.5 sm:text-[12.5px]"
-                    style={{ color: "#4B5563" }}
+                    className="flex items-center justify-center bg-[#D8DCE3] px-2.5 py-3 text-center text-[11px] font-semibold leading-snug sm:px-3 sm:py-3.5 sm:text-[12.5px]"
+                    style={{ color: NAVY }}
                   >
                     {traditional}
                   </div>
 
-                  <div className="relative z-[1] flex items-center justify-start gap-2 bg-white px-2.5 py-3 shadow-[2px_0_8px_rgba(15,39,74,0.04)] sm:px-3 sm:py-3.5">
+                  <div className="relative z-[1] flex items-center justify-center gap-2 bg-white px-2.5 py-3 shadow-[2px_0_8px_rgba(15,39,74,0.04)] sm:px-3 sm:py-3.5">
                     <Icon
                       className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4"
                       style={{ color: "#6B7280" }}

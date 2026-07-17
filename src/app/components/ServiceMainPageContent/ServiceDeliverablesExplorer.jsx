@@ -159,12 +159,7 @@ export default function ServiceDeliverablesExplorer({
                                     ) : null}
                                 </span>
                                 <div className="min-w-0">
-                                    <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#FF6A00]">
-                                        Service line{" "}
-                                        {String(activeIndex + 1).padStart(2, "0")} of{" "}
-                                        {String(services.length).padStart(2, "0")}
-                                    </p>
-                                    <h3 className="mt-1 text-[18px] font-extrabold leading-snug text-[#0B1F3A] sm:text-[20px]">
+                                    <h3 className="text-[18px] font-extrabold leading-snug text-[#0B1F3A] sm:text-[20px]">
                                         {active.title}
                                     </h3>
                                 </div>
