@@ -314,9 +314,17 @@ export default function Footer({ region, variant }) {
 
   // Exact same home copy + stats everywhere
   const copy = HOME_COPY;
-  const serviceLinks = regionServices
+  const isByotPage = pathname === "/byot" || pathname?.startsWith("/byot/");
+  const rawServiceLinks = regionServices
     ? regionServices.serviceLinks
     : GLOBAL_SERVICE_LINKS;
+  const serviceLinks = isByotPage
+    ? rawServiceLinks.filter(
+        (item) =>
+          item.href !== "/services/payroll" &&
+          !/payroll\s*&\s*hr/i.test(item.label || "")
+      )
+    : rawServiceLinks;
   const servicesHeading = regionServices
     ? regionServices.servicesHeading
     : "Our Services";
