@@ -890,10 +890,10 @@ export default function UKBusinessAdvisory() {
             />
 
             {/* 10 — Industries */}
-            <section className="relative w-full overflow-hidden bg-white py-2 sm:py-2.5">
+            <section className="relative w-full overflow-hidden bg-white py-5 sm:py-6 lg:py-7">
                 <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
                     <div
-                        className="rounded-none px-5 py-8 sm:px-8 sm:py-9 lg:px-10 lg:py-10"
+                        className="rounded-none px-3 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-7"
                         style={{ background: PAGE_CREAM }}
                     >
                         <div className="mx-auto max-w-[720px] text-center">
@@ -917,14 +917,14 @@ export default function UKBusinessAdvisory() {
                             </div>
 
                             <h2
-                                className="mt-3 text-[24px] font-extrabold leading-[1.15] tracking-[-0.01em] sm:text-[30px] lg:text-[34px]"
+                                className="mt-2 text-[22px] font-extrabold leading-[1.15] tracking-[-0.01em] sm:text-[28px] lg:text-[32px]"
                                 style={{ color: NAVY }}
                             >
                                 Industries We <span style={{ color: ORANGE }}>Support</span>
                             </h2>
 
                             <p
-                                className="mx-auto mt-3 max-w-[560px] text-[13px] leading-relaxed sm:mt-3.5 sm:text-[14px]"
+                                className="mx-auto mt-2 max-w-[540px] text-[12px] leading-5 sm:mt-2 sm:text-[13px] sm:leading-6"
                                 style={{ color: GREY }}
                             >
                                 We support UK accounting firms serving clients across various
@@ -938,20 +938,20 @@ export default function UKBusinessAdvisory() {
                                 return (
                                     <div
                                         key={item.label}
-                                        className="flex min-h-[132px] flex-col items-center justify-center rounded-[16px] border border-[#F0F0F0] bg-white px-3 py-5 text-center shadow-[0_4px_18px_rgba(15,39,74,0.05)] transition-all duration-200 hover:border-[#FF6A00]/25 hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:min-h-[148px] sm:rounded-[18px] sm:px-4 sm:py-6"
+                                        className="flex min-h-[92px] flex-col items-center justify-center rounded-[12px] border border-[#F0F0F0] bg-white px-2 py-2.5 text-center shadow-[0_4px_18px_rgba(15,39,74,0.05)] transition-all duration-200 hover:border-[#FF6A00]/25 hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:min-h-[108px] sm:rounded-[14px] sm:px-2.5 sm:py-3"
                                     >
                                         <div
-                                            className="flex h-14 w-14 items-center justify-center rounded-full sm:h-16 sm:w-16"
+                                            className="flex h-11 w-11 items-center justify-center rounded-full sm:h-12 sm:w-12"
                                             style={{ backgroundColor: item.bg }}
                                         >
                                             <Icon
-                                                className="h-6 w-6 sm:h-7 sm:w-7"
+                                                className="h-5 w-5 sm:h-5 sm:w-5"
                                                 style={{ color: item.color }}
                                                 strokeWidth={1.75}
                                             />
                                         </div>
                                         <p
-                                            className="mt-3 text-[12px] font-bold leading-snug sm:text-[13px]"
+                                            className="mt-1.5 text-[11px] font-bold leading-snug sm:text-[12px]"
                                             style={{ color: NAVY }}
                                         >
                                             {item.label}

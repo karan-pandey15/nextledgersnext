@@ -535,10 +535,10 @@ export default function CfoAdvisoryPage() {
             </section>
 
             {/* 6 — Industries */}
-            <section className="relative w-full overflow-hidden bg-white py-10 sm:py-12 lg:py-14">
+            <section className="relative w-full overflow-hidden bg-white py-5 sm:py-6 lg:py-7">
                 <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
                     <div
-                        className="rounded-none px-5 py-8 sm:px-8 sm:py-9 lg:px-10 lg:py-10"
+                        className="rounded-none px-3 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-7"
                         style={{ background: PAGE_CREAM }}
                     >
                         <div className="mx-auto max-w-[720px] text-center">
@@ -562,7 +562,7 @@ export default function CfoAdvisoryPage() {
                             </div>
 
                             <h2
-                                className="mt-3 text-[24px] font-extrabold leading-[1.15] tracking-[-0.01em] sm:text-[30px] lg:text-[34px]"
+                                className="mt-2 text-[22px] font-extrabold leading-[1.15] tracking-[-0.01em] sm:text-[28px] lg:text-[32px]"
                                 style={{ color: NAVY }}
                             >
                                 Industries We{" "}
@@ -570,7 +570,7 @@ export default function CfoAdvisoryPage() {
                             </h2>
 
                             <p
-                                className="mx-auto mt-3 max-w-[560px] text-[13px] leading-relaxed sm:mt-3.5 sm:text-[14px]"
+                                className="mx-auto mt-2 max-w-[540px] text-[12px] leading-5 sm:mt-2 sm:text-[13px] sm:leading-6"
                                 style={{ color: GREY }}
                             >
                                 We provide CFO &amp; Advisory Services to businesses

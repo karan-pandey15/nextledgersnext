@@ -559,35 +559,46 @@ export default function Footer({ region, variant }) {
 
             <div className="flex items-center gap-2">
               <a
-                href="https://www.linkedin.com"
+                href="https://www.linkedin.com/company/next-ledgers"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-white/70 transition-colors hover:border-[#FF6A00] hover:text-[#FF6A00]"
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-white/70 transition-colors hover:border-[#0A66C2] hover:bg-[#0A66C2]/15 hover:text-[#0A66C2]"
               >
-                <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="currentColor">
+                <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="currentColor" aria-hidden="true">
                   <path d="M6.9 8.8H4V20h2.9V8.8ZM5.4 4A1.7 1.7 0 1 0 5.4 7.4 1.7 1.7 0 0 0 5.4 4ZM20 20h-2.9v-5.6c0-1.5-.6-2.4-1.8-2.4-1 0-1.5.7-1.8 1.3-.1.3-.1.6-.1.9V20H10.5s0-9.4 0-10.4H13.4v1.7c.5-.8 1.5-1.9 3.6-1.9 2.6 0 4.5 1.7 4.5 5.3V20Z" />
                 </svg>
               </a>
               <a
-                href="https://www.facebook.com"
+                href="https://www.instagram.com/nextledgers/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-white/70 transition-colors hover:border-[#E4405F] hover:bg-[#E4405F]/15 hover:text-[#E4405F]"
+              >
+                <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="currentColor" aria-hidden="true">
+                  <path d="M12 7.2A4.8 4.8 0 1 0 12 16.8 4.8 4.8 0 0 0 12 7.2Zm0 7.9A3.1 3.1 0 1 1 12 8.9a3.1 3.1 0 0 1 0 6.2Zm6.1-8.2a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0ZM12 3.2c-2.5 0-2.8 0-3.8.1-2.5.1-3.7 1.3-3.8 3.8-.1 1-.1 1.3-.1 3.8s0 2.8.1 3.8c.1 2.5 1.3 3.7 3.8 3.8 1 .1 1.3.1 3.8.1s2.8 0 3.8-.1c2.5-.1 3.7-1.3 3.8-3.8.1-1 .1-1.3.1-3.8s0-2.8-.1-3.8c-.1-2.5-1.3-3.7-3.8-3.8-1-.1-1.3-.1-3.8-.1Zm0 1.5c2.4 0 2.7 0 3.7.1 1.8.1 2.6.9 2.7 2.7.1 1 .1 1.2.1 3.6s0 2.6-.1 3.6c-.1 1.8-.9 2.6-2.7 2.7-1 .1-1.3.1-3.7.1s-2.7 0-3.7-.1c-1.8-.1-2.6-.9-2.7-2.7-.1-1-.1-1.2-.1-3.6s0-2.6.1-3.6c.1-1.8.9-2.6 2.7-2.7 1-.1 1.3-.1 3.7-.1Z" />
+                </svg>
+              </a>
+              <a
+                href="https://www.facebook.com/nextledger/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-white/70 transition-colors hover:border-[#FF6A00] hover:text-[#FF6A00]"
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-white/70 transition-colors hover:border-[#1877F2] hover:bg-[#1877F2]/15 hover:text-[#1877F2]"
               >
-                <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="currentColor">
+                <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="currentColor" aria-hidden="true">
                   <path d="M14.5 8.5V6.8c0-.7.2-1.1 1.2-1.1H17V3h-2.3C11.9 3 11 4.6 11 6.6v1.9H9V11h2v10h3.5V11H17l.5-2.5h-3Z" />
                 </svg>
               </a>
               <a
-                href="https://www.youtube.com"
+                href="https://www.youtube.com/channel/UCE_a2YtykRYytdFvaN4lhvg"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-white/70 transition-colors hover:border-[#FF6A00] hover:text-[#FF6A00]"
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-white/70 transition-colors hover:border-[#FF0000] hover:bg-[#FF0000]/15 hover:text-[#FF0000]"
               >
-                <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="currentColor">
+                <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="currentColor" aria-hidden="true">
                   <path d="M21.6 7.8a2.5 2.5 0 0 0-1.8-1.8C18.2 5.6 12 5.6 12 5.6s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.8 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.2 2.5 2.5 0 0 0 1.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.2ZM10.2 15.2V8.8L15.5 12l-5.3 3.2Z" />
                 </svg>
               </a>

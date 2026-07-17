@@ -924,10 +924,10 @@ export default function UsaAccountingCleanup() {
             </div>
 
             {/* 7 — Industries */}
-            <section className="relative w-full overflow-hidden bg-white py-10 sm:py-12 lg:py-14">
+            <section className="relative w-full overflow-hidden bg-white py-5 sm:py-6 lg:py-7">
                 <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
                     <div
-                        className="rounded-none px-5 py-8 sm:px-8 sm:py-9 lg:px-10 lg:py-10"
+                        className="rounded-none px-3 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-7"
                         style={{ background: PAGE_CREAM }}
                     >
                         <div className="mx-auto max-w-[720px] text-center">
@@ -951,7 +951,7 @@ export default function UsaAccountingCleanup() {
                             </div>
 
                             <h2
-                                className="mt-3 text-[24px] font-extrabold leading-[1.15] tracking-[-0.01em] sm:text-[30px] lg:text-[34px]"
+                                className="mt-2 text-[22px] font-extrabold leading-[1.15] tracking-[-0.01em] sm:text-[28px] lg:text-[32px]"
                                 style={{ color: NAVY }}
                             >
                                 Industries We{" "}
@@ -959,7 +959,7 @@ export default function UsaAccountingCleanup() {
                             </h2>
 
                             <p
-                                className="mx-auto mt-3 max-w-[560px] text-[13px] leading-relaxed sm:mt-3.5 sm:text-[14px]"
+                                className="mx-auto mt-2 max-w-[540px] text-[12px] leading-5 sm:mt-2 sm:text-[13px] sm:leading-6"
                                 style={{ color: GREY }}
                             >
                                 We support CPA firms serving clients across a
@@ -967,7 +967,7 @@ export default function UsaAccountingCleanup() {
                             </p>
                         </div>
 
-                        <div className="mt-7 sm:mt-8">
+                        <div className="mt-4 sm:mt-5">
                             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-7 lg:gap-5">
                                 {industriesWeSupport
                                     .slice(0, 7)
@@ -981,16 +981,16 @@ export default function UsaAccountingCleanup() {
                                                     0.2
                                                 )}
                                             >
-                                                <div className="flex min-h-[132px] flex-col items-center justify-center rounded-[16px] border border-[#F0F0F0] bg-white px-3 py-5 text-center shadow-[0_4px_18px_rgba(15,39,74,0.05)] transition-all duration-200 hover:border-[#FF6A00]/25 hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:min-h-[148px] sm:rounded-[18px] sm:px-4 sm:py-6">
+                                                <div className="flex min-h-[92px] flex-col items-center justify-center rounded-[12px] border border-[#F0F0F0] bg-white px-2 py-2.5 text-center shadow-[0_4px_18px_rgba(15,39,74,0.05)] transition-all duration-200 hover:border-[#FF6A00]/25 hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:min-h-[108px] sm:rounded-[14px] sm:px-2.5 sm:py-3">
                                                     <div
-                                                        className="flex h-14 w-14 items-center justify-center rounded-full sm:h-16 sm:w-16"
+                                                        className="flex h-11 w-11 items-center justify-center rounded-full sm:h-12 sm:w-12"
                                                         style={{
                                                             backgroundColor:
                                                                 item.bg,
                                                         }}
                                                     >
                                                         <Icon
-                                                            className="h-6 w-6 sm:h-7 sm:w-7"
+                                                            className="h-5 w-5 sm:h-5 sm:w-5"
                                                             style={{
                                                                 color: item.color,
                                                             }}
@@ -998,7 +998,7 @@ export default function UsaAccountingCleanup() {
                                                         />
                                                     </div>
                                                     <p
-                                                        className="mt-3 text-[12px] font-bold leading-snug sm:text-[13px]"
+                                                        className="mt-1.5 text-[11px] font-bold leading-snug sm:text-[12px]"
                                                         style={{ color: NAVY }}
                                                     >
                                                         {item.label}
@@ -1021,16 +1021,16 @@ export default function UsaAccountingCleanup() {
                                                     0.28
                                                 )}
                                             >
-                                                <div className="flex min-h-[132px] flex-col items-center justify-center rounded-[16px] border border-[#F0F0F0] bg-white px-3 py-5 text-center shadow-[0_4px_18px_rgba(15,39,74,0.05)] transition-all duration-200 hover:border-[#FF6A00]/25 hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:min-h-[148px] sm:rounded-[18px] sm:px-4 sm:py-6">
+                                                <div className="flex min-h-[92px] flex-col items-center justify-center rounded-[12px] border border-[#F0F0F0] bg-white px-2 py-2.5 text-center shadow-[0_4px_18px_rgba(15,39,74,0.05)] transition-all duration-200 hover:border-[#FF6A00]/25 hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:min-h-[108px] sm:rounded-[14px] sm:px-2.5 sm:py-3">
                                                     <div
-                                                        className="flex h-14 w-14 items-center justify-center rounded-full sm:h-16 sm:w-16"
+                                                        className="flex h-11 w-11 items-center justify-center rounded-full sm:h-12 sm:w-12"
                                                         style={{
                                                             backgroundColor:
                                                                 item.bg,
                                                         }}
                                                     >
                                                         <Icon
-                                                            className="h-6 w-6 sm:h-7 sm:w-7"
+                                                            className="h-5 w-5 sm:h-5 sm:w-5"
                                                             style={{
                                                                 color: item.color,
                                                             }}
@@ -1038,7 +1038,7 @@ export default function UsaAccountingCleanup() {
                                                         />
                                                     </div>
                                                     <p
-                                                        className="mt-3 text-[12px] font-bold leading-snug sm:text-[13px]"
+                                                        className="mt-1.5 text-[11px] font-bold leading-snug sm:text-[12px]"
                                                         style={{ color: NAVY }}
                                                     >
                                                         {item.label}

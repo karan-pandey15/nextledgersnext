@@ -2,7 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
 const ORANGE = BRAND_ORANGE;
@@ -47,23 +46,23 @@ const INDUSTRIES = [
 export default function IndustryExpertise() {
   return (
     <section className="relative w-full bg-white pt-0 pb-0">
-      <div className="max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-10">
-        <div className="bg-[#FFF7F0] px-3 sm:px-8 lg:px-10 py-8 sm:py-9 lg:py-10">
+      <div className="mx-auto max-w-[1440px] px-3 sm:px-6 lg:px-10">
+        <div className="flex max-h-[80vh] flex-col overflow-hidden bg-[#FFF7F0] px-3 py-3 sm:px-5 sm:py-4 lg:px-6 lg:py-4">
           {/* Header */}
-          <div className="text-center max-w-[720px] mx-auto">
+          <div className="mx-auto max-w-[720px] shrink-0 text-center">
             <div className="inline-flex items-center justify-center gap-3">
-              <span className="hidden sm:block h-px w-8 bg-[#FF6A00]" aria-hidden="true" />
+              <span className="hidden h-px w-8 bg-[#FF6A00] sm:block" aria-hidden="true" />
               <p
-                className="text-[11px] sm:text-[12px] font-bold tracking-[0.22em] uppercase"
+                className="text-[10px] font-bold uppercase tracking-[0.22em] sm:text-[11px]"
                 style={{ color: ORANGE }}
               >
                 OUR INDUSTRY EXPERTISE
               </p>
-              <span className="hidden sm:block h-px w-8 bg-[#FF6A00]" aria-hidden="true" />
+              <span className="hidden h-px w-8 bg-[#FF6A00] sm:block" aria-hidden="true" />
             </div>
 
             <h2
-              className="mt-3 font-bold text-[26px] sm:text-[34px] lg:text-[40px] leading-[1.15] tracking-[-0.01em]"
+              className="mt-1.5 text-[20px] font-bold leading-[1.15] tracking-[-0.01em] sm:text-[24px] lg:text-[28px]"
               style={{ color: NAVY }}
             >
               Solutions Tailored for{" "}
@@ -71,33 +70,33 @@ export default function IndustryExpertise() {
             </h2>
 
             <p
-              className="mt-3 sm:mt-4 text-[13px] sm:text-[14px] leading-6 sm:leading-7 max-w-[560px] mx-auto"
+              className="mx-auto mt-1.5 max-w-[520px] text-[11px] leading-4 sm:text-[12px] sm:leading-5"
               style={{ color: GREY }}
             >
-              We understand your industry and deliver specialized accounting and tax solutions
-              that drive growth and ensure compliance.
+              We understand your industry and deliver specialized accounting and tax
+              solutions that drive growth and ensure compliance.
             </p>
           </div>
 
-          {/* Industry grid */}
-          <div className="mt-8 sm:mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4 lg:gap-5">
+          {/* Industry grid — fills remaining space within 80vh */}
+          <div className="mt-3 grid min-h-0 flex-1 grid-cols-2 content-stretch gap-2 sm:mt-3.5 sm:grid-cols-3 sm:gap-2.5 md:grid-cols-4 xl:grid-cols-5">
             {INDUSTRIES.map((item) => (
               <div
                 key={item.label}
-                className="flex flex-col items-center justify-center text-center rounded-[14px] sm:rounded-[18px] bg-white border border-[#F0F0F0] shadow-[0_4px_18px_rgba(15,39,74,0.05)] px-2 py-3 sm:px-3 sm:py-4 min-h-[118px] sm:min-h-[146px] hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] hover:border-[#FF6A00]/25 transition-all duration-200 overflow-hidden"
+                className="flex min-h-0 flex-col items-center justify-center overflow-hidden rounded-[10px] border border-[#F0F0F0] bg-white px-1.5 py-1.5 text-center shadow-[0_2px_10px_rgba(15,39,74,0.04)] transition-all duration-200 hover:border-[#FF6A00]/25 hover:shadow-[0_6px_18px_rgba(15,39,74,0.07)] sm:rounded-[12px] sm:px-2 sm:py-2"
               >
-                <div className="flex items-center justify-center w-[78px] h-[78px] sm:w-[104px] sm:h-[104px] shrink-0">
+                <div className="flex h-[52px] w-[52px] shrink-0 items-center justify-center sm:h-[62px] sm:w-[62px]">
                   <Image
                     src={item.src}
                     alt={item.label}
-                    width={104}
-                    height={104}
-                    className="w-full h-full object-contain scale-[1.12]"
+                    width={62}
+                    height={62}
+                    className="h-full w-full scale-[1.1] object-contain"
                     unoptimized
                   />
                 </div>
                 <p
-                  className="mt-1 sm:mt-1.5 font-bold text-[10px] sm:text-[13px] leading-snug px-0.5"
+                  className="mt-1 px-0.5 text-[9px] font-bold leading-tight sm:text-[11px]"
                   style={{ color: NAVY }}
                 >
                   {item.label}
@@ -106,36 +105,26 @@ export default function IndustryExpertise() {
             ))}
           </div>
 
-          {/* Featured bottom bar */}
-          <Link
-            href="/industries/non-profit"
-            className="mt-5 sm:mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-2.5 sm:gap-4 rounded-[14px] sm:rounded-[16px] bg-white border border-[#FF6A00]/15 px-3.5 sm:px-6 py-3 sm:py-4 hover:bg-[#FFF1E6] transition-colors duration-200 group"
-          >
-            <div className="w-[60px] h-[60px] sm:w-[66px] sm:h-[66px] flex items-center justify-center shrink-0">
+          {/* Featured bottom bar — not clickable */}
+          <div className="mt-3 flex shrink-0 flex-col items-start gap-2 rounded-[10px] border border-[#FF6A00]/15 bg-white px-3 py-2 sm:mt-3.5 sm:flex-row sm:items-center sm:gap-3 sm:rounded-[12px] sm:px-4 sm:py-2.5">
+            <div className="flex h-[48px] w-[48px] shrink-0 items-center justify-center sm:h-[52px] sm:w-[52px]">
               <Image
                 src={`/images/industry-icons/non-profit.png?${V}`}
                 alt="Non-Profit Organizations"
-                width={66}
-                height={66}
-                className="w-[60px] h-[60px] sm:w-[66px] sm:h-[66px] object-contain"
+                width={52}
+                height={52}
+                className="h-[48px] w-[48px] object-contain sm:h-[52px] sm:w-[52px]"
                 unoptimized
               />
             </div>
 
             <p
-              className="flex-1 font-semibold text-[13px] sm:text-[14px] leading-snug"
+              className="flex-1 text-[11px] font-semibold leading-snug sm:text-[13px]"
               style={{ color: NAVY }}
             >
               Non-Profit Organizations / 501 Sections Organizations
             </p>
-
-            <span
-              className="text-[#FF6A00] text-lg sm:text-xl font-medium group-hover:translate-x-0.5 transition-transform"
-              aria-hidden="true"
-            >
-              →
-            </span>
-          </Link>
+          </div>
         </div>
       </div>
     </section>
