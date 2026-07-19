@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, Wrench } from "lucide-react";
-import TopAnnouncementBar from "./components/TopHeader/TopAnnouncementBar";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import NexaLedAi from "./components/ChatBot/NexaLedAi";
@@ -23,9 +22,6 @@ export default function NotFound() {
 
   return (
     <main className="min-h-screen bg-[#faf9f6] text-[#1E1B2A] flex flex-col font-sans">
-      {/* Top Banner */}
-      <TopAnnouncementBar isSidebarOpen={isSidebarOpen} />
-
       {/* Main Navbar */}
       <Header isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
 

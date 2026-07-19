@@ -1,7 +1,6 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import TopAnnouncementBar from "../components/TopHeader/TopAnnouncementBar";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import ArtificialIntelligence from "../components/ArtificialIntelligence/ArtificialIntelligence";
@@ -29,7 +28,6 @@ export default function ArticlesPage() {
 
   return (
     <main className="flex min-h-screen flex-col overflow-x-hidden bg-white font-sans text-[#1A1A1A]">
-      <TopAnnouncementBar isSidebarOpen={isSidebarOpen} />
       <Header isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
 
       <section

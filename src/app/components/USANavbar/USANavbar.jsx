@@ -11,17 +11,14 @@ const USA_NAV_LINKS = [
   { id: "about", label: "About Us", href: "/about" },
   {
     id: "services",
-    label: "Services",
+    label: "Services in USA",
     href: "/usa#services",
     hasDropdown: true,
     dropdownItems: USA_SERVICE_LINKS,
   },
-  { id: "tools", label: "Tools", href: "/tools" },
-  { id: "pricing", label: "Pricing", href: "/pricing" },
-  { id: "process", label: "Process", href: "/process" },
+  { id: "byot", label: "BYOT", href: "/byot" },
+  { id: "tools", label: "Tool", href: "/tools" },
   { id: "contact", label: "Contact Us", href: "/contact" },
-  { id: "blogs", label: "Blogs", href: "/blogs" },
-  { id: "free-trial", label: "Free Trial", href: "/free-trial" },
 ];
 
 export default function USANavbar({ isSidebarOpen = false, setIsSidebarOpen }) {

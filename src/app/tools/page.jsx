@@ -18,7 +18,6 @@ import {
   Search,
   Sparkles,
 } from "lucide-react";
-import TopAnnouncementBar from "@/app/components/TopHeader/TopAnnouncementBar";
 import UKNavbar from "@/app/components/UKNavbar/UKNavbar";
 import Footer from "@/app/components/footer/Footer";
 import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/ArtificialIntelligence";
@@ -214,7 +213,6 @@ export default function ToolsPage() {
 
   return (
     <main className="flex min-h-screen flex-col overflow-x-hidden bg-white font-sans text-[#1E1B2A]">
-      <TopAnnouncementBar isSidebarOpen={isSidebarOpen} />
       <UKNavbar
         isSidebarOpen={isSidebarOpen}
         setIsSidebarOpen={setIsSidebarOpen}

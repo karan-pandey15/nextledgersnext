@@ -36,6 +36,7 @@ import {
 import CanadaNavbar from "@/app/components/CanadaNavbar/CanadaNavbar";
 import CtaButton from "@/app/components/ui/CtaButton";
 import IconDisplayScreen from "@/app/components/ServiceMainPageContent/IcondisplayScreen";
+import IndustriesWeSupportGrid from "@/app/components/ServiceMainPageContent/IndustriesWeSupportGrid";
 import TrustBadgesBar, {
   CANADA_TRUST_BADGES,
 } from "@/app/components/ServiceMainPageContent/TrustBadgesBar";
@@ -43,6 +44,7 @@ import Footer from "@/app/components/footer/Footer";
 import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/ArtificialIntelligence";
 import NexaLedAi from "@/app/components/ChatBot/NexaLedAi";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
+import { INDUSTRIES_WE_SUPPORT } from "@/app/lib/industriesWeSupport";
 
 const ORANGE = BRAND_ORANGE;
 const NAVY = "#0B1F3A";
@@ -174,10 +176,10 @@ function BenefitCard({ icon: Icon, title }) {
       }}
     >
       <span
-        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl"
-        style={{ background: "#FFF7F0", color: ORANGE }}
+        className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full"
+        style={{ background: "#FFF4EA", color: ORANGE }}
       >
-        <Icon className="h-5 w-5" strokeWidth={1.75} />
+        <Icon className="h-9 w-9" strokeWidth={1.75} />
       </span>
       <div className="min-w-0 flex-1 text-left">
         <h4
@@ -204,10 +206,10 @@ function DeliverableCard({ icon: Icon, title, intro, items }) {
     >
       <div className="mb-4 flex items-center gap-2.5">
         <span
-          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg"
-          style={{ background: ORANGE }}
+          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#FFF4EA]"
+          style={{ color: ORANGE }}
         >
-          <Icon className="h-4 w-4 text-white" strokeWidth={2} />
+          <Icon className="h-7 w-7" strokeWidth={1.75} />
         </span>
         <h3
           className="text-[14px] font-bold leading-snug sm:text-[15px]"
@@ -308,7 +310,7 @@ export default function CanadaServiceTemplate({ data }) {
 
       {/* 2 — Intro (UK style) */}
       <section id="how-we-work" className="w-full bg-white">
-        <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
+        <div className="mx-auto max-w-6xl px-4 py-3 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12">
             <div>
               <span className="mb-3 inline-block text-[11px] font-extrabold uppercase tracking-widest text-[#FF6A00]">
@@ -352,9 +354,9 @@ export default function CanadaServiceTemplate({ data }) {
         </div>
       </section>
 
-      {/* 3 — Why it matters (BenefitCard style — no green ticks) */}
+      {/* 3 — Why it matters (UK Bookkeeping BenefitCard: h-14 w-14 circle + #FFF4EA) */}
       <section
-        className="relative w-full overflow-hidden px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14"
+        className="relative w-full overflow-hidden px-4 py-3 sm:px-6 lg:px-8"
         style={{ background: PAGE_CREAM }}
       >
         <div className="pointer-events-none absolute -left-16 top-0 h-64 w-64 rounded-full bg-[#FF6A00]/10 blur-3xl" />
@@ -394,7 +396,7 @@ export default function CanadaServiceTemplate({ data }) {
       </section>
 
       {/* 4 — Deliverable sections (UK ServiceCard + ServicePill) */}
-      <section className="relative w-full overflow-hidden bg-white px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
+      <section className="relative w-full overflow-hidden bg-white px-4 py-3 sm:px-6 lg:px-8">
         <div className="relative mx-auto flex w-full max-w-6xl flex-col">
           <div className="mb-7 flex flex-col items-center text-center sm:mb-8">
             <span
@@ -437,7 +439,7 @@ export default function CanadaServiceTemplate({ data }) {
 
       {/* 5 — How we help */}
       <section
-        className="w-full px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14"
+        className="w-full px-4 py-3 sm:px-6 lg:px-8"
         style={{ background: PAGE_CREAM }}
       >
         <div className="mx-auto max-w-6xl">
@@ -468,32 +470,43 @@ export default function CanadaServiceTemplate({ data }) {
         title="Software Expertise"
         subtitle="We work across the accounting, tax, payroll, and document platforms Canadian firms already use."
         logodata={data.software}
+        className="!py-3"
       />
 
-      {/* 7 — Industries */}
-      <section className="w-full bg-white px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
-        <div className="mx-auto max-w-6xl">
-          <h2
-            className="mb-6 text-center text-[22px] font-extrabold sm:mb-8 sm:text-[26px]"
-            style={{ color: NAVY }}
-          >
-            Industries We <span style={{ color: ORANGE }}>Support</span>
-          </h2>
-          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
-            {data.industries.map((industry) => (
-              <span
-                key={industry}
-                className="rounded-full border border-[#F0E6DC] bg-[#FFF9F5] px-3.5 py-1.5 text-[12px] font-semibold text-[#0B1F3A] sm:text-[13px]"
-              >
-                {industry}
-              </span>
-            ))}
+      {/* 7 — Industries (same grid + industry-icons as home / global services) */}
+      <section className="relative w-full overflow-hidden bg-white px-4 py-3 sm:px-6 lg:px-8">
+        <div className="relative mx-auto w-full max-w-6xl">
+          <div className="mb-5 flex flex-col items-center text-center sm:mb-6">
+            <span
+              className="mb-3 inline-flex items-center gap-1.5 rounded-full px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.12em]"
+              style={{ background: "#FFF4EA", color: ORANGE }}
+            >
+              <Sparkles className="h-3 w-3" strokeWidth={2.5} />
+              Industry Expertise
+            </span>
+            <h2
+              className="max-w-3xl text-[22px] font-extrabold leading-tight sm:text-[26px] lg:text-[28px]"
+              style={{ color: NAVY }}
+            >
+              Industries We <span style={{ color: ORANGE }}>Support</span>
+            </h2>
+            <p
+              className="mx-auto mt-2.5 max-w-xl text-[13px] leading-relaxed sm:text-[14px]"
+              style={{ color: GREY }}
+            >
+              Specialized accounting support across the industries Canadian firms serve.
+            </p>
+            <div
+              className="mx-auto mt-3.5 h-[3px] w-11 rounded-full"
+              style={{ background: ORANGE }}
+            />
           </div>
+          <IndustriesWeSupportGrid industries={INDUSTRIES_WE_SUPPORT} />
         </div>
       </section>
 
-      {/* 8 — Why choose (UK icon cards) */}
-      <section className="relative w-full overflow-hidden bg-white px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
+      {/* 8 — Why choose (UK Bookkeeping icon cards: h-12 w-12 + #FFF4EA bg) */}
+      <section className="relative w-full overflow-hidden bg-white px-4 py-3 sm:px-6 lg:px-8">
         <DotGrid className="pointer-events-none absolute right-4 top-6 sm:right-10 sm:top-8" />
         <DotGrid className="pointer-events-none absolute bottom-8 left-4 sm:bottom-10 sm:left-8" />
 
@@ -518,8 +531,8 @@ export default function CanadaServiceTemplate({ data }) {
             />
           </div>
 
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
-            {data.whyChoose.map((title, i) => {
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+            {data.whyChoose.slice(0, 4).map((title, i) => {
               const Icon = WHY_CHOOSE_ICONS[i % WHY_CHOOSE_ICONS.length];
               return (
                 <div
@@ -527,10 +540,10 @@ export default function CanadaServiceTemplate({ data }) {
                   className="rounded-[14px] border border-[#F0E6DC] bg-white px-5 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.05)]"
                 >
                   <span
-                    className="mb-3 flex h-9 w-9 items-center justify-center"
+                    className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[#FFF4EA]"
                     style={{ color: ORANGE }}
                   >
-                    <Icon className="h-6 w-6" strokeWidth={1.75} />
+                    <Icon className="h-7 w-7" strokeWidth={1.75} />
                   </span>
                   <h3
                     className="text-[13.5px] font-bold leading-snug sm:text-[14px]"
@@ -546,11 +559,43 @@ export default function CanadaServiceTemplate({ data }) {
               );
             })}
           </div>
+
+          {data.whyChoose.length > 4 ? (
+            <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:justify-items-stretch lg:mt-5 lg:grid-cols-3 lg:mx-auto lg:max-w-[75%] lg:gap-5">
+              {data.whyChoose.slice(4).map((title, i) => {
+                const Icon =
+                  WHY_CHOOSE_ICONS[(i + 4) % WHY_CHOOSE_ICONS.length];
+                return (
+                  <div
+                    key={title}
+                    className="rounded-[14px] border border-[#F0E6DC] bg-white px-5 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.05)]"
+                  >
+                    <span
+                      className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[#FFF4EA]"
+                      style={{ color: ORANGE }}
+                    >
+                      <Icon className="h-7 w-7" strokeWidth={1.75} />
+                    </span>
+                    <h3
+                      className="text-[13.5px] font-bold leading-snug sm:text-[14px]"
+                      style={{ color: NAVY }}
+                    >
+                      {title}
+                    </h3>
+                    <div
+                      className="mt-3 h-[2px] w-8 rounded-full"
+                      style={{ background: ORANGE }}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          ) : null}
         </div>
       </section>
 
       {/* 9 — Partner CTA */}
-      <section className="relative w-full bg-white px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
+      <section className="relative w-full bg-white px-4 py-3 sm:px-6 lg:px-8">
         <div
           className="relative mx-auto max-w-5xl overflow-hidden rounded-[22px] px-5 py-10 text-center sm:rounded-[28px] sm:px-10 sm:py-12 lg:px-14"
           style={{ background: PAGE_CREAM }}

@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import TopAnnouncementBar from "../components/TopHeader/TopAnnouncementBar";
 import CanadaNavbar from "../components/CanadaNavbar/CanadaNavbar";
 import Footer from "../components/footer/Footer";
 import ArtificialIntelligence from "../components/ArtificialIntelligence/ArtificialIntelligence";
@@ -23,7 +22,6 @@ export default function CanadaPage() {
 
   return (
     <main className="flex min-h-screen flex-col overflow-x-hidden bg-[#faf9f6] font-sans text-[#1E1B2A]">
-      <TopAnnouncementBar isSidebarOpen={isSidebarOpen} region="canada" />
       <CanadaNavbar
         isSidebarOpen={isSidebarOpen}
         setIsSidebarOpen={setIsSidebarOpen}

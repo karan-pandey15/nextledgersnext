@@ -4,7 +4,6 @@ import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import TopAnnouncementBar from "../../components/TopHeader/TopAnnouncementBar";
 import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import ArtificialIntelligence from "../../components/ArtificialIntelligence/ArtificialIntelligence";
@@ -30,7 +29,6 @@ export default function ArticleDetailPage() {
   if (!article) {
     return (
       <main className="flex min-h-screen flex-col overflow-x-hidden bg-white font-sans text-[#1A1A1A]">
-        <TopAnnouncementBar isSidebarOpen={isSidebarOpen} />
         <Header isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
         <section className="flex flex-1 flex-col items-center justify-center px-4 py-20 text-center">
           <h1 className="text-[24px] font-extrabold" style={{ color: NAVY }}>
@@ -52,7 +50,6 @@ export default function ArticleDetailPage() {
 
   return (
     <main className="flex min-h-screen flex-col overflow-x-hidden bg-white font-sans text-[#1A1A1A]">
-      <TopAnnouncementBar isSidebarOpen={isSidebarOpen} />
       <Header isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
 
       <article className="relative w-full flex-1" style={{ backgroundColor: PAGE_CREAM }}>

@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import TopAnnouncementBar from "../components/TopHeader/TopAnnouncementBar";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import ArtificialIntelligence from "../components/ArtificialIntelligence/ArtificialIntelligence";
@@ -218,7 +217,6 @@ export default function CareersPage() {
 
   return (
     <main className="flex min-h-screen flex-col overflow-x-hidden bg-white font-sans text-[#1A1A1A]">
-      <TopAnnouncementBar isSidebarOpen={isSidebarOpen} />
       <Header isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
 
       <section className="relative w-full flex-1 bg-[linear-gradient(180deg,#FFF9F5_0%,#FFFFFF_42%,#FFFFFF_100%)]">

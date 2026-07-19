@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import TopAnnouncementBar from "../components/TopHeader/TopAnnouncementBar";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import ArtificialIntelligence from "../components/ArtificialIntelligence/ArtificialIntelligence";
@@ -235,7 +234,6 @@ export default function TeamPage() {
 
   return (
     <main className="flex min-h-screen flex-col overflow-x-hidden bg-[#F8F9FA] font-sans text-[#1A1A1A]">
-      <TopAnnouncementBar isSidebarOpen={isSidebarOpen} />
       <Header isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
 
       <section className="relative w-full overflow-hidden bg-[#111111]">

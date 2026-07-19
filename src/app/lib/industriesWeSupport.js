@@ -1,34 +1,34 @@
-/** Industry cards for global service pages — same set/size as home IndustryExpertise.
- *  Icons from /public/images/nexticon
- */
+/** Industry cards for service pages — icons from /public/images/industry-icons/ */
+const V = "v4";
+
 export const INDUSTRIES_WE_SUPPORT = [
-  { label: "Real Estate", src: "/images/nexticon/realstate.png" },
-  { label: "Hospitality", src: "/images/nexticon/hospitality.png" },
-  { label: "E-commerce", src: "/images/nexticon/Ecommerce.png" },
-  { label: "Healthcare", src: "/images/nexticon/healthcare.png" },
-  { label: "Pharmacy", src: "/images/nexticon/pharmacy.png" },
-  { label: "Technology", src: "/images/nexticon/technology.png" },
-  { label: "Manufacturing", src: "/images/nexticon/manugacturing.png" },
+  { label: "Real Estate", src: `/images/industry-icons/real-estate.png?${V}` },
+  { label: "Hospitality", src: `/images/industry-icons/hospitality.png?${V}` },
+  { label: "E-commerce", src: `/images/industry-icons/e-commerce.png?${V}` },
+  { label: "Healthcare", src: `/images/industry-icons/healthcare.png?${V}` },
+  { label: "Pharmacy", src: `/images/industry-icons/pharmacy.png?${V}` },
+  { label: "Technology", src: `/images/industry-icons/technology.png?${V}` },
+  { label: "Manufacturing", src: `/images/industry-icons/manufacturing.png?${V}` },
   {
     label: "Logistics & Transportation",
-    src: "/images/nexticon/logisticstrasportation.png",
+    src: `/images/industry-icons/logistics.png?${V}`,
   },
-  { label: "Education", src: "/images/nexticon/education.png" },
-  { label: "Automotive", src: "/images/nexticon/automotive.png" },
-  { label: "Construction", src: "/images/nexticon/construction.png" },
+  { label: "Education", src: `/images/industry-icons/education.png?${V}` },
+  { label: "Automotive", src: `/images/industry-icons/automotive.png?${V}` },
+  { label: "Construction", src: `/images/industry-icons/construction.png?${V}` },
   {
     label: "Professional Services",
-    src: "/images/nexticon/professionalservices.png",
+    src: `/images/industry-icons/professional-services.png?${V}`,
   },
-  { label: "Consulting", src: "/images/nexticon/consulting.png" },
-  { label: "Restaurants", src: "/images/nexticon/resturants.png" },
-  { label: "Law Firms", src: "/images/nexticon/lawfirms.png" },
-  { label: "Entertainment", src: "/images/nexticon/entertainment.png" },
-  { label: "Agriculture", src: "/images/nexticon/agriculture.png" },
+  { label: "Consulting", src: `/images/industry-icons/consulting.png?${V}` },
+  { label: "Restaurants", src: `/images/industry-icons/restaurants.png?${V}` },
+  { label: "Law Firms", src: `/images/industry-icons/law-firms.png?${V}` },
+  { label: "Entertainment", src: `/images/industry-icons/entertainment.png?${V}` },
+  { label: "Agriculture", src: `/images/industry-icons/agriculture.png?${V}` },
   {
     label: "Fitness & Wellness",
-    src: "/images/nexticon/fitnessandwellness.png",
+    src: `/images/industry-icons/fitness.png?${V}`,
   },
-  { label: "Crypto", src: "/images/nexticon/crypto.png" },
-  { label: "Startups & SMEs", src: "/images/nexticon/startupsmes.png" },
+  { label: "Crypto", src: `/images/industry-icons/crypto.png?${V}` },
+  { label: "Startups & SMEs", src: `/images/industry-icons/startups.png?${V}` },
 ];

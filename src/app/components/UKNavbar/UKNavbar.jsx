@@ -11,12 +11,13 @@ const UK_NAV_LINKS = [
   { id: "about", label: "About Us", href: "/about" },
   {
     id: "services",
-    label: "Service in UK",
+    label: "Services in UK",
     href: "/uk#services",
     hasDropdown: true,
     dropdownItems: UK_SERVICE_LINKS,
   },
-  { id: "tools", label: "Tools", href: "/tools" },
+  { id: "byot", label: "BYOT", href: "/byot" },
+  { id: "tools", label: "Tool", href: "/tools" },
   { id: "contact", label: "Contact Us", href: "/contact" },
 ];
 
@@ -337,9 +338,8 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
                 text="BOOK A CALL"
                 href="/contact"
                 onClick={() => setIsSidebarOpen(false)}
-                className="!w-full !py-3 !text-sm !font-extrabold !rounded-full"
+                className="!w-full !py-3 !text-sm !font-extrabold"
               />
-              <Button text="BOOK A CALL" className="!w-full !py-3 !text-sm !font-extrabold" />
             </div>
           </nav>
         </div>
