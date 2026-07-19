@@ -342,13 +342,14 @@ export default function BookKeepingCompliance({
     servicesTitleAfter = " Include",
     servicesSubtitle = "Dedicated VAT operations that keep your clients compliant and audit-ready.",
     serviceCards: serviceCardsProp,
+    className = "",
 }) {
     const whyCards = whyCardsProp || DEFAULT_WHY_CARDS;
     const serviceCards = serviceCardsProp || DEFAULT_SERVICE_CARDS;
 
     return (
         <section
-            className="relative w-full overflow-hidden px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14"
+            className={`relative w-full overflow-hidden px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14 ${className}`}
             style={{ background: PAGE_BG }}
         >
             <svg
@@ -457,7 +458,7 @@ export default function BookKeepingCompliance({
 
                 {showServices ? (
                     <>
-                        <div className="mt-10 flex flex-col items-center text-center sm:mt-11">
+                        <div className="mt-6 flex flex-col items-center text-center">
                             <span
                                 className="mb-3 inline-flex items-center gap-1.5 rounded-full px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.12em] text-white shadow-sm"
                                 style={{ background: ORANGE }}

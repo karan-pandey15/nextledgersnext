@@ -12,8 +12,6 @@ import {
     PuzzleIcon,
     Headset,
     Pencil,
-    Rocket,
-    Building2,
     Layers,
     FileBarChart,
     Handshake,
@@ -36,14 +34,12 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import CtaButton from "@/app/components/ui/CtaButton";
 import IconDisplayScreen from "@/app/components/ServiceMainPageContent/IcondisplayScreen";
 import TrustBadgesBar, {
     USA_TRUST_BADGES,
 } from "@/app/components/ServiceMainPageContent/TrustBadgesBar";
 import Footer from "@/app/components/footer/Footer";
-import TopAnnouncementBar from "@/app/components/TopHeader/TopAnnouncementBar";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
 const ORANGE = BRAND_ORANGE;
@@ -177,41 +173,31 @@ const specialistAreas = [
         label: "Startups & High-Growth Businesses",
         description:
             "Budgeting, cash flow forecasting, financial modelling, investor reporting, and growth planning.",
-        icon: Rocket,
-        bg: "#E8F8EF",
-        color: "#16A34A",
+        image: "/images/nexticon/startupsmes.png",
     },
     {
         label: "SMEs & Owner-Managed Businesses",
         description:
             "Monthly management accounts, KPI reporting, profitability analysis, and business performance monitoring.",
-        icon: Building2,
-        bg: "#FFF0E8",
-        color: BRAND_ORANGE,
+        image: "/images/nexticon/professionalservices.png",
     },
     {
         label: "Multi-Entity & Group Businesses",
         description:
             "Consolidated management reporting, intercompany reporting, and group financial performance analysis.",
-        icon: Layers,
-        bg: "#E8F1FF",
-        color: "#3B82F6",
+        image: "/images/nexticon/manugacturing.png",
     },
     {
         label: "Investor-Backed Companies",
         description:
             "Board reporting, executive dashboards, financial forecasting, and stakeholder reporting.",
-        icon: FileBarChart,
-        bg: "#F3E8FF",
-        color: "#9333EA",
+        image: "/images/nexticon/technology.png",
     },
     {
         label: "Businesses Requiring Virtual CFO Support",
         description:
             "Strategic financial reporting, cash flow management, budgeting, business planning, and executive financial guidance.",
-        icon: Handshake,
-        bg: "#E8F4FF",
-        color: "#0284C7",
+        image: "/images/nexticon/consulting.png",
     },
 ];
 
@@ -269,15 +255,15 @@ function CheckPill({ text }) {
 function HelpCard({ icon: Icon, titleBefore, titleAccent, titleAfter, items }) {
     return (
         <div
-            className="rounded-[16px] border border-[#F3E6D8] bg-white p-5 sm:p-6 lg:p-7"
+            className="rounded-[16px] border border-[#F0E0D2] bg-white p-5 sm:p-6 lg:p-7"
             style={{ boxShadow: "0 8px 28px rgba(15,23,42,0.06)" }}
         >
             <div className="mb-4 flex items-center gap-2.5">
                 <span
-                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg"
-                    style={{ background: ORANGE }}
+                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl"
+                    style={{ background: PILL_BG, color: ORANGE }}
                 >
-                    <Icon className="h-4 w-4 text-white" strokeWidth={2} />
+                    <Icon className="h-7 w-7" strokeWidth={1.8} />
                 </span>
                 <h3
                     className="text-[14px] font-bold leading-snug sm:text-[15px]"
@@ -346,7 +332,6 @@ export default function UsaManagementAccounting() {
 
     return (
         <main className="relative min-h-screen w-full overflow-x-hidden bg-white">
-            <TopAnnouncementBar region="usa" />
             <USANavbar
                 isSidebarOpen={isSidebarOpen}
                 setIsSidebarOpen={setIsSidebarOpen}
@@ -432,12 +417,12 @@ export default function UsaManagementAccounting() {
                             </p>
 
                             <div className="mb-5 space-y-3">
-                                <div className="rounded-[14px] border border-[#F0E6DC] bg-[#FFF9F5] p-4 sm:p-4.5">
+                                <div className="rounded-[14px] border border-[#F0E0D2] bg-[#FFF9F5] p-4 sm:p-4.5">
                                     <div className="mb-2 flex items-center gap-2.5">
-                                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-[#FF6A00] shadow-sm">
+                                        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#FFF4EA] text-[#FF6A00]">
                                             <AlertTriangle
-                                                className="h-4 w-4"
-                                                strokeWidth={2.25}
+                                                className="h-7 w-7"
+                                                strokeWidth={1.8}
                                             />
                                         </span>
                                         <h3 className="text-[13.5px] font-bold text-[#0B1F3A] sm:text-[14px]">
@@ -453,12 +438,12 @@ export default function UsaManagementAccounting() {
                                     </p>
                                 </div>
 
-                                <div className="rounded-[14px] border border-[#F0E6DC] bg-white p-4 shadow-[0_4px_16px_rgba(15,23,42,0.04)] sm:p-4.5">
+                                <div className="rounded-[14px] border border-[#F0E0D2] bg-white p-4 shadow-[0_4px_16px_rgba(15,23,42,0.04)] sm:p-4.5">
                                     <div className="mb-2 flex items-center gap-2.5">
-                                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#FF6A00]">
+                                        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#FFF4EA] text-[#FF6A00]">
                                             <Handshake
-                                                className="h-4 w-4"
-                                                strokeWidth={2.25}
+                                                className="h-7 w-7"
+                                                strokeWidth={1.8}
                                             />
                                         </span>
                                         <h3 className="text-[13.5px] font-bold text-[#0B1F3A] sm:text-[14px]">
@@ -490,7 +475,7 @@ export default function UsaManagementAccounting() {
                                 ].map((item) => (
                                     <span
                                         key={item}
-                                        className="inline-flex items-center gap-1.5 rounded-full border border-[#F0E6DC] bg-[#FFF9F5] px-3 py-1.5 text-[11.5px] font-semibold text-[#0B1F3A]"
+                                        className="inline-flex items-center gap-1.5 rounded-full border border-[#F0E0D2] bg-[#FFF9F5] px-3 py-1.5 text-[11.5px] font-semibold text-[#0B1F3A]"
                                     >
                                         <BadgeCheck
                                             className="h-3.5 w-3.5 text-[#FF6A00]"
@@ -597,17 +582,13 @@ export default function UsaManagementAccounting() {
                         {managementMattersItems.map(({ title, description, icon: Icon }) => (
                             <div
                                 key={title}
-                                className="flex flex-col rounded-[16px] border border-[#F0E6DC] bg-white px-4 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.04)] transition-shadow hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:px-5 sm:py-6"
+                                className="flex flex-col rounded-[16px] border border-[#F0E0D2] bg-white px-4 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.04)] transition-shadow hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:px-5 sm:py-6"
                             >
                                 <span
-                                    className="mb-3.5 flex h-10 w-10 items-center justify-center rounded-xl text-white"
-                                    style={{
-                                        background: ORANGE,
-                                        boxShadow:
-                                            "0 6px 16px rgba(255, 106, 0,0.28)",
-                                    }}
+                                    className="mb-3.5 flex h-12 w-12 items-center justify-center rounded-xl"
+                                    style={{ background: PILL_BG, color: ORANGE }}
                                 >
-                                    <Icon className="h-5 w-5" strokeWidth={2} />
+                                    <Icon className="h-7 w-7" strokeWidth={1.75} />
                                 </span>
                                 <h3
                                     className="text-[13.5px] font-bold leading-snug sm:text-[14px]"
@@ -866,22 +847,19 @@ export default function UsaManagementAccounting() {
 
                         <div className="mt-7 grid grid-cols-1 gap-3 sm:mt-8 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 lg:gap-5 xl:grid-cols-5">
                             {specialistAreas.map((item) => {
-                                const Icon = item.icon;
                                 return (
                                     <div
                                         key={item.label}
-                                        className="flex min-h-[168px] flex-col items-center justify-start rounded-[16px] border border-[#F0F0F0] bg-white px-3 py-5 text-center shadow-[0_4px_18px_rgba(15,39,74,0.05)] transition-all duration-200 hover:border-[#FF6A00]/25 hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:min-h-[180px] sm:rounded-[18px] sm:px-4 sm:py-6"
+                                        className="flex min-h-[168px] flex-col items-center justify-start rounded-[16px] border border-[#F0E0D2] bg-white px-3 py-5 text-center shadow-[0_4px_18px_rgba(15,39,74,0.05)] transition-all duration-200 hover:border-[#FFB77F] hover:bg-[#FFFCF9] sm:min-h-[180px] sm:rounded-[18px] sm:px-4 sm:py-6"
                                     >
-                                        <div
-                                            className="flex h-14 w-14 items-center justify-center rounded-full sm:h-16 sm:w-16"
-                                            style={{ backgroundColor: item.bg }}
-                                        >
-                                            <Icon
-                                                className="h-6 w-6 sm:h-7 sm:w-7"
-                                                style={{ color: item.color }}
-                                                strokeWidth={1.75}
-                                            />
-                                        </div>
+                                        <Image
+                                            src={item.image}
+                                            alt=""
+                                            width={72}
+                                            height={72}
+                                            className="h-16 w-16 object-contain sm:h-[72px] sm:w-[72px]"
+                                            aria-hidden="true"
+                                        />
                                         <p
                                             className="mt-3 text-[12px] font-bold leading-snug sm:text-[13px]"
                                             style={{ color: NAVY }}
@@ -948,13 +926,13 @@ export default function UsaManagementAccounting() {
                         {whyChooseNextLedgers.slice(0, 4).map(({ title, icon: Icon }) => (
                             <div
                                 key={title}
-                                className="rounded-[14px] border border-[#F0E6DC] bg-white px-5 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.05)]"
+                                className="rounded-[14px] border border-[#F0E0D2] bg-white px-5 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.05)]"
                             >
                                 <span
-                                    className="mb-3 flex h-9 w-9 items-center justify-center"
-                                    style={{ color: ORANGE }}
+                                    className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl"
+                                    style={{ background: PILL_BG, color: ORANGE }}
                                 >
-                                    <Icon className="h-6 w-6" strokeWidth={1.75} />
+                                    <Icon className="h-7 w-7" strokeWidth={1.75} />
                                 </span>
                                 <h3
                                     className="text-[13.5px] font-bold leading-snug sm:text-[14px]"
@@ -974,13 +952,13 @@ export default function UsaManagementAccounting() {
                         {whyChooseNextLedgers.slice(4).map(({ title, icon: Icon }) => (
                             <div
                                 key={title}
-                                className="rounded-[14px] border border-[#F0E6DC] bg-white px-5 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.05)]"
+                                className="rounded-[14px] border border-[#F0E0D2] bg-white px-5 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.05)]"
                             >
                                 <span
-                                    className="mb-3 flex h-9 w-9 items-center justify-center"
-                                    style={{ color: ORANGE }}
+                                    className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl"
+                                    style={{ background: PILL_BG, color: ORANGE }}
                                 >
-                                    <Icon className="h-6 w-6" strokeWidth={1.75} />
+                                    <Icon className="h-7 w-7" strokeWidth={1.75} />
                                 </span>
                                 <h3
                                     className="text-[13.5px] font-bold leading-snug sm:text-[14px]"

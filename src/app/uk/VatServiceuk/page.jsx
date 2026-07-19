@@ -16,14 +16,11 @@ import {
     Star,
     BookOpen,
     BadgeCheck,
+    CheckCircle2,
     ClipboardCheck,
     LockKeyhole,
     Network,
     TrendingUp,
-    Building2,
-    ShoppingBag,
-    HardHat,
-    Briefcase,
     Pencil,
     FileText,
     Sparkles,
@@ -32,19 +29,16 @@ import {
     Link2,
     RefreshCw,
     Globe2,
-    Factory,
     Phone,
     Send,
     Handshake,
 } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import CtaButton from "@/app/components/ui/CtaButton";
 import IconDisplayScreen from "@/app/components/ServiceMainPageContent/IcondisplayScreen";
 import TrustBadgesBar from "@/app/components/ServiceMainPageContent/TrustBadgesBar";
 import Footer from "@/app/components/footer/Footer";
-import TopAnnouncementBar from "@/app/components/TopHeader/TopAnnouncementBar";
 import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/ArtificialIntelligence";
 import NexaLedAi from "@/app/components/ChatBot/NexaLedAi";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
@@ -60,7 +54,7 @@ const trustBadges = [
     { icon: Shield, label: "ISO 27001", sub: "Certified" },
     { icon: Lock, label: "GDPR", sub: "Compliant" },
     { icon: Clock, label: "UK Time Zone", sub: "Overlap" },
-    { icon: Award, label: "10+ Years", sub: "Experience" },
+    { icon: Award, label: "9+ Years", sub: "Experience" },
     { icon: UserCheck, label: "Dedicated", sub: "Account Manager" },
 ];
 
@@ -181,39 +175,27 @@ const softwareExpertiseLogodata = [
 const industriesWeSupport = [
     {
         label: "eCommerce & Online Retail",
-        icon: ShoppingBag,
-        bg: "#E8F8EF",
-        color: "#16A34A",
+        image: "/images/nexticon/Ecommerce.png",
     },
     {
         label: "Construction Companies",
-        icon: HardHat,
-        bg: "#FFF4E5",
-        color: "#FF6A00",
+        image: "/images/nexticon/construction.png",
     },
     {
         label: "Property & Real Estate",
-        icon: Building2,
-        bg: "#FFE8EE",
-        color: "#BE123C",
+        image: "/images/nexticon/realstate.png",
     },
     {
         label: "Manufacturing & Distribution",
-        icon: Factory,
-        bg: "#F3E8FF",
-        color: "#9333EA",
+        image: "/images/nexticon/manugacturing.png",
     },
     {
         label: "Professional Service Firms",
-        icon: Briefcase,
-        bg: "#E8F4FF",
-        color: "#0284C7",
+        image: "/images/nexticon/professionalservices.png",
     },
     {
         label: "Recruitment & Staffing Agencies",
-        icon: Users,
-        bg: "#F3E8FF",
-        color: "#7C3AED",
+        image: "/images/nexticon/consulting.png",
     },
 ];
 
@@ -318,10 +300,10 @@ function ServiceCard({ icon: Icon, titleBefore, titleAccent, titleAfter, items }
         >
             <div className="mb-4 flex items-center gap-2.5">
                 <span
-                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg"
-                    style={{ background: ORANGE }}
+                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl"
+                    style={{ background: PILL_BG, color: ORANGE }}
                 >
-                    <Icon className="h-4 w-4 text-white" strokeWidth={2} />
+                    <Icon className="h-7 w-7" strokeWidth={1.8} />
                 </span>
                 <h3
                     className="text-[14px] font-bold leading-snug sm:text-[15px]"
@@ -351,10 +333,10 @@ function MatterCard({ icon: Icon, title, description }) {
             }}
         >
             <span
-                className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full"
+                className="mt-0.5 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl"
                 style={{ background: PILL_BG, color: ORANGE }}
             >
-                <Icon className="h-[17px] w-[17px]" strokeWidth={1.75} />
+                <Icon className="h-7 w-7" strokeWidth={1.75} />
             </span>
             <div className="min-w-0 flex-1 text-left">
                 <h4 className="text-[13px] font-bold leading-snug" style={{ color: NAVY }}>
@@ -374,27 +356,14 @@ function MatterCard({ icon: Icon, title, description }) {
 
 function SchemePill({ text }) {
     return (
-        <li
-            className="flex items-center gap-2.5 rounded-full border border-[#F3E6D8] bg-white px-4 py-2.5 shadow-[0_2px_10px_rgba(15,23,42,0.04)]"
-        >
+        <li className="flex items-center gap-3 rounded-xl bg-white px-3 py-3">
             <span
-                className="flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full"
-                style={{ background: ORANGE }}
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl"
+                style={{ background: PILL_BG, color: ORANGE }}
             >
-                <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    className="h-2.5 w-2.5"
-                    stroke="white"
-                    strokeWidth={3.5}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                >
-                    <path d="M20 6 9 17l-5-5" />
-                </svg>
+                <CheckCircle2 className="h-5 w-5" strokeWidth={2} />
             </span>
-            <span className="text-[12.5px] font-semibold" style={{ color: NAVY }}>
+            <span className="text-[12px] font-semibold leading-snug sm:text-[12.5px]" style={{ color: NAVY }}>
                 {text}
             </span>
         </li>
@@ -406,25 +375,30 @@ export default function VatServiceuk() {
 
     return (
         <main className="relative min-h-screen w-full overflow-x-hidden bg-white">
-            <TopAnnouncementBar />
             <UKNavbar
                 isSidebarOpen={isSidebarOpen}
                 setIsSidebarOpen={setIsSidebarOpen}
             />
 
             {/* 1 — Hero */}
-            <section className="relative w-full overflow-hidden bg-gradient-to-br from-[#25404B] via-[#537E91] to-[#537E91] px-4 pb-2 pt-8 sm:px-6 sm:pb-2 sm:pt-10 lg:px-8">
+            <section
+                className="relative w-full overflow-hidden px-4 pb-8 pt-10 sm:px-6 sm:pb-10 sm:pt-12 lg:px-8"
+                style={{
+                    background:
+                        "linear-gradient(165deg, #FFFFFF 0%, #FFF9F5 42%, #FFF4EA 100%)",
+                }}
+            >
                 <div
-                    className="pointer-events-none absolute inset-0 opacity-[0.45]"
+                    className="pointer-events-none absolute inset-0 opacity-[0.55]"
                     style={{
                         backgroundImage:
-                            "radial-gradient(rgba(15,23,42,0.06) 1px, transparent 1px)",
-                        backgroundSize: "16px 16px",
+                            "radial-gradient(rgba(255, 106, 0,0.18) 1px, transparent 1px)",
+                        backgroundSize: "18px 18px",
                     }}
                 />
-                <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-[#FF6A00]/12 blur-3xl" />
-                <div className="pointer-events-none absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-slate-400/20 blur-3xl" />
-                <div className="pointer-events-none absolute left-1/2 top-1/3 h-40 w-40 -translate-x-1/2 rounded-full bg-white/50 blur-2xl" />
+                <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-[#FF6A00]/15 blur-3xl" />
+                <div className="pointer-events-none absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-[#0B1F3A]/06 blur-3xl" />
+                <div className="pointer-events-none absolute left-1/2 top-1/3 h-40 w-40 -translate-x-1/2 rounded-full bg-[#FF6A00]/10 blur-2xl" />
 
                 <div className="relative mx-auto flex w-full max-w-5xl flex-col justify-center">
                     <div className="flex flex-col items-center px-2 text-center">
@@ -461,7 +435,7 @@ export default function VatServiceuk() {
 
             {/* 2 — Intro */}
             <section id="how-we-work" className="w-full bg-white">
-                <div className="mx-auto max-w-6xl px-4 py-2 sm:px-6 sm:py-2.5 lg:px-8">
+                <div className="mx-auto max-w-6xl px-4 py-3 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12">
                         <div>
                             <span className="mb-3 inline-block text-[11px] font-extrabold uppercase tracking-widest text-[#FF6A00]">
@@ -544,7 +518,7 @@ export default function VatServiceuk() {
 
             {/* 3 — Why VAT & MTD Matter */}
             <section
-                className="relative w-full overflow-hidden px-4 py-8 sm:px-6 sm:py-10 lg:px-8"
+                className="relative w-full overflow-hidden px-4 py-3 sm:px-6 lg:px-8"
                 style={{ background: PAGE_CREAM }}
             >
                 <DotGrid className="pointer-events-none absolute right-4 top-6 sm:right-10" />
@@ -624,7 +598,7 @@ export default function VatServiceuk() {
 
             {/* 4 — VAT Services + MTD Support */}
             <section
-                className="relative w-full overflow-hidden px-4 py-8 sm:px-6 sm:py-10 lg:px-8"
+                className="relative w-full overflow-hidden px-4 py-3 sm:px-6 lg:px-8"
                 style={{ background: PAGE_CREAM }}
             >
                 <div className="relative mx-auto flex w-full max-w-6xl flex-col">
@@ -681,99 +655,135 @@ export default function VatServiceuk() {
             </section>
 
             {/* 5 — VAT Schemes */}
-            <section className="relative w-full overflow-hidden bg-white px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
-                <div className="mx-auto max-w-6xl">
-                    <div className="mb-7 text-center">
-                        <span
-                            className="mb-3 inline-flex items-center gap-1.5 rounded-full px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.12em]"
-                            style={{ background: PILL_BG, color: ORANGE }}
-                        >
-                            <Calculator className="h-3 w-3" strokeWidth={2.5} />
-                            HMRC-Approved Schemes
-                        </span>
-                        <h2
-                            className="text-[22px] font-extrabold leading-tight sm:text-[26px] lg:text-[28px]"
-                            style={{ color: NAVY }}
-                        >
-                            VAT Schemes{" "}
-                            <span style={{ color: ORANGE }}>We Support</span>
-                        </h2>
-                        <p
-                            className="mx-auto mt-2.5 max-w-2xl text-[13px] leading-relaxed"
-                            style={{ color: GREY }}
-                        >
-                            Our team has experience working across a wide range of HMRC-approved
-                            VAT schemes, including:
-                        </p>
-                    </div>
+            <section className="relative w-full overflow-hidden bg-white px-4 py-3 sm:px-6 lg:px-8">
+                <DotGrid className="pointer-events-none absolute right-5 top-8 opacity-70" />
+                <div className="relative mx-auto max-w-6xl">
+                    <div className="grid grid-cols-1 overflow-hidden rounded-[24px] lg:grid-cols-[0.9fr_1.1fr]">
+                        <div className="flex flex-col justify-center bg-[#0B1F3A] px-6 py-8 text-white sm:px-8 lg:px-10">
+                            <span className="mb-3 inline-flex w-fit items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-[#FFB477]">
+                                <Calculator className="h-4 w-4" strokeWidth={2.2} />
+                                HMRC-Approved Schemes
+                            </span>
+                            <h2 className="max-w-md text-[24px] font-extrabold leading-tight sm:text-[28px] lg:text-[32px]">
+                                VAT Schemes{" "}
+                                <span className="text-[#FF7A1A]">We Support</span>
+                            </h2>
+                            <p className="mt-3 max-w-md text-[13px] leading-relaxed text-white/70 sm:text-[14px]">
+                                Practical support across established VAT schemes and
+                                specialist transactions, tailored to each client&apos;s
+                                reporting requirements.
+                            </p>
+                            <div className="mt-6 rounded-2xl bg-white/10 p-4">
+                                <div className="flex items-center gap-3">
+                                    <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#FF6A00]">
+                                        <ShieldCheck className="h-7 w-7" />
+                                    </span>
+                                    <div>
+                                        <p className="text-[15px] font-bold">HMRC-ready support</p>
+                                        <p className="mt-0.5 text-[12px] text-white/65">
+                                            Accurate treatment and clear working papers
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                    <ul className="mx-auto grid max-w-4xl grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-3.5">
-                        {vatSchemes.map((item) => (
-                            <SchemePill key={item} text={item} />
-                        ))}
-                    </ul>
+                        <div className="grid grid-cols-1 gap-4 bg-[#FFF9F5] p-5 sm:grid-cols-2 sm:p-6">
+                            <div className="rounded-2xl bg-white p-4">
+                                <h3 className="mb-3 flex items-center gap-2 text-[14px] font-extrabold text-[#0B1F3A]">
+                                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#FFF4EA] text-[#FF6A00]">
+                                        <Calculator className="h-6 w-6" />
+                                    </span>
+                                    VAT Accounting Schemes
+                                </h3>
+                                <ul className="grid grid-cols-1 gap-2">
+                                    {vatSchemes.map((item) => (
+                                        <SchemePill key={item} text={item} />
+                                    ))}
+                                </ul>
+                            </div>
 
-                    <div className="mt-8 text-center">
-                        <p
-                            className="mb-4 text-[13px] font-bold sm:text-[14px]"
-                            style={{ color: NAVY }}
-                        >
-                            We also support specialist areas such as:
-                        </p>
-                        <ul className="mx-auto grid max-w-4xl grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-3.5">
-                            {specialistAreas.map((item) => (
-                                <SchemePill key={item} text={item} />
-                            ))}
-                        </ul>
+                            <div className="rounded-2xl bg-white p-4">
+                                <h3 className="mb-3 flex items-center gap-2 text-[14px] font-extrabold text-[#0B1F3A]">
+                                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#FFF4EA] text-[#FF6A00]">
+                                        <Globe2 className="h-6 w-6" />
+                                    </span>
+                                    Specialist VAT Areas
+                                </h3>
+                                <ul className="grid grid-cols-1 gap-2">
+                                    {specialistAreas.map((item) => (
+                                        <SchemePill key={item} text={item} />
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
             {/* 6 — Reconciliation & Compliance Reviews */}
-            <section
-                className="relative w-full overflow-hidden px-4 py-8 sm:px-6 sm:py-10 lg:px-8"
-                style={{ background: PAGE_CREAM }}
-            >
+            <section className="relative w-full overflow-hidden bg-[#FFF9F5] px-4 py-3 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-6xl">
-                    <div className="mb-6 text-center">
-                        <span
-                            className="mb-3 inline-flex items-center gap-1.5 rounded-full px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.12em] text-white shadow-sm"
-                            style={{ background: ORANGE }}
-                        >
-                            <RefreshCw className="h-3 w-3" strokeWidth={2.5} />
-                            Accuracy First
-                        </span>
-                        <h2
-                            className="text-[22px] font-extrabold leading-tight sm:text-[26px] lg:text-[28px]"
-                            style={{ color: NAVY }}
-                        >
-                            VAT Reconciliation &amp;{" "}
-                            <span style={{ color: ORANGE }}>Compliance Reviews</span>
-                        </h2>
-                        <p
-                            className="mx-auto mt-2.5 max-w-2xl text-[13px] leading-relaxed"
-                            style={{ color: GREY }}
-                        >
-                            Accurate reconciliations are essential for ensuring VAT returns are
-                            complete, consistent, and error-free.
-                        </p>
+                    <div className="grid grid-cols-1 items-stretch gap-4 lg:grid-cols-[0.8fr_1.2fr]">
+                        <div className="relative overflow-hidden rounded-[24px] bg-[#FF6A00] px-6 py-8 text-white sm:px-8">
+                            <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-white/10" />
+                            <div className="absolute -bottom-20 -left-16 h-52 w-52 rounded-full bg-[#0B1F3A]/10" />
+                            <div className="relative">
+                                <span className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/15">
+                                    <RefreshCw className="h-8 w-8" strokeWidth={1.8} />
+                                </span>
+                                <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-white/75">
+                                    Accuracy First
+                                </p>
+                                <h2 className="mt-2 text-[25px] font-extrabold leading-tight sm:text-[30px]">
+                                    VAT Reconciliation &amp; Compliance Reviews
+                                </h2>
+                                <p className="mt-3 max-w-md text-[13px] leading-relaxed text-white/80 sm:text-[14px]">
+                                    Accurate reconciliations ensure VAT returns are complete,
+                                    consistent, and supported by review-ready records.
+                                </p>
+                                <div className="mt-6 border-t border-white/20 pt-5">
+                                    <p className="flex items-start gap-2.5 text-[12.5px] font-semibold leading-relaxed">
+                                        <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0" />
+                                        Regular reviews identify issues before they become
+                                        costly compliance problems.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="rounded-[24px] bg-white p-5 sm:p-6">
+                            <div className="mb-4 flex items-center gap-3">
+                                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#FFF4EA] text-[#FF6A00]">
+                                    <ClipboardCheck className="h-7 w-7" strokeWidth={1.8} />
+                                </span>
+                                <div>
+                                    <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#FF6A00]">
+                                        Review Scope
+                                    </p>
+                                    <h3 className="text-[16px] font-extrabold text-[#0B1F3A]">
+                                        Our support includes
+                                    </h3>
+                                </div>
+                            </div>
+
+                            <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                                {reconciliationServices.map((item) => (
+                                    <li
+                                        key={item}
+                                        className="flex items-center gap-3 rounded-xl bg-[#FFF9F5] px-3 py-3"
+                                    >
+                                        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#FFF4EA] text-[#FF6A00]">
+                                            <CheckCircle2 className="h-5 w-5" />
+                                        </span>
+                                        <span className="text-[12px] font-semibold leading-snug text-[#0B1F3A]">
+                                            {item}
+                                        </span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
-
-                    <ServiceCard
-                        icon={ClipboardCheck}
-                        titleBefore="Our "
-                        titleAccent="support"
-                        titleAfter=" includes:"
-                        items={reconciliationServices}
-                    />
-
-                    <p
-                        className="mx-auto mt-5 max-w-3xl text-center text-[12.5px] leading-relaxed sm:text-[13px]"
-                        style={{ color: GREY }}
-                    >
-                        Regular reviews help identify potential issues before they become costly
-                        compliance problems.
-                    </p>
                 </div>
             </section>
 
@@ -782,11 +792,11 @@ export default function VatServiceuk() {
                 title="Software Expertise"
                 subtitle="We work across the accounting, MTD, VAT, and supporting tools your clients already use."
                 logodata={softwareExpertiseLogodata}
-                className="!py-2 sm:!py-2.5 lg:!py-2.5"
+                className="!py-3"
             />
 
             {/* 8 — Industries */}
-            <section className="relative w-full overflow-hidden bg-white py-5 sm:py-6 lg:py-7">
+            <section className="relative w-full overflow-hidden bg-white py-3">
                 <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
                     <div
                         className="rounded-none px-3 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-7"
@@ -829,39 +839,31 @@ export default function VatServiceuk() {
                         </div>
 
                         <div className="mt-4 grid grid-cols-2 gap-2.5 sm:mt-5 sm:grid-cols-3 sm:gap-3 lg:grid-cols-3 lg:gap-3 xl:grid-cols-6">
-                            {industriesWeSupport.map((item) => {
-                                const Icon = item.icon;
-                                return (
-                                    <div
-                                        key={item.label}
-                                        className="flex min-h-[92px] flex-col items-center justify-center rounded-[12px] border border-[#F0F0F0] bg-white px-2 py-2.5 text-center shadow-[0_4px_18px_rgba(15,39,74,0.05)] transition-all duration-200 hover:border-[#FF6A00]/25 hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:min-h-[108px] sm:rounded-[14px] sm:px-2.5 sm:py-3"
-                                    >
-                                        <div
-                                            className="flex h-11 w-11 items-center justify-center rounded-full sm:h-12 sm:w-12"
-                                            style={{ backgroundColor: item.bg }}
-                                        >
-                                            <Icon
-                                                className="h-5 w-5 sm:h-5 sm:w-5"
-                                                style={{ color: item.color }}
-                                                strokeWidth={1.75}
-                                            />
-                                        </div>
-                                        <p
-                                            className="mt-1.5 text-[11px] font-bold leading-snug sm:text-[12px]"
-                                            style={{ color: NAVY }}
-                                        >
-                                            {item.label}
-                                        </p>
-                                    </div>
-                                );
-                            })}
+                            {industriesWeSupport.map((item) => (
+                                <div
+                                    key={item.label}
+                                    className="flex min-h-[126px] flex-col items-center justify-center rounded-[14px] border border-[#F0E0D2] bg-white px-2.5 py-3 text-center transition-colors duration-200 hover:border-[#FFB77F] hover:bg-[#FFFCF9]"
+                                >
+                                    <Image
+                                        src={item.image}
+                                        alt=""
+                                        width={72}
+                                        height={72}
+                                        className="h-16 w-16 object-contain sm:h-[72px] sm:w-[72px]"
+                                        aria-hidden="true"
+                                    />
+                                    <p className="mt-2 text-[11px] font-bold leading-snug text-[#0B1F3A] sm:text-[12px]">
+                                        {item.label}
+                                    </p>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* 9 — Why Choose */}
-            <section className="relative w-full overflow-hidden bg-white px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+            <section className="relative w-full overflow-hidden bg-white px-4 py-3 sm:px-6 lg:px-8">
                 <DotGrid className="pointer-events-none absolute right-4 top-6 sm:right-10 sm:top-8" />
                 <DotGrid className="pointer-events-none absolute bottom-8 left-4 sm:bottom-10 sm:left-8" />
 
@@ -904,10 +906,10 @@ export default function VatServiceuk() {
                                 className="rounded-[14px] border border-[#F0E6DC] bg-white px-5 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.05)]"
                             >
                                 <span
-                                    className="mb-3 flex h-9 w-9 items-center justify-center"
+                                    className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[#FFF4EA]"
                                     style={{ color: ORANGE }}
                                 >
-                                    <Icon className="h-6 w-6" strokeWidth={1.75} />
+                                    <Icon className="h-7 w-7" strokeWidth={1.75} />
                                 </span>
                                 <h3
                                     className="text-[13.5px] font-bold leading-snug sm:text-[14px]"
@@ -930,10 +932,10 @@ export default function VatServiceuk() {
                                 className="rounded-[14px] border border-[#F0E6DC] bg-white px-5 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.05)]"
                             >
                                 <span
-                                    className="mb-3 flex h-9 w-9 items-center justify-center"
+                                    className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[#FFF4EA]"
                                     style={{ color: ORANGE }}
                                 >
-                                    <Icon className="h-6 w-6" strokeWidth={1.75} />
+                                    <Icon className="h-7 w-7" strokeWidth={1.75} />
                                 </span>
                                 <h3
                                     className="text-[13.5px] font-bold leading-snug sm:text-[14px]"
@@ -952,7 +954,7 @@ export default function VatServiceuk() {
             </section>
 
             {/* 10 — Cream partner CTA */}
-            <section className="relative w-full bg-white px-4 pb-10 pt-2 sm:px-6 sm:pb-12 sm:pt-2.5 lg:px-8">
+            <section className="relative w-full bg-white px-4 py-3 sm:px-6 lg:px-8">
                 <div
                     className="relative mx-auto max-w-5xl overflow-hidden rounded-[22px] px-5 py-10 text-center sm:rounded-[28px] sm:px-10 sm:py-12 lg:px-14"
                     style={{ background: PAGE_CREAM }}
@@ -1051,7 +1053,7 @@ export default function VatServiceuk() {
                 </div>
             </section>
 
-            <Footer />
+            <Footer region="uk" />
             <ArtificialIntelligence />
             <NexaLedAi />
         </main>

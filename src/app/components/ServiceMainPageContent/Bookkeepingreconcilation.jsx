@@ -156,6 +156,7 @@ export default function BookkeepingReconcilation({
     specialistImageAlt = "Specialist VAT support for UK accounting firms",
     specialistHighlights = DEFAULT_SPECIALIST_HIGHLIGHTS,
     sealText = "ACCURATE • TIMELY • RELIABLE • ACCURATE •",
+    className = "",
 }) {
     const gridClass =
         serviceCards.length <= 2
@@ -166,7 +167,7 @@ export default function BookkeepingReconcilation({
 
     return (
         <section
-            className="relative w-full overflow-hidden px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14"
+            className={`relative w-full overflow-hidden px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14 ${className}`}
             style={{ background: PAGE_BG }}
         >
             <div className="relative mx-auto flex w-full max-w-6xl flex-col">
@@ -212,7 +213,7 @@ export default function BookkeepingReconcilation({
                 {showSpecialist ? (
                     <div
                         className={`grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-12 ${
-                            showServiceCards ? "mt-12 lg:mt-14" : ""
+                            showServiceCards ? "mt-6" : ""
                         }`}
                     >
                         <div>

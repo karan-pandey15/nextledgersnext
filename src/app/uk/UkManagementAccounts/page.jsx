@@ -1,126 +1,164 @@
 "use client";
 
-import CtaButton from "@/app/components/ui/CtaButton";
-
-import UKNavbar from "@/app/components/UKNavbar/UKNavbar";
-import {
-    Calendar,
-    Play,
-    Phone,
-    Shield,
-    ShieldCheck,
-    Lock,
-    Clock,
-    Award,
-    UserCheck,
-    Users,
-    PuzzleIcon,
-    Headset,
-    Pencil,
-    ShoppingBag,
-    Megaphone,
-    Monitor,
-    HardHat,
-    Briefcase,
-    Building2,
-} from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
-import IconDisplayScreen from "@/app/components/ServiceMainPageContent/IcondisplayScreen";
+import {
+    Award,
+    BadgeCheck,
+    BarChart3,
+    BookOpen,
+    Calendar,
+    ChartNoAxesCombined,
+    CheckCircle2,
+    Clock,
+    Handshake,
+    Headset,
+    Lightbulb,
+    LineChart,
+    Lock,
+    Network,
+    Phone,
+    PuzzleIcon,
+    Send,
+    Shield,
+    ShieldCheck,
+    Star,
+    Target,
+    TrendingUp,
+    UserCheck,
+    Users,
+    WalletCards,
+} from "lucide-react";
+import UKNavbar from "@/app/components/UKNavbar/UKNavbar";
+import CtaButton from "@/app/components/ui/CtaButton";
 import TrustBadgesBar from "@/app/components/ServiceMainPageContent/TrustBadgesBar";
-import Link from "next/link";
-import TransformCTA from "@/app/components/HomeImpact/TransformCTA";
+import BookKeepingMatters from "@/app/components/ServiceMainPageContent/BookkeepingMatters";
+import BookkeepingReconcilation from "@/app/components/ServiceMainPageContent/Bookkeepingreconcilation";
+import IconDisplayScreen from "@/app/components/ServiceMainPageContent/IcondisplayScreen";
 import Footer from "@/app/components/footer/Footer";
+import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/ArtificialIntelligence";
+import NexaLedAi from "@/app/components/ChatBot/NexaLedAi";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
 const ORANGE = BRAND_ORANGE;
 const NAVY = "#0B1F3A";
 const GREY = "#6B7280";
 const PAGE_CREAM = "#FFF9F5";
-const PILL_BG = "#FFF4EA";
 
 const trustBadges = [
     { icon: ShieldCheck, label: "HMRC", sub: "Compliant" },
     { icon: Shield, label: "ISO 27001", sub: "Certified" },
     { icon: Lock, label: "GDPR", sub: "Compliant" },
     { icon: Clock, label: "UK Time Zone", sub: "Overlap" },
-    { icon: Award, label: "10+ Years", sub: "Experience" },
+    { icon: Award, label: "9+ Years", sub: "Experience" },
     { icon: UserCheck, label: "Dedicated", sub: "Account Manager" },
+];
+
+const managementTrustItems = [
+    { icon: BarChart3, label: "Regular Performance Reporting" },
+    { icon: Target, label: "Budget vs Actual Analysis" },
+    { icon: TrendingUp, label: "Forward-Looking Forecasts" },
+    { icon: ShieldCheck, label: "Review-Ready Financial Data" },
 ];
 
 const managementMattersItems = [
     {
-        icon: Award,
-        title: "Are we generating sufficient profit?",
+        icon: TrendingUp,
+        title: "Understand Profitability",
         description:
             "Track margins and profitability trends before year-end surprises appear.",
     },
     {
-        icon: Lock,
-        title: "Why is cash flow under pressure despite increasing sales?",
+        icon: WalletCards,
+        title: "Improve Cash Flow Visibility",
         description:
             "See where cash is tied up across receivables, payables, and working capital.",
     },
     {
-        icon: PuzzleIcon,
-        title: "Which products, services, or departments are performing best?",
+        icon: BarChart3,
+        title: "Compare Business Performance",
         description:
-            "Compare performance across lines of business with clear, timely reporting.",
+            "Compare products, services, and departments with clear, timely reporting.",
     },
     {
-        icon: Shield,
-        title: "Are expenses increasing faster than revenue?",
+        icon: ChartNoAxesCombined,
+        title: "Control Rising Costs",
         description:
-            "Spot cost creep early and keep spending aligned with growth.",
+            "Spot cost increases early and keep spending aligned with business growth.",
     },
     {
-        icon: ShieldCheck,
-        title: "Are we meeting our budgets and financial targets?",
+        icon: Target,
+        title: "Measure Financial Targets",
         description:
-            "Measure budget vs actuals so owners can course-correct in real time.",
+            "Review budget versus actual results and course-correct throughout the year.",
     },
     {
         icon: Users,
-        title: "Can we afford to recruit more staff or invest in growth?",
+        title: "Plan Recruitment & Investment",
         description:
-            "Use current financials to support confident hiring and investment decisions.",
+            "Use current financial data to support confident hiring and investment decisions.",
     },
     {
-        icon: Clock,
-        title: "What will our financial position look like over the coming months?",
+        icon: LineChart,
+        title: "Forecast with Confidence",
         description:
-            "Forecast forward so planning is proactive, not reactive after year-end.",
+            "Understand the months ahead so planning remains proactive rather than reactive.",
     },
 ];
 
-const managementServices = [
-    "Monthly & Quarterly Management Accounts",
-    "Profit & Loss Reporting",
-    "Balance Sheet Reporting",
-    "Cash Flow Forecasting",
-    "Budget vs Actual Analysis",
-    "KPI Reporting & Dashboards",
-    "Departmental & Divisional Reporting",
-    "Board Reporting Packs",
-    "Management Commentary & Executive Summaries",
-    "Business Performance Reviews",
-    "Custom Financial Reporting",
+const managementServiceCards = [
+    {
+        icon: BarChart3,
+        titleBefore: "Management ",
+        titleAccent: "Reporting",
+        titleAfter: " Services",
+        items: [
+            "Monthly & Quarterly Management Accounts",
+            "Profit & Loss Reporting",
+            "Balance Sheet Reporting",
+            "Cash Flow Forecasting",
+            "Budget vs Actual Analysis",
+            "KPI Reporting & Dashboards",
+        ],
+    },
+    {
+        icon: Lightbulb,
+        titleBefore: "Performance ",
+        titleAccent: "Analysis",
+        titleAfter: " & Advisory Support",
+        items: [
+            "Departmental & Divisional Reporting",
+            "Board Reporting Packs",
+            "Management Commentary & Executive Summaries",
+            "Business Performance Reviews",
+            "Custom Financial Reporting",
+        ],
+    },
 ];
 
-const helpBusinessPerformance = [
-    "Monitor financial performance regularly",
-    "Improve cash flow visibility and planning",
-    "Track profitability and key business drivers",
-    "Measure performance against budgets and targets",
+const helpCards = [
+    {
+        icon: ChartNoAxesCombined,
+        title: "Monitor & Measure Performance",
+        items: [
+            "Monitor financial performance regularly",
+            "Improve cash flow visibility and planning",
+            "Track profitability and key business drivers",
+            "Measure performance against budgets and targets",
+        ],
+    },
+    {
+        icon: TrendingUp,
+        title: "Plan & Grow with Confidence",
+        items: [
+            "Identify trends, risks, and opportunities early",
+            "Support strategic planning and business growth",
+            "Make faster and more informed decisions",
+            "Create more capacity for advisory conversations",
+        ],
+    },
 ];
 
-const helpBusinessStrategy = [
-    "Identify trends, risks, and opportunities early",
-    "Support strategic planning and business growth",
-    "Make faster and more informed decisions",
-];
-
-/** Software Expertise — passed to IconDisplayScreen */
 const softwareExpertiseLogodata = [
     {
         heading: "ACCOUNTING PLATFORMS",
@@ -150,135 +188,166 @@ const softwareExpertiseLogodata = [
 const industriesWeSupport = [
     {
         label: "eCommerce & Online Retail",
-        icon: ShoppingBag,
-        bg: "#E8F8EF",
-        color: "#16A34A",
+        image: "/images/nexticon/Ecommerce.png",
     },
     {
         label: "Marketing & Creative Agencies",
-        icon: Megaphone,
-        bg: "#FFF0E8",
-        color: BRAND_ORANGE,
+        image: "/images/nexticon/entertainment.png",
     },
     {
         label: "SaaS & Technology Companies",
-        icon: Monitor,
-        bg: "#E8F1FF",
-        color: "#3B82F6",
+        image: "/images/nexticon/technology.png",
     },
     {
         label: "Construction Businesses",
-        icon: HardHat,
-        bg: "#FFF4E5",
-        color: "#FF6A00",
+        image: "/images/nexticon/construction.png",
     },
     {
         label: "Recruitment Agencies",
-        icon: Users,
-        bg: "#F3E8FF",
-        color: "#9333EA",
+        image: "/images/nexticon/consulting.png",
     },
     {
         label: "Professional Service Firms",
-        icon: Briefcase,
-        bg: "#E8F4FF",
-        color: "#0284C7",
+        image: "/images/nexticon/professionalservices.png",
     },
     {
         label: "Property & Real Estate Businesses",
-        icon: Building2,
-        bg: "#FFE8EE",
-        color: "#E11D48",
+        image: "/images/nexticon/realstate.png",
     },
 ];
 
-const whyChooseNextLedgers = [
-    "ACCA-Led Team with UK Accounting Expertise",
-    "Dedicated Offshore Management Reporting Support",
-    "White-Label Service Delivery",
-    "Advisory-Focused Reporting Approach",
-    "Flexible Engagement Models",
-    "Scalable Support Without Additional UK Hiring",
+const whyChooseCards = [
+    {
+        title: "ACCA-Led Team with UK Accounting Expertise",
+        icon: UserCheck,
+    },
+    {
+        title: "Dedicated Management Reporting Specialists",
+        icon: BookOpen,
+    },
+    {
+        title: "White-Label Service Delivery",
+        icon: BadgeCheck,
+    },
+    {
+        title: "Advisory-Focused Reporting Approach",
+        icon: BarChart3,
+    },
+    {
+        title: "Flexible Engagement Models",
+        icon: Network,
+    },
+    {
+        title: "Scalable Support Without Additional UK Hiring",
+        icon: TrendingUp,
+    },
 ];
 
-function CheckPill({ text }) {
-    return (
-        <li
-            className="flex items-center gap-2.5 rounded-xl px-3 py-2.5"
-            style={{ background: PILL_BG }}
-        >
-            <span
-                className="flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full"
-                style={{ background: ORANGE }}
-            >
-                <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    className="h-2.5 w-2.5"
-                    stroke="white"
-                    strokeWidth={3.5}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                >
-                    <path d="M20 6 9 17l-5-5" />
-                </svg>
-            </span>
-            <span
-                className="text-[11.5px] font-medium leading-snug sm:text-[12px]"
-                style={{ color: NAVY }}
-            >
-                {text}
-            </span>
-        </li>
-    );
-}
-
-function HelpCard({ icon: Icon, titleBefore, titleAccent, titleAfter, items }) {
-    return (
-        <div
-            className="rounded-[16px] border border-[#F3E6D8] bg-white p-5 sm:p-6 lg:p-7"
-            style={{ boxShadow: "0 8px 28px rgba(15,23,42,0.06)" }}
-        >
-            <div className="mb-4 flex items-center gap-2.5">
-                <span
-                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg"
-                    style={{ background: ORANGE }}
-                >
-                    <Icon className="h-4 w-4 text-white" strokeWidth={2} />
-                </span>
-                <h3
-                    className="text-[14px] font-bold leading-snug sm:text-[15px]"
-                    style={{ color: NAVY }}
-                >
-                    {titleBefore}
-                    <span style={{ color: ORANGE }}>{titleAccent}</span>
-                    {titleAfter}
-                </h3>
-            </div>
-
-            <ul className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-x-3 sm:gap-y-2.5">
-                {items.map((item) => (
-                    <CheckPill key={item} text={item} />
-                ))}
-            </ul>
-        </div>
-    );
-}
+const partnerTrust = [
+    { icon: ShieldCheck, label: "Review-Ready Reporting" },
+    { icon: Lock, label: "Secure & Confidential" },
+    { icon: Users, label: "Trusted by UK Accounting Firms" },
+];
 
 function Stat({ icon, value, label }) {
     return (
-        <div className="flex flex-col items-center text-center gap-1.5">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#FF6A00]/10 text-[#FF6A00] flex items-center justify-center">
+        <div className="flex flex-col items-center gap-1.5 text-center">
+            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#FF6A00]/10 text-[#FF6A00] sm:h-10 sm:w-10">
                 {icon}
             </div>
-            <div className="text-[15px] sm:text-[17px] font-extrabold text-[#0B1F3A] leading-none">
+            <div className="text-[15px] font-extrabold leading-none text-[#0B1F3A] sm:text-[17px]">
                 {value}
             </div>
-            <div className="text-[10px] sm:text-[11px] text-gray-500 leading-tight max-w-[90px]">
+            <div className="max-w-[90px] text-[10px] leading-tight text-gray-500 sm:text-[11px]">
                 {label}
             </div>
         </div>
+    );
+}
+
+function DotGrid({ className }) {
+    return (
+        <div
+            className={className}
+            aria-hidden="true"
+            style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(5, 4px)",
+                gap: 6,
+            }}
+        >
+            {Array.from({ length: 20 }).map((_, index) => (
+                <span
+                    key={index}
+                    style={{
+                        width: 3.5,
+                        height: 3.5,
+                        borderRadius: "50%",
+                        background: ORANGE,
+                        opacity: 0.45,
+                    }}
+                />
+            ))}
+        </div>
+    );
+}
+
+function HelpCard({ icon: Icon, title, items }) {
+    return (
+        <article className="rounded-2xl border border-[#F0E0D2] bg-white p-5 sm:p-6">
+            <div className="mb-4 flex items-center gap-3">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#FFF4EA] text-[#FF6A00]">
+                    <Icon className="h-7 w-7" strokeWidth={1.8} />
+                </span>
+                <h3 className="text-[15px] font-extrabold leading-snug text-[#0B1F3A] sm:text-[16px]">
+                    {title}
+                </h3>
+            </div>
+            <ul className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+                {items.map((item) => (
+                    <li
+                        key={item}
+                        className="flex items-start gap-2.5 rounded-xl bg-[#FFF9F5] px-3 py-3"
+                    >
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#FF6A00]" />
+                        <span className="text-[12px] font-medium leading-snug text-[#0B1F3A]">
+                            {item}
+                        </span>
+                    </li>
+                ))}
+            </ul>
+        </article>
+    );
+}
+
+function IndustryCard({ label, image }) {
+    return (
+        <article className="flex min-h-[126px] flex-col items-center justify-center rounded-2xl border border-[#F0E0D2] bg-white px-3 py-4 text-center transition-colors duration-200 hover:border-[#FFB77F] hover:bg-[#FFFCF9]">
+            <Image
+                src={image}
+                alt=""
+                width={72}
+                height={72}
+                className="h-16 w-16 object-contain sm:h-[72px] sm:w-[72px]"
+                aria-hidden="true"
+            />
+            <p className="mt-2 text-[11.5px] font-bold leading-snug text-[#0B1F3A] sm:text-[12px]">
+                {label}
+            </p>
+        </article>
+    );
+}
+
+function WhyChooseListItem({ icon: Icon, title }) {
+    return (
+        <article className="flex items-center gap-3 px-1 py-1">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#FFF4EA] text-[#FF6A00]">
+                <Icon className="h-6 w-6" strokeWidth={1.75} />
+            </span>
+            <h3 className="text-[13px] font-bold leading-snug text-[#0B1F3A] sm:text-[14px]">
+                {title}
+            </h3>
+        </article>
     );
 }
 
@@ -286,88 +355,101 @@ export default function UkManagementAccounts() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     return (
-        <>
-            <UKNavbar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
+        <main className="relative min-h-screen w-full overflow-x-hidden bg-white">
+            <UKNavbar
+                isSidebarOpen={isSidebarOpen}
+                setIsSidebarOpen={setIsSidebarOpen}
+            />
 
-            <section className="relative w-full overflow-hidden bg-gradient-to-br from-[#25404B] via-[#537E91] to-[#537E91] px-4 pt-8 pb-2 sm:px-6 sm:pt-10 sm:pb-2 lg:px-8">
+            <section
+                className="relative w-full overflow-hidden px-4 pb-8 pt-10 sm:px-6 sm:pb-10 sm:pt-12 lg:px-8"
+                style={{
+                    background:
+                        "linear-gradient(165deg, #FFFFFF 0%, #FFF9F5 42%, #FFF4EA 100%)",
+                }}
+            >
                 <div
-                    className="pointer-events-none absolute inset-0 opacity-[0.45]"
+                    className="pointer-events-none absolute inset-0 opacity-[0.55]"
                     style={{
                         backgroundImage:
-                            "radial-gradient(rgba(15,23,42,0.06) 1px, transparent 1px)",
-                        backgroundSize: "16px 16px",
+                            "radial-gradient(rgba(255, 106, 0,0.18) 1px, transparent 1px)",
+                        backgroundSize: "18px 18px",
                     }}
                 />
-                <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-[#FF6A00]/12 blur-3xl" />
-                <div className="pointer-events-none absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-slate-400/20 blur-3xl" />
-                <div className="pointer-events-none absolute left-1/2 top-1/3 h-40 w-40 -translate-x-1/2 rounded-full bg-white/50 blur-2xl" />
+                <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-[#FF6A00]/15 blur-3xl" />
+                <div className="pointer-events-none absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-[#0B1F3A]/06 blur-3xl" />
+                <div className="pointer-events-none absolute left-1/2 top-1/3 h-40 w-40 -translate-x-1/2 rounded-full bg-[#FF6A00]/10 blur-2xl" />
 
                 <div className="relative mx-auto flex w-full max-w-5xl flex-col justify-center">
                     <div className="flex flex-col items-center px-2 text-center">
-                        <span className="mb-3 inline-flex items-center rounded-full border border-[#FF6A00]/25 bg-white px-3 py-1 text-center text-[10px] font-bold uppercase tracking-wide text-[#FF6A00] shadow-sm sm:px-4 sm:text-[11px]">
-                            Management Accounts &amp; Financial
+                        <span className="mb-3 inline-flex items-center rounded-full border border-[#FF6A00]/25 bg-white px-3 py-1 text-center text-[10px] font-bold uppercase tracking-wide text-[#FF6A00] sm:px-4 sm:text-[11px]">
+                            Outsource UK Management Accounts
                         </span>
 
-                        <h1 className="max-w-[280px] text-2xl font-extrabold leading-snug text-[#0B1F3A] sm:max-w-2xl sm:text-3xl lg:text-[34px]">
-                            Management Accounts &amp;{" "}
-                            <span className="text-[#FF6A00]">Financial Reporting Services.</span>
+                        <h1 className="max-w-[320px] text-2xl font-extrabold leading-snug text-[#0B1F3A] sm:max-w-3xl sm:text-3xl lg:text-[34px]">
+                            <span className="text-[#FF6A00]">
+                                UK Management Accounts
+                            </span>{" "}
+                            &amp; Financial Reporting Services
                         </h1>
 
-                        <p className="mt-2 max-w-xs text-[25.5px] leading-snug text-slate-600 sm:max-w-xl sm:text-[13px] md:text-sm">
-                            Turning Financial Data into Meaningful Business Insights
+                        <p className="mt-2 max-w-xs text-[12.5px] leading-snug text-slate-600 sm:max-w-xl sm:text-[13px] md:text-sm">
+                            Turning financial data into meaningful business insights.
                             <br className="hidden sm:block" />
+                            Deliver clear, timely reporting that supports better decisions.
                         </p>
 
                         <div className="my-3 h-[3px] w-10 rounded-full bg-[#FF6A00]" />
 
-                        <div className="flex w-full max-w-xs flex-col items-stretch justify-center gap-2.5 xs:max-w-none sm:w-auto sm:flex-row sm:items-center sm:gap-3">
+                        <div className="flex w-full max-w-xs flex-col items-stretch justify-center gap-2.5 sm:w-auto sm:flex-row sm:items-center sm:gap-3">
                             <CtaButton href="/contact" variant="primary" size="sm">
                                 <Calendar className="h-3.5 w-3.5 shrink-0" />
                                 Book a Discovery Call
                             </CtaButton>
-                            <CtaButton href="#how-we-work" variant="ghost" size="sm">
-                                <Play className="h-3 w-3 shrink-0 fill-slate-700" />
-                                How We Work
-                            </CtaButton>
+                            <a
+                                href="tel:+918285285223"
+                                className="inline-flex items-center justify-center gap-1.5 rounded-md border border-slate-300 bg-white/80 px-4 py-2.5 text-[13px] font-semibold text-slate-700 transition-colors hover:border-slate-400 hover:bg-white sm:whitespace-nowrap sm:py-2"
+                            >
+                                <Phone className="h-3.5 w-3.5 shrink-0" />
+                                Call Us
+                            </a>
                         </div>
                     </div>
                     <TrustBadgesBar badges={trustBadges} />
                 </div>
             </section>
 
-            {/* Second Component */}
-            <section className="w-full bg-white">
-                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-2.5">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+            <section id="how-we-work" className="w-full bg-white">
+                <div className="mx-auto max-w-6xl px-4 py-3 sm:px-6 lg:px-8">
+                    <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12">
                         <div>
-                            <span className="inline-block text-[#FF6A00] uppercase font-extrabold tracking-widest text-[11px] mb-3">
+                            <span className="mb-3 inline-block text-[11px] font-extrabold uppercase tracking-widest text-[#FF6A00]">
                                 Outsourcing Partnership
                             </span>
 
-                            <h1 className="text-[28px] sm:text-[34px] lg:text-[30px] font-extrabold text-[#0B1F3A] leading-[1.15] mb-3">
+                            <h2 className="mb-3 text-[28px] font-extrabold leading-[1.15] text-[#0B1F3A] sm:text-[30px]">
                                 Turning Financial Data into Meaningful Business Insights
-                            </h1>
+                            </h2>
 
-                            <div className="w-14 h-[3px] bg-[#FF6A00] rounded-full mb-5" />
+                            <div className="mb-5 h-[3px] w-14 rounded-full bg-[#FF6A00]" />
 
-                            <p className="text-gray-500 text-[10px] sm:text-[15px] leading-relaxed mb-3">
-                                Many businesses only review their financial performance once a year
-                                when preparing statutory accounts and tax returns. However, by then,
-                                opportunities may have been missed and challenges may have already
-                                impacted profitability and cash flow.
+                            <p className="mb-3 text-[13px] leading-relaxed text-gray-500 sm:text-[15px]">
+                                Many businesses only review their financial performance once
+                                a year when preparing statutory accounts and tax returns. By
+                                then, opportunities may have been missed and challenges may
+                                already have affected profitability and cash flow.
                             </p>
 
-                            <p className="text-gray-500 text-[10px] sm:text-[15px] leading-relaxed mb-3">
-                                Management accounts provide regular financial information throughout
-                                the year, helping business owners understand how their business is
-                                performing and make informed decisions based on up-to-date financial
-                                data.
+                            <p className="mb-3 text-[13px] leading-relaxed text-gray-500 sm:text-[15px]">
+                                Management accounts provide regular financial information
+                                throughout the year, helping business owners understand
+                                performance and make informed decisions using current data.
                             </p>
-                            <p className="text-gray-500 text-[10px] sm:text-[15px] leading-relaxed mb-3">
-                                At NextLedgers, we support UK accounting firms with reliable
-                                management reporting and financial analysis services, enabling them
-                                to deliver valuable insights and advisory-driven solutions to their
-                                clients.
+
+                            <p className="mb-5 text-[13px] leading-relaxed text-gray-500 sm:text-[15px]">
+                                NextLedgers supports UK accounting firms with reliable
+                                management reporting and financial analysis, enabling them to
+                                deliver valuable insights and advisory-led solutions.
                             </p>
 
                             <CtaButton href="/contact" variant="primary" size="md">
@@ -376,532 +458,265 @@ export default function UkManagementAccounts() {
                             </CtaButton>
                         </div>
 
-                        <div className="relative">
-                            <div className="rounded-2xl overflow-hidden">
-                                <img
+                        <div className="relative pb-10 sm:pb-12">
+                            <div className="overflow-hidden rounded-2xl">
+                                <Image
                                     src="/images/DSC09901.JPG"
-                                    alt="Accounting team at work"
-                                    className="w-full h-[260px] sm:h-[320px] lg:h-[340px] object-cover"
+                                    alt="Accounting team preparing management reports"
+                                    width={720}
+                                    height={480}
+                                    className="h-[260px] w-full object-cover sm:h-[320px] lg:h-[340px]"
+                                    priority
                                 />
                             </div>
 
-                            <div className="absolute left-4 right-4 -bottom-8 sm:-bottom-9 bg-white rounded-xl shadow-lg px-3 sm:px-5 py-4 sm:py-5 grid grid-cols-4 gap-2">
+                            <div className="absolute bottom-0 left-4 right-4 grid grid-cols-4 gap-2 rounded-xl border border-[#F0E0D2] bg-white px-3 py-4 sm:px-5 sm:py-5">
                                 <Stat
-                                    icon={<Users className="w-5 h-5" />}
+                                    icon={<Users className="h-5 w-5" />}
                                     value="500+"
                                     label="UK Accounting Firms Supported"
                                 />
                                 <Stat
-                                    icon={<PuzzleIcon className="w-5 h-5" />}
+                                    icon={<PuzzleIcon className="h-5 w-5" />}
                                     value="30+"
                                     label="Software Integrations"
                                 />
                                 <Stat
-                                    icon={<ShieldCheck className="w-5 h-5" />}
+                                    icon={<ShieldCheck className="h-5 w-5" />}
                                     value="100%"
-                                    label="HMRC Compliant Processes"
+                                    label="Review-Ready Processes"
                                 />
                                 <Stat
-                                    icon={<Headset className="w-5 h-5" />}
+                                    icon={<Headset className="h-5 w-5" />}
                                     value="Dedicated"
                                     label="Offshore Support Team"
                                 />
                             </div>
                         </div>
                     </div>
-
-                    {/* Space for overlapping stats bar only */}
-                    <div className="h-6 sm:h-7" />
                 </div>
             </section>
 
-            
+            <BookKeepingMatters
+                eyebrow="Management Reporting"
+                titleBefore="Why Management "
+                titleAccent="Accounts Matter"
+                intro="Regular management accounts turn day-to-day financial data into timely information that business owners can use to improve performance."
+                helpLabelBefore="Clear management reporting helps businesses "
+                helpLabelAccent="answer critical questions"
+                helpLabelAfter=" with confidence."
+                imageSrc="/images/ukPageImg/bookkeepingimage.png"
+                imageAlt="Management accounts dashboard and financial analysis"
+                trustItems={managementTrustItems}
+                trustFooterBefore="Built for Better Decisions. "
+                trustFooterAccent="Designed for Growth."
+                benefits={managementMattersItems}
+                bannerTitleBefore="Current data. Clear direction. "
+                bannerTitleAccent="Better decisions."
+                bannerBody="Timely management information allows business owners to act early, manage risk, and pursue opportunities with confidence."
+                wideTrustPanel
+                className="!py-3"
+            />
 
-            {/* third Component — Why Management Accounts Matter */}
-            <section className="relative w-full overflow-hidden bg-white py-2 sm:py-2.5">
-                <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2 lg:gap-10 xl:gap-12">
-                        {/* Left: heading + list */}
-                        <div className="flex flex-col">
-                            <div className="text-center lg:text-left">
-                                <h2
-                                    className="text-[22px] font-extrabold leading-tight tracking-[-0.01em] sm:text-[26px] lg:text-[28px]"
-                                    style={{ color: NAVY }}
-                                >
-                                    Why Management{" "}
-                                    <span style={{ color: ORANGE }}>Accounts Matter</span>
-                                </h2>
-                                <p
-                                    className="mx-auto mt-2 max-w-xl text-[14px] leading-relaxed sm:mt-2.5 sm:text-[15px] lg:mx-0"
-                                    style={{ color: GREY }}
-                                >
-                                    Regular management reporting helps businesses answer important
-                                    questions, such as:
-                                </p>
-                            </div>
-
-                            <div className="mt-4 sm:mt-5">
-                                {managementMattersItems.map((item, index) => {
-                                    const Icon = item.icon;
-                                    const isLast = index === managementMattersItems.length - 1;
-
-                                    return (
-                                        <div key={item.title}>
-                                            <div className="flex items-start gap-3 py-2.5 sm:py-3">
-                                                <div
-                                                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-white sm:h-10 sm:w-10"
-                                                    style={{
-                                                        background: ORANGE,
-                                                        boxShadow:
-                                                            "0 6px 16px rgba(255, 106, 0,0.28)",
-                                                    }}
-                                                >
-                                                    <Icon className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
-                                                </div>
-
-                                                <div className="min-w-0">
-                                                    <h3
-                                                        className="text-[13.5px] font-bold leading-snug sm:text-[14.5px]"
-                                                        style={{ color: NAVY }}
-                                                    >
-                                                        {item.title}
-                                                    </h3>
-                                                    <p
-                                                        className="mt-0.5 text-[12px] leading-[1.45] sm:text-[13px]"
-                                                        style={{ color: GREY }}
-                                                    >
-                                                        {item.description}
-                                                    </p>
-                                                </div>
-                                            </div>
-
-                                            {!isLast && (
-                                                <div
-                                                    className="h-px w-full bg-[#E8E8E8]"
-                                                    aria-hidden="true"
-                                                />
-                                            )}
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        </div>
-
-                        {/* Right: image height matches content column */}
-                        <div className="relative min-h-[280px] h-full min-w-0 overflow-hidden rounded-[24px] shadow-[0_12px_40px_rgba(15,39,74,0.08)] sm:min-h-[320px] sm:rounded-[28px]">
-                            <Image
-                                src="/images/bgimage.JPG"
-                                alt="Management accounts supporting business decisions"
-                                fill
-                                className="object-cover object-center"
-                                sizes="(max-width: 1024px) 100vw, 50vw"
-                            />
-                        </div>
-                    </div>
-
-                    {/* Full-width note below list + image so it never covers the image */}
-                    <div
-                        className="relative mt-5 w-full overflow-hidden rounded-xl px-5 py-5 text-center sm:mt-6 sm:px-8 sm:py-6"
-                        style={{ background: "#FFF7F0" }}
-                    >
-                        <div
-                            className="pointer-events-none absolute inset-0 opacity-60"
-                            aria-hidden="true"
-                            style={{
-                                backgroundImage:
-                                    "radial-gradient(rgba(255, 106, 0,0.22) 1px, transparent 1px)",
-                                backgroundSize: "12px 12px",
-                                maskImage:
-                                    "radial-gradient(ellipse at center, black 35%, transparent 80%)",
-                                WebkitMaskImage:
-                                    "radial-gradient(ellipse at center, black 35%, transparent 80%)",
-                            }}
-                        />
-                        <p
-                            className="relative mx-auto w-full max-w-5xl text-[13px] leading-[1.65] sm:text-[14px]"
-                            style={{ color: "#4B5563" }}
-                        >
-                            Having access to this information allows business owners to make
-                            proactive decisions rather than reacting to problems after year-end.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            {/* fourth Component — Our Management Accounting Services */}
-            <section
-                className="relative w-full overflow-hidden py-2 sm:py-2.5"
-                style={{ background: "#FFF7F0" }}
-            >
-                <div
-                    className="pointer-events-none absolute inset-0 opacity-40"
-                    aria-hidden="true"
-                    style={{
-                        backgroundImage:
-                            "radial-gradient(rgba(255, 106, 0,0.18) 1px, transparent 1px)",
-                        backgroundSize: "14px 14px",
-                    }}
-                />
-
-                <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2 lg:gap-10 xl:gap-12">
-                        {/* Left: services checklist */}
-                        <div className="flex flex-col justify-center">
-                            <span
-                                className="mb-2 inline-block text-[10px] font-bold uppercase tracking-[0.16em] sm:text-[11px]"
-                                style={{ color: ORANGE }}
-                            >
-                                Our Deliverables
-                            </span>
-
-                            <h2
-                                className="text-[22px] font-extrabold leading-tight tracking-[-0.01em] sm:text-[26px] lg:text-[28px]"
-                                style={{ color: NAVY }}
-                            >
-                                Our Management{" "}
-                                <span style={{ color: ORANGE }}>Accounting Services</span>
-                            </h2>
-
-                            <p
-                                className="mt-2.5 text-[14px] leading-relaxed sm:text-[15px]"
-                                style={{ color: GREY }}
-                            >
-                                We provide comprehensive management reporting support, including:
-                            </p>
-
-                            <div className="mt-5 grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3">
-                                {managementServices.map((service) => (
-                                    <div
-                                        key={service}
-                                        className="flex items-center gap-2.5 rounded-xl border border-white/80 bg-white/80 px-3 py-2.5 shadow-[0_2px_10px_rgba(15,23,42,0.04)] backdrop-blur-sm transition-shadow hover:shadow-[0_4px_16px_rgba(255, 106, 0,0.12)]"
-                                    >
-                                        <span
-                                            className="flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full"
-                                            style={{ background: ORANGE }}
-                                        >
-                                            <svg
-                                                viewBox="0 0 24 24"
-                                                fill="none"
-                                                className="h-2.5 w-2.5"
-                                                stroke="white"
-                                                strokeWidth={3.5}
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                aria-hidden="true"
-                                            >
-                                                <path d="M20 6 9 17l-5-5" />
-                                            </svg>
-                                        </span>
-                                        <span
-                                            className="text-[12px] font-semibold leading-snug sm:text-[12.5px]"
-                                            style={{ color: NAVY }}
-                                        >
-                                            {service}
-                                        </span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* Right: image matches content height */}
-                        <div className="relative min-h-[240px] h-full overflow-hidden rounded-[24px] shadow-[0_12px_40px_rgba(15,39,74,0.08)] sm:min-h-[300px] sm:rounded-[28px]">
-                            <Image
-                                src="/images/DSC09781.JPG"
-                                alt="Our Management Accounting Services"
-                                fill
-                                className="object-cover object-center"
-                                sizes="(max-width: 1024px) 100vw, 50vw"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </section>
-   
-            {/* Fifth Component  */}
+            <BookkeepingReconcilation
+                eyebrow="Management Reporting Deliverables"
+                titleBefore="Our "
+                titleAccent="Management Accounting"
+                titleAfter=" Services"
+                subtitle="Comprehensive reporting and analysis support that turns accurate financial data into actionable insight."
+                serviceCards={managementServiceCards}
+                showSpecialist={false}
+                className="!py-3"
+            />
 
             <section
-                className="relative w-full overflow-hidden px-4 py-2 sm:px-6 sm:py-2.5 lg:px-8"
+                className="relative w-full overflow-hidden px-4 py-3 sm:px-6 lg:px-8"
                 style={{ background: PAGE_CREAM }}
             >
-                {/* Soft dots + wave atmosphere */}
-                <div
-                    className="pointer-events-none absolute right-6 top-6 opacity-50 sm:right-10 sm:top-8"
-                    aria-hidden="true"
-                    style={{
-                        display: "grid",
-                        gridTemplateColumns: "repeat(5, 4px)",
-                        gap: 6,
-                    }}
-                >
-                    {Array.from({ length: 20 }).map((_, i) => (
-                        <span
-                            key={i}
-                            style={{
-                                width: 3.5,
-                                height: 3.5,
-                                borderRadius: "50%",
-                                background: ORANGE,
-                                opacity: 0.45,
-                            }}
-                        />
-                    ))}
-                </div>
-                <svg
-                    className="pointer-events-none absolute left-0 top-0 h-40 w-64 opacity-30 sm:h-48 sm:w-80"
-                    viewBox="0 0 320 180"
-                    fill="none"
-                    aria-hidden="true"
-                >
-                    <path
-                        d="M0,90 C60,40 120,140 180,80 C240,20 280,100 320,70"
-                        stroke="#F3E0D0"
-                        strokeWidth="18"
-                        strokeLinecap="round"
-                    />
-                    <path
-                        d="M0,120 C80,70 140,160 200,110 C260,60 300,130 320,100"
-                        stroke="#F8E8DC"
-                        strokeWidth="14"
-                        strokeLinecap="round"
-                    />
-                </svg>
-
-                <div className="relative mx-auto flex w-full max-w-6xl flex-col">
-                    <div className="mb-7 flex flex-col items-center text-center sm:mb-8">
-                        <span
-                            className="mb-3 inline-flex items-center gap-1.5 rounded-full border px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.12em]"
-                            style={{
-                                background: PILL_BG,
-                                borderColor: "rgba(255, 106, 0,0.35)",
-                                color: ORANGE,
-                            }}
-                        >
-                            <Pencil className="h-3 w-3" strokeWidth={2.5} />
+                <DotGrid className="pointer-events-none absolute right-6 top-6 sm:right-10" />
+                <div className="relative mx-auto w-full max-w-6xl">
+                    <div className="mb-6 flex flex-col items-center text-center">
+                        <span className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-[#FF6A00]/25 bg-[#FFF4EA] px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.12em] text-[#FF6A00]">
+                            <Lightbulb className="h-3 w-3" strokeWidth={2.5} />
                             Actionable Insights
                         </span>
-
-                        <h2
-                            className="max-w-3xl text-[22px] font-extrabold leading-tight sm:text-[26px] lg:text-[30px]"
-                            style={{ color: NAVY }}
-                        >
-                            How We{" "}
-                            <span style={{ color: ORANGE }}>Help Businesses</span>
+                        <h2 className="max-w-3xl text-[22px] font-extrabold leading-tight text-[#0B1F3A] sm:text-[26px] lg:text-[28px]">
+                            How We Help{" "}
+                            <span className="text-[#FF6A00]">Businesses</span>
                         </h2>
-
-                        <p
-                            className="mt-2.5 max-w-2xl text-[12.5px] leading-relaxed sm:text-[13.5px]"
-                            style={{ color: GREY }}
-                        >
-                            Our reports are designed to transform bookkeeping data into clear and
-                            actionable insights that help businesses:
+                        <p className="mt-2.5 max-w-2xl text-[13px] leading-relaxed text-[#6B7280] sm:text-[14px]">
+                            Our reports transform bookkeeping data into clear,
+                            decision-ready insight for business owners and their advisers.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:gap-7">
-                        <HelpCard
-                            icon={Award}
-                            titleBefore="Monitor & "
-                            titleAccent="Measure"
-                            titleAfter=" Performance"
-                            items={helpBusinessPerformance}
-                        />
-                        <HelpCard
-                            icon={Users}
-                            titleBefore="Plan & "
-                            titleAccent="Grow"
-                            titleAfter=" with Confidence"
-                            items={helpBusinessStrategy}
-                        />
+                    <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+                        {helpCards.map((card) => (
+                            <HelpCard key={card.title} {...card} />
+                        ))}
                     </div>
                 </div>
             </section>
 
-            {/* Sixth Component — Software Expertise */}
             <IconDisplayScreen
                 title="Software Expertise"
                 subtitle="We work across the accounting platforms and reporting tools your clients already rely on."
                 logodata={softwareExpertiseLogodata}
-                className="!py-2 sm:!py-2.5 lg:!py-2.5"
+                className="!py-3"
             />
 
-            {/* Seventh Component — Industries We Support */}
-            <section className="relative w-full overflow-hidden bg-white py-5 sm:py-6 lg:py-7">
-                <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
-                    <div
-                        className="rounded-none px-3 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-7"
-                        style={{ background: PAGE_CREAM }}
-                    >
-                        {/* Header */}
-                        <div className="mx-auto max-w-[720px] text-center">
-                            <div className="inline-flex items-center justify-center gap-3">
-                                <span
-                                    className="hidden h-px w-8 sm:block"
-                                    style={{ background: ORANGE }}
-                                    aria-hidden="true"
-                                />
-                                <p
-                                    className="text-[11px] font-bold uppercase tracking-[0.22em] sm:text-[12px]"
-                                    style={{ color: ORANGE }}
-                                >
-                                    Our Industry Expertise
-                                </p>
-                                <span
-                                    className="hidden h-px w-8 sm:block"
-                                    style={{ background: ORANGE }}
-                                    aria-hidden="true"
-                                />
-                            </div>
-
-                            <h2
-                                className="mt-2 text-[22px] font-extrabold leading-[1.15] tracking-[-0.01em] sm:text-[28px] lg:text-[32px]"
-                                style={{ color: NAVY }}
-                            >
+            <section className="relative w-full overflow-hidden bg-white py-3">
+                <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+                    <div className="rounded-2xl bg-[#FFF9F5] px-4 py-6 sm:px-6">
+                        <div className="mx-auto max-w-2xl text-center">
+                            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#FF6A00]">
+                                Our Industry Expertise
+                            </span>
+                            <h2 className="mt-2 text-[24px] font-extrabold leading-tight text-[#0B1F3A] sm:text-[28px]">
                                 Industries We{" "}
-                                <span style={{ color: ORANGE }}>Support</span>
+                                <span className="text-[#FF6A00]">Support</span>
                             </h2>
-
-                            <p
-                                className="mx-auto mt-2 max-w-[540px] text-[12px] leading-5 sm:mt-2 sm:text-[13px] sm:leading-6"
-                                style={{ color: GREY }}
-                            >
-                                We work with accounting firms serving clients across various
-                                sectors, including:
+                            <p className="mx-auto mt-2 max-w-xl text-[13px] leading-relaxed text-[#6B7280]">
+                                We support accounting firms serving clients across a wide
+                                range of sectors.
                             </p>
                         </div>
 
-                        {/* Industry cards — 7 items */}
-                        <div className="mt-7 grid grid-cols-2 gap-3 sm:mt-8 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4 xl:grid-cols-4 lg:gap-5">
-                            {industriesWeSupport.map((item) => {
-                                const Icon = item.icon;
-                                return (
-                                    <div
-                                        key={item.label}
-                                        className="flex min-h-[92px] flex-col items-center justify-center rounded-[12px] border border-[#F0F0F0] bg-white px-2 py-2.5 text-center shadow-[0_4px_18px_rgba(15,39,74,0.05)] transition-all duration-200 hover:border-[#FF6A00]/25 hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:min-h-[108px] sm:rounded-[14px] sm:px-2.5 sm:py-3"
-                                    >
-                                        <div
-                                            className="flex h-11 w-11 items-center justify-center rounded-full sm:h-12 sm:w-12"
-                                            style={{ backgroundColor: item.bg }}
-                                        >
-                                            <Icon
-                                                className="h-5 w-5 sm:h-5 sm:w-5"
-                                                style={{ color: item.color }}
-                                                strokeWidth={1.75}
-                                            />
-                                        </div>
-                                        <p
-                                            className="mt-1.5 text-[11px] font-bold leading-snug sm:text-[12px]"
-                                            style={{ color: NAVY }}
-                                        >
-                                            {item.label}
-                                        </p>
-                                    </div>
-                                );
-                            })}
+                        <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+                            {industriesWeSupport.map((industry) => (
+                                <IndustryCard key={industry.label} {...industry} />
+                            ))}
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Eighth Component — Why Choose NextLedgers */}
-            <section className="relative w-full overflow-hidden bg-white py-2 sm:py-2.5">
-                <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2 lg:gap-10 xl:gap-12">
-                        {/* Left: heading + checklist */}
-                        <div className="flex flex-col">
-                            <div className="text-center">
-                                <h2
-                                    className="text-[22px] font-extrabold leading-tight tracking-[-0.01em] sm:text-[26px] lg:text-[28px]"
-                                    style={{ color: NAVY }}
-                                >
-                                    Why Choose{" "}
-                                    <span style={{ color: ORANGE }}>NextLedgers?</span>
-                                </h2>
-                                <p
-                                    className="mx-auto mt-2 max-w-[440px] text-[14px] leading-relaxed sm:mt-2.5 sm:text-[15px]"
-                                    style={{ color: GREY }}
-                                >
-                                    We&apos;re committed to providing exceptional accounting &amp;
-                                    tax services with a personal touch
-                                </p>
-                            </div>
+            <section className="relative w-full overflow-hidden bg-white px-4 py-3 sm:px-6 lg:px-8">
+                <DotGrid className="pointer-events-none absolute right-4 top-6 sm:right-10" />
+                <DotGrid className="pointer-events-none absolute bottom-8 left-4 sm:left-8" />
 
-                            <div className="mt-4 sm:mt-5">
-                                {whyChooseNextLedgers.map((title, index) => {
-                                    const isLast = index === whyChooseNextLedgers.length - 1;
-                                    return (
-                                        <div key={title}>
-                                            <div className="flex items-start gap-3 py-2.5 sm:py-3">
-                                                <span
-                                                    className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full sm:h-10 sm:w-10"
-                                                    style={{
-                                                        background: ORANGE,
-                                                        boxShadow:
-                                                            "0 6px 16px rgba(255, 106, 0,0.28)",
-                                                    }}
-                                                >
-                                                    <svg
-                                                        viewBox="0 0 24 24"
-                                                        fill="none"
-                                                        className="h-4 w-4 sm:h-[18px] sm:w-[18px]"
-                                                        stroke="white"
-                                                        strokeWidth={3}
-                                                        strokeLinecap="round"
-                                                        strokeLinejoin="round"
-                                                        aria-hidden="true"
-                                                    >
-                                                        <path d="M20 6 9 17l-5-5" />
-                                                    </svg>
-                                                </span>
-                                                <p
-                                                    className="pt-1.5 text-[13.5px] font-bold leading-snug sm:pt-2 sm:text-[14.5px]"
-                                                    style={{ color: NAVY }}
-                                                >
-                                                    {title}
-                                                </p>
-                                            </div>
-                                            {!isLast && (
-                                                <div
-                                                    className="h-px w-full bg-[#E8E8E8]"
-                                                    aria-hidden="true"
-                                                />
-                                            )}
-                                        </div>
-                                    );
-                                })}
-                            </div>
+                <div className="relative mx-auto w-full max-w-6xl">
+                    <div className="mb-7 flex flex-col items-center text-center">
+                        <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[#FFF4EA] px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.12em] text-[#FF6A00]">
+                            <Star
+                                className="h-3 w-3"
+                                strokeWidth={2.5}
+                                fill={ORANGE}
+                            />
+                            Partner Advantages
+                        </span>
+
+                        <h2 className="max-w-3xl text-[22px] font-extrabold leading-tight text-[#0B1F3A] sm:text-[26px] lg:text-[28px]">
+                            Why Choose{" "}
+                            <span className="text-[#FF6A00]">NextLedgers</span> for{" "}
+                            <span className="text-[#FF6A00]">
+                                Management Accounts
+                            </span>
+                            ?
+                        </h2>
+
+                        <p className="mx-auto mt-2.5 max-w-xl text-[13px] leading-relaxed text-[#6B7280] sm:text-[14px]">
+                            Dedicated reporting specialists who work as an extension of
+                            your practice and help turn financial data into client value.
+                        </p>
+                        <div className="mx-auto mt-3.5 h-[3px] w-11 rounded-full bg-[#FF6A00]" />
+                    </div>
+
+                    <div className="grid grid-cols-1 items-stretch gap-1 lg:grid-cols-2">
+                        <div className="grid grid-cols-1 gap-1">
+                            {whyChooseCards.map((card) => (
+                                <WhyChooseListItem key={card.title} {...card} />
+                            ))}
                         </div>
 
-                        {/* Right: image height matches content */}
-                        <div className="relative min-h-[280px] h-full overflow-hidden rounded-[24px] shadow-[0_12px_40px_rgba(15,39,74,0.08)] sm:min-h-[320px] sm:rounded-[28px]">
+                        <div className="relative min-h-[320px] overflow-hidden rounded-2xl sm:min-h-[380px] lg:min-h-full">
                             <Image
                                 src="/images/bgimage.JPG"
-                                alt="Why choose NextLedgers for management accounts"
+                                alt="NextLedgers management accounts specialists"
                                 fill
                                 className="object-cover object-center"
                                 sizes="(max-width: 1024px) 100vw, 50vw"
                             />
+                            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0B1F3A]/80 to-transparent px-5 pb-5 pt-16">
+                                <p className="text-[14px] font-bold leading-snug text-white sm:text-[15px]">
+                                    Dedicated reporting support that works as an extension
+                                    of your practice.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Ninth Component — More Than Compliance Reporting CTA */}
-            <TransformCTA
-                titleWhite="More Than"
-                titleOrange="Compliance Reporting"
-                titleBreak={false}
-                description="Management accounts are no longer just reports containing numbers. They have become one of the most valuable tools for understanding business performance, improving profitability, and supporting strategic decision-making."
-                descriptionSecond="At NextLedgers, we help UK accounting firms deliver insightful management reporting that strengthens client relationships and creates more opportunities for advisory services."
-                primaryLabel="Book a Discovery Call"
-                primaryHref="/contact"
-                secondaryLabel="Call Us"
-                secondaryHref="tel:+918285285223"
-                className="!pt-2 sm:!pt-2.5 lg:!pt-2.5"
-            />
+            <section className="relative w-full bg-white px-4 py-3 sm:px-6 lg:px-8">
+                <div className="relative mx-auto max-w-5xl overflow-hidden rounded-[22px] bg-[#FFF9F5] px-5 py-10 text-center sm:rounded-[28px] sm:px-10 sm:py-12 lg:px-14">
+                    <div className="pointer-events-none absolute -left-16 bottom-0 h-48 w-48 rounded-full bg-[#FF6A00]/10" />
+                    <div className="pointer-events-none absolute -right-10 -top-10 h-40 w-40 rounded-full bg-[#FF6A00]/10" />
+                    <DotGrid className="pointer-events-none absolute bottom-6 right-6 opacity-70" />
 
-            {/* Ninth Component  */}
+                    <div className="relative z-10">
+                        <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[#FFF4EA] px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.12em] text-[#FF6A00]">
+                            <Handshake className="h-3.5 w-3.5" strokeWidth={2.25} />
+                            Management Reporting Partner
+                        </span>
 
-            <Footer />
-        </>
+                        <h2 className="text-[24px] font-extrabold leading-tight text-[#0B1F3A] sm:text-[30px] lg:text-[34px]">
+                            Your Offshore{" "}
+                            <span className="text-[#FF6A00]">
+                                Management Accounts
+                            </span>{" "}
+                            Partner
+                        </h2>
+
+                        <p className="mx-auto mt-3 max-w-2xl text-[13px] leading-relaxed text-[#6B7280] sm:text-[14.5px]">
+                            Management accounts are more than reports containing numbers.
+                            They are valuable tools for understanding performance,
+                            improving profitability, and supporting strategic decisions.
+                        </p>
+
+                        <div className="mx-auto mt-6 flex max-w-3xl items-start gap-4 rounded-2xl border border-[#F0E0D2] bg-white px-4 py-4 text-left sm:gap-5 sm:px-6 sm:py-5">
+                            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#FFF4EA] text-[#FF6A00] sm:h-12 sm:w-12">
+                                <UserCheck className="h-5 w-5" strokeWidth={2} />
+                            </span>
+                            <p className="pt-0.5 text-[12.5px] leading-relaxed text-[#6B7280] sm:text-[13.5px]">
+                                Whether you need monthly reporting, board packs, cash flow
+                                forecasts, KPI dashboards, or dedicated offshore support,
+                                NextLedgers helps your practice deliver consistent,
+                                advisory-ready insight.
+                            </p>
+                        </div>
+
+                        <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+                            <CtaButton href="/contact" variant="primary" size="lg">
+                                <Phone className="h-4 w-4" strokeWidth={2.25} />
+                                Book a Discovery Call
+                            </CtaButton>
+                            <CtaButton href="/contact" variant="secondary" size="lg">
+                                <Send className="h-4 w-4" strokeWidth={2.25} />
+                                Request a Proposal
+                            </CtaButton>
+                        </div>
+
+                        <div className="mx-auto mt-8 flex max-w-2xl flex-col items-center justify-center gap-4 border-t border-[#F0E0D2] pt-6 sm:flex-row sm:gap-8">
+                            {partnerTrust.map(({ icon: Icon, label }) => (
+                                <div
+                                    key={label}
+                                    className="flex items-center gap-2 text-[#8B7355]"
+                                >
+                                    <Icon className="h-4 w-4" strokeWidth={2} />
+                                    <span className="text-[12px] font-semibold sm:text-[12.5px]">
+                                        {label}
+                                    </span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <Footer region="uk" />
+            <ArtificialIntelligence />
+            <NexaLedAi />
+        </main>
     );
 }

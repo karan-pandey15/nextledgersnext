@@ -22,14 +22,6 @@ import {
     Network,
     TrendingUp,
     Building2,
-    ShoppingBag,
-    Store,
-    Factory,
-    UtensilsCrossed,
-    HeartPulse,
-    Monitor,
-    HardHat,
-    Briefcase,
     Pencil,
     FileText,
     Sparkles,
@@ -44,9 +36,8 @@ import Link from "next/link";
 import CtaButton from "@/app/components/ui/CtaButton";
 import IconDisplayScreen from "@/app/components/ServiceMainPageContent/IcondisplayScreen";
 import TrustBadgesBar from "@/app/components/ServiceMainPageContent/TrustBadgesBar";
-import TransformCTA from "@/app/components/HomeImpact/TransformCTA";
+import ServicePartnerCTA from "@/app/components/ServiceMainPageContent/ServicePartnerCTA";
 import Footer from "@/app/components/footer/Footer";
-import TopAnnouncementBar from "@/app/components/TopHeader/TopAnnouncementBar";
 import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/ArtificialIntelligence";
 import NexaLedAi from "@/app/components/ChatBot/NexaLedAi";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
@@ -62,7 +53,7 @@ const trustBadges = [
     { icon: Shield, label: "ISO 27001", sub: "Certified" },
     { icon: Lock, label: "GDPR", sub: "Compliant" },
     { icon: Clock, label: "UK Time Zone", sub: "Overlap" },
-    { icon: Award, label: "10+ Years", sub: "Experience" },
+    { icon: Award, label: "9+ Years", sub: "Experience" },
     { icon: UserCheck, label: "Dedicated", sub: "Account Manager" },
 ];
 
@@ -221,20 +212,18 @@ const softwareExpertiseLogodata = [
 ];
 
 const industriesWeSupport = [
-    { label: "Professional Service Firms", icon: Briefcase, bg: "#E8F4FF", color: "#0284C7" },
-    { label: "Construction & Trades", icon: HardHat, bg: "#FFF4E5", color: "#FF6A00" },
-    { label: "E-Commerce Businesses", icon: ShoppingBag, bg: "#E8F8EF", color: "#16A34A" },
-    { label: "Retail Businesses", icon: Store, bg: "#FFF0E8", color: BRAND_ORANGE },
-    { label: "Manufacturing Companies", icon: Factory, bg: "#F3E8FF", color: "#9333EA" },
-    { label: "Hospitality Businesses", icon: UtensilsCrossed, bg: "#FFE8EE", color: "#E11D48" },
-    { label: "Healthcare Providers", icon: HeartPulse, bg: "#E8F1FF", color: "#3B82F6" },
-    { label: "Recruitment Agencies", icon: Users, bg: "#F3E8FF", color: "#7C3AED" },
-    { label: "Technology Companies", icon: Monitor, bg: "#E8F1FF", color: "#2563EB" },
+    { label: "Professional Service Firms", image: "/images/nexticon/professionalservices.png" },
+    { label: "Construction & Trades", image: "/images/nexticon/construction.png" },
+    { label: "E-Commerce Businesses", image: "/images/nexticon/Ecommerce.png" },
+    { label: "Retail Businesses", image: "/images/nexticon/Ecommerce.png" },
+    { label: "Manufacturing Companies", image: "/images/nexticon/manugacturing.png" },
+    { label: "Hospitality Businesses", image: "/images/nexticon/hospitality.png" },
+    { label: "Healthcare Providers", image: "/images/nexticon/healthcare.png" },
+    { label: "Recruitment Agencies", image: "/images/nexticon/consulting.png" },
+    { label: "Technology Companies", image: "/images/nexticon/technology.png" },
     {
         label: "Property & Real Estate Businesses",
-        icon: Building2,
-        bg: "#FFE8EE",
-        color: "#BE123C",
+        image: "/images/nexticon/realstate.png",
     },
 ];
 
@@ -334,10 +323,10 @@ function ServiceCard({ icon: Icon, titleBefore, titleAccent, titleAfter, items }
         >
             <div className="mb-4 flex items-center gap-2.5">
                 <span
-                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg"
-                    style={{ background: ORANGE }}
+                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl"
+                    style={{ background: PILL_BG, color: ORANGE }}
                 >
-                    <Icon className="h-4 w-4 text-white" strokeWidth={2} />
+                    <Icon className="h-7 w-7" strokeWidth={1.8} />
                 </span>
                 <h3
                     className="text-[14px] font-bold leading-snug sm:text-[15px]"
@@ -367,10 +356,10 @@ function MatterCard({ icon: Icon, title, description }) {
             }}
         >
             <span
-                className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full"
+                className="mt-0.5 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl"
                 style={{ background: PILL_BG, color: ORANGE }}
             >
-                <Icon className="h-[17px] w-[17px]" strokeWidth={1.75} />
+                <Icon className="h-7 w-7" strokeWidth={1.75} />
             </span>
             <div className="min-w-0 flex-1 text-left">
                 <h4 className="text-[13px] font-bold leading-snug" style={{ color: NAVY }}>
@@ -393,25 +382,30 @@ export default function UKCompanyFormation() {
 
     return (
         <main className="relative min-h-screen w-full overflow-x-hidden bg-white">
-            <TopAnnouncementBar />
             <UKNavbar
                 isSidebarOpen={isSidebarOpen}
                 setIsSidebarOpen={setIsSidebarOpen}
             />
 
             {/* 1 — Hero */}
-            <section className="relative w-full overflow-hidden bg-gradient-to-br from-[#25404B] via-[#537E91] to-[#537E91] px-4 pb-2 pt-8 sm:px-6 sm:pb-2 sm:pt-10 lg:px-8">
+            <section
+                className="relative w-full overflow-hidden px-4 pb-8 pt-10 sm:px-6 sm:pb-10 sm:pt-12 lg:px-8"
+                style={{
+                    background:
+                        "linear-gradient(165deg, #FFFFFF 0%, #FFF9F5 42%, #FFF4EA 100%)",
+                }}
+            >
                 <div
-                    className="pointer-events-none absolute inset-0 opacity-[0.45]"
+                    className="pointer-events-none absolute inset-0 opacity-[0.55]"
                     style={{
                         backgroundImage:
-                            "radial-gradient(rgba(15,23,42,0.06) 1px, transparent 1px)",
-                        backgroundSize: "16px 16px",
+                            "radial-gradient(rgba(255, 106, 0,0.18) 1px, transparent 1px)",
+                        backgroundSize: "18px 18px",
                     }}
                 />
-                <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-[#FF6A00]/12 blur-3xl" />
-                <div className="pointer-events-none absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-slate-400/20 blur-3xl" />
-                <div className="pointer-events-none absolute left-1/2 top-1/3 h-40 w-40 -translate-x-1/2 rounded-full bg-white/50 blur-2xl" />
+                <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-[#FF6A00]/15 blur-3xl" />
+                <div className="pointer-events-none absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-[#0B1F3A]/06 blur-3xl" />
+                <div className="pointer-events-none absolute left-1/2 top-1/3 h-40 w-40 -translate-x-1/2 rounded-full bg-[#FF6A00]/10 blur-2xl" />
 
                 <div className="relative mx-auto flex w-full max-w-5xl flex-col justify-center">
                     <div className="flex flex-col items-center px-2 text-center">
@@ -449,7 +443,7 @@ export default function UKCompanyFormation() {
 
             {/* 2 — Intro (Management Accounts Discovery Call style) */}
             <section id="how-we-work" className="w-full bg-white">
-                <div className="mx-auto max-w-6xl px-4 py-2 sm:px-6 sm:py-2.5 lg:px-8">
+                <div className="mx-auto max-w-6xl px-4 py-3 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12">
                         <div>
                             <span className="mb-3 inline-block text-[11px] font-extrabold uppercase tracking-widest text-[#FF6A00]">
@@ -537,7 +531,7 @@ export default function UKCompanyFormation() {
 
             {/* 3 — Why it matters */}
             <section
-                className="relative w-full overflow-hidden px-4 py-8 sm:px-6 sm:py-10 lg:px-8"
+                className="relative w-full overflow-hidden px-4 py-3 sm:px-6 lg:px-8"
                 style={{ background: PAGE_CREAM }}
             >
                 <DotGrid className="pointer-events-none absolute right-4 top-6 sm:right-10" />
@@ -603,7 +597,7 @@ export default function UKCompanyFormation() {
 
             {/* 4 — Formation + Secretarial */}
             <section
-                className="relative w-full overflow-hidden px-4 py-8 sm:px-6 sm:py-10 lg:px-8"
+                className="relative w-full overflow-hidden px-4 py-3 sm:px-6 lg:px-8"
                 style={{ background: PAGE_CREAM }}
             >
                 <div className="relative mx-auto flex w-full max-w-6xl flex-col">
@@ -666,7 +660,7 @@ export default function UKCompanyFormation() {
             </section>
 
             {/* 5 — Companies House + Start-Up */}
-            <section className="relative w-full overflow-hidden bg-white px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+            <section className="relative w-full overflow-hidden bg-white px-4 py-3 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-6xl">
                     <div className="mb-7 text-center">
                         <h2
@@ -707,7 +701,7 @@ export default function UKCompanyFormation() {
 
             {/* 6 — How We Help */}
             <section
-                className="relative w-full overflow-hidden px-4 py-8 sm:px-6 sm:py-10 lg:px-8"
+                className="relative w-full overflow-hidden px-4 py-3 sm:px-6 lg:px-8"
                 style={{ background: PAGE_CREAM }}
             >
                 <div className="relative mx-auto flex w-full max-w-6xl flex-col">
@@ -765,11 +759,11 @@ export default function UKCompanyFormation() {
                 title="Software Expertise"
                 subtitle="We work across the company secretarial, accounting, and document platforms your practice already uses."
                 logodata={softwareExpertiseLogodata}
-                className="!py-2 sm:!py-2.5 lg:!py-2.5"
+                className="!py-3"
             />
 
             {/* 8 — Industries */}
-            <section className="relative w-full overflow-hidden bg-white py-5 sm:py-6 lg:py-7">
+            <section className="relative w-full overflow-hidden bg-white py-3">
                 <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
                     <div
                         className="rounded-none px-3 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-7"
@@ -812,39 +806,31 @@ export default function UKCompanyFormation() {
                         </div>
 
                         <div className="mt-7 grid grid-cols-2 gap-3 sm:mt-8 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5 lg:gap-5">
-                            {industriesWeSupport.map((item) => {
-                                const Icon = item.icon;
-                                return (
-                                    <div
-                                        key={item.label}
-                                        className="flex min-h-[92px] flex-col items-center justify-center rounded-[12px] border border-[#F0F0F0] bg-white px-2 py-2.5 text-center shadow-[0_4px_18px_rgba(15,39,74,0.05)] transition-all duration-200 hover:border-[#FF6A00]/25 hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:min-h-[108px] sm:rounded-[14px] sm:px-2.5 sm:py-3"
-                                    >
-                                        <div
-                                            className="flex h-11 w-11 items-center justify-center rounded-full sm:h-12 sm:w-12"
-                                            style={{ backgroundColor: item.bg }}
-                                        >
-                                            <Icon
-                                                className="h-5 w-5 sm:h-5 sm:w-5"
-                                                style={{ color: item.color }}
-                                                strokeWidth={1.75}
-                                            />
-                                        </div>
-                                        <p
-                                            className="mt-1.5 text-[11px] font-bold leading-snug sm:text-[12px]"
-                                            style={{ color: NAVY }}
-                                        >
-                                            {item.label}
-                                        </p>
-                                    </div>
-                                );
-                            })}
+                            {industriesWeSupport.map((item) => (
+                                <div
+                                    key={item.label}
+                                    className="flex min-h-[126px] flex-col items-center justify-center rounded-[14px] border border-[#F0E0D2] bg-white px-2.5 py-3 text-center transition-colors duration-200 hover:border-[#FFB77F] hover:bg-[#FFFCF9]"
+                                >
+                                    <Image
+                                        src={item.image}
+                                        alt=""
+                                        width={72}
+                                        height={72}
+                                        className="h-16 w-16 object-contain sm:h-[72px] sm:w-[72px]"
+                                        aria-hidden="true"
+                                    />
+                                    <p className="mt-2 text-[11px] font-bold leading-snug text-[#0B1F3A] sm:text-[12px]">
+                                        {item.label}
+                                    </p>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* 9 — Why Choose */}
-            <section className="relative w-full overflow-hidden bg-white px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+            <section className="relative w-full overflow-hidden bg-white px-4 py-3 sm:px-6 lg:px-8">
                 <DotGrid className="pointer-events-none absolute right-4 top-6 sm:right-10 sm:top-8" />
                 <DotGrid className="pointer-events-none absolute bottom-8 left-4 sm:bottom-10 sm:left-8" />
 
@@ -887,10 +873,10 @@ export default function UKCompanyFormation() {
                                 className="rounded-[14px] border border-[#F0E6DC] bg-white px-5 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.05)]"
                             >
                                 <span
-                                    className="mb-3 flex h-9 w-9 items-center justify-center"
+                                    className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[#FFF4EA]"
                                     style={{ color: ORANGE }}
                                 >
-                                    <Icon className="h-6 w-6" strokeWidth={1.75} />
+                                    <Icon className="h-7 w-7" strokeWidth={1.75} />
                                 </span>
                                 <h3
                                     className="text-[13.5px] font-bold leading-snug sm:text-[14px]"
@@ -908,21 +894,17 @@ export default function UKCompanyFormation() {
                 </div>
             </section>
 
-            {/* 10 — TransformCTA (Management Accounts style) */}
-            <TransformCTA
-                titleWhite="Your Offshore Company Formation &"
-                titleOrange="Company Secretarial Delivery Partner"
-                titleBreak={false}
+            {/* 10 — Partner CTA */}
+            <ServicePartnerCTA
+                eyebrow="Company Secretarial Partner"
+                titleBefore="Your Offshore Company Formation &"
+                titleAccent="Company Secretarial"
+                titleAfter="Partner"
                 description="Company formation and company secretarial services require accuracy, organisation, confidentiality, and ongoing compliance management. Our dedicated professionals work as an extension of your practice, helping you deliver efficient company formation, statutory compliance, and corporate administration services while freeing up valuable internal resources."
-                descriptionSecond="Whether you require support with company formation coordination, Companies House identity verification, confirmation statements, statutory register maintenance, director and shareholder changes, corporate governance documentation, or dedicated offshore company secretarial resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance."
-                primaryLabel="Book a Discovery Call"
-                primaryHref="/contact"
-                secondaryLabel="Call Us"
-                secondaryHref="tel:+918285285223"
-                className="!pt-2 sm:!pt-2.5 lg:!pt-2.5"
+                callout="Whether you require formation coordination, Companies House identity verification, confirmation statements, statutory registers, director changes, governance documentation, or dedicated resources, NextLedgers helps your practice scale confidently."
             />
 
-            <Footer />
+            <Footer region="uk" />
             <ArtificialIntelligence />
             <NexaLedAi />
         </main>

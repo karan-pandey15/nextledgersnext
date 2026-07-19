@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import TopAnnouncementBar from "../../components/TopHeader/TopAnnouncementBar";
 import UKNavbar from "../../components/UKNavbar/UKNavbar";
 import UKServicesContent from "../../components/UKServicesContent/UKServicesContent";
 import Footer from "../../components/footer/Footer";
@@ -14,7 +13,6 @@ export default function ServicePageClient({ serviceSlug }) {
   return (
     <main className="min-h-screen bg-[#faf9f6] text-[#1E1B2A] flex flex-col font-sans">
       {/* Top Banner */}
-      <TopAnnouncementBar isSidebarOpen={isSidebarOpen} />
 
       {/* UK Navbar */}
       <UKNavbar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />

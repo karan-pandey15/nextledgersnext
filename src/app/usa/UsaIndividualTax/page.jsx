@@ -50,7 +50,6 @@ import TrustBadgesBar, {
     USA_TRUST_BADGES,
 } from "@/app/components/ServiceMainPageContent/TrustBadgesBar";
 import Footer from "@/app/components/footer/Footer";
-import TopAnnouncementBar from "@/app/components/TopHeader/TopAnnouncementBar";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
 const ORANGE = BRAND_ORANGE;
@@ -203,63 +202,43 @@ const softwareExpertiseLogodata = [
 const industriesWeSupport = [
     {
         label: "Employees & Salaried Professionals",
-        icon: Briefcase,
-        bg: "#E8F4FF",
-        color: "#0284C7",
+        image: "/images/nexticon/professionalservices.png",
     },
     {
         label: "Self-Employed Individuals",
-        icon: User,
-        bg: "#FFF4EA",
-        color: BRAND_ORANGE,
+        image: "/images/nexticon/consulting.png",
     },
     {
         label: "Freelancers & Independent Contractors",
-        icon: Laptop,
-        bg: "#E8F1FF",
-        color: "#2563EB",
+        image: "/images/nexticon/technology.png",
     },
     {
         label: "Business Owners",
-        icon: Building2,
-        bg: "#F3E8FF",
-        color: "#7C3AED",
+        image: "/images/nexticon/startupsmes.png",
     },
     {
         label: "Real Estate Investors",
-        icon: Home,
-        bg: "#E8F8EF",
-        color: "#059669",
+        image: "/images/nexticon/realstate.png",
     },
     {
         label: "Healthcare Professionals",
-        icon: HeartPulse,
-        bg: "#FFE8EE",
-        color: "#BE123C",
+        image: "/images/nexticon/healthcare.png",
     },
     {
         label: "Consultants",
-        icon: Briefcase,
-        bg: "#E8F4FF",
-        color: "#0284C7",
+        image: "/images/nexticon/consulting.png",
     },
     {
         label: "High-Net-Worth Individuals",
-        icon: Coins,
-        bg: "#FFF0E8",
-        color: "#FF6A00",
+        image: "/images/nexticon/professionalservices.png",
     },
     {
         label: "US Expatriates",
-        icon: Globe,
-        bg: "#E8F1FF",
-        color: "#3B82F6",
+        image: "/images/nexticon/logisticstrasportation.png",
     },
     {
         label: "Families & Retirees",
-        icon: Users,
-        bg: "#FFF4E5",
-        color: "#C2410C",
+        image: "/images/nexticon/healthcare.png",
     },
 ];
 
@@ -305,7 +284,7 @@ function Reveal({ children, className = "", delay = 0 }) {
 
 function SchemePill({ text }) {
     return (
-        <li className="flex items-center gap-2.5 rounded-full border border-[#F3E6D8] bg-white px-4 py-2.5 shadow-[0_2px_10px_rgba(15,23,42,0.04)]">
+        <li className="flex items-center gap-2.5 rounded-full border border-[#F0E0D2] bg-white px-4 py-2.5 shadow-[0_2px_10px_rgba(15,23,42,0.04)]">
             <span
                 className="flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full"
                 style={{ background: ORANGE }}
@@ -381,7 +360,6 @@ export default function UsaIndividualTax() {
 
     return (
         <main className="relative min-h-screen w-full overflow-x-hidden bg-white">
-            <TopAnnouncementBar region="usa" />
             <USANavbar
                 isSidebarOpen={isSidebarOpen}
                 setIsSidebarOpen={setIsSidebarOpen}
@@ -404,7 +382,8 @@ export default function UsaIndividualTax() {
                     }}
                 />
                 <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-[#FF6A00]/15 blur-3xl" />
-                <div className="pointer-events-none absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-[#0B1F3A]/06 blur-3xl" />
+                <div className="pointer-events-none absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-[#0B1F3A]/10 blur-3xl" />
+                <div className="pointer-events-none absolute left-1/2 top-1/3 h-40 w-40 -translate-x-1/2 rounded-full bg-[#FF6A00]/10 blur-2xl" />
 
                 <div className="relative mx-auto flex w-full max-w-5xl flex-col justify-center">
                     <div className="flex flex-col items-center px-2 text-center">
@@ -467,11 +446,11 @@ export default function UsaIndividualTax() {
                             </p>
 
                             <div className="mb-5 space-y-3">
-                                <div className="rounded-[14px] border border-[#F0E6DC] bg-[#FFF9F5] p-4 sm:p-4.5">
+                                <div className="rounded-[14px] border border-[#F0E0D2] bg-[#FFF9F5] p-4 sm:p-4.5">
                                     <div className="mb-2 flex items-center gap-2.5">
-                                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-[#FF6A00] shadow-sm">
+                                        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#FFF4EA] text-[#FF6A00]">
                                             <AlertTriangle
-                                                className="h-4 w-4"
+                                                className="h-7 w-7"
                                                 strokeWidth={2.25}
                                             />
                                         </span>
@@ -488,11 +467,11 @@ export default function UsaIndividualTax() {
                                     </p>
                                 </div>
 
-                                <div className="rounded-[14px] border border-[#F0E6DC] bg-white p-4 shadow-[0_4px_16px_rgba(15,23,42,0.04)] sm:p-4.5">
+                                <div className="rounded-[14px] border border-[#F0E0D2] bg-white p-4 shadow-[0_4px_16px_rgba(15,23,42,0.04)] sm:p-4.5">
                                     <div className="mb-2 flex items-center gap-2.5">
-                                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#FF6A00]">
+                                        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#FFF4EA] text-[#FF6A00]">
                                             <Handshake
-                                                className="h-4 w-4"
+                                                className="h-7 w-7"
                                                 strokeWidth={2.25}
                                             />
                                         </span>
@@ -524,7 +503,7 @@ export default function UsaIndividualTax() {
                                 ].map((item) => (
                                     <span
                                         key={item}
-                                        className="inline-flex items-center gap-1.5 rounded-full border border-[#F0E6DC] bg-[#FFF9F5] px-3 py-1.5 text-[11.5px] font-semibold text-[#0B1F3A]"
+                                        className="inline-flex items-center gap-1.5 rounded-full border border-[#F0E0D2] bg-[#FFF9F5] px-3 py-1.5 text-[11.5px] font-semibold text-[#0B1F3A]"
                                     >
                                         <BadgeCheck
                                             className="h-3.5 w-3.5 text-[#FF6A00]"
@@ -632,17 +611,12 @@ export default function UsaIndividualTax() {
                                     key={title}
                                     delay={Math.min(index * 0.05, 0.25)}
                                 >
-                                    <div className="flex h-full flex-col rounded-[16px] border border-[#F0E6DC] bg-white px-4 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.04)] transition-shadow hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:px-5 sm:py-6">
+                                    <div className="flex h-full flex-col rounded-[16px] border border-[#F0E0D2] bg-white px-4 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.04)] transition-shadow hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:px-5 sm:py-6">
                                         <span
-                                            className="mb-3.5 flex h-10 w-10 items-center justify-center rounded-xl text-white"
-                                            style={{
-                                                background: ORANGE,
-                                                boxShadow:
-                                                    "0 6px 16px rgba(255, 106, 0,0.28)",
-                                            }}
+                                            className="mb-3.5 flex h-12 w-12 items-center justify-center rounded-xl bg-[#FFF4EA] text-[#FF6A00]"
                                         >
                                             <Icon
-                                                className="h-5 w-5"
+                                                className="h-7 w-7"
                                                 strokeWidth={2}
                                             />
                                         </span>
@@ -671,17 +645,12 @@ export default function UsaIndividualTax() {
                                     key={title}
                                     delay={Math.min(0.08 + index * 0.05, 0.28)}
                                 >
-                                    <div className="flex h-full flex-col rounded-[16px] border border-[#F0E6DC] bg-white px-4 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.04)] transition-shadow hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:px-5 sm:py-6">
+                                    <div className="flex h-full flex-col rounded-[16px] border border-[#F0E0D2] bg-white px-4 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.04)] transition-shadow hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:px-5 sm:py-6">
                                         <span
-                                            className="mb-3.5 flex h-10 w-10 items-center justify-center rounded-xl text-white"
-                                            style={{
-                                                background: ORANGE,
-                                                boxShadow:
-                                                    "0 6px 16px rgba(255, 106, 0,0.28)",
-                                            }}
+                                            className="mb-3.5 flex h-12 w-12 items-center justify-center rounded-xl bg-[#FFF4EA] text-[#FF6A00]"
                                         >
                                             <Icon
-                                                className="h-5 w-5"
+                                                className="h-7 w-7"
                                                 strokeWidth={2}
                                             />
                                         </span>
@@ -751,7 +720,7 @@ export default function UsaIndividualTax() {
                     <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-7">
                         <Reveal>
                             <div
-                                className="h-full rounded-[16px] border border-[#F3E6D8] bg-white p-5 sm:p-6"
+                                className="h-full rounded-[16px] border border-[#F0E0D2] bg-white p-5 sm:p-6"
                                 style={{
                                     boxShadow: "0 8px 28px rgba(15,23,42,0.06)",
                                 }}
@@ -778,7 +747,7 @@ export default function UsaIndividualTax() {
 
                         <Reveal delay={0.08}>
                             <div
-                                className="h-full rounded-[16px] border border-[#F3E6D8] bg-white p-5 sm:p-6"
+                                className="h-full rounded-[16px] border border-[#F0E0D2] bg-white p-5 sm:p-6"
                                 style={{
                                     boxShadow: "0 8px 28px rgba(15,23,42,0.06)",
                                 }}
@@ -807,7 +776,7 @@ export default function UsaIndividualTax() {
 
                         <Reveal delay={0.12}>
                             <div
-                                className="h-full rounded-[16px] border border-[#F3E6D8] bg-white p-5 sm:p-6"
+                                className="h-full rounded-[16px] border border-[#F0E0D2] bg-white p-5 sm:p-6"
                                 style={{
                                     boxShadow: "0 8px 28px rgba(15,23,42,0.06)",
                                 }}
@@ -835,7 +804,7 @@ export default function UsaIndividualTax() {
 
                         <Reveal delay={0.16}>
                             <div
-                                className="h-full rounded-[16px] border border-[#F3E6D8] bg-white p-5 sm:p-6"
+                                className="h-full rounded-[16px] border border-[#F0E0D2] bg-white p-5 sm:p-6"
                                 style={{
                                     boxShadow: "0 8px 28px rgba(15,23,42,0.06)",
                                 }}
@@ -877,14 +846,14 @@ export default function UsaIndividualTax() {
                 className="flex items-center justify-center gap-3 bg-white px-4 py-2"
                 aria-hidden="true"
             >
-                <span className="h-px w-10 bg-[#F0E6DC] sm:w-16" />
+                <span className="h-px w-10 bg-[#F0E0D2] sm:w-16" />
                 <span
                     className="text-[10px] font-bold uppercase tracking-[0.18em]"
                     style={{ color: ORANGE }}
                 >
                     Industry Coverage
                 </span>
-                <span className="h-px w-10 bg-[#F0E6DC] sm:w-16" />
+                <span className="h-px w-10 bg-[#F0E0D2] sm:w-16" />
             </div>
 
             {/* 7 — Industries & Clients */}
@@ -937,7 +906,6 @@ export default function UsaIndividualTax() {
                                 {industriesWeSupport
                                     .slice(0, 5)
                                     .map((item, index) => {
-                                        const Icon = item.icon;
                                         return (
                                             <Reveal
                                                 key={item.label}
@@ -946,22 +914,8 @@ export default function UsaIndividualTax() {
                                                     0.2
                                                 )}
                                             >
-                                                <div className="flex min-h-[92px] flex-col items-center justify-center rounded-[12px] border border-[#F0F0F0] bg-white px-2 py-2.5 text-center shadow-[0_4px_18px_rgba(15,39,74,0.05)] transition-all duration-200 hover:border-[#FF6A00]/25 hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:min-h-[108px] sm:rounded-[14px] sm:px-2.5 sm:py-3">
-                                                    <div
-                                                        className="flex h-11 w-11 items-center justify-center rounded-full sm:h-12 sm:w-12"
-                                                        style={{
-                                                            backgroundColor:
-                                                                item.bg,
-                                                        }}
-                                                    >
-                                                        <Icon
-                                                            className="h-5 w-5 sm:h-5 sm:w-5"
-                                                            style={{
-                                                                color: item.color,
-                                                            }}
-                                                            strokeWidth={1.75}
-                                                        />
-                                                    </div>
+                                                <div className="flex min-h-[126px] flex-col items-center justify-center rounded-[14px] border border-[#F0E0D2] bg-white px-2.5 py-3 text-center transition-colors duration-200 hover:border-[#FFB77F] hover:bg-[#FFFCF9]">
+                                                    <Image src={item.image} alt="" width={72} height={72} className="h-16 w-16 object-contain sm:h-[72px] sm:w-[72px]" aria-hidden="true" />
                                                     <p
                                                         className="mt-1.5 text-[11px] font-bold leading-snug sm:text-[12px]"
                                                         style={{ color: NAVY }}
@@ -977,7 +931,6 @@ export default function UsaIndividualTax() {
                                 {industriesWeSupport
                                     .slice(5)
                                     .map((item, index) => {
-                                        const Icon = item.icon;
                                         return (
                                             <Reveal
                                                 key={item.label}
@@ -986,22 +939,8 @@ export default function UsaIndividualTax() {
                                                     0.28
                                                 )}
                                             >
-                                                <div className="flex min-h-[92px] flex-col items-center justify-center rounded-[12px] border border-[#F0F0F0] bg-white px-2 py-2.5 text-center shadow-[0_4px_18px_rgba(15,39,74,0.05)] transition-all duration-200 hover:border-[#FF6A00]/25 hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:min-h-[108px] sm:rounded-[14px] sm:px-2.5 sm:py-3">
-                                                    <div
-                                                        className="flex h-11 w-11 items-center justify-center rounded-full sm:h-12 sm:w-12"
-                                                        style={{
-                                                            backgroundColor:
-                                                                item.bg,
-                                                        }}
-                                                    >
-                                                        <Icon
-                                                            className="h-5 w-5 sm:h-5 sm:w-5"
-                                                            style={{
-                                                                color: item.color,
-                                                            }}
-                                                            strokeWidth={1.75}
-                                                        />
-                                                    </div>
+                                                <div className="flex min-h-[126px] flex-col items-center justify-center rounded-[14px] border border-[#F0E0D2] bg-white px-2.5 py-3 text-center transition-colors duration-200 hover:border-[#FFB77F] hover:bg-[#FFFCF9]">
+                                                    <Image src={item.image} alt="" width={72} height={72} className="h-16 w-16 object-contain sm:h-[72px] sm:w-[72px]" aria-hidden="true" />
                                                     <p
                                                         className="mt-1.5 text-[11px] font-bold leading-snug sm:text-[12px]"
                                                         style={{ color: NAVY }}
@@ -1063,13 +1002,13 @@ export default function UsaIndividualTax() {
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5 lg:gap-5">
                         {whyChooseCards.slice(0, 5).map(({ title, icon: Icon }, index) => (
                             <Reveal key={title} delay={Math.min(index * 0.05, 0.2)}>
-                                <div className="h-full rounded-[14px] border border-[#F0E6DC] bg-white px-5 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.05)]">
+                                <div className="h-full rounded-[14px] border border-[#F0E0D2] bg-white px-5 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.05)]">
                                     <span
-                                        className="mb-3 flex h-9 w-9 items-center justify-center"
+                                        className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[#FFF4EA]"
                                         style={{ color: ORANGE }}
                                     >
                                         <Icon
-                                            className="h-6 w-6"
+                                            className="h-7 w-7"
                                             strokeWidth={1.75}
                                         />
                                     </span>
@@ -1094,13 +1033,13 @@ export default function UsaIndividualTax() {
                                 key={title}
                                 delay={Math.min(0.08 + index * 0.04, 0.28)}
                             >
-                                <div className="h-full rounded-[14px] border border-[#F0E6DC] bg-white px-5 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.05)]">
+                                <div className="h-full rounded-[14px] border border-[#F0E0D2] bg-white px-5 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.05)]">
                                     <span
-                                        className="mb-3 flex h-9 w-9 items-center justify-center"
+                                        className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[#FFF4EA]"
                                         style={{ color: ORANGE }}
                                     >
                                         <Icon
-                                            className="h-6 w-6"
+                                            className="h-7 w-7"
                                             strokeWidth={1.75}
                                         />
                                     </span>
@@ -1176,7 +1115,7 @@ export default function UsaIndividualTax() {
                             ].map((item) => (
                                 <span
                                     key={item}
-                                    className="inline-flex items-center gap-1.5 rounded-full border border-[#F0E6DC] bg-white px-3.5 py-1.5 text-[11.5px] font-semibold text-[#0B1F3A]"
+                                    className="inline-flex items-center gap-1.5 rounded-full border border-[#F0E0D2] bg-white px-3.5 py-1.5 text-[11.5px] font-semibold text-[#0B1F3A]"
                                 >
                                     <BadgeCheck
                                         className="h-3.5 w-3.5 text-[#FF6A00]"
@@ -1198,7 +1137,7 @@ export default function UsaIndividualTax() {
                             </CtaButton>
                         </div>
 
-                        <div className="mx-auto mt-8 flex max-w-lg flex-wrap items-center justify-center gap-x-6 gap-y-3 border-t border-[#F0E6DC] pt-6">
+                        <div className="mx-auto mt-8 flex max-w-lg flex-wrap items-center justify-center gap-x-6 gap-y-3 border-t border-[#F0E0D2] pt-6">
                             {partnerTrust.map(({ icon: Icon, label }) => (
                                 <div
                                     key={label}

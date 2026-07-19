@@ -30,24 +30,11 @@ import {
     Network,
     LockKeyhole,
     Layers,
-    Briefcase,
-    Monitor,
-    HardHat,
-    HeartPulse,
-    Package,
-    Store,
-    ShoppingBag,
-    ShoppingCart,
-    Building2,
-    UtensilsCrossed,
-    MapPin,
-    Home,
     Wrench,
     Settings,
 } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import CtaButton from "@/app/components/ui/CtaButton";
 import { motion } from "framer-motion";
 import IconDisplayScreen from "@/app/components/ServiceMainPageContent/IcondisplayScreen";
@@ -56,7 +43,6 @@ import TrustBadgesBar, {
     USA_TRUST_BADGES,
 } from "@/app/components/ServiceMainPageContent/TrustBadgesBar";
 import Footer from "@/app/components/footer/Footer";
-import TopAnnouncementBar from "@/app/components/TopHeader/TopAnnouncementBar";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
 const ORANGE = BRAND_ORANGE;
@@ -290,81 +276,55 @@ const softwareExpertiseLogodata = [
 const industriesWeSupport = [
     {
         label: "Professional Service Firms",
-        icon: Briefcase,
-        bg: "#E8F4FF",
-        color: "#0284C7",
+        image: "/images/nexticon/professionalservices.png",
     },
     {
         label: "Technology Companies",
-        icon: Monitor,
-        bg: "#E8F1FF",
-        color: "#2563EB",
+        image: "/images/nexticon/technology.png",
     },
     {
         label: "Construction Businesses",
-        icon: HardHat,
-        bg: "#FFF4E5",
-        color: "#FF6A00",
+        image: "/images/nexticon/construction.png",
     },
     {
         label: "Healthcare Practices",
-        icon: HeartPulse,
-        bg: "#FFE8EE",
-        color: "#BE123C",
+        image: "/images/nexticon/healthcare.png",
     },
     {
         label: "Manufacturing & Distribution",
-        icon: Package,
-        bg: "#F3E8FF",
-        color: "#7C3AED",
+        image: "/images/nexticon/manugacturing.png",
     },
     {
         label: "Retail Businesses",
-        icon: ShoppingCart,
-        bg: "#FFF4EA",
-        color: BRAND_ORANGE,
+        image: "/images/nexticon/Ecommerce.png",
     },
     {
         label: "eCommerce & Online Retail",
-        icon: ShoppingBag,
-        bg: "#E8F8EF",
-        color: "#16A34A",
+        image: "/images/nexticon/Ecommerce.png",
     },
     {
         label: "Amazon Sellers",
-        icon: Package,
-        bg: "#FFF0E8",
-        color: "#FF6A00",
+        image: "/images/nexticon/Ecommerce.png",
     },
     {
         label: "Shopify Businesses",
-        icon: Store,
-        bg: "#E8F8EF",
-        color: "#059669",
+        image: "/images/nexticon/Ecommerce.png",
     },
     {
         label: "Real Estate Companies",
-        icon: Home,
-        bg: "#E8F8EF",
-        color: "#059669",
+        image: "/images/nexticon/realstate.png",
     },
     {
         label: "Hospitality Businesses",
-        icon: UtensilsCrossed,
-        bg: "#FFF0E8",
-        color: "#FF6A00",
+        image: "/images/nexticon/hospitality.png",
     },
     {
         label: "Franchise Businesses",
-        icon: MapPin,
-        bg: "#E8F1FF",
-        color: "#3B82F6",
+        image: "/images/nexticon/consulting.png",
     },
     {
         label: "Multi-Entity Organisations",
-        icon: Building2,
-        bg: "#E8F1FF",
-        color: "#2563EB",
+        image: "/images/nexticon/professionalservices.png",
     },
 ];
 
@@ -479,7 +439,6 @@ export default function UsaAccountingCleanup() {
 
     return (
         <main className="relative min-h-screen w-full overflow-x-hidden bg-white">
-            <TopAnnouncementBar region="usa" />
             <USANavbar
                 isSidebarOpen={isSidebarOpen}
                 setIsSidebarOpen={setIsSidebarOpen}
@@ -503,6 +462,7 @@ export default function UsaAccountingCleanup() {
                 />
                 <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-[#FF6A00]/15 blur-3xl" />
                 <div className="pointer-events-none absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-[#0B1F3A]/06 blur-3xl" />
+                <div className="pointer-events-none absolute left-1/2 top-1/3 h-40 w-40 -translate-x-1/2 rounded-full bg-[#FF6A00]/10 blur-2xl" />
 
                 <div className="relative mx-auto flex w-full max-w-5xl flex-col justify-center">
                     <div className="flex flex-col items-center px-2 text-center">
@@ -569,10 +529,10 @@ export default function UsaAccountingCleanup() {
                             <div className="mb-5 space-y-3">
                                 <div className="rounded-[14px] border border-[#F0E6DC] bg-[#FFF9F5] p-4 sm:p-4.5">
                                     <div className="mb-2 flex items-center gap-2.5">
-                                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-[#FF6A00] shadow-sm">
+                                        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#FFF4EA] text-[#FF6A00]">
                                             <AlertTriangle
-                                                className="h-4 w-4"
-                                                strokeWidth={2.25}
+                                                className="h-7 w-7"
+                                                strokeWidth={1.8}
                                             />
                                         </span>
                                         <h3 className="text-[13.5px] font-bold text-[#0B1F3A] sm:text-[14px]">
@@ -591,10 +551,10 @@ export default function UsaAccountingCleanup() {
 
                                 <div className="rounded-[14px] border border-[#F0E6DC] bg-white p-4 shadow-[0_4px_16px_rgba(15,23,42,0.04)] sm:p-4.5">
                                     <div className="mb-2 flex items-center gap-2.5">
-                                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#FF6A00]">
+                                        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#FFF4EA] text-[#FF6A00]">
                                             <Handshake
-                                                className="h-4 w-4"
-                                                strokeWidth={2.25}
+                                                className="h-7 w-7"
+                                                strokeWidth={1.8}
                                             />
                                         </span>
                                         <h3 className="text-[13.5px] font-bold text-[#0B1F3A] sm:text-[14px]">
@@ -737,16 +697,11 @@ export default function UsaAccountingCleanup() {
                                 >
                                     <div className="flex h-full flex-col rounded-[16px] border border-[#F0E6DC] bg-white px-4 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.04)] transition-shadow hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:px-5 sm:py-6">
                                         <span
-                                            className="mb-3.5 flex h-10 w-10 items-center justify-center rounded-xl text-white"
-                                            style={{
-                                                background: ORANGE,
-                                                boxShadow:
-                                                    "0 6px 16px rgba(255, 106, 0,0.28)",
-                                            }}
+                                            className="mb-3.5 flex h-12 w-12 items-center justify-center rounded-xl bg-[#FFF4EA] text-[#FF6A00]"
                                         >
                                             <Icon
-                                                className="h-5 w-5"
-                                                strokeWidth={2}
+                                                className="h-7 w-7"
+                                                strokeWidth={1.8}
                                             />
                                         </span>
                                         <h3
@@ -776,16 +731,11 @@ export default function UsaAccountingCleanup() {
                                 >
                                     <div className="flex h-full flex-col rounded-[16px] border border-[#F0E6DC] bg-white px-4 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.04)] transition-shadow hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:px-5 sm:py-6">
                                         <span
-                                            className="mb-3.5 flex h-10 w-10 items-center justify-center rounded-xl text-white"
-                                            style={{
-                                                background: ORANGE,
-                                                boxShadow:
-                                                    "0 6px 16px rgba(255, 106, 0,0.28)",
-                                            }}
+                                            className="mb-3.5 flex h-12 w-12 items-center justify-center rounded-xl bg-[#FFF4EA] text-[#FF6A00]"
                                         >
                                             <Icon
-                                                className="h-5 w-5"
-                                                strokeWidth={2}
+                                                className="h-7 w-7"
+                                                strokeWidth={1.8}
                                             />
                                         </span>
                                         <h3
@@ -872,12 +822,11 @@ export default function UsaAccountingCleanup() {
                                         }}
                                     >
                                         <span
-                                            className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl"
-                                            style={{ background: ORANGE }}
+                                            className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#FFF4EA] text-[#FF6A00]"
                                         >
                                             <Icon
-                                                className="h-5 w-5 text-white"
-                                                strokeWidth={2}
+                                                className="h-7 w-7"
+                                                strokeWidth={1.8}
                                             />
                                         </span>
                                         <h3
@@ -972,7 +921,6 @@ export default function UsaAccountingCleanup() {
                                 {industriesWeSupport
                                     .slice(0, 7)
                                     .map((item, index) => {
-                                        const Icon = item.icon;
                                         return (
                                             <Reveal
                                                 key={item.label}
@@ -981,22 +929,15 @@ export default function UsaAccountingCleanup() {
                                                     0.2
                                                 )}
                                             >
-                                                <div className="flex min-h-[92px] flex-col items-center justify-center rounded-[12px] border border-[#F0F0F0] bg-white px-2 py-2.5 text-center shadow-[0_4px_18px_rgba(15,39,74,0.05)] transition-all duration-200 hover:border-[#FF6A00]/25 hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:min-h-[108px] sm:rounded-[14px] sm:px-2.5 sm:py-3">
-                                                    <div
-                                                        className="flex h-11 w-11 items-center justify-center rounded-full sm:h-12 sm:w-12"
-                                                        style={{
-                                                            backgroundColor:
-                                                                item.bg,
-                                                        }}
-                                                    >
-                                                        <Icon
-                                                            className="h-5 w-5 sm:h-5 sm:w-5"
-                                                            style={{
-                                                                color: item.color,
-                                                            }}
-                                                            strokeWidth={1.75}
-                                                        />
-                                                    </div>
+                                                <div className="flex min-h-[126px] flex-col items-center justify-center rounded-[14px] border border-[#F0E0D2] bg-white px-2.5 py-3 text-center transition-colors duration-200 hover:border-[#FFB77F] hover:bg-[#FFFCF9]">
+                                                    <Image
+                                                        src={item.image}
+                                                        alt=""
+                                                        width={72}
+                                                        height={72}
+                                                        className="h-16 w-16 object-contain sm:h-[72px] sm:w-[72px]"
+                                                        aria-hidden="true"
+                                                    />
                                                     <p
                                                         className="mt-1.5 text-[11px] font-bold leading-snug sm:text-[12px]"
                                                         style={{ color: NAVY }}
@@ -1012,7 +953,6 @@ export default function UsaAccountingCleanup() {
                                 {industriesWeSupport
                                     .slice(7)
                                     .map((item, index) => {
-                                        const Icon = item.icon;
                                         return (
                                             <Reveal
                                                 key={item.label}
@@ -1021,22 +961,15 @@ export default function UsaAccountingCleanup() {
                                                     0.28
                                                 )}
                                             >
-                                                <div className="flex min-h-[92px] flex-col items-center justify-center rounded-[12px] border border-[#F0F0F0] bg-white px-2 py-2.5 text-center shadow-[0_4px_18px_rgba(15,39,74,0.05)] transition-all duration-200 hover:border-[#FF6A00]/25 hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:min-h-[108px] sm:rounded-[14px] sm:px-2.5 sm:py-3">
-                                                    <div
-                                                        className="flex h-11 w-11 items-center justify-center rounded-full sm:h-12 sm:w-12"
-                                                        style={{
-                                                            backgroundColor:
-                                                                item.bg,
-                                                        }}
-                                                    >
-                                                        <Icon
-                                                            className="h-5 w-5 sm:h-5 sm:w-5"
-                                                            style={{
-                                                                color: item.color,
-                                                            }}
-                                                            strokeWidth={1.75}
-                                                        />
-                                                    </div>
+                                                <div className="flex min-h-[126px] flex-col items-center justify-center rounded-[14px] border border-[#F0E0D2] bg-white px-2.5 py-3 text-center transition-colors duration-200 hover:border-[#FFB77F] hover:bg-[#FFFCF9]">
+                                                    <Image
+                                                        src={item.image}
+                                                        alt=""
+                                                        width={72}
+                                                        height={72}
+                                                        className="h-16 w-16 object-contain sm:h-[72px] sm:w-[72px]"
+                                                        aria-hidden="true"
+                                                    />
                                                     <p
                                                         className="mt-1.5 text-[11px] font-bold leading-snug sm:text-[12px]"
                                                         style={{ color: NAVY }}
@@ -1100,11 +1033,11 @@ export default function UsaAccountingCleanup() {
                             <Reveal key={title} delay={Math.min(index * 0.05, 0.2)}>
                                 <div className="h-full rounded-[14px] border border-[#F0E6DC] bg-white px-5 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.05)]">
                                     <span
-                                        className="mb-3 flex h-9 w-9 items-center justify-center"
+                                        className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[#FFF4EA]"
                                         style={{ color: ORANGE }}
                                     >
                                         <Icon
-                                            className="h-6 w-6"
+                                            className="h-7 w-7"
                                             strokeWidth={1.75}
                                         />
                                     </span>
@@ -1131,11 +1064,11 @@ export default function UsaAccountingCleanup() {
                             >
                                 <div className="h-full rounded-[14px] border border-[#F0E6DC] bg-white px-5 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.05)]">
                                     <span
-                                        className="mb-3 flex h-9 w-9 items-center justify-center"
+                                        className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[#FFF4EA]"
                                         style={{ color: ORANGE }}
                                     >
                                         <Icon
-                                            className="h-6 w-6"
+                                            className="h-7 w-7"
                                             strokeWidth={1.75}
                                         />
                                     </span>

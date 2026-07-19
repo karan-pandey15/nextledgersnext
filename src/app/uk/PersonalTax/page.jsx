@@ -17,19 +17,20 @@ import {
     PuzzleIcon,
     Headset,
     Pencil,
-    Briefcase,
     UserRound,
-    Home,
-    Globe2,
-    Handshake,
+    BookOpen,
+    BadgeCheck,
+    ClipboardCheck,
+    LockKeyhole,
+    Network,
+    Monitor,
 } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
 import IconDisplayScreen from "@/app/components/ServiceMainPageContent/IcondisplayScreen";
 import TrustBadgesBar from "@/app/components/ServiceMainPageContent/TrustBadgesBar";
-import TransformCTA from "@/app/components/HomeImpact/TransformCTA";
+import ServicePartnerCTA from "@/app/components/ServiceMainPageContent/ServicePartnerCTA";
 import Footer from "@/app/components/footer/Footer";
-import TopAnnouncementBar from "@/app/components/TopHeader/TopAnnouncementBar";
 import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/ArtificialIntelligence";
 import NexaLedAi from "@/app/components/ChatBot/NexaLedAi";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
@@ -45,7 +46,7 @@ const trustBadges = [
     { icon: Shield, label: "ISO 27001", sub: "Certified" },
     { icon: Lock, label: "GDPR", sub: "Compliant" },
     { icon: Clock, label: "UK Time Zone", sub: "Overlap" },
-    { icon: Award, label: "10+ Years", sub: "Experience" },
+    { icon: Award, label: "9+ Years", sub: "Experience" },
     { icon: UserCheck, label: "Dedicated", sub: "Account Manager" },
 ];
 
@@ -124,41 +125,31 @@ const specialistAreas = [
         title: "Company Directors",
         description:
             "Salary, dividend, benefits-in-kind, investment income, and capital gains reporting.",
-        icon: Briefcase,
-        bg: "#E8F1FF",
-        color: "#3B82F6",
+        image: "/images/nexticon/professionalservices.png",
     },
     {
         title: "Sole Traders & Freelancers",
         description:
             "Self-employment income reporting, expense reviews, and tax computations.",
-        icon: UserRound,
-        bg: "#FFF0E8",
-        color: BRAND_ORANGE,
+        image: "/images/nexticon/startupsmes.png",
     },
     {
         title: "Partnerships & LLP Members",
         description:
             "Partnership returns, profit allocations, and partner reporting.",
-        icon: Handshake,
-        bg: "#F3E8FF",
-        color: "#9333EA",
+        image: "/images/nexticon/consulting.png",
     },
     {
         title: "Property Investors & Landlords",
         description:
             "Rental income reporting, property expenses, and capital gains calculations.",
-        icon: Home,
-        bg: "#E8F8EF",
-        color: "#16A34A",
+        image: "/images/nexticon/realstate.png",
     },
     {
         title: "High-Net-Worth & International Individuals",
         description:
             "Complex tax returns involving investments, foreign income, and cross-border reporting requirements.",
-        icon: Globe2,
-        bg: "#FFE8EE",
-        color: "#E11D48",
+        image: "/images/nexticon/consulting.png",
     },
 ];
 
@@ -188,15 +179,15 @@ const softwareExpertiseLogodata = [
 ];
 
 const whyChooseNextLedgers = [
-    "ACCA-Led Delivery Team",
-    "UK Personal Tax Expertise",
-    "Self Assessment Specialists",
-    "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
-    "Multi-Software Expertise",
-    "Structured Review Processes",
-    "Flexible Engagement Models",
-    "Secure Data Handling",
+    { title: "ACCA-Led Delivery Team", icon: UserCheck },
+    { title: "UK Personal Tax Expertise", icon: BookOpen },
+    { title: "Self Assessment Specialists", icon: UserRound },
+    { title: "White-Label Service Delivery", icon: BadgeCheck },
+    { title: "Dedicated Offshore Resources", icon: Headset },
+    { title: "Multi-Software Expertise", icon: Monitor },
+    { title: "Structured Review Processes", icon: ClipboardCheck },
+    { title: "Flexible Engagement Models", icon: Network },
+    { title: "Secure Data Handling", icon: LockKeyhole },
 ];
 
 function CheckPill({ text }) {
@@ -240,10 +231,10 @@ function HelpCard({ icon: Icon, titleBefore, titleAccent, titleAfter, items }) {
         >
             <div className="mb-4 flex items-center gap-2.5">
                 <span
-                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg"
-                    style={{ background: ORANGE }}
+                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl"
+                    style={{ background: PILL_BG, color: ORANGE }}
                 >
-                    <Icon className="h-4 w-4 text-white" strokeWidth={2} />
+                    <Icon className="h-7 w-7" strokeWidth={1.8} />
                 </span>
                 <h3
                     className="text-[14px] font-bold leading-snug sm:text-[15px]"
@@ -321,21 +312,27 @@ export default function PersonalTaxPage() {
 
     return (
         <main className="flex min-h-screen flex-col bg-[#faf9f6] font-sans text-[#1E1B2A]">
-            <TopAnnouncementBar isSidebarOpen={isSidebarOpen} />
             <UKNavbar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
 
             {/* 1 — Hero */}
-            <section className="relative w-full overflow-hidden bg-gradient-to-br from-[#25404B] via-[#537E91] to-[#537E91] px-4 pb-2 pt-8 sm:px-6 sm:pb-2 sm:pt-10 lg:px-8">
+            <section
+                className="relative w-full overflow-hidden px-4 pb-8 pt-10 sm:px-6 sm:pb-10 sm:pt-12 lg:px-8"
+                style={{
+                    background:
+                        "linear-gradient(165deg, #FFFFFF 0%, #FFF9F5 42%, #FFF4EA 100%)",
+                }}
+            >
                 <div
-                    className="pointer-events-none absolute inset-0 opacity-[0.45]"
+                    className="pointer-events-none absolute inset-0 opacity-[0.55]"
                     style={{
                         backgroundImage:
-                            "radial-gradient(rgba(15,23,42,0.06) 1px, transparent 1px)",
-                        backgroundSize: "16px 16px",
+                            "radial-gradient(rgba(255, 106, 0,0.18) 1px, transparent 1px)",
+                        backgroundSize: "18px 18px",
                     }}
                 />
-                <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-[#FF6A00]/12 blur-3xl" />
-                <div className="pointer-events-none absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-slate-400/20 blur-3xl" />
+                <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-[#FF6A00]/15 blur-3xl" />
+                <div className="pointer-events-none absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-[#0B1F3A]/06 blur-3xl" />
+                <div className="pointer-events-none absolute left-1/2 top-1/3 h-40 w-40 -translate-x-1/2 rounded-full bg-[#FF6A00]/10 blur-2xl" />
 
                 <div className="relative mx-auto flex w-full max-w-5xl flex-col justify-center">
                     <div className="flex flex-col items-center px-2 text-center">
@@ -371,7 +368,7 @@ export default function PersonalTaxPage() {
 
             {/* 2 — Intro */}
             <section className="w-full bg-white">
-                <div className="mx-auto max-w-6xl px-4 py-2 sm:px-6 sm:py-2.5 lg:px-8">
+                <div className="mx-auto max-w-6xl px-4 py-3 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12">
                         <div>
                             <span className="mb-3 inline-block text-[11px] font-extrabold uppercase tracking-widest text-[#FF6A00]">
@@ -448,7 +445,7 @@ export default function PersonalTaxPage() {
             </section>
 
             {/* 3 — Why Personal Tax Matters */}
-            <section className="relative w-full overflow-hidden bg-white py-2 sm:py-2.5">
+            <section className="relative w-full overflow-hidden bg-white py-3">
                 <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2 lg:gap-10 xl:gap-12">
                         <div className="flex min-w-0 flex-col">
@@ -476,14 +473,9 @@ export default function PersonalTaxPage() {
                                         <div key={item.title}>
                                             <div className="flex items-start gap-3 py-2.5 sm:py-3">
                                                 <div
-                                                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-white sm:h-10 sm:w-10"
-                                                    style={{
-                                                        background: ORANGE,
-                                                        boxShadow:
-                                                            "0 6px 16px rgba(255, 106, 0,0.28)",
-                                                    }}
+                                                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#FFF4EA] text-[#FF6A00]"
                                                 >
-                                                    <Icon className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
+                                                    <Icon className="h-7 w-7" strokeWidth={1.75} />
                                                 </div>
                                                 <div className="min-w-0">
                                                     <h3
@@ -557,7 +549,7 @@ export default function PersonalTaxPage() {
 
             {/* 4 — Our Personal Tax Services */}
             <section
-                className="relative w-full overflow-hidden py-2 sm:py-2.5"
+                className="relative w-full overflow-hidden py-3"
                 style={{ background: "#FFF7F0" }}
             >
                 <div
@@ -610,7 +602,7 @@ export default function PersonalTaxPage() {
             {/* 5 — How We Help Accounting Firms */}
             <section
                 id="how-we-help"
-                className="relative w-full overflow-hidden px-4 py-2 sm:px-6 sm:py-2.5 lg:px-8"
+                className="relative w-full overflow-hidden px-4 py-3 sm:px-6 lg:px-8"
                 style={{ background: PAGE_CREAM }}
             >
                 <div
@@ -688,7 +680,7 @@ export default function PersonalTaxPage() {
             </section>
 
             {/* 6 — Specialist Areas */}
-            <section className="relative w-full overflow-hidden bg-white py-2 sm:py-2.5">
+            <section className="relative w-full overflow-hidden bg-white py-3">
                 <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
                     <div className="mb-6 text-center sm:mb-7">
                         <span
@@ -708,22 +700,19 @@ export default function PersonalTaxPage() {
 
                     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
                         {specialistAreas.map((item) => {
-                            const Icon = item.icon;
                             return (
                                 <div
                                     key={item.title}
-                                    className="rounded-[16px] border border-[#F3E6D8] bg-white p-5 shadow-[0_4px_18px_rgba(15,39,74,0.05)] transition-shadow hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:p-6"
+                                    className="rounded-[16px] border border-[#F0E0D2] bg-white p-5 transition-colors hover:border-[#FFB77F] hover:bg-[#FFFCF9] sm:p-6"
                                 >
-                                    <div
-                                        className="mb-3 flex h-12 w-12 items-center justify-center rounded-full"
-                                        style={{ backgroundColor: item.bg }}
-                                    >
-                                        <Icon
-                                            className="h-5 w-5"
-                                            style={{ color: item.color }}
-                                            strokeWidth={1.75}
-                                        />
-                                    </div>
+                                    <Image
+                                        src={item.image}
+                                        alt=""
+                                        width={72}
+                                        height={72}
+                                        className="mb-3 h-16 w-16 object-contain sm:h-[72px] sm:w-[72px]"
+                                        aria-hidden="true"
+                                    />
                                     <h3
                                         className="text-[14px] font-bold leading-snug sm:text-[15px]"
                                         style={{ color: NAVY }}
@@ -748,11 +737,11 @@ export default function PersonalTaxPage() {
                 title="Software Expertise"
                 subtitle="We work across the personal tax, accounting, and workflow platforms your clients already use."
                 logodata={softwareExpertiseLogodata}
-                className="!py-2 sm:!py-2.5 lg:!py-2.5"
+                className="!py-3"
             />
 
             {/* 8 — Why Choose NextLedgers */}
-            <section className="relative w-full overflow-hidden bg-white py-2 sm:py-2.5">
+            <section className="relative w-full overflow-hidden bg-white py-3">
                 <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-10 xl:gap-12">
                         <div className="flex flex-col">
@@ -774,31 +763,13 @@ export default function PersonalTaxPage() {
                             </div>
 
                             <div className="mt-4 sm:mt-5">
-                                {whyChooseNextLedgers.map((title, index) => {
+                                {whyChooseNextLedgers.map(({ title, icon: Icon }, index) => {
                                     const isLast = index === whyChooseNextLedgers.length - 1;
                                     return (
                                         <div key={title}>
                                             <div className="flex items-start gap-3 py-2.5 sm:py-3">
-                                                <span
-                                                    className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full sm:h-10 sm:w-10"
-                                                    style={{
-                                                        background: ORANGE,
-                                                        boxShadow:
-                                                            "0 6px 16px rgba(255, 106, 0,0.28)",
-                                                    }}
-                                                >
-                                                    <svg
-                                                        viewBox="0 0 24 24"
-                                                        fill="none"
-                                                        className="h-4 w-4 sm:h-[18px] sm:w-[18px]"
-                                                        stroke="white"
-                                                        strokeWidth={3}
-                                                        strokeLinecap="round"
-                                                        strokeLinejoin="round"
-                                                        aria-hidden="true"
-                                                    >
-                                                        <path d="M20 6 9 17l-5-5" />
-                                                    </svg>
+                                                <span className="mt-0.5 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#FFF4EA] text-[#FF6A00]">
+                                                    <Icon className="h-7 w-7" strokeWidth={1.75} />
                                                 </span>
                                                 <p
                                                     className="pt-1.5 text-[13.5px] font-bold leading-snug sm:pt-2 sm:text-[14.5px]"
@@ -833,21 +804,16 @@ export default function PersonalTaxPage() {
             </section>
 
             {/* 9 — CTA */}
-            <TransformCTA
-                titleWhite="Your Offshore Personal Tax"
-                titleOrange="Compliance Partner"
-                titleBreak={false}
+            <ServicePartnerCTA
+                eyebrow="Personal Tax Partner"
+                titleBefore="Your Offshore Personal Tax"
+                titleAccent="Compliance"
+                titleAfter="Partner"
                 description="Personal tax compliance requires technical expertise, confidentiality, and attention to detail. Our experienced professionals help UK accounting firms increase capacity while maintaining high standards of accuracy and compliance."
-                descriptionSecond="Whether you need support with Self Assessment returns, director tax returns, partnership reporting, capital gains calculations, foreign income disclosures, or dedicated offshore tax resources, NextLedgers can help your practice scale efficiently while delivering exceptional service to your clients."
-                primaryLabel="Book a Discovery Call"
-                primaryHref="/contact"
-                showSecondary={true}
-                secondaryLabel="Call Us"
-                secondaryHref="tel:+918285285223"
-                className="!pt-2 sm:!pt-2.5 lg:!pt-2.5"
+                callout="Whether you need Self Assessment returns, director returns, partnership reporting, capital gains calculations, foreign income disclosures, or dedicated offshore tax resources, NextLedgers helps your practice scale efficiently."
             />
 
-            <Footer />
+            <Footer region="uk" />
             <ArtificialIntelligence />
             <NexaLedAi />
         </main>

@@ -17,20 +17,20 @@ import {
     PuzzleIcon,
     Headset,
     Pencil,
-    HardHat,
-    Briefcase,
     Building2,
-    Factory,
-    UtensilsCrossed,
-    HeartPulse,
+    BookOpen,
+    BadgeCheck,
+    ClipboardCheck,
+    LockKeyhole,
+    Network,
+    TrendingUp,
 } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
 import IconDisplayScreen from "@/app/components/ServiceMainPageContent/IcondisplayScreen";
 import TrustBadgesBar from "@/app/components/ServiceMainPageContent/TrustBadgesBar";
-import TransformCTA from "@/app/components/HomeImpact/TransformCTA";
+import ServicePartnerCTA from "@/app/components/ServiceMainPageContent/ServicePartnerCTA";
 import Footer from "@/app/components/footer/Footer";
-import TopAnnouncementBar from "@/app/components/TopHeader/TopAnnouncementBar";
 import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/ArtificialIntelligence";
 import NexaLedAi from "@/app/components/ChatBot/NexaLedAi";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
@@ -46,7 +46,7 @@ const trustBadges = [
     { icon: Shield, label: "ISO 27001", sub: "Certified" },
     { icon: Lock, label: "GDPR", sub: "Compliant" },
     { icon: Clock, label: "UK Time Zone", sub: "Overlap" },
-    { icon: Award, label: "10+ Years", sub: "Experience" },
+    { icon: Award, label: "9+ Years", sub: "Experience" },
     { icon: UserCheck, label: "Dedicated", sub: "Account Manager" },
 ];
 
@@ -163,51 +163,39 @@ const softwareExpertiseLogodata = [
 const industriesWeSupport = [
     {
         label: "Construction & Trades",
-        icon: HardHat,
-        bg: "#FFF4E5",
-        color: "#FF6A00",
+        image: "/images/nexticon/construction.png",
     },
     {
         label: "Recruitment Agencies",
-        icon: Users,
-        bg: "#F3E8FF",
-        color: "#9333EA",
+        image: "/images/nexticon/consulting.png",
     },
     {
         label: "Manufacturing Businesses",
-        icon: Factory,
-        bg: "#E8F1FF",
-        color: "#3B82F6",
+        image: "/images/nexticon/manugacturing.png",
     },
     {
         label: "Hospitality & Retail",
-        icon: UtensilsCrossed,
-        bg: "#FFF0E8",
-        color: BRAND_ORANGE,
+        image: "/images/nexticon/hospitality.png",
     },
     {
         label: "Healthcare Providers",
-        icon: HeartPulse,
-        bg: "#FFE8EE",
-        color: "#E11D48",
+        image: "/images/nexticon/healthcare.png",
     },
     {
         label: "Professional Service Firms",
-        icon: Briefcase,
-        bg: "#E8F4FF",
-        color: "#0284C7",
+        image: "/images/nexticon/professionalservices.png",
     },
 ];
 
 const whyChooseNextLedgers = [
-    "ACCA-Led Delivery Team",
-    "UK Payroll & CIS Expertise",
-    "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
-    "Structured Review Processes",
-    "Secure Data Handling",
-    "Flexible Engagement Models",
-    "Scalable Support Framework",
+    { title: "ACCA-Led Delivery Team", icon: UserCheck },
+    { title: "UK Payroll & CIS Expertise", icon: BookOpen },
+    { title: "White-Label Service Delivery", icon: BadgeCheck },
+    { title: "Dedicated Offshore Resources", icon: Headset },
+    { title: "Structured Review Processes", icon: ClipboardCheck },
+    { title: "Secure Data Handling", icon: LockKeyhole },
+    { title: "Flexible Engagement Models", icon: Network },
+    { title: "Scalable Support Framework", icon: TrendingUp },
 ];
 
 function CheckPill({ text }) {
@@ -251,10 +239,10 @@ function HelpCard({ icon: Icon, titleBefore, titleAccent, titleAfter, items }) {
         >
             <div className="mb-4 flex items-center gap-2.5">
                 <span
-                    className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg"
-                    style={{ background: ORANGE }}
+                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl"
+                    style={{ background: PILL_BG, color: ORANGE }}
                 >
-                    <Icon className="h-4 w-4 text-white" strokeWidth={2} />
+                    <Icon className="h-7 w-7" strokeWidth={1.8} />
                 </span>
                 <h3
                     className="text-[14px] font-bold leading-snug sm:text-[15px]"
@@ -333,21 +321,27 @@ export default function UKPayrollPage() {
 
     return (
         <main className="min-h-screen bg-[#faf9f6] text-[#1E1B2A] flex flex-col font-sans">
-            <TopAnnouncementBar isSidebarOpen={isSidebarOpen} />
             <UKNavbar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
 
             {/* 1 — Hero */}
-            <section className="relative w-full overflow-hidden bg-gradient-to-br from-[#25404B] via-[#537E91] to-[#537E91] px-4 pt-8 pb-2 sm:px-6 sm:pt-10 sm:pb-2 lg:px-8">
+            <section
+                className="relative w-full overflow-hidden px-4 pb-8 pt-10 sm:px-6 sm:pb-10 sm:pt-12 lg:px-8"
+                style={{
+                    background:
+                        "linear-gradient(165deg, #FFFFFF 0%, #FFF9F5 42%, #FFF4EA 100%)",
+                }}
+            >
                 <div
-                    className="pointer-events-none absolute inset-0 opacity-[0.45]"
+                    className="pointer-events-none absolute inset-0 opacity-[0.55]"
                     style={{
                         backgroundImage:
-                            "radial-gradient(rgba(15,23,42,0.06) 1px, transparent 1px)",
-                        backgroundSize: "16px 16px",
+                            "radial-gradient(rgba(255, 106, 0,0.18) 1px, transparent 1px)",
+                        backgroundSize: "18px 18px",
                     }}
                 />
-                <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-[#FF6A00]/12 blur-3xl" />
-                <div className="pointer-events-none absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-slate-400/20 blur-3xl" />
+                <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-[#FF6A00]/15 blur-3xl" />
+                <div className="pointer-events-none absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-[#0B1F3A]/06 blur-3xl" />
+                <div className="pointer-events-none absolute left-1/2 top-1/3 h-40 w-40 -translate-x-1/2 rounded-full bg-[#FF6A00]/10 blur-2xl" />
 
                 <div className="relative mx-auto flex w-full max-w-5xl flex-col justify-center">
                     <div className="flex flex-col items-center px-2 text-center">
@@ -383,7 +377,7 @@ export default function UKPayrollPage() {
 
             {/* 2 — Intro */}
             <section className="w-full bg-white">
-                <div className="mx-auto max-w-6xl px-4 py-2 sm:px-6 sm:py-2.5 lg:px-8">
+                <div className="mx-auto max-w-6xl px-4 py-3 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12">
                         <div>
                             <span className="mb-3 inline-block text-[11px] font-extrabold uppercase tracking-widest text-[#FF6A00]">
@@ -456,7 +450,7 @@ export default function UKPayrollPage() {
             </section>
 
             {/* 3 — Why Payroll & CIS Matter */}
-            <section className="relative w-full overflow-hidden bg-white py-2 sm:py-2.5">
+            <section className="relative w-full overflow-hidden bg-white py-3">
                 <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2 lg:gap-10 xl:gap-12">
                         <div className="flex flex-col">
@@ -484,14 +478,9 @@ export default function UKPayrollPage() {
                                         <div key={item.title}>
                                             <div className="flex items-start gap-3 py-2.5 sm:py-3">
                                                 <div
-                                                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-white sm:h-10 sm:w-10"
-                                                    style={{
-                                                        background: ORANGE,
-                                                        boxShadow:
-                                                            "0 6px 16px rgba(255, 106, 0,0.28)",
-                                                    }}
+                                                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#FFF4EA] text-[#FF6A00]"
                                                 >
-                                                    <Icon className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
+                                                    <Icon className="h-7 w-7" strokeWidth={1.75} />
                                                 </div>
                                                 <div className="min-w-0">
                                                     <h3
@@ -566,7 +555,7 @@ export default function UKPayrollPage() {
 
             {/* 4 — Our Payroll Services */}
             <section
-                className="relative w-full overflow-hidden py-2 sm:py-2.5"
+                className="relative w-full overflow-hidden py-3"
                 style={{ background: "#FFF7F0" }}
             >
                 <div
@@ -616,7 +605,7 @@ export default function UKPayrollPage() {
             </section>
 
             {/* 5 — Our CIS Services */}
-            <section className="relative w-full overflow-hidden bg-white py-2 sm:py-2.5">
+            <section className="relative w-full overflow-hidden bg-white py-3">
                 <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2 lg:gap-10 xl:gap-12">
                         <div className="relative order-2 min-h-[240px] h-full overflow-hidden rounded-[24px] shadow-[0_12px_40px_rgba(15,39,74,0.08)] sm:min-h-[300px] sm:rounded-[28px] lg:order-1">
@@ -658,7 +647,7 @@ export default function UKPayrollPage() {
             {/* 6 — How We Help Accounting Firms */}
             <section
                 id="how-we-help"
-                className="relative w-full overflow-hidden px-4 py-2 sm:px-6 sm:py-2.5 lg:px-8"
+                className="relative w-full overflow-hidden px-4 py-3 sm:px-6 lg:px-8"
                 style={{ background: PAGE_CREAM }}
             >
                 <div
@@ -738,11 +727,11 @@ export default function UKPayrollPage() {
                 title="Software Expertise"
                 subtitle="We work across the payroll, pension, and accounting platforms your clients already use."
                 logodata={softwareExpertiseLogodata}
-                className="!py-2 sm:!py-2.5 lg:!py-2.5"
+                className="!py-3"
             />
 
             {/* 8 — Industries */}
-            <section className="relative w-full overflow-hidden bg-white py-5 sm:py-6 lg:py-7">
+            <section className="relative w-full overflow-hidden bg-white py-3">
                 <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
                     <div className="px-3 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-7" style={{ background: PAGE_CREAM }}>
                         <div className="mx-auto max-w-[720px] text-center">
@@ -783,39 +772,31 @@ export default function UKPayrollPage() {
                         </div>
 
                         <div className="mt-4 grid grid-cols-2 gap-2.5 sm:mt-5 sm:grid-cols-3 sm:gap-3 lg:grid-cols-3 lg:gap-3">
-                            {industriesWeSupport.map((item) => {
-                                const Icon = item.icon;
-                                return (
-                                    <div
-                                        key={item.label}
-                                        className="flex min-h-[92px] flex-col items-center justify-center rounded-[12px] border border-[#F0F0F0] bg-white px-2 py-2.5 text-center shadow-[0_4px_18px_rgba(15,39,74,0.05)] transition-all duration-200 hover:border-[#FF6A00]/25 hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:min-h-[108px] sm:rounded-[14px] sm:px-2.5 sm:py-3"
-                                    >
-                                        <div
-                                            className="flex h-11 w-11 items-center justify-center rounded-full sm:h-12 sm:w-12"
-                                            style={{ backgroundColor: item.bg }}
-                                        >
-                                            <Icon
-                                                className="h-5 w-5 sm:h-5 sm:w-5"
-                                                style={{ color: item.color }}
-                                                strokeWidth={1.75}
-                                            />
-                                        </div>
-                                        <p
-                                            className="mt-1.5 text-[11px] font-bold leading-snug sm:text-[12px]"
-                                            style={{ color: NAVY }}
-                                        >
-                                            {item.label}
-                                        </p>
-                                    </div>
-                                );
-                            })}
+                            {industriesWeSupport.map((item) => (
+                                <div
+                                    key={item.label}
+                                    className="flex min-h-[126px] flex-col items-center justify-center rounded-[14px] border border-[#F0E0D2] bg-white px-2.5 py-3 text-center transition-colors duration-200 hover:border-[#FFB77F] hover:bg-[#FFFCF9]"
+                                >
+                                    <Image
+                                        src={item.image}
+                                        alt=""
+                                        width={72}
+                                        height={72}
+                                        className="h-16 w-16 object-contain sm:h-[72px] sm:w-[72px]"
+                                        aria-hidden="true"
+                                    />
+                                    <p className="mt-2 text-[11px] font-bold leading-snug text-[#0B1F3A] sm:text-[12px]">
+                                        {item.label}
+                                    </p>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* 9 — Why Choose NextLedgers */}
-            <section className="relative w-full overflow-hidden bg-white py-2 sm:py-2.5">
+            <section className="relative w-full overflow-hidden bg-white py-3">
                 <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2 lg:gap-10 xl:gap-12">
                         <div className="flex flex-col">
@@ -837,31 +818,13 @@ export default function UKPayrollPage() {
                             </div>
 
                             <div className="mt-4 sm:mt-5">
-                                {whyChooseNextLedgers.map((title, index) => {
+                                {whyChooseNextLedgers.map(({ title, icon: Icon }, index) => {
                                     const isLast = index === whyChooseNextLedgers.length - 1;
                                     return (
                                         <div key={title}>
                                             <div className="flex items-start gap-3 py-2.5 sm:py-3">
-                                                <span
-                                                    className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full sm:h-10 sm:w-10"
-                                                    style={{
-                                                        background: ORANGE,
-                                                        boxShadow:
-                                                            "0 6px 16px rgba(255, 106, 0,0.28)",
-                                                    }}
-                                                >
-                                                    <svg
-                                                        viewBox="0 0 24 24"
-                                                        fill="none"
-                                                        className="h-4 w-4 sm:h-[18px] sm:w-[18px]"
-                                                        stroke="white"
-                                                        strokeWidth={3}
-                                                        strokeLinecap="round"
-                                                        strokeLinejoin="round"
-                                                        aria-hidden="true"
-                                                    >
-                                                        <path d="M20 6 9 17l-5-5" />
-                                                    </svg>
+                                                <span className="mt-0.5 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#FFF4EA] text-[#FF6A00]">
+                                                    <Icon className="h-7 w-7" strokeWidth={1.75} />
                                                 </span>
                                                 <p
                                                     className="pt-1.5 text-[13.5px] font-bold leading-snug sm:pt-2 sm:text-[14.5px]"
@@ -896,20 +859,16 @@ export default function UKPayrollPage() {
             </section>
 
             {/* 10 — CTA */}
-            <TransformCTA
-                titleWhite="Your Offshore Payroll &"
-                titleOrange="CIS Delivery Partner"
-                titleBreak={false}
+            <ServicePartnerCTA
+                eyebrow="Payroll & CIS Partner"
+                titleBefore="Your Offshore Payroll &"
+                titleAccent="CIS Delivery"
+                titleAfter="Partner"
                 description="Payroll and CIS require precision, confidentiality, and consistent compliance. Our dedicated professionals work as an extension of your practice, helping you deliver reliable payroll services while freeing up valuable internal resources."
-                descriptionSecond="Whether you require support with payroll processing, RTI compliance, pension administration, CIS returns, or dedicated payroll resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance."
-                primaryLabel="Book a Discovery Call"
-                primaryHref="/contact"
-                secondaryLabel="Call Us"
-                secondaryHref="tel:+918285285223"
-                className="!pt-2 sm:!pt-2.5 lg:!pt-2.5"
+                callout="Whether you require payroll processing, RTI compliance, pension administration, CIS returns, or dedicated payroll resources, NextLedgers helps your practice scale while maintaining quality and compliance."
             />
 
-            <Footer />
+            <Footer region="uk" />
             <ArtificialIntelligence />
             <NexaLedAi />
         </main>

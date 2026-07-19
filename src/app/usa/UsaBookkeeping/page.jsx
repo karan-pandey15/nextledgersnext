@@ -37,18 +37,6 @@ import {
     BarChart3,
     CalendarCheck,
     History,
-    Briefcase,
-    Monitor,
-    HardHat,
-    HeartPulse,
-    Wrench,
-    ShoppingBag,
-    Package,
-    Store,
-    ShoppingCart,
-    Building2,
-    UtensilsCrossed,
-    MapPin,
     UserCheck,
     Award,
     Layers,
@@ -56,7 +44,6 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import CtaButton from "@/app/components/ui/CtaButton";
 import IconDisplayScreen from "@/app/components/ServiceMainPageContent/IcondisplayScreen";
 import TrustBadgesBar, {
@@ -67,7 +54,6 @@ import BookkeepingReconcilation from "@/app/components/ServiceMainPageContent/Bo
 import BookKeepingCompliance from "@/app/components/ServiceMainPageContent/Bookkeepingcompliance";
 import ServiceDeliverablesExplorer from "@/app/components/ServiceMainPageContent/ServiceDeliverablesExplorer";
 import Footer from "@/app/components/footer/Footer";
-import TopAnnouncementBar from "@/app/components/TopHeader/TopAnnouncementBar";
 import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/ArtificialIntelligence";
 import NexaLedAi from "@/app/components/ChatBot/NexaLedAi";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
@@ -274,75 +260,51 @@ const specialistAreaCards = [
 const industriesWeSupport = [
     {
         label: "Professional Service Firms",
-        icon: Briefcase,
-        bg: "#E8F4FF",
-        color: "#0284C7",
+        image: "/images/nexticon/professionalservices.png",
     },
     {
         label: "Technology Companies",
-        icon: Monitor,
-        bg: "#E8F1FF",
-        color: "#3B82F6",
+        image: "/images/nexticon/technology.png",
     },
     {
         label: "Construction Businesses",
-        icon: HardHat,
-        bg: "#FFF4E5",
-        color: "#FF6A00",
+        image: "/images/nexticon/construction.png",
     },
     {
         label: "Healthcare Practices",
-        icon: HeartPulse,
-        bg: "#FFE8EE",
-        color: "#E11D48",
+        image: "/images/nexticon/healthcare.png",
     },
     {
         label: "Engineering Firms",
-        icon: Wrench,
-        bg: "#F3E8FF",
-        color: "#9333EA",
+        image: "/images/nexticon/technology.png",
     },
     {
         label: "eCommerce & Online Retail",
-        icon: ShoppingBag,
-        bg: "#E8F8EF",
-        color: "#16A34A",
+        image: "/images/nexticon/Ecommerce.png",
     },
     {
         label: "Amazon Sellers",
-        icon: Package,
-        bg: "#FFF0E8",
-        color: BRAND_ORANGE,
+        image: "/images/nexticon/Ecommerce.png",
     },
     {
         label: "Shopify Businesses",
-        icon: Store,
-        bg: "#E8F8EF",
-        color: "#059669",
+        image: "/images/nexticon/Ecommerce.png",
     },
     {
         label: "Retail Companies",
-        icon: ShoppingCart,
-        bg: "#FFF4EA",
-        color: BRAND_ORANGE,
+        image: "/images/nexticon/Ecommerce.png",
     },
     {
         label: "Real Estate Businesses",
-        icon: Building2,
-        bg: "#FFE8EE",
-        color: "#E11D48",
+        image: "/images/nexticon/realstate.png",
     },
     {
         label: "Hospitality Businesses",
-        icon: UtensilsCrossed,
-        bg: "#FFF0E8",
-        color: "#FF6A00",
+        image: "/images/nexticon/hospitality.png",
     },
     {
         label: "Franchise & Multi-Location Businesses",
-        icon: MapPin,
-        bg: "#E8F1FF",
-        color: "#2563EB",
+        image: "/images/nexticon/consulting.png",
     },
 ];
 
@@ -439,7 +401,6 @@ export default function UsaBookkeeping() {
 
     return (
         <main className="relative min-h-screen w-full overflow-x-hidden bg-white">
-            <TopAnnouncementBar region="usa" />
             <USANavbar
                 isSidebarOpen={isSidebarOpen}
                 setIsSidebarOpen={setIsSidebarOpen}
@@ -527,10 +488,10 @@ export default function UsaBookkeeping() {
                             <div className="mb-5 space-y-3">
                                 <div className="rounded-[14px] border border-[#F0E6DC] bg-[#FFF9F5] p-4 sm:p-4.5">
                                     <div className="mb-2 flex items-center gap-2.5">
-                                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-[#FF6A00] shadow-sm">
+                                        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#FFF4EA] text-[#FF6A00]">
                                             <AlertTriangle
-                                                className="h-4 w-4"
-                                                strokeWidth={2.25}
+                                                className="h-7 w-7"
+                                                strokeWidth={1.8}
                                             />
                                         </span>
                                         <h3 className="text-[13.5px] font-bold text-[#0B1F3A] sm:text-[14px]">
@@ -547,10 +508,10 @@ export default function UsaBookkeeping() {
 
                                 <div className="rounded-[14px] border border-[#F0E6DC] bg-white p-4 shadow-[0_4px_16px_rgba(15,23,42,0.04)] sm:p-4.5">
                                     <div className="mb-2 flex items-center gap-2.5">
-                                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#FF6A00]">
+                                        <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#FFF4EA] text-[#FF6A00]">
                                             <Handshake
-                                                className="h-4 w-4"
-                                                strokeWidth={2.25}
+                                                className="h-7 w-7"
+                                                strokeWidth={1.8}
                                             />
                                         </span>
                                         <h3 className="text-[13.5px] font-bold text-[#0B1F3A] sm:text-[14px]">
@@ -743,22 +704,19 @@ export default function UsaBookkeeping() {
 
                         <div className="mt-4 grid grid-cols-2 gap-2.5 sm:mt-5 sm:grid-cols-3 sm:gap-3 lg:grid-cols-4 lg:gap-3">
                             {industriesWeSupport.map((item) => {
-                                const Icon = item.icon;
                                 return (
                                     <div
                                         key={item.label}
-                                        className="flex min-h-[92px] flex-col items-center justify-center rounded-[12px] border border-[#F0F0F0] bg-white px-2 py-2.5 text-center shadow-[0_4px_18px_rgba(15,39,74,0.05)] transition-all duration-200 hover:border-[#FF6A00]/25 hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:min-h-[108px] sm:rounded-[14px] sm:px-2.5 sm:py-3"
+                                        className="flex min-h-[126px] flex-col items-center justify-center rounded-[14px] border border-[#F0E0D2] bg-white px-2.5 py-3 text-center transition-colors duration-200 hover:border-[#FFB77F] hover:bg-[#FFFCF9]"
                                     >
-                                        <div
-                                            className="flex h-11 w-11 items-center justify-center rounded-full sm:h-12 sm:w-12"
-                                            style={{ backgroundColor: item.bg }}
-                                        >
-                                            <Icon
-                                                className="h-5 w-5 sm:h-5 sm:w-5"
-                                                style={{ color: item.color }}
-                                                strokeWidth={1.75}
-                                            />
-                                        </div>
+                                        <Image
+                                            src={item.image}
+                                            alt=""
+                                            width={72}
+                                            height={72}
+                                            className="h-16 w-16 object-contain sm:h-[72px] sm:w-[72px]"
+                                            aria-hidden="true"
+                                        />
                                         <p
                                             className="mt-1.5 text-[11px] font-bold leading-snug sm:text-[12px]"
                                             style={{ color: NAVY }}
@@ -826,10 +784,10 @@ export default function UsaBookkeeping() {
                                 className="rounded-[14px] border border-[#F0E6DC] bg-white px-5 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.05)]"
                             >
                                 <span
-                                    className="mb-3 flex h-9 w-9 items-center justify-center"
+                                    className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[#FFF4EA]"
                                     style={{ color: ORANGE }}
                                 >
-                                    <Icon className="h-6 w-6" strokeWidth={1.75} />
+                                    <Icon className="h-7 w-7" strokeWidth={1.75} />
                                 </span>
                                 <h3
                                     className="text-[13.5px] font-bold leading-snug sm:text-[14px]"
@@ -852,10 +810,10 @@ export default function UsaBookkeeping() {
                                 className="rounded-[14px] border border-[#F0E6DC] bg-white px-5 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.05)]"
                             >
                                 <span
-                                    className="mb-3 flex h-9 w-9 items-center justify-center"
+                                    className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[#FFF4EA]"
                                     style={{ color: ORANGE }}
                                 >
-                                    <Icon className="h-6 w-6" strokeWidth={1.75} />
+                                    <Icon className="h-7 w-7" strokeWidth={1.75} />
                                 </span>
                                 <h3
                                     className="text-[13.5px] font-bold leading-snug sm:text-[14px]"
@@ -924,10 +882,10 @@ export default function UsaBookkeeping() {
 
                         <div className="mx-auto mt-6 flex max-w-3xl items-start gap-4 rounded-2xl bg-white px-4 py-4 text-left shadow-[0_6px_24px_rgba(15,23,42,0.06)] sm:gap-5 sm:px-6 sm:py-5">
                             <span
-                                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full sm:h-12 sm:w-12"
+                                className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl"
                                 style={{ background: "#FFF4EA", color: ORANGE }}
                             >
-                                <UserCheck className="h-5 w-5" strokeWidth={2} />
+                                <UserCheck className="h-7 w-7" strokeWidth={1.8} />
                             </span>
                             <p
                                 className="pt-0.5 text-[12.5px] leading-relaxed sm:text-[13.5px]"

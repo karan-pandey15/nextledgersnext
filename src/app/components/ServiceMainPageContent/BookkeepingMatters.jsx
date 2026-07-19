@@ -173,10 +173,12 @@ export default function BookKeepingMatters({
     bannerTitleBefore = "Accurate books. Better insights. ",
     bannerTitleAccent = "Stronger outcomes.",
     bannerBody = "A solid bookkeeping foundation empowers accounting firms to deliver more value, ensure compliance, and drive growth for their clients.",
+    wideTrustPanel = false,
+    className = "",
 }) {
     return (
         <section
-            className="relative w-full overflow-hidden px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14"
+            className={`relative w-full overflow-hidden px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14 ${className}`}
             style={{ background: PAGE_BG }}
         >
             <div
@@ -211,7 +213,13 @@ export default function BookKeepingMatters({
             </div>
 
             <div className="relative mx-auto w-full max-w-6xl">
-                <div className="mb-7 grid grid-cols-1 items-center gap-6 lg:mb-8 lg:grid-cols-[200px_1fr_240px] lg:gap-7 xl:grid-cols-[220px_1fr_250px]">
+                <div
+                    className={`mb-6 grid grid-cols-1 items-center gap-6 ${
+                        wideTrustPanel
+                            ? "lg:grid-cols-[190px_1fr_264px] lg:gap-6 xl:grid-cols-[210px_1fr_275px]"
+                            : "lg:grid-cols-[200px_1fr_240px] lg:gap-7 xl:grid-cols-[220px_1fr_250px]"
+                    }`}
+                >
                     <div className="mx-auto w-full max-w-[220px] lg:mx-0 lg:max-w-none">
                         <Image
                             src={imageSrc}
@@ -267,7 +275,6 @@ export default function BookKeepingMatters({
                         className="overflow-hidden rounded-[14px] border bg-white"
                         style={{
                             borderColor: CARD_BORDER,
-                            boxShadow: "0 8px 28px rgba(0,0,0,0.07)",
                         }}
                     >
                         <div className="grid grid-cols-2 gap-x-3 gap-y-3.5 p-3.5 sm:p-4">
@@ -293,7 +300,7 @@ export default function BookKeepingMatters({
                 </div>
 
                 <div
-                    className="mt-7 flex flex-col items-center gap-4 rounded-2xl px-5 py-5 sm:mt-8 sm:flex-row sm:gap-5 sm:px-7 sm:py-5"
+                    className="mt-6 flex flex-col items-center gap-4 rounded-2xl px-5 py-5 sm:flex-row sm:gap-5 sm:px-7 sm:py-5"
                     style={{
                         background:
                             "linear-gradient(105deg, #FFF4EA 0%, #FFE8D2 45%, #FFF8F1 100%)",

@@ -32,7 +32,6 @@ import BookKeepingMatters from "@/app/components/ServiceMainPageContent/Bookkeep
 import BookkeepingReconcilation from "@/app/components/ServiceMainPageContent/Bookkeepingreconcilation";
 import BookKeepingCompliance from "@/app/components/ServiceMainPageContent/Bookkeepingcompliance";
 import Footer from "@/app/components/footer/Footer";
-import TopAnnouncementBar from "@/app/components/TopHeader/TopAnnouncementBar";
 import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/ArtificialIntelligence";
 import NexaLedAi from "@/app/components/ChatBot/NexaLedAi";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
@@ -47,7 +46,7 @@ const trustBadges = [
     { icon: Shield, label: "ISO 27001", sub: "Certified" },
     { icon: Lock, label: "GDPR", sub: "Compliant" },
     { icon: Clock, label: "UK Time Zone", sub: "Overlap" },
-    { icon: Award, label: "10+ Years", sub: "Experience" },
+    { icon: Award, label: "9+ Years", sub: "Experience" },
     { icon: UserCheck, label: "Dedicated", sub: "Account Manager" },
 ];
 
@@ -166,7 +165,6 @@ export default function UkBookkeeping() {
 
     return (
         <main className="relative min-h-screen w-full overflow-x-hidden bg-white">
-            <TopAnnouncementBar isSidebarOpen={isSidebarOpen} region="uk" />
             <UKNavbar
                 isSidebarOpen={isSidebarOpen}
                 setIsSidebarOpen={setIsSidebarOpen}
@@ -234,7 +232,7 @@ export default function UkBookkeeping() {
 
             {/* 2 — Reliable Bookkeeping Support intro */}
             <section id="how-we-work" className="w-full bg-white">
-                <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
+                <div className="mx-auto max-w-6xl px-4 py-3 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12">
                         <div>
                             <span className="mb-3 inline-block text-[11px] font-extrabold uppercase tracking-widest text-[#FF6A00]">
@@ -316,24 +314,25 @@ export default function UkBookkeeping() {
             </section>
 
             {/* 3 — Why Accurate Bookkeeping Matters */}
-            <BookKeepingMatters />
+            <BookKeepingMatters className="!py-3" />
 
             {/* 4 — Bookkeeping & Reconciliation + Specialist VAT */}
-            <BookkeepingReconcilation />
+            <BookkeepingReconcilation className="!py-3" />
 
             {/* 5 — Why VAT Matters + VAT Services */}
-            <BookKeepingCompliance />
+            <BookKeepingCompliance className="!py-3" />
 
             {/* 6 — Software Expertise */}
             <IconDisplayScreen
                 title="Software Expertise"
                 subtitle="We work across the accounting, document, eCommerce, and payment platforms your clients already use."
                 logodata={softwareExpertiseLogodata}
+                className="!py-3"
             />
 
             {/* 7 — Why Choose NextLedgers (7-card grid) */}
             <section
-                className="relative w-full overflow-hidden bg-white px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14"
+                className="relative w-full overflow-hidden bg-white px-4 py-3 sm:px-6 lg:px-8"
             >
                 <DotGrid className="pointer-events-none absolute right-4 top-6 sm:right-10 sm:top-8" />
                 <DotGrid className="pointer-events-none absolute bottom-8 left-4 sm:bottom-10 sm:left-8" />
@@ -378,10 +377,10 @@ export default function UkBookkeeping() {
                                 className="rounded-[14px] border border-[#F0E6DC] bg-white px-5 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.05)]"
                             >
                                 <span
-                                    className="mb-3 flex h-9 w-9 items-center justify-center"
+                                    className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[#FFF4EA]"
                                     style={{ color: ORANGE }}
                                 >
-                                    <Icon className="h-6 w-6" strokeWidth={1.75} />
+                                    <Icon className="h-7 w-7" strokeWidth={1.75} />
                                 </span>
                                 <h3
                                     className="text-[13.5px] font-bold leading-snug sm:text-[14px]"
@@ -404,10 +403,10 @@ export default function UkBookkeeping() {
                                 className="rounded-[14px] border border-[#F0E6DC] bg-white px-5 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.05)]"
                             >
                                 <span
-                                    className="mb-3 flex h-9 w-9 items-center justify-center"
+                                    className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[#FFF4EA]"
                                     style={{ color: ORANGE }}
                                 >
-                                    <Icon className="h-6 w-6" strokeWidth={1.75} />
+                                    <Icon className="h-7 w-7" strokeWidth={1.75} />
                                 </span>
                                 <h3
                                     className="text-[13.5px] font-bold leading-snug sm:text-[14px]"
@@ -426,7 +425,7 @@ export default function UkBookkeeping() {
             </section>
 
             {/* 8 — Partner CTA (cream mockup) */}
-            <section className="relative w-full bg-white px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
+            <section className="relative w-full bg-white px-4 py-3 sm:px-6 lg:px-8">
                 <div
                     className="relative mx-auto max-w-5xl overflow-hidden rounded-[22px] px-5 py-10 text-center sm:rounded-[28px] sm:px-10 sm:py-12 lg:px-14"
                     style={{ background: PAGE_CREAM }}

@@ -9,7 +9,7 @@ import TrustBadgesBar from "./TrustBadgesBar";
 
 export default function ServiceHomePage({
     badge = "UK Accounting Outsourcing Partner",
-    titleBefore = "Helping UK Accounting Firms",
+    titleBefore = "UK Accounting Firms",
     titleAccent = "Scale with Confidence",
     titleAfter = "",
     subtitle = "Dedicated offshore support across bookkeeping, VAT, payroll, tax, management reporting, advisory & company secretarial.",
@@ -48,9 +48,9 @@ export default function ServiceHomePage({
                         {badge}
                     </span>
 
-                    <h1 className="max-w-[300px] text-[22px] font-extrabold leading-snug text-[#0B1F3A] sm:max-w-2xl sm:text-3xl lg:text-[34px]">
-                        {titleBefore}{" "}
-                        <span className="text-[#FF6A00]">{titleAccent}</span>
+                    <h1 className="max-w-[300px] text-[#FF6A00] text-[22px] font-extrabold leading-snug text-[#0B1F3A] sm:max-w-2xl sm:text-3xl lg:text-[34px]">
+                      <span  className="text-[#111]" >Helping</span>  {titleBefore}{" "}
+                        <span className="text-[#111]">{titleAccent}</span>
                         {titleAfter ? ` ${titleAfter}` : ""}
                     </h1>
 

@@ -28,19 +28,9 @@ import {
     Network,
     LockKeyhole,
     Layers,
-    Briefcase,
-    Building2,
-    HardHat,
-    ShoppingBag,
-    Monitor,
-    HeartPulse,
-    Home,
-    Package,
-    Rocket,
 } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import CtaButton from "@/app/components/ui/CtaButton";
 import { motion } from "framer-motion";
 import IconDisplayScreen from "@/app/components/ServiceMainPageContent/IcondisplayScreen";
@@ -49,7 +39,6 @@ import TrustBadgesBar, {
     USA_TRUST_BADGES,
 } from "@/app/components/ServiceMainPageContent/TrustBadgesBar";
 import Footer from "@/app/components/footer/Footer";
-import TopAnnouncementBar from "@/app/components/TopHeader/TopAnnouncementBar";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
 const ORANGE = BRAND_ORANGE;
@@ -222,63 +211,43 @@ const softwareExpertiseLogodata = [
 const industriesWeSupport = [
     {
         label: "Professional Service Firms",
-        icon: Briefcase,
-        bg: "#E8F4FF",
-        color: "#0284C7",
+        image: "/images/nexticon/professionalservices.png",
     },
     {
         label: "Technology Companies",
-        icon: Monitor,
-        bg: "#E8F1FF",
-        color: "#2563EB",
+        image: "/images/nexticon/technology.png",
     },
     {
         label: "Construction Businesses",
-        icon: HardHat,
-        bg: "#FFF4E5",
-        color: "#FF6A00",
+        image: "/images/nexticon/construction.png",
     },
     {
         label: "Manufacturing Companies",
-        icon: Package,
-        bg: "#F3E8FF",
-        color: "#7C3AED",
+        image: "/images/nexticon/manugacturing.png",
     },
     {
         label: "Healthcare Providers",
-        icon: HeartPulse,
-        bg: "#FFE8EE",
-        color: "#BE123C",
+        image: "/images/nexticon/healthcare.png",
     },
     {
         label: "E-Commerce & Online Retail",
-        icon: ShoppingBag,
-        bg: "#E8F8EF",
-        color: "#16A34A",
+        image: "/images/nexticon/Ecommerce.png",
     },
     {
         label: "Amazon & Shopify Businesses",
-        icon: Rocket,
-        bg: "#FFF0E8",
-        color: BRAND_ORANGE,
+        image: "/images/nexticon/Ecommerce.png",
     },
     {
         label: "Real Estate Businesses",
-        icon: Home,
-        bg: "#E8F8EF",
-        color: "#059669",
+        image: "/images/nexticon/realstate.png",
     },
     {
         label: "Nonprofit Organisations",
-        icon: HeartPulse,
-        bg: "#FFF4EA",
-        color: "#C2410C",
+        image: "/images/nexticon/nonprofit.png",
     },
     {
         label: "Multi-Entity Groups",
-        icon: Building2,
-        bg: "#E8F1FF",
-        color: "#3B82F6",
+        image: "/images/nexticon/startupsmes.png",
     },
 ];
 
@@ -396,7 +365,6 @@ export default function UsaYearEndAccounts() {
 
     return (
         <main className="relative min-h-screen w-full overflow-x-hidden bg-white">
-            <TopAnnouncementBar region="usa" />
             <USANavbar
                 isSidebarOpen={isSidebarOpen}
                 setIsSidebarOpen={setIsSidebarOpen}
@@ -420,6 +388,7 @@ export default function UsaYearEndAccounts() {
                 />
                 <div className="pointer-events-none absolute -left-20 top-0 h-64 w-64 rounded-full bg-[#FF6A00]/15 blur-3xl" />
                 <div className="pointer-events-none absolute -right-16 bottom-0 h-72 w-72 rounded-full bg-[#0B1F3A]/06 blur-3xl" />
+                <div className="pointer-events-none absolute left-1/2 top-1/3 h-40 w-40 -translate-x-1/2 rounded-full bg-[#FF6A00]/10 blur-2xl" />
 
                 <div className="relative mx-auto flex w-full max-w-5xl flex-col justify-center">
                     <div className="flex flex-col items-center px-2 text-center">
@@ -464,7 +433,7 @@ export default function UsaYearEndAccounts() {
 
             {/* 2 — Intro / Partnership */}
             <section id="how-we-work" className="w-full bg-white">
-                <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
+                <div className="mx-auto max-w-6xl px-4 py-3 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12">
                         <div>
                             <span className="mb-3 inline-block text-[11px] font-extrabold uppercase tracking-widest text-[#FF6A00]">
@@ -602,7 +571,7 @@ export default function UsaYearEndAccounts() {
 
             {/* 3 — Why Year-End Matters */}
             <section
-                className="relative w-full overflow-hidden px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14"
+                className="relative w-full overflow-hidden px-4 py-3 sm:px-6 lg:px-8"
                 style={{ background: PAGE_CREAM }}
             >
                 <DotGrid className="pointer-events-none absolute right-4 top-6 opacity-50 sm:right-10 sm:top-8" />
@@ -655,32 +624,31 @@ export default function UsaYearEndAccounts() {
                                     key={title}
                                     delay={Math.min(index * 0.05, 0.25)}
                                 >
-                                    <div className="flex h-full flex-col rounded-[16px] border border-[#F0E6DC] bg-white px-4 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.04)] transition-shadow hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:px-5 sm:py-6">
+                                    <div className="flex h-full items-start gap-3 rounded-[14px] border border-[#F0E0D2] bg-white px-4 py-4 transition-colors duration-200 hover:border-[#FFB77F] sm:px-5">
                                         <span
-                                            className="mb-3.5 flex h-10 w-10 items-center justify-center rounded-xl text-white"
-                                            style={{
-                                                background: ORANGE,
-                                                boxShadow:
-                                                    "0 6px 16px rgba(255, 106, 0,0.28)",
-                                            }}
+                                            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl"
+                                            style={{ background: PILL_BG, color: ORANGE }}
                                         >
                                             <Icon
-                                                className="h-5 w-5"
-                                                strokeWidth={2}
+                                                className="h-7 w-7"
+                                                strokeWidth={1.75}
                                             />
                                         </span>
-                                        <h3
-                                            className="text-[13.5px] font-bold leading-snug sm:text-[14px]"
-                                            style={{ color: NAVY }}
-                                        >
-                                            {title}
-                                        </h3>
-                                        <p
-                                            className="mt-2 text-[12px] leading-relaxed sm:text-[12.5px]"
-                                            style={{ color: GREY }}
-                                        >
-                                            {description}
-                                        </p>
+                                        <div className="min-w-0 flex-1">
+                                            <h3
+                                                className="text-[13.5px] font-bold leading-snug sm:text-[14px]"
+                                                style={{ color: NAVY }}
+                                            >
+                                                {title}
+                                            </h3>
+                                            <div className="mb-2 mt-2 h-[2px] w-6 rounded-full bg-[#FF6A00]" />
+                                            <p
+                                                className="text-[12px] leading-relaxed sm:text-[12.5px]"
+                                                style={{ color: GREY }}
+                                            >
+                                                {description}
+                                            </p>
+                                        </div>
                                     </div>
                                 </Reveal>
                             )
@@ -714,7 +682,7 @@ export default function UsaYearEndAccounts() {
             />
 
             {/* 5 — Specialist Areas */}
-            <section className="relative w-full overflow-hidden bg-white px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
+            <section className="relative w-full overflow-hidden bg-white px-4 py-3 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-6xl">
                     <Reveal className="mb-7 text-center">
                         <span
@@ -799,12 +767,12 @@ export default function UsaYearEndAccounts() {
                         >
                             <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-5">
                                 <span
-                                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl"
-                                    style={{ background: ORANGE }}
+                                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl"
+                                    style={{ background: PILL_BG, color: ORANGE }}
                                 >
                                     <Layers
-                                        className="h-5 w-5 text-white"
-                                        strokeWidth={2}
+                                        className="h-7 w-7"
+                                        strokeWidth={1.8}
                                     />
                                 </span>
                                 <div className="min-w-0 flex-1">
@@ -844,7 +812,7 @@ export default function UsaYearEndAccounts() {
                 title="Software Expertise"
                 subtitle="We work across the accounting platforms, reporting tools, and workflow systems your clients already rely on."
                 logodata={softwareExpertiseLogodata}
-                className="!py-10 sm:!py-12 lg:!py-14"
+                className="!py-3"
             />
 
             {/* Soft break before industries */}
@@ -862,7 +830,7 @@ export default function UsaYearEndAccounts() {
                 <span className="h-px w-10 bg-[#F0E6DC] sm:w-16" />
             </div>
             {/* 7 — Industries */}
-            <section className="relative w-full overflow-hidden bg-white py-5 sm:py-6 lg:py-7">
+            <section className="relative w-full overflow-hidden bg-white py-3">
                 <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
                     <div
                         className="rounded-none px-3 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-7"
@@ -910,7 +878,6 @@ export default function UsaYearEndAccounts() {
                                 {industriesWeSupport
                                     .slice(0, 5)
                                     .map((item, index) => {
-                                        const Icon = item.icon;
                                         return (
                                             <Reveal
                                                 key={item.label}
@@ -919,24 +886,17 @@ export default function UsaYearEndAccounts() {
                                                     0.2
                                                 )}
                                             >
-                                                <div className="flex min-h-[92px] flex-col items-center justify-center rounded-[12px] border border-[#F0F0F0] bg-white px-2 py-2.5 text-center shadow-[0_4px_18px_rgba(15,39,74,0.05)] transition-all duration-200 hover:border-[#FF6A00]/25 hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:min-h-[108px] sm:rounded-[14px] sm:px-2.5 sm:py-3">
-                                                    <div
-                                                        className="flex h-11 w-11 items-center justify-center rounded-full sm:h-12 sm:w-12"
-                                                        style={{
-                                                            backgroundColor:
-                                                                item.bg,
-                                                        }}
-                                                    >
-                                                        <Icon
-                                                            className="h-5 w-5 sm:h-5 sm:w-5"
-                                                            style={{
-                                                                color: item.color,
-                                                            }}
-                                                            strokeWidth={1.75}
-                                                        />
-                                                    </div>
+                                                <div className="flex min-h-[126px] flex-col items-center justify-center rounded-[14px] border border-[#F0E0D2] bg-white px-2.5 py-3 text-center transition-colors duration-200 hover:border-[#FFB77F] hover:bg-[#FFFCF9]">
+                                                    <Image
+                                                        src={item.image}
+                                                        alt=""
+                                                        width={72}
+                                                        height={72}
+                                                        className="h-16 w-16 object-contain sm:h-[72px] sm:w-[72px]"
+                                                        aria-hidden="true"
+                                                    />
                                                     <p
-                                                        className="mt-1.5 text-[11px] font-bold leading-snug sm:text-[12px]"
+                                                        className="mt-2 text-[11px] font-bold leading-snug sm:text-[12px]"
                                                         style={{ color: NAVY }}
                                                     >
                                                         {item.label}
@@ -950,7 +910,6 @@ export default function UsaYearEndAccounts() {
                                 {industriesWeSupport
                                     .slice(5)
                                     .map((item, index) => {
-                                        const Icon = item.icon;
                                         return (
                                             <Reveal
                                                 key={item.label}
@@ -959,24 +918,17 @@ export default function UsaYearEndAccounts() {
                                                     0.28
                                                 )}
                                             >
-                                                <div className="flex min-h-[92px] flex-col items-center justify-center rounded-[12px] border border-[#F0F0F0] bg-white px-2 py-2.5 text-center shadow-[0_4px_18px_rgba(15,39,74,0.05)] transition-all duration-200 hover:border-[#FF6A00]/25 hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:min-h-[108px] sm:rounded-[14px] sm:px-2.5 sm:py-3">
-                                                    <div
-                                                        className="flex h-11 w-11 items-center justify-center rounded-full sm:h-12 sm:w-12"
-                                                        style={{
-                                                            backgroundColor:
-                                                                item.bg,
-                                                        }}
-                                                    >
-                                                        <Icon
-                                                            className="h-5 w-5 sm:h-5 sm:w-5"
-                                                            style={{
-                                                                color: item.color,
-                                                            }}
-                                                            strokeWidth={1.75}
-                                                        />
-                                                    </div>
+                                                <div className="flex min-h-[126px] flex-col items-center justify-center rounded-[14px] border border-[#F0E0D2] bg-white px-2.5 py-3 text-center transition-colors duration-200 hover:border-[#FFB77F] hover:bg-[#FFFCF9]">
+                                                    <Image
+                                                        src={item.image}
+                                                        alt=""
+                                                        width={72}
+                                                        height={72}
+                                                        className="h-16 w-16 object-contain sm:h-[72px] sm:w-[72px]"
+                                                        aria-hidden="true"
+                                                    />
                                                     <p
-                                                        className="mt-1.5 text-[11px] font-bold leading-snug sm:text-[12px]"
+                                                        className="mt-2 text-[11px] font-bold leading-snug sm:text-[12px]"
                                                         style={{ color: NAVY }}
                                                     >
                                                         {item.label}
@@ -992,7 +944,7 @@ export default function UsaYearEndAccounts() {
             </section>
 
             {/* 8 — Why Choose NextLedgers */}
-            <section className="relative w-full overflow-hidden bg-white px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
+            <section className="relative w-full overflow-hidden bg-white px-4 py-3 sm:px-6 lg:px-8">
                 <DotGrid className="pointer-events-none absolute right-4 top-6 sm:right-10 sm:top-8" />
                 <DotGrid className="pointer-events-none absolute bottom-8 left-4 sm:bottom-10 sm:left-8" />
 
@@ -1037,11 +989,11 @@ export default function UsaYearEndAccounts() {
                             <Reveal key={title} delay={Math.min(index * 0.05, 0.2)}>
                                 <div className="h-full rounded-[14px] border border-[#F0E6DC] bg-white px-5 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.05)]">
                                     <span
-                                        className="mb-3 flex h-9 w-9 items-center justify-center"
-                                        style={{ color: ORANGE }}
+                                        className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl"
+                                        style={{ background: PILL_BG, color: ORANGE }}
                                     >
                                         <Icon
-                                            className="h-6 w-6"
+                                            className="h-7 w-7"
                                             strokeWidth={1.75}
                                         />
                                     </span>
@@ -1068,11 +1020,11 @@ export default function UsaYearEndAccounts() {
                             >
                                 <div className="h-full rounded-[14px] border border-[#F0E6DC] bg-white px-5 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.05)]">
                                     <span
-                                        className="mb-3 flex h-9 w-9 items-center justify-center"
-                                        style={{ color: ORANGE }}
+                                        className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl"
+                                        style={{ background: PILL_BG, color: ORANGE }}
                                     >
                                         <Icon
-                                            className="h-6 w-6"
+                                            className="h-7 w-7"
                                             strokeWidth={1.75}
                                         />
                                     </span>
@@ -1094,7 +1046,7 @@ export default function UsaYearEndAccounts() {
             </section>
 
             {/* 9 — Partner CTA */}
-            <section className="relative w-full bg-white px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
+            <section className="relative w-full bg-white px-4 py-3 sm:px-6 lg:px-8">
                 <div
                     className="relative mx-auto max-w-5xl overflow-hidden rounded-[22px] px-5 py-10 text-center sm:rounded-[28px] sm:px-10 sm:py-12 lg:px-14"
                     style={{ background: PAGE_CREAM }}

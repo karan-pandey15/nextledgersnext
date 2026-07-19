@@ -40,7 +40,6 @@ import TrustBadgesBar, {
   CANADA_TRUST_BADGES,
 } from "@/app/components/ServiceMainPageContent/TrustBadgesBar";
 import Footer from "@/app/components/footer/Footer";
-import TopAnnouncementBar from "@/app/components/TopHeader/TopAnnouncementBar";
 import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/ArtificialIntelligence";
 import NexaLedAi from "@/app/components/ChatBot/NexaLedAi";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
@@ -246,7 +245,6 @@ export default function CanadaServiceTemplate({ data }) {
 
   return (
     <main className="relative min-h-screen w-full overflow-x-hidden bg-white">
-      <TopAnnouncementBar isSidebarOpen={isSidebarOpen} region="canada" />
       <CanadaNavbar
         isSidebarOpen={isSidebarOpen}
         setIsSidebarOpen={setIsSidebarOpen}
