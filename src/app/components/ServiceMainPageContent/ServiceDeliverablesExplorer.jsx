@@ -20,6 +20,7 @@ export default function ServiceDeliverablesExplorer({
     titleAfter = " Include",
     subtitle = "",
     services = [],
+    className = "",
 }) {
     const [activeIndex, setActiveIndex] = useState(0);
     const active = services[activeIndex] || services[0];
@@ -29,7 +30,7 @@ export default function ServiceDeliverablesExplorer({
 
     return (
         <section
-            className="relative w-full overflow-hidden px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14"
+            className={`relative w-full overflow-hidden px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14 ${className}`}
             style={{ background: PAGE_CREAM }}
         >
             <div className="relative mx-auto w-full max-w-6xl">

@@ -349,7 +349,7 @@ function CheckPill({ text }) {
 function ServiceCard({ icon: Icon, titleBefore, titleAccent, titleAfter, items }) {
     return (
         <div
-            className="rounded-[16px] border border-[#F3E6D8] bg-white p-5 sm:p-6 lg:p-7"
+            className="flex h-full flex-col rounded-[16px] border border-[#F3E6D8] bg-white p-5 sm:p-6 lg:p-7"
             style={{ boxShadow: "0 8px 28px rgba(15,23,42,0.06)" }}
         >
             <div className="mb-4 flex items-center gap-2.5">
@@ -640,7 +640,7 @@ export default function UKBusinessAdvisory() {
                 style={{ background: PAGE_CREAM }}
             >
                 <div className="relative mx-auto flex w-full max-w-6xl flex-col">
-                    <div className="mb-7 flex flex-col items-center text-center sm:mb-8">
+                    <div className="mb-6 flex flex-col items-center text-center sm:mb-7">
                         <span
                             className="mb-3 inline-flex items-center gap-1.5 rounded-full px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.12em] text-white shadow-sm"
                             style={{ background: ORANGE }}
@@ -669,7 +669,7 @@ export default function UKBusinessAdvisory() {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:gap-7">
+                    <div className="grid grid-cols-1 items-stretch gap-5 lg:grid-cols-2 lg:gap-8 xl:gap-10">
                         <ServiceCard
                             icon={FileText}
                             titleBefore="Our Business "
@@ -677,13 +677,36 @@ export default function UKBusinessAdvisory() {
                             titleAfter=" Services Include"
                             items={advisoryServices}
                         />
-                        <ServiceCard
-                            icon={LineChart}
-                            titleBefore="Our Virtual "
-                            titleAccent="CFO"
-                            titleAfter=" Services Include"
-                            items={virtualCfoServices}
-                        />
+                        <div className="relative min-h-[240px] overflow-hidden rounded-[24px] shadow-[0_12px_40px_rgba(15,39,74,0.08)] sm:min-h-[280px] sm:rounded-[28px] lg:min-h-full">
+                            <Image
+                                src="/images/DSC09781.JPG"
+                                alt="Business advisory services support"
+                                fill
+                                className="object-cover object-center"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
+                            />
+                        </div>
+                    </div>
+
+                    <div className="mt-5 grid grid-cols-1 items-stretch gap-5 lg:mt-8 lg:grid-cols-2 lg:gap-8 xl:gap-10">
+                        <div className="relative order-2 min-h-[240px] overflow-hidden rounded-[24px] shadow-[0_12px_40px_rgba(15,39,74,0.08)] sm:min-h-[280px] sm:rounded-[28px] lg:order-1 lg:min-h-full">
+                            <Image
+                                src="/images/bgimage.JPG"
+                                alt="Virtual CFO services support"
+                                fill
+                                className="object-cover object-center"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
+                            />
+                        </div>
+                        <div className="order-1 lg:order-2">
+                            <ServiceCard
+                                icon={LineChart}
+                                titleBefore="Our Virtual "
+                                titleAccent="CFO"
+                                titleAfter=" Services Include"
+                                items={virtualCfoServices}
+                            />
+                        </div>
                     </div>
                 </div>
             </section>
@@ -734,45 +757,59 @@ export default function UKBusinessAdvisory() {
                 style={{ background: PAGE_CREAM }}
             >
                 <div className="mx-auto max-w-6xl">
-                    <div className="mb-6 text-center">
-                        <span
-                            className="mb-3 inline-flex items-center gap-1.5 rounded-full px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.12em] text-white shadow-sm"
-                            style={{ background: ORANGE }}
-                        >
-                            <Building2 className="h-3 w-3" strokeWidth={2.5} />
-                            Companies House Compliance
-                        </span>
-                        <h2
-                            className="text-[22px] font-extrabold leading-tight sm:text-[26px] lg:text-[28px]"
-                            style={{ color: NAVY }}
-                        >
-                            Business Start-Up &amp;{" "}
-                            <span style={{ color: ORANGE }}>
-                                Companies House Compliance Support
+                    <div className="grid grid-cols-1 items-center gap-5 lg:grid-cols-2 lg:gap-8 xl:gap-10">
+                        <div>
+                            <span
+                                className="mb-3 inline-flex w-fit items-center gap-1.5 rounded-full px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.12em] text-white shadow-sm"
+                                style={{ background: ORANGE }}
+                            >
+                                <Building2 className="h-3 w-3" strokeWidth={2.5} />
+                                Companies House Compliance
                             </span>
-                        </h2>
-                        <p
-                            className="mx-auto mt-2.5 max-w-2xl text-[13px] leading-relaxed sm:text-[14px]"
-                            style={{ color: GREY }}
-                        >
-                            Supporting clients from incorporation through ongoing compliance
-                            enables accounting firms to build long-term relationships while
-                            ensuring businesses meet their statutory obligations from day one. Our
-                            offshore team assists with the administration, documentation, and
-                            compliance processes involved in setting up new businesses.
-                        </p>
+                            <h2
+                                className="text-[22px] font-extrabold leading-tight sm:text-[26px] lg:text-[28px]"
+                                style={{ color: NAVY }}
+                            >
+                                Business Start-Up &amp;{" "}
+                                <span style={{ color: ORANGE }}>
+                                    Companies House Compliance Support
+                                </span>
+                            </h2>
+                            <p
+                                className="mt-2.5 text-[13px] leading-relaxed sm:text-[14px]"
+                                style={{ color: GREY }}
+                            >
+                                Supporting clients from incorporation through ongoing compliance
+                                enables accounting firms to build long-term relationships while
+                                ensuring businesses meet their statutory obligations from day one. Our
+                                offshore team assists with the administration, documentation, and
+                                compliance processes involved in setting up new businesses.
+                            </p>
+                        </div>
+
+                        <div className="relative h-[231px] overflow-hidden rounded-[20px] shadow-[0_12px_40px_rgba(15,39,74,0.08)] sm:h-[273px] sm:rounded-[24px] lg:h-[294px]">
+                            <Image
+                                src="/images/DSC09901.JPG"
+                                alt="Business start-up and Companies House compliance support"
+                                fill
+                                className="object-cover object-center"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
+                            />
+                        </div>
                     </div>
 
-                    <ServiceCard
-                        icon={Building2}
-                        titleBefore="Our "
-                        titleAccent="services"
-                        titleAfter=" include:"
-                        items={startUpServices}
-                    />
+                    <div className="mt-5 sm:mt-6">
+                        <ServiceCard
+                            icon={Building2}
+                            titleBefore="Our "
+                            titleAccent="services"
+                            titleAfter=" include:"
+                            items={startUpServices}
+                        />
+                    </div>
 
                     <p
-                        className="mx-auto mt-5 max-w-4xl rounded-xl bg-white px-4 py-4 text-center text-[12px] leading-relaxed sm:px-6 sm:text-[12.5px]"
+                        className="mx-auto mt-5 max-w-4xl rounded-xl bg-white px-4 py-4 text-center text-[12px] leading-relaxed sm:mt-6 sm:px-6 sm:text-[12.5px]"
                         style={{ color: GREY }}
                     >
                         *Company formations are coordinated through trusted third-party company

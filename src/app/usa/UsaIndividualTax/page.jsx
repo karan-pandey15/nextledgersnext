@@ -367,7 +367,7 @@ export default function UsaIndividualTax() {
 
             {/* 1 — Hero */}
             <section
-                className="relative w-full overflow-hidden px-4 pb-8 pt-10 sm:px-6 sm:pb-10 sm:pt-12 lg:px-8"
+                className="relative w-full overflow-hidden px-4 pb-5 pt-8 sm:px-6 sm:pb-5 sm:pt-10 lg:px-8"
                 style={{
                     background:
                         "linear-gradient(165deg, #FFFFFF 0%, #FFF9F5 42%, #FFF4EA 100%)",
@@ -414,7 +414,7 @@ export default function UsaIndividualTax() {
                             </CtaButton>
                         </div>
                     </div>
-                    <div className="mt-8 w-full sm:mt-10">
+                    <div className="mt-5 w-full">
                         <TrustBadgesBar
                             badges={USA_TRUST_BADGES}
                             className="!mt-0"
@@ -425,8 +425,8 @@ export default function UsaIndividualTax() {
 
             {/* 2 — Intro / Partnership */}
             <section id="how-we-work" className="w-full bg-white">
-                <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
-                    <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-12">
+                <div className="mx-auto max-w-6xl px-4 py-5 sm:px-6 lg:px-8">
+                    <div className="grid grid-cols-1 items-center gap-5 lg:grid-cols-2 lg:gap-8">
                         <div>
                             <span className="mb-3 inline-block text-[11px] font-extrabold uppercase tracking-widest text-[#FF6A00]">
                                 Outsourcing Partnership
@@ -561,14 +561,14 @@ export default function UsaIndividualTax() {
 
             {/* 3 — Why Individual Tax Matters */}
             <section
-                className="relative w-full overflow-hidden px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14"
+                className="relative w-full overflow-hidden px-4 py-5 sm:px-6 lg:px-8"
                 style={{ background: PAGE_CREAM }}
             >
                 <DotGrid className="pointer-events-none absolute right-4 top-6 opacity-50 sm:right-10 sm:top-8" />
                 <DotGrid className="pointer-events-none absolute bottom-8 left-4 opacity-40 sm:bottom-10 sm:left-8" />
 
                 <div className="relative mx-auto w-full max-w-6xl">
-                    <div className="mb-7 flex flex-col items-center text-center sm:mb-8">
+                    <div className="mb-5 flex flex-col items-center text-center">
                         <span
                             className="mb-3 inline-flex items-center gap-1.5 rounded-full border px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.12em]"
                             style={{
@@ -672,7 +672,7 @@ export default function UsaIndividualTax() {
                         )}
                     </div>
 
-                    <div className="relative mt-6 w-full overflow-hidden rounded-xl bg-white px-5 py-5 text-center sm:mt-7 sm:px-8 sm:py-6">
+                    <div className="relative mt-4 w-full overflow-hidden rounded-xl bg-white px-5 py-4 text-center sm:px-8 sm:py-5">
                         <p
                             className="relative mx-auto w-full max-w-5xl text-[13px] leading-[1.65] sm:text-[14px]"
                             style={{ color: "#4B5563" }}
@@ -695,12 +695,13 @@ export default function UsaIndividualTax() {
                 titleAfter=" Include"
                 subtitle="Comprehensive federal, state, and schedule-based individual tax preparation support for US CPA firms."
                 services={serviceLines}
+                className="!py-5"
             />
 
             {/* 5 — Specialist Areas */}
-            <section className="relative w-full overflow-hidden bg-white px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
+            <section className="relative w-full overflow-hidden bg-white px-4 py-5 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-6xl">
-                    <Reveal className="mb-7 text-center">
+                    <Reveal className="mb-5 text-center">
                         <span
                             className="mb-3 inline-flex items-center gap-1.5 rounded-full px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.12em]"
                             style={{ background: PILL_BG, color: ORANGE }}
@@ -838,7 +839,7 @@ export default function UsaIndividualTax() {
                 title="Software Expertise"
                 subtitle="We work across the accounting platforms and supporting tools your clients already rely on."
                 logodata={softwareExpertiseLogodata}
-                className="!py-10 sm:!py-12 lg:!py-14"
+                className="!py-5"
             />
 
             {/* Soft break before industries */}
@@ -857,10 +858,10 @@ export default function UsaIndividualTax() {
             </div>
 
             {/* 7 — Industries & Clients */}
-            <section className="relative w-full overflow-hidden bg-white py-5 sm:py-6 lg:py-7">
+            <section className="relative w-full overflow-hidden bg-white py-5">
                 <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
                     <div
-                        className="rounded-none px-3 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-7"
+                        className="rounded-none px-3 py-5 sm:px-6 lg:px-8"
                         style={{ background: PAGE_CREAM }}
                     >
                         <div className="mx-auto max-w-[720px] text-center">
@@ -958,12 +959,12 @@ export default function UsaIndividualTax() {
             </section>
 
             {/* 8 — Why Choose NextLedgers */}
-            <section className="relative w-full overflow-hidden bg-white px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
+            <section className="relative w-full overflow-hidden bg-white px-4 py-5 sm:px-6 lg:px-8">
                 <DotGrid className="pointer-events-none absolute right-4 top-6 sm:right-10 sm:top-8" />
                 <DotGrid className="pointer-events-none absolute bottom-8 left-4 sm:bottom-10 sm:left-8" />
 
                 <div className="relative mx-auto w-full max-w-6xl">
-                    <div className="mb-7 flex flex-col items-center text-center sm:mb-8">
+                    <div className="mb-5 flex flex-col items-center text-center">
                         <span
                             className="mb-3 inline-flex items-center gap-1.5 rounded-full px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.12em]"
                             style={{ background: "#FFF4EA", color: ORANGE }}
@@ -1061,9 +1062,9 @@ export default function UsaIndividualTax() {
             </section>
 
             {/* 9 — Partner CTA */}
-            <section className="relative w-full bg-white px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
+            <section className="relative w-full bg-white px-4 py-5 sm:px-6 lg:px-8">
                 <div
-                    className="relative mx-auto max-w-5xl overflow-hidden rounded-[22px] px-5 py-10 text-center sm:rounded-[28px] sm:px-10 sm:py-12 lg:px-14"
+                    className="relative mx-auto max-w-5xl overflow-hidden rounded-[22px] px-5 py-5 text-center sm:rounded-[28px] sm:px-10 sm:py-6 lg:px-14"
                     style={{ background: PAGE_CREAM }}
                 >
                     <div

@@ -769,18 +769,18 @@ export default function UKPayrollPage() {
                             </p>
                         </div>
 
-                        <div className="mt-4 grid grid-cols-2 gap-2.5 sm:mt-5 sm:grid-cols-3 sm:gap-3 lg:grid-cols-3 lg:gap-3">
+                        <div className="mt-4 grid grid-cols-2 gap-2.5 sm:mt-5 sm:grid-cols-3 sm:gap-3 lg:grid-cols-6 lg:gap-3">
                             {industriesWeSupport.map((item) => (
                                 <div
                                     key={item.label}
-                                    className="flex min-h-[126px] flex-col items-center justify-center rounded-[14px] border border-[#F0E0D2] bg-white px-2.5 py-3 text-center transition-colors duration-200 hover:border-[#FFB77F] hover:bg-[#FFFCF9]"
+                                    className="flex flex-col items-center justify-center rounded-[14px] border border-[#F0E0D2] bg-white px-2 py-3 text-center transition-colors duration-200 hover:border-[#FFB77F] hover:bg-[#FFFCF9]"
                                 >
                                     <Image
                                         src={item.image}
                                         alt=""
-                                        width={72}
-                                        height={72}
-                                        className="h-16 w-16 object-contain sm:h-[72px] sm:w-[72px]"
+                                        width={62}
+                                        height={62}
+                                        className="h-[62px] w-[62px] object-contain"
                                         aria-hidden="true"
                                     />
                                     <p className="mt-2 text-[11px] font-bold leading-snug text-[#0B1F3A] sm:text-[12px]">

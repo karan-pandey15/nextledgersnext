@@ -680,7 +680,7 @@ export default function PersonalTaxPage() {
             {/* 6 — Specialist Areas */}
             <section className="relative w-full overflow-hidden bg-white py-3">
                 <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-                    <div className="mb-6 text-center sm:mb-7">
+                    <div className="mb-4 text-center sm:mb-5">
                         <span
                             className="mb-2 inline-block text-[10px] font-bold uppercase tracking-[0.16em] sm:text-[11px]"
                             style={{ color: ORANGE }}
@@ -696,29 +696,31 @@ export default function PersonalTaxPage() {
                         </h2>
                     </div>
 
-                    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3">
-                        {specialistAreas.map((item) => {
+                    <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-6 lg:gap-3.5">
+                        {specialistAreas.map((item, index) => {
                             return (
                                 <div
                                     key={item.title}
-                                    className="rounded-[16px] border border-[#F0E0D2] bg-white p-5 transition-colors hover:border-[#FFB77F] hover:bg-[#FFFCF9] sm:p-6"
+                                    className={`flex h-full flex-col rounded-xl border border-[#F0E0D2] bg-white p-3.5 transition-colors hover:border-[#FFB77F] hover:bg-[#FFFCF9] sm:p-4 lg:col-span-2${
+                                        index === 3 ? " lg:col-start-2" : ""
+                                    }`}
                                 >
                                     <Image
                                         src={item.image}
                                         alt=""
-                                        width={72}
-                                        height={72}
-                                        className="mb-3 h-16 w-16 object-contain sm:h-[72px] sm:w-[72px]"
+                                        width={58}
+                                        height={58}
+                                        className="mb-2.5 h-[58px] w-[58px] object-contain"
                                         aria-hidden="true"
                                     />
                                     <h3
-                                        className="text-[14px] font-bold leading-snug sm:text-[15px]"
+                                        className="text-[13px] font-bold leading-snug"
                                         style={{ color: NAVY }}
                                     >
                                         {item.title}
                                     </h3>
                                     <p
-                                        className="mt-1.5 text-[12.5px] leading-relaxed sm:text-[13px]"
+                                        className="mt-1 text-[12px] leading-relaxed"
                                         style={{ color: GREY }}
                                     >
                                         {item.description}
