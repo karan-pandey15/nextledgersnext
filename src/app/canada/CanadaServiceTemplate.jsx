@@ -21,7 +21,6 @@ import {
   Network,
   Percent,
   Phone,
-  Pencil,
   PuzzleIcon,
   Send,
   Shield,
@@ -37,6 +36,7 @@ import CanadaNavbar from "@/app/components/CanadaNavbar/CanadaNavbar";
 import CtaButton from "@/app/components/ui/CtaButton";
 import IconDisplayScreen from "@/app/components/ServiceMainPageContent/IcondisplayScreen";
 import IndustriesWeSupportGrid from "@/app/components/ServiceMainPageContent/IndustriesWeSupportGrid";
+import ServiceDeliverablesExplorer from "@/app/components/ServiceMainPageContent/ServiceDeliverablesExplorer";
 import TrustBadgesBar, {
   CANADA_TRUST_BADGES,
 } from "@/app/components/ServiceMainPageContent/TrustBadgesBar";
@@ -133,39 +133,6 @@ function DotGrid({ className }) {
 }
 
 /** UK-style cream pill with orange circle + white check (not green emoji) */
-function ServicePill({ text }) {
-  return (
-    <li
-      className="flex items-center gap-2.5 rounded-full px-3 py-2"
-      style={{ background: PILL_BG }}
-    >
-      <span
-        className="flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-full"
-        style={{ background: ORANGE }}
-        aria-hidden="true"
-      >
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          className="h-2.5 w-2.5"
-          stroke="white"
-          strokeWidth={3.5}
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M20 6 9 17l-5-5" />
-        </svg>
-      </span>
-      <span
-        className="text-[11.5px] font-medium leading-snug sm:text-[12px]"
-        style={{ color: HEADING }}
-      >
-        {text}
-      </span>
-    </li>
-  );
-}
-
 function BenefitCard({ icon: Icon, title }) {
   return (
     <div
@@ -194,40 +161,6 @@ function BenefitCard({ icon: Icon, title }) {
         style={{ color: ORANGE }}
         strokeWidth={2.5}
       />
-    </div>
-  );
-}
-
-function DeliverableCard({ icon: Icon, title, intro, items }) {
-  return (
-    <div
-      className="rounded-[16px] border border-[#F3E6D8] bg-white p-5 sm:p-6 lg:p-7"
-      style={{ boxShadow: "0 8px 28px rgba(15,23,42,0.06)" }}
-    >
-      <div className="mb-4 flex items-center gap-2.5">
-        <span
-          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#FFF4EA]"
-          style={{ color: ORANGE }}
-        >
-          <Icon className="h-7 w-7" strokeWidth={1.75} />
-        </span>
-        <h3
-          className="text-[14px] font-bold leading-snug sm:text-[15px]"
-          style={{ color: HEADING }}
-        >
-          {title}
-        </h3>
-      </div>
-      {intro ? (
-        <p className="mb-3 text-[12.5px] leading-relaxed" style={{ color: BODY }}>
-          {intro}
-        </p>
-      ) : null}
-      <ul className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-x-3 sm:gap-y-2.5">
-        {items.map((item) => (
-          <ServicePill key={item} text={item} />
-        ))}
-      </ul>
     </div>
   );
 }
@@ -356,12 +289,12 @@ export default function CanadaServiceTemplate({ data }) {
 
       {/* 3 — Why it matters (UK Bookkeeping BenefitCard: h-14 w-14 circle + #FFF4EA) */}
       <section
-        className="relative w-full overflow-hidden px-4 py-3 sm:px-6 lg:px-8"
+        className="relative w-full overflow-hidden px-4 py-5 sm:px-6 lg:px-8"
         style={{ background: PAGE_CREAM }}
       >
         <div className="pointer-events-none absolute -left-16 top-0 h-64 w-64 rounded-full bg-[#FF6A00]/10 blur-3xl" />
         <div className="relative mx-auto w-full max-w-6xl">
-          <div className="mb-7 flex flex-col items-center text-center sm:mb-8">
+          <div className="mb-5 flex flex-col items-center text-center">
             <span
               className="mb-3 inline-flex items-center gap-1.5 rounded-full px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.14em]"
               style={{ background: "#FFF4EA", color: ORANGE }}
@@ -386,56 +319,97 @@ export default function CanadaServiceTemplate({ data }) {
               style={{ background: ORANGE }}
             />
           </div>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-2 lg:gap-4">
-            {data.whyMatter.bullets.map((item, i) => {
-              const Icon = BENEFIT_ICONS[i % BENEFIT_ICONS.length];
-              return <BenefitCard key={item} icon={Icon} title={item} />;
-            })}
+          <div className="mt-4 grid grid-cols-1 items-center gap-5 sm:mt-5 lg:grid-cols-2 lg:gap-8">
+            <div>
+              {data.whyMatter.bullets.map((item, i) => {
+                const Icon = BENEFIT_ICONS[i % BENEFIT_ICONS.length];
+                const title = typeof item === "string" ? item : item.title;
+                const description =
+                  typeof item === "object" && item.description
+                    ? item.description
+                    : null;
+                const isLast = i === data.whyMatter.bullets.length - 1;
+
+                return (
+                  <div key={title}>
+                    <div className="flex items-start gap-2.5 py-2.5 sm:py-3">
+                      <span
+                        className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-white sm:h-9 sm:w-9"
+                        style={{ background: ORANGE }}
+                      >
+                        <Icon
+                          className="h-4 w-4 sm:h-[18px] sm:w-[18px]"
+                          strokeWidth={1.75}
+                        />
+                      </span>
+                      {description ? (
+                        <div className="min-w-0 flex-1">
+                          <h3
+                            className="text-[12.5px] font-bold leading-snug sm:text-[13px]"
+                            style={{ color: HEADING }}
+                          >
+                            {title}
+                          </h3>
+                          <p
+                            className="mt-0.5 text-[11.5px] leading-[1.35] sm:text-[12px]"
+                            style={{ color: BODY }}
+                          >
+                            {description}
+                          </p>
+                        </div>
+                      ) : (
+                        <h3
+                          className="min-w-0 flex-1 pt-1 text-[12.5px] font-bold leading-snug sm:text-[13px]"
+                          style={{ color: HEADING }}
+                        >
+                          {title}
+                        </h3>
+                      )}
+                    </div>
+                    {!isLast ? (
+                      <div
+                        className="h-px w-full bg-[#E8E8E8]"
+                        aria-hidden="true"
+                      />
+                    ) : null}
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="relative mx-auto h-[220px] w-full overflow-hidden rounded-[20px] shadow-[0_12px_40px_rgba(15,39,74,0.08)] sm:h-[280px] sm:rounded-[24px] lg:h-[320px]">
+              <Image
+                src={
+                  data.whyMatter.image ||
+                  data.intro?.image ||
+                  "/images/bgimage.JPG"
+                }
+                alt={data.whyMatter.title}
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 4 — Deliverable sections (UK ServiceCard + ServicePill) */}
-      <section className="relative w-full overflow-hidden bg-white px-4 py-3 sm:px-6 lg:px-8">
-        <div className="relative mx-auto flex w-full max-w-6xl flex-col">
-          <div className="mb-7 flex flex-col items-center text-center sm:mb-8">
-            <span
-              className="mb-3 inline-flex items-center gap-1.5 rounded-full px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.12em] text-white shadow-sm"
-              style={{ background: ORANGE }}
-            >
-              <Pencil className="h-3 w-3" strokeWidth={2.5} />
-              Full Service Deliverables
-            </span>
-            <h2
-              className="max-w-3xl text-[22px] font-extrabold leading-tight sm:text-[26px] lg:text-[30px]"
-              style={{ color: HEADING }}
-            >
-              Our <span style={{ color: ORANGE }}>Canada Service</span> Deliverables
-            </h2>
-            <p
-              className="mt-2.5 max-w-xl text-[12.5px] leading-relaxed sm:text-[13.5px]"
-              style={{ color: BODY }}
-            >
-              Structured offshore delivery across every workstream your practice needs.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-5 md:gap-6 lg:gap-7">
-            {data.sections.map((section, i) => {
-              const Icon = SECTION_ICONS[i % SECTION_ICONS.length];
-              return (
-                <DeliverableCard
-                  key={section.title}
-                  icon={Icon}
-                  title={section.title}
-                  intro={section.intro}
-                  items={section.items}
-                />
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      {/* 4 — Deliverable sections (interactive explorer) */}
+      <ServiceDeliverablesExplorer
+        eyebrow="Full Service Deliverables"
+        titleBefore="Our "
+        titleAccent="Canada Service"
+        titleAfter=" Deliverables"
+        subtitle="Structured offshore delivery across every workstream your practice needs."
+        className="!py-5"
+        services={(data.sections || []).map((section, i) => ({
+          title: section.title,
+          shortTitle: section.shortTitle || section.title,
+          intro: section.intro,
+          items: section.items,
+          icon: SECTION_ICONS[i % SECTION_ICONS.length],
+        }))}
+      />
 
       {/* 5 — How we help */}
       <section

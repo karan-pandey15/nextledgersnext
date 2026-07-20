@@ -134,7 +134,7 @@ export default function ServiceDeliverablesExplorer({
                                                         : "text-[#0B1F3A]"
                                                 }`}
                                             >
-                                                {service.title}
+                                                {service.shortTitle || service.title}
                                             </span>
                                             <span
                                                 className={`h-1.5 w-1.5 shrink-0 rounded-full ${
@@ -159,10 +159,15 @@ export default function ServiceDeliverablesExplorer({
                                         <ActiveIcon className="h-5 w-5" strokeWidth={2} />
                                     ) : null}
                                 </span>
-                                <div className="flex min-h-11 min-w-0 flex-1 items-center">
+                                <div className="flex min-h-11 min-w-0 flex-1 flex-col justify-center">
                                     <h3 className="text-[18px] font-extrabold leading-snug text-[#0B1F3A] sm:text-[20px]">
                                         {active.title}
                                     </h3>
+                                    {active.intro ? (
+                                        <p className="mt-1.5 text-[12.5px] leading-relaxed text-[#6B7280] sm:text-[13px]">
+                                            {active.intro}
+                                        </p>
+                                    ) : null}
                                 </div>
                             </div>
 
@@ -170,7 +175,7 @@ export default function ServiceDeliverablesExplorer({
                                 {active.items.map((item) => (
                                     <li
                                         key={item}
-                                        className="flex items-center gap-2.5 rounded-[12px] bg-[#FFF9F5] px-3.5 py-3"
+                                        className="flex items-center gap-2.5 rounded-full bg-[#FFF9F5] px-3.5 py-3"
                                     >
                                         <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#FF6A00]">
                                             <Check

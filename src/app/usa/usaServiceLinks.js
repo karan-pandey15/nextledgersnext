@@ -15,49 +15,49 @@ import {
  */
 export const USA_SERVICE_LINKS = [
   {
-    label: "USA Accounting Cleanup, Catch-Up Bookkeeping & ARAP Services",
+    label: "Accounting Cleanup, Catch-Up Bookkeeping & ARAP Services",
     href: "/usa/UsaAccountingCleanup",
     icon: RefreshCw,
     blurb: "Catch-up books, cleanups & accounts receivable/payable support",
   },
   {
-    label: "USA Bookkeeping & Outsourced Accounting Services",
+    label: "Bookkeeping & Outsourced Accounting Services",
     href: "/usa/UsaBookkeeping",
     icon: BookOpen,
     blurb: "Day-to-day bookkeeping, reconciliations & outsourced accounting",
   },
   {
-    label: "USA Corporate Tax Preparation & Compliance Services",
+    label: "Corporate Tax Preparation & Compliance Services",
     href: "/usa/UsaCorporateTax",
     icon: Building2,
     blurb: "Corporate tax returns, filings & ongoing compliance support",
   },
   {
-    label: "USA Individual Tax Preparation Services",
+    label: "Individual Tax Preparation Services",
     href: "/usa/UsaIndividualTax",
     icon: FileText,
     blurb: "Form 1040 preparation, entrepreneurs & personal tax support",
   },
   {
-    label: "USA Management Accounting & Virtual CFO Services",
+    label: "Management Accounting & Virtual CFO Services",
     href: "/usa/UsaManagementAccounting",
     icon: LineChart,
     blurb: "Management packs, forecasting & virtual CFO support",
   },
   {
-    label: "USA Payroll Processing & Payroll Tax Services",
+    label: "Payroll Processing & Payroll Tax Services",
     href: "/usa/UsaPayroll",
     icon: Wallet,
     blurb: "Payroll runs, payroll tax filings & employee support",
   },
   {
-    label: "USA Sales Tax Compliance & Filing Services",
+    label: "Sales Tax Compliance & Filing Services",
     href: "/usa/UsaSalesTax",
     icon: Percent,
     blurb: "Sales tax returns, nexus tracking & multi-state filings",
   },
   {
-    label: "USA Year-End Accounts & Financial Statement Preparation Services",
+    label: "Year-End Accounts & Financial Statement Preparation Services",
     href: "/usa/UsaYearEndAccounts",
     icon: FileSpreadsheet,
     blurb: "Year-end accounts, financial statements & closing support",

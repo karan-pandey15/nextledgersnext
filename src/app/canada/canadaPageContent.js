@@ -77,6 +77,7 @@ export const CANADA_BOOKKEEPING = {
   sections: [
     {
       title: "Our Bookkeeping Services Include",
+      shortTitle: "Bookkeeping Services",
       items: [
         "Daily, Weekly & Monthly Bookkeeping",
         "Sales & Purchase Transaction Processing",
@@ -94,6 +95,7 @@ export const CANADA_BOOKKEEPING = {
     },
     {
       title: "Our Outsourced Accounting Services Include",
+      shortTitle: "Outsourced Accounting",
       items: [
         "Month-End Accounting Support",
         "Trial Balance Reviews",
@@ -111,6 +113,7 @@ export const CANADA_BOOKKEEPING = {
     },
     {
       title: "Financial Cleanup & Catch-Up Accounting Services",
+      shortTitle: "Financial Cleanup",
       intro:
         "Many businesses experience incomplete bookkeeping due to rapid growth, software migrations, staffing shortages, or historical accounting issues. Our financial cleanup services help restore accurate accounting records.",
       items: [
@@ -130,7 +133,9 @@ export const CANADA_BOOKKEEPING = {
     },
     {
       title: "GST/HST-Ready Bookkeeping Support",
-      intro: "Accurate bookkeeping is essential for reliable GST/HST compliance and CRA reporting.",
+      shortTitle: "GST/HST-Ready Support",
+      intro:
+        "Accurate bookkeeping is essential for reliable GST/HST compliance and CRA reporting.",
       items: [
         "GST/HST Coding Reviews",
         "Input Tax Credit (ITC) Reviews",
@@ -615,7 +620,7 @@ export const CANADA_PAYROLL = {
       "Payroll processing in Canada is highly regulated and increasingly complex due to evolving CRA requirements, province-specific employment standards, statutory deductions (CPP, EI, and income tax), and strict reporting deadlines. For accounting firms, CPA practices, and SMEs, ensuring payroll accuracy while managing compliance obligations and employee expectations can quickly become resource-intensive.",
       "At NextLedgers, we provide dedicated offshore Payroll Processing support to Canadian accounting firms, CPA practices, and businesses. Our white-label outsourcing solutions help firms improve accuracy, ensure CRA compliance, increase capacity, and reduce internal payroll workload without increasing staffing costs.",
     ],
-    image: "/images/DSC09554.JPG",
+    image: "/images/DSC09845.JPG",
   },
   whyMatter: {
     title: "Why Payroll Processing Matters",
@@ -921,12 +926,13 @@ export const CANADA_REVIEW = {
       "Review engagements in Canada play a key role in providing limited assurance on financial statements for private enterprises that do not require a full statutory audit. With increasing CRA scrutiny, lender expectations, and stakeholder demands, businesses must ensure financial reporting is accurate, consistent, and compliant with applicable accounting frameworks such as ASPE and IFRS.",
       "At NextLedgers, we provide dedicated offshore Review Engagement, Compliance & Assurance support services for Canadian CPA firms and accounting practices. Our white-label solutions help firms improve capacity, strengthen working paper preparation, and deliver high-quality review engagements while reducing internal workload and operational pressure.",
     ],
-    image: "/images/DSC09486.JPG",
+    image: "/images/DSC09845.JPG",
   },
   whyMatter: {
     title: "Why Review Engagements & Assurance Services Matter",
     intro:
       "Review engagements provide limited assurance that financial statements are plausible and free from material misstatement. They enhance stakeholder confidence without the depth of a full audit, making them a critical service for private enterprises.",
+    image: "/images/DSC09845.JPG",
     bullets: [
       "Improve financial statement credibility",
       "Ensure consistency in reporting",
