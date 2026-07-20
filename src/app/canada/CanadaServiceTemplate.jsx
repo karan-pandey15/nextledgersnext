@@ -169,17 +169,17 @@ function ServicePill({ text }) {
 function BenefitCard({ icon: Icon, title }) {
   return (
     <div
-      className="group flex items-center gap-3 rounded-[14px] border bg-white px-4 py-4 transition-shadow duration-200 hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)]"
+      className="group flex items-center gap-2.5 rounded-[12px] border bg-white px-3 py-2.5 transition-shadow duration-200 hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] sm:gap-3 sm:px-3.5 sm:py-3"
       style={{
         borderColor: CARD_BORDER,
         boxShadow: "0 2px 10px rgba(0,0,0,0.04)",
       }}
     >
       <span
-        className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full"
+        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full sm:h-12 sm:w-12"
         style={{ background: "#FFF4EA", color: ORANGE }}
       >
-        <Icon className="h-9 w-9" strokeWidth={1.75} />
+        <Icon className="h-6 w-6 sm:h-7 sm:w-7" strokeWidth={1.75} />
       </span>
       <div className="min-w-0 flex-1 text-left">
         <h4

@@ -356,12 +356,12 @@ function MatterCard({ icon: Icon, title, description }) {
 
 function SchemePill({ text }) {
     return (
-        <li className="flex items-center gap-3 rounded-xl bg-white px-3 py-3">
+        <li className="flex items-center gap-2 rounded-lg bg-white px-2.5 py-1.5">
             <span
-                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl"
+                className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg"
                 style={{ background: PILL_BG, color: ORANGE }}
             >
-                <CheckCircle2 className="h-5 w-5" strokeWidth={2} />
+                <CheckCircle2 className="h-4 w-4" strokeWidth={2} />
             </span>
             <span className="text-[12px] font-semibold leading-snug sm:text-[12.5px]" style={{ color: NAVY }}>
                 {text}
@@ -688,29 +688,29 @@ export default function VatServiceuk() {
                             </div>
                         </div>
 
-                        <div className="grid grid-cols-1 gap-4 bg-[#FFF9F5] p-5 sm:grid-cols-2 sm:p-6">
-                            <div className="rounded-2xl bg-white p-4">
-                                <h3 className="mb-3 flex items-center gap-2 text-[14px] font-extrabold text-[#0B1F3A]">
-                                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#FFF4EA] text-[#FF6A00]">
-                                        <Calculator className="h-6 w-6" />
+                        <div className="grid grid-cols-1 gap-3 bg-[#FFF9F5] p-4 sm:grid-cols-2 sm:p-5">
+                            <div className="rounded-2xl bg-white p-3.5">
+                                <h3 className="mb-2 flex items-center gap-2 text-[14px] font-extrabold text-[#0B1F3A]">
+                                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#FF6A00]">
+                                        <Calculator className="h-4 w-4" />
                                     </span>
                                     VAT Accounting Schemes
                                 </h3>
-                                <ul className="grid grid-cols-1 gap-2">
+                                <ul className="grid grid-cols-1 gap-1">
                                     {vatSchemes.map((item) => (
                                         <SchemePill key={item} text={item} />
                                     ))}
                                 </ul>
                             </div>
 
-                            <div className="rounded-2xl bg-white p-4">
-                                <h3 className="mb-3 flex items-center gap-2 text-[14px] font-extrabold text-[#0B1F3A]">
-                                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#FFF4EA] text-[#FF6A00]">
-                                        <Globe2 className="h-6 w-6" />
+                            <div className="rounded-2xl bg-white p-3.5">
+                                <h3 className="mb-2 flex items-center gap-2 text-[14px] font-extrabold text-[#0B1F3A]">
+                                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#FF6A00]">
+                                        <Globe2 className="h-4 w-4" />
                                     </span>
                                     Specialist VAT Areas
                                 </h3>
-                                <ul className="grid grid-cols-1 gap-2">
+                                <ul className="grid grid-cols-1 gap-1">
                                     {specialistAreas.map((item) => (
                                         <SchemePill key={item} text={item} />
                                     ))}

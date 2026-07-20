@@ -340,11 +340,11 @@ function IndustryCard({ label, image }) {
 
 function WhyChooseListItem({ icon: Icon, title }) {
     return (
-        <article className="flex items-center gap-3 px-1 py-1">
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#FFF4EA] text-[#FF6A00]">
-                <Icon className="h-6 w-6" strokeWidth={1.75} />
+        <article className="flex items-center gap-2.5 px-0.5 py-0.5">
+            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#FF6A00]">
+                <Icon className="h-5 w-5" strokeWidth={1.75} />
             </span>
-            <h3 className="text-[13px] font-bold leading-snug text-[#0B1F3A] sm:text-[14px]">
+            <h3 className="text-[13px] font-bold leading-snug text-[#0B1F3A] sm:text-[13.5px]">
                 {title}
             </h3>
         </article>
@@ -596,8 +596,8 @@ export default function UkManagementAccounts() {
                 <DotGrid className="pointer-events-none absolute bottom-8 left-4 sm:left-8" />
 
                 <div className="relative mx-auto w-full max-w-6xl">
-                    <div className="mb-7 flex flex-col items-center text-center">
-                        <span className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-[#FFF4EA] px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.12em] text-[#FF6A00]">
+                    <div className="mb-4 flex flex-col items-center text-center sm:mb-5">
+                        <span className="mb-2.5 inline-flex items-center gap-1.5 rounded-full bg-[#FFF4EA] px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.12em] text-[#FF6A00]">
                             <Star
                                 className="h-3 w-3"
                                 strokeWidth={2.5}
@@ -615,21 +615,21 @@ export default function UkManagementAccounts() {
                             ?
                         </h2>
 
-                        <p className="mx-auto mt-2.5 max-w-xl text-[13px] leading-relaxed text-[#6B7280] sm:text-[14px]">
+                        <p className="mx-auto mt-2 max-w-xl text-[13px] leading-relaxed text-[#6B7280] sm:text-[14px]">
                             Dedicated reporting specialists who work as an extension of
                             your practice and help turn financial data into client value.
                         </p>
-                        <div className="mx-auto mt-3.5 h-[3px] w-11 rounded-full bg-[#FF6A00]" />
+                        <div className="mx-auto mt-2.5 h-[3px] w-11 rounded-full bg-[#FF6A00]" />
                     </div>
 
-                    <div className="grid grid-cols-1 items-stretch gap-1 lg:grid-cols-2">
-                        <div className="grid grid-cols-1 gap-1">
+                    <div className="grid grid-cols-1 items-start gap-5 lg:grid-cols-2 lg:gap-8">
+                        <div className="grid grid-cols-1 gap-0.5">
                             {whyChooseCards.map((card) => (
                                 <WhyChooseListItem key={card.title} {...card} />
                             ))}
                         </div>
 
-                        <div className="relative min-h-[320px] overflow-hidden rounded-2xl sm:min-h-[380px] lg:min-h-full">
+                        <div className="relative h-[220px] w-full overflow-hidden rounded-2xl sm:h-[260px] lg:h-[280px]">
                             <Image
                                 src="/images/bgimage.JPG"
                                 alt="NextLedgers management accounts specialists"
@@ -637,8 +637,8 @@ export default function UkManagementAccounts() {
                                 className="object-cover object-center"
                                 sizes="(max-width: 1024px) 100vw, 50vw"
                             />
-                            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0B1F3A]/80 to-transparent px-5 pb-5 pt-16">
-                                <p className="text-[14px] font-bold leading-snug text-white sm:text-[15px]">
+                            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0B1F3A]/80 to-transparent px-5 pb-4 pt-12">
+                                <p className="text-[13px] font-bold leading-snug text-white sm:text-[14px]">
                                     Dedicated reporting support that works as an extension
                                     of your practice.
                                 </p>

@@ -95,13 +95,13 @@ function TrustItem({ icon: Icon, label }) {
     return (
         <div className="flex items-center gap-2">
             <span
-                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border"
+                className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md border"
                 style={{ borderColor: ORANGE, color: ORANGE }}
             >
                 <Icon className="h-3.5 w-3.5" strokeWidth={2} />
             </span>
             <span
-                className="text-[11px] font-semibold leading-tight"
+                className="text-[11px] font-semibold leading-tight sm:text-[11.5px]"
                 style={{ color: HEADING }}
             >
                 {label}
@@ -113,17 +113,17 @@ function TrustItem({ icon: Icon, label }) {
 function BenefitCard({ icon: Icon, title, description }) {
     return (
         <div
-            className="group flex items-center gap-3 rounded-[14px] border bg-white px-4 py-4 transition-shadow duration-200 hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)]"
+            className="group flex items-center gap-2.5 rounded-[12px] border bg-white px-3 py-2.5 transition-shadow duration-200 hover:shadow-[0_8px_24px_rgba(0,0,0,0.06)] sm:gap-3 sm:px-3.5 sm:py-3"
             style={{
                 borderColor: CARD_BORDER,
                 boxShadow: "0 2px 10px rgba(0,0,0,0.04)",
             }}
         >
             <span
-                className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full"
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full sm:h-12 sm:w-12"
                 style={{ background: "#FFF4EA", color: ORANGE }}
             >
-                <Icon className="h-9 w-9" strokeWidth={1.75} />
+                <Icon className="h-6 w-6 sm:h-7 sm:w-7" strokeWidth={1.75} />
             </span>
 
             <div className="min-w-0 flex-1 text-left">
@@ -135,7 +135,7 @@ function BenefitCard({ icon: Icon, title, description }) {
                 </h4>
                 {description ? (
                     <p
-                        className="mt-1 text-[11.5px] leading-[1.45] sm:text-[12px]"
+                        className="mt-0.5 text-[11.5px] leading-[1.4] sm:text-[12px]"
                         style={{ color: BODY }}
                     >
                         {description}
@@ -213,94 +213,88 @@ export default function BookKeepingMatters({
             </div>
 
             <div className="relative mx-auto w-full max-w-6xl">
-                <div
-                    className={`mb-6 grid grid-cols-1 items-center gap-6 ${
-                        wideTrustPanel
-                            ? "lg:grid-cols-[190px_1fr_264px] lg:gap-6 xl:grid-cols-[210px_1fr_275px]"
-                            : "lg:grid-cols-[200px_1fr_240px] lg:gap-7 xl:grid-cols-[220px_1fr_250px]"
-                    }`}
-                >
-                    <div className="mx-auto w-full max-w-[220px] lg:mx-0 lg:max-w-none">
-                        <Image
-                            src={imageSrc}
-                            alt={imageAlt}
-                            width={440}
-                            height={360}
-                            className="h-auto w-full object-contain"
-                            priority
-                        />
-                    </div>
+                {/* Full-width centered header — no side cards flanking the title */}
+                <div className="mx-auto max-w-2xl text-center">
+                    <span
+                        className="mb-2.5 inline-flex items-center gap-1.5 rounded-full px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.14em]"
+                        style={{ background: "#FFF4EA", color: ORANGE }}
+                    >
+                        <Sparkles className="h-3 w-3" strokeWidth={2.5} />
+                        {eyebrow}
+                    </span>
 
-                    <div className="text-center">
-                        <span
-                            className="mb-3 inline-flex items-center gap-1.5 rounded-full px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.14em]"
-                            style={{ background: "#FFF4EA", color: ORANGE }}
-                        >
-                            <Sparkles className="h-3 w-3" strokeWidth={2.5} />
-                            {eyebrow}
-                        </span>
+                    <h2
+                        className="text-[22px] font-extrabold leading-tight sm:text-[26px] lg:text-[28px]"
+                        style={{ color: HEADING }}
+                    >
+                        {titleBefore}
+                        <span style={{ color: ORANGE }}>{titleAccent}</span>
+                        {titleAfter}
+                    </h2>
 
-                        <h2
-                            className="text-[22px] font-extrabold leading-tight sm:text-[26px] lg:text-[28px]"
-                            style={{ color: HEADING }}
-                        >
-                            {titleBefore}
-                            <span style={{ color: ORANGE }}>{titleAccent}</span>
-                            {titleAfter}
-                        </h2>
-
-                        <p
-                            className="mx-auto mt-2.5 max-w-md text-[12.5px] leading-relaxed sm:text-[13px]"
-                            style={{ color: BODY }}
-                        >
-                            {intro}
-                        </p>
-
-                        <div
-                            className="mx-auto my-3 h-[3px] w-11 rounded-full"
-                            style={{ background: ORANGE }}
-                        />
-
-                        <p
-                            className="text-[13px] font-bold sm:text-[13.5px]"
-                            style={{ color: HEADING }}
-                        >
-                            {helpLabelBefore}
-                            <span style={{ color: ORANGE }}>{helpLabelAccent}</span>
-                            {helpLabelAfter}
-                        </p>
-                    </div>
+                    <p
+                        className="mx-auto mt-2 max-w-md text-[12.5px] leading-relaxed sm:text-[13px]"
+                        style={{ color: BODY }}
+                    >
+                        {intro}
+                    </p>
 
                     <div
-                        className="overflow-hidden rounded-[14px] border bg-white"
-                        style={{
-                            borderColor: CARD_BORDER,
-                        }}
+                        className="mx-auto my-2.5 h-[3px] w-11 rounded-full"
+                        style={{ background: ORANGE }}
+                    />
+
+                    <p
+                        className="text-[13px] font-bold sm:text-[13.5px]"
+                        style={{ color: HEADING }}
                     >
-                        <div className="grid grid-cols-2 gap-x-3 gap-y-3.5 p-3.5 sm:p-4">
+                        {helpLabelBefore}
+                        <span style={{ color: ORANGE }}>{helpLabelAccent}</span>
+                        {helpLabelAfter}
+                    </p>
+                </div>
+
+                {/* Trust strip with compact image — no awkward left/right card sandwich */}
+                <div
+                    className={`mx-auto mt-5 overflow-hidden rounded-[12px] border bg-white sm:mt-6 ${
+                        wideTrustPanel ? "max-w-5xl" : "max-w-4xl"
+                    }`}
+                    style={{ borderColor: CARD_BORDER }}
+                >
+                    <div className="flex flex-col items-center gap-3 px-3 py-3 sm:flex-row sm:items-center sm:gap-4 sm:px-4 sm:py-3">
+                        <div className="w-full max-w-[140px] shrink-0 sm:max-w-[150px]">
+                            <Image
+                                src={imageSrc}
+                                alt={imageAlt}
+                                width={300}
+                                height={220}
+                                className="h-auto w-full object-contain"
+                                priority
+                            />
+                        </div>
+                        <div className="grid min-w-0 flex-1 grid-cols-2 gap-x-3 gap-y-2 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-4">
                             {trustItems.map((item) => (
                                 <TrustItem key={item.label} {...item} />
                             ))}
                         </div>
-
-                        <div
-                            className="px-3.5 py-2.5 text-center text-[11px] font-semibold leading-snug sm:px-4"
-                            style={{ background: "#FFF4EA", color: HEADING }}
-                        >
-                            {trustFooterBefore}
-                            <span style={{ color: ORANGE }}>{trustFooterAccent}</span>
-                        </div>
+                    </div>
+                    <div
+                        className="px-3 py-2 text-center text-[11px] font-semibold leading-snug sm:px-4"
+                        style={{ background: "#FFF4EA", color: HEADING }}
+                    >
+                        {trustFooterBefore}
+                        <span style={{ color: ORANGE }}>{trustFooterAccent}</span>
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 lg:gap-4">
+                <div className="mt-4 grid grid-cols-1 gap-2.5 sm:mt-5 sm:grid-cols-2 sm:gap-3 lg:grid-cols-3">
                     {benefits.map((b) => (
                         <BenefitCard key={b.title} {...b} />
                     ))}
                 </div>
 
                 <div
-                    className="mt-6 flex flex-col items-center gap-4 rounded-2xl px-5 py-5 sm:flex-row sm:gap-5 sm:px-7 sm:py-5"
+                    className="mt-5 flex flex-col items-center gap-3 rounded-2xl px-5 py-4 sm:mt-6 sm:flex-row sm:gap-5 sm:px-7 sm:py-4"
                     style={{
                         background:
                             "linear-gradient(105deg, #FFF4EA 0%, #FFE8D2 45%, #FFF8F1 100%)",
@@ -309,7 +303,7 @@ export default function BookKeepingMatters({
                 >
                     <div className="flex items-center gap-3.5 sm:shrink-0">
                         <span
-                            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white shadow-sm"
+                            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white shadow-sm"
                             style={{ color: ORANGE }}
                         >
                             <Trophy className="h-5 w-5" strokeWidth={2} />

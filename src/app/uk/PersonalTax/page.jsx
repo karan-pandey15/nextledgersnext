@@ -447,64 +447,62 @@ export default function PersonalTaxPage() {
             {/* 3 — Why Personal Tax Matters */}
             <section className="relative w-full overflow-hidden bg-white py-3">
                 <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2 lg:gap-10 xl:gap-12">
-                        <div className="flex min-w-0 flex-col">
-                            <div className="text-center lg:text-left">
-                                <h2
-                                    className="text-[22px] font-extrabold leading-tight tracking-[-0.01em] sm:text-[26px] lg:text-[28px]"
-                                    style={{ color: NAVY }}
-                                >
-                                    Why Personal{" "}
-                                    <span style={{ color: ORANGE }}>Tax Matters</span>
-                                </h2>
-                                <p
-                                    className="mx-auto mt-2 max-w-xl text-[14px] leading-relaxed sm:mt-2.5 sm:text-[15px] lg:mx-0"
-                                    style={{ color: GREY }}
-                                >
-                                    Effective personal tax management helps taxpayers:
-                                </p>
-                            </div>
+                    <div className="text-center lg:text-left">
+                        <h2
+                            className="text-[22px] font-extrabold leading-tight tracking-[-0.01em] sm:text-[26px] lg:text-[28px]"
+                            style={{ color: NAVY }}
+                        >
+                            Why Personal{" "}
+                            <span style={{ color: ORANGE }}>Tax Matters</span>
+                        </h2>
+                        <p
+                            className="mx-auto mt-2 max-w-xl text-[14px] leading-relaxed sm:text-[15px] lg:mx-0"
+                            style={{ color: GREY }}
+                        >
+                            Effective personal tax management helps taxpayers:
+                        </p>
+                    </div>
 
-                            <div className="mt-4 sm:mt-5">
-                                {whyPersonalTaxMattersItems.map((item, index) => {
-                                    const Icon = item.icon;
-                                    const isLast = index === whyPersonalTaxMattersItems.length - 1;
-                                    return (
-                                        <div key={item.title}>
-                                            <div className="flex items-start gap-3 py-2.5 sm:py-3">
-                                                <div
-                                                    className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#FFF4EA] text-[#FF6A00]"
-                                                >
-                                                    <Icon className="h-7 w-7" strokeWidth={1.75} />
-                                                </div>
-                                                <div className="min-w-0">
-                                                    <h3
-                                                        className="text-[13.5px] font-bold leading-snug sm:text-[14.5px]"
-                                                        style={{ color: NAVY }}
-                                                    >
-                                                        {item.title}
-                                                    </h3>
-                                                    <p
-                                                        className="mt-0.5 text-[12px] leading-[1.45] sm:text-[13px]"
-                                                        style={{ color: GREY }}
-                                                    >
-                                                        {item.description}
-                                                    </p>
-                                                </div>
+                    <div className="mt-4 grid grid-cols-1 items-start gap-5 sm:mt-5 lg:grid-cols-2 lg:gap-8">
+                        <div>
+                            {whyPersonalTaxMattersItems.map((item, index) => {
+                                const Icon = item.icon;
+                                const isLast = index === whyPersonalTaxMattersItems.length - 1;
+                                return (
+                                    <div key={item.title}>
+                                        <div className="flex items-start gap-2.5 py-1 sm:py-1.5">
+                                            <div
+                                                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#FF6A00]"
+                                            >
+                                                <Icon className="h-4 w-4" strokeWidth={1.75} />
                                             </div>
-                                            {!isLast && (
-                                                <div
-                                                    className="h-px w-full bg-[#E8E8E8]"
-                                                    aria-hidden="true"
-                                                />
-                                            )}
+                                            <div className="min-w-0">
+                                                <h3
+                                                    className="text-[12.5px] font-bold leading-snug sm:text-[13px]"
+                                                    style={{ color: NAVY }}
+                                                >
+                                                    {item.title}
+                                                </h3>
+                                                <p
+                                                    className="mt-0.5 text-[11.5px] leading-[1.35] sm:text-[12px]"
+                                                    style={{ color: GREY }}
+                                                >
+                                                    {item.description}
+                                                </p>
+                                            </div>
                                         </div>
-                                    );
-                                })}
-                            </div>
+                                        {!isLast && (
+                                            <div
+                                                className="h-px w-full bg-[#E8E8E8]"
+                                                aria-hidden="true"
+                                            />
+                                        )}
+                                    </div>
+                                );
+                            })}
                         </div>
 
-                        <div className="relative h-full min-h-[280px] min-w-0 overflow-hidden rounded-[24px] shadow-[0_12px_40px_rgba(15,39,74,0.08)] sm:min-h-[320px] sm:rounded-[28px]">
+                        <div className="relative h-[220px] w-full overflow-hidden rounded-[20px] shadow-[0_12px_40px_rgba(15,39,74,0.08)] sm:h-[260px] sm:rounded-[24px] lg:h-[280px]">
                             <Image
                                 src="/images/bgimage.JPG"
                                 alt="Why personal tax matters"
@@ -743,54 +741,52 @@ export default function PersonalTaxPage() {
             {/* 8 — Why Choose NextLedgers */}
             <section className="relative w-full overflow-hidden bg-white py-3">
                 <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:gap-10 xl:gap-12">
-                        <div className="flex flex-col">
-                            <div className="text-center">
-                                <h2
-                                    className="text-[22px] font-extrabold leading-tight tracking-[-0.01em] sm:text-[26px] lg:text-[28px]"
-                                    style={{ color: NAVY }}
-                                >
-                                    Why Choose{" "}
-                                    <span style={{ color: ORANGE }}>NextLedgers?</span>
-                                </h2>
-                                <p
-                                    className="mx-auto mt-2 max-w-[440px] text-[14px] leading-relaxed sm:mt-2.5 sm:text-[15px]"
-                                    style={{ color: GREY }}
-                                >
-                                    Technical expertise, confidentiality, and attention to detail
-                                    for personal tax compliance.
-                                </p>
-                            </div>
+                    <div className="text-center">
+                        <h2
+                            className="text-[22px] font-extrabold leading-tight tracking-[-0.01em] sm:text-[26px] lg:text-[28px]"
+                            style={{ color: NAVY }}
+                        >
+                            Why Choose{" "}
+                            <span style={{ color: ORANGE }}>NextLedgers?</span>
+                        </h2>
+                        <p
+                            className="mx-auto mt-2 max-w-[440px] text-[14px] leading-relaxed sm:text-[15px]"
+                            style={{ color: GREY }}
+                        >
+                            Technical expertise, confidentiality, and attention to detail
+                            for personal tax compliance.
+                        </p>
+                    </div>
 
-                            <div className="mt-4 sm:mt-5">
-                                {whyChooseNextLedgers.map(({ title, icon: Icon }, index) => {
-                                    const isLast = index === whyChooseNextLedgers.length - 1;
-                                    return (
-                                        <div key={title}>
-                                            <div className="flex items-start gap-3 py-2.5 sm:py-3">
-                                                <span className="mt-0.5 flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#FFF4EA] text-[#FF6A00]">
-                                                    <Icon className="h-7 w-7" strokeWidth={1.75} />
-                                                </span>
-                                                <p
-                                                    className="pt-1.5 text-[13.5px] font-bold leading-snug sm:pt-2 sm:text-[14.5px]"
-                                                    style={{ color: NAVY }}
-                                                >
-                                                    {title}
-                                                </p>
-                                            </div>
-                                            {!isLast && (
-                                                <div
-                                                    className="h-px w-full bg-[#E8E8E8]"
-                                                    aria-hidden="true"
-                                                />
-                                            )}
+                    <div className="mt-4 grid grid-cols-1 items-start gap-5 sm:mt-5 lg:grid-cols-2 lg:gap-8">
+                        <div>
+                            {whyChooseNextLedgers.map(({ title, icon: Icon }, index) => {
+                                const isLast = index === whyChooseNextLedgers.length - 1;
+                                return (
+                                    <div key={title}>
+                                        <div className="flex items-center gap-2.5 py-1 sm:py-1.5">
+                                            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#FF6A00]">
+                                                <Icon className="h-4 w-4" strokeWidth={1.75} />
+                                            </span>
+                                            <p
+                                                className="text-[12.5px] font-bold leading-snug sm:text-[13px]"
+                                                style={{ color: NAVY }}
+                                            >
+                                                {title}
+                                            </p>
                                         </div>
-                                    );
-                                })}
-                            </div>
+                                        {!isLast && (
+                                            <div
+                                                className="h-px w-full bg-[#E8E8E8]"
+                                                aria-hidden="true"
+                                            />
+                                        )}
+                                    </div>
+                                );
+                            })}
                         </div>
 
-                        <div className="relative h-[280px] w-full overflow-hidden rounded-[24px] shadow-[0_12px_40px_rgba(15,39,74,0.08)] sm:h-[340px] lg:sticky lg:top-24 lg:h-[400px] sm:rounded-[28px]">
+                        <div className="relative h-[220px] w-full overflow-hidden rounded-[20px] shadow-[0_12px_40px_rgba(15,39,74,0.08)] sm:h-[260px] sm:rounded-[24px] lg:h-[280px]">
                             <Image
                                 src="/images/bgimage.JPG"
                                 alt="Why choose NextLedgers for personal tax"
