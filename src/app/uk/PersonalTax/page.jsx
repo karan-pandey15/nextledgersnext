@@ -472,9 +472,9 @@ export default function PersonalTaxPage() {
                                     <div key={item.title}>
                                         <div className="flex items-start gap-2.5 py-1 sm:py-1.5">
                                             <div
-                                                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#FF6A00]"
+                                                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#FF6A00]"
                                             >
-                                                <Icon className="h-4 w-4" strokeWidth={1.75} />
+                                                <Icon className="h-5 w-5" strokeWidth={1.75} />
                                             </div>
                                             <div className="min-w-0">
                                                 <h3
@@ -767,8 +767,8 @@ export default function PersonalTaxPage() {
                                 return (
                                     <div key={title}>
                                         <div className="flex items-center gap-2.5 py-1 sm:py-1.5">
-                                            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#FF6A00]">
-                                                <Icon className="h-4 w-4" strokeWidth={1.75} />
+                                            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#FF6A00]">
+                                                <Icon className="h-5 w-5" strokeWidth={1.75} />
                                             </span>
                                             <p
                                                 className="text-[12.5px] font-bold leading-snug sm:text-[13px]"
