@@ -14,39 +14,48 @@ const ORANGE = BRAND_ORANGE;
 const NAVY = "#0F274A";
 const GREY = "#6B7280";
 
-const ALL_23_LOGOS = [
-  { name: "Xero", src: "/images/logooUK/Xero.png" },
+const ACCOUNTING_LOGOS = [
   { name: "QuickBooks", src: "/images/logooUK/QuickBooks_Training.png" },
+  { name: "Xero", src: "/images/logooUK/Xero.png" },
   { name: "Sage", src: "/images/logooUK/Sage.jpg" },
+  { name: "Wave", src: "/images/logooUK/Wave_id.jpeg" },
   { name: "FreeAgent", src: "/images/logooUK/FreeAgent.png" },
-  { name: "Dext", src: "/images/logooUK/dext.png" },
-  { name: "Hubdoc", src: "/images/logooUK/hubdoc.png" },
-  { name: "ApprovalMax", src: "/images/logooUK/ApprovalMax.jpeg" },
+  { name: "MYOB", src: "/images/logooUK/MYOB.jpeg" },
+  { name: "FreshBooks", src: "/images/logooUK/freshbooks.png" },
+  { name: "KashFlow", src: "/images/logooUK/IRIS_KashFlow.jpeg" },
+  { name: "Zoho Books", src: "/images/logooUK/SVG_Brand_zoho_corporation.webp" },
+  { name: "Reckon", src: "/images/logooUK/Reckon.png" },
+];
+
+const PAYROLL_LOGOS = [
+  { name: "Gusto", src: "/images/logooUK/Gusto.png" },
+  { name: "Paycor", src: "/images/logooUK/paycor.jpeg" },
   { name: "BrightPay", src: "/images/logooUK/brightpay.jpeg" },
-  { name: "NEST", src: "/images/logooUK/NEST_id4rvtkhfhg.png" },
-  { name: "People's Pension", src: "/images/logooUK/thepepole.png" },
-  { name: "Smart Pension", src: "/images/logooUK/Smart_Pension.jpeg" },
-  { name: "Stripe", src: "/images/logooUK/Stripe.png" },
-  { name: "PayPal", src: "/images/logooUK/PayPal_Icon.jpeg" },
-  { name: "Wise", src: "/images/logooUK/Wise_Icon.png" },
-  { name: "GoCardless", src: "/images/logooUK/GoCardless.png" },
-  { name: "Fathom", src: "/images/logooUK/Fathom.png" },
-  { name: "Spotlight", src: "/images/logooUK/Spotlight.jpeg" },
-  { name: "Float", src: "/images/logooUK/Float.png" },
-  { name: "Futrli", src: "/images/logooUK/Futrli.png" },
-  { name: "Excel", src: "/images/logooUK/Microsoft_Excel_id.png" },
-  { name: "Google Sheets", src: "/images/logooUK/Google_Sheets.jpeg" },
-  { name: "Shopify", src: "/images/logooUK/Shopify.jpeg" },
-  { name: "WooCommerce", src: "/images/logooUK/WooCommerce.jpeg" },
+  { name: "Moorepay", src: "/images/logooUK/Moorepay.jpeg" },
+  { name: "Moneysoft", src: "/images/logooUK/Moneysoft_Australial.jpeg" },
+  { name: "Employment Hero", src: "/images/logooUK/Employmenthero.jpeg" },
+  { name: "Ceridian Dayforce", src: "/images/logooUK/Ceridian.jpeg" },
+  { name: "Wagepoint", src: "/images/logooUK/Wagepoint.jpeg" },
+  { name: "Zoho Payroll", src: "/images/logooUK/SVG_Brand_zoho_corporation.webp" },
+  { name: "Bayzat", src: "/images/logooUK/Bayzat.png" },
 ];
 
-const MOBILE_LOGOS = ALL_23_LOGOS;
-
-const DESKTOP_LOGOS = [
-  ALL_23_LOGOS.slice(0, 8),
-  ALL_23_LOGOS.slice(8, 15),
-  ALL_23_LOGOS.slice(15, 23),
+const TAX_LOGOS = [
+  { name: "Drake Software", src: "/images/logooUK/Drake.jpeg" },
+  { name: "TaxDome", src: "/images/logooUK/TaxDome.png" },
+  { name: "TaxCalc", src: "/images/logooUK/TaxCalc.jpeg" },
+  { name: "Wolters Kluwer", src: "/images/logooUK/wolters.png" },
+  { name: "UFile", src: "/images/logooUK/UFile.jpeg" },
+  { name: "TaxCycle", src: "/images/logooUK/TaxCycle.jpeg" },
+  { name: "Zoho Prime", src: "/images/logooUK/SVG_Brand_zoho_corporation.webp" },
+  { name: "Avalara", src: "/images/logooUK/Avalara.png" },
 ];
+
+const ALL_LOGOS = [...ACCOUNTING_LOGOS, ...PAYROLL_LOGOS, ...TAX_LOGOS];
+
+const MOBILE_LOGOS = ALL_LOGOS;
+
+const DESKTOP_LOGOS = [ACCOUNTING_LOGOS, PAYROLL_LOGOS, TAX_LOGOS];
 
 const FEATURES = [
   {
