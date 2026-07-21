@@ -36,16 +36,22 @@ export default function HomeHeroSection() {
           </p>
 
           <h1 className="text-white font-bold text-[30px] sm:text-[38px] md:text-[46px] lg:text-[52px] leading-[1.08] tracking-tight">
-            Your Modern Accounting,
+            Your Modern Accounting,{" "}
+            <span className="text-[#FF6A00]">Tax</span>
             <br />
-            Tax & Virtual Staffing
+            and Virtual <span className="text-[#FF6A00]">Staffing</span>
             <br />
-            <span className="text-[#FF6A00]">Solutions.</span>
+            <span className="text-[#FF6A00]">Solutions</span>
           </h1>
 
+          <p className="mt-3 text-[16px] font-semibold leading-snug text-white sm:mt-4 sm:text-[18px] md:text-[20px] lg:text-[22px]">
+            Powered by AI, Delivered by{" "}
+            <span className="text-[#FF6A00]">Experts.</span>
+          </p>
+
           <p className="mt-4 sm:mt-5 max-w-[620px] text-white/85 text-[14px] sm:text-[15px] leading-7">
-            We help businesses streamline their financial processes, stay compliant, and focus on
-            what matters most – growth.
+            Scale your business with AI-powered workflows, expert professionals, and dedicated
+            virtual staffing tailored to your business.
           </p>
         </div>
 

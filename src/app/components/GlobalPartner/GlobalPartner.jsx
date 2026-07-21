@@ -56,10 +56,10 @@ export default function GlobalPartner() {
       {/* Same alignment pattern as CoreServices / Technology — side gutters stay white */}
       <div className="max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-10">
         <div className="bg-[#FFF7F0] px-3 sm:px-8 lg:px-10 py-8 sm:py-9 lg:py-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 xl:gap-12 items-center">
+          <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2 lg:items-stretch lg:gap-10 xl:gap-12">
             {/* Left content */}
-            <div className="relative z-10 w-full">
-              <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+            <div className="relative z-10 flex w-full flex-col">
+              <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
                 <DottedWorldMap />
               </div>
 
@@ -74,7 +74,7 @@ export default function GlobalPartner() {
               </h2>
 
               <p
-                className="mt-4 sm:mt-5 text-[13px] sm:text-[14px] leading-6 sm:leading-7 max-w-[540px]"
+                className="mt-4 sm:mt-5 flex-1 text-[13px] sm:text-[14px] leading-6 sm:leading-7 max-w-[540px]"
                 style={{ color: GREY }}
               >
                 Our leaders take pride in not following the &apos;onboard and disappear&apos;
@@ -95,8 +95,8 @@ export default function GlobalPartner() {
               </div>
             </div>
 
-            {/* Right image — reduced size */}
-            <div className="relative w-full max-w-[520px] lg:max-w-none lg:justify-self-end h-[220px] sm:h-[260px] lg:h-[300px] overflow-hidden rounded-[20px] sm:rounded-[24px] shadow-[0_12px_40px_rgba(15,39,74,0.08)]">
+            {/* Right image — top with heading, bottom with CTAs */}
+            <div className="relative h-[220px] w-full overflow-hidden rounded-[20px] shadow-[0_12px_40px_rgba(15,39,74,0.08)] sm:h-[260px] sm:rounded-[24px] lg:h-auto lg:min-h-0">
               <Image
                 src="/images/DSC09879.JPG"
                 alt="Next Ledgers accounting team collaborating"

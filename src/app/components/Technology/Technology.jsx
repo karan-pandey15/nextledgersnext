@@ -49,13 +49,19 @@ const TAX_LOGOS = [
   { name: "TaxCycle", src: "/images/logooUK/TaxCycle.jpeg" },
   { name: "Zoho Prime", src: "/images/logooUK/SVG_Brand_zoho_corporation.webp" },
   { name: "Avalara", src: "/images/logooUK/Avalara.png" },
+  { name: "Taxfyle", src: "/images/logooUK/Taxfyle.jpeg" },
 ];
 
 const ALL_LOGOS = [...ACCOUNTING_LOGOS, ...PAYROLL_LOGOS, ...TAX_LOGOS];
 
 const MOBILE_LOGOS = ALL_LOGOS;
 
-const DESKTOP_LOGOS = [ACCOUNTING_LOGOS, PAYROLL_LOGOS, TAX_LOGOS];
+// Desktop honeycomb: 10 / 9 / 10
+const DESKTOP_LOGOS = [
+  ALL_LOGOS.slice(0, 10),
+  ALL_LOGOS.slice(10, 19),
+  ALL_LOGOS.slice(19, 29),
+];
 
 const FEATURES = [
   {
@@ -88,6 +94,14 @@ const FEATURES = [
 const hexPolygonStyle = {
   clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
 };
+
+/** Figma honeycomb: staggered nest + visible gutter between every hex (no overlap) */
+const HEX_W = 88;
+const HEX_H = 102;
+const HEX_GAP = 14; // clear white gutter like Figma
+const HEX_ROW_OFFSET = (HEX_W + HEX_GAP) / 2; // 51 — sit in valleys
+// Mild nest into valleys while keeping ~HEX_GAP between diagonal edges
+const HEX_ROW_PULL = 18;
 
 export default function Technology() {
   const [isInView, setIsInView] = useState(false);
@@ -152,6 +166,7 @@ export default function Technology() {
           background-color: #F79027 !important;
           transform: scale(1.08) !important;
           box-shadow: 0 10px 25px rgba(247, 144, 39, 0.25) !important;
+          z-index: 5;
         }
         .hex-inner {
           background-color: #ffffff;
@@ -256,51 +271,58 @@ export default function Technology() {
           </div>
         </div>
 
-        {/* Desktop hex grid — full container width, centered */}
-        <div className="hidden lg:flex flex-col items-center w-full mt-8 mb-2">
-          {DESKTOP_LOGOS.map((row, rowIndex) => (
-            <div
-              key={rowIndex}
-              className={`flex justify-center gap-2.5 ${
-                rowIndex > 0 ? "-mt-[26px]" : ""
-              }`}
-            >
-              {row.map((logo) => {
-                const delayIndex = desktopGlobalIndex++;
-                return (
-                  <div
-                    key={logo.name}
-                    className={`hex-outer relative w-[88px] h-[102px] p-[1.5px] active:scale-[0.97] cursor-pointer ${
-                      isInView ? "hex-animate-outer" : ""
-                    }`}
-                    style={{
-                      ...hexPolygonStyle,
-                      animationDelay: `${delayIndex * 200}ms`,
-                    }}
-                  >
+        {/* Desktop hex grid — Figma honeycomb: stagger + clear gap, no overlap */}
+        <div className="hidden lg:flex justify-center w-full mt-8 mb-2">
+          <div className="inline-flex flex-col items-start">
+            {DESKTOP_LOGOS.map((row, rowIndex) => (
+              <div
+                key={rowIndex}
+                className="flex"
+                style={{
+                  gap: HEX_GAP,
+                  marginTop: rowIndex > 0 ? -HEX_ROW_PULL : 0,
+                  marginLeft: rowIndex % 2 === 1 ? HEX_ROW_OFFSET : 0,
+                }}
+              >
+                {row.map((logo) => {
+                  const delayIndex = desktopGlobalIndex++;
+                  return (
                     <div
-                      className={`hex-inner w-full h-full flex items-center justify-center p-2.5 ${
-                        isInView ? "hex-animate-inner" : ""
+                      key={logo.name}
+                      className={`hex-outer relative shrink-0 p-[1.5px] active:scale-[0.97] cursor-pointer ${
+                        isInView ? "hex-animate-outer" : ""
                       }`}
                       style={{
                         ...hexPolygonStyle,
+                        width: HEX_W,
+                        height: HEX_H,
                         animationDelay: `${delayIndex * 200}ms`,
                       }}
                     >
-                      <img
-                        src={logo.src}
-                        alt={logo.name}
-                        className="hex-image max-w-[75%] max-h-[75%] object-contain pointer-events-none"
-                      />
-                      <span className="hex-text pointer-events-none">
-                        {logo.name}
-                      </span>
+                      <div
+                        className={`hex-inner w-full h-full flex items-center justify-center p-2.5 ${
+                          isInView ? "hex-animate-inner" : ""
+                        }`}
+                        style={{
+                          ...hexPolygonStyle,
+                          animationDelay: `${delayIndex * 200}ms`,
+                        }}
+                      >
+                        <img
+                          src={logo.src}
+                          alt={logo.name}
+                          className="hex-image max-w-[75%] max-h-[75%] object-contain pointer-events-none"
+                        />
+                        <span className="hex-text pointer-events-none">
+                          {logo.name}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
-            </div>
-          ))}
+                  );
+                })}
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Feature bar — design "issue part" */}

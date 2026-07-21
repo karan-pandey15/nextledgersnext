@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
 const ORANGE = BRAND_ORANGE;
@@ -8,6 +8,9 @@ const BG = "#0B1C33";
 const ICON_BLUE = "#1E4A6E";
 const WHITE = "#FFFFFF";
 const DESC = "#D4D9E0";
+
+const STEP_FILL_MS = 550;
+const LINE_TRAVEL_MS = 750;
 
 const STEPS = [
   {
@@ -54,58 +57,58 @@ const STEPS = [
   },
 ];
 
-function HeadsetIcon() {
+function HeadsetIcon({ color = ICON_BLUE }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" width="33" height="33" aria-hidden="true">
-      <path d="M4.5 13.5V12a7.5 7.5 0 0 1 15 0v1.5" stroke={ICON_BLUE} strokeWidth="1.65" strokeLinecap="round" />
-      <rect x="3.2" y="12.5" width="3.5" height="5" rx="1.1" stroke={ICON_BLUE} strokeWidth="1.55" />
-      <rect x="17.3" y="12.5" width="3.5" height="5" rx="1.1" stroke={ICON_BLUE} strokeWidth="1.55" />
-      <path d="M17.5 17.6v.8a2.4 2.4 0 0 1-2.4 2.4H12" stroke={ICON_BLUE} strokeWidth="1.55" strokeLinecap="round" />
+      <path d="M4.5 13.5V12a7.5 7.5 0 0 1 15 0v1.5" stroke={color} strokeWidth="1.65" strokeLinecap="round" />
+      <rect x="3.2" y="12.5" width="3.5" height="5" rx="1.1" stroke={color} strokeWidth="1.55" />
+      <rect x="17.3" y="12.5" width="3.5" height="5" rx="1.1" stroke={color} strokeWidth="1.55" />
+      <path d="M17.5 17.6v.8a2.4 2.4 0 0 1-2.4 2.4H12" stroke={color} strokeWidth="1.55" strokeLinecap="round" />
     </svg>
   );
 }
 
-function WorkflowIcon() {
+function WorkflowIcon({ color = ICON_BLUE }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" width="33" height="33" aria-hidden="true">
-      <rect x="4" y="3.5" width="11.5" height="15.5" rx="1.4" stroke={ICON_BLUE} strokeWidth="1.55" />
-      <path d="M7 8h6M7 11.5h6M7 15h3.2" stroke={ICON_BLUE} strokeWidth="1.55" strokeLinecap="round" />
-      <circle cx="17.2" cy="16.2" r="3" stroke={ICON_BLUE} strokeWidth="1.55" />
-      <path d="m19.4 18.4 1.5 1.5" stroke={ICON_BLUE} strokeWidth="1.55" strokeLinecap="round" />
+      <rect x="4" y="3.5" width="11.5" height="15.5" rx="1.4" stroke={color} strokeWidth="1.55" />
+      <path d="M7 8h6M7 11.5h6M7 15h3.2" stroke={color} strokeWidth="1.55" strokeLinecap="round" />
+      <circle cx="17.2" cy="16.2" r="3" stroke={color} strokeWidth="1.55" />
+      <path d="m19.4 18.4 1.5 1.5" stroke={color} strokeWidth="1.55" strokeLinecap="round" />
     </svg>
   );
 }
 
-function TeamIcon() {
+function TeamIcon({ color = ICON_BLUE }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" width="33" height="33" aria-hidden="true">
-      <circle cx="12" cy="7" r="2.3" stroke={ICON_BLUE} strokeWidth="1.55" />
-      <circle cx="6" cy="8.2" r="1.9" stroke={ICON_BLUE} strokeWidth="1.55" />
-      <circle cx="18" cy="8.2" r="1.9" stroke={ICON_BLUE} strokeWidth="1.55" />
-      <path d="M7.6 18.2c.7-2.3 2.3-3.5 4.4-3.5s3.7 1.2 4.4 3.5" stroke={ICON_BLUE} strokeWidth="1.55" strokeLinecap="round" />
-      <path d="M3.6 17.6c.5-1.7 1.5-2.6 2.9-2.6M20.4 17.6c-.5-1.7-1.5-2.6-2.9-2.6" stroke={ICON_BLUE} strokeWidth="1.55" strokeLinecap="round" />
+      <circle cx="12" cy="7" r="2.3" stroke={color} strokeWidth="1.55" />
+      <circle cx="6" cy="8.2" r="1.9" stroke={color} strokeWidth="1.55" />
+      <circle cx="18" cy="8.2" r="1.9" stroke={color} strokeWidth="1.55" />
+      <path d="M7.6 18.2c.7-2.3 2.3-3.5 4.4-3.5s3.7 1.2 4.4 3.5" stroke={color} strokeWidth="1.55" strokeLinecap="round" />
+      <path d="M3.6 17.6c.5-1.7 1.5-2.6 2.9-2.6M20.4 17.6c-.5-1.7-1.5-2.6-2.9-2.6" stroke={color} strokeWidth="1.55" strokeLinecap="round" />
     </svg>
   );
 }
 
-function TransferIcon() {
+function TransferIcon({ color = ICON_BLUE }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" width="33" height="33" aria-hidden="true">
-      <rect x="3.5" y="4" width="12.5" height="9.5" rx="1.1" stroke={ICON_BLUE} strokeWidth="1.55" />
-      <path d="M6.2 7h7M6.2 10h4.2" stroke={ICON_BLUE} strokeWidth="1.45" strokeLinecap="round" />
-      <circle cx="16.2" cy="16" r="2.1" stroke={ICON_BLUE} strokeWidth="1.55" />
-      <path d="M12.4 20.2c.5-1.7 1.7-2.7 3.8-2.7s3.3.9 3.8 2.7" stroke={ICON_BLUE} strokeWidth="1.55" strokeLinecap="round" />
+      <rect x="3.5" y="4" width="12.5" height="9.5" rx="1.1" stroke={color} strokeWidth="1.55" />
+      <path d="M6.2 7h7M6.2 10h4.2" stroke={color} strokeWidth="1.45" strokeLinecap="round" />
+      <circle cx="16.2" cy="16" r="2.1" stroke={color} strokeWidth="1.55" />
+      <path d="M12.4 20.2c.5-1.7 1.7-2.7 3.8-2.7s3.3.9 3.8 2.7" stroke={color} strokeWidth="1.55" strokeLinecap="round" />
     </svg>
   );
 }
 
-function GearIcon() {
+function GearIcon({ color = ICON_BLUE }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" width="33" height="33" aria-hidden="true">
-      <circle cx="12" cy="12" r="2.8" stroke={ICON_BLUE} strokeWidth="1.55" />
+      <circle cx="12" cy="12" r="2.8" stroke={color} strokeWidth="1.55" />
       <path
         d="M12 3.8v2M12 18.2v2M3.8 12h2M18.2 12h2M6 6l1.4 1.4M16.6 16.6 18 18M6 18l1.4-1.4M16.6 7.4 18 6"
-        stroke={ICON_BLUE}
+        stroke={color}
         strokeWidth="1.55"
         strokeLinecap="round"
       />
@@ -113,34 +116,34 @@ function GearIcon() {
   );
 }
 
-function ChartIcon() {
+function ChartIcon({ color = ICON_BLUE }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" width="33" height="33" aria-hidden="true">
-      <path d="M4 19h16" stroke={ICON_BLUE} strokeWidth="1.55" strokeLinecap="round" />
-      <path d="M7 16V11M11.5 16V8M16 16v-3.5" stroke={ICON_BLUE} strokeWidth="1.7" strokeLinecap="round" />
-      <path d="M14.5 7.5h4.5V12" stroke={ICON_BLUE} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="m19 7.5-4.2 4.2" stroke={ICON_BLUE} strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M4 19h16" stroke={color} strokeWidth="1.55" strokeLinecap="round" />
+      <path d="M7 16V11M11.5 16V8M16 16v-3.5" stroke={color} strokeWidth="1.7" strokeLinecap="round" />
+      <path d="M14.5 7.5h4.5V12" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="m19 7.5-4.2 4.2" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   );
 }
 
-function ScaleIcon() {
+function ScaleIcon({ color = ICON_BLUE }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" width="33" height="33" aria-hidden="true">
-      <path d="M4 18.5h16" stroke={ICON_BLUE} strokeWidth="1.55" strokeLinecap="round" />
-      <path d="M5 15.5 9.5 10l3.2 3.2L18.5 6.5" stroke={ICON_BLUE} strokeWidth="1.65" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M15 6.5h3.5V10" stroke={ICON_BLUE} strokeWidth="1.55" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M4 18.5h16" stroke={color} strokeWidth="1.55" strokeLinecap="round" />
+      <path d="M5 15.5 9.5 10l3.2 3.2L18.5 6.5" stroke={color} strokeWidth="1.65" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M15 6.5h3.5V10" stroke={color} strokeWidth="1.55" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
 
-function StepItem({ step, showDivider = false, compact = false }) {
+function StepItem({ step, showDivider = false, compact = false, active = false }) {
   const { Icon } = step;
   const iconSize = compact ? 48 : 54;
 
   return (
     <div
-      className={`our-process-step${showDivider ? " our-process-step--divider" : ""}`}
+      className={`our-process-step${showDivider ? " our-process-step--divider" : ""}${active ? " our-process-step--active" : ""}`}
       style={{
         display: "flex",
         flexDirection: "column",
@@ -156,6 +159,7 @@ function StepItem({ step, showDivider = false, compact = false }) {
       }}
     >
       <div
+        className="our-process-icon"
         style={{
           display: "flex",
           alignItems: "center",
@@ -163,14 +167,18 @@ function StepItem({ step, showDivider = false, compact = false }) {
           width: iconSize,
           height: iconSize,
           borderRadius: "9999px",
-          backgroundColor: WHITE,
-          boxShadow: "0 4px 14px rgba(0,0,0,0.16)",
+          backgroundColor: active ? ORANGE : WHITE,
+          boxShadow: active
+            ? "0 4px 18px rgba(255, 106, 0, 0.45)"
+            : "0 4px 14px rgba(0,0,0,0.16)",
           position: "relative",
           zIndex: 2,
           flexShrink: 0,
+          transition: "background-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease",
+          transform: active ? "scale(1.06)" : "scale(1)",
         }}
       >
-        <Icon />
+        <Icon color={active ? WHITE : ICON_BLUE} />
       </div>
 
       <span
@@ -218,8 +226,94 @@ function StepItem({ step, showDivider = false, compact = false }) {
 }
 
 export default function OurProcess() {
+  const sectionRef = useRef(null);
+  const timersRef = useRef([]);
+  const hasPlayedRef = useRef(false);
+  const [isInView, setIsInView] = useState(false);
+  const [filledCount, setFilledCount] = useState(0);
+  const [lineProgress, setLineProgress] = useState(0);
+  const [lineAnimating, setLineAnimating] = useState(false);
+
+  const clearTimers = () => {
+    timersRef.current.forEach(clearTimeout);
+    timersRef.current = [];
+  };
+
+  const schedule = (fn, ms) => {
+    const id = setTimeout(fn, ms);
+    timersRef.current.push(id);
+    return id;
+  };
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsInView(entry.isIntersecting),
+      { threshold: 0.35 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    // Play once when section first enters view, then stay fully orange
+    if (!isInView || hasPlayedRef.current) return undefined;
+
+    const reduceMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    hasPlayedRef.current = true;
+
+    if (reduceMotion) {
+      setFilledCount(STEPS.length);
+      setLineProgress(1);
+      return undefined;
+    }
+
+    let cancelled = false;
+    const stepCount = STEPS.length;
+    const segments = stepCount - 1;
+
+    const runStep = (index) => {
+      if (cancelled) return;
+
+      setFilledCount(index + 1);
+
+      if (index >= stepCount - 1) {
+        // Finished — stay orange for the rest of the visit
+        return;
+      }
+
+      schedule(() => {
+        if (cancelled) return;
+        setLineAnimating(true);
+        setLineProgress((index + 1) / segments);
+
+        schedule(() => {
+          if (cancelled) return;
+          setLineAnimating(false);
+          runStep(index + 1);
+        }, LINE_TRAVEL_MS);
+      }, STEP_FILL_MS);
+    };
+
+    schedule(() => runStep(0), 200);
+
+    return () => {
+      cancelled = true;
+      clearTimers();
+      // If they scroll away mid-animation, finish fully so it stays complete
+      setFilledCount(STEPS.length);
+      setLineProgress(1);
+      setLineAnimating(false);
+    };
+  }, [isInView]);
+
   return (
-    <section className="our-process-section">
+    <section ref={sectionRef} className="our-process-section">
       <div className="our-process-outer">
         <div className="our-process-card">
           <div className="our-process-inner">
@@ -236,12 +330,18 @@ export default function OurProcess() {
               {/* Desktop / tablet */}
               <div className="our-process-desktop">
                 <div className="our-process-line" aria-hidden="true" />
+                <div
+                  className={`our-process-line-progress${lineAnimating ? " is-animating" : ""}`}
+                  aria-hidden="true"
+                  style={{ transform: `scaleX(${lineProgress})` }}
+                />
                 <div className="our-process-row">
                   {STEPS.map((step, index) => (
                     <StepItem
                       key={step.num}
                       step={step}
                       showDivider={index < STEPS.length - 1}
+                      active={index < filledCount}
                     />
                   ))}
                 </div>
@@ -250,8 +350,13 @@ export default function OurProcess() {
               {/* Phone swipe */}
               <div className="our-process-mobile">
                 <div className="our-process-mobile-row">
-                  {STEPS.map((step) => (
-                    <StepItem key={step.num} step={step} compact />
+                  {STEPS.map((step, index) => (
+                    <StepItem
+                      key={step.num}
+                      step={step}
+                      compact
+                      active={index < filledCount}
+                    />
                   ))}
                 </div>
                 <p className="our-process-swipe-hint">Swipe to see all 7 steps →</p>
@@ -332,6 +437,28 @@ export default function OurProcess() {
           z-index: 0;
           pointer-events: none;
         }
+        .our-process-line-progress {
+          position: absolute;
+          top: 26px;
+          left: 6%;
+          right: 6%;
+          height: 3px;
+          border-radius: 999px;
+          background: linear-gradient(
+            90deg,
+            ${ORANGE} 0%,
+            #ff8a3d 55%,
+            ${ORANGE} 100%
+          );
+          box-shadow: 0 0 10px rgba(255, 106, 0, 0.55);
+          transform-origin: left center;
+          transform: scaleX(0);
+          z-index: 1;
+          pointer-events: none;
+        }
+        .our-process-line-progress.is-animating {
+          transition: transform ${LINE_TRAVEL_MS}ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
         .our-process-row {
           display: flex !important;
           flex-direction: row !important;
@@ -340,7 +467,7 @@ export default function OurProcess() {
           justify-content: space-between;
           width: 100%;
           position: relative;
-          z-index: 1;
+          z-index: 2;
         }
 
         /* Vertical border between steps — only through text area under icons */
@@ -438,6 +565,13 @@ export default function OurProcess() {
           }
           .our-process-title {
             font-size: 28px;
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .our-process-line-progress,
+          .our-process-icon {
+            transition: none !important;
           }
         }
       `}</style>

@@ -108,7 +108,7 @@ function AnimatedStatValue({ end, suffix, active }) {
   );
 }
 
-function PhoneVideo({ active }) {
+function PhoneVideo({ active, fillHeight = false }) {
   const videoRef = useRef(null);
   const [failed, setFailed] = useState(false);
 
@@ -163,31 +163,64 @@ function PhoneVideo({ active }) {
   }, [active]);
 
   return (
-    <div className="flex w-full items-center justify-center py-0 sm:py-1 lg:justify-end lg:py-0">
-      {/* Thick black phone bezel — right edge fixed; growth toward stats */}
+    <div
+      className={`flex justify-center lg:justify-end ${
+        fillHeight ? "h-full min-h-0 w-auto items-stretch" : "w-full"
+      }`}
+    >
+      {/* Client: vertical phone — 9:16; fillHeight = top at eyebrow, bottom at stats */}
       <div
-        className="relative shrink-0 overflow-hidden bg-black"
-        style={{
-          width: "clamp(176px, 22.4vw, 248px)",
-          padding: "9px",
-          borderRadius: "36px",
-          boxShadow: "0 16px 40px rgba(15,39,74,0.22)",
-        }}
+        className="relative shrink-0 bg-black"
+        style={
+          fillHeight
+            ? {
+                height: "100%",
+                width: "auto",
+                aspectRatio: "9 / 16",
+                padding: "11px",
+                borderRadius: "40px",
+                boxShadow:
+                  "0 22px 50px rgba(15,39,74,0.28), inset 0 0 0 1px rgba(255,255,255,0.08)",
+              }
+            : {
+                width: "clamp(200px, 18vw, 270px)",
+                padding: "11px",
+                borderRadius: "40px",
+                boxShadow:
+                  "0 22px 50px rgba(15,39,74,0.28), inset 0 0 0 1px rgba(255,255,255,0.08)",
+              }
+        }
       >
+        <span
+          className="pointer-events-none absolute top-[18%] -left-[2px] h-8 w-[3px] rounded-l-sm bg-[#1a1a1a]"
+          aria-hidden="true"
+        />
+        <span
+          className="pointer-events-none absolute top-[28%] -left-[2px] h-14 w-[3px] rounded-l-sm bg-[#1a1a1a]"
+          aria-hidden="true"
+        />
+        <span
+          className="pointer-events-none absolute top-[24%] -right-[2px] h-16 w-[3px] rounded-r-sm bg-[#1a1a1a]"
+          aria-hidden="true"
+        />
+
         <div
-          className="relative overflow-hidden bg-[#0a0a0a]"
+          className="relative h-full w-full overflow-hidden bg-[#0a0a0a]"
           style={{
-            aspectRatio: "9 / 16",
-            width: "100%",
-            borderRadius: "28px",
+            aspectRatio: fillHeight ? undefined : "9 / 16",
+            borderRadius: "30px",
           }}
         >
+          <div
+            className="pointer-events-none absolute top-2.5 left-1/2 z-10 h-[22px] w-[86px] -translate-x-1/2 rounded-full bg-black"
+            aria-hidden="true"
+          />
+
           {!failed ? (
             <video
               ref={videoRef}
               src={VIDEO_SRC}
-              className="block h-full w-full object-cover object-top"
-              style={{ aspectRatio: "9 / 16", borderRadius: "28px" }}
+              className="absolute inset-0 h-full w-full object-cover object-center"
               muted
               playsInline
               loop
@@ -198,7 +231,7 @@ function PhoneVideo({ active }) {
               onError={() => setFailed(true)}
             />
           ) : (
-            <div className="flex h-full min-h-[280px] w-full items-center justify-center px-3 text-center text-[11px] text-white/70">
+            <div className="flex h-full min-h-[320px] w-full items-center justify-center px-3 text-center text-[11px] text-white/70">
               Video unavailable
             </div>
           )}
@@ -215,28 +248,30 @@ export default function ResultsStats() {
     <section ref={sectionRef} className="relative w-full bg-white pt-0 pb-0">
       <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
         <div className="bg-[#FFF7F0] px-3 pb-8 pt-0 sm:px-8 sm:pb-10 lg:px-10 lg:pb-12">
-          {/* Eyebrow sits above — phone top will align with the h2 line below */}
-          <div className="inline-flex items-center gap-3">
-            <span className="h-px w-7 shrink-0 bg-[#FF6A00] sm:w-9" aria-hidden="true" />
-            <p className="text-[11px] font-bold tracking-[0.18em] uppercase sm:text-[12px]">
-              <span style={{ color: BROWN }}>NUMBERS THAT </span>
-              <span style={{ color: ORANGE }}>MATTER</span>
-            </p>
-            <span className="h-px w-7 shrink-0 bg-[#FF6A00] sm:w-9" aria-hidden="true" />
-          </div>
-
-          <div className="mt-3 grid grid-cols-1 items-start gap-5 sm:mt-4 lg:grid-cols-[minmax(0,1.2fr)_minmax(260px,0.8fr)] lg:items-end lg:gap-0">
-            {/* Left — heading + stats */}
+          {/*
+            Desktop: phone top = NUMBERS THAT MATTER, phone bottom = stats card bottom.
+            One grid so both columns share the same top/bottom edges.
+          */}
+          <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-stretch lg:gap-10 xl:gap-12">
             <div className="relative z-10 flex min-w-0 flex-col">
+              <div className="inline-flex items-center gap-3">
+                <span className="h-px w-7 shrink-0 bg-[#FF6A00] sm:w-9" aria-hidden="true" />
+                <p className="text-[11px] font-bold tracking-[0.18em] uppercase sm:text-[12px]">
+                  <span style={{ color: BROWN }}>NUMBERS THAT </span>
+                  <span style={{ color: ORANGE }}>MATTER</span>
+                </p>
+                <span className="h-px w-7 shrink-0 bg-[#FF6A00] sm:w-9" aria-hidden="true" />
+              </div>
+
               <h2
-                className="whitespace-nowrap text-[18px] font-bold leading-[1.15] tracking-[-0.02em] sm:text-[30px] lg:text-[36px] xl:text-[38px]"
+                className="mt-3 text-[22px] font-bold leading-[1.15] tracking-[-0.02em] sm:mt-4 sm:text-[30px] lg:text-[36px] xl:text-[38px]"
                 style={{ color: NAVY }}
               >
                 Results That{" "}
                 <span style={{ color: ORANGE }}>Speak for Themselves</span>
               </h2>
 
-              <div className="mt-6 flex-1 rounded-[18px] bg-white p-3 shadow-[0_8px_30px_rgba(15,39,74,0.06)] sm:mt-8 sm:rounded-[20px] sm:p-4 lg:p-5">
+              <div className="mt-6 rounded-[18px] bg-white p-3 shadow-[0_8px_30px_rgba(15,39,74,0.06)] sm:mt-8 sm:rounded-[20px] sm:p-4 lg:p-5">
                 <div className="grid grid-cols-2 sm:grid-cols-3">
                   {STATS.map((stat, index) => {
                     const Icon = stat.icon;
@@ -299,8 +334,13 @@ export default function ResultsStats() {
               </div>
             </div>
 
-            {/* Right — phone bottom aligns with stats card */}
-            <div className="relative z-0 flex w-full items-end justify-center lg:justify-end lg:-ml-20 xl:-ml-28 2xl:-ml-32">
+            {/* Desktop phone: top with NUMBERS THAT MATTER, bottom with stats card */}
+            <div className="relative z-0 hidden min-h-0 self-stretch lg:flex lg:items-stretch lg:justify-end">
+              <PhoneVideo active={inView} fillHeight />
+            </div>
+
+            {/* Mobile phone */}
+            <div className="relative z-0 flex justify-center lg:hidden">
               <PhoneVideo active={inView} />
             </div>
           </div>

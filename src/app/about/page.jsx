@@ -414,15 +414,15 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              <div className="relative min-h-[280px] w-full overflow-hidden rounded-[20px] shadow-[0_12px_40px_rgba(15,39,74,0.08)] sm:min-h-[320px] sm:rounded-[24px] lg:min-h-0 lg:h-full">
+              <div className="relative min-h-[280px] w-full self-stretch overflow-hidden rounded-[20px] bg-[#0B1C33] shadow-[0_12px_40px_rgba(15,39,74,0.08)] [transform:translateZ(0)] [-webkit-mask-image:-webkit-radial-gradient(#fff,#000)] sm:min-h-[320px] sm:rounded-[24px] lg:min-h-0 lg:h-full">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/durgesh.png"
+                  src="/images/durgesh-cutout.png"
                   alt="Durgesh Pandey — Founder of NextLedgers"
-                  className="absolute inset-0 h-full w-full object-cover object-top"
+                  className="absolute inset-0 h-full w-full object-contain object-center"
                   onError={(e) => {
                     e.currentTarget.onerror = null;
-                    e.currentTarget.src = "/images/DSC09879.JPG";
+                    e.currentTarget.src = "/images/durgesh.png";
                   }}
                 />
               </div>
@@ -501,46 +501,50 @@ export default function AboutPage() {
       </section>
 
       {/* ─── 4. Mission & Vision (compact icon rows) ─── */}
-      <section className="w-full bg-[#FFF7F0] px-4 py-8 sm:px-6 sm:py-9 lg:px-10 lg:py-10">
-        <div className="mx-auto grid max-w-[1440px] grid-cols-1 gap-4 md:grid-cols-2 md:gap-5">
-          {[
-            {
-              title: "Our Mission",
-              text: "To empower individuals and businesses to achieve success by providing personalized service, expert guidance, and the right financial solutions that build lasting results.",
-              icon: MissionIcon,
-            },
-            {
-              title: "Our Vision",
-              text: "To build a firm recognized for trust, global expertise and commitment to helping every client move forward with confidence — feeling heard, supported, and ready to achieve their unique business goals.",
-              icon: VisionIcon,
-            },
-          ].map((item) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={item.title}
-                className="flex items-start gap-3.5 rounded-[16px] border border-[#FF6A00]/15 bg-white px-4 py-4 sm:gap-4 sm:px-5 sm:py-5"
-              >
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FF6A00] text-white shadow-[0_6px_16px_rgba(255, 106, 0,0.25)]">
-                  <Icon className="h-[18px] w-[18px]" />
-                </div>
-                <div className="min-w-0">
-                  <h3
-                    className="text-[15px] font-bold leading-snug sm:text-[16px]"
-                    style={{ color: NAVY }}
+      <section className="w-full overflow-hidden bg-white py-0">
+        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
+          <div className="bg-[#FFF7F0] px-5 py-8 sm:px-8 sm:py-9 lg:px-10 lg:py-10">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5">
+              {[
+                {
+                  title: "Our Mission",
+                  text: "To empower individuals and businesses to achieve success by providing personalized service, expert guidance, and the right financial solutions that build lasting results.",
+                  icon: MissionIcon,
+                },
+                {
+                  title: "Our Vision",
+                  text: "To build a firm recognized for trust, global expertise and commitment to helping every client move forward with confidence — feeling heard, supported, and ready to achieve their unique business goals.",
+                  icon: VisionIcon,
+                },
+              ].map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={item.title}
+                    className="flex min-w-0 items-start gap-3.5 rounded-[16px] border border-[#FF6A00]/15 bg-white px-4 py-4 sm:gap-4 sm:px-5 sm:py-5"
                   >
-                    {item.title}
-                  </h3>
-                  <p
-                    className="mt-1 text-[12px] leading-[1.45] sm:text-[13px]"
-                    style={{ color: GREY }}
-                  >
-                    {item.text}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FF6A00] text-white shadow-[0_6px_16px_rgba(255,106,0,0.25)]">
+                      <Icon className="h-[18px] w-[18px]" />
+                    </div>
+                    <div className="min-w-0">
+                      <h3
+                        className="text-[15px] font-bold leading-snug sm:text-[16px]"
+                        style={{ color: NAVY }}
+                      >
+                        {item.title}
+                      </h3>
+                      <p
+                        className="mt-1 text-[12px] leading-[1.45] sm:text-[13px]"
+                        style={{ color: GREY }}
+                      >
+                        {item.text}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </section>
 

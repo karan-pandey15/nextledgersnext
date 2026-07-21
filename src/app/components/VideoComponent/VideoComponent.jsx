@@ -3,7 +3,7 @@
 import React from "react";
 
 export default function VideoComponent({
-  title = "Your Mordern Accounting, Tax & Virtual Staffing Solutions.",
+  title = "Your Modern Accounting, Tax and Virtual Staffing Solutions Powered by AI, Delivered by Experts.",
   subTitle = "Proudly supporting businesses across US & Canada since 2018",
   videoSrc = "/images/finalvideo.mp4",
   className = "",
