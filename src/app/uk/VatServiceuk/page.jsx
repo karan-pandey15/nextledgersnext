@@ -37,6 +37,7 @@ import { useState } from "react";
 import Image from "next/image";
 import CtaButton from "@/app/components/ui/CtaButton";
 import IconDisplayScreen from "@/app/components/ServiceMainPageContent/IcondisplayScreen";
+import IndustriesWeSupportGrid from "@/app/components/ServiceMainPageContent/IndustriesWeSupportGrid";
 import TrustBadgesBar from "@/app/components/ServiceMainPageContent/TrustBadgesBar";
 import WhyChooseSplitSection from "@/app/components/ServiceMainPageContent/WhyChooseSplitSection";
 import Footer from "@/app/components/footer/Footer";
@@ -170,33 +171,6 @@ const softwareExpertiseLogodata = [
         heading: "SUPPORTING TOOLS",
         icon: "document",
         logos: ["dext", "hubdoc", "autoentry", "approvalmax", "a2x"],
-    },
-];
-
-const industriesWeSupport = [
-    {
-        label: "eCommerce & Online Retail",
-        image: "/images/nexticon/Ecommerce.png",
-    },
-    {
-        label: "Construction Companies",
-        image: "/images/nexticon/construction.png",
-    },
-    {
-        label: "Property & Real Estate",
-        image: "/images/nexticon/realstate.png",
-    },
-    {
-        label: "Manufacturing & Distribution",
-        image: "/images/nexticon/manugacturing.png",
-    },
-    {
-        label: "Professional Service Firms",
-        image: "/images/nexticon/professionalservices.png",
-    },
-    {
-        label: "Recruitment & Staffing Agencies",
-        image: "/images/nexticon/consulting.png",
     },
 ];
 
@@ -839,26 +813,7 @@ export default function VatServiceuk() {
                             </p>
                         </div>
 
-                        <div className="mt-4 grid grid-cols-2 gap-2.5 sm:mt-5 sm:grid-cols-3 sm:gap-3 lg:grid-cols-3 lg:gap-3 xl:grid-cols-6">
-                            {industriesWeSupport.map((item) => (
-                                <div
-                                    key={item.label}
-                                    className="flex min-h-[126px] flex-col items-center justify-center rounded-[14px] border border-[#F0E0D2] bg-white px-2.5 py-3 text-center transition-colors duration-200 hover:border-[#FFB77F] hover:bg-[#FFFCF9]"
-                                >
-                                    <Image
-                                        src={item.image}
-                                        alt=""
-                                        width={72}
-                                        height={72}
-                                        className="h-16 w-16 object-contain sm:h-[72px] sm:w-[72px]"
-                                        aria-hidden="true"
-                                    />
-                                    <p className="mt-2 text-[11px] font-bold leading-snug text-[#0B1F3A] sm:text-[12px]">
-                                        {item.label}
-                                    </p>
-                                </div>
-                            ))}
-                        </div>
+                        <IndustriesWeSupportGrid />
                     </div>
                 </div>
             </section>

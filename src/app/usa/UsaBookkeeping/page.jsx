@@ -46,6 +46,7 @@ import { useState } from "react";
 import Image from "next/image";
 import CtaButton from "@/app/components/ui/CtaButton";
 import IconDisplayScreen from "@/app/components/ServiceMainPageContent/IcondisplayScreen";
+import IndustriesWeSupportGrid from "@/app/components/ServiceMainPageContent/IndustriesWeSupportGrid";
 import TrustBadgesBar, {
     USA_TRUST_BADGES,
 } from "@/app/components/ServiceMainPageContent/TrustBadgesBar";
@@ -254,57 +255,6 @@ const specialistAreaCards = [
         title: "Bookkeeping Cleanup & Recovery",
         description:
             "Correcting historical bookkeeping errors, rebuilding accounting records, and restoring reliable financial information for clients with incomplete books.",
-    },
-];
-
-const industriesWeSupport = [
-    {
-        label: "Professional Service Firms",
-        image: "/images/nexticon/professionalservices.png",
-    },
-    {
-        label: "Technology Companies",
-        image: "/images/nexticon/technology.png",
-    },
-    {
-        label: "Construction Businesses",
-        image: "/images/nexticon/construction.png",
-    },
-    {
-        label: "Healthcare Practices",
-        image: "/images/nexticon/healthcare.png",
-    },
-    {
-        label: "Engineering Firms",
-        image: "/images/nexticon/technology.png",
-    },
-    {
-        label: "eCommerce & Online Retail",
-        image: "/images/nexticon/Ecommerce.png",
-    },
-    {
-        label: "Amazon Sellers",
-        image: "/images/nexticon/Ecommerce.png",
-    },
-    {
-        label: "Shopify Businesses",
-        image: "/images/nexticon/Ecommerce.png",
-    },
-    {
-        label: "Retail Companies",
-        image: "/images/nexticon/Ecommerce.png",
-    },
-    {
-        label: "Real Estate Businesses",
-        image: "/images/nexticon/realstate.png",
-    },
-    {
-        label: "Hospitality Businesses",
-        image: "/images/nexticon/hospitality.png",
-    },
-    {
-        label: "Franchise & Multi-Location Businesses",
-        image: "/images/nexticon/consulting.png",
     },
 ];
 
@@ -712,31 +662,7 @@ export default function UsaBookkeeping() {
                             </p>
                         </div>
 
-                        <div className="mt-4 grid grid-cols-2 gap-2.5 sm:mt-5 sm:grid-cols-3 sm:gap-3 lg:grid-cols-4 lg:gap-3">
-                            {industriesWeSupport.map((item) => {
-                                return (
-                                    <div
-                                        key={item.label}
-                                        className="flex min-h-[126px] flex-col items-center justify-center rounded-[14px] border border-[#F0E0D2] bg-white px-2.5 py-3 text-center transition-colors duration-200 hover:border-[#FFB77F] hover:bg-[#FFFCF9]"
-                                    >
-                                        <Image
-                                            src={item.image}
-                                            alt=""
-                                            width={72}
-                                            height={72}
-                                            className="h-16 w-16 object-contain sm:h-[72px] sm:w-[72px]"
-                                            aria-hidden="true"
-                                        />
-                                        <p
-                                            className="mt-1.5 text-[11px] font-bold leading-snug sm:text-[12px]"
-                                            style={{ color: NAVY }}
-                                        >
-                                            {item.label}
-                                        </p>
-                                    </div>
-                                );
-                            })}
-                        </div>
+                        <IndustriesWeSupportGrid />
                     </div>
                 </div>
             </section>

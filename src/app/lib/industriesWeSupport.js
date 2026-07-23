@@ -1,7 +1,8 @@
 /** Industry cards for service pages — icons from /public/images/industry-icons/ */
 const V = "v4";
 
-export const INDUSTRIES_WE_SUPPORT = [
+/** Full home catalogue (kept for reference / Non-Profit strip elsewhere) */
+export const INDUSTRIES_WE_SUPPORT_ALL = [
   { label: "Real Estate", src: `/images/industry-icons/real-estate.png?${V}` },
   { label: "Hospitality", src: `/images/industry-icons/hospitality.png?${V}` },
   { label: "E-commerce", src: `/images/industry-icons/e-commerce.png?${V}` },
@@ -32,3 +33,11 @@ export const INDUSTRIES_WE_SUPPORT = [
   { label: "Crypto", src: `/images/industry-icons/crypto.png?${V}` },
   { label: "Startups & SMEs", src: `/images/industry-icons/startups.png?${V}` },
 ];
+
+/**
+ * Canonical 10 industries — always shown as 5 + 5 (two rows on desktop).
+ * Same icons/labels as the home Industry Expertise section.
+ */
+export const INDUSTRIES_WE_SUPPORT = INDUSTRIES_WE_SUPPORT_ALL.slice(0, 10);
+
+export const INDUSTRIES_DISPLAY_COUNT = 10;

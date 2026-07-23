@@ -39,6 +39,7 @@ import Image from "next/image";
 import Link from "next/link";
 import CtaButton from "@/app/components/ui/CtaButton";
 import IconDisplayScreen from "@/app/components/ServiceMainPageContent/IcondisplayScreen";
+import IndustriesWeSupportGrid from "@/app/components/ServiceMainPageContent/IndustriesWeSupportGrid";
 import TrustBadgesBar from "@/app/components/ServiceMainPageContent/TrustBadgesBar";
 import Footer from "@/app/components/footer/Footer";
 import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/ArtificialIntelligence";
@@ -235,19 +236,6 @@ const softwareExpertiseLogodata = [
         icon: "document",
         logos: ["dext", "hubdoc", "approvalmax", "microsoft 365", "google workspace"],
     },
-];
-
-const industriesWeSupport = [
-    { label: "Professional Service Firms", image: "/images/nexticon/professionalservices.png" },
-    { label: "Construction & Trades", image: "/images/nexticon/construction.png" },
-    { label: "E-Commerce Businesses", image: "/images/nexticon/Ecommerce.png" },
-    { label: "Retail Businesses", image: "/images/nexticon/Ecommerce.png" },
-    { label: "Manufacturing Companies", image: "/images/nexticon/manugacturing.png" },
-    { label: "Hospitality Businesses", image: "/images/nexticon/hospitality.png" },
-    { label: "Healthcare Providers", image: "/images/nexticon/healthcare.png" },
-    { label: "Recruitment Agencies", image: "/images/nexticon/consulting.png" },
-    { label: "Technology Companies", image: "/images/nexticon/technology.png" },
-    { label: "Property & Real Estate Businesses", image: "/images/nexticon/realstate.png" },
 ];
 
 const whyChooseCards = [
@@ -965,26 +953,7 @@ export default function UKBusinessAdvisory() {
                             </p>
                         </div>
 
-                        <div className="mt-7 grid grid-cols-2 gap-3 sm:mt-8 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5 lg:gap-5">
-                            {industriesWeSupport.map((item) => (
-                                <div
-                                    key={item.label}
-                                    className="flex min-h-[126px] flex-col items-center justify-center rounded-[14px] border border-[#F0E0D2] bg-white px-2.5 py-3 text-center transition-colors duration-200 hover:border-[#FFB77F] hover:bg-[#FFFCF9]"
-                                >
-                                    <Image
-                                        src={item.image}
-                                        alt=""
-                                        width={72}
-                                        height={72}
-                                        className="h-16 w-16 object-contain sm:h-[72px] sm:w-[72px]"
-                                        aria-hidden="true"
-                                    />
-                                    <p className="mt-2 text-[11px] font-bold leading-snug text-[#0B1F3A] sm:text-[12px]">
-                                        {item.label}
-                                    </p>
-                                </div>
-                            ))}
-                        </div>
+                        <IndustriesWeSupportGrid />
                     </div>
                 </div>
             </section>

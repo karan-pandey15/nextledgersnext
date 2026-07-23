@@ -45,6 +45,7 @@ import Link from "next/link";
 import CtaButton from "@/app/components/ui/CtaButton";
 import { motion } from "framer-motion";
 import IconDisplayScreen from "@/app/components/ServiceMainPageContent/IcondisplayScreen";
+import IndustriesWeSupportGrid from "@/app/components/ServiceMainPageContent/IndustriesWeSupportGrid";
 import ServiceDeliverablesExplorer from "@/app/components/ServiceMainPageContent/ServiceDeliverablesExplorer";
 import TrustBadgesBar, {
     USA_TRUST_BADGES,
@@ -196,49 +197,6 @@ const softwareExpertiseLogodata = [
             "sharepoint",
             "microsoft 365",
         ],
-    },
-];
-
-const industriesWeSupport = [
-    {
-        label: "Employees & Salaried Professionals",
-        image: "/images/nexticon/professionalservices.png",
-    },
-    {
-        label: "Self-Employed Individuals",
-        image: "/images/nexticon/consulting.png",
-    },
-    {
-        label: "Freelancers & Independent Contractors",
-        image: "/images/nexticon/technology.png",
-    },
-    {
-        label: "Business Owners",
-        image: "/images/nexticon/startupsmes.png",
-    },
-    {
-        label: "Real Estate Investors",
-        image: "/images/nexticon/realstate.png",
-    },
-    {
-        label: "Healthcare Professionals",
-        image: "/images/nexticon/healthcare.png",
-    },
-    {
-        label: "Consultants",
-        image: "/images/nexticon/consulting.png",
-    },
-    {
-        label: "High-Net-Worth Individuals",
-        image: "/images/nexticon/professionalservices.png",
-    },
-    {
-        label: "US Expatriates",
-        image: "/images/nexticon/logisticstrasportation.png",
-    },
-    {
-        label: "Families & Retirees",
-        image: "/images/nexticon/healthcare.png",
     },
 ];
 
@@ -902,58 +860,7 @@ export default function UsaIndividualTax() {
                             </p>
                         </div>
 
-                        <div className="mt-4 sm:mt-5">
-                            <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 sm:gap-3 lg:grid-cols-5 lg:gap-3">
-                                {industriesWeSupport
-                                    .slice(0, 5)
-                                    .map((item, index) => {
-                                        return (
-                                            <Reveal
-                                                key={item.label}
-                                                delay={Math.min(
-                                                    index * 0.04,
-                                                    0.2
-                                                )}
-                                            >
-                                                <div className="flex min-h-[126px] flex-col items-center justify-center rounded-[14px] border border-[#F0E0D2] bg-white px-2.5 py-3 text-center transition-colors duration-200 hover:border-[#FFB77F] hover:bg-[#FFFCF9]">
-                                                    <Image src={item.image} alt="" width={72} height={72} className="h-16 w-16 object-contain sm:h-[72px] sm:w-[72px]" aria-hidden="true" />
-                                                    <p
-                                                        className="mt-1.5 text-[11px] font-bold leading-snug sm:text-[12px]"
-                                                        style={{ color: NAVY }}
-                                                    >
-                                                        {item.label}
-                                                    </p>
-                                                </div>
-                                            </Reveal>
-                                        );
-                                    })}
-                            </div>
-                            <div className="mt-2.5 grid grid-cols-2 gap-2.5 sm:mt-3 sm:grid-cols-3 sm:gap-3 lg:grid-cols-5 lg:gap-3">
-                                {industriesWeSupport
-                                    .slice(5)
-                                    .map((item, index) => {
-                                        return (
-                                            <Reveal
-                                                key={item.label}
-                                                delay={Math.min(
-                                                    0.08 + index * 0.04,
-                                                    0.28
-                                                )}
-                                            >
-                                                <div className="flex min-h-[126px] flex-col items-center justify-center rounded-[14px] border border-[#F0E0D2] bg-white px-2.5 py-3 text-center transition-colors duration-200 hover:border-[#FFB77F] hover:bg-[#FFFCF9]">
-                                                    <Image src={item.image} alt="" width={72} height={72} className="h-16 w-16 object-contain sm:h-[72px] sm:w-[72px]" aria-hidden="true" />
-                                                    <p
-                                                        className="mt-1.5 text-[11px] font-bold leading-snug sm:text-[12px]"
-                                                        style={{ color: NAVY }}
-                                                    >
-                                                        {item.label}
-                                                    </p>
-                                                </div>
-                                            </Reveal>
-                                        );
-                                    })}
-                            </div>
-                        </div>
+                        <IndustriesWeSupportGrid />
                     </div>
                 </div>
             </section>

@@ -38,6 +38,7 @@ import Image from "next/image";
 import CtaButton from "@/app/components/ui/CtaButton";
 import { motion } from "framer-motion";
 import IconDisplayScreen from "@/app/components/ServiceMainPageContent/IcondisplayScreen";
+import IndustriesWeSupportGrid from "@/app/components/ServiceMainPageContent/IndustriesWeSupportGrid";
 import ServiceDeliverablesExplorer from "@/app/components/ServiceMainPageContent/ServiceDeliverablesExplorer";
 import TrustBadgesBar, {
     USA_TRUST_BADGES,
@@ -270,61 +271,6 @@ const softwareExpertiseLogodata = [
         heading: "SPREADSHEET & REPORTING",
         icon: "chart",
         logos: ["microsoft excel", "google sheets"],
-    },
-];
-
-const industriesWeSupport = [
-    {
-        label: "Professional Service Firms",
-        image: "/images/nexticon/professionalservices.png",
-    },
-    {
-        label: "Technology Companies",
-        image: "/images/nexticon/technology.png",
-    },
-    {
-        label: "Construction Businesses",
-        image: "/images/nexticon/construction.png",
-    },
-    {
-        label: "Healthcare Practices",
-        image: "/images/nexticon/healthcare.png",
-    },
-    {
-        label: "Manufacturing & Distribution",
-        image: "/images/nexticon/manugacturing.png",
-    },
-    {
-        label: "Retail Businesses",
-        image: "/images/nexticon/Ecommerce.png",
-    },
-    {
-        label: "eCommerce & Online Retail",
-        image: "/images/nexticon/Ecommerce.png",
-    },
-    {
-        label: "Amazon Sellers",
-        image: "/images/nexticon/Ecommerce.png",
-    },
-    {
-        label: "Shopify Businesses",
-        image: "/images/nexticon/Ecommerce.png",
-    },
-    {
-        label: "Real Estate Companies",
-        image: "/images/nexticon/realstate.png",
-    },
-    {
-        label: "Hospitality Businesses",
-        image: "/images/nexticon/hospitality.png",
-    },
-    {
-        label: "Franchise Businesses",
-        image: "/images/nexticon/consulting.png",
-    },
-    {
-        label: "Multi-Entity Organisations",
-        image: "/images/nexticon/professionalservices.png",
     },
 ];
 
@@ -917,72 +863,7 @@ export default function UsaAccountingCleanup() {
                             </p>
                         </div>
 
-                        <div className="mt-4 sm:mt-5">
-                            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-7 lg:gap-5">
-                                {industriesWeSupport
-                                    .slice(0, 7)
-                                    .map((item, index) => {
-                                        return (
-                                            <Reveal
-                                                key={item.label}
-                                                delay={Math.min(
-                                                    index * 0.04,
-                                                    0.2
-                                                )}
-                                            >
-                                                <div className="flex min-h-[126px] flex-col items-center justify-center rounded-[14px] border border-[#F0E0D2] bg-white px-2.5 py-3 text-center transition-colors duration-200 hover:border-[#FFB77F] hover:bg-[#FFFCF9]">
-                                                    <Image
-                                                        src={item.image}
-                                                        alt=""
-                                                        width={72}
-                                                        height={72}
-                                                        className="h-16 w-16 object-contain sm:h-[72px] sm:w-[72px]"
-                                                        aria-hidden="true"
-                                                    />
-                                                    <p
-                                                        className="mt-1.5 text-[11px] font-bold leading-snug sm:text-[12px]"
-                                                        style={{ color: NAVY }}
-                                                    >
-                                                        {item.label}
-                                                    </p>
-                                                </div>
-                                            </Reveal>
-                                        );
-                                    })}
-                            </div>
-                            <div className="mt-3 grid grid-cols-2 gap-3 sm:mt-4 sm:grid-cols-3 sm:gap-4 lg:grid-cols-6 lg:gap-5">
-                                {industriesWeSupport
-                                    .slice(7)
-                                    .map((item, index) => {
-                                        return (
-                                            <Reveal
-                                                key={item.label}
-                                                delay={Math.min(
-                                                    0.08 + index * 0.04,
-                                                    0.28
-                                                )}
-                                            >
-                                                <div className="flex min-h-[126px] flex-col items-center justify-center rounded-[14px] border border-[#F0E0D2] bg-white px-2.5 py-3 text-center transition-colors duration-200 hover:border-[#FFB77F] hover:bg-[#FFFCF9]">
-                                                    <Image
-                                                        src={item.image}
-                                                        alt=""
-                                                        width={72}
-                                                        height={72}
-                                                        className="h-16 w-16 object-contain sm:h-[72px] sm:w-[72px]"
-                                                        aria-hidden="true"
-                                                    />
-                                                    <p
-                                                        className="mt-1.5 text-[11px] font-bold leading-snug sm:text-[12px]"
-                                                        style={{ color: NAVY }}
-                                                    >
-                                                        {item.label}
-                                                    </p>
-                                                </div>
-                                            </Reveal>
-                                        );
-                                    })}
-                            </div>
-                        </div>
+                        <IndustriesWeSupportGrid />
                     </div>
                 </div>
             </section>

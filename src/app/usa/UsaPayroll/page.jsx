@@ -37,6 +37,7 @@ import Link from "next/link";
 import CtaButton from "@/app/components/ui/CtaButton";
 import { motion } from "framer-motion";
 import IconDisplayScreen from "@/app/components/ServiceMainPageContent/IcondisplayScreen";
+import IndustriesWeSupportGrid from "@/app/components/ServiceMainPageContent/IndustriesWeSupportGrid";
 import ServiceDeliverablesExplorer from "@/app/components/ServiceMainPageContent/ServiceDeliverablesExplorer";
 import TrustBadgesBar, {
     USA_TRUST_BADGES,
@@ -195,49 +196,6 @@ const softwareExpertiseLogodata = [
             "dext",
             "hubdoc",
         ],
-    },
-];
-
-const industriesWeSupport = [
-    {
-        label: "Professional Services",
-        image: "/images/nexticon/professionalservices.png",
-    },
-    {
-        label: "Technology Companies",
-        image: "/images/nexticon/technology.png",
-    },
-    {
-        label: "Healthcare Providers",
-        image: "/images/nexticon/healthcare.png",
-    },
-    {
-        label: "Construction & Contracting",
-        image: "/images/nexticon/construction.png",
-    },
-    {
-        label: "Manufacturing & Distribution",
-        image: "/images/nexticon/manugacturing.png",
-    },
-    {
-        label: "Retail Businesses",
-        image: "/images/nexticon/Ecommerce.png",
-    },
-    {
-        label: "Hospitality Businesses",
-        image: "/images/nexticon/hospitality.png",
-    },
-    {
-        label: "eCommerce & Online Retail",
-        image: "/images/nexticon/Ecommerce.png",
-    },
-    {
-        label: "Amazon & Shopify Businesses",
-        image: "/images/nexticon/Ecommerce.png",
-    },
-    {
-        label: "Franchise & Multi-Location Businesses",
-        image: "/images/nexticon/consulting.png",
     },
 ];
 
@@ -882,72 +840,7 @@ export default function UsaPayroll() {
                             </p>
                         </div>
 
-                        <div className="mt-4 sm:mt-5">
-                            <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 sm:gap-3 lg:grid-cols-5 lg:gap-3">
-                                {industriesWeSupport
-                                    .slice(0, 5)
-                                    .map((item, index) => {
-                                        return (
-                                            <Reveal
-                                                key={item.label}
-                                                delay={Math.min(
-                                                    index * 0.04,
-                                                    0.2
-                                                )}
-                                            >
-                                                <div className="flex min-h-[126px] flex-col items-center justify-center rounded-[14px] border border-[#F0E0D2] bg-white px-2.5 py-3 text-center transition-colors duration-200 hover:border-[#FFB77F] hover:bg-[#FFFCF9]">
-                                                    <Image
-                                                        src={item.image}
-                                                        alt=""
-                                                        width={72}
-                                                        height={72}
-                                                        className="h-16 w-16 object-contain sm:h-[72px] sm:w-[72px]"
-                                                        aria-hidden="true"
-                                                    />
-                                                    <p
-                                                        className="mt-1.5 text-[11px] font-bold leading-snug sm:text-[12px]"
-                                                        style={{ color: NAVY }}
-                                                    >
-                                                        {item.label}
-                                                    </p>
-                                                </div>
-                                            </Reveal>
-                                        );
-                                    })}
-                            </div>
-                            <div className="mt-2.5 grid grid-cols-2 gap-2.5 sm:mt-3 sm:grid-cols-3 sm:gap-3 lg:grid-cols-5 lg:gap-3">
-                                {industriesWeSupport
-                                    .slice(5)
-                                    .map((item, index) => {
-                                        return (
-                                            <Reveal
-                                                key={item.label}
-                                                delay={Math.min(
-                                                    0.08 + index * 0.04,
-                                                    0.28
-                                                )}
-                                            >
-                                                <div className="flex min-h-[126px] flex-col items-center justify-center rounded-[14px] border border-[#F0E0D2] bg-white px-2.5 py-3 text-center transition-colors duration-200 hover:border-[#FFB77F] hover:bg-[#FFFCF9]">
-                                                    <Image
-                                                        src={item.image}
-                                                        alt=""
-                                                        width={72}
-                                                        height={72}
-                                                        className="h-16 w-16 object-contain sm:h-[72px] sm:w-[72px]"
-                                                        aria-hidden="true"
-                                                    />
-                                                    <p
-                                                        className="mt-1.5 text-[11px] font-bold leading-snug sm:text-[12px]"
-                                                        style={{ color: NAVY }}
-                                                    >
-                                                        {item.label}
-                                                    </p>
-                                                </div>
-                                            </Reveal>
-                                        );
-                                    })}
-                            </div>
-                        </div>
+                        <IndustriesWeSupportGrid />
                     </div>
                 </div>
             </section>

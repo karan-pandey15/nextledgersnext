@@ -35,6 +35,7 @@ import TrustBadgesBar from "@/app/components/ServiceMainPageContent/TrustBadgesB
 import BookKeepingMatters from "@/app/components/ServiceMainPageContent/BookkeepingMatters";
 import BookkeepingReconcilation from "@/app/components/ServiceMainPageContent/Bookkeepingreconcilation";
 import IconDisplayScreen from "@/app/components/ServiceMainPageContent/IcondisplayScreen";
+import IndustriesWeSupportGrid from "@/app/components/ServiceMainPageContent/IndustriesWeSupportGrid";
 import WhyChooseSplitSection from "@/app/components/ServiceMainPageContent/WhyChooseSplitSection";
 import Footer from "@/app/components/footer/Footer";
 import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/ArtificialIntelligence";
@@ -186,37 +187,6 @@ const softwareExpertiseLogodata = [
     },
 ];
 
-const industriesWeSupport = [
-    {
-        label: "eCommerce & Online Retail",
-        image: "/images/nexticon/Ecommerce.png",
-    },
-    {
-        label: "Marketing & Creative Agencies",
-        image: "/images/nexticon/entertainment.png",
-    },
-    {
-        label: "SaaS & Technology Companies",
-        image: "/images/nexticon/technology.png",
-    },
-    {
-        label: "Construction Businesses",
-        image: "/images/nexticon/construction.png",
-    },
-    {
-        label: "Recruitment Agencies",
-        image: "/images/nexticon/consulting.png",
-    },
-    {
-        label: "Professional Service Firms",
-        image: "/images/nexticon/professionalservices.png",
-    },
-    {
-        label: "Property & Real Estate Businesses",
-        image: "/images/nexticon/realstate.png",
-    },
-];
-
 const whyChooseCards = [
     {
         title: "ACCA-Led Team with UK Accounting Expertise",
@@ -317,24 +287,6 @@ function HelpCard({ icon: Icon, title, items }) {
                     </li>
                 ))}
             </ul>
-        </article>
-    );
-}
-
-function IndustryCard({ label, image }) {
-    return (
-        <article className="flex min-h-[126px] flex-col items-center justify-center rounded-2xl border border-[#F0E0D2] bg-white px-3 py-4 text-center transition-colors duration-200 hover:border-[#FFB77F] hover:bg-[#FFFCF9]">
-            <Image
-                src={image}
-                alt=""
-                width={72}
-                height={72}
-                className="h-16 w-16 object-contain sm:h-[72px] sm:w-[72px]"
-                aria-hidden="true"
-            />
-            <p className="mt-2 text-[11.5px] font-bold leading-snug text-[#0B1F3A] sm:text-[12px]">
-                {label}
-            </p>
         </article>
     );
 }
@@ -553,28 +505,50 @@ export default function UkManagementAccounts() {
                 className="!py-3"
             />
 
-            <section className="relative w-full overflow-hidden bg-white py-3">
-                <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-                    <div className="rounded-2xl bg-[#FFF9F5] px-4 py-6 sm:px-6">
-                        <div className="mx-auto max-w-2xl text-center">
-                            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#FF6A00]">
-                                Our Industry Expertise
-                            </span>
-                            <h2 className="mt-2 text-[24px] font-extrabold leading-tight text-[#0B1F3A] sm:text-[28px]">
+            <section className="relative w-full overflow-hidden bg-white py-5 sm:py-6 lg:py-7">
+                <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
+                    <div
+                        className="rounded-none px-3 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-7"
+                        style={{ background: PAGE_CREAM }}
+                    >
+                        <div className="mx-auto max-w-[720px] text-center">
+                            <div className="inline-flex items-center justify-center gap-3">
+                                <span
+                                    className="hidden h-px w-8 sm:block"
+                                    style={{ background: ORANGE }}
+                                    aria-hidden="true"
+                                />
+                                <p
+                                    className="text-[11px] font-bold uppercase tracking-[0.22em] sm:text-[12px]"
+                                    style={{ color: ORANGE }}
+                                >
+                                    Our Industry Expertise
+                                </p>
+                                <span
+                                    className="hidden h-px w-8 sm:block"
+                                    style={{ background: ORANGE }}
+                                    aria-hidden="true"
+                                />
+                            </div>
+
+                            <h2
+                                className="mt-2 text-[22px] font-extrabold leading-[1.15] tracking-[-0.01em] sm:text-[28px] lg:text-[32px]"
+                                style={{ color: NAVY }}
+                            >
                                 Industries We{" "}
-                                <span className="text-[#FF6A00]">Support</span>
+                                <span style={{ color: ORANGE }}>Support</span>
                             </h2>
-                            <p className="mx-auto mt-2 max-w-xl text-[13px] leading-relaxed text-[#6B7280]">
+
+                            <p
+                                className="mx-auto mt-2 max-w-[540px] text-[12px] leading-5 sm:mt-2 sm:text-[13px] sm:leading-6"
+                                style={{ color: GREY }}
+                            >
                                 We support accounting firms serving clients across a wide
                                 range of sectors.
                             </p>
                         </div>
 
-                        <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-                            {industriesWeSupport.map((industry) => (
-                                <IndustryCard key={industry.label} {...industry} />
-                            ))}
-                        </div>
+                        <IndustriesWeSupportGrid />
                     </div>
                 </div>
             </section>

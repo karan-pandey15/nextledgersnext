@@ -7,6 +7,7 @@ import BookkeepingHero from "../ServiceMainPageContent/BookkeepingHero";
 import BookKeepingMatters from "../ServiceMainPageContent/BookkeepingMatters";
 import BookkeepingReconcilation from "../ServiceMainPageContent/Bookkeepingreconcilation";
 import BookKeepingCompliance from "../ServiceMainPageContent/Bookkeepingcompliance";
+import IndustriesWeSupportGrid from "../ServiceMainPageContent/IndustriesWeSupportGrid";
  
 import Button from "@/components/ui/Button";
 import IconDisplayScreen , {
@@ -494,29 +495,8 @@ export default function UKServicesContent({ serviceSlug }) {
               </p>
             </div>
 
-            {/* Elegant full-width Industries Grid */}
-            <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
-              {[
-                { name: "eCommerce & Online Retail", icon: "🛒" },
-                { name: "Marketing & Creative Agencies", icon: "🎨" },
-                { name: "SaaS & Technology Companies", icon: "💻" },
-                { name: "Construction Businesses", icon: "🏗️" },
-                { name: "Recruitment Agencies", icon: "👥" },
-                { name: "Professional Service Firms", icon: "💼" },
-                { name: "Property & Real Estate Businesses", icon: "🏢" },
-              ].map((ind, idx) => (
-                <div
-                  key={idx}
-                  className="flex flex-col items-center justify-center text-center p-4 bg-[#FEF4E4]/40 rounded-2xl border border-[#FF6A00]/15 hover:border-[#FF6A00]/30 hover:bg-[#FEF4E4]/65 transition-all duration-300 group hover:shadow-xs"
-                >
-                  <span className="text-3xl mb-2 flex-shrink-0 group-hover:scale-110 transition-transform">
-                    {ind.icon}
-                  </span>
-                  <span className="text-[#0F274A] font-extrabold text-[11px] sm:text-xs leading-tight block">
-                    {ind.name}
-                  </span>
-                </div>
-              ))}
+            <div className="max-w-7xl mx-auto">
+              <IndustriesWeSupportGrid />
             </div>
           </div>
 
@@ -898,26 +878,7 @@ export default function UKServicesContent({ serviceSlug }) {
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5">
-                {[
-                  { name: "Construction & Trades", icon: "🏗️" },
-                  { name: "Recruitment Agencies", icon: "👥" },
-                  { name: "Manufacturing", icon: "⚙️" },
-                  { name: "Hospitality & Retail", icon: "🍽️" },
-                  { name: "Healthcare Providers", icon: "🩺" },
-                  { name: "Professional Service", icon: "💼" }
-                ].map((ind, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-[#FEF4E4]/40 p-4 rounded-xl border border-[#FF6A00]/15 text-center hover:bg-[#FEF4E4]/70 hover:shadow-xs hover:border-[#FF6A00]/30 transition-all duration-300 group"
-                  >
-                    <div className="text-2xl mb-2 group-hover:scale-110 transition-transform">{ind.icon}</div>
-                    <span className="text-[#0F274A] font-extrabold text-[11px] sm:text-xs leading-snug block">
-                      {ind.name}
-                    </span>
-                  </div>
-                ))}
-              </div>
+              <IndustriesWeSupportGrid />
             </div>
           </div>
 
@@ -2077,30 +2038,7 @@ export default function UKServicesContent({ serviceSlug }) {
                 </p>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-3.5">
-                {[
-                  { name: "Professional Services", icon: "💼" },
-                  { name: "Construction & Trades", icon: "🏗️" },
-                  { name: "E-Commerce", icon: "🛒" },
-                  { name: "Retail Businesses", icon: "🏬" },
-                  { name: "Manufacturing", icon: "⚙️" },
-                  { name: "Hospitality Businesses", icon: "🍽️" },
-                  { name: "Healthcare Providers", icon: "🩺" },
-                  { name: "Recruitment Agencies", icon: "👥" },
-                  { name: "Technology Firms", icon: "💻" },
-                  { name: "Property & Real Estate", icon: "🏢" }
-                ].map((ind, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-[#FEF4E4]/40 p-4 rounded-xl border border-[#FF6A00]/15 text-center hover:bg-[#FEF4E4]/70 hover:shadow-xs hover:border-[#FF6A00]/30 transition-all duration-300 group"
-                  >
-                    <div className="text-2xl mb-2 group-hover:scale-110 transition-transform">{ind.icon}</div>
-                    <span className="text-[#0F274A] font-extrabold text-[11px] sm:text-xs leading-snug block">
-                      {ind.name}
-                    </span>
-                  </div>
-                ))}
-              </div>
+              <IndustriesWeSupportGrid />
             </div>
           </div>
 

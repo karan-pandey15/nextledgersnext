@@ -28,6 +28,7 @@ import {
 import { useState } from "react";
 import Image from "next/image";
 import IconDisplayScreen from "@/app/components/ServiceMainPageContent/IcondisplayScreen";
+import IndustriesWeSupportGrid from "@/app/components/ServiceMainPageContent/IndustriesWeSupportGrid";
 import TrustBadgesBar from "@/app/components/ServiceMainPageContent/TrustBadgesBar";
 import ServicePartnerCTA from "@/app/components/ServiceMainPageContent/ServicePartnerCTA";
 import Footer from "@/app/components/footer/Footer";
@@ -157,33 +158,6 @@ const softwareExpertiseLogodata = [
             "hubdoc",
             "approvalmax",
         ],
-    },
-];
-
-const industriesWeSupport = [
-    {
-        label: "Construction & Trades",
-        image: "/images/nexticon/construction.png",
-    },
-    {
-        label: "Recruitment Agencies",
-        image: "/images/nexticon/consulting.png",
-    },
-    {
-        label: "Manufacturing Businesses",
-        image: "/images/nexticon/manugacturing.png",
-    },
-    {
-        label: "Hospitality & Retail",
-        image: "/images/nexticon/hospitality.png",
-    },
-    {
-        label: "Healthcare Providers",
-        image: "/images/nexticon/healthcare.png",
-    },
-    {
-        label: "Professional Service Firms",
-        image: "/images/nexticon/professionalservices.png",
     },
 ];
 
@@ -769,26 +743,7 @@ export default function UKPayrollPage() {
                             </p>
                         </div>
 
-                        <div className="mt-4 grid grid-cols-2 gap-2.5 sm:mt-5 sm:grid-cols-3 sm:gap-3 lg:grid-cols-6 lg:gap-3">
-                            {industriesWeSupport.map((item) => (
-                                <div
-                                    key={item.label}
-                                    className="flex flex-col items-center justify-center rounded-[14px] border border-[#F0E0D2] bg-white px-2 py-3 text-center transition-colors duration-200 hover:border-[#FFB77F] hover:bg-[#FFFCF9]"
-                                >
-                                    <Image
-                                        src={item.image}
-                                        alt=""
-                                        width={62}
-                                        height={62}
-                                        className="h-[62px] w-[62px] object-contain"
-                                        aria-hidden="true"
-                                    />
-                                    <p className="mt-2 text-[11px] font-bold leading-snug text-[#0B1F3A] sm:text-[12px]">
-                                        {item.label}
-                                    </p>
-                                </div>
-                            ))}
-                        </div>
+                        <IndustriesWeSupportGrid />
                     </div>
                 </div>
             </section>
