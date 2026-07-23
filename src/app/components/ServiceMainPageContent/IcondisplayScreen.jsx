@@ -234,36 +234,65 @@ function CategoryIcon({ icon, className = "h-4 w-4" }) {
     return <User className={className} strokeWidth={1.75} />;
 }
 
-function LogoItem({ name, src, size = "default" }) {
-    const box =
-        size === "carousel"
-            ? "relative h-11 w-full sm:h-12"
-            : "relative h-9 w-[88px] shrink-0 sm:h-10 sm:w-[100px]";
+function LogoItem({ name, src, size = "default", onError }) {
+    if (size === "carousel") {
+        return (
+            <Image
+                src={src}
+                alt={formatLogoLabel(name)}
+                width={120}
+                height={40}
+                className="h-10 w-auto max-h-10 max-w-[100px] object-contain sm:h-11 sm:max-h-11 sm:max-w-[110px]"
+                onError={onError}
+            />
+        );
+    }
 
     return (
-        <div className={box} title={formatLogoLabel(name)}>
+        <div
+            className="relative h-9 w-[88px] shrink-0 sm:h-10 sm:w-[100px]"
+            title={formatLogoLabel(name)}
+        >
             <Image
                 src={src}
                 alt={formatLogoLabel(name)}
                 fill
-                sizes={size === "carousel" ? "120px" : "100px"}
+                sizes="100px"
                 className="object-contain"
+                onError={onError}
             />
         </div>
     );
 }
 
-/** Infinite logo carousel — 6 logos visible, 20px gaps, 80% page width */
+/** One continuous infinite strip — no category sections, 20px between every logo */
 function LogoCarousel({ logos, logoMap }) {
-    const items = normalizeLogos(logos, logoMap);
+    const raw = normalizeLogos(logos, logoMap);
+    const seen = new Set();
+    const unique = raw.filter((item) => {
+        if (!item?.src || seen.has(item.src)) return false;
+        seen.add(item.src);
+        return true;
+    });
+
+    const [hidden, setHidden] = React.useState(() => new Set());
+    const items = unique.filter((item) => !hidden.has(item.src));
     if (!items.length) return null;
 
-    // Duplicate until we have enough for a smooth loop with 6 visible
-    let track = [...items];
-    while (track.length < 12) {
-        track = track.concat(items);
-    }
+    // Repeat the full list enough times so the strip never looks "sectioned"
+    const repeats = Math.max(2, Math.ceil(14 / items.length));
+    const track = Array.from({ length: repeats }, () => items).flat();
+    // Exact duplicate for seamless -50% loop (gap stays 20px across the join)
     const loop = [...track, ...track];
+
+    const hideLogo = (src) => {
+        setHidden((prev) => {
+            if (prev.has(src)) return prev;
+            const next = new Set(prev);
+            next.add(src);
+            return next;
+        });
+    };
 
     return (
         <div className="relative w-full overflow-hidden py-2">
@@ -273,15 +302,30 @@ function LogoCarousel({ logos, logoMap }) {
                     100% { transform: translateX(-50%); }
                 }
                 .icon-display-marquee {
-                    animation: iconDisplayMarquee 32s linear infinite;
+                    display: flex;
+                    flex-wrap: nowrap;
+                    align-items: center;
                     width: max-content;
+                    gap: 20px;
+                    animation: iconDisplayMarquee 28s linear infinite;
                 }
                 .icon-display-marquee:hover {
                     animation-play-state: paused;
                 }
+                .icon-display-marquee__slot {
+                    flex: 0 0 auto;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 48px;
+                }
+                @media (min-width: 640px) {
+                    .icon-display-marquee__slot {
+                        height: 52px;
+                    }
+                }
             `}</style>
 
-            {/* Edge fades */}
             <div
                 className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-white to-transparent sm:w-10"
                 aria-hidden="true"
@@ -291,20 +335,18 @@ function LogoCarousel({ logos, logoMap }) {
                 aria-hidden="true"
             />
 
-            {/* gap-5 = 20px between every logo */}
-            <div className="icon-display-marquee flex items-center gap-5">
+            <div className="icon-display-marquee" aria-label="Software logos">
                 {loop.map((logo, index) => (
                     <div
-                        key={`${logo.name}-${index}`}
-                        className="flex h-14 shrink-0 items-center justify-center sm:h-16"
-                        style={{
-                            // 6 logos + 5×20px gaps fill the 80vw carousel viewport
-                            width: "calc((80vw - 100px) / 6)",
-                            maxWidth: "160px",
-                            minWidth: "96px",
-                        }}
+                        key={`${logo.src}-${index}`}
+                        className="icon-display-marquee__slot"
                     >
-                        <LogoItem name={logo.name} src={logo.src} size="carousel" />
+                        <LogoItem
+                            name={logo.name}
+                            src={logo.src}
+                            size="carousel"
+                            onError={() => hideLogo(logo.src)}
+                        />
                     </div>
                 ))}
             </div>
@@ -409,8 +451,15 @@ export default function IconDisplayScreen({
           ? categories
           : DEFAULT_TECH_CATEGORIES;
 
+    // Carousel: ignore categories — one flat list of every logo
     const flatLogos = carousel
-        ? rows.flatMap((row) => row.logos || row.icons || row.images || [])
+        ? rows.flatMap((row) => {
+              const list = row?.logos || row?.icons || row?.images;
+              if (!list) return [];
+              if (Array.isArray(list)) return list;
+              if (typeof list === "object") return Object.keys(list);
+              return [];
+          })
         : null;
 
     return (
