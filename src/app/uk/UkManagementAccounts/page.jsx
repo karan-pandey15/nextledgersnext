@@ -505,51 +505,49 @@ export default function UkManagementAccounts() {
                 className="!py-3"
             />
 
-            <section className="relative w-full overflow-hidden bg-white py-5 sm:py-6 lg:py-7">
-                <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
-                    <div
-                        className="rounded-none px-3 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-7"
-                        style={{ background: PAGE_CREAM }}
-                    >
-                        <div className="mx-auto max-w-[720px] text-center">
-                            <div className="inline-flex items-center justify-center gap-3">
-                                <span
-                                    className="hidden h-px w-8 sm:block"
-                                    style={{ background: ORANGE }}
-                                    aria-hidden="true"
-                                />
-                                <p
-                                    className="text-[11px] font-bold uppercase tracking-[0.22em] sm:text-[12px]"
-                                    style={{ color: ORANGE }}
-                                >
-                                    Our Industry Expertise
-                                </p>
-                                <span
-                                    className="hidden h-px w-8 sm:block"
-                                    style={{ background: ORANGE }}
-                                    aria-hidden="true"
-                                />
-                            </div>
-
-                            <h2
-                                className="mt-2 text-[22px] font-extrabold leading-[1.15] tracking-[-0.01em] sm:text-[28px] lg:text-[32px]"
-                                style={{ color: NAVY }}
-                            >
-                                Industries We{" "}
-                                <span style={{ color: ORANGE }}>Support</span>
-                            </h2>
-
+            <section
+                className="relative w-full overflow-hidden px-4 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-7"
+                style={{ background: PAGE_CREAM }}
+            >
+                <div className="relative mx-auto w-full max-w-[1440px]">
+                    <div className="mx-auto max-w-[720px] text-center">
+                        <div className="inline-flex items-center justify-center gap-3">
+                            <span
+                                className="hidden h-px w-8 sm:block"
+                                style={{ background: ORANGE }}
+                                aria-hidden="true"
+                            />
                             <p
-                                className="mx-auto mt-2 max-w-[540px] text-[12px] leading-5 sm:mt-2 sm:text-[13px] sm:leading-6"
-                                style={{ color: GREY }}
+                                className="text-[11px] font-bold uppercase tracking-[0.22em] sm:text-[12px]"
+                                style={{ color: ORANGE }}
                             >
-                                We support accounting firms serving clients across a wide
-                                range of sectors.
+                                Our Industry Expertise
                             </p>
+                            <span
+                                className="hidden h-px w-8 sm:block"
+                                style={{ background: ORANGE }}
+                                aria-hidden="true"
+                            />
                         </div>
 
-                        <IndustriesWeSupportGrid />
+                        <h2
+                            className="mt-2 text-[22px] font-extrabold leading-[1.15] tracking-[-0.01em] sm:text-[28px] lg:text-[32px]"
+                            style={{ color: NAVY }}
+                        >
+                            Industries We{" "}
+                            <span style={{ color: ORANGE }}>Support</span>
+                        </h2>
+
+                        <p
+                            className="mx-auto mt-2 max-w-[540px] text-[12px] leading-5 sm:mt-2 sm:text-[13px] sm:leading-6"
+                            style={{ color: GREY }}
+                        >
+                            We support accounting firms serving clients across a wide
+                            range of sectors.
+                        </p>
                     </div>
+
+                    <IndustriesWeSupportGrid />
                 </div>
             </section>
 

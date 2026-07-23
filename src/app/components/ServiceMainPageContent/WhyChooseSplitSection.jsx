@@ -10,7 +10,7 @@ const GREY = "#6B7280";
 
 /**
  * Why Choose layout — left content list, right image.
- * Image height matches the list only (from first item to last), not the heading.
+ * Image is capped in size and vertically centered on the right (does not stretch with long lists).
  */
 export default function WhyChooseSplitSection({
   eyebrow = "Partner Advantages",
@@ -74,8 +74,8 @@ export default function WhyChooseSplitSection({
           />
         </div>
 
-        {/* List + image: image top = first item, bottom = last item */}
-        <div className="mt-2.5 grid grid-cols-1 items-start gap-6 sm:mt-3 lg:grid-cols-2 lg:items-stretch lg:gap-8 xl:gap-10">
+        {/* List + image: image stays a fixed size, vertically centered on the right */}
+        <div className="mt-2.5 grid grid-cols-1 items-start gap-6 sm:mt-3 lg:grid-cols-2 lg:items-center lg:gap-8 xl:gap-10">
           <div className="min-w-0">
             {items.map(({ title, description, icon: Icon }, index) => {
               const isLast = index === items.length - 1;
@@ -115,13 +115,13 @@ export default function WhyChooseSplitSection({
             })}
           </div>
 
-          <div className="relative h-[220px] w-full self-stretch overflow-hidden rounded-[20px] shadow-[0_12px_40px_rgba(15,39,74,0.08)] sm:h-[260px] sm:rounded-[24px] lg:h-auto lg:min-h-0">
+          <div className="relative mx-auto h-[240px] w-full max-w-[360px] overflow-hidden rounded-[20px] shadow-[0_12px_40px_rgba(15,39,74,0.08)] sm:h-[280px] sm:max-w-[400px] sm:rounded-[24px] lg:mx-auto lg:h-[380px] lg:w-full lg:max-w-[420px]">
             <Image
               src={imageSrc}
               alt={imageAlt}
               fill
               className="object-cover object-center"
-              sizes="(max-width: 1024px) 100vw, 50vw"
+              sizes="(max-width: 1024px) 100vw, 420px"
             />
           </div>
         </div>

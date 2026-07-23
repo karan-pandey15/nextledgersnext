@@ -29,6 +29,7 @@ import { useState } from "react";
 import Image from "next/image";
 import IconDisplayScreen from "@/app/components/ServiceMainPageContent/IcondisplayScreen";
 import IndustriesWeSupportGrid from "@/app/components/ServiceMainPageContent/IndustriesWeSupportGrid";
+import WhyChooseSplitSection from "@/app/components/ServiceMainPageContent/WhyChooseSplitSection";
 import TrustBadgesBar from "@/app/components/ServiceMainPageContent/TrustBadgesBar";
 import ServicePartnerCTA from "@/app/components/ServiceMainPageContent/ServicePartnerCTA";
 import Footer from "@/app/components/footer/Footer";
@@ -749,65 +750,15 @@ export default function UKPayrollPage() {
             </section>
 
             {/* 9 — Why Choose NextLedgers */}
-            <section className="relative w-full overflow-hidden bg-white py-3">
-                <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-                    <div className="text-center">
-                        <h2
-                            className="text-[22px] font-extrabold leading-tight tracking-[-0.01em] sm:text-[26px] lg:text-[28px]"
-                            style={{ color: NAVY }}
-                        >
-                            Why Choose{" "}
-                            <span style={{ color: ORANGE }}>NextLedgers?</span>
-                        </h2>
-                        <p
-                            className="mx-auto mt-2 max-w-[440px] text-[14px] leading-relaxed sm:text-[15px]"
-                            style={{ color: GREY }}
-                        >
-                            Precision, confidentiality, and consistent HMRC compliance for
-                            payroll and CIS.
-                        </p>
-                    </div>
-
-                    <div className="mt-4 grid grid-cols-1 items-start gap-5 sm:mt-5 lg:grid-cols-2 lg:gap-8">
-                        <div>
-                            {whyChooseNextLedgers.map(({ title, icon: Icon }, index) => {
-                                const isLast = index === whyChooseNextLedgers.length - 1;
-                                return (
-                                    <div key={title}>
-                                        <div className="flex items-center gap-2.5 py-1 sm:py-1.5">
-                                            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#FF6A00]">
-                                                <Icon className="h-5 w-5" strokeWidth={1.75} />
-                                            </span>
-                                            <p
-                                                className="text-[12.5px] font-bold leading-snug sm:text-[13px]"
-                                                style={{ color: NAVY }}
-                                            >
-                                                {title}
-                                            </p>
-                                        </div>
-                                        {!isLast && (
-                                            <div
-                                                className="h-px w-full bg-[#E8E8E8]"
-                                                aria-hidden="true"
-                                            />
-                                        )}
-                                    </div>
-                                );
-                            })}
-                        </div>
-
-                        <div className="relative h-[220px] w-full overflow-hidden rounded-[20px] shadow-[0_12px_40px_rgba(15,39,74,0.08)] sm:h-[260px] sm:rounded-[24px] lg:h-[280px]">
-                            <Image
-                                src="/images/bgimage.JPG"
-                                alt="Why choose NextLedgers for payroll and CIS"
-                                fill
-                                className="object-cover object-center"
-                                sizes="(max-width: 1024px) 100vw, 50vw"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <WhyChooseSplitSection
+                titleBefore="Why Choose "
+                titleAccent="NextLedgers"
+                titleAfter="?"
+                subtitle="Precision, confidentiality, and consistent HMRC compliance for payroll and CIS."
+                items={whyChooseNextLedgers}
+                imageSrc="/images/bgimage.JPG"
+                imageAlt="Why choose NextLedgers for payroll and CIS"
+            />
 
             {/* 10 — CTA */}
             <ServicePartnerCTA
