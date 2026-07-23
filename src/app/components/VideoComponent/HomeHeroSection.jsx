@@ -15,7 +15,7 @@ const TRUST_ITEMS = [
 
 export default function HomeHeroSection() {
   return (
-    <section className="relative w-full min-h-[420px] sm:min-h-[460px] lg:min-h-[500px] overflow-hidden bg-[#111111]">
+    <section className="relative w-full min-h-[336px] sm:min-h-[368px] lg:min-h-[400px] overflow-hidden bg-[#111111]">
       <video
         src="/images/finalvideo.mp4"
         autoPlay
@@ -28,9 +28,9 @@ export default function HomeHeroSection() {
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/20" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/10" />
 
-      <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 h-full min-h-[420px] sm:min-h-[460px] lg:min-h-[500px] flex flex-col justify-between py-10 sm:py-12 lg:py-14">
+      <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 h-full min-h-[336px] sm:min-h-[368px] lg:min-h-[400px] flex flex-col justify-between py-8 sm:py-10 lg:py-11">
         <div className="max-w-[760px]">
-          <p className="text-white/90 text-[13px] sm:text-[14px] font-medium mb-4 sm:mb-5">
+          <p className="text-white/90 text-[13px] sm:text-[14px] font-medium mb-3 sm:mb-4">
             Proudly supporting businesses across{" "}
             <span className="text-[#FF6A00] font-semibold">globally</span> since 2018
           </p>
@@ -39,8 +39,7 @@ export default function HomeHeroSection() {
             Your Modern Accounting,{" "}
             <span className="text-[#FF6A00]">Tax</span>
             <br />
-            and Virtual <span className="text-[#FF6A00]">Staffing</span>
-            <br />
+            and Virtual <span className="text-[#FF6A00]">Staffing</span>{" "}
             <span className="text-[#FF6A00]">Solutions</span>
           </h1>
 

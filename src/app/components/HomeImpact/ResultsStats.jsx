@@ -108,7 +108,7 @@ function AnimatedStatValue({ end, suffix, active }) {
   );
 }
 
-function PhoneVideo({ active, fillHeight = false }) {
+function ResultsVideo({ active, fillHeight = false }) {
   const videoRef = useRef(null);
   const [failed, setFailed] = useState(false);
 
@@ -168,74 +168,41 @@ function PhoneVideo({ active, fillHeight = false }) {
         fillHeight ? "h-full min-h-0 w-auto items-stretch" : "w-full"
       }`}
     >
-      {/* Client: vertical phone — 9:16; fillHeight = top at eyebrow, bottom at stats */}
+      {/* Vertical video — bold black border + rounded corners */}
       <div
-        className="relative shrink-0 bg-black"
+        className="relative shrink-0 overflow-hidden rounded-2xl border-[5px] border-black bg-black sm:rounded-3xl"
         style={
           fillHeight
             ? {
                 height: "100%",
                 width: "auto",
                 aspectRatio: "9 / 16",
-                padding: "11px",
-                borderRadius: "40px",
-                boxShadow:
-                  "0 22px 50px rgba(15,39,74,0.28), inset 0 0 0 1px rgba(255,255,255,0.08)",
               }
             : {
                 width: "clamp(200px, 18vw, 270px)",
-                padding: "11px",
-                borderRadius: "40px",
-                boxShadow:
-                  "0 22px 50px rgba(15,39,74,0.28), inset 0 0 0 1px rgba(255,255,255,0.08)",
+                aspectRatio: "9 / 16",
               }
         }
       >
-        <span
-          className="pointer-events-none absolute top-[18%] -left-[2px] h-8 w-[3px] rounded-l-sm bg-[#1a1a1a]"
-          aria-hidden="true"
-        />
-        <span
-          className="pointer-events-none absolute top-[28%] -left-[2px] h-14 w-[3px] rounded-l-sm bg-[#1a1a1a]"
-          aria-hidden="true"
-        />
-        <span
-          className="pointer-events-none absolute top-[24%] -right-[2px] h-16 w-[3px] rounded-r-sm bg-[#1a1a1a]"
-          aria-hidden="true"
-        />
-
-        <div
-          className="relative h-full w-full overflow-hidden bg-[#0a0a0a]"
-          style={{
-            aspectRatio: fillHeight ? undefined : "9 / 16",
-            borderRadius: "30px",
-          }}
-        >
-          <div
-            className="pointer-events-none absolute top-2.5 left-1/2 z-10 h-[22px] w-[86px] -translate-x-1/2 rounded-full bg-black"
-            aria-hidden="true"
+        {!failed ? (
+          <video
+            ref={videoRef}
+            src={VIDEO_SRC}
+            className="absolute inset-0 h-full w-full object-cover object-center"
+            muted
+            playsInline
+            loop
+            preload="metadata"
+            controls={false}
+            disablePictureInPicture
+            aria-label="Next Ledgers results video"
+            onError={() => setFailed(true)}
           />
-
-          {!failed ? (
-            <video
-              ref={videoRef}
-              src={VIDEO_SRC}
-              className="absolute inset-0 h-full w-full object-cover object-center"
-              muted
-              playsInline
-              loop
-              preload="metadata"
-              controls={false}
-              disablePictureInPicture
-              aria-label="Next Ledgers results video"
-              onError={() => setFailed(true)}
-            />
-          ) : (
-            <div className="flex h-full min-h-[320px] w-full items-center justify-center px-3 text-center text-[11px] text-white/70">
-              Video unavailable
-            </div>
-          )}
-        </div>
+        ) : (
+          <div className="flex h-full min-h-[320px] w-full items-center justify-center px-3 text-center text-[11px] text-white/70">
+            Video unavailable
+          </div>
+        )}
       </div>
     </div>
   );
@@ -249,7 +216,7 @@ export default function ResultsStats() {
       <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
         <div className="bg-[#FFF7F0] px-3 pb-8 pt-0 sm:px-8 sm:pb-10 lg:px-10 lg:pb-12">
           {/*
-            Desktop: phone top = NUMBERS THAT MATTER, phone bottom = stats card bottom.
+            Desktop: video top = NUMBERS THAT MATTER, video bottom = stats card bottom.
             One grid so both columns share the same top/bottom edges.
           */}
           <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-stretch lg:gap-10 xl:gap-12">
@@ -334,14 +301,14 @@ export default function ResultsStats() {
               </div>
             </div>
 
-            {/* Desktop phone: top with NUMBERS THAT MATTER, bottom with stats card */}
+            {/* Desktop video: top with NUMBERS THAT MATTER, bottom with stats card */}
             <div className="relative z-0 hidden min-h-0 self-stretch lg:flex lg:items-stretch lg:justify-end">
-              <PhoneVideo active={inView} fillHeight />
+              <ResultsVideo active={inView} fillHeight />
             </div>
 
-            {/* Mobile phone */}
+            {/* Mobile video */}
             <div className="relative z-0 flex justify-center lg:hidden">
-              <PhoneVideo active={inView} />
+              <ResultsVideo active={inView} />
             </div>
           </div>
         </div>

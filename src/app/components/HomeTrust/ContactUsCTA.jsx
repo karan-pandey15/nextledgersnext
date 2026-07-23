@@ -116,7 +116,7 @@ function ContactCard({ card }) {
 
 export default function ContactUsCTA() {
   return (
-    <div className="relative mt-8 overflow-hidden rounded-[18px] bg-[#0B1C33] px-4 py-7 sm:mt-10 sm:rounded-[20px] sm:px-8 sm:py-8 lg:mt-12 lg:px-12 lg:py-9">
+    <div className="relative mt-0 overflow-hidden rounded-[18px] bg-[#0B1C33] px-4 py-7 sm:rounded-[20px] sm:px-8 sm:py-8 lg:px-12 lg:py-9">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.18]"
         aria-hidden="true"
