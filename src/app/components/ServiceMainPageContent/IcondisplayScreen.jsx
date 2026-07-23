@@ -306,7 +306,7 @@ function LogoCarousel({ logos, logoMap }) {
                     flex-wrap: nowrap;
                     align-items: center;
                     width: max-content;
-                    gap: 20px;
+                    gap: 25px;
                     animation: iconDisplayMarquee 28s linear infinite;
                 }
                 .icon-display-marquee:hover {
