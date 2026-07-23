@@ -28,7 +28,7 @@ export default function HomeHeroSection() {
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/55 to-black/20" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/10" />
 
-      <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 h-full min-h-[336px] sm:min-h-[368px] lg:min-h-[400px] flex flex-col justify-between py-8 sm:py-10 lg:py-11">
+      <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 h-full min-h-[336px] sm:min-h-[368px] lg:min-h-[400px] flex flex-col justify-center py-8 sm:py-10 lg:py-11">
         <div className="max-w-[760px]">
           <p className="text-white/90 text-[13px] sm:text-[14px] font-medium mb-3 sm:mb-4">
             Proudly supporting businesses across{" "}
@@ -54,7 +54,7 @@ export default function HomeHeroSection() {
           </p>
         </div>
 
-        <div className="mt-8 lg:mt-0">
+        <div className="mt-[3px]">
           <div className="flex flex-wrap items-center gap-x-2 gap-y-3">
             {TRUST_ITEMS.map(({ icon: Icon, lines }, index) => (
               <React.Fragment key={lines.join("-")}>
