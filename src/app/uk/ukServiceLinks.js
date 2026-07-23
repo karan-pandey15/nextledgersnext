@@ -4,7 +4,7 @@
  */
 export const UK_SERVICE_LINKS = [
   {
-    label: "UK Bookkeeping Service",
+    label: "Bookkeeping Service",
     href: "/uk/UkBookkeeping",
     icon: "📒",
     blurb: "Transaction processing, reconciliations & VAT-ready books",
@@ -40,13 +40,13 @@ export const UK_SERVICE_LINKS = [
     blurb: "Self Assessment, directors & complex personal tax",
   },
   {
-    label: "UK Business Advisory & Virtual CFO Services",
+    label: "Business Advisory & Virtual CFO Services",
     href: "/uk/UKBusinessAdvisory",
     icon: "📈",
     blurb: "Forecasting, tax planning & virtual CFO support",
   },
   {
-    label: "UK Company Formation & Company Secretarial Services",
+    label: "Company Formation & Company Secretarial Services",
     href: "/uk/UKCompanyFormation",
     icon: "🏢",
     blurb: "Incorporation, Companies House & secretarial filings",
