@@ -89,8 +89,8 @@ const STATS = [
 
 export default function SecurityStats() {
   return (
-    <div className="my-[5px] rounded-[18px] sm:rounded-[20px] bg-[#FFF7F0] px-4 sm:px-6 py-8 sm:py-9">
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-7 lg:gap-0">
+    <div className="my-6 rounded-[18px] bg-[#FFF7F0] px-4 py-3 sm:my-8 sm:rounded-[20px] sm:px-6 sm:py-3.5">
+      <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-0">
         {STATS.map((stat, index) => {
           const Icon = stat.icon;
           const isLast = index === STATS.length - 1;
@@ -107,14 +107,14 @@ export default function SecurityStats() {
               </span>
 
               <p
-                className="mt-3 font-bold text-[22px] sm:text-[26px] lg:text-[28px] leading-none tracking-[-0.02em]"
+                className="mt-1.5 font-bold text-[22px] sm:mt-2 sm:text-[26px] lg:text-[28px] leading-none tracking-[-0.02em]"
                 style={{ color: NAVY }}
               >
                 {stat.value}
               </p>
 
               <p
-                className="mt-2 max-w-[160px] text-[11px] font-semibold leading-[1.4] sm:text-[12px]"
+                className="mt-1 max-w-[160px] text-[11px] font-semibold leading-[1.35] sm:text-[12px]"
                 style={{ color: NAVY }}
               >
                 {stat.label}

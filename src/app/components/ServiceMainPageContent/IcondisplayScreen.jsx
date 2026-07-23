@@ -234,19 +234,80 @@ function CategoryIcon({ icon, className = "h-4 w-4" }) {
     return <User className={className} strokeWidth={1.75} />;
 }
 
-function LogoItem({ name, src }) {
+function LogoItem({ name, src, size = "default" }) {
+    const box =
+        size === "carousel"
+            ? "relative h-11 w-full sm:h-12"
+            : "relative h-9 w-[88px] shrink-0 sm:h-10 sm:w-[100px]";
+
     return (
-        <div
-            className="relative h-9 w-[88px] shrink-0 sm:h-10 sm:w-[100px]"
-            title={formatLogoLabel(name)}
-        >
+        <div className={box} title={formatLogoLabel(name)}>
             <Image
                 src={src}
                 alt={formatLogoLabel(name)}
                 fill
-                sizes="100px"
+                sizes={size === "carousel" ? "120px" : "100px"}
                 className="object-contain"
             />
+        </div>
+    );
+}
+
+/** Infinite logo carousel — 6 logos visible, 20px gaps, 80% page width */
+function LogoCarousel({ logos, logoMap }) {
+    const items = normalizeLogos(logos, logoMap);
+    if (!items.length) return null;
+
+    // Duplicate until we have enough for a smooth loop with 6 visible
+    let track = [...items];
+    while (track.length < 12) {
+        track = track.concat(items);
+    }
+    const loop = [...track, ...track];
+
+    return (
+        <div className="relative w-full overflow-hidden py-2">
+            <style>{`
+                @keyframes iconDisplayMarquee {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(-50%); }
+                }
+                .icon-display-marquee {
+                    animation: iconDisplayMarquee 32s linear infinite;
+                    width: max-content;
+                }
+                .icon-display-marquee:hover {
+                    animation-play-state: paused;
+                }
+            `}</style>
+
+            {/* Edge fades */}
+            <div
+                className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-white to-transparent sm:w-10"
+                aria-hidden="true"
+            />
+            <div
+                className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-white to-transparent sm:w-10"
+                aria-hidden="true"
+            />
+
+            {/* gap-5 = 20px between every logo */}
+            <div className="icon-display-marquee flex items-center gap-5">
+                {loop.map((logo, index) => (
+                    <div
+                        key={`${logo.name}-${index}`}
+                        className="flex h-14 shrink-0 items-center justify-center sm:h-16"
+                        style={{
+                            // 6 logos + 5×20px gaps fill the 80vw carousel viewport
+                            width: "calc((80vw - 100px) / 6)",
+                            maxWidth: "160px",
+                            minWidth: "96px",
+                        }}
+                    >
+                        <LogoItem name={logo.name} src={logo.src} size="carousel" />
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }
@@ -337,6 +398,8 @@ export default function IconDisplayScreen({
     categoryIconClassName = "h-4 w-4",
     /** e.g. "text-[#FF6A00]" */
     categoryIconColorClass = "text-slate-500",
+    /** Infinite carousel: flatten all logos, show ~6 at a time */
+    carousel = false,
     // legacy alias
     categories,
 }) {
@@ -346,11 +409,19 @@ export default function IconDisplayScreen({
           ? categories
           : DEFAULT_TECH_CATEGORIES;
 
+    const flatLogos = carousel
+        ? rows.flatMap((row) => row.logos || row.icons || row.images || [])
+        : null;
+
     return (
         <section
             className={`w-full bg-white px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12 ${className}`}
         >
-            <div className="mx-auto w-full max-w-5xl">
+            <div
+                className={`mx-auto ${
+                    carousel ? "w-[80%]" : "w-full max-w-5xl"
+                }`}
+            >
                 <div className="mb-5 text-center sm:mb-6">
                     <h2 className="text-[24px] font-extrabold tracking-tight text-slate-900 sm:text-[28px] lg:text-[30px]">
                         {title}
@@ -362,20 +433,24 @@ export default function IconDisplayScreen({
                     ) : null}
                 </div>
 
-                <div className="w-full">
-                    {rows.map((row, index) => (
-                        <CategoryRow
-                            key={row.heading || index}
-                            heading={row.heading || row.title || `Category ${index + 1}`}
-                            icon={row.icon || row.categoryIcon || "user"}
-                            logos={row.logos || row.icons || row.images}
-                            logoMap={logoMap}
-                            isLast={index === rows.length - 1}
-                            categoryIconClassName={categoryIconClassName}
-                            categoryIconColorClass={categoryIconColorClass}
-                        />
-                    ))}
-                </div>
+                {carousel ? (
+                    <LogoCarousel logos={flatLogos} logoMap={logoMap} />
+                ) : (
+                    <div className="w-full">
+                        {rows.map((row, index) => (
+                            <CategoryRow
+                                key={row.heading || index}
+                                heading={row.heading || row.title || `Category ${index + 1}`}
+                                icon={row.icon || row.categoryIcon || "user"}
+                                logos={row.logos || row.icons || row.images}
+                                logoMap={logoMap}
+                                isLast={index === rows.length - 1}
+                                categoryIconClassName={categoryIconClassName}
+                                categoryIconColorClass={categoryIconColorClass}
+                            />
+                        ))}
+                    </div>
+                )}
             </div>
         </section>
     );

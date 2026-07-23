@@ -31,6 +31,7 @@ import TrustBadgesBar from "@/app/components/ServiceMainPageContent/TrustBadgesB
 import BookKeepingMatters from "@/app/components/ServiceMainPageContent/BookkeepingMatters";
 import BookkeepingReconcilation from "@/app/components/ServiceMainPageContent/Bookkeepingreconcilation";
 import BookKeepingCompliance from "@/app/components/ServiceMainPageContent/Bookkeepingcompliance";
+import WhyChooseSplitSection from "@/app/components/ServiceMainPageContent/WhyChooseSplitSection";
 import Footer from "@/app/components/footer/Footer";
 import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/ArtificialIntelligence";
 import NexaLedAi from "@/app/components/ChatBot/NexaLedAi";
@@ -314,7 +315,7 @@ export default function UkBookkeeping() {
             </section>
 
             {/* 3 — Why Accurate Bookkeeping Matters */}
-            <BookKeepingMatters className="!py-3" />
+            <BookKeepingMatters splitHero className="!py-3" />
 
             {/* 4 — Bookkeeping & Reconciliation + Specialist VAT */}
             <BookkeepingReconcilation className="!py-3" />
@@ -330,99 +331,16 @@ export default function UkBookkeeping() {
                 className="!py-3"
             />
 
-            {/* 7 — Why Choose NextLedgers (7-card grid) */}
-            <section
-                className="relative w-full overflow-hidden bg-white px-4 py-3 sm:px-6 lg:px-8"
-            >
-                <DotGrid className="pointer-events-none absolute right-4 top-6 sm:right-10 sm:top-8" />
-                <DotGrid className="pointer-events-none absolute bottom-8 left-4 sm:bottom-10 sm:left-8" />
-
-                <div className="relative mx-auto w-full max-w-6xl">
-                    <div className="mb-7 flex flex-col items-center text-center sm:mb-8">
-                        <span
-                            className="mb-3 inline-flex items-center gap-1.5 rounded-full px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.12em]"
-                            style={{ background: "#FFF4EA", color: ORANGE }}
-                        >
-                            <Star className="h-3 w-3" strokeWidth={2.5} fill={ORANGE} />
-                            Partner Advantages
-                        </span>
-
-                        <h2
-                            className="max-w-3xl text-[22px] font-extrabold leading-tight sm:text-[26px] lg:text-[28px]"
-                            style={{ color: NAVY }}
-                        >
-                            Why Choose{" "}
-                            <span style={{ color: ORANGE }}>NextLedgers</span> for{" "}
-                            <span style={{ color: ORANGE }}>Bookkeeping &amp; VAT</span>?
-                        </h2>
-
-                        <p
-                            className="mx-auto mt-2.5 max-w-xl text-[13px] leading-relaxed sm:text-[14px]"
-                            style={{ color: GREY }}
-                        >
-                            Dedicated bookkeeping specialists who work as an extension of
-                            your practice, ensuring total accuracy and HMRC compliance.
-                        </p>
-
-                        <div
-                            className="mx-auto mt-3.5 h-[3px] w-11 rounded-full"
-                            style={{ background: ORANGE }}
-                        />
-                    </div>
-
-                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
-                        {whyChooseCards.slice(0, 4).map(({ title, icon: Icon }) => (
-                            <div
-                                key={title}
-                                className="rounded-[14px] border border-[#F0E6DC] bg-white px-5 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.05)]"
-                            >
-                                <span
-                                    className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[#FFF4EA]"
-                                    style={{ color: ORANGE }}
-                                >
-                                    <Icon className="h-7 w-7" strokeWidth={1.75} />
-                                </span>
-                                <h3
-                                    className="text-[13.5px] font-bold leading-snug sm:text-[14px]"
-                                    style={{ color: NAVY }}
-                                >
-                                    {title}
-                                </h3>
-                                <div
-                                    className="mt-3 h-[2px] w-8 rounded-full"
-                                    style={{ background: ORANGE }}
-                                />
-                            </div>
-                        ))}
-                    </div>
-
-                    <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:justify-items-stretch lg:mt-5 lg:grid-cols-3 lg:mx-auto lg:max-w-[75%] lg:gap-5">
-                        {whyChooseCards.slice(4).map(({ title, icon: Icon }) => (
-                            <div
-                                key={title}
-                                className="rounded-[14px] border border-[#F0E6DC] bg-white px-5 py-5 shadow-[0_4px_18px_rgba(15,23,42,0.05)]"
-                            >
-                                <span
-                                    className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[#FFF4EA]"
-                                    style={{ color: ORANGE }}
-                                >
-                                    <Icon className="h-7 w-7" strokeWidth={1.75} />
-                                </span>
-                                <h3
-                                    className="text-[13.5px] font-bold leading-snug sm:text-[14px]"
-                                    style={{ color: NAVY }}
-                                >
-                                    {title}
-                                </h3>
-                                <div
-                                    className="mt-3 h-[2px] w-8 rounded-full"
-                                    style={{ background: ORANGE }}
-                                />
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+            {/* 7 — Why Choose NextLedgers */}
+            <WhyChooseSplitSection
+                titleBefore="Why Choose "
+                titleAccent="NextLedgers"
+                titleMiddle=" for "
+                titleAccent2="Bookkeeping & VAT"
+                titleAfter="?"
+                subtitle="Dedicated bookkeeping specialists who work as an extension of your practice, ensuring total accuracy and HMRC compliance."
+                items={whyChooseCards}
+            />
 
             {/* 8 — Partner CTA (cream mockup) */}
             <section className="relative w-full bg-white px-4 py-3 sm:px-6 lg:px-8">

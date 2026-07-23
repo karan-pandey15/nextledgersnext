@@ -91,6 +91,28 @@ const DEFAULT_BENEFITS = [
     },
 ];
 
+function TrustBox({ icon: Icon, label }) {
+    return (
+        <div
+            className="flex flex-col items-center justify-center gap-2 rounded-[14px] bg-white px-3 py-4 text-center sm:px-4 sm:py-5"
+            style={{ border: `1px solid ${CARD_BORDER}` }}
+        >
+            <span
+                className="flex h-10 w-10 items-center justify-center rounded-full sm:h-11 sm:w-11"
+                style={{ background: "#FFF4EA", color: ORANGE }}
+            >
+                <Icon className="h-5 w-5" strokeWidth={1.9} />
+            </span>
+            <span
+                className="text-[11px] font-bold leading-snug sm:text-[12px]"
+                style={{ color: HEADING }}
+            >
+                {label}
+            </span>
+        </div>
+    );
+}
+
 function TrustItem({ icon: Icon, label }) {
     return (
         <div className="flex items-center gap-2">
@@ -174,6 +196,8 @@ export default function BookKeepingMatters({
     bannerTitleAccent = "Stronger outcomes.",
     bannerBody = "A solid bookkeeping foundation empowers accounting firms to deliver more value, ensure compliance, and drive growth for their clients.",
     wideTrustPanel = false,
+    /** image | content | 2x2 trust boxes — same layout as /cfo-advisory */
+    splitHero = true,
     className = "",
 }) {
     return (
@@ -213,79 +237,158 @@ export default function BookKeepingMatters({
             </div>
 
             <div className="relative mx-auto w-full max-w-6xl">
-                {/* Full-width centered header — no side cards flanking the title */}
-                <div className="mx-auto max-w-2xl text-center">
-                    <span
-                        className="mb-2.5 inline-flex items-center gap-1.5 rounded-full px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.14em]"
-                        style={{ background: "#FFF4EA", color: ORANGE }}
-                    >
-                        <Sparkles className="h-3 w-3" strokeWidth={2.5} />
-                        {eyebrow}
-                    </span>
+                {splitHero ? (
+                    <>
+                        {/*
+                          Desktop: image | center copy (incl. footer lines) | 2×2 cards
+                          Mobile: image → copy → cards (tight, no leftover gap)
+                        */}
+                        <div className="flex flex-col gap-4 lg:grid lg:grid-cols-[minmax(140px,200px)_minmax(0,1fr)_minmax(220px,280px)] lg:items-center lg:gap-8">
+                            {/* Image */}
+                            <div className="order-1 mx-auto w-full max-w-[160px] shrink-0 sm:max-w-[180px] lg:mx-0 lg:max-w-none">
+                                <Image
+                                    src={imageSrc}
+                                    alt={imageAlt}
+                                    width={300}
+                                    height={220}
+                                    className="h-auto w-full object-contain"
+                                    priority
+                                />
+                            </div>
 
-                    <h2
-                        className="text-[22px] font-extrabold leading-tight sm:text-[26px] lg:text-[28px]"
-                        style={{ color: HEADING }}
-                    >
-                        {titleBefore}
-                        <span style={{ color: ORANGE }}>{titleAccent}</span>
-                        {titleAfter}
-                    </h2>
+                            {/* Center content — footer lines live here so no empty band below the row */}
+                            <div className="order-2 min-w-0 text-center">
+                                <span
+                                    className="mb-2 inline-flex items-center gap-1.5 rounded-full px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.14em]"
+                                    style={{ background: "#FFF4EA", color: ORANGE }}
+                                >
+                                    <Sparkles className="h-3 w-3" strokeWidth={2.5} />
+                                    {eyebrow}
+                                </span>
 
-                    <p
-                        className="mx-auto mt-2 max-w-md text-[12.5px] leading-relaxed sm:text-[13px]"
-                        style={{ color: BODY }}
-                    >
-                        {intro}
-                    </p>
+                                <h2
+                                    className="text-[20px] font-extrabold leading-tight sm:text-[24px] lg:text-[26px]"
+                                    style={{ color: HEADING }}
+                                >
+                                    {titleBefore}
+                                    <span style={{ color: ORANGE }}>{titleAccent}</span>
+                                    {titleAfter}
+                                </h2>
 
-                    <div
-                        className="mx-auto my-2.5 h-[3px] w-11 rounded-full"
-                        style={{ background: ORANGE }}
-                    />
+                                <p
+                                    className="mx-auto mt-2 max-w-md text-[12.5px] leading-relaxed sm:text-[13.5px]"
+                                    style={{ color: BODY }}
+                                >
+                                    {intro}
+                                </p>
 
-                    <p
-                        className="text-[13px] font-bold sm:text-[13.5px]"
-                        style={{ color: HEADING }}
-                    >
-                        {helpLabelBefore}
-                        <span style={{ color: ORANGE }}>{helpLabelAccent}</span>
-                        {helpLabelAfter}
-                    </p>
-                </div>
+                                <div className="mx-auto mt-4 max-w-md space-y-1">
+                                    <p
+                                        className="text-[11px] font-semibold leading-snug sm:text-[11.5px]"
+                                        style={{ color: HEADING }}
+                                    >
+                                        {trustFooterBefore}
+                                        <span style={{ color: ORANGE }}>{trustFooterAccent}</span>
+                                    </p>
 
-                {/* Trust strip with compact image — no awkward left/right card sandwich */}
-                <div
-                    className={`mx-auto mt-5 overflow-hidden rounded-[12px] border bg-white sm:mt-6 ${
-                        wideTrustPanel ? "max-w-5xl" : "max-w-4xl"
-                    }`}
-                    style={{ borderColor: CARD_BORDER }}
-                >
-                    <div className="flex flex-col items-center gap-3 px-3 py-3 sm:flex-row sm:items-center sm:gap-4 sm:px-4 sm:py-3">
-                        <div className="w-full max-w-[140px] shrink-0 sm:max-w-[150px]">
-                            <Image
-                                src={imageSrc}
-                                alt={imageAlt}
-                                width={300}
-                                height={220}
-                                className="h-auto w-full object-contain"
-                                priority
+                                    {(helpLabelBefore || helpLabelAccent) && (
+                                        <p
+                                            className="text-[13px] font-bold leading-snug sm:text-[13.5px]"
+                                            style={{ color: HEADING }}
+                                        >
+                                            {helpLabelBefore}
+                                            <span style={{ color: ORANGE }}>{helpLabelAccent}</span>
+                                            {helpLabelAfter}
+                                        </p>
+                                    )}
+                                </div>
+                            </div>
+
+                            {/* 2×2 cards */}
+                            <div className="order-3 grid grid-cols-2 gap-2.5 sm:gap-3">
+                                {trustItems.map((item) => (
+                                    <TrustBox key={item.label} {...item} />
+                                ))}
+                            </div>
+                        </div>
+                    </>
+                ) : (
+                    <>
+                        {/* Full-width centered header — no side cards flanking the title */}
+                        <div className="mx-auto max-w-2xl text-center">
+                            <span
+                                className="mb-2.5 inline-flex items-center gap-1.5 rounded-full px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.14em]"
+                                style={{ background: "#FFF4EA", color: ORANGE }}
+                            >
+                                <Sparkles className="h-3 w-3" strokeWidth={2.5} />
+                                {eyebrow}
+                            </span>
+
+                            <h2
+                                className="text-[22px] font-extrabold leading-tight sm:text-[26px] lg:text-[28px]"
+                                style={{ color: HEADING }}
+                            >
+                                {titleBefore}
+                                <span style={{ color: ORANGE }}>{titleAccent}</span>
+                                {titleAfter}
+                            </h2>
+
+                            <p
+                                className="mx-auto mt-2 max-w-md text-[12.5px] leading-relaxed sm:text-[13px]"
+                                style={{ color: BODY }}
+                            >
+                                {intro}
+                            </p>
+
+                            <div
+                                className="mx-auto my-2.5 h-[3px] w-11 rounded-full"
+                                style={{ background: ORANGE }}
                             />
+
+                            <p
+                                className="text-[13px] font-bold sm:text-[13.5px]"
+                                style={{ color: HEADING }}
+                            >
+                                {helpLabelBefore}
+                                <span style={{ color: ORANGE }}>{helpLabelAccent}</span>
+                                {helpLabelAfter}
+                            </p>
                         </div>
-                        <div className="grid min-w-0 flex-1 grid-cols-2 gap-x-3 gap-y-2 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-4">
-                            {trustItems.map((item) => (
-                                <TrustItem key={item.label} {...item} />
-                            ))}
+
+                        {/* Trust strip with compact image */}
+                        <div
+                            className={`mx-auto mt-5 overflow-hidden rounded-[12px] border bg-white sm:mt-6 ${
+                                wideTrustPanel ? "max-w-5xl" : "max-w-4xl"
+                            }`}
+                            style={{ borderColor: CARD_BORDER }}
+                        >
+                            <div className="flex flex-col items-center gap-3 px-3 py-3 sm:flex-row sm:items-center sm:gap-4 sm:px-4 sm:py-3">
+                                <div className="w-full max-w-[140px] shrink-0 sm:max-w-[150px]">
+                                    <Image
+                                        src={imageSrc}
+                                        alt={imageAlt}
+                                        width={300}
+                                        height={220}
+                                        className="h-auto w-full object-contain"
+                                        priority
+                                    />
+                                </div>
+                                <div className="grid min-w-0 flex-1 grid-cols-2 gap-x-3 gap-y-2 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-4">
+                                    {trustItems.map((item) => (
+                                        <TrustItem key={item.label} {...item} />
+                                    ))}
+                                </div>
+                            </div>
+                            <div
+                                className="px-3 py-2 text-center text-[11px] font-semibold leading-snug sm:px-4"
+                                style={{ background: "#FFF4EA", color: HEADING }}
+                            >
+                                {trustFooterBefore}
+                                <span style={{ color: ORANGE }}>{trustFooterAccent}</span>
+                            </div>
                         </div>
-                    </div>
-                    <div
-                        className="px-3 py-2 text-center text-[11px] font-semibold leading-snug sm:px-4"
-                        style={{ background: "#FFF4EA", color: HEADING }}
-                    >
-                        {trustFooterBefore}
-                        <span style={{ color: ORANGE }}>{trustFooterAccent}</span>
-                    </div>
-                </div>
+                    </>
+                )}
 
                 <div className="mt-4 grid grid-cols-1 gap-2.5 sm:mt-5 sm:grid-cols-2 sm:gap-3 lg:grid-cols-3">
                     {benefits.map((b) => (

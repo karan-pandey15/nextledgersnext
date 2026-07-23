@@ -38,6 +38,7 @@ import IconDisplayScreen from "@/app/components/ServiceMainPageContent/Icondispl
 import TrustBadgesBar from "@/app/components/ServiceMainPageContent/TrustBadgesBar";
 import IndustriesWeSupportGrid from "@/app/components/ServiceMainPageContent/IndustriesWeSupportGrid";
 import ServiceDeliverablesExplorer from "@/app/components/ServiceMainPageContent/ServiceDeliverablesExplorer";
+import WhyChooseSplitSection from "@/app/components/ServiceMainPageContent/WhyChooseSplitSection";
 import BookKeepingMatters from "@/app/components/ServiceMainPageContent/BookkeepingMatters";
 import Footer from "@/app/components/footer/Footer";
 import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/ArtificialIntelligence";
@@ -419,102 +420,13 @@ export default function TaxCompliancePage() {
                 bannerBody="By combining experienced tax professionals with modern accounting technology and structured processes, we deliver dependable tax solutions that support both compliance and sustainable growth."
             />
 
-            {/* 5 — Why Choose */}
-            <section className="relative w-full overflow-hidden bg-white px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
-                <DotGrid className="pointer-events-none absolute right-4 top-6 sm:right-10 sm:top-8" />
-                <DotGrid className="pointer-events-none absolute bottom-8 left-4 sm:bottom-10 sm:left-8" />
+                        {/* 5 — Why Choose */}
+            <WhyChooseSplitSection
+                subtitle="Accurate filings, strategic planning, and scalable offshore tax support across multiple jurisdictions."
+                items={whyChooseCards}
+            />
 
-                <div className="relative mx-auto w-full max-w-6xl">
-                    <div className="mb-7 flex flex-col items-center text-center sm:mb-8">
-                        <span
-                            className="mb-3 inline-flex items-center gap-1.5 rounded-full px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.12em]"
-                            style={{ background: "#FFF4EA", color: ORANGE }}
-                        >
-                            <Star
-                                className="h-3 w-3"
-                                strokeWidth={2.5}
-                                fill={ORANGE}
-                            />
-                            Partner Advantages
-                        </span>
-
-                        <h2
-                            className="max-w-3xl text-[22px] font-extrabold leading-tight sm:text-[26px] lg:text-[28px]"
-                            style={{ color: NAVY }}
-                        >
-                            Why Choose{" "}
-                            <span style={{ color: ORANGE }}>NextLedgers</span>?
-                        </h2>
-
-                        <p
-                            className="mx-auto mt-2.5 max-w-xl text-[13px] leading-relaxed sm:text-[14px]"
-                            style={{ color: GREY }}
-                        >
-                            Accurate filings, strategic planning, and scalable offshore
-                            tax support across multiple jurisdictions.
-                        </p>
-
-                        <div
-                            className="mx-auto mt-3.5 h-[3px] w-11 rounded-full"
-                            style={{ background: ORANGE }}
-                        />
-                    </div>
-
-                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5 lg:gap-5">
-                        {whyChooseCards.slice(0, 5).map(({ title, icon: Icon }) => (
-                            <div
-                                key={title}
-                                className="flex flex-col items-center rounded-[14px] border border-[#F0E6DC] bg-white px-5 py-5 text-center shadow-[0_4px_18px_rgba(15,23,42,0.05)]"
-                            >
-                                <span
-                                    className="mb-3.5 flex h-14 w-14 items-center justify-center rounded-full"
-                                    style={{ background: "#FFF4EA", color: ORANGE }}
-                                >
-                                    <Icon className="h-9 w-9" strokeWidth={1.75} />
-                                </span>
-                                <h3
-                                    className="text-[13.5px] font-bold leading-snug sm:text-[14px]"
-                                    style={{ color: NAVY }}
-                                >
-                                    {title}
-                                </h3>
-                                <div
-                                    className="mx-auto mt-3 h-[2px] w-8 rounded-full"
-                                    style={{ background: ORANGE }}
-                                />
-                            </div>
-                        ))}
-                    </div>
-
-                    <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:mt-5 lg:grid-cols-5 lg:gap-5">
-                        {whyChooseCards.slice(5).map(({ title, icon: Icon }) => (
-                            <div
-                                key={title}
-                                className="flex flex-col items-center rounded-[14px] border border-[#F0E6DC] bg-white px-5 py-5 text-center shadow-[0_4px_18px_rgba(15,23,42,0.05)]"
-                            >
-                                <span
-                                    className="mb-3.5 flex h-14 w-14 items-center justify-center rounded-full"
-                                    style={{ background: "#FFF4EA", color: ORANGE }}
-                                >
-                                    <Icon className="h-9 w-9" strokeWidth={1.75} />
-                                </span>
-                                <h3
-                                    className="text-[13.5px] font-bold leading-snug sm:text-[14px]"
-                                    style={{ color: NAVY }}
-                                >
-                                    {title}
-                                </h3>
-                                <div
-                                    className="mx-auto mt-3 h-[2px] w-8 rounded-full"
-                                    style={{ background: ORANGE }}
-                                />
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* 6 — Industries */}
+{/* 6 — Industries */}
             <section className="relative w-full overflow-hidden bg-white py-5 sm:py-6 lg:py-7">
                 <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
                     <div
@@ -570,6 +482,7 @@ export default function TaxCompliancePage() {
                 logodata={softwareExpertiseLogodata}
                 categoryIconClassName="h-9 w-9"
                 categoryIconColorClass="text-[#FF6A00]"
+                carousel
             />
 
             {/* 8 — Closing CTA */}

@@ -35,6 +35,7 @@ import TrustBadgesBar from "@/app/components/ServiceMainPageContent/TrustBadgesB
 import BookKeepingMatters from "@/app/components/ServiceMainPageContent/BookkeepingMatters";
 import BookkeepingReconcilation from "@/app/components/ServiceMainPageContent/Bookkeepingreconcilation";
 import IconDisplayScreen from "@/app/components/ServiceMainPageContent/IcondisplayScreen";
+import WhyChooseSplitSection from "@/app/components/ServiceMainPageContent/WhyChooseSplitSection";
 import Footer from "@/app/components/footer/Footer";
 import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/ArtificialIntelligence";
 import NexaLedAi from "@/app/components/ChatBot/NexaLedAi";
@@ -338,19 +339,6 @@ function IndustryCard({ label, image }) {
     );
 }
 
-function WhyChooseListItem({ icon: Icon, title }) {
-    return (
-        <article className="flex items-center gap-2.5 px-0.5 py-0.5">
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#FF6A00]">
-                <Icon className="h-5 w-5" strokeWidth={1.75} />
-            </span>
-            <h3 className="text-[13px] font-bold leading-snug text-[#0B1F3A] sm:text-[13.5px]">
-                {title}
-            </h3>
-        </article>
-    );
-}
-
 export default function UkManagementAccounts() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -591,62 +579,17 @@ export default function UkManagementAccounts() {
                 </div>
             </section>
 
-            <section className="relative w-full overflow-hidden bg-white px-4 py-3 sm:px-6 lg:px-8">
-                <DotGrid className="pointer-events-none absolute right-4 top-6 sm:right-10" />
-                <DotGrid className="pointer-events-none absolute bottom-8 left-4 sm:left-8" />
-
-                <div className="relative mx-auto w-full max-w-6xl">
-                    <div className="mb-4 flex flex-col items-center text-center sm:mb-5">
-                        <span className="mb-2.5 inline-flex items-center gap-1.5 rounded-full bg-[#FFF4EA] px-3.5 py-[5px] text-[10px] font-bold uppercase tracking-[0.12em] text-[#FF6A00]">
-                            <Star
-                                className="h-3 w-3"
-                                strokeWidth={2.5}
-                                fill={ORANGE}
-                            />
-                            Partner Advantages
-                        </span>
-
-                        <h2 className="max-w-3xl text-[22px] font-extrabold leading-tight text-[#0B1F3A] sm:text-[26px] lg:text-[28px]">
-                            Why Choose{" "}
-                            <span className="text-[#FF6A00]">NextLedgers</span> for{" "}
-                            <span className="text-[#FF6A00]">
-                                Management Accounts
-                            </span>
-                            ?
-                        </h2>
-
-                        <p className="mx-auto mt-2 max-w-xl text-[13px] leading-relaxed text-[#6B7280] sm:text-[14px]">
-                            Dedicated reporting specialists who work as an extension of
-                            your practice and help turn financial data into client value.
-                        </p>
-                        <div className="mx-auto mt-2.5 h-[3px] w-11 rounded-full bg-[#FF6A00]" />
-                    </div>
-
-                    <div className="grid grid-cols-1 items-start gap-5 lg:grid-cols-2 lg:gap-8">
-                        <div className="grid grid-cols-1 gap-0.5">
-                            {whyChooseCards.map((card) => (
-                                <WhyChooseListItem key={card.title} {...card} />
-                            ))}
-                        </div>
-
-                        <div className="relative h-[220px] w-full overflow-hidden rounded-2xl sm:h-[260px] lg:h-[280px]">
-                            <Image
-                                src="/images/bgimage.JPG"
-                                alt="NextLedgers management accounts specialists"
-                                fill
-                                className="object-cover object-center"
-                                sizes="(max-width: 1024px) 100vw, 50vw"
-                            />
-                            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0B1F3A]/80 to-transparent px-5 pb-4 pt-12">
-                                <p className="text-[13px] font-bold leading-snug text-white sm:text-[14px]">
-                                    Dedicated reporting support that works as an extension
-                                    of your practice.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <WhyChooseSplitSection
+                titleBefore="Why Choose "
+                titleAccent="NextLedgers"
+                titleMiddle=" for "
+                titleAccent2="Management Accounts"
+                titleAfter="?"
+                subtitle="Dedicated reporting specialists who work as an extension of your practice and help turn financial data into client value."
+                items={whyChooseCards}
+                imageSrc="/images/DSC09669.JPG"
+                imageAlt="NextLedgers management accounts specialists"
+            />
 
             <section className="relative w-full bg-white px-4 py-3 sm:px-6 lg:px-8">
                 <div className="relative mx-auto max-w-5xl overflow-hidden rounded-[22px] bg-[#FFF9F5] px-5 py-10 text-center sm:rounded-[28px] sm:px-10 sm:py-12 lg:px-14">

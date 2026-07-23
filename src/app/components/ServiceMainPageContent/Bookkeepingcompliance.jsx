@@ -306,7 +306,7 @@ function ServiceCard({ icon: Icon, title, description }) {
 
             <h4
                 className="max-w-[140px] text-[12.5px] font-bold leading-snug"
-                style={{ color: ORANGE }}
+                style={{ color: BODY }}
             >
                 {title}
             </h4>
