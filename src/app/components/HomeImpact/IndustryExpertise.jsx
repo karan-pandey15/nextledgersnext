@@ -3,8 +3,10 @@
 import React from "react";
 import Image from "next/image";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
-import { INDUSTRIES_WE_SUPPORT_ALL } from "@/app/lib/industriesWeSupport";
-import IndustriesWeSupportGrid from "@/app/components/ServiceMainPageContent/IndustriesWeSupportGrid";
+import {
+  INDUSTRIES_WE_SUPPORT,
+  INDUSTRIES_WE_SUPPORT_ALL,
+} from "@/app/lib/industriesWeSupport";
 
 const ORANGE = BRAND_ORANGE;
 const NAVY = "#0F274A";
@@ -46,8 +48,32 @@ export default function IndustryExpertise() {
             </p>
           </div>
 
-          {/* Exactly 10 industries — 5 + 5 — same cards/gaps everywhere */}
-          <IndustriesWeSupportGrid />
+          {/* Exactly 10 industries — icons use same object-contain style as Non-Profit */}
+          <div className="mt-4 grid grid-cols-2 gap-2.5 sm:mt-5 sm:grid-cols-3 sm:gap-3 md:grid-cols-5 md:gap-3">
+            {INDUSTRIES_WE_SUPPORT.map((item) => (
+              <div
+                key={item.label}
+                className="flex min-h-[96px] flex-col items-center justify-center rounded-[12px] border border-[#F0F0F0] bg-white px-2 py-2.5 text-center shadow-[0_4px_18px_rgba(15,39,74,0.05)] transition-all duration-200 hover:border-[#FF6A00]/25 hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:min-h-[108px] sm:rounded-[14px] sm:px-2.5 sm:py-3"
+              >
+                <div className="flex h-[48px] w-[48px] shrink-0 items-center justify-center sm:h-[52px] sm:w-[52px]">
+                  <Image
+                    src={item.src}
+                    alt={item.label}
+                    width={52}
+                    height={52}
+                    className="h-[48px] w-[48px] object-contain sm:h-[52px] sm:w-[52px]"
+                    unoptimized
+                  />
+                </div>
+                <p
+                  className="mt-1 px-0.5 text-[10px] font-bold leading-tight sm:text-[12px]"
+                  style={{ color: NAVY }}
+                >
+                  {item.label}
+                </p>
+              </div>
+            ))}
+          </div>
 
           {/* Non-Profit — always visible, scrolls with section */}
           <div className="mt-4 flex w-full flex-col items-center gap-2.5 rounded-[12px] border border-[#FF6A00]/15 bg-white px-3 py-3 text-center sm:mt-5 sm:flex-row sm:items-center sm:gap-3 sm:rounded-[14px] sm:px-4 sm:py-3.5 sm:text-left">
