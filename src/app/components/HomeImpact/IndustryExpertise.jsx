@@ -3,10 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
-import {
-  INDUSTRIES_WE_SUPPORT,
-  INDUSTRIES_WE_SUPPORT_ALL,
-} from "@/app/lib/industriesWeSupport";
+import { INDUSTRIES_WE_SUPPORT_ALL } from "@/app/lib/industriesWeSupport";
 
 const ORANGE = BRAND_ORANGE;
 const NAVY = "#0F274A";
@@ -48,9 +45,9 @@ export default function IndustryExpertise() {
             </p>
           </div>
 
-          {/* Exactly 10 industries — icons use same object-contain style as Non-Profit */}
+          {/* All industry icons — Non-Profit shown last below */}
           <div className="mt-4 grid grid-cols-2 gap-2.5 sm:mt-5 sm:grid-cols-3 sm:gap-3 md:grid-cols-5 md:gap-3">
-            {INDUSTRIES_WE_SUPPORT.map((item) => (
+            {INDUSTRIES_WE_SUPPORT_ALL.map((item) => (
               <div
                 key={item.label}
                 className="flex min-h-[96px] flex-col items-center justify-center rounded-[12px] border border-[#F0F0F0] bg-white px-2 py-2.5 text-center shadow-[0_4px_18px_rgba(15,39,74,0.05)] transition-all duration-200 hover:border-[#FF6A00]/25 hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:min-h-[108px] sm:rounded-[14px] sm:px-2.5 sm:py-3"
