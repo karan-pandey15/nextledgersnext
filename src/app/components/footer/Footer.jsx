@@ -7,6 +7,12 @@ import FooterGlobalMap from "./FooterGlobalMap";
 import { UK_SERVICE_LINKS } from "@/app/uk/ukServiceLinks";
 import { USA_SERVICE_LINKS } from "@/app/usa/usaServiceLinks";
 import { CANADA_SERVICE_LINKS } from "@/app/canada/canadaServiceLinks";
+import { SINGAPORE_SERVICE_LINKS } from "@/app/singapore/singaporeServiceLinks";
+import { IRELAND_SERVICE_LINKS } from "@/app/ireland/irelandServiceLinks";
+import { NEW_ZEALAND_SERVICE_LINKS } from "@/app/new-zealand/newZealandServiceLinks";
+import { AUSTRALIA_SERVICE_LINKS } from "@/app/australia/australiaServiceLinks";
+import { NETHERLANDS_SERVICE_LINKS } from "@/app/netherlands/netherlandsServiceLinks";
+import { UAE_SERVICE_LINKS } from "@/app/uae/uaeServiceLinks";
 import { GLOBAL_SERVICE_LINKS } from "../header/navigationData";
 
 const BG = "#0B1C33";
@@ -35,6 +41,30 @@ const REGION_SERVICES = {
   canada: {
     servicesHeading: "Our Services in Canada",
     serviceLinks: CANADA_SERVICE_LINKS,
+  },
+  singapore: {
+    servicesHeading: "Our Services in Singapore",
+    serviceLinks: SINGAPORE_SERVICE_LINKS,
+  },
+  ireland: {
+    servicesHeading: "Our Services in Ireland",
+    serviceLinks: IRELAND_SERVICE_LINKS,
+  },
+  "new-zealand": {
+    servicesHeading: "Our Services in New Zealand",
+    serviceLinks: NEW_ZEALAND_SERVICE_LINKS,
+  },
+  australia: {
+    servicesHeading: "Our Services in Australia",
+    serviceLinks: AUSTRALIA_SERVICE_LINKS,
+  },
+  netherlands: {
+    servicesHeading: "Our Services in Netherlands",
+    serviceLinks: NETHERLANDS_SERVICE_LINKS,
+  },
+  uae: {
+    servicesHeading: "Our Services in UAE",
+    serviceLinks: UAE_SERVICE_LINKS,
   },
 };
 
@@ -292,33 +322,54 @@ function ColumnPipe({ className = "" }) {
   );
 }
 
+const KNOWN_REGIONS = [
+  "uk",
+  "usa",
+  "canada",
+  "singapore",
+  "ireland",
+  "new-zealand",
+  "australia",
+  "netherlands",
+  "uae",
+];
+
+const REGION_PATH_PREFIXES = [
+  ["/canada", "canada"],
+  ["/usa", "usa"],
+  ["/uk", "uk"],
+  ["/singapore", "singapore"],
+  ["/ireland", "ireland"],
+  ["/new-zealand", "new-zealand"],
+  ["/australia", "australia"],
+  ["/netherlands", "netherlands"],
+  ["/uae", "uae"],
+];
+
+function regionFromPathname(pathname) {
+  if (!pathname) return null;
+  const match = REGION_PATH_PREFIXES.find(([prefix]) =>
+    pathname.startsWith(prefix)
+  );
+  return match ? match[1] : null;
+}
+
 /**
  * Same footer as home on every page.
- * Only Our Services heading + links change by region (uk / usa / canada).
- *
- * @param {"uk" | "usa" | "canada"} [region]
- * @param {"uk" | "usa" | "canada" | "global"} [variant]
+ * Only Our Services heading + links change by region.
  */
 export default function Footer({ region, variant }) {
   const pathname = usePathname();
 
-  const resolvedRegion =
-    region === "uk" || region === "usa" || region === "canada"
-      ? region
-      : variant === "canada" || pathname?.startsWith("/canada")
-        ? "canada"
-        : variant === "usa" || pathname?.startsWith("/usa")
-          ? "usa"
-          : variant === "uk" || pathname?.startsWith("/uk")
-            ? "uk"
-            : null;
+  const resolvedRegion = KNOWN_REGIONS.includes(region)
+    ? region
+    : KNOWN_REGIONS.includes(variant)
+      ? variant
+      : regionFromPathname(pathname);
 
   const isGlobal =
     variant === "global" ||
-    (!resolvedRegion &&
-      !pathname?.startsWith("/uk") &&
-      !pathname?.startsWith("/usa") &&
-      !pathname?.startsWith("/canada"));
+    (!resolvedRegion && !regionFromPathname(pathname));
 
   const mode = isGlobal ? "global" : resolvedRegion || "uk";
   const regionServices = mode === "global" ? null : REGION_SERVICES[mode];

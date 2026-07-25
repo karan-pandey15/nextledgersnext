@@ -34,6 +34,60 @@ export const CANADA_TRUST_BADGES = [
     { icon: UserCheck, label: "Dedicated", sub: "Account Manager" },
 ];
 
+export const SINGAPORE_TRUST_BADGES = [
+    { icon: ShieldCheck, label: "IRAS", sub: "Compliant" },
+    { icon: Shield, label: "ISO 27001", sub: "Certified" },
+    { icon: Lock, label: "PDPA", sub: "Compliant" },
+    { icon: Clock, label: "SG Time Zone", sub: "Overlap" },
+    { icon: Award, label: "9+ Years", sub: "Experience" },
+    { icon: UserCheck, label: "Dedicated", sub: "Account Manager" },
+];
+
+export const IRELAND_TRUST_BADGES = [
+    { icon: ShieldCheck, label: "Revenue", sub: "Compliant" },
+    { icon: Shield, label: "ISO 27001", sub: "Certified" },
+    { icon: Lock, label: "GDPR", sub: "Compliant" },
+    { icon: Clock, label: "IE Time Zone", sub: "Overlap" },
+    { icon: Award, label: "9+ Years", sub: "Experience" },
+    { icon: UserCheck, label: "Dedicated", sub: "Account Manager" },
+];
+
+export const NEW_ZEALAND_TRUST_BADGES = [
+    { icon: ShieldCheck, label: "IRD", sub: "Compliant" },
+    { icon: Shield, label: "ISO 27001", sub: "Certified" },
+    { icon: Lock, label: "Privacy Act", sub: "Compliant" },
+    { icon: Clock, label: "NZ Time Zone", sub: "Overlap" },
+    { icon: Award, label: "9+ Years", sub: "Experience" },
+    { icon: UserCheck, label: "Dedicated", sub: "Account Manager" },
+];
+
+export const AUSTRALIA_TRUST_BADGES = [
+    { icon: ShieldCheck, label: "ATO", sub: "Compliant" },
+    { icon: Shield, label: "ISO 27001", sub: "Certified" },
+    { icon: Lock, label: "Privacy Act", sub: "Compliant" },
+    { icon: Clock, label: "AU Time Zone", sub: "Overlap" },
+    { icon: Award, label: "9+ Years", sub: "Experience" },
+    { icon: UserCheck, label: "Dedicated", sub: "Account Manager" },
+];
+
+export const NETHERLANDS_TRUST_BADGES = [
+    { icon: ShieldCheck, label: "Belastingdienst", sub: "Compliant" },
+    { icon: Shield, label: "ISO 27001", sub: "Certified" },
+    { icon: Lock, label: "GDPR", sub: "Compliant" },
+    { icon: Clock, label: "NL Time Zone", sub: "Overlap" },
+    { icon: Award, label: "9+ Years", sub: "Experience" },
+    { icon: UserCheck, label: "Dedicated", sub: "Account Manager" },
+];
+
+export const UAE_TRUST_BADGES = [
+    { icon: ShieldCheck, label: "FTA", sub: "Compliant" },
+    { icon: Shield, label: "ISO 27001", sub: "Certified" },
+    { icon: Lock, label: "Data Protected", sub: "Compliant" },
+    { icon: Clock, label: "UAE Time Zone", sub: "Overlap" },
+    { icon: Award, label: "9+ Years", sub: "Experience" },
+    { icon: UserCheck, label: "Dedicated", sub: "Account Manager" },
+];
+
 /**
  * Responsive trust badges bar used in regional service heroes.
  * Phone: 2 cols · Tablet: 3 cols · Desktop: 6 cols — equal gaps & aligned rows.

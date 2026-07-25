@@ -1,0 +1,24 @@
+"use client";
+
+import RegionalCountryHome from "../components/RegionalNavbar/RegionalCountryHome";
+import { AUSTRALIA_TRUST_BADGES } from "../components/ServiceMainPageContent/TrustBadgesBar";
+import { AUSTRALIA_SERVICE_LINKS } from "./australiaServiceLinks";
+
+export default function AustraliaPage() {
+  return (
+    <RegionalCountryHome
+      homePath="/australia"
+      servicesLabel="Services in Australia"
+      serviceLinks={AUSTRALIA_SERVICE_LINKS}
+      flagCode="au"
+      backLabel="Back To Australia"
+      regionName="Australia"
+      footerRegion="australia"
+      badge="Australia Accounting Outsourcing Partner"
+      titleBefore="Australian Accounting Firms"
+      subtitle="Dedicated offshore support across bookkeeping, GST & BAS, payroll, tax, management reporting, advisory & company secretarial."
+      badges={AUSTRALIA_TRUST_BADGES}
+      outsourcingAccent="Australia Outsourcing"
+    />
+  );
+}
