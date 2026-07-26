@@ -220,7 +220,7 @@ const IE_YEAR_END_WORKFLOW = {
 
 /** 1 — Bookkeeping */
 export const IE_BOOKKEEPING = {
-  badge: "Ireland Bookkeeping Outsourcing",
+  badge: "Bookkeeping Services",
   titleBefore: "Ireland Bookkeeping",
   titleAccent: "Outsourcing Services",
   subtitle:
@@ -351,7 +351,7 @@ export const IE_BOOKKEEPING = {
 
 /** 2 — VAT */
 export const IE_VAT = {
-  badge: "Ireland VAT Outsourcing",
+  badge: "VAT Services",
   titleBefore: "Ireland VAT",
   titleAccent: "Outsourcing Services",
   subtitle:
@@ -483,7 +483,7 @@ export const IE_VAT = {
 
 /** 3 — Year-End Accounts */
 export const IE_YEAR_END = {
-  badge: "Ireland Year-End Accounts Outsourcing",
+  badge: "Year-End Accounts & Financial Statements",
   titleBefore: "Ireland Year-End Accounts &",
   titleAccent: "Financial Statement Preparation",
   titleAfter: "Outsourcing Services",
@@ -616,7 +616,7 @@ export const IE_YEAR_END = {
 
 /** 4 — Personal Tax */
 export const IE_PERSONAL_TAX = {
-  badge: "Ireland Personal Tax Outsourcing",
+  badge: "Personal Tax Services",
   titleBefore: "Ireland Personal Tax",
   titleAccent: "Outsourcing Services",
   subtitle:
@@ -751,7 +751,7 @@ export const IE_PERSONAL_TAX = {
 
 /** 5 — Management Accounts & Virtual CFO */
 export const IE_MANAGEMENT_ACCOUNTS = {
-  badge: "Ireland Management Accounting & Virtual CFO",
+  badge: "Management Accounting & Virtual CFO Services",
   titleBefore: "Ireland Management Accounting &",
   titleAccent: "Virtual CFO",
   titleAfter: "Outsourcing Services",
@@ -889,7 +889,7 @@ export const IE_MANAGEMENT_ACCOUNTS = {
 
 /** 6 — Company Secretarial & CRO */
 export const IE_COMPANY_SECRETARIAL = {
-  badge: "Ireland Company Secretarial & CRO Outsourcing",
+  badge: "Company Secretarial & CRO Services",
   titleBefore: "Ireland Company Secretarial &",
   titleAccent: "CRO",
   titleAfter: "Outsourcing Services",
@@ -1019,3 +1019,122 @@ export const IE_COMPANY_SECRETARIAL = {
       "Whether you require support with annual return preparation, statutory register maintenance, CRO filing documentation, company resolutions, corporate governance documentation, or dedicated offshore compliance resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
   },
 };
+
+/** Corporation Tax */
+export const IE_CORPORATE_TAX = {
+  badge: "Corporation Tax Services",
+  titleBefore: "Corporation Tax",
+  titleAccent: "Services",
+  subtitle:
+    "Reliable Corporation Tax Compliance Support for Irish Accounting Firms & Tax Practices",
+  intro: {
+    eyebrow: "Outsourcing Partnership",
+    heading:
+      "Reliable Corporation Tax Compliance Support for Irish Accounting Firms & Tax Practices",
+    paragraphs: [
+      "Corporation Tax compliance requires technical expertise, accuracy, and a thorough understanding of Irish taxation law. Preparing company tax returns, reviewing financial statements, calculating taxable income, identifying tax adjustments, and maintaining compliance with Revenue requirements demand significant time and expertise. As client portfolios continue to grow, accounting firms often require additional resources to manage increasing tax workloads efficiently.",
+      "At NextLedgers, we provide dedicated offshore Corporation Tax support to Irish accounting firms, accountancy practices, and tax advisory firms. Our white-label outsourcing solutions help practices increase capacity, improve turnaround times, and deliver reliable Corporation Tax compliance services without increasing internal staffing costs.",
+    ],
+    image: "/images/DSC09901.JPG",
+  },
+  whyMatter: {
+    title: "Why Corporation Tax Compliance Matters",
+    intro:
+      "Corporation Tax compliance involves much more than preparing and filing a company tax return. Businesses must accurately calculate taxable income, review allowable deductions, account for capital allowances, reconcile tax balances, prepare supporting schedules, and comply with Revenue reporting requirements.",
+    helpLabel: "Professional Corporation Tax management helps businesses:",
+    bullets: [
+      "Meet Corporation Tax filing deadlines",
+      "Maintain compliance with Irish tax legislation",
+      "Reduce tax reporting errors",
+      "Improve tax reporting accuracy",
+      "Minimise compliance risks",
+      "Maintain complete supporting documentation",
+      "Support financial transparency",
+      "Strengthen client confidence",
+    ],
+  },
+  deliverablesAccent: "Corporation Tax",
+  deliverablesSubtitle:
+    "Company tax returns, computations, reconciliations, and Revenue compliance support for Irish practices.",
+  sections: [
+    {
+      title: "Our Corporation Tax Services Include",
+      items: [
+        "Corporation Tax Return Preparation Support",
+        "Corporation Tax Computation Preparation",
+        "Taxable Income Calculations",
+        "Financial Statement Reviews",
+        "Tax Adjustment Calculations",
+        "Capital Allowance Reviews",
+        "Tax Reconciliation Preparation",
+        "Tax Working Paper Preparation",
+        "Deferred Tax Support",
+        "Corporation Tax Compliance Reviews",
+        "Supporting Documentation Preparation",
+        "Year-End Tax Review Assistance",
+      ],
+    },
+    {
+      title: "Corporation Tax Registration & Compliance Support",
+      items: [
+        "Corporation Tax Registration Support",
+        "Tax Registration Documentation",
+        "Tax Compliance Reviews",
+        "Filing Deadline Monitoring",
+        "Regulatory Documentation Support",
+        "Tax Health Check Assistance",
+        "Compliance Calendar Management",
+        "Client Communication Support",
+      ],
+    },
+    {
+      title: "Corporation Tax Review & Advisory Support",
+      items: [
+        "Tax Adjustment Reviews",
+        "Deductible Expense Reviews",
+        "Related Party Transaction Reviews",
+        "Loss Utilisation Reviews",
+        "Tax Risk Identification",
+        "Supporting Schedule Preparation",
+        "Tax Query Resolution Support",
+        "Compliance Documentation Reviews",
+      ],
+    },
+  ],
+  howWeHelpIntro: "Our Corporation Tax support enables firms to:",
+  howWeHelp: [
+    "Increase Corporation Tax compliance capacity",
+    "Improve turnaround times",
+    "Reduce compliance workload",
+    "Improve filing accuracy",
+    "Meet Revenue filing deadlines",
+    "Manage peak tax-season workloads",
+    "Improve client service delivery",
+    "Scale operations without increasing headcount",
+  ],
+  software: [IE_ACCOUNTING, IE_TAX, IE_WORKING_PAPERS],
+  industries: IRELAND_INDUSTRIES,
+  industriesBlurb:
+    "We support accounting firms and tax practices serving clients across various sectors, including:",
+  whyChoose: [
+    "ACCA-Led Delivery Team",
+    "Irish Corporation Tax Expertise",
+    "White-Label Service Delivery",
+    "Dedicated Offshore Resources",
+    "Structured Review Processes",
+    "Secure Data Handling",
+    "Flexible Engagement Models",
+    "Scalable Support Framework",
+  ],
+  whyChooseSubtitle:
+    "Dedicated Corporation Tax specialists who work as an extension of your Irish practice.",
+  partner: {
+    badge: "Corporation Tax Partner",
+    titleBefore: "Your Offshore",
+    titleAccent: "Corporation Tax Delivery Partner",
+    body: "Corporation Tax compliance requires technical expertise, accuracy, and a structured review process. Our dedicated professionals work as an extension of your practice, helping you deliver reliable Corporation Tax services while freeing up valuable internal resources during busy tax seasons.",
+    callout:
+      "Whether you require support with Corporation Tax computations, tax return preparation, tax reconciliations, compliance reviews, working papers, or dedicated offshore tax resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
+  },
+};
+

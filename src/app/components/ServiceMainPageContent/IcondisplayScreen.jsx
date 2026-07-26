@@ -151,6 +151,36 @@ export const LOGO_MAP = {
     figured: "/images/logooUK/Fathom.png",
     suitefiles: "/images/logooUK/Virtual_Cabinet.png",
     fuseworks: "/images/logooUK/Virtual_Cabinet.png",
+    "reckon one": "/images/logooUK/Reckon.png",
+    "reckon payroll": "/images/logooUK/Reckon.png",
+    handitax: "/images/logooUK/TaxCalc.jpeg",
+    "handi tax": "/images/logooUK/TaxCalc.jpeg",
+    ezzybills: "/images/logooUK/AutoEntry.jpeg",
+    keypay: "/images/logooUK/Employmenthero.jpeg",
+    "wage easy": "/images/logooUK/Wagepoint.jpeg",
+    wageeasy: "/images/logooUK/Wagepoint.jpeg",
+    micropay: "/images/logooUK/Wagepoint.jpeg",
+    "bgl simple fund": "/images/logooUK/wolters.png",
+    "bgl 360": "/images/logooUK/wolters.png",
+    "caseware working papers": "/images/logooUK/Caseware.png",
+    "oracle netsuite": "/images/logooUK/Aiq.jpeg",
+    docusign: "/images/logooUK/Microsoft_Icon.jpeg",
+    "adobe acrobat": "/images/logooUK/Microsoft_Icon.jpeg",
+    clickup: "/images/logooUK/Virtual_Cabinet.png",
+    asana: "/images/logooUK/Virtual_Cabinet.png",
+    trello: "/images/logooUK/Virtual_Cabinet.png",
+    "monday.com": "/images/logooUK/Virtual_Cabinet.png",
+    monday: "/images/logooUK/Virtual_Cabinet.png",
+    bayzat: "/images/logooUK/Employmenthero.jpeg",
+    greythr: "/images/logooUK/Employmenthero.jpeg",
+    greytHR: "/images/logooUK/Employmenthero.jpeg",
+    easyhr: "/images/logooUK/Wagepoint.jpeg",
+    gulfhr: "/images/logooUK/Wagepoint.jpeg",
+    "sap successfactors": "/images/logooUK/Employmenthero.jpeg",
+    "oracle hcm": "/images/logooUK/Employmenthero.jpeg",
+    draftworx: "/images/logooUK/Caseware.png",
+    tallyprime: "/images/logooUK/Sage.jpg",
+    tally: "/images/logooUK/Sage.jpg",
 };
 
 const CATEGORY_ICONS = {
@@ -168,7 +198,7 @@ const CATEGORY_ICONS = {
 };
 
 const MAX_LOGOS_PER_ROW = 7;
-const LOGO_GAP = "1.75rem"; // same gap between every logo
+const LOGO_GAP = "1.25rem"; // keeps 7 logos on one row inside max-w-6xl
 
 /**
  * Example / default logodata shape:
@@ -296,14 +326,14 @@ function LogoItem({ name, src, size = "default", onError }) {
 
     return (
         <div
-            className="relative h-9 w-[88px] shrink-0 sm:h-10 sm:w-[100px]"
+            className="relative h-8 w-[72px] shrink-0 sm:h-9 sm:w-[84px] lg:h-10 lg:w-[92px]"
             title={formatLogoLabel(name)}
         >
             <Image
                 src={src}
                 alt={formatLogoLabel(name)}
                 fill
-                sizes="100px"
+                sizes="92px"
                 className="object-contain"
                 onError={onError}
             />
@@ -419,7 +449,7 @@ function CategoryRow({
             }`}
         >
             {/* Left: category label */}
-            <div className="flex w-full shrink-0 items-center gap-2.5 sm:w-[180px] sm:pt-1.5 md:w-[200px]">
+            <div className="flex w-full shrink-0 items-center gap-2.5 sm:w-[160px] sm:pt-1.5 md:w-[180px]">
                 <span
                     className={`flex shrink-0 items-center justify-center ${categoryIconColorClass}`}
                 >
@@ -430,12 +460,12 @@ function CategoryRow({
                 </span>
             </div>
 
-            {/* Right: logos — left-aligned, tight packing */}
+            {/* Right: logos — always up to 7 on one row */}
             <div className="flex min-w-0 flex-1 flex-col" style={{ gap: LOGO_GAP }}>
                 {lines.map((line, lineIndex) => (
                     <div
                         key={lineIndex}
-                        className="flex flex-wrap items-center"
+                        className="flex flex-nowrap items-center overflow-x-auto pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
                         style={{ gap: LOGO_GAP }}
                     >
                         {line.map((logo) => (
@@ -514,7 +544,7 @@ export default function IconDisplayScreen({
         >
             <div
                 className={`mx-auto ${
-                    carousel ? "w-[80%]" : "w-full max-w-5xl"
+                    carousel ? "w-[80%]" : "w-full max-w-6xl"
                 }`}
             >
                 <div className="mb-5 text-center sm:mb-6">

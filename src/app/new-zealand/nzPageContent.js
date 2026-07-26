@@ -631,7 +631,7 @@ export const NZ_GST = {
 
 /** 4 — Income Tax Return Preparation */
 export const NZ_INCOME_TAX = {
-  badge: "New Zealand Income Tax Return Preparation Services",
+  badge: "Income Tax Return Preparation Services",
   titleBefore: "New Zealand Income Tax Return",
   titleAccent: "Preparation Services",
   subtitle:
@@ -751,7 +751,7 @@ export const NZ_INCOME_TAX = {
 
 /** 5 — Payroll Processing */
 export const NZ_PAYROLL = {
-  badge: "New Zealand Payroll Processing Services",
+  badge: "Payroll Processing Services",
   titleBefore: "New Zealand Payroll",
   titleAccent: "Processing Services",
   subtitle:
@@ -916,7 +916,7 @@ export const NZ_PAYROLL = {
 
 /** 6 — Year-End Accounts & Financial Statements */
 export const NZ_YEAR_END = {
-  badge: "New Zealand Year-End Accounts & Financial Statement Preparation Services",
+  badge: "Year-End Accounts & Financial Statement Preparation Services",
   titleBefore: "New Zealand Year-End Accounts &",
   titleAccent: "Financial Statement Preparation",
   titleAfter: "Services",

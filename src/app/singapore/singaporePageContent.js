@@ -58,7 +58,7 @@ export const SINGAPORE_WHY_CHOOSE_DEFAULT = [
 
 /** 1 — Bookkeeping */
 export const SG_BOOKKEEPING = {
-  badge: "Singapore Bookkeeping Outsourcing",
+  badge: "Bookkeeping Services",
   titleBefore: "Singapore Bookkeeping",
   titleAccent: "Outsourcing Services",
   subtitle:
@@ -161,7 +161,7 @@ export const SG_BOOKKEEPING = {
 
 /** 2 — Outsourced Accounting & Financial Cleanup */
 export const SG_ACCOUNTING_CLEANUP = {
-  badge: "Singapore Accounting & Financial Cleanup",
+  badge: "Outsourced Accounting & Financial Cleanup Services",
   titleBefore: "Singapore Outsourced Accounting &",
   titleAccent: "Financial Cleanup",
   titleAfter: "Services",
@@ -309,7 +309,7 @@ export const SG_ACCOUNTING_CLEANUP = {
 
 /** 3 — Management Accounts & Virtual CFO */
 export const SG_MANAGEMENT_ACCOUNTS = {
-  badge: "Singapore Management Accounts & Virtual CFO",
+  badge: "Management Accounts & Virtual CFO Services",
   titleBefore: "Singapore Management Accounts &",
   titleAccent: "Virtual CFO",
   titleAfter: "Outsourcing Services",
@@ -460,7 +460,7 @@ export const SG_MANAGEMENT_ACCOUNTS = {
 
 /** 4 — GST Compliance */
 export const SG_GST = {
-  badge: "Singapore GST Compliance & Filing",
+  badge: "GST Compliance & Filing Services",
   titleBefore: "Singapore GST Compliance &",
   titleAccent: "Filing Outsourcing",
   titleAfter: "Services",
@@ -600,7 +600,7 @@ export const SG_GST = {
 
 /** 5 — Year-End Accounts & Financial Statements */
 export const SG_YEAR_END = {
-  badge: "Singapore Year-End Accounts & Financial Statements",
+  badge: "Year-End Accounts & Financial Statement Preparation Services",
   titleBefore: "Singapore Year-End Accounts &",
   titleAccent: "Financial Statement Preparation",
   titleAfter: "Outsourcing Services",
@@ -748,7 +748,7 @@ export const SG_YEAR_END = {
 
 /** 6 — Corporate Tax */
 export const SG_CORPORATE_TAX = {
-  badge: "Singapore Corporate Tax Outsourcing",
+  badge: "Corporate Tax Filing Services",
   titleBefore: "Singapore Corporate Tax",
   titleAccent: "Outsourcing Services",
   subtitle:
@@ -876,7 +876,7 @@ export const SG_CORPORATE_TAX = {
 
 /** 7 — Payroll & CPF */
 export const SG_PAYROLL = {
-  badge: "Singapore Payroll & CPF Outsourcing",
+  badge: "Payroll Processing & CPF Compliance Services",
   titleBefore: "Singapore Payroll Processing &",
   titleAccent: "CPF Compliance",
   titleAfter: "Outsourcing Services",

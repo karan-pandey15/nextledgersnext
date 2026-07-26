@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Parent folder has another lockfile; pin Turbopack to this app root.
+  turbopack: {
+    root: process.cwd(),
+  },
   // Help Vercel CDN cache & stream the phone mockup video efficiently
   async headers() {
     return [

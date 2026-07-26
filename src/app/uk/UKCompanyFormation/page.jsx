@@ -42,6 +42,7 @@ import Footer from "@/app/components/footer/Footer";
 import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/ArtificialIntelligence";
 import NexaLedAi from "@/app/components/ChatBot/NexaLedAi";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
+import { UK_COMPANY_FORMATION_INDUSTRIES } from "@/app/uk/ukIndustries";
 
 const ORANGE = BRAND_ORANGE;
 const NAVY = "#0B1F3A";
@@ -790,7 +791,7 @@ export default function UKCompanyFormation() {
                             </p>
                         </div>
 
-                        <IndustriesWeSupportGrid />
+                        <IndustriesWeSupportGrid industries={UK_COMPANY_FORMATION_INDUSTRIES} />
                     </div>
                 </div>
             </section>

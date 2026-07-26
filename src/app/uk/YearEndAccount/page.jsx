@@ -43,6 +43,7 @@ import TrustBadgesBar from "@/app/components/ServiceMainPageContent/TrustBadgesB
 import Footer from "@/app/components/footer/Footer";
 import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/ArtificialIntelligence";
 import NexaLedAi from "@/app/components/ChatBot/NexaLedAi";
+import { UK_YEAR_END_INDUSTRIES } from "@/app/uk/ukIndustries";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
 const ORANGE = BRAND_ORANGE;
@@ -789,7 +790,7 @@ export default function YearEndAccount() {
                             </p>
                         </div>
 
-                        <IndustriesWeSupportGrid />
+                        <IndustriesWeSupportGrid industries={UK_YEAR_END_INDUSTRIES} />
                     </div>
                 </div>
             </section>

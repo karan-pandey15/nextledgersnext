@@ -32,12 +32,16 @@ export const INDUSTRIES_WE_SUPPORT_ALL = [
   },
   { label: "Crypto", src: `/images/industry-icons/crypto.png?${V}` },
   { label: "Startups & SMEs", src: `/images/industry-icons/startups.png?${V}` },
+  {
+    label: "Non-Profit Organizations",
+    src: `/images/industry-icons/non-profit.png?${V}`,
+  },
 ];
 
 /**
- * Canonical 10 industries — always shown as 5 + 5 (two rows on desktop).
+ * Canonical industries for service pages — shown as 6 + 6 (two rows on desktop).
  * Same icons/labels as the home Industry Expertise section.
  */
-export const INDUSTRIES_WE_SUPPORT = INDUSTRIES_WE_SUPPORT_ALL.slice(0, 10);
+export const INDUSTRIES_WE_SUPPORT = INDUSTRIES_WE_SUPPORT_ALL.slice(0, 12);
 
-export const INDUSTRIES_DISPLAY_COUNT = 10;
+export const INDUSTRIES_DISPLAY_COUNT = 12;

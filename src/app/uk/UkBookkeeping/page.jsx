@@ -32,10 +32,12 @@ import BookKeepingMatters from "@/app/components/ServiceMainPageContent/Bookkeep
 import BookkeepingReconcilation from "@/app/components/ServiceMainPageContent/Bookkeepingreconcilation";
 import BookKeepingCompliance from "@/app/components/ServiceMainPageContent/Bookkeepingcompliance";
 import WhyChooseSplitSection from "@/app/components/ServiceMainPageContent/WhyChooseSplitSection";
+import IndustriesWeSupportGrid from "@/app/components/ServiceMainPageContent/IndustriesWeSupportGrid";
 import Footer from "@/app/components/footer/Footer";
 import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/ArtificialIntelligence";
 import NexaLedAi from "@/app/components/ChatBot/NexaLedAi";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
+import { UK_BOOKKEEPING_INDUSTRIES } from "@/app/uk/ukIndustries";
 
 const ORANGE = BRAND_ORANGE;
 const NAVY = "#0B1F3A";
@@ -331,7 +333,56 @@ export default function UkBookkeeping() {
                 className="!py-3"
             />
 
-            {/* 7 — Why Choose NextLedgers */}
+            {/* 7 — Industries We Support */}
+            <section className="relative w-full overflow-hidden bg-white py-3">
+                <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
+                    <div
+                        className="rounded-none px-3 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-7"
+                        style={{ background: PAGE_CREAM }}
+                    >
+                        <div className="mx-auto max-w-[720px] text-center">
+                            <div className="inline-flex items-center justify-center gap-3">
+                                <span
+                                    className="hidden h-px w-8 sm:block"
+                                    style={{ background: ORANGE }}
+                                    aria-hidden="true"
+                                />
+                                <p
+                                    className="text-[11px] font-bold uppercase tracking-[0.22em] sm:text-[12px]"
+                                    style={{ color: ORANGE }}
+                                >
+                                    Our Industry Expertise
+                                </p>
+                                <span
+                                    className="hidden h-px w-8 sm:block"
+                                    style={{ background: ORANGE }}
+                                    aria-hidden="true"
+                                />
+                            </div>
+
+                            <h2
+                                className="mt-2 text-[22px] font-extrabold leading-[1.15] tracking-[-0.01em] sm:text-[28px] lg:text-[32px]"
+                                style={{ color: NAVY }}
+                            >
+                                Industries We{" "}
+                                <span style={{ color: ORANGE }}>Support</span>
+                            </h2>
+
+                            <p
+                                className="mx-auto mt-2 max-w-[540px] text-[12px] leading-5 sm:mt-2 sm:text-[13px] sm:leading-6"
+                                style={{ color: GREY }}
+                            >
+                                We support accounting firms serving clients across various
+                                sectors, including:
+                            </p>
+                        </div>
+
+                        <IndustriesWeSupportGrid industries={UK_BOOKKEEPING_INDUSTRIES} />
+                    </div>
+                </div>
+            </section>
+
+            {/* 8 — Why Choose NextLedgers */}
             <WhyChooseSplitSection
                 titleBefore="Why Choose "
                 titleAccent="NextLedgers"

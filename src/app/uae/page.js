@@ -16,7 +16,7 @@ export default function UaePage() {
       footerRegion="uae"
       badge="UAE Accounting Outsourcing Partner"
       titleBefore="UAE Accounting Firms"
-      subtitle="Dedicated offshore support across bookkeeping, VAT, payroll, corporate tax, management reporting, advisory & corporate secretarial."
+      subtitle="Dedicated offshore support across business setup, virtual CFO, corporate tax, management reporting, payroll & WPS, VAT, year-end accounts & bookkeeping."
       badges={UAE_TRUST_BADGES}
       outsourcingAccent="UAE Outsourcing"
     />

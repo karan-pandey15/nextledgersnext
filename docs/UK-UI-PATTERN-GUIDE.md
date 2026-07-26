@@ -223,7 +223,7 @@ background-color: #FFF9F5;
 | Intro | `grid-cols-1 lg:grid-cols-2` gap `10` / `lg:gap-12` |
 | MatterCards | `1 → 2 → 3` (sometimes `lg:grid-cols-4`) |
 | Dual ServiceCards | `md:grid-cols-2` |
-| Industries | `2 → 3 → 5` cols; **always 10 items** |
+| Industries | `2 → 3 → 6` cols; **always 12 items** (6 × 2 on desktop) |
 | Stats overlay | `grid-cols-4` |
 
 ### Radii (locked)
@@ -961,7 +961,7 @@ When asked to build another country **same as UK**, do **all** of the following:
 - Flatten cream sections to pure grey or single flat white without pattern
 - Resize CTAs inconsistently (`sm` in hero, `md` in intro, `lg` in partner/footer of section)
 - Drop TrustBadgesBar from service heroes
-- Change industry grid away from 10 items / 5-col desktop
+- Change industry grid away from 12 items / 6-col desktop
 - Use cards in the hero (hero is badge + title + sub + CTAs + trust bar only)
 - Mix random border radii — stick to the locked table in §4
 

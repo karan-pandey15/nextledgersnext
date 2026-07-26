@@ -16,7 +16,7 @@ export default function AustraliaPage() {
       footerRegion="australia"
       badge="Australia Accounting Outsourcing Partner"
       titleBefore="Australian Accounting Firms"
-      subtitle="Dedicated offshore support across bookkeeping, GST & BAS, payroll, tax, management reporting, advisory & company secretarial."
+      subtitle="Dedicated offshore support across bookkeeping, corporate tax, income tax, management reporting, payroll & year-end accounts."
       badges={AUSTRALIA_TRUST_BADGES}
       outsourcingAccent="Australia Outsourcing"
     />

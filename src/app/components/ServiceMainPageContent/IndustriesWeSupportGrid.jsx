@@ -9,10 +9,10 @@ import {
 const NAVY = "#0F274A";
 
 /**
- * Normalize any industry list to home-style { label, src } and exactly 10 items.
- * - Too many → first 10
- * - Too few → pad from the canonical home list
- * - Maps `image` → `src` for older page data shapes
+ * Normalize any industry list to { label, src } and up to 12 items.
+ * - Custom lists of 12 are used as-is (page-specific order preserved)
+ * - Too many → first 12
+ * - Too few → pad from the canonical list
  */
 function normalizeIndustries(list) {
   const mapped = (Array.isArray(list) ? list : [])
@@ -24,6 +24,10 @@ function normalizeIndustries(list) {
       return { label, src };
     })
     .filter(Boolean);
+
+  if (mapped.length >= INDUSTRIES_DISPLAY_COUNT) {
+    return mapped.slice(0, INDUSTRIES_DISPLAY_COUNT);
+  }
 
   const byLabel = new Set(mapped.map((i) => i.label.toLowerCase()));
   const padded = [...mapped];
@@ -46,7 +50,9 @@ function normalizeIndustries(list) {
 
 /**
  * Industry icon grid — same card UI / gaps as home IndustryExpertise.
- * Always renders exactly 10 items in a 5 × 2 layout on desktop.
+ * Always renders up to 12 items in a 6 × 2 layout on desktop.
+ * Used across UK, USA, Canada, UAE, Singapore, Australia, Ireland,
+ * New Zealand, and Netherlands service pages.
  */
 export default function IndustriesWeSupportGrid({
   industries = INDUSTRIES_WE_SUPPORT,
@@ -54,7 +60,7 @@ export default function IndustriesWeSupportGrid({
   const items = normalizeIndustries(industries);
 
   return (
-    <div className="mt-4 grid grid-cols-2 gap-2.5 sm:mt-5 sm:grid-cols-3 sm:gap-3 md:grid-cols-5 md:gap-3">
+    <div className="mt-4 grid grid-cols-2 gap-2.5 sm:mt-5 sm:grid-cols-3 sm:gap-3 md:grid-cols-3 lg:grid-cols-6 lg:gap-3">
       {items.map((item) => (
         <div
           key={item.label}

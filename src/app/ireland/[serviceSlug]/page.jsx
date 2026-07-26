@@ -1,12 +1,35 @@
 "use client";
 
 import { useParams } from "next/navigation";
+import IrelandServiceTemplate from "../IrelandServiceTemplate";
 import RegionalServiceComingSoon from "@/app/components/RegionalNavbar/RegionalServiceComingSoon";
 import { IRELAND_SERVICE_LINKS } from "../irelandServiceLinks";
+import {
+  IE_BOOKKEEPING,
+  IE_COMPANY_SECRETARIAL,
+  IE_CORPORATE_TAX,
+  IE_MANAGEMENT_ACCOUNTS,
+  IE_PERSONAL_TAX,
+} from "../irelandPageContent";
 
-export default function IrelandServiceStubPage() {
+/** Maps URL slug → page content so Ireland services never fall through to Coming Soon. */
+const IRELAND_SERVICE_PAGES = {
+  IeBookkeeping: IE_BOOKKEEPING,
+  IeCompanySecretarial: IE_COMPANY_SECRETARIAL,
+  IeCorporateTax: IE_CORPORATE_TAX,
+  IeManagementAccounts: IE_MANAGEMENT_ACCOUNTS,
+  IePersonalTax: IE_PERSONAL_TAX,
+};
+
+export default function IrelandServiceSlugPage() {
   const params = useParams();
-  const slug = params?.serviceSlug;
+  const slug = String(params?.serviceSlug || "");
+  const data = IRELAND_SERVICE_PAGES[slug];
+
+  if (data) {
+    return <IrelandServiceTemplate data={data} />;
+  }
+
   const match = IRELAND_SERVICE_LINKS.find(
     (s) => s.href === `/ireland/${slug}`
   );

@@ -37,7 +37,7 @@ export default function IrelandPage() {
         badge="Ireland Accounting Outsourcing Partner"
         titleBefore="Irish Accounting Firms"
         titleAccent="Scale with Confidence"
-        subtitle="Dedicated offshore support across bookkeeping, VAT, year-end accounts, personal tax, management reporting, virtual CFO & company secretarial."
+        subtitle="Dedicated offshore support across bookkeeping, company secretarial & CRO, corporation tax, management reporting, virtual CFO & personal tax."
         badges={IRELAND_TRUST_BADGES}
         secondaryHref="tel:+918285285223"
         secondaryLabel="Call Us"

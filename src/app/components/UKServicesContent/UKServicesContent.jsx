@@ -8,6 +8,11 @@ import BookKeepingMatters from "../ServiceMainPageContent/BookkeepingMatters";
 import BookkeepingReconcilation from "../ServiceMainPageContent/Bookkeepingreconcilation";
 import BookKeepingCompliance from "../ServiceMainPageContent/Bookkeepingcompliance";
 import IndustriesWeSupportGrid from "../ServiceMainPageContent/IndustriesWeSupportGrid";
+import {
+  UK_BOOKKEEPING_INDUSTRIES,
+  UK_PAYROLL_INDUSTRIES,
+  UK_MANAGEMENT_ACCOUNTS_INDUSTRIES,
+} from "@/app/uk/ukIndustries";
  
 import Button from "@/components/ui/Button";
 import IconDisplayScreen , {
@@ -496,7 +501,7 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
 
             <div className="max-w-7xl mx-auto">
-              <IndustriesWeSupportGrid />
+              <IndustriesWeSupportGrid industries={UK_BOOKKEEPING_INDUSTRIES} />
             </div>
           </div>
 
@@ -878,7 +883,7 @@ export default function UKServicesContent({ serviceSlug }) {
                 </p>
               </div>
 
-              <IndustriesWeSupportGrid />
+              <IndustriesWeSupportGrid industries={UK_PAYROLL_INDUSTRIES} />
             </div>
           </div>
 
@@ -2038,7 +2043,7 @@ export default function UKServicesContent({ serviceSlug }) {
                 </p>
               </div>
 
-              <IndustriesWeSupportGrid />
+              <IndustriesWeSupportGrid industries={UK_MANAGEMENT_ACCOUNTS_INDUSTRIES} />
             </div>
           </div>
 

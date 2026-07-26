@@ -37,7 +37,7 @@ export default function NewZealandPage() {
         badge="New Zealand Accounting Outsourcing Partner"
         titleBefore="New Zealand Accounting Firms"
         titleAccent="Scale with Confidence"
-        subtitle="Dedicated offshore support across bookkeeping, GST, year-end accounts, company tax, income tax & payroll."
+        subtitle="Dedicated offshore support across income tax return preparation, payroll processing & year-end accounts."
         badges={NEW_ZEALAND_TRUST_BADGES}
         secondaryHref="tel:+918285285223"
         secondaryLabel="Call Us"
