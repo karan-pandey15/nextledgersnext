@@ -2,29 +2,54 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { createPortal } from "react-dom";
-import { useRouter } from "next/navigation";
-import { POPUP_REGIONS, REGION_ROUTES } from "./regionData";
+import { usePathname, useRouter } from "next/navigation";
+import { POPUP_REGIONS, REGION_ROUTES, DEFAULT_REGION } from "./regionData";
+
+/** Resolve region code from the current URL (home → IN). */
+function regionFromPath(pathname) {
+  if (!pathname || pathname === "/") return "IN";
+  const match = Object.entries(REGION_ROUTES).find(
+    ([code, route]) => code !== "IN" && (pathname === route || pathname.startsWith(`${route}/`))
+  );
+  return match?.[0] || null;
+}
 
 const NAVY = "#0F274A";
 const CODE = "#5B4B8A";
 const TRIGGER_FLAGS = POPUP_REGIONS;
-
-/** Primary flags shown in compact trigger (matches announcement-bar design) */
 const COMPACT_FLAGS = POPUP_REGIONS.slice(0, 5);
+const MENU_ESTIMATE = 360;
+const GAP = 6;
+const PAD = 8;
 
+/**
+ * Region picker with flip-up / flip-down placement and optional boundary clamp
+ * (keeps the menu inside the mobile sidebar when boundaryRef is provided).
+ */
 export default function RegionSelect({
   onRegionChange,
   className = "",
   minimize = false,
   variant = "light",
-  /** Fewer flags + tighter chrome — for phone announcement bar */
+  /** Fewer flags + tighter chrome — for phone top bar / sidebar */
   compact = false,
+  /** Clamp menu inside this element (e.g. mobile sidebar panel) */
+  boundaryRef = null,
+  /** Show region name beside code (better for sidebar) */
+  showLabel = false,
 }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedRegion, setSelectedRegion] = useState("US");
-  const [menuPos, setMenuPos] = useState({ top: 0, left: 0 });
+  /** Default: India (IN) until user picks a market region */
+  const [selectedRegion, setSelectedRegion] = useState("IN");
+  const [menuPos, setMenuPos] = useState({
+    top: 0,
+    left: 0,
+    width: 280,
+    maxHeight: 320,
+  });
   const [mounted, setMounted] = useState(false);
   const router = useRouter();
+  const pathname = usePathname();
   const isDark = variant === "dark";
   const rootRef = useRef(null);
   const menuRef = useRef(null);
@@ -33,38 +58,84 @@ export default function RegionSelect({
     setMounted(true);
   }, []);
 
+  // Keep header/sidebar selection in sync with the current page.
+  // Home (/) always shows IN; regional routes show that market.
   useEffect(() => {
-    const saved = localStorage.getItem("selected-region");
-    if (saved && POPUP_REGIONS.some((r) => r.code === saved)) {
-      setSelectedRegion(saved);
-    } else if (saved === "IN") {
-      localStorage.removeItem("selected-region");
+    const fromPath = regionFromPath(pathname);
+    if (fromPath) {
+      setSelectedRegion(fromPath);
+      try {
+        localStorage.setItem("selected-region", fromPath);
+      } catch {
+        /* ignore */
+      }
+      return;
     }
-  }, []);
+
+    try {
+      const saved = localStorage.getItem("selected-region");
+      if (saved && POPUP_REGIONS.some((r) => r.code === saved)) {
+        setSelectedRegion(saved);
+      } else {
+        setSelectedRegion("IN");
+      }
+    } catch {
+      setSelectedRegion("IN");
+    }
+  }, [pathname]);
 
   const updateMenuPosition = useCallback(() => {
     const trigger = rootRef.current;
     if (!trigger) return;
 
     const rect = trigger.getBoundingClientRect();
-    const menuWidth = Math.min(280, window.innerWidth - 16);
-    let left = rect.right - menuWidth;
+    const boundaryEl = boundaryRef?.current;
+    const bounds = boundaryEl
+      ? boundaryEl.getBoundingClientRect()
+      : {
+          top: PAD,
+          left: PAD,
+          right: window.innerWidth - PAD,
+          bottom: window.innerHeight - PAD,
+        };
 
-    if (left < 8) left = 8;
-    if (left + menuWidth > window.innerWidth - 8) {
-      left = Math.max(8, window.innerWidth - menuWidth - 8);
+    const availableWidth = Math.max(160, bounds.right - bounds.left - PAD * 2);
+    const menuWidth = Math.min(280, availableWidth, window.innerWidth - PAD * 2);
+
+    const spaceBelow = bounds.bottom - rect.bottom - GAP;
+    const spaceAbove = rect.top - bounds.top - GAP;
+    const openUp = spaceBelow < 200 && spaceAbove > spaceBelow;
+
+    const measured =
+      menuRef.current?.scrollHeight ||
+      Math.min(MENU_ESTIMATE, POPUP_REGIONS.length * 42 + 40);
+
+    const maxHeight = Math.max(
+      160,
+      Math.min(measured, openUp ? spaceAbove : spaceBelow, MENU_ESTIMATE)
+    );
+
+    let top = openUp ? rect.top - GAP - maxHeight : rect.bottom + GAP;
+    if (top < bounds.top + PAD) top = bounds.top + PAD;
+    if (top + maxHeight > bounds.bottom - PAD) {
+      top = Math.max(bounds.top + PAD, bounds.bottom - PAD - maxHeight);
     }
 
-    setMenuPos({
-      top: rect.bottom + 6,
-      left,
-    });
-  }, []);
+    let left = rect.right - menuWidth;
+    if (left < bounds.left + PAD) left = bounds.left + PAD;
+    if (left + menuWidth > bounds.right - PAD) {
+      left = Math.max(bounds.left + PAD, bounds.right - PAD - menuWidth);
+    }
+
+    setMenuPos({ top, left, width: menuWidth, maxHeight });
+  }, [boundaryRef]);
 
   useEffect(() => {
     if (!isOpen) return undefined;
 
     updateMenuPosition();
+    // Re-measure after paint once menu exists (more accurate height)
+    const raf = requestAnimationFrame(() => updateMenuPosition());
 
     const onPointerDown = (e) => {
       const inTrigger = rootRef.current?.contains(e.target);
@@ -79,12 +150,13 @@ export default function RegionSelect({
     const onReposition = () => updateMenuPosition();
 
     document.addEventListener("mousedown", onPointerDown);
-    document.addEventListener("touchstart", onPointerDown);
+    document.addEventListener("touchstart", onPointerDown, { passive: true });
     window.addEventListener("keydown", onKeyDown);
     window.addEventListener("resize", onReposition);
     window.addEventListener("scroll", onReposition, true);
 
     return () => {
+      cancelAnimationFrame(raf);
       document.removeEventListener("mousedown", onPointerDown);
       document.removeEventListener("touchstart", onPointerDown);
       window.removeEventListener("keydown", onKeyDown);
@@ -108,7 +180,11 @@ export default function RegionSelect({
   };
 
   const activeRegion =
-    POPUP_REGIONS.find((r) => r.code === selectedRegion) || POPUP_REGIONS[0];
+    selectedRegion === "IN"
+      ? DEFAULT_REGION
+      : POPUP_REGIONS.find((r) => r.code === selectedRegion) || DEFAULT_REGION;
+
+  const triggerCode = activeRegion.displayCode || activeRegion.code;
 
   const dropdown =
     mounted && isOpen
@@ -121,21 +197,25 @@ export default function RegionSelect({
               position: "fixed",
               top: menuPos.top,
               left: menuPos.left,
-              zIndex: 130,
-              width: "min(92vw, 280px)",
-              borderRadius: 16,
+              zIndex: 200,
+              width: menuPos.width,
+              maxHeight: menuPos.maxHeight,
+              overflowY: "auto",
+              WebkitOverflowScrolling: "touch",
+              borderRadius: 14,
               background: "#ffffff",
-              padding: "12px 10px 10px",
-              boxShadow: "0 12px 32px rgba(15,39,74,0.14)",
+              padding: "10px 8px 8px",
+              boxShadow: "0 12px 32px rgba(15,39,74,0.16)",
+              border: "1px solid rgba(255,106,0,0.12)",
             }}
           >
             <p
               style={{
-                margin: "0 0 8px",
+                margin: "0 0 6px",
                 textAlign: "center",
                 fontSize: 10,
                 fontWeight: 700,
-                letterSpacing: "0.16em",
+                letterSpacing: "0.14em",
                 textTransform: "uppercase",
                 color: "#9CA3AF",
               }}
@@ -143,7 +223,6 @@ export default function RegionSelect({
               Choose Your Region
             </p>
 
-            {/* Single-column list — flag | code | name (matches reference) */}
             <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
               {POPUP_REGIONS.map((region) => {
                 const isSelected = region.code === selectedRegion;
@@ -161,20 +240,12 @@ export default function RegionSelect({
                       gap: 10,
                       width: "100%",
                       margin: 0,
-                      padding: "8px 10px",
+                      padding: "9px 10px",
                       border: "none",
                       borderRadius: 10,
                       cursor: "pointer",
                       background: isSelected ? "#FFF7F0" : "transparent",
                       textAlign: "left",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.background = "#FFF7F0";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.background = isSelected
-                        ? "#FFF7F0"
-                        : "transparent";
                     }}
                   >
                     <span
@@ -251,22 +322,26 @@ export default function RegionSelect({
         className={`inline-flex max-w-full items-center cursor-pointer focus:outline-none transition-all duration-200 min-w-0 ${
           isDark
             ? `rounded-full border border-white/20 bg-white/10 hover:bg-white/15 ${
-                compact ? "px-1.5 py-1 gap-1 sm:px-2 sm:py-1.5 sm:gap-1.5" : "px-2.5 py-1.5 gap-2"
+                compact
+                  ? "px-1.5 py-1 gap-1 sm:px-2 sm:py-1.5 sm:gap-1.5"
+                  : "px-2.5 py-1.5 gap-2"
               }`
             : `rounded-full border border-[#D1D5DB] bg-white shadow-[0_2px_8px_rgba(15,39,74,0.06)] hover:shadow-[0_4px_12px_rgba(15,39,74,0.1)] ${
-                compact ? "px-1.5 py-1 gap-1 sm:px-2.5 sm:py-1.5 sm:gap-2" : "px-2.5 py-1.5 gap-2"
+                compact
+                  ? "px-1.5 py-1 gap-1 sm:px-2.5 sm:py-1.5 sm:gap-2"
+                  : "px-2.5 py-1.5 gap-2"
               }`
         }`}
         aria-expanded={isOpen}
         aria-haspopup="listbox"
+        aria-label={`Region: ${activeRegion.name}`}
       >
         {minimize || compact ? (
           <>
-            {/* Phone: selected flag only — never clips */}
             <div
               className={`relative flex flex-shrink-0 overflow-hidden rounded-sm border shadow-xs ${
                 isDark ? "border-white/80" : "border-[#E5E7EB]"
-              } ${compact ? "h-3 w-[18px] sm:h-3.5 sm:w-5" : "h-3.5 w-5"}`}
+              } ${compact ? "h-3.5 w-5" : "h-3.5 w-5"}`}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -276,8 +351,7 @@ export default function RegionSelect({
               />
             </div>
 
-            {/* Compact: also show up to 4 more flags from sm+ */}
-            {compact && !minimize ? (
+            {compact && !minimize && !showLabel ? (
               <div
                 className="hidden sm:flex items-center gap-0.5 flex-shrink-0"
                 aria-hidden="true"
@@ -379,7 +453,7 @@ export default function RegionSelect({
               : "text-[11px] tracking-[0.14em]"
           } ${isDark ? "text-white" : "text-[#374151]"}`}
         >
-          {minimize || compact ? selectedRegion : "Regions"}
+          {minimize || compact ? triggerCode : "Regions"}
         </span>
 
         <svg

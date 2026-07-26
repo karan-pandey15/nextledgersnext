@@ -290,11 +290,11 @@ export default function AboutPage() {
               <span className="font-semibold text-[#FF6A00]">decade</span> ago
             </p>
 
-            <h1 className="text-[30px] font-bold leading-[1.08] tracking-tight text-white sm:text-[38px] md:text-[46px] lg:text-[52px]">
+            <h1 className="text-[clamp(18px,5vw,26px)] font-bold leading-[1.15] tracking-tight text-white sm:text-[38px] sm:leading-[1.08] md:text-[46px] lg:text-[52px]">
               About Next Ledgers —
-              <br />
-              Redefining International
-              <br />
+              <br className="hidden sm:block" />
+              <span className="sm:hidden"> </span>
+              Redefining International{" "}
               <span className="text-[#FF6A00]">Accounting Support.</span>
             </h1>
 

@@ -64,7 +64,17 @@ export const POPUP_REGIONS = [
   },
 ];
 
+/** Default trigger when no region is chosen — India HQ (flag + IN only) */
+export const DEFAULT_REGION = {
+  code: "IN",
+  displayCode: "IN",
+  name: "India",
+  flag: "https://flagcdn.com/in.svg",
+  description: "NextLedgers headquarters",
+};
+
 export const REGION_ROUTES = {
+  IN: "/",
   US: "/usa",
   CA: "/canada",
   UK: "/uk",

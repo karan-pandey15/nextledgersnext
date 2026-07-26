@@ -25,6 +25,8 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [expandedMobileMenus, setExpandedMobileMenus] = useState({});
   const timeoutRefs = useRef({});
+  const sidebarPanelRef = useRef(null);
+  const showPhoneTopBar = pathname === "/";
 
   const isActiveLink = (href) => {
     if (!href || href === "#") return false;
@@ -90,6 +92,32 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
 
   return (
     <header className="sticky top-0 z-40 w-full overflow-visible border-b border-[#ECECEC] bg-white">
+      {/* Phone-only thin top bar (home) — left tagline, right region */}
+      {showPhoneTopBar ? (
+        <div
+          className="flex xl:hidden h-9 w-full items-center justify-between gap-2 border-b border-[#FF6A00]/15 px-3 sm:px-4"
+          style={{
+            background:
+              "linear-gradient(90deg, #FFF9F5 0%, #FFFFFF 45%, #FFF4EA 100%)",
+          }}
+        >
+          <p className="min-w-0 flex-1 truncate text-[10px] font-semibold leading-none tracking-[0.02em] text-[#0F274A] sm:text-[11px]">
+            <span className="text-[#FF6A00]">NextLedgers</span>
+            <span className="mx-1.5 text-[#D1D5DB]" aria-hidden="true">
+              ·
+            </span>
+            <span className="text-[#4B5563]">
+              Offshore Accounting for Global Firms
+            </span>
+          </p>
+          <RegionSelect
+            onRegionChange={handleRegionChange}
+            compact
+            className="shrink-0"
+          />
+        </div>
+      ) : null}
+
       {/* Custom Styles for Nav Dropdown Opening */}
       <style>{`
         @keyframes navDropdownSlideIn {
@@ -347,7 +375,8 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
 
         {/* Sidebar Panel Drawer */}
         <div
-          className={`absolute inset-y-0 left-0 w-[min(300px,85vw)] bg-white shadow-2xl p-5 sm:p-6 flex flex-col gap-5 transform transition-transform duration-300 ease-out ${
+          ref={sidebarPanelRef}
+          className={`absolute inset-y-0 left-0 flex w-[min(300px,85vw)] flex-col gap-4 overflow-hidden bg-white p-5 shadow-2xl sm:gap-5 sm:p-6 transform transition-transform duration-300 ease-out ${
             isSidebarOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
@@ -497,11 +526,18 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
             })}
           </nav>
 
-          <div className="pt-2 border-t border-[#FF6A00]/15">
+          <div className="shrink-0 border-t border-[#FF6A00]/15 pt-3">
+            <p className="mb-2 px-0.5 text-[10px] font-bold uppercase tracking-[0.14em] text-[#9CA3AF]">
+              Choose region
+            </p>
             <RegionSelect
-              onRegionChange={handleRegionChange}
+              onRegionChange={(code) => {
+                handleRegionChange(code);
+                setIsSidebarOpen(false);
+              }}
               compact
-              className="w-full [&_button]:w-full [&_button]:justify-between [&_button]:min-w-0"
+              boundaryRef={sidebarPanelRef}
+              className="w-full [&_button]:w-full [&_button]:justify-between [&_button]:min-w-0 [&_button]:rounded-xl [&_button]:px-3 [&_button]:py-2.5"
             />
           </div>
         </div>

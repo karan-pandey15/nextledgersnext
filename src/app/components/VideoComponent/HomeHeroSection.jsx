@@ -35,20 +35,23 @@ export default function HomeHeroSection() {
             <span className="text-[#FF6A00] font-semibold">globally</span> since 2018
           </p>
 
-          <h1 className="text-white font-bold text-[30px] sm:text-[38px] md:text-[46px] lg:text-[52px] leading-[1.08] tracking-tight">
-            Your Modern Accounting,{" "}
-            <span className="text-[#FF6A00]">Tax</span>
-            <br />
-            and Virtual <span className="text-[#FF6A00]">Staffing</span>{" "}
-            <span className="text-[#FF6A00]">Solutions</span>
+          <h1 className="text-white font-bold text-[clamp(17px,5.5vw,21px)] leading-[1.22] tracking-tight sm:text-[34px] sm:leading-[1.12] md:text-[42px] lg:text-[50px]">
+            <span className="block whitespace-nowrap">
+              Your Modern Accounting,{" "}
+              <span className="text-[#FF6A00]">Tax</span>
+            </span>
+            <span className="block whitespace-nowrap">
+              and Virtual{" "}
+              <span className="text-[#FF6A00]">Staffing Solutions</span>
+            </span>
           </h1>
 
-          <p className="mt-3 text-[16px] font-semibold leading-snug text-white sm:mt-4 sm:text-[18px] md:text-[20px] lg:text-[22px]">
+          <p className="mt-2.5 text-[15px] font-semibold leading-snug text-white sm:mt-4 sm:text-[18px] md:text-[20px] lg:text-[22px]">
             Powered by AI, Delivered by{" "}
             <span className="text-[#FF6A00]">Experts.</span>
           </p>
 
-          <p className="mt-4 sm:mt-5 max-w-[620px] text-white/85 text-[14px] sm:text-[15px] leading-7">
+          <p className="mt-3 max-w-[620px] text-[13px] leading-6 text-white/85 sm:mt-5 sm:text-[15px] sm:leading-7">
             Scale your business with AI-powered workflows, expert professionals, and dedicated
             virtual staffing tailored to your business.
           </p>

@@ -254,7 +254,7 @@ export default function TeamPage() {
               The people behind{" "}
               <span className="font-semibold text-[#FF6A00]">Next Ledgers</span>
             </p>
-            <h1 className="text-[30px] font-bold leading-[1.08] tracking-tight text-white sm:text-[40px] lg:text-[48px]">
+            <h1 className="text-[clamp(22px,6vw,28px)] font-bold leading-[1.12] tracking-tight text-white sm:text-[40px] lg:text-[48px]">
               Our <span className="text-[#FF6A00]">Team.</span>
             </h1>
             <p className="mt-3 max-w-[540px] text-[14px] leading-7 text-white/85 sm:mt-4 sm:text-[15px]">

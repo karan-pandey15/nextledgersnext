@@ -15,12 +15,12 @@ export default function HeroSection() {
       <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-6">
 
         <h1
-          className="text-[#264B86] font-bold text-[30px] sm:text-[38px] md:text-[46px] lg:text-[56px] leading-[1.1] max-w-[320px] sm:max-w-xl md:max-w-3xl"
+          className="text-[#264B86] font-bold text-[clamp(18px,5.2vw,24px)] sm:text-[38px] md:text-[46px] lg:text-[56px] leading-[1.15] max-w-[95%] sm:max-w-xl md:max-w-3xl"
           style={{ textShadow: "0px 3px 8px rgba(0,0,0,0.25)" }}
         >
-          Helping UK Businesses <br className="block sm:hidden" />
-          Stay Compliant & <br className="block sm:hidden" />
-          Grow with Confidence.
+          Helping UK Businesses{" "}
+          <br className="hidden max-[380px]:block sm:hidden" />
+          Stay Compliant & Grow with Confidence.
         </h1>
       </div>
     </div>

@@ -19,7 +19,7 @@ export default function RegionPopupHost() {
   const router = useRouter();
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedRegion, setSelectedRegion] = useState("US");
+  const [selectedRegion, setSelectedRegion] = useState("IN");
   const triggeredRef = useRef(false);
   const timerRef = useRef(null);
   const observerRef = useRef(null);
@@ -65,19 +65,28 @@ export default function RegionPopupHost() {
     return triggeredRef.current;
   }, []);
 
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const saved = localStorage.getItem("selected-region");
-    if (saved) setSelectedRegion(saved);
-  }, []);
-
-  // Non-home pages: open after 25 seconds
+  // Sync selected region with route (home → IN) + non-home popup timer
   useEffect(() => {
     if (typeof window === "undefined") return undefined;
+
     if (isHome) {
+      setSelectedRegion("IN");
+      try {
+        localStorage.setItem("selected-region", "IN");
+      } catch {
+        /* ignore */
+      }
       clearTimer();
       return undefined;
     }
+
+    try {
+      const saved = localStorage.getItem("selected-region");
+      if (saved) setSelectedRegion(saved);
+    } catch {
+      /* ignore */
+    }
+
     if (alreadyShown()) return undefined;
 
     clearTimer();
