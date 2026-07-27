@@ -155,16 +155,12 @@ const operationsTrustItems = [
 ];
 
 const whyChooseCards = [
-    { title: "Accurate & Timely Payroll Processing", icon: Wallet },
-    { title: "Reliable Payroll & HR Professionals", icon: UserCheck },
-    { title: "Improved Payroll Accuracy", icon: ClipboardCheck },
-    { title: "Strong Compliance & Risk Management", icon: ShieldCheck },
-    { title: "Reduced Administrative Workload", icon: Workflow },
-    { title: "Efficient Employee Record Management", icon: FolderOpen },
-    { title: "Scalable Payroll & HR Solutions", icon: TrendingUp },
-    { title: "Flexible Offshore Support", icon: Network },
-    { title: "Secure & Confidential Data Handling", icon: Lock },
-    { title: "Trusted Partner for Business Growth", icon: BadgeCheck },
+    { title: "Accurate and timely payroll processing", icon: Wallet },
+    { title: "Full payroll compliance", icon: ShieldCheck },
+    { title: "Secure employee data management", icon: Lock },
+    { title: "Pension and statutory payment support", icon: Receipt },
+    { title: "Reduced payroll administration", icon: Workflow },
+    { title: "Dedicated payroll specialists", icon: UserCheck },
 ];
 
 const softwareExpertiseLogodata = [

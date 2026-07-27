@@ -1,44 +1,86 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  BarChart3,
-  Calculator,
-  ClipboardList,
-  FileText,
-  Headphones,
-  Percent,
-  UserRound,
-  Users,
-  Shield,
-} from "lucide-react";
+  FaUser,
+  FaUserTie,
+  FaUserFriends,
+  FaClipboardList,
+  FaCalculator,
+  FaMoneyBillAlt,
+  FaFileAlt,
+  FaChartLine,
+  FaHeadset,
+  FaShieldAlt,
+} from "react-icons/fa";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
 const ORANGE = BRAND_ORANGE;
-const NAVY = "#1A1A1A";
+const NAVY = "#0A1F44";
 const GREY = "#6B7280";
 
+/** Bookkeeper — clipboard + calculator (matches reference) */
+function BookkeeperIcon({ className, style }) {
+  return (
+    <span
+      className={`relative inline-flex items-center justify-center ${className}`}
+      style={style}
+      aria-hidden
+    >
+      <FaClipboardList className="h-[88%] w-[88%]" />
+      <FaCalculator
+        className="absolute -bottom-[1px] -right-[2px] h-[48%] w-[48%] rounded-[2px] bg-white"
+        style={{ color: ORANGE }}
+      />
+    </span>
+  );
+}
+
+/** Tax Professional — document with TAX label (matches reference) */
+function TaxIcon({ className, style }) {
+  return (
+    <span
+      className={`relative inline-flex items-center justify-center ${className}`}
+      style={style}
+      aria-hidden
+    >
+      <FaFileAlt className="h-full w-full" />
+      <span
+        className="absolute left-1/2 top-[46%] -translate-x-1/2 text-[6.5px] font-extrabold leading-none tracking-wide"
+        style={{ color: ORANGE }}
+      >
+        TAX
+      </span>
+    </span>
+  );
+}
+
+/** Role cards — icons matched to second reference image */
 const ROLES = [
-  { label: "Accountant", icon: UserRound },
-  { label: "Bookkeeper", icon: Calculator },
-  { label: "Payroll Specialist", icon: ClipboardList },
-  { label: "Tax Professional", icon: Percent },
-  { label: "Management Accountant", icon: BarChart3 },
-  { label: "Virtual CFO", icon: FileText },
-  { label: "Admin & Back Office Support", icon: Headphones },
+  { label: "Accountant", Icon: FaUser },
+  { label: "Bookkeeper", Icon: BookkeeperIcon },
+  { label: "Payroll Specialist", Icon: FaMoneyBillAlt },
+  { label: "Tax Professional", Icon: TaxIcon },
+  { label: "Management Accountant", Icon: FaChartLine },
+  { label: "Virtual CFO", Icon: FaUserTie },
+  { label: "Admin & Back Office Support", Icon: FaHeadset },
 ];
 
-/** Hexagon orbit — photos matched to real /team roles (excl. Durgesh & Anjali) */
+/**
+ * Orbit around Next Ledgers — roles / people aligned to second image
+ * (top → clockwise)
+ */
 const ORBIT = [
   {
     label: "Accountant",
-    src: "/images/TeamImage/Akash_Gangwar-removebg-preview.png",
+    src: "/images/TeamImage/Anjali_Sharma-removebg-preview.png",
     angle: -90,
   },
   {
     label: "Payroll Specialist",
-    src: "/images/TeamImage/Varun_Chauhan-removebg-preview.png",
+    src: "/images/TeamImage/Kirti_Kapoor-removebg-preview.png",
     angle: -30,
   },
   {
@@ -53,7 +95,7 @@ const ORBIT = [
   },
   {
     label: "Tax Professional",
-    src: "/images/TeamImage/Ankita-removebg-preview.png",
+    src: "/images/TeamImage/Akash_Gangwar-removebg-preview.png",
     angle: 150,
   },
   {
@@ -63,23 +105,92 @@ const ORBIT = [
   },
 ];
 
-const ORBIT_RADIUS = 38;
+/** Photo ring — center of each portrait (% of orbit box) */
+const ORBIT_RADIUS = 39;
+/** Edge of Next Ledgers logo circle (must match visual logo size) */
+const LOGO_RADIUS = 15;
+/** Half-size of portrait circle in the same % space */
+const PHOTO_RADIUS = 10.5;
+/** Line starts on logo rim, ends on photo rim */
+const LINE_START = LOGO_RADIUS;
+const LINE_END = ORBIT_RADIUS - PHOTO_RADIUS;
 
-function orbitPoint(angleDeg) {
+function orbitPoint(angleDeg, radius) {
   const rad = (angleDeg * Math.PI) / 180;
   return {
-    x: 50 + ORBIT_RADIUS * Math.cos(rad),
-    y: 50 + ORBIT_RADIUS * Math.sin(rad),
+    x: 50 + radius * Math.cos(rad),
+    y: 50 + radius * Math.sin(rad),
   };
 }
 
 export default function ByotHero() {
+  const rolesRef = useRef(null);
+  const orbitRef = useRef(null);
+  const [rolesVisible, setRolesVisible] = useState(0);
+  const [orbitReady, setOrbitReady] = useState(false);
+  const [orbitPeople, setOrbitPeople] = useState(0);
+  const rolesStarted = useRef(false);
+  const orbitStarted = useRef(false);
+
+  useEffect(() => {
+    const el = rolesRef.current;
+    if (!el) return;
+
+    const timeouts = [];
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting || rolesStarted.current) return;
+        rolesStarted.current = true;
+        observer.disconnect();
+        ROLES.forEach((_, i) => {
+          timeouts.push(
+            window.setTimeout(() => setRolesVisible(i + 1), 100 + i * 130)
+          );
+        });
+      },
+      { threshold: 0.3, rootMargin: "0px 0px -6% 0px" }
+    );
+
+    observer.observe(el);
+    return () => {
+      observer.disconnect();
+      timeouts.forEach(clearTimeout);
+    };
+  }, []);
+
+  useEffect(() => {
+    const el = orbitRef.current;
+    if (!el) return;
+
+    const timeouts = [];
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting || orbitStarted.current) return;
+        orbitStarted.current = true;
+        observer.disconnect();
+        setOrbitReady(true);
+        ORBIT.forEach((_, i) => {
+          timeouts.push(
+            window.setTimeout(() => setOrbitPeople(i + 1), 380 + i * 160)
+          );
+        });
+      },
+      { threshold: 0.28 }
+    );
+
+    observer.observe(el);
+    return () => {
+      observer.disconnect();
+      timeouts.forEach(clearTimeout);
+    };
+  }, []);
+
   return (
     <section
       className="relative w-full overflow-hidden bg-[#F2F2F2]"
       style={{ minHeight: "calc(100svh - 72px)" }}
     >
-      {/* Right half: wavy cut + CSS dotted map background */}
+      {/* Right half: wavy cut + world map dots */}
       <div className="pointer-events-none absolute inset-0 hidden lg:block" aria-hidden>
         <svg
           className="absolute inset-0 h-full w-full"
@@ -98,8 +209,7 @@ export default function ByotHero() {
               <circle cx="1.2" cy="1.2" r="1.15" fill="#C9C9C9" />
             </pattern>
             <clipPath id="byotRightWave">
-              {/* Soft S-curve cut matching the design */}
-              <path d="M760,0 C700,140 820,260 710,420 C600,580 780,720 740,900 L1440,900 L1440,0 Z" />
+              <path d="M820,0 C760,140 880,260 770,420 C660,580 840,720 800,900 L1440,900 L1440,0 Z" />
             </clipPath>
             <filter id="byotMapLight" colorInterpolationFilters="sRGB">
               <feColorMatrix
@@ -126,7 +236,7 @@ export default function ByotHero() {
               width="1440"
               height="900"
               fill="url(#byotDotGrid)"
-              opacity="0.5"
+              opacity="0.45"
             />
             <image
               href="/images/footer/world-map-dots.png"
@@ -140,26 +250,25 @@ export default function ByotHero() {
             />
           </g>
 
-          {/* Soft edge of the cut line */}
           <path
-            d="M760,0 C700,140 820,260 710,420 C600,580 780,720 740,900"
+            d="M820,0 C760,140 880,260 770,420 C660,580 840,720 800,900"
             fill="none"
-            stroke="rgba(0,0,0,0.055)"
+            stroke="rgba(0,0,0,0.05)"
             strokeWidth="2.5"
             vectorEffect="non-scaling-stroke"
           />
         </svg>
       </div>
 
-      <div className="relative mx-auto grid min-h-[calc(100svh-72px)] max-w-[1440px] grid-cols-1 items-center gap-8 px-4 py-8 sm:px-6 lg:grid-cols-2 lg:gap-2 lg:px-10 lg:py-5 xl:px-14">
-        {/* Left copy */}
-        <div className="order-1 z-10 max-w-[640px] text-center lg:pr-4 lg:text-left">
+      <div className="relative mx-auto grid min-h-[calc(100svh-72px)] max-w-[1440px] grid-cols-1 items-center gap-10 px-4 py-8 sm:px-6 lg:grid-cols-2 lg:gap-0 lg:px-8 lg:py-5 xl:px-10">
+        {/* ── Left — kept clear of the wavy divider ── */}
+        <div className="order-1 z-10 w-full min-w-0 max-w-full text-center lg:max-w-none lg:pr-8 lg:text-left xl:pr-12">
           <div className="inline-flex overflow-hidden rounded-full shadow-sm">
             <span
               className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.14em] text-white sm:text-[11px]"
               style={{ background: ORANGE }}
             >
-              <Users className="h-3.5 w-3.5" strokeWidth={2.2} />
+              <FaUserFriends className="h-3.5 w-3.5" />
               BYOT
             </span>
             <span className="bg-[#2A2A2A] px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-white sm:text-[11px]">
@@ -192,52 +301,96 @@ export default function ByotHero() {
             hours—without the cost and complexity of local hiring.
           </p>
 
-          <div className="mt-5">
-            <div className="mb-2.5 flex items-center justify-center gap-2 lg:justify-start">
-              <Users className="h-4 w-4" style={{ color: ORANGE }} strokeWidth={2} />
+          <div ref={rolesRef} className="mt-6 w-full min-w-0">
+            <div className="mb-3 flex items-center justify-center gap-2 lg:justify-start">
+              <FaUserFriends className="h-[17px] w-[17px]" style={{ color: ORANGE }} />
               <p
-                className="text-[11px] font-bold uppercase tracking-[0.14em]"
-                style={{ color: "#4B5563" }}
+                className="text-[11px] font-bold uppercase tracking-[0.14em] sm:text-[12px]"
+                style={{ color: NAVY }}
               >
                 Dedicated Roles You Can Build
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-7">
-              {ROLES.map(({ label, icon: Icon }) => (
-                <div
-                  key={label}
-                  className="flex flex-col items-center rounded-[10px] border border-[#E8E8E8] bg-white px-1.5 py-2.5 text-center shadow-[0_1px_4px_rgba(0,0,0,0.04)]"
-                >
-                  <Icon
-                    className="h-[24px] w-[24px]"
-                    style={{ color: ORANGE }}
-                    strokeWidth={1.8}
-                  />
-                  <span
-                    className="mt-2 text-[10px] font-bold leading-tight sm:text-[11px]"
-                    style={{ color: NAVY }}
+            {/* Equal card width + equal gap for all 7 roles */}
+            <div className="grid w-full min-w-0 grid-cols-2 gap-2 sm:grid-cols-4 lg:hidden">
+              {ROLES.map(({ label, Icon }, index) => {
+                const visible = rolesVisible > index;
+                return (
+                  <div
+                    key={label}
+                    className="box-border flex h-[112px] w-full min-w-0 flex-col items-center justify-center rounded-[10px] border border-[#E8E8E8] bg-white px-1 py-2 text-center shadow-[0_2px_10px_rgba(15,39,74,0.07)] sm:h-[118px]"
+                    style={{
+                      opacity: visible ? 1 : 0,
+                      transform: visible
+                        ? "translateY(0) scale(1)"
+                        : "translateY(12px) scale(0.94)",
+                      transition:
+                        "opacity 400ms cubic-bezier(0.22, 1, 0.36, 1), transform 400ms cubic-bezier(0.22, 1, 0.36, 1)",
+                    }}
                   >
-                    {label}
-                  </span>
-                </div>
-              ))}
+                    <Icon
+                      className="h-[28px] w-[28px] shrink-0"
+                      style={{ color: ORANGE }}
+                    />
+                    <span
+                      className="mt-2 flex h-[36px] w-full items-start justify-center px-0.5 text-center text-[9px] font-bold leading-[1.2] sm:text-[10px]"
+                      style={{ color: NAVY }}
+                    >
+                      {label}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Desktop: flex-1 + fixed gap = identical widths */}
+            <div className="hidden w-full min-w-0 lg:flex lg:gap-2">
+              {ROLES.map(({ label, Icon }, index) => {
+                const visible = rolesVisible > index;
+                return (
+                  <div
+                    key={label}
+                    className="box-border flex h-[120px] min-w-0 flex-1 basis-0 flex-col items-center justify-center rounded-[10px] border border-[#E8E8E8] bg-white px-1 py-2 text-center shadow-[0_2px_10px_rgba(15,39,74,0.07)]"
+                    style={{
+                      opacity: visible ? 1 : 0,
+                      transform: visible
+                        ? "translateY(0) scale(1)"
+                        : "translateY(12px) scale(0.94)",
+                      transition:
+                        "opacity 400ms cubic-bezier(0.22, 1, 0.36, 1), transform 400ms cubic-bezier(0.22, 1, 0.36, 1)",
+                    }}
+                  >
+                    <Icon
+                      className="h-[28px] w-[28px] shrink-0"
+                      style={{ color: ORANGE }}
+                    />
+                    <span
+                      className="mt-2 flex h-[36px] w-full items-start justify-center px-0.5 text-center text-[10px] font-bold leading-[1.2]"
+                      style={{ color: NAVY }}
+                    >
+                      {label}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
-          <div className="mt-6 flex flex-col items-center gap-3.5 sm:flex-row sm:justify-center lg:justify-start">
+          {/* CTA below role cards */}
+          <div className="mt-6 flex flex-col items-center gap-7 sm:flex-row sm:justify-center lg:justify-start">
             <Link
               href="#byot-connect"
               className="inline-flex items-center gap-2 rounded-[8px] px-5 py-3 text-[12px] font-bold uppercase tracking-wide text-white shadow-md shadow-orange-500/25 transition hover:brightness-95 sm:text-[13px]"
               style={{ background: ORANGE }}
             >
-              <Users className="h-4 w-4" strokeWidth={2.2} />
+              <FaUserFriends className="h-4 w-4" />
               Build Your Team Today
             </Link>
             <div className="flex items-start gap-2 text-left">
-              <Shield
-                className="mt-0.5 h-5 w-5 shrink-0 text-[#1A1A1A]"
-                strokeWidth={1.5}
+              <FaShieldAlt
+                className="mt-0.5 h-5 w-5 shrink-0"
+                style={{ color: NAVY }}
               />
               <div>
                 <p
@@ -254,74 +407,104 @@ export default function ByotHero() {
           </div>
         </div>
 
-        {/* Right hub visual */}
-        <div className="order-2 z-10 flex items-center justify-center lg:justify-center">
-          <div className="relative aspect-square w-full max-w-[400px] sm:max-w-[440px] lg:max-w-[480px] xl:max-w-[520px]">
-            {/* Dashed spokes + mid dots */}
+        {/* ── Right hub — shifted right to clear the wavy divider ── */}
+        <div
+          ref={orbitRef}
+          className="order-2 z-10 flex min-w-0 w-full items-center justify-center overflow-visible lg:justify-end lg:pl-16 lg:pr-1 xl:pl-20 xl:pr-2"
+        >
+          <div className="relative aspect-square w-full max-w-[460px] sm:max-w-[500px] lg:max-w-[520px] xl:max-w-[560px]">
+            {/* Spokes: dashed orange from Next Ledgers logo → each portrait */}
             <svg
-              className="absolute inset-0 h-full w-full"
+              className="pointer-events-none absolute inset-0 z-[5] h-full w-full overflow-visible"
               viewBox="0 0 100 100"
               aria-hidden
             >
-              {ORBIT.map((person) => {
-                const { x, y } = orbitPoint(person.angle);
-                const mx = (50 + x) / 2;
-                const my = (50 + y) / 2;
+              {ORBIT.map((person, i) => {
+                const start = orbitPoint(person.angle, LINE_START);
+                const end = orbitPoint(person.angle, LINE_END);
+                const showLine = orbitReady && orbitPeople > i;
                 return (
-                  <g key={`spoke-${person.label}`}>
+                  <g
+                    key={`spoke-${person.label}`}
+                    style={{
+                      opacity: showLine ? 1 : 0,
+                      transition: "opacity 380ms ease-out",
+                    }}
+                  >
+                    {/* Line from logo edge straight to photo edge */}
                     <line
-                      x1="50"
-                      y1="50"
-                      x2={x}
-                      y2={y}
+                      x1={start.x}
+                      y1={start.y}
+                      x2={end.x}
+                      y2={end.y}
                       stroke={ORANGE}
-                      strokeWidth="0.55"
-                      strokeDasharray="1.4 1.1"
+                      strokeWidth="0.75"
+                      strokeDasharray="2 1.6"
                       strokeLinecap="round"
-                      opacity="0.9"
                     />
-                    <circle cx={mx} cy={my} r="0.9" fill={ORANGE} />
                   </g>
                 );
               })}
             </svg>
 
-            {/* Center: Next Ledgers logo only */}
-            <div className="absolute left-1/2 top-1/2 z-20 flex h-[112px] w-[112px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white p-3 shadow-[0_8px_28px_rgba(0,0,0,0.1)] sm:h-[128px] sm:w-[128px] sm:p-3.5 lg:h-[140px] lg:w-[140px]">
-              <Image
-                src="/images/nextledgerlogo3.png"
-                alt="Next Ledgers"
-                width={120}
-                height={48}
-                className="h-auto w-full object-contain"
-                priority
-              />
+            {/* Center Next Ledgers logo — flex-centered so scale anim never shifts it */}
+            <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center">
+              <div
+                className="pointer-events-auto flex h-[161px] w-[161px] shrink-0 items-center justify-center rounded-full bg-white p-4 shadow-[0_8px_30px_rgba(0,0,0,0.1)] sm:h-[182px] sm:w-[182px] sm:p-[21px] lg:h-[203px] lg:w-[203px]"
+                style={{
+                  opacity: orbitReady ? 1 : 0,
+                  transform: orbitReady ? "scale(1)" : "scale(0.86)",
+                  transition:
+                    "opacity 450ms ease-out, transform 450ms cubic-bezier(0.22, 1, 0.36, 1)",
+                }}
+              >
+                <Image
+                  src="/images/nextledgerlogo3.png"
+                  alt="Next Ledgers — Accounting & Advisory"
+                  width={182}
+                  height={73}
+                  className="mx-auto h-auto w-[88%] object-contain"
+                  priority
+                />
+              </div>
             </div>
 
-            {/* Orbit portraits placed properly around the logo */}
-            {ORBIT.map((person) => {
-              const { x, y } = orbitPoint(person.angle);
+            {/* Profile circles + labels — positioned on photo center so lines hit images */}
+            {ORBIT.map((person, i) => {
+              const { x, y } = orbitPoint(person.angle, ORBIT_RADIUS);
+              const show = orbitPeople > i;
               return (
                 <div
                   key={person.label}
-                  className="absolute z-10 flex w-[86px] -translate-x-1/2 -translate-y-1/2 flex-col items-center sm:w-[96px]"
-                  style={{ left: `${x}%`, top: `${y}%` }}
+                  className="absolute z-10"
+                  style={{
+                    left: `${x}%`,
+                    top: `${y}%`,
+                    opacity: show ? 1 : 0,
+                    transform: show
+                      ? "translate(-50%, -50%) scale(1)"
+                      : "translate(-50%, -50%) scale(0.82)",
+                    transition:
+                      "opacity 420ms ease-out, transform 420ms cubic-bezier(0.22, 1, 0.36, 1)",
+                  }}
                 >
-                  <div className="h-[68px] w-[68px] overflow-hidden rounded-full border-[3px] border-white bg-[#F3F3F3] shadow-[0_4px_14px_rgba(0,0,0,0.12)] sm:h-[78px] sm:w-[78px]">
-                    <Image
-                      src={person.src}
-                      alt={person.label}
-                      width={78}
-                      height={78}
-                      className="h-full w-full object-cover object-top"
-                    />
+                  <div className="relative">
+                    <div className="h-[119px] w-[119px] overflow-hidden rounded-full border-[3.5px] border-white bg-[#F3F3F3] shadow-[0_4px_16px_rgba(0,0,0,0.12)] sm:h-[137px] sm:w-[137px]">
+                      <Image
+                        src={person.src}
+                        alt={person.label}
+                        width={137}
+                        height={137}
+                        className="h-full w-full object-cover object-top"
+                      />
+                    </div>
+                    <span
+                      className="absolute left-1/2 top-[calc(100%+8px)] z-10 -translate-x-1/2 whitespace-nowrap rounded-full bg-white px-3 py-1 text-[10px] font-semibold shadow-[0_1px_6px_rgba(0,0,0,0.08)] sm:text-[11px]"
+                      style={{ color: NAVY }}
+                    >
+                      {person.label}
+                    </span>
                   </div>
-                  <span
-                    className="mt-1 whitespace-nowrap rounded-[4px] bg-white px-2 py-0.5 text-[9px] font-semibold shadow-sm sm:text-[10px]"
-                    style={{ color: NAVY }}
-                  >
-                    {person.label}
-                  </span>
                 </div>
               );
             })}

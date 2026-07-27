@@ -154,22 +154,12 @@ const visibilityTrustItems = [
 ];
 
 const whyChooseCards = [
-    { title: "Accurate & Timely Financial Reporting", icon: FileText },
-    { title: "Clear Business Performance Insights", icon: Lightbulb },
-    { title: "Customised Management Reports", icon: Building2 },
-    { title: "Improved Financial Visibility", icon: Eye },
-    { title: "Better Budget Monitoring & Control", icon: Target },
-    { title: "Actionable KPI Dashboards", icon: LayoutDashboard },
-    { title: "Scalable Reporting Solutions", icon: TrendingUp },
-    {
-        title: "Experienced Management Accounting Professionals",
-        icon: UserCheck,
-    },
-    { title: "Flexible Offshore Reporting Support", icon: Network },
-    {
-        title: "Trusted Partner for Better Financial Decision-Making",
-        icon: BadgeCheck,
-    },
+    { title: "Real-time business performance insights", icon: Activity },
+    { title: "Custom management dashboards", icon: LayoutDashboard },
+    { title: "KPI and profitability analysis", icon: Target },
+    { title: "Budget vs. actual reporting", icon: BarChart3 },
+    { title: "Actionable financial insights", icon: Lightbulb },
+    { title: "Smarter business decision-making", icon: Eye },
 ];
 
 const softwareExpertiseLogodata = [

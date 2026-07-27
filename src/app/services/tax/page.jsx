@@ -154,16 +154,12 @@ const complianceTrustItems = [
 ];
 
 const whyChooseCards = [
-    { title: "Accurate & Timely Tax Return Preparation", icon: FileCheck },
-    { title: "Experienced Tax & Compliance Professionals", icon: UserCheck },
-    { title: "Strategic Tax Planning Support", icon: Lightbulb },
-    { title: "Reduced Compliance Risk", icon: ShieldCheck },
-    { title: "Improved Tax Efficiency", icon: TrendingUp },
-    { title: "End-to-End Tax Compliance Solutions", icon: Landmark },
-    { title: "Scalable Offshore Tax Support", icon: Network },
-    { title: "Secure & Confidential Data Handling", icon: Lock },
-    { title: "Support Across Multiple Tax Jurisdictions", icon: Globe2 },
-    { title: "Trusted Partner for Long-Term Business Success", icon: BadgeCheck },
+    { title: "Accurate and compliant tax filings", icon: FileCheck },
+    { title: "Proactive tax planning strategies", icon: Lightbulb },
+    { title: "Minimized tax liabilities", icon: TrendingUp },
+    { title: "Reduced compliance risks", icon: ShieldCheck },
+    { title: "Timely tax submissions", icon: ClipboardCheck },
+    { title: "Expert tax advisory support", icon: UserCheck },
 ];
 
 const softwareExpertiseLogodata = [

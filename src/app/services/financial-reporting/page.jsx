@@ -155,19 +155,12 @@ const dataDrivenTrustItems = [
 ];
 
 const whyChooseCards = [
-    { title: "Accurate & Timely Financial Reporting", icon: FileText },
-    { title: "Actionable Business Insights", icon: Lightbulb },
-    {
-        title: "Experienced Finance & Reporting Professionals",
-        icon: UserCheck,
-    },
-    { title: "Improved Financial Visibility", icon: Eye },
-    { title: "Better Performance Monitoring", icon: Activity },
-    { title: "Reliable KPI & Dashboard Reporting", icon: LayoutDashboard },
-    { title: "Enhanced Decision-Making Support", icon: BarChart3 },
-    { title: "Scalable Financial Reporting Solutions", icon: TrendingUp },
-    { title: "Flexible Offshore Finance Support", icon: Network },
-    { title: "Trusted Partner for Business Growth", icon: BadgeCheck },
+    { title: "Accurate and compliant financial statements", icon: FileText },
+    { title: "Timely month-end and year-end reporting", icon: Activity },
+    { title: "Clear insights into business performance", icon: Lightbulb },
+    { title: "Better financial decision-making", icon: BarChart3 },
+    { title: "Compliance with accounting standards", icon: BadgeCheck },
+    { title: "Experienced reporting specialists", icon: UserCheck },
 ];
 
 const softwareExpertiseLogodata = [

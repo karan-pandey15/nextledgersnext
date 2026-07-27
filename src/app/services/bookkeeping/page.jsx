@@ -198,15 +198,11 @@ const softwareExpertiseLogodata = [
 ];
 
 const whyChooseCards = [
-    { title: "Accurate and organised financial records", icon: BookOpen },
+    { title: "Accurate and organized financial records", icon: BookOpen },
     { title: "Timely bookkeeping and reconciliations", icon: ClipboardCheck },
     { title: "Improved cash flow visibility", icon: Eye },
-    { title: "Reduced internal workload", icon: BadgeCheck },
-    { title: "Scalable accounting support", icon: TrendingUp },
     { title: "Faster month-end closing", icon: Zap },
-    { title: "Better financial reporting", icon: FileCheck },
-    { title: "Increased operational efficiency", icon: Network },
-    { title: "Secure and confidential processes", icon: LockKeyhole },
+    { title: "Scalable accounting support", icon: TrendingUp },
     { title: "Dedicated accounting professionals", icon: UserCheck },
 ];
 

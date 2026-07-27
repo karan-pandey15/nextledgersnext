@@ -154,34 +154,12 @@ const performanceTrustItems = [
 ];
 
 const whyChooseCards = [
-    {
-        title: "Experienced Virtual CFO & Finance Professionals",
-        icon: UserCheck,
-    },
-    {
-        title: "Strategic Financial Insights for Better Decision-Making",
-        icon: Lightbulb,
-    },
-    { title: "Improved Cash Flow Visibility", icon: Eye },
-    { title: "Accurate Budgeting & Forecasting", icon: LineChart },
-    {
-        title: "Real-Time Financial Performance Reporting",
-        icon: BarChart3,
-    },
-    {
-        title: "Scalable Finance Support for Growing Businesses",
-        icon: TrendingUp,
-    },
-    { title: "Better Cost Control & Profitability", icon: Coins },
-    {
-        title: "Stronger Financial Governance & Internal Controls",
-        icon: ShieldCheck,
-    },
-    { title: "Flexible Offshore CFO Solutions", icon: Network },
-    {
-        title: "Trusted Partner for Long-Term Business Growth",
-        icon: BadgeCheck,
-    },
+    { title: "Strategic financial leadership", icon: Briefcase },
+    { title: "Cash flow optimization", icon: Eye },
+    { title: "Financial forecasting and budgeting", icon: LineChart },
+    { title: "Profitability improvement strategies", icon: Coins },
+    { title: "Growth-focused business advice", icon: TrendingUp },
+    { title: "Trusted CFO expertise on demand", icon: UserCheck },
 ];
 
 const softwareExpertiseLogodata = [
