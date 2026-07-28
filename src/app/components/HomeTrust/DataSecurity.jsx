@@ -90,7 +90,7 @@ const FEATURES = [
 
 export default function DataSecurity() {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 xl:gap-14 items-center">
+    <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-10 xl:gap-14">
       <div>
         <span className="inline-flex items-center rounded-md bg-[#FFF1E6] text-[#FF6A00] text-[10px] sm:text-[11px] font-bold tracking-[0.16em] uppercase px-3 py-1.5">
           DATA SECURITY
@@ -133,7 +133,8 @@ export default function DataSecurity() {
         </ul>
       </div>
 
-      <div className="relative flex items-center justify-center min-h-[320px] sm:min-h-[400px] lg:min-h-[440px]">
+      {/* Vertically centered with left content; video scaled +50% */}
+      <div className="relative flex items-center justify-center self-center overflow-visible">
         <SecurityShieldMotion />
       </div>
     </div>

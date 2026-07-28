@@ -17,16 +17,10 @@ export const AUSTRALIA_SERVICE_LINKS = [
     blurb: "Day-to-day bookkeeping, reconciliations & catch-up support",
   },
   {
-    label: "Corporation Tax Services",
-    href: "/australia/AuCorporateTax",
-    icon: "📋",
-    blurb: "Company tax returns, computations & ATO compliance",
-  },
-  {
-    label: "Income Tax Services",
-    href: "/australia/AuIncomeTax",
-    icon: "📄",
-    blurb: "Individual tax returns, CGT, rental income & tax planning",
+    label: "Payroll Processing Services",
+    href: "/australia/AuPayroll",
+    icon: "💰",
+    blurb: "Payroll processing, STP & superannuation support",
   },
   {
     label: "Management Accounting & Virtual CFO Services",
@@ -35,10 +29,16 @@ export const AUSTRALIA_SERVICE_LINKS = [
     blurb: "Monthly packs, forecasting, KPIs & virtual CFO support",
   },
   {
-    label: "Payroll Processing Services",
-    href: "/australia/AuPayroll",
-    icon: "💰",
-    blurb: "Payroll processing, STP & superannuation support",
+    label: "Income Tax Services",
+    href: "/australia/AuIncomeTax",
+    icon: "📄",
+    blurb: "Individual tax returns, CGT, rental income & tax planning",
+  },
+  {
+    label: "Corporation Tax Services",
+    href: "/australia/AuCorporateTax",
+    icon: "📋",
+    blurb: "Company tax returns, computations & ATO compliance",
   },
   {
     label: "Year-End Accounts & Financial Statement Preparation Services",

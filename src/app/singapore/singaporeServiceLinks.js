@@ -11,24 +11,6 @@ export const SINGAPORE_SERVICE_LINKS = [
     blurb: "Day-to-day bookkeeping, reconciliations & catch-up support",
   },
   {
-    label: "Corporate Tax Filing Services",
-    href: "/singapore/SgCorporateTax",
-    icon: "📋",
-    blurb: "Tax computations, ECI support & corporate tax compliance",
-  },
-  {
-    label: "GST Compliance & Filing Services",
-    href: "/singapore/SgGst",
-    icon: "🧾",
-    blurb: "GST returns, reconciliations, registrations & reviews",
-  },
-  {
-    label: "Management Accounts & Virtual CFO Services",
-    href: "/singapore/SgManagementAccounts",
-    icon: "📊",
-    blurb: "Monthly packs, forecasting, KPIs & virtual CFO support",
-  },
-  {
     label: "Outsourced Accounting & Financial Cleanup Services",
     href: "/singapore/SgAccountingCleanup",
     icon: "🧹",
@@ -39,6 +21,24 @@ export const SINGAPORE_SERVICE_LINKS = [
     href: "/singapore/SgPayroll",
     icon: "💰",
     blurb: "Payroll processing, CPF calculations & payroll reporting",
+  },
+  {
+    label: "Management Accounts & Virtual CFO Services",
+    href: "/singapore/SgManagementAccounts",
+    icon: "📊",
+    blurb: "Monthly packs, forecasting, KPIs & virtual CFO support",
+  },
+  {
+    label: "GST Compliance & Filing Services",
+    href: "/singapore/SgGst",
+    icon: "🧾",
+    blurb: "GST returns, reconciliations, registrations & reviews",
+  },
+  {
+    label: "Corporate Tax Filing Services",
+    href: "/singapore/SgCorporateTax",
+    icon: "📋",
+    blurb: "Tax computations, ECI support & corporate tax compliance",
   },
   {
     label: "Year-End Accounts & Financial Statement Preparation Services",

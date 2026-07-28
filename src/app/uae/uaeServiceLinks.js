@@ -11,22 +11,10 @@ export const UAE_SERVICE_LINKS = [
     blurb: "Company formation, licences & ongoing corporate compliance",
   },
   {
-    label: "Virtual CFO & Advisory Services",
-    href: "/uae/UaeVirtualCfo",
-    icon: "📈",
-    blurb: "Cash flow, forecasting, KPIs & strategic financial advisory",
-  },
-  {
-    label: "Corporation Tax Services",
-    href: "/uae/UaeCorporateTax",
-    icon: "📋",
-    blurb: "Corporate tax computations, returns & UAE CT compliance",
-  },
-  {
-    label: "Management Accounts & Financial Reporting Services",
-    href: "/uae/UaeManagementAccounts",
-    icon: "📊",
-    blurb: "Monthly packs, KPIs, cash flow & performance insights",
+    label: "Bookkeeping & VAT Services",
+    href: "/uae/UaeBookkeeping",
+    icon: "📒",
+    blurb: "Day-to-day bookkeeping, reconciliations & VAT-ready books",
   },
   {
     label: "Payroll & WPS Services",
@@ -35,10 +23,16 @@ export const UAE_SERVICE_LINKS = [
     blurb: "Payroll processing, WPS files & labour compliance support",
   },
   {
-    label: "VAT Advisory & Compliance Services",
-    href: "/uae/UaeVat",
-    icon: "🧾",
-    blurb: "VAT returns, FTA compliance & advisory support",
+    label: "Management Accounts & Financial Reporting Services",
+    href: "/uae/UaeManagementAccounts",
+    icon: "📊",
+    blurb: "Monthly packs, KPIs, cash flow & performance insights",
+  },
+  {
+    label: "Corporation Tax Services",
+    href: "/uae/UaeCorporateTax",
+    icon: "📋",
+    blurb: "Corporate tax computations, returns & UAE CT compliance",
   },
   {
     label: "Year-End Accounts & Financial Statement Preparation Services",
@@ -47,9 +41,15 @@ export const UAE_SERVICE_LINKS = [
     blurb: "Year-end accounts, financial statements & audit working papers",
   },
   {
-    label: "Bookkeeping & VAT Services",
-    href: "/uae/UaeBookkeeping",
-    icon: "📒",
-    blurb: "Day-to-day bookkeeping, reconciliations & VAT-ready books",
+    label: "VAT Advisory & Compliance Services",
+    href: "/uae/UaeVat",
+    icon: "🧾",
+    blurb: "VAT returns, FTA compliance & advisory support",
+  },
+  {
+    label: "Virtual CFO & Advisory Services",
+    href: "/uae/UaeVirtualCfo",
+    icon: "📈",
+    blurb: "Cash flow, forecasting, KPIs & strategic financial advisory",
   },
 ];

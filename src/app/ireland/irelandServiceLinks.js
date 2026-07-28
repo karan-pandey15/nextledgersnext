@@ -1,15 +1,9 @@
 /**
- * Canonical Ireland service pages — exactly the 5 Word document services.
- * Labels match Word titles without the "Ireland" prefix.
+ * Canonical Ireland service pages — display order matches site navigation.
+ * Includes VAT & Year-End pages that were missing from the nav.
  * href must match the folder name under src/app/ireland/
  */
 export const IRELAND_SERVICE_LINKS = [
-  {
-    label: "Bookkeeping Services",
-    href: "/ireland/IeBookkeeping",
-    icon: "📒",
-    blurb: "Day-to-day bookkeeping, reconciliations & catch-up support",
-  },
   {
     label: "Company Secretarial & CRO Services",
     href: "/ireland/IeCompanySecretarial",
@@ -17,10 +11,10 @@ export const IRELAND_SERVICE_LINKS = [
     blurb: "Annual returns, statutory registers & CRO filings",
   },
   {
-    label: "Corporation Tax Services",
-    href: "/ireland/IeCorporateTax",
-    icon: "📋",
-    blurb: "Company tax returns, computations & Revenue compliance",
+    label: "Bookkeeping Services",
+    href: "/ireland/IeBookkeeping",
+    icon: "📒",
+    blurb: "Day-to-day bookkeeping, reconciliations & catch-up support",
   },
   {
     label: "Management Accounting & Virtual CFO Services",
@@ -29,9 +23,27 @@ export const IRELAND_SERVICE_LINKS = [
     blurb: "Monthly packs, forecasting, KPIs & virtual CFO support",
   },
   {
+    label: "VAT Compliance Services",
+    href: "/ireland/IeVat",
+    icon: "🧾",
+    blurb: "VAT returns, reconciliations & Revenue compliance support",
+  },
+  {
+    label: "Corporation Tax Services",
+    href: "/ireland/IeCorporateTax",
+    icon: "📋",
+    blurb: "Company tax returns, computations & Revenue compliance",
+  },
+  {
     label: "Personal Tax Services",
     href: "/ireland/IePersonalTax",
     icon: "📋",
     blurb: "Form 11/12, CGT, rental income & tax planning support",
+  },
+  {
+    label: "Year-End Accounts & Financial Statement Preparation Services",
+    href: "/ireland/IeYearEndAccount",
+    icon: "📑",
+    blurb: "Year-end accounts, financial statements & audit working papers",
   },
 ];

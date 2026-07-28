@@ -5,6 +5,9 @@ import NZServiceTemplate from "../NZServiceTemplate";
 import RegionalServiceComingSoon from "@/app/components/RegionalNavbar/RegionalServiceComingSoon";
 import { NEW_ZEALAND_SERVICE_LINKS } from "../newZealandServiceLinks";
 import {
+  NZ_BOOKKEEPING,
+  NZ_COMPANY_TAX,
+  NZ_GST,
   NZ_INCOME_TAX,
   NZ_PAYROLL,
   NZ_YEAR_END,
@@ -12,6 +15,9 @@ import {
 
 /** Maps URL slug → page content so NZ services never fall through to Coming Soon. */
 const NZ_SERVICE_PAGES = {
+  NzBookkeeping: NZ_BOOKKEEPING,
+  NzCompanyTax: NZ_COMPANY_TAX,
+  NzGst: NZ_GST,
   NzIncomeTax: NZ_INCOME_TAX,
   NzPayroll: NZ_PAYROLL,
   NzYearEndAccount: NZ_YEAR_END,

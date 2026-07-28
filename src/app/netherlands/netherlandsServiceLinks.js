@@ -4,13 +4,25 @@
  */
 export const NETHERLANDS_SERVICE_LINKS = [
   {
-    label: "Bookkeeping Service",
+    label: "Company Formation & Company Secretarial Services",
+    href: "/netherlands/NlCompanyFormation",
+    icon: "🏢",
+    blurb: "Incorporation, KvK filings & company secretarial",
+  },
+  {
+    label: "Bookkeeping Services",
     href: "/netherlands/NlBookkeeping",
     icon: "📒",
     blurb: "Transaction processing, reconciliations & VAT-ready books",
   },
   {
-    label: "Management Accounts & Financial Reporting",
+    label: "Payroll Services",
+    href: "/netherlands/NlPayroll",
+    icon: "💰",
+    blurb: "Payroll processing, wage tax & pension scheme support",
+  },
+  {
+    label: "Management Accounts & Financial Reporting Services",
     href: "/netherlands/NlManagementAccounts",
     icon: "📊",
     blurb: "Monthly packs, KPIs, cash flow & performance insights",
@@ -22,16 +34,10 @@ export const NETHERLANDS_SERVICE_LINKS = [
     blurb: "BTW returns, Belastingdienst compliance & scheme support",
   },
   {
-    label: "Year-End Accounts & Corporate Tax",
+    label: "Year-End Accounts & Corporate Tax Services",
     href: "/netherlands/NlYearEndAccount",
     icon: "📑",
     blurb: "Statutory accounts, corporate tax & year-end adjustments",
-  },
-  {
-    label: "Payroll Services",
-    href: "/netherlands/NlPayroll",
-    icon: "💰",
-    blurb: "Payroll processing, wage tax & pension scheme support",
   },
   {
     label: "Personal Tax Services",
@@ -44,11 +50,5 @@ export const NETHERLANDS_SERVICE_LINKS = [
     href: "/netherlands/NlBusinessAdvisory",
     icon: "📈",
     blurb: "Forecasting, tax planning & virtual CFO support",
-  },
-  {
-    label: "Company Formation & Company Secretarial Services",
-    href: "/netherlands/NlCompanyFormation",
-    icon: "🏢",
-    blurb: "Incorporation, KvK filings & company secretarial",
   },
 ];

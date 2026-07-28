@@ -10,6 +10,8 @@ import {
   IE_CORPORATE_TAX,
   IE_MANAGEMENT_ACCOUNTS,
   IE_PERSONAL_TAX,
+  IE_VAT,
+  IE_YEAR_END,
 } from "../irelandPageContent";
 
 /** Maps URL slug → page content so Ireland services never fall through to Coming Soon. */
@@ -19,6 +21,8 @@ const IRELAND_SERVICE_PAGES = {
   IeCorporateTax: IE_CORPORATE_TAX,
   IeManagementAccounts: IE_MANAGEMENT_ACCOUNTS,
   IePersonalTax: IE_PERSONAL_TAX,
+  IeVat: IE_VAT,
+  IeYearEndAccount: IE_YEAR_END,
 };
 
 export default function IrelandServiceSlugPage() {
