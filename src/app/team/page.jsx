@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import ArtificialIntelligence from "../components/ArtificialIntelligence/ArtificialIntelligence";
 import NexaLedAi from "../components/ChatBot/NexaLedAi";
 import ContactUsCTA from "../components/HomeTrust/ContactUsCTA";
+import TeamMemberModal from "../components/Team/TeamMemberModal";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
 const ORANGE = BRAND_ORANGE;
@@ -183,16 +184,28 @@ function TeamAvatar({ src, name, bordered = false }) {
 
 /** ~10% larger — height follows content so no empty gap under designation */
 const CARD_BOX =
-  "box-border flex w-[230px] flex-col items-center rounded-[13px] bg-white px-4 pt-5 pb-4 text-center transition-all duration-300 ease-out hover:-translate-y-1.5 sm:w-[242px]";
+  "box-border flex w-[230px] cursor-pointer flex-col items-center rounded-[13px] bg-white px-4 pt-5 pb-4 text-center transition-all duration-300 ease-out hover:-translate-y-1.5 sm:w-[242px]";
 
-function TeamMemberCard({ member, accent = true }) {
+function TeamMemberCard({ member, accent = true, onOpen, onHoverStart, onHoverEnd }) {
   return (
     <div
+      role="button"
+      tabIndex={0}
+      aria-label={`View details for ${member.name}`}
       className={`${CARD_BOX} ${
         accent
           ? "border border-[#FF6A00] shadow-[0_4px_20px_rgba(255,106,0,0.18)] hover:shadow-[0_12px_32px_rgba(255,106,0,0.32)]"
           : "border border-[#D1D5DB] shadow-[0_4px_16px_rgba(15,39,74,0.06)] hover:border-[#FF6A00] hover:shadow-[0_12px_32px_rgba(255,106,0,0.28)]"
       }`}
+      onMouseEnter={() => onHoverStart?.(member)}
+      onMouseLeave={() => onHoverEnd?.()}
+      onClick={() => onOpen?.(member)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onOpen?.(member);
+        }
+      }}
     >
       <TeamAvatar src={member.image} name={member.name} bordered={accent} />
       <div className="mt-3.5 flex w-full flex-col items-center px-1">
@@ -219,18 +232,76 @@ function TeamMemberCard({ member, accent = true }) {
   );
 }
 
-function CardRow({ members, accent = true }) {
+function CardRow({ members, accent = true, onOpen, onHoverStart, onHoverEnd }) {
   return (
     <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
       {members.map((member) => (
-        <TeamMemberCard key={member.name} member={member} accent={accent} />
+        <TeamMemberCard
+          key={member.name}
+          member={member}
+          accent={accent}
+          onOpen={onOpen}
+          onHoverStart={onHoverStart}
+          onHoverEnd={onHoverEnd}
+        />
       ))}
     </div>
   );
 }
 
+const HOVER_OPEN_MS = 120;
+
 export default function TeamPage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [selectedMember, setSelectedMember] = useState(null);
+  const openTimerRef = useRef(null);
+
+  const clearOpenTimer = useCallback(() => {
+    if (openTimerRef.current) {
+      clearTimeout(openTimerRef.current);
+      openTimerRef.current = null;
+    }
+  }, []);
+
+  const openMember = useCallback(
+    (member) => {
+      clearOpenTimer();
+      setSelectedMember(member);
+    },
+    [clearOpenTimer]
+  );
+
+  const closeMember = useCallback(() => {
+    clearOpenTimer();
+    setSelectedMember(null);
+  }, [clearOpenTimer]);
+
+  /** Hover opens modal. Do not close on mouse leave — the overlay covers the card
+   *  and would fire leave immediately, causing flicker. Close via X / backdrop / Esc. */
+  const handleHoverStart = useCallback(
+    (member) => {
+      clearOpenTimer();
+      openTimerRef.current = setTimeout(() => {
+        setSelectedMember(member);
+        openTimerRef.current = null;
+      }, HOVER_OPEN_MS);
+    },
+    [clearOpenTimer]
+  );
+
+  const handleHoverEnd = useCallback(() => {
+    // Cancel only a pending open (user skimmed past the card).
+    // Never auto-close an already-open modal from card leave.
+    clearOpenTimer();
+  }, [clearOpenTimer]);
+
+  useEffect(() => () => clearOpenTimer(), [clearOpenTimer]);
+
+  const cardHandlers = {
+    onOpen: openMember,
+    onHoverStart: handleHoverStart,
+    onHoverEnd: handleHoverEnd,
+  };
 
   return (
     <main className="flex min-h-screen flex-col overflow-x-hidden bg-[#F8F9FA] font-sans text-[#1A1A1A]">
@@ -272,9 +343,9 @@ export default function TeamPage() {
             <SectionTitle>Leadership Team</SectionTitle>
 
             <div className="flex flex-col gap-5 sm:gap-6">
-              <CardRow members={LEADERSHIP_ROW_1} />
-              <CardRow members={LEADERSHIP_ROW_2} />
-              <CardRow members={LEADERSHIP_ROW_3} />
+              <CardRow members={LEADERSHIP_ROW_1} {...cardHandlers} />
+              <CardRow members={LEADERSHIP_ROW_2} {...cardHandlers} />
+              <CardRow members={LEADERSHIP_ROW_3} {...cardHandlers} />
             </div>
           </div>
         </div>
@@ -287,8 +358,8 @@ export default function TeamPage() {
             <SectionTitle>Senior Professional & Support Team</SectionTitle>
 
             <div className="flex flex-col gap-5 sm:gap-6">
-              <CardRow members={SUPPORT_TEAM.slice(0, 4)} accent={false} />
-              <CardRow members={SUPPORT_TEAM.slice(4)} accent={false} />
+              <CardRow members={SUPPORT_TEAM.slice(0, 4)} accent={false} {...cardHandlers} />
+              <CardRow members={SUPPORT_TEAM.slice(4)} accent={false} {...cardHandlers} />
             </div>
           </div>
         </div>
@@ -303,6 +374,12 @@ export default function TeamPage() {
       <Footer variant="global" />
       <ArtificialIntelligence />
       <NexaLedAi />
+
+      <TeamMemberModal
+        member={selectedMember}
+        isOpen={Boolean(selectedMember)}
+        onClose={closeMember}
+      />
     </main>
   );
 }
