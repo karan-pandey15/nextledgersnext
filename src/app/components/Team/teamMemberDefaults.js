@@ -26,22 +26,39 @@ export function getCleanDisplayName(name = "") {
     .trim();
 }
 
-function inferCompanyRole(role = "") {
-  if (/managing\s+partner/i.test(role)) return "Managing Partner, Next Ledgers.";
-  if (/partner/i.test(role)) return "Partner, Next Ledgers.";
-  if (/manager/i.test(role)) return "Manager, Next Ledgers.";
-  return "Team Member, Next Ledgers.";
-}
-
 /**
  * Merge card data with dummy defaults.
  * Pass optional overrides on a member object later (bio, email, linkedin, quote, highlights, companyRole, title).
+ * companyRole (below diamond in modal) = designation — never "Partner, Next Ledgers."
  */
+/** Normalize LinkedIn profile / company URLs for navigation. */
+export function toLinkedInHref(url) {
+  if (!url) return DEFAULT_LINKEDIN;
+  let value = String(url).trim();
+  if (!value) return DEFAULT_LINKEDIN;
+  value = value.replace(/^https?:\/\//i, "").replace(/^\/+/, "");
+  if (!/^linkedin\.com\//i.test(value) && !/^www\.linkedin\.com\//i.test(value)) {
+    value = value.replace(/^in\//i, "linkedin.com/in/");
+  }
+  if (!/^www\./i.test(value)) {
+    value = `www.${value.replace(/^linkedin\.com/i, "linkedin.com")}`;
+  }
+  return `https://${value}`;
+}
+
+export function toMailHref(email) {
+  const address = (email || DEFAULT_EMAIL).trim();
+  return `mailto:${address}`;
+}
+
 export function getTeamMemberDetails(member) {
   if (!member) return null;
 
   const displayName = getCleanDisplayName(member.name);
   const firstName = displayName.split(" ")[0] || "Team Member";
+  /** Degree under the name — fallback M.Com when missing */
+  const degree = (member.credentials || "").trim() || "M.Com";
+  const headingName = displayName;
 
   const resolvedBio = member.bio
     ? Array.isArray(member.bio)
@@ -56,13 +73,18 @@ export function getTeamMemberDetails(member) {
   return {
     name: member.name,
     displayName,
+    headingName,
     image: member.image || "",
-    /** Subtitle under the name — use real role from the card */
+    avatarVariant: member.avatarVariant || "",
     title: member.title || member.role || "",
-    credentials: member.credentials || "",
-    companyRole: member.companyRole || inferCompanyRole(member.role),
+    credentials: degree,
+    /** Degree line under the name in the modal */
+    degree,
+    /** Designation under the orange diamond line */
+    companyRole: member.companyRole || member.role || "",
     email: member.email || DEFAULT_EMAIL,
-    linkedin: member.linkedin || DEFAULT_LINKEDIN,
+    mailHref: toMailHref(member.email),
+    linkedin: toLinkedInHref(member.linkedin),
     bio: resolvedBio,
     highlights: member.highlights || DEFAULT_HIGHLIGHTS,
     quote: member.quote || DEFAULT_QUOTE,
