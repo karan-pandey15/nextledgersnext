@@ -14,6 +14,8 @@ const signatureFont = Great_Vibes({
 
 /** Accent from the provided design (warm terracotta / coral orange) */
 const ACCENT = "#E0704A";
+/** Darker orange for modal icons */
+const ICON_ORANGE = "#C2410C";
 const NAVY = "#1A2B48";
 const BODY = "#0A0A0A";
 const PEACH = "#FFF5F0";
@@ -451,8 +453,8 @@ export default function TeamMemberModal({
                     style={{ color: NAVY }}
                     onClick={(e) => e.stopPropagation()}
                   >
-                    <span className="shrink-0" style={{ color: ACCENT }}>
-                      <IconMail className="h-5 w-5" />
+                    <span className="shrink-0" style={{ color: ICON_ORANGE }}>
+                      <IconMail className="h-6 w-6" />
                     </span>
                     Email
                   </a>
@@ -464,8 +466,8 @@ export default function TeamMemberModal({
                     style={{ color: NAVY }}
                     onClick={(e) => e.stopPropagation()}
                   >
-                    <span className="shrink-0" style={{ color: ACCENT }}>
-                      <IconLinkedIn className="h-5 w-5" />
+                    <span className="shrink-0" style={{ color: ICON_ORANGE }}>
+                      <IconLinkedIn className="h-6 w-6" />
                     </span>
                     LinkedIn
                   </a>
@@ -476,8 +478,8 @@ export default function TeamMemberModal({
               <div className="flex min-h-0 min-w-0 flex-1 flex-col bg-white px-4 py-4 sm:px-6 sm:py-5 md:overflow-hidden lg:px-7 lg:py-6">
                 <div className="mb-2 shrink-0">
                   <div className="flex items-center gap-2 pr-8">
-                    <span className="shrink-0" style={{ color: ACCENT }}>
-                      <IconUser className="h-7 w-7" />
+                    <span className="shrink-0" style={{ color: ICON_ORANGE }}>
+                      <IconUser className="h-8 w-8" />
                     </span>
                     <h3
                       className="text-[12px] font-bold uppercase tracking-[0.04em] sm:text-[13px]"
@@ -515,10 +517,10 @@ export default function TeamMemberModal({
                           className="flex min-w-0 flex-col items-center px-1.5 text-center sm:px-2.5"
                         >
                           <span
-                            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full"
-                            style={{ backgroundColor: "#FFE8DC", color: ACCENT }}
+                            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full sm:h-12 sm:w-12"
+                            style={{ backgroundColor: "#FFE8DC", color: ICON_ORANGE }}
                           >
-                            <Icon className="h-[22px] w-[22px]" />
+                            <Icon className="h-6 w-6 sm:h-[26px] sm:w-[26px]" />
                           </span>
                           <p
                             className="mt-1.5 w-full break-words text-[14px] font-bold leading-tight sm:text-[16px]"
