@@ -15,7 +15,7 @@ const signatureFont = Great_Vibes({
 /** Accent from the provided design (warm terracotta / coral orange) */
 const ACCENT = "#E0704A";
 const NAVY = "#1A2B48";
-const BODY = "#4A5568";
+const BODY = "#0A0A0A";
 const PEACH = "#FFF5F0";
 const PEACH_SIDE = "#FFF0E8";
 
