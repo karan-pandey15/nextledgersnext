@@ -146,6 +146,102 @@ function IconShieldLock({ className = "h-10 w-10" }) {
   );
 }
 
+function IconFile({ className = "h-10 w-10" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path
+        d="M7 3.5h7l4 4V20a1.5 1.5 0 0 1-1.5 1.5h-9.5A1.5 1.5 0 0 1 5.5 20V5A1.5 1.5 0 0 1 7 3.5Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+      <path d="M14 3.5V8h4.5" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+      <path d="M9 12h6M9 15.5h6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function IconGavel({ className = "h-10 w-10" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path
+        d="m14.2 4.8 5 5M8.5 10.5l5 5M3.5 20.5h8M12.8 6.2l-7.1 7.1a1.2 1.2 0 0 0 0 1.7l1.3 1.3a1.2 1.2 0 0 0 1.7 0l7.1-7.1"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function IconChart({ className = "h-10 w-10" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path
+        d="M4 19.5h16M7 16V11M12 16V8M17 16V5.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <path
+        d="m14.5 7.5 2.5-2 2.5 2"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function IconGear({ className = "h-10 w-10" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.5" />
+      <path
+        d="M12 3.5v2.2M12 18.3v2.2M3.5 12h2.2M18.3 12h2.2M5.8 5.8l1.6 1.6M16.6 16.6l1.6 1.6M18.2 5.8l-1.6 1.6M7.4 16.6l-1.6 1.6"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function IconHandshake({ className = "h-10 w-10" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path
+        d="M8 13.5 10.5 11l2 2 3-3L18 12.5M4.5 11.5l3-2.5L10 11M19.5 11.5l-3-2.5L14 11"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M3.5 14.5c1.5 2.5 4 4 8.5 4s7-1.5 8.5-4"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function IconHeartHand({ className = "h-10 w-10" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path
+        d="M12 19.5s-6.5-4-6.5-8.2A3.3 3.3 0 0 1 12 8.2a3.3 3.3 0 0 1 6.5 3.1c0 4.2-6.5 8.2-6.5 8.2Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 function IconQuote({ className = "h-12 w-12" }) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
@@ -159,6 +255,12 @@ const HIGHLIGHT_ICONS = {
   building: IconBuilding,
   globe: IconGlobe,
   shield: IconShieldLock,
+  file: IconFile,
+  gavel: IconGavel,
+  chart: IconChart,
+  gear: IconGear,
+  handshake: IconHandshake,
+  heart: IconHeartHand,
 };
 
 function ModalAvatar({ src, name, variant }) {
@@ -188,7 +290,7 @@ function ModalAvatar({ src, name, variant }) {
 
   return (
     <div
-      className="relative mx-auto flex h-[132px] w-[132px] shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#FFF7F0] sm:h-[148px] sm:w-[148px]"
+      className="relative mx-auto flex h-[176px] w-[176px] shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#FFF7F0] sm:h-[192px] sm:w-[192px]"
       style={{ boxShadow: `0 0 0 2.5px ${ACCENT}` }}
     >
       {imageSrc && !failed ? (
@@ -277,7 +379,7 @@ export default function TeamMemberModal({
             role="dialog"
             aria-modal="true"
             aria-labelledby="team-member-modal-title"
-            className="relative z-10 flex max-h-[min(92vh,880px)] w-full max-w-[960px] flex-col overflow-hidden rounded-[20px] border border-[#E8C4AE] bg-white shadow-[0_24px_64px_rgba(15,39,74,0.22)]"
+            className="relative z-10 flex max-h-[min(92vh,820px)] w-[min(960px,calc(100vw-1.5rem))] flex-col overflow-hidden rounded-[18px] border border-[#E8C4AE] bg-white shadow-[0_24px_64px_rgba(15,39,74,0.22)] md:h-[min(88vh,760px)]"
             initial={{ opacity: 0, y: 18, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 12, scale: 0.98 }}
@@ -287,16 +389,17 @@ export default function TeamMemberModal({
               type="button"
               onClick={onClose}
               aria-label="Close"
-              className="absolute right-3.5 top-3.5 z-20 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-[#E5E7EB] bg-white shadow-sm transition hover:bg-[#FFF7F0] sm:right-4 sm:top-4"
+              className="absolute right-3 top-3 z-30 flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-[#E5E7EB] bg-white shadow-sm transition hover:bg-[#FFF7F0] sm:right-4 sm:top-4"
               style={{ color: ACCENT }}
             >
-              <IconClose className="h-4 w-4" />
+              <IconClose className="h-3.5 w-3.5" />
             </button>
 
-            <div className="flex min-h-0 flex-1 flex-col overflow-hidden lg:flex-row">
-              {/* Left sidebar — matches design */}
+            {/* Body — desktop: fixed height no scroll; stats always reserved */}
+            <div className="flex min-h-0 flex-1 flex-col overflow-y-auto scrollbar-hide md:flex-row md:overflow-hidden">
+              {/* Left sidebar: Image → Name → Degree → orange line → Designation */}
               <aside
-                className="flex w-full shrink-0 flex-col items-center px-6 pb-5 pt-8 text-center sm:px-7 sm:pt-9 lg:w-[300px] lg:px-6 lg:pb-6 lg:pt-10"
+                className="flex w-full shrink-0 flex-col items-center px-4 pb-5 pt-8 text-center sm:px-5 sm:pb-6 sm:pt-9 md:w-[280px] md:px-5 md:pt-10 lg:w-[300px] lg:px-6 lg:pt-11"
                 style={{ backgroundColor: PEACH_SIDE }}
               >
                 <ModalAvatar
@@ -307,46 +410,49 @@ export default function TeamMemberModal({
 
                 <h2
                   id="team-member-modal-title"
-                  className="mt-4 text-[20px] font-bold leading-snug sm:text-[22px]"
+                  className="mt-3 max-w-[250px] text-[18px] font-bold leading-snug sm:mt-3.5 sm:text-[20px]"
                   style={{ color: ACCENT }}
                 >
-                  {details.headingName}
+                  {details.displayName}
                 </h2>
 
-                {/* Degree under name — M.Com fallback when missing */}
                 <p
-                  className="mt-2 max-w-[240px] text-[12px] font-bold leading-snug sm:text-[13px]"
+                  className="mt-1.5 text-[13px] font-bold leading-snug sm:text-[14px]"
                   style={{ color: NAVY }}
                 >
                   {details.degree}
                 </p>
 
-                <div className="relative my-4 flex w-full max-w-[190px] items-center justify-center">
+                <div className="relative my-3.5 flex w-full max-w-[180px] items-center justify-center">
                   <div className="h-px w-full" style={{ backgroundColor: ACCENT }} />
                   <span
-                    className="absolute h-2 w-2 rotate-45"
+                    className="absolute h-1.5 w-1.5 rotate-45"
                     style={{ backgroundColor: ACCENT }}
                     aria-hidden="true"
                   />
                 </div>
 
-                {/* Designation / position */}
-                <p
-                  className="max-w-[240px] text-[12px] font-medium leading-snug sm:text-[13px]"
-                  style={{ color: NAVY }}
-                >
-                  {details.companyRole}
-                </p>
+                <div className="max-w-[240px] space-y-0.5">
+                  {(details.designationLines || []).map((line) => (
+                    <p
+                      key={line}
+                      className="text-[12px] font-medium leading-snug sm:text-[13px]"
+                      style={{ color: NAVY }}
+                    >
+                      {line}
+                    </p>
+                  ))}
+                </div>
 
-                <div className="relative z-30 mt-5 flex w-full max-w-[260px] gap-2.5">
+                <div className="relative z-30 mt-5 flex w-full max-w-[240px] gap-2">
                   <a
                     href={details.mailHref}
-                    className="flex flex-1 items-center justify-center gap-2 rounded-[10px] border border-[#E8E8E8] bg-white py-2.5 text-[12px] font-semibold shadow-[0_2px_8px_rgba(15,39,74,0.06)] transition hover:bg-[#FFFBF8] sm:text-[13px]"
+                    className="flex flex-1 items-center justify-center gap-1.5 rounded-[8px] border border-[#E8E8E8] bg-white py-2 text-[11px] font-semibold shadow-[0_2px_8px_rgba(15,39,74,0.06)] transition hover:bg-[#FFFBF8] sm:text-[12px]"
                     style={{ color: NAVY }}
                     onClick={(e) => e.stopPropagation()}
                   >
                     <span className="shrink-0" style={{ color: ACCENT }}>
-                      <IconMail className="h-6 w-6" />
+                      <IconMail className="h-5 w-5" />
                     </span>
                     Email
                   </a>
@@ -354,112 +460,111 @@ export default function TeamMemberModal({
                     href={details.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex flex-1 items-center justify-center gap-2 rounded-[10px] border border-[#E8E8E8] bg-white py-2.5 text-[12px] font-semibold shadow-[0_2px_8px_rgba(15,39,74,0.06)] transition hover:bg-[#FFFBF8] sm:text-[13px]"
+                    className="flex flex-1 items-center justify-center gap-1.5 rounded-[8px] border border-[#E8E8E8] bg-white py-2 text-[11px] font-semibold shadow-[0_2px_8px_rgba(15,39,74,0.06)] transition hover:bg-[#FFFBF8] sm:text-[12px]"
                     style={{ color: NAVY }}
                     onClick={(e) => e.stopPropagation()}
                   >
                     <span className="shrink-0" style={{ color: ACCENT }}>
-                      <IconLinkedIn className="h-6 w-6" />
+                      <IconLinkedIn className="h-5 w-5" />
                     </span>
                     LinkedIn
                   </a>
                 </div>
               </aside>
 
-              {/* Right content */}
-              <div className="flex min-w-0 flex-1 flex-col justify-between overflow-hidden bg-white px-6 py-6 sm:px-8 sm:py-7 lg:px-8 lg:py-8">
-                <div>
-                  <div className="mb-4">
-                    <div className="flex items-center gap-2.5">
-                      <span className="shrink-0" style={{ color: ACCENT }}>
-                        <IconUser className="h-8 w-8" />
-                      </span>
-                      <h3
-                        className="text-[14px] font-bold uppercase tracking-[0.04em] sm:text-[15px]"
-                        style={{ color: NAVY }}
-                      >
-                        About {details.headingName}
-                      </h3>
-                    </div>
-                    <div className="mt-2 flex items-center" aria-hidden="true">
-                      <span
-                        className="h-[3px] w-9 shrink-0 rounded-[1px]"
-                        style={{ backgroundColor: ACCENT }}
-                      />
-                      <span className="h-px w-12 shrink-0" style={{ backgroundColor: "#E8D5C8" }} />
-                    </div>
+              {/* Right: about + stats always visible on desktop */}
+              <div className="flex min-h-0 min-w-0 flex-1 flex-col bg-white px-4 py-4 sm:px-6 sm:py-5 md:overflow-hidden lg:px-7 lg:py-6">
+                <div className="mb-2 shrink-0">
+                  <div className="flex items-center gap-2 pr-8">
+                    <span className="shrink-0" style={{ color: ACCENT }}>
+                      <IconUser className="h-7 w-7" />
+                    </span>
+                    <h3
+                      className="text-[12px] font-bold uppercase tracking-[0.04em] sm:text-[13px]"
+                      style={{ color: NAVY }}
+                    >
+                      About {details.aboutHeading || details.headingName}
+                    </h3>
                   </div>
-
-                  <div
-                    className="space-y-2.5 text-[12px] leading-[1.65] sm:text-[13px] sm:leading-[1.7]"
-                    style={{ color: BODY }}
-                  >
-                    {details.bio.map((paragraph, i) => (
-                      <p key={i}>{paragraph}</p>
-                    ))}
+                  <div className="mt-1.5 flex items-center" aria-hidden="true">
+                    <span
+                      className="h-[2px] w-8 shrink-0 rounded-[1px]"
+                      style={{ backgroundColor: ACCENT }}
+                    />
+                    <span className="h-px w-10 shrink-0" style={{ backgroundColor: "#E8D5C8" }} />
                   </div>
                 </div>
 
-                {/* Stats — icon in soft peach circle (second image) */}
-                <div className="mt-6 grid grid-cols-2 gap-y-5 sm:mt-7 sm:grid-cols-4 sm:gap-0 sm:divide-x sm:divide-[#E8E8E8]">
-                  {details.highlights.map((item) => {
-                    const Icon = HIGHLIGHT_ICONS[item.icon] || IconBriefcase;
-                    return (
-                      <div
-                        key={item.label}
-                        className="flex flex-col items-center px-2 text-center sm:px-3"
-                      >
-                        <span
-                          className="flex h-11 w-11 items-center justify-center rounded-full sm:h-12 sm:w-12"
-                          style={{ backgroundColor: "#FFE8DC", color: ACCENT }}
+                <div
+                  className="min-h-0 flex-1 space-y-1.5 overflow-y-auto scrollbar-hide text-[11px] leading-[1.5] text-justify sm:text-[12px] sm:leading-[1.55] md:space-y-2"
+                  style={{ color: BODY }}
+                >
+                  {details.bio.map((paragraph, i) => (
+                    <p key={i}>{paragraph}</p>
+                  ))}
+                </div>
+
+                {/* Stats — reserved height so icons/values/labels never clip */}
+                <div className="mt-3 shrink-0 sm:mt-4">
+                  <div className="grid grid-cols-2 gap-x-2 gap-y-3 sm:grid-cols-4 sm:gap-y-0 sm:divide-x sm:divide-[#E8E8E8]">
+                    {details.highlights.map((item, index) => {
+                      const Icon = HIGHLIGHT_ICONS[item.icon] || IconBriefcase;
+                      return (
+                        <div
+                          key={`${item.icon}-${item.value}-${index}`}
+                          className="flex min-w-0 flex-col items-center px-1.5 text-center sm:px-2.5"
                         >
-                          <Icon className="h-6 w-6 sm:h-7 sm:w-7" />
-                        </span>
-                        <p
-                          className="mt-2 text-[18px] font-bold leading-none sm:text-[20px]"
-                          style={{ color: ACCENT }}
-                        >
-                          {item.value}
-                        </p>
-                        <p
-                          className="mt-1.5 text-[11px] leading-snug sm:text-[12px]"
-                          style={{ color: NAVY }}
-                        >
-                          {item.label}
-                        </p>
-                      </div>
-                    );
-                  })}
+                          <span
+                            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full"
+                            style={{ backgroundColor: "#FFE8DC", color: ACCENT }}
+                          >
+                            <Icon className="h-[22px] w-[22px]" />
+                          </span>
+                          <p
+                            className="mt-1.5 w-full break-words text-[14px] font-bold leading-tight sm:text-[16px]"
+                            style={{ color: ACCENT }}
+                          >
+                            {item.value}
+                          </p>
+                          {item.label ? (
+                            <p
+                              className="mt-1 w-full break-words text-[10px] leading-snug sm:text-[11px]"
+                              style={{ color: NAVY }}
+                            >
+                              {item.label}
+                            </p>
+                          ) : null}
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Quote card — matches design image */}
-            <div className="shrink-0 bg-white px-4 pb-4 pt-1 sm:px-5 sm:pb-5">
+            {/* Quote footer */}
+            <div className="mt-[6px] shrink-0 bg-white px-3 pb-3 pt-0 sm:px-4 sm:pb-4">
               <div
-                className="flex flex-col gap-3 rounded-[10px] px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-10 sm:rounded-[12px] sm:px-6 sm:py-[18px]"
-                style={{
-                  backgroundColor: "#FFF5F0",
-                  boxShadow: "inset 0 -1px 0 rgba(15,39,74,0.06)",
-                }}
+                className="flex flex-col gap-2 rounded-[10px] px-3.5 py-2.5 sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:px-5 sm:py-3"
+                style={{ backgroundColor: "#FFF5F0" }}
               >
-                <div className="flex min-w-0 flex-1 items-start gap-3 sm:items-center">
+                <div className="flex min-w-0 flex-1 items-start gap-2 sm:items-center">
                   <span
-                    className="mt-[-2px] shrink-0 text-[34px] font-bold leading-none sm:text-[38px]"
+                    className="mt-[-2px] shrink-0 text-[26px] font-bold leading-none sm:text-[30px]"
                     style={{ color: ACCENT }}
                     aria-hidden="true"
                   >
                     “
                   </span>
                   <p
-                    className="min-w-0 text-[13px] leading-[1.55] sm:text-[14px] sm:leading-[1.6]"
+                    className="min-w-0 text-[11px] leading-[1.5] sm:text-[12px] sm:leading-[1.55]"
                     style={{ color: "#333333" }}
                   >
                     {details.quote}
                   </p>
                 </div>
                 <p
-                  className={`${signatureFont.className} shrink-0 self-end whitespace-nowrap text-right text-[24px] leading-none sm:self-center sm:pl-2 sm:text-[28px]`}
+                  className={`${signatureFont.className} shrink-0 self-end whitespace-nowrap text-right text-[20px] leading-none sm:self-center sm:text-[24px]`}
                   style={{ color: ACCENT }}
                 >
                   - {details.displayName}

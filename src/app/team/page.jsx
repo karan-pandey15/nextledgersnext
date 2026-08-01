@@ -41,7 +41,7 @@ const GLOBAL_ADVISORS = [
   {
     name: "John Muchai, CPA",
     credentials: "CGMA",
-    role: "Partner, North America",
+    role: "Partner - North America Region",
     companyRole: "Partner - North America Region",
     image: "/images/TeamImage/John_Muchai.jpg?v=3",
     email: "John.muchai@nextledgers.com",
@@ -53,11 +53,21 @@ const GLOBAL_LEADERSHIP = [
   {
     name: "Praveen Kumar",
     credentials: "CMA",
-    role: "Audit & Tax Partner Canada",
+    role: "Audit & Tax Partner - Canada Region",
     companyRole: "Audit & Tax Partner - Canada Region",
     image: "/images/TeamImage/Praveen_Kumar-removebg-preview.png",
     email: "Praveen.kumar@nextledgers.com",
     linkedin: "linkedin.com/in/praveen-kumar-143b90216",
+    bio: [
+      "Praveen Kumar serves as the Audit & Tax Partner – Canada at Next Ledgers, supporting accounting firms and businesses with high-quality audit support, financial reporting, and tax compliance solutions. He is committed to helping clients strengthen financial governance through accuracy, transparency, and practical business insight.",
+      "Working closely with organisations across diverse industries, Praveen focuses on delivering dependable accounting solutions, supporting regulatory compliance, and ensuring financial information is both accurate and decision-ready. His collaborative approach and attention to detail help clients confidently navigate complex accounting and tax requirements. As a member of the Global Partners team, Praveen plays a key role in maintaining Next Ledgers’ commitment to quality, integrity, and exceptional client service. He believes trusted financial reporting and proactive advisory support enable businesses to make informed decisions and achieve sustainable growth.",
+    ],
+    highlights: [
+      { value: "140+", label: "Projects Delivered", icon: "briefcase" },
+      { value: "Audit", label: "Excellence", icon: "file" },
+      { value: "Tax", label: "Compliance", icon: "gavel" },
+      { value: "Regulatory", label: "Assurance", icon: "shield" },
+    ],
   },
   {
     name: "Anjali Sharma",
@@ -66,15 +76,37 @@ const GLOBAL_LEADERSHIP = [
     companyRole: "Non Profit Accounting Partner",
     image: "/images/TeamImage/Anjali_Sharma-removebg-preview.png",
     email: "Anjali@nextledgers.com",
+    bio: [
+      "I am an non-profit qualified professional with over 5+ years of experience in accounting, tax, and financial management. My expertise lies in delivering accurate financial reporting, ensuring regulatory compliance, and providing strategic insights that help businesses make informed decisions and achieve sustainable growth.",
+      "At Next Ledgers, I lead the Europe, Middle East & Asia Pacific operations, helping accounting firms and businesses streamline their financial processes through reliable outsourcing and technology-driven solutions. I am passionate about building long-term client relationships and delivering exceptional value through quality, transparency, and timely communication.",
+      "My mission is to empower businesses by optimizing their financial operations and supporting their growth journey with efficient accounting, compliance, and advisory services across global markets.",
+    ],
+    highlights: [
+      { value: "120+", label: "Non-Profit Accounting", icon: "briefcase" },
+      { value: "55+", label: "Grant & Fund Reporting", icon: "heart" },
+      { value: "2+", label: "Countries Served", icon: "file" },
+      { value: "100%", label: "Compliance & Financial Stewardship", icon: "shield" },
+    ],
   },
   {
     name: "Parwinder Singh",
     credentials: "MBA, Finance",
-    role: "Accounting Partner - North America",
+    role: "Accounting Partner - North America Region",
     companyRole: "Accounting Partner - North America Region",
     image: "/images/TeamImage/Parwinder_Singh-removebg-preview.png",
     email: "Parwinder.singh@nextledgers.com",
     linkedin: "linkedin.com/in/parwinder-singh-a915001b5",
+    bio: [
+      "Parwinder Singh is an Accounting Partner at Next Ledgers, supporting businesses and accounting firms across North America with reliable accounting solutions, financial reporting, and business support services. He is dedicated to helping clients improve financial operations through accuracy, consistency, and a practical approach to accounting.",
+      "Working closely with organisations across a wide range of industries, Parwinder focuses on maintaining high-quality financial reporting, streamlining accounting workflows, and supporting businesses with dependable financial information. His collaborative mindset and attention to detail help clients strengthen operational efficiency while maintaining compliance and financial transparency.",
+      "As a member of the Global Partners team, Parwinder plays a key role in delivering scalable accounting solutions, building trusted client relationships, and upholding Next Ledgers’ commitment to quality, professionalism, and confidential service delivery.",
+    ],
+    highlights: [
+      { value: "110+", label: "Projects Delivered", icon: "briefcase" },
+      { value: "Financial", label: "Reporting", icon: "chart" },
+      { value: "Process", label: "Improvement", icon: "gear" },
+      { value: "Trusted Client", label: "Relationships", icon: "handshake" },
+    ],
   },
   {
     name: "Shivam Baranwal",
@@ -87,7 +119,12 @@ const GLOBAL_LEADERSHIP = [
     email: "Shivam.baranwal@nextledgers.com",
     linkedin: "linkedin.com/in/shivam-baranwal-acca-b02627221",
     quote:
-      "Accuracy, consistency, and commitment are the foundations of lasting client relationships.",
+      "Growth begins with trust, and trust is earned through consistency, integrity, and excellence.",
+    bio: [
+      "Shivam Baranwal is an ACCA-qualified accounting professional and Partner at Next Ledgers, leading the firm’s Accounting & Tax practice across Europe, the Middle East, and Asia Pacific. He collaborates with accounting firms and businesses to deliver scalable outsourcing solutions that enhance operational efficiency, strengthen financial reporting, and support sustainable business growth.",
+      "His expertise spans year-end accounting, bookkeeping, management reporting, VAT, payroll, corporation tax support, and cloud accounting solutions. By combining technical knowledge with a client-first approach, Shivam helps businesses streamline finance functions, maintain compliance, and make informed financial decisions through reliable financial reporting.",
+      "Committed to quality, transparency, and continuous improvement, Shivam believes every client engagement should create measurable business value. His focus is on building trusted partnerships that enable businesses and accounting firms to scale confidently while maintaining the highest standards of accuracy, confidentiality, and service excellence.",
+    ],
     highlights: [
       { value: "125+", label: "Projects Delivered", icon: "briefcase" },
       { value: "55+", label: "Businesses Supported", icon: "building" },
@@ -98,19 +135,41 @@ const GLOBAL_LEADERSHIP = [
   {
     name: "Ankita Varde",
     credentials: "CPA",
-    role: "Head of Tax & Compliance - North America",
+    role: "Head of Tax & Compliance - North America Region",
     companyRole: "Head of Tax & Compliance - North America Region",
     image: "/images/TeamImage/Ankita-removebg-preview.png",
     email: "Ankita.varde@nextledgers.com",
+    bio: [
+      "Ankita Varde is the Head of Tax & Compliance – North America at Next Ledgers, helping accounting firms and businesses stay compliant while making tax processes clearer and more efficient. She focuses on delivering accurate, timely, and practical tax solutions that support confident decision-making.",
+      "Her expertise covers corporate tax compliance, tax planning, and regulatory reporting. Ankita works closely with clients to manage complex tax requirements, reduce risk, and maintain strong compliance standards across North American jurisdictions.",
+      "As a member of the Global Partners team, Ankita plays a key role in upholding Next Ledgers’ commitment to quality, integrity, and exceptional client service. She believes proactive tax guidance and disciplined compliance practices help businesses grow with confidence.",
+    ],
+    highlights: [
+      { value: "130+", label: "Projects Delivered", icon: "briefcase" },
+      { value: "Tax", label: "Planning", icon: "building" },
+      { value: "Regulatory", label: "Compliance", icon: "globe" },
+      { value: "Risk", label: "Management", icon: "shield" },
+    ],
   },
   {
     name: "Akash Gangwar",
     credentials: "MBA",
-    role: "Accounting Partner - North America",
+    role: "Accounting Partner - North America Region",
     companyRole: "Accounting Partner - North America Region",
     image: "/images/TeamImage/Akash_Gangwar-removebg-preview.png",
     email: "Akash.gangwar@nextledgers.com",
     linkedin: "linkedin.com/in/akash-kumar-147346244",
+    bio: [
+      "Akash Gangwar is an Accounting Partner at Next Ledgers, supporting accounting firms and businesses across North America with dependable accounting solutions and client-focused financial support. He is committed to helping organisations improve operational efficiency through accurate financial reporting, streamlined accounting processes, and reliable compliance support.",
+      "With a strong foundation in accounting principles and financial management, Akash works closely with clients to maintain accurate books, strengthen reporting processes, and deliver timely financial information. His practical approach and attention to detail help businesses operate with greater confidence while ensuring quality and consistency in every engagement.",
+      "As a member of the Global Partners team, Akash contributes to Next Ledgers' commitment to delivering scalable accounting solutions, fostering trusted client relationships, and maintaining the highest standards of professionalism, confidentiality, and service excellence.",
+    ],
+    highlights: [
+      { value: "115+", label: "Projects Delivered", icon: "briefcase" },
+      { value: "Financial", label: "Reporting", icon: "building" },
+      { value: "6+", label: "Countries Served", icon: "globe" },
+      { value: "100%", label: "Quality & Compliance", icon: "shield" },
+    ],
   },
 ];
 
@@ -299,7 +358,7 @@ function ProfileCard({ member, large = false, onOpen }) {
 
   return (
     <article
-      className={`flex w-[290px] max-w-full flex-col items-center rounded-[14px] border border-[#FF6A00] bg-white px-5 pb-4 pt-7 shadow-[0_4px_18px_rgba(15,39,74,0.06)] transition-shadow hover:shadow-[0_8px_24px_rgba(15,39,74,0.12)] sm:px-6 sm:pb-5 sm:pt-8 ${
+      className={`flex w-full max-w-[290px] flex-col items-center rounded-[14px] border border-[#FF6A00] bg-white px-5 pb-4 pt-7 shadow-[0_4px_18px_rgba(15,39,74,0.06)] transition-shadow hover:shadow-[0_8px_24px_rgba(15,39,74,0.12)] sm:px-6 sm:pb-5 sm:pt-8 ${
         large ? "" : "sm:w-[270px]"
       }`}
     >

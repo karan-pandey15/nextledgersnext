@@ -7,9 +7,9 @@
 
 export const DEFAULT_HIGHLIGHTS = [
   { value: "115+", label: "Projects Delivered", icon: "briefcase" },
-  { value: "Financial", label: "Financial Reporting", icon: "building" },
-  { value: "6+", label: "Client-Centric Approach", icon: "globe" },
-  { value: "Quality", label: "Quality & Compliance", icon: "shield" },
+  { value: "Financial", label: "Reporting", icon: "building" },
+  { value: "6+", label: "Countries Served", icon: "globe" },
+  { value: "100%", label: "Quality & Compliance", icon: "shield" },
 ];
 
 export const DEFAULT_QUOTE =
@@ -57,8 +57,11 @@ export function getTeamMemberDetails(member) {
   const displayName = getCleanDisplayName(member.name);
   const firstName = displayName.split(" ")[0] || "Team Member";
   /** Degree under the name — fallback M.Com when missing */
-  const degree = (member.credentials || "").trim() || "M.Com";
+  const rawCredentials = (member.credentials || "").trim();
+  const degree = rawCredentials || "M.Com";
   const headingName = displayName;
+  /** ABOUT header — include credentials when provided (e.g. ABOUT SHIVAM BARANWAL, ACCA) */
+  const aboutHeading = rawCredentials ? `${displayName}, ${rawCredentials}` : displayName;
 
   const resolvedBio = member.bio
     ? Array.isArray(member.bio)
@@ -70,18 +73,37 @@ export function getTeamMemberDetails(member) {
         `${firstName} is committed to building long-term client relationships through consistent delivery, proactive communication, and a deep understanding of business needs.`,
       ];
 
+  /**
+   * Designation under the orange line.
+   * Prefer companyRole; split "Title - Region" into:
+   *   Accounting Partner -
+   *   North America Region
+   */
+  const designationSource = (member.companyRole || member.role || "").trim();
+  const designationParts = designationSource
+    .split(/\s*[-–—]\s*/)
+    .map((p) => p.trim())
+    .filter(Boolean);
+  const designationLines =
+    member.designationLines ||
+    (designationParts.length >= 2
+      ? [`${designationParts[0]} -`, designationParts.slice(1).join(" - ")]
+      : designationParts);
+
   return {
     name: member.name,
     displayName,
     headingName,
+    aboutHeading,
     image: member.image || "",
     avatarVariant: member.avatarVariant || "",
     title: member.title || member.role || "",
     credentials: degree,
-    /** Degree line under the name in the modal */
+    /** Degree under the name (credentials, fallback M.Com) */
     degree,
-    /** Designation under the orange diamond line */
-    companyRole: member.companyRole || member.role || "",
+    /** Designation lines under the orange diamond divider */
+    designationLines,
+    companyRole: designationSource,
     email: member.email || DEFAULT_EMAIL,
     mailHref: toMailHref(member.email),
     linkedin: toLinkedInHref(member.linkedin),
