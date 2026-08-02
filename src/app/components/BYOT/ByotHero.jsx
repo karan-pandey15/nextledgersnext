@@ -69,44 +69,46 @@ const ROLES = [
 ];
 
 /**
- * Orbit around Next Ledgers — roles / people aligned to second image
- * (top → clockwise)
+ * Orbit around Next Ledgers — Senior Professionals from /team
+ * (designation + image only, top → clockwise)
  */
 const ORBIT = [
   {
-    label: "Accountant",
-    src: "/images/TeamImage/Anjali_Sharma-removebg-preview.png",
+    label: "Chief Onboarding Specialist",
+    src: "/images/TeamImage/Dharmesh_Kumar-removebg-preview.png",
     angle: -90,
   },
   {
-    label: "Payroll Specialist",
+    label: "Virtual Assistance Specialist",
     src: "/images/TeamImage/Kirti_Kapoor-removebg-preview.png",
     angle: -30,
   },
   {
-    label: "Virtual CFO",
-    src: "/images/TeamImage/Parwinder_Singh-removebg-preview.png",
+    label: "AP/AR Specialist",
+    src: "/images/TeamImage/Nikhil_Kushwaha-removebg-preview.png",
     angle: 30,
   },
   {
-    label: "Management Accountant",
-    src: "/images/TeamImage/Praveen_Kumar-removebg-preview.png",
+    label: "Tax Specialist",
+    src: "/images/TeamImage/Md._Almasud-removebg-preview.png",
     angle: 90,
   },
   {
-    label: "Tax Professional",
-    src: "/images/TeamImage/Akash_Gangwar-removebg-preview.png",
+    label: "Payroll Specialist",
+    src: "",
+    initial: "N",
     angle: 150,
   },
   {
-    label: "Bookkeeper",
-    src: "/images/TeamImage/Nikhil_Kushwaha-removebg-preview.png",
+    label: "FP&A Expert",
+    src: "",
+    initial: "A",
     angle: 210,
   },
 ];
 
-/** Photo ring — center of each portrait (% of orbit box) */
-const ORBIT_RADIUS = 39;
+/** Photo ring — center of each portrait (% of orbit box); leave room for bottom labels */
+const ORBIT_RADIUS = 36;
 /** Edge of Next Ledgers logo circle (must match visual logo size) */
 const LOGO_RADIUS = 15;
 /** Half-size of portrait circle in the same % space */
@@ -412,7 +414,8 @@ export default function ByotHero() {
           ref={orbitRef}
           className="order-2 z-10 flex min-w-0 w-full items-center justify-center overflow-visible lg:justify-end lg:pl-16 lg:pr-1 xl:pl-20 xl:pr-2"
         >
-          <div className="relative aspect-square w-full max-w-[460px] sm:max-w-[500px] lg:max-w-[520px] xl:max-w-[560px]">
+          <div className="w-full max-w-[460px] pb-9 sm:max-w-[500px] sm:pb-10 lg:max-w-[520px] xl:max-w-[560px]">
+          <div className="relative aspect-square w-full">
             {/* Spokes: dashed orange from Next Ledgers logo → each portrait */}
             <svg
               className="pointer-events-none absolute inset-0 z-[5] h-full w-full overflow-visible"
@@ -469,7 +472,7 @@ export default function ByotHero() {
               </div>
             </div>
 
-            {/* Profile circles + labels — positioned on photo center so lines hit images */}
+            {/* Profile circles + labels — designation always below the photo */}
             {ORBIT.map((person, i) => {
               const { x, y } = orbitPoint(person.angle, ORBIT_RADIUS);
               const show = orbitPeople > i;
@@ -489,17 +492,27 @@ export default function ByotHero() {
                   }}
                 >
                   <div className="relative">
-                    <div className="h-[119px] w-[119px] overflow-hidden rounded-full border-[3.5px] border-white bg-[#F3F3F3] shadow-[0_4px_16px_rgba(0,0,0,0.12)] sm:h-[137px] sm:w-[137px]">
-                      <Image
-                        src={person.src}
-                        alt={person.label}
-                        width={137}
-                        height={137}
-                        className="h-full w-full object-cover object-top"
-                      />
+                    <div className="flex h-[119px] w-[119px] items-center justify-center overflow-hidden rounded-full border-[3.5px] border-white bg-[#F3F3F3] shadow-[0_4px_16px_rgba(0,0,0,0.12)] sm:h-[137px] sm:w-[137px]">
+                      {person.src ? (
+                        <Image
+                          src={person.src}
+                          alt={person.label}
+                          width={137}
+                          height={137}
+                          className="h-full w-full object-cover object-top"
+                        />
+                      ) : (
+                        <span
+                          className="text-[28px] font-bold sm:text-[32px]"
+                          style={{ color: ORANGE }}
+                          aria-hidden="true"
+                        >
+                          {person.initial || person.label?.[0] || "?"}
+                        </span>
+                      )}
                     </div>
                     <span
-                      className="absolute left-1/2 top-[calc(100%+8px)] z-10 -translate-x-1/2 whitespace-nowrap rounded-full bg-white px-3 py-1 text-[10px] font-semibold shadow-[0_1px_6px_rgba(0,0,0,0.08)] sm:text-[11px]"
+                      className="absolute left-1/2 top-[calc(100%+8px)] z-30 -translate-x-1/2 whitespace-nowrap rounded-full bg-white px-3 py-1 text-[10px] font-semibold shadow-[0_1px_6px_rgba(0,0,0,0.08)] sm:text-[11px]"
                       style={{ color: NAVY }}
                     >
                       {person.label}
@@ -508,6 +521,7 @@ export default function ByotHero() {
                 </div>
               );
             })}
+          </div>
           </div>
         </div>
       </div>
