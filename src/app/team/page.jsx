@@ -234,10 +234,10 @@ const STATS = [
 ];
 
 const PRESENCE = [
-  { label: "Europe", flag: "https://flagcdn.com/eu.svg", flagClass: "h-4 w-6 rounded-[2px]" },
-  { label: "North America", flag: "https://flagcdn.com/us.svg", flagClass: "h-5 w-5 rounded-full" },
-  { label: "Middle East", flag: "https://flagcdn.com/ae.svg", flagClass: "h-5 w-5 rounded-full" },
-  { label: "Asia Pacific", icon: "globe" },
+  { label: "Europe", flag: "https://flagcdn.com/w80/eu.png" },
+  { label: "North America", flag: "https://flagcdn.com/w80/us.png" },
+  { label: "Middle East", flag: "https://flagcdn.com/w80/ae.png" },
+  { label: "Asia Pacific", flag: "/images/specificreason.png", isGlobe: true },
 ];
 
 function getInitials(name) {
@@ -606,17 +606,21 @@ export default function TeamPage() {
             </span>
           </div>
 
-          {PRESENCE.map(({ label, flag, flagClass, icon }) => (
+          {PRESENCE.map(({ label, flag, isGlobe }) => (
             <div
               key={label}
-              className="flex flex-1 items-center justify-center gap-2 border-t border-[#E8E8E8] px-4 py-3 sm:border-t-0 sm:border-l sm:py-3.5"
+              className="flex flex-1 items-center justify-center gap-2.5 border-t border-[#E8E8E8] px-4 py-3 sm:border-t-0 sm:border-l sm:py-3.5"
             >
-              {icon === "globe" ? (
-                <Globe2 className="h-[18px] w-[18px] shrink-0" strokeWidth={2} style={{ color: TITLE_LINE }} />
-              ) : (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={flag} alt="" className={`shrink-0 object-cover shadow-sm ${flagClass}`} />
-              )}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={flag}
+                alt={`${label} ${isGlobe ? "region" : "flag"}`}
+                className={
+                  isGlobe
+                    ? "h-8 w-8 shrink-0 rounded-full object-cover shadow-sm ring-1 ring-black/10 sm:h-9 sm:w-9"
+                    : "h-6 w-9 shrink-0 rounded-[3px] object-cover shadow-sm ring-1 ring-black/10 sm:h-7 sm:w-10"
+                }
+              />
               <span
                 className="whitespace-nowrap text-[13px] font-medium sm:text-[14px]"
                 style={{ color: BODY }}
