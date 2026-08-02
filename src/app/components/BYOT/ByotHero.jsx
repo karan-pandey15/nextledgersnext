@@ -107,10 +107,10 @@ const ORBIT = [
   },
 ];
 
-/** Photo ring — center of each portrait (% of orbit box); leave room for bottom labels */
-const ORBIT_RADIUS = 36;
+/** Photo ring — center of each portrait (% of orbit box); leave room for labels */
+const ORBIT_RADIUS = 38;
 /** Edge of Next Ledgers logo circle (must match visual logo size) */
-const LOGO_RADIUS = 15;
+const LOGO_RADIUS = 12.5;
 /** Half-size of portrait circle in the same % space */
 const PHOTO_RADIUS = 10.5;
 /** Line starts on logo rim, ends on photo rim */
@@ -190,7 +190,7 @@ export default function ByotHero() {
   return (
     <section
       className="relative w-full overflow-hidden bg-[#F2F2F2]"
-      style={{ minHeight: "calc(100svh - 72px)" }}
+      style={{ minHeight: "calc((100svh - 72px) * 1.1)" }}
     >
       {/* Right half: wavy cut + world map dots */}
       <div className="pointer-events-none absolute inset-0 hidden lg:block" aria-hidden>
@@ -262,7 +262,7 @@ export default function ByotHero() {
         </svg>
       </div>
 
-      <div className="relative mx-auto grid min-h-[calc(100svh-72px)] max-w-[1440px] grid-cols-1 items-center gap-10 px-4 py-8 sm:px-6 lg:grid-cols-2 lg:gap-0 lg:px-8 lg:py-5 xl:px-10">
+      <div className="relative mx-auto grid min-h-[calc((100svh-72px)*1.1)] max-w-[1440px] grid-cols-1 items-center gap-10 px-4 py-8 sm:px-6 lg:grid-cols-2 lg:gap-0 lg:px-8 lg:py-5 xl:px-10">
         {/* ── Left — kept clear of the wavy divider ── */}
         <div className="order-1 z-10 w-full min-w-0 max-w-full text-center lg:max-w-none lg:pr-8 lg:text-left xl:pr-12">
           <div className="inline-flex overflow-hidden rounded-full shadow-sm">
@@ -414,7 +414,7 @@ export default function ByotHero() {
           ref={orbitRef}
           className="order-2 z-10 flex min-w-0 w-full items-center justify-center overflow-visible lg:justify-end lg:pl-16 lg:pr-1 xl:pl-20 xl:pr-2"
         >
-          <div className="w-full max-w-[460px] pb-9 sm:max-w-[500px] sm:pb-10 lg:max-w-[520px] xl:max-w-[560px]">
+          <div className="w-full max-w-[506px] pb-10 sm:max-w-[550px] sm:pb-11 lg:max-w-[572px] xl:max-w-[616px]">
           <div className="relative aspect-square w-full">
             {/* Spokes: dashed orange from Next Ledgers logo → each portrait */}
             <svg
@@ -450,10 +450,10 @@ export default function ByotHero() {
               })}
             </svg>
 
-            {/* Center Next Ledgers logo — flex-centered so scale anim never shifts it */}
-            <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center">
+            {/* Center Next Ledgers logo — slightly smaller so orbit labels stay visible */}
+            <div className="pointer-events-none absolute inset-0 z-[15] flex items-center justify-center">
               <div
-                className="pointer-events-auto flex h-[161px] w-[161px] shrink-0 items-center justify-center rounded-full bg-white p-4 shadow-[0_8px_30px_rgba(0,0,0,0.1)] sm:h-[182px] sm:w-[182px] sm:p-[21px] lg:h-[203px] lg:w-[203px]"
+                className="pointer-events-auto flex h-[132px] w-[132px] shrink-0 items-center justify-center rounded-full bg-white p-3.5 shadow-[0_8px_30px_rgba(0,0,0,0.1)] sm:h-[148px] sm:w-[148px] sm:p-4 lg:h-[164px] lg:w-[164px] lg:p-[18px]"
                 style={{
                   opacity: orbitReady ? 1 : 0,
                   transform: orbitReady ? "scale(1)" : "scale(0.86)",
@@ -464,9 +464,9 @@ export default function ByotHero() {
                 <Image
                   src="/images/nextledgerlogo3.png"
                   alt="Next Ledgers — Accounting & Advisory"
-                  width={182}
-                  height={73}
-                  className="mx-auto h-auto w-[88%] object-contain"
+                  width={148}
+                  height={60}
+                  className="mx-auto h-auto w-[84%] object-contain"
                   priority
                 />
               </div>
@@ -479,7 +479,7 @@ export default function ByotHero() {
               return (
                 <div
                   key={person.label}
-                  className="absolute z-10"
+                  className="absolute z-30"
                   style={{
                     left: `${x}%`,
                     top: `${y}%`,
@@ -512,7 +512,7 @@ export default function ByotHero() {
                       )}
                     </div>
                     <span
-                      className="absolute left-1/2 top-[calc(100%+8px)] z-30 -translate-x-1/2 whitespace-nowrap rounded-full bg-white px-3 py-1 text-[10px] font-semibold shadow-[0_1px_6px_rgba(0,0,0,0.08)] sm:text-[11px]"
+                      className="absolute left-1/2 top-[calc(100%+8px)] z-40 -translate-x-1/2 whitespace-nowrap rounded-full bg-white px-3 py-1 text-[10px] font-semibold shadow-[0_1px_6px_rgba(0,0,0,0.08)] sm:text-[11px]"
                       style={{ color: NAVY }}
                     >
                       {person.label}

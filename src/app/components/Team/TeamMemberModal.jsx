@@ -410,7 +410,7 @@ export default function TeamMemberModal({
               >
                 <ModalAvatar
                   src={details.image}
-                  name={details.displayName}
+                  name={details.headingName || details.displayName}
                   variant={details.avatarVariant}
                 />
 
@@ -419,7 +419,7 @@ export default function TeamMemberModal({
                   className="mt-3 max-w-[250px] text-[18px] font-bold leading-snug sm:mt-3.5 sm:text-[20px]"
                   style={{ color: ACCENT }}
                 >
-                  {details.displayName}
+                  {details.headingName || details.displayName}
                 </h2>
 
                 <p
