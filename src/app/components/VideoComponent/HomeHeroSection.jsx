@@ -35,7 +35,7 @@ export default function HomeHeroSection() {
             <span className="text-[#FF6A00] font-semibold">globally</span> since 2018
           </p>
 
-          <h1 className="text-white font-bold text-[clamp(17px,5.5vw,21px)] leading-[1.22] tracking-tight sm:text-[34px] sm:leading-[1.12] md:text-[42px] lg:text-[50px]">
+          <h1 className="text-white font-bold text-[clamp(14px,5.5vw,18px)] leading-[1.22] tracking-tight sm:text-[31px] sm:leading-[1.12] md:text-[39px] lg:text-[47px]">
             <span className="block whitespace-nowrap">
               Your Modern Accounting,{" "}
               <span className="text-[#FF6A00]">Tax</span>
