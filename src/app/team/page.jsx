@@ -72,8 +72,8 @@ const GLOBAL_LEADERSHIP = [
   {
     name: "Anjali Sharma",
     credentials: "MBA",
-    role: "Non Profit Accounting Partner - North Region",
-    companyRole: "Non Profit Accounting Partner - North Region",
+    role: "Non Profit Accounting Partner - North America Region",
+    companyRole: "Non Profit Accounting Partner - North America Region",
     image: "/images/TeamImage/Anjali_Sharma-removebg-preview.png",
     email: "Anjali@nextledgers.com",
     bio: [
