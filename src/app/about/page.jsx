@@ -342,7 +342,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ─── 2. Our Story (Global Partner layout) ─── */}
+      {/* ─── 2. Our Story (cream bg) ─── */}
       <section className="relative w-full overflow-hidden bg-white pt-8 pb-0 sm:pt-9 lg:pt-10">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
           <div className="bg-[#FFF7F0] px-5 py-8 sm:px-8 sm:py-9 lg:px-10 lg:py-10">
@@ -353,13 +353,180 @@ export default function AboutPage() {
                 </div>
 
                 <h2
-                  className="text-[26px] font-bold leading-[1.15] tracking-[-0.01em] sm:text-[32px] lg:text-[36px]"
+                  className="text-[24px] font-bold leading-[1.2] tracking-[-0.01em] sm:text-[30px] lg:text-[34px]"
                   style={{ color: NAVY }}
                 >
                   Our Story –{" "}
                   <span style={{ color: ORANGE }}>
-                    Built by Experience, Driven by Vision
+                    Built by Experience, United by a Shared Vision
                   </span>
+                </h2>
+
+                <div
+                  className="mt-3 max-w-[560px] flex-1 space-y-3 text-[13px] leading-6 sm:mt-4 sm:space-y-3.5 sm:text-[14px] sm:leading-7"
+                  style={{ color: GREY }}
+                >
+                  <p className="font-semibold" style={{ color: NAVY }}>
+                    Every successful business begins with a shared vision.
+                  </p>
+                  <p>
+                    Next Ledgers was founded in 2024 by a group of six experienced
+                    accounting and finance professionals who had spent years supporting
+                    businesses and accounting firms across the United States, Canada, the
+                    United Kingdom, the Gulf region, and APAC. Although we came from
+                    different backgrounds and areas of expertise, we all shared one
+                    belief: accounting support should be more than just completing tasks
+                    — it should help firms grow with confidence.
+                  </p>
+                  <p>
+                    Over the years, we witnessed the same challenges repeatedly:
+                    increasing workloads, evolving compliance requirements, talent
+                    shortages, communication gaps, and the growing need for dependable
+                    accounting partners.
+                  </p>
+                  <p>
+                    Instead of building just another outsourcing company, we set out to
+                    build a firm that accounting firms and businesses in all regions
+                    could genuinely rely on. That vision became{" "}
+                    <strong className="font-semibold text-[#1A1A1A]">Next Ledgers</strong>.
+                  </p>
+                  <p>
+                    Today, our leadership and their core team members bring together
+                    specialists across multiple disciplines, including US, UK, Canadian,
+                    Gulf and APAC accounting and tax. By combining deep industry
+                    expertise with modern cloud technology and standardized processes, we
+                    deliver accurate, secure, and scalable accounting solutions that
+                    integrate seamlessly with our clients&apos; businesses.
+                  </p>
+                </div>
+              </div>
+
+              {/* Image slots — reserved empty frames */}
+              <div className="grid grid-cols-2 gap-3 self-stretch sm:gap-4">
+                <div
+                  className="relative col-span-2 min-h-[200px] overflow-hidden rounded-[20px] bg-[#F3F4F6] sm:min-h-[240px] sm:rounded-[24px] lg:min-h-[280px]"
+                  aria-hidden="true"
+                />
+                <div
+                  className="relative min-h-[160px] overflow-hidden rounded-[18px] bg-[#0B1C33] shadow-[0_10px_28px_rgba(15,39,74,0.08)] sm:min-h-[180px] sm:rounded-[20px]"
+                  aria-hidden="true"
+                />
+                <div
+                  className="relative min-h-[160px] overflow-hidden rounded-[18px] border border-[#E8E8E8] bg-white shadow-[0_10px_28px_rgba(15,39,74,0.06)] sm:min-h-[180px] sm:rounded-[20px]"
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 3. Our Approach (white bg) ─── */}
+      <section className="relative w-full overflow-hidden bg-white py-8 sm:py-9 lg:py-10">
+        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
+          <div className="px-5 sm:px-8 lg:px-10">
+            <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2 lg:gap-10 xl:gap-12">
+              <div className="relative z-10 flex w-full flex-col">
+                <h2
+                  className="text-[22px] font-bold leading-[1.2] tracking-[-0.01em] sm:text-[26px] lg:text-[28px]"
+                  style={{ color: NAVY }}
+                >
+                  Our approach is{" "}
+                  <span style={{ color: ORANGE }}>simple</span>
+                </h2>
+
+                <ul
+                  className="mt-4 space-y-2.5 text-[13px] leading-6 sm:mt-5 sm:space-y-3 sm:text-[14px] sm:leading-7"
+                  style={{ color: GREY }}
+                >
+                  {[
+                    "Build long-term relationships based on trust.",
+                    "Deliver quality without compromise.",
+                    "Communicate proactively and transparently.",
+                    "Treat every client's business as if it were our own.",
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-2.5">
+                      <span
+                        className="h-1.5 w-1.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: ORANGE }}
+                        aria-hidden="true"
+                      />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div
+                  className="mt-4 max-w-[560px] space-y-3 text-[13px] leading-6 sm:mt-5 sm:space-y-3.5 sm:text-[14px] sm:leading-7"
+                  style={{ color: GREY }}
+                >
+                  <p>
+                    Whether we&apos;re supporting a growing business or partnering with
+                    an accounting firm, our mission remains the same — to simplify
+                    finance, reduce administrative burden, and create the capacity for
+                    our clients to focus on growth with confidence.
+                  </p>
+                  <p>
+                    At Next Ledgers, we believe that behind every set of accounts is a
+                    business owner&apos;s ambition, hard work, and vision. That&apos;s
+                    why we strive to be more than an accounting service provider — we
+                    aim to become a trusted extension of every team we work with.
+                  </p>
+                  <p className="font-semibold" style={{ color: NAVY }}>
+                    Welcome to Next Ledgers. We&apos;re excited to be part of your
+                    journey.
+                  </p>
+                </div>
+
+                <div className="mt-5 flex flex-col gap-3 sm:mt-6 sm:flex-row sm:gap-4">
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#FF6A00] px-6 py-2.5 text-[13px] font-semibold text-white transition-colors duration-200 hover:bg-[#E85E00] sm:px-7 sm:py-3 sm:text-[14px]"
+                  >
+                    Get Started Today
+                    <span aria-hidden="true">→</span>
+                  </Link>
+                  <Link
+                    href="/team"
+                    className="cta-fill-orange inline-flex items-center justify-center gap-2 rounded-full px-6 py-2.5 text-[13px] font-semibold sm:px-7 sm:py-3 sm:text-[14px]"
+                  >
+                    Meet Our Team
+                    <span aria-hidden="true">→</span>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Image slots — reserved empty frames */}
+              <div className="grid grid-cols-1 gap-4 self-stretch sm:grid-cols-2 sm:gap-5 lg:grid-cols-1">
+                <div
+                  className="relative min-h-[220px] overflow-hidden rounded-[20px] bg-[#0B1C33] shadow-[0_12px_40px_rgba(15,39,74,0.08)] sm:min-h-[240px] sm:rounded-[24px] lg:min-h-[260px]"
+                  aria-hidden="true"
+                />
+                <div
+                  className="relative min-h-[220px] overflow-hidden rounded-[20px] border border-[#E8E8E8] bg-white shadow-[0_12px_40px_rgba(15,39,74,0.06)] sm:min-h-[240px] sm:rounded-[24px] lg:min-h-[260px]"
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 4. Founder Story (cream bg) ─── */}
+      <section className="relative w-full overflow-hidden bg-white pt-0 pb-0">
+        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
+          <div className="bg-[#FFF7F0] px-5 py-8 sm:px-8 sm:py-9 lg:px-10 lg:py-10">
+            <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2 lg:gap-10 xl:gap-12">
+              <div className="relative z-10 flex w-full flex-col">
+                <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+                  <DottedWorldMap />
+                </div>
+
+                <h2
+                  className="text-[26px] font-bold leading-[1.15] tracking-[-0.01em] sm:text-[32px] lg:text-[36px]"
+                  style={{ color: ORANGE }}
+                >
+                  Founder Story
                 </h2>
 
                 <div
@@ -395,23 +562,6 @@ export default function AboutPage() {
                     practices.
                   </p>
                 </div>
-
-                <div className="mt-5 flex flex-col gap-3 sm:mt-6 sm:flex-row sm:gap-4">
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[#FF6A00] px-6 py-2.5 text-[13px] font-semibold text-white transition-colors duration-200 hover:bg-[#E85E00] sm:px-7 sm:py-3 sm:text-[14px]"
-                  >
-                    Get Started Today
-                    <span aria-hidden="true">→</span>
-                  </Link>
-                  <Link
-                    href="/team"
-                    className="cta-fill-orange inline-flex items-center justify-center gap-2 rounded-full px-6 py-2.5 text-[13px] font-semibold sm:px-7 sm:py-3 sm:text-[14px]"
-                  >
-                    Meet Our Team
-                    <span aria-hidden="true">→</span>
-                  </Link>
-                </div>
               </div>
 
               <div className="relative min-h-[280px] w-full self-stretch overflow-hidden rounded-[20px] bg-[#0B1C33] shadow-[0_12px_40px_rgba(15,39,74,0.08)] [transform:translateZ(0)] [-webkit-mask-image:-webkit-radial-gradient(#fff,#000)] sm:min-h-[320px] sm:rounded-[24px] lg:min-h-0 lg:h-full">
@@ -431,7 +581,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ─── 3. Why We Started (Why Choose Us layout) ─── */}
+      {/* ─── 5. Why We Started (Why Choose Us layout) ─── */}
       <section className="relative w-full overflow-hidden bg-white pb-9 pt-6 sm:pb-10 sm:pt-7 lg:pb-11 lg:pt-8">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
           <div className="px-5 sm:px-8 lg:px-10">
@@ -500,7 +650,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ─── 4. Mission & Vision (compact icon rows) ─── */}
+      {/* ─── 6. Mission & Vision (compact icon rows) ─── */}
       <section className="w-full overflow-hidden bg-white py-0">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
           <div className="bg-[#FFF7F0] px-5 py-8 sm:px-8 sm:py-9 lg:px-10 lg:py-10">
@@ -548,7 +698,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ─── 5. Core Values (space-less icon list + image) ─── */}
+      {/* ─── 7. Core Values (space-less icon list + image) ─── */}
       <section className="relative w-full overflow-hidden bg-white pb-9 pt-6 sm:pb-10 sm:pt-7 lg:pb-11 lg:pt-8">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
           <div className="px-5 sm:px-8 lg:px-10">
