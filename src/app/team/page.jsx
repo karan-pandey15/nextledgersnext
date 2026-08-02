@@ -299,9 +299,9 @@ function SectionTitle({ children }) {
 }
 
 function getAvatarImageClass(variant, isCutout) {
-  // Shivam only — source photo sits right; bias crop so face is centered
+  // Shivam only — source photo sits right; center face without scaling (avoids bottom cut)
   if (variant === "shivam") {
-    return "h-full w-full scale-[1.05] object-cover object-[72%_38%]";
+    return "h-full w-full object-cover object-[70%_48%]";
   }
   if (isCutout) {
     return "h-full w-full object-contain object-bottom";

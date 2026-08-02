@@ -279,38 +279,41 @@ function ModalAvatar({ src, name, variant }) {
     .join("")
     .toUpperCase();
 
-  const imageClass =
-    variant === "shivam"
-      ? // Source photo sits right — bias crop right so face is centered in the circle
-        "h-full w-full scale-[1.05] object-cover object-[72%_38%]"
-      : isCutout
-        ? "h-full w-full object-contain object-bottom"
-        : "h-full w-full object-contain object-center";
+  const isShivam = variant === "shivam";
+  const imageClass = isShivam
+    ? // Source photo sits right; keep face centered and show full lower crop (no scale = no bottom cut)
+      "h-full w-full object-cover object-[70%_48%]"
+    : isCutout
+      ? "h-full w-full object-contain object-bottom"
+      : "h-full w-full object-contain object-center";
 
   useEffect(() => {
     setFailed(!src);
   }, [src]);
 
   return (
-    <div
-      className="relative mx-auto flex h-[176px] w-[176px] shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#FFF7F0] sm:h-[192px] sm:w-[192px]"
-      style={{ boxShadow: `0 0 0 2.5px ${ACCENT}` }}
-    >
-      {imageSrc && !failed ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          key={imageSrc}
-          src={imageSrc}
-          alt={name || ""}
-          className={imageClass}
-          decoding="async"
-          onError={() => setFailed(true)}
-        />
-      ) : (
-        <span className="text-[28px] font-bold tracking-wide sm:text-[30px]" style={{ color: ACCENT }}>
-          {initials}
-        </span>
-      )}
+    // Outer pad keeps the orange ring from being clipped by modal overflow
+    <div className={`mx-auto shrink-0 ${isShivam ? "p-[3px]" : ""}`}>
+      <div
+        className="relative mx-auto flex h-[176px] w-[176px] items-center justify-center overflow-hidden rounded-full bg-[#FFF7F0] sm:h-[192px] sm:w-[192px]"
+        style={{ boxShadow: `0 0 0 2.5px ${ACCENT}` }}
+      >
+        {imageSrc && !failed ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            key={imageSrc}
+            src={imageSrc}
+            alt={name || ""}
+            className={imageClass}
+            decoding="async"
+            onError={() => setFailed(true)}
+          />
+        ) : (
+          <span className="text-[28px] font-bold tracking-wide sm:text-[30px]" style={{ color: ACCENT }}>
+            {initials}
+          </span>
+        )}
+      </div>
     </div>
   );
 }
