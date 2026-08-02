@@ -72,8 +72,8 @@ const GLOBAL_LEADERSHIP = [
   {
     name: "Anjali Sharma",
     credentials: "MBA",
-    role: "Non Profit Accounting Partner",
-    companyRole: "Non Profit Accounting Partner",
+    role: "Non Profit Accounting Partner - North Region",
+    companyRole: "Non Profit Accounting Partner - North Region",
     image: "/images/TeamImage/Anjali_Sharma-removebg-preview.png",
     email: "Anjali@nextledgers.com",
     bio: [
@@ -249,6 +249,15 @@ function getInitials(name) {
   return (first?.[0] || "?").toUpperCase();
 }
 
+/** Split "Title - Region" into lines; drop the dash and put the rest on a new line */
+function getRoleLines(role) {
+  if (!role) return [];
+  return role
+    .split(/\s*[-–—]\s*/)
+    .map((part) => part.trim())
+    .filter(Boolean);
+}
+
 /** Section heading: short faded side rules + under-title ornament */
 const TITLE_LINE = "#C4A574";
 
@@ -355,6 +364,8 @@ function TeamAvatar({
 function ProfileCard({ member, large = false, onOpen }) {
   const emailHref = toMailHref(member.email || DEFAULT_EMAIL);
   const linkedinHref = toLinkedInHref(member.linkedin);
+  const roleLines = getRoleLines(member.role);
+  const roleTextClass = `font-bold leading-snug ${large ? "text-[14px] sm:text-[15px]" : "text-[13px] sm:text-[14px]"}`;
 
   return (
     <article
@@ -389,12 +400,13 @@ function ProfileCard({ member, large = false, onOpen }) {
             {member.credentials}
           </p>
         ) : null}
-        <p
-          className={`mt-1 font-bold leading-snug ${large ? "text-[14px] sm:text-[15px]" : "text-[13px] sm:text-[14px]"}`}
-          style={{ color: NAVY }}
-        >
-          {member.role}
-        </p>
+        <div className="mt-1 space-y-0.5">
+          {roleLines.map((line) => (
+            <p key={line} className={roleTextClass} style={{ color: NAVY }}>
+              {line}
+            </p>
+          ))}
+        </div>
       </button>
 
       <div className="relative z-10 mt-3.5 w-full">
@@ -600,7 +612,12 @@ export default function TeamPage() {
       <section className="w-full px-4 py-6 sm:px-6 sm:py-8 lg:px-10" style={{ backgroundColor: BEIGE }}>
         <div className="mx-auto flex max-w-[980px] flex-col items-stretch rounded-[28px] bg-white py-2 shadow-[0_4px_16px_rgba(15,39,74,0.08)] sm:flex-row sm:items-center sm:rounded-full sm:py-0">
           <div className="flex items-center justify-center gap-2.5 px-5 py-3 sm:shrink-0 sm:justify-start sm:py-3.5 sm:pl-6 sm:pr-5">
-            <Globe2 className="h-[18px] w-[18px] shrink-0" strokeWidth={2} style={{ color: NAVY }} />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/worldfooter.png"
+              alt=""
+              className="h-7 w-7 shrink-0 rounded-full object-cover sm:h-8 sm:w-8"
+            />
             <span className="whitespace-nowrap text-[13px] font-bold sm:text-[14px]" style={{ color: NAVY }}>
               Our Global Presence
             </span>

@@ -75,8 +75,8 @@ export function getTeamMemberDetails(member) {
 
   /**
    * Designation under the orange line.
-   * Prefer companyRole; split "Title - Region" into:
-   *   Accounting Partner -
+   * Prefer companyRole; split "Title - Region" into lines without the dash:
+   *   Accounting Partner
    *   North America Region
    */
   const designationSource = (member.companyRole || member.role || "").trim();
@@ -84,11 +84,7 @@ export function getTeamMemberDetails(member) {
     .split(/\s*[-–—]\s*/)
     .map((p) => p.trim())
     .filter(Boolean);
-  const designationLines =
-    member.designationLines ||
-    (designationParts.length >= 2
-      ? [`${designationParts[0]} -`, designationParts.slice(1).join(" - ")]
-      : designationParts);
+  const designationLines = member.designationLines || designationParts;
 
   return {
     name: member.name,
