@@ -436,24 +436,10 @@ function ProfileCard({ member, large = false, onOpen }) {
   );
 }
 
-/** Horizontal senior / support card — white card, accent name rule */
-function CompactCard({ member, onOpen, accent = ORANGE }) {
-  const openPopup = () => onOpen?.(member);
-
-  const openPopupOnDesktopHover = () => {
-    if (typeof window !== "undefined" && window.matchMedia("(min-width: 1024px)").matches) {
-      openPopup();
-    }
-  };
-
+/** Horizontal senior / support card — display only, no popup */
+function CompactCard({ member, accent = ORANGE }) {
   return (
-    <button
-      type="button"
-      onClick={openPopup}
-      onMouseEnter={openPopupOnDesktopHover}
-      aria-label={`View details for ${member.name}`}
-      className="flex w-full items-center gap-4 rounded-[14px] bg-white px-4 py-4 text-left shadow-[0_4px_16px_rgba(15,39,74,0.07)] transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_22px_rgba(15,39,74,0.1)] sm:gap-4 sm:px-5 sm:py-[18px]"
-    >
+    <article className="flex w-full items-center gap-4 rounded-[14px] bg-white px-4 py-4 text-left shadow-[0_4px_16px_rgba(15,39,74,0.07)] sm:gap-4 sm:px-5 sm:py-[18px]">
       <TeamAvatar
         src={member.image}
         name={member.name}
@@ -474,7 +460,7 @@ function CompactCard({ member, onOpen, accent = ORANGE }) {
           {member.role}
         </p>
       </div>
-    </button>
+    </article>
   );
 }
 
@@ -588,7 +574,7 @@ export default function TeamPage() {
           <SectionTitle>Senior Professionals</SectionTitle>
           <div className="mx-auto grid max-w-[1100px] grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
             {SENIOR_PROFESSIONALS.map((member) => (
-              <CompactCard key={member.name} member={member} onOpen={openMember} />
+              <CompactCard key={member.name} member={member} />
             ))}
           </div>
         </div>
@@ -603,7 +589,6 @@ export default function TeamPage() {
               <CompactCard
                 key={member.name}
                 member={member}
-                onOpen={openMember}
                 accent={TITLE_LINE}
               />
             ))}
