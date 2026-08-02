@@ -281,7 +281,8 @@ function ModalAvatar({ src, name, variant }) {
 
   const imageClass =
     variant === "shivam"
-      ? "h-full w-full scale-[1.0] object-cover object-[center_18%]"
+      ? // Source photo sits right — bias crop right so face is centered in the circle
+        "h-full w-full scale-[1.05] object-cover object-[72%_38%]"
       : isCutout
         ? "h-full w-full object-contain object-bottom"
         : "h-full w-full object-contain object-center";

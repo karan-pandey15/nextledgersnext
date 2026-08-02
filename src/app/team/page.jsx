@@ -299,9 +299,9 @@ function SectionTitle({ children }) {
 }
 
 function getAvatarImageClass(variant, isCutout) {
-  // Shivam only — larger head-and-shoulders fill (matches portrait reference)
+  // Shivam only — source photo sits right; bias crop so face is centered
   if (variant === "shivam") {
-    return "h-full w-full scale-[1.0] object-cover object-[center_18%]";
+    return "h-full w-full scale-[1.05] object-cover object-[72%_38%]";
   }
   if (isCutout) {
     return "h-full w-full object-contain object-bottom";
