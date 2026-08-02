@@ -61,11 +61,19 @@ export function getTeamMemberDetails(member) {
   const degree = rawCredentials || "M.Com";
   /** Sidebar / card title — keep full name including ACCA/CPA suffix */
   const headingName = (member.name || displayName).trim();
-  /** ABOUT header — clean name + short credential token when present */
-  const aboutCredential = rawCredentials.split("|")[0].trim() || rawCredentials;
-  const aboutHeading = aboutCredential
-    ? `${displayName}, ${aboutCredential}`
-    : displayName;
+  /**
+   * ABOUT header — e.g. "Shivam Baranwal ACCA"
+   * No comma; drop "Member"; prefer name when it already has the credential.
+   */
+  const aboutHeading = /\b(ACCA|CPA|CMA|MBA|EA|CGMA)\b/i.test(member.name || "")
+    ? headingName
+    : (() => {
+        const shortCred = (rawCredentials.split("|")[0] || rawCredentials)
+          .replace(/\bMember\b/gi, "")
+          .replace(/\s+/g, " ")
+          .trim();
+        return shortCred ? `${displayName} ${shortCred}` : displayName;
+      })();
 
   const resolvedBio = member.bio
     ? Array.isArray(member.bio)
