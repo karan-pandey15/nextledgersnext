@@ -2,11 +2,11 @@
 
 import { useCallback, useEffect, useState } from "react";
 import {
-  BarChart3,
+  Briefcase,
   Globe2,
   Mail,
-  ShieldCheck,
-  Users,
+  Smile,
+  UsersRound,
 } from "lucide-react";
 import { FaLinkedinIn } from "react-icons/fa";
 import Header from "../components/header/Header";
@@ -227,10 +227,10 @@ const SUPPORT_TEAM = [
 ];
 
 const STATS = [
-  { value: "250+", label: "Projects Delivered", Icon: BarChart3 },
-  { value: "15+", label: "Industry Experts", Icon: Users },
+  { value: "250+", label: "Projects Delivered", Icon: Briefcase },
+  { value: "15+", label: "Industry Experts", Icon: UsersRound },
   { value: "9+", label: "Countries Served", Icon: Globe2 },
-  { value: "99.9%", label: "Client Satisfaction", Icon: ShieldCheck },
+  { value: "99.9%", label: "Client Satisfaction", Icon: Smile },
 ];
 
 const PRESENCE = [
