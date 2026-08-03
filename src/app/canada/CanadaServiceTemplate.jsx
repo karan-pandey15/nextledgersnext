@@ -269,7 +269,7 @@ export default function CanadaServiceTemplate({ data }) {
             <div className="relative pb-10 sm:pb-12">
               <div className="overflow-hidden rounded-2xl">
                 <Image
-                  src={"/images/DSC09901.JPG  "}
+                  src={"/images/DSC09901.JPG"}
                   alt={data.intro.heading}
                   width={720}
                   height={480}
