@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { UK_SERVICE_LINKS } from "@/app/uk/ukServiceLinks";
 
 const UK_NAV_LINKS = [
-  { id: "home", label: "Home", href: "/" },
+  { id: "home", label: "Home", href: "/uk" },
   { id: "about", label: "About Us", href: "/about" },
   {
     id: "services",
@@ -94,7 +94,7 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
         <div className="flex justify-between items-center h-16 lg:h-[68px]">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center -ml-2 sm:-ml-4 lg:-ml-6">
-            <Link href="/" className="flex items-center group">
+            <Link href="/uk" className="flex items-center group">
               <img
                 src="/images/nextledgerlogo3.png"
                 alt="NextLedgers Logo"

@@ -28,7 +28,7 @@ export default function RegionalNavbar({
     pathname === homePath || pathname === `${homePath}/`;
 
   const navLinks = [
-    { id: "home", label: "Home", href: "/" },
+    { id: "home", label: "Home", href: homePath },
     { id: "about", label: "About Us", href: "/about" },
     {
       id: "services",
@@ -116,7 +116,7 @@ export default function RegionalNavbar({
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 lg:h-[68px]">
           <div className="flex-shrink-0 flex items-center -ml-2 sm:-ml-4 lg:-ml-6">
-            <Link href="/" className="flex items-center group">
+            <Link href={homePath} className="flex items-center group">
               <img
                 src="/images/nextledgerlogo3.png"
                 alt="NextLedgers Logo"

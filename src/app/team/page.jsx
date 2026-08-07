@@ -16,6 +16,7 @@ import NexaLedAi from "../components/ChatBot/NexaLedAi";
 import TeamMemberModal from "../components/Team/TeamMemberModal";
 import {
   DEFAULT_EMAIL,
+  getCleanDisplayName,
   toLinkedInHref,
   toMailHref,
 } from "../components/Team/teamMemberDefaults";
@@ -41,39 +42,20 @@ const GLOBAL_ADVISORS = [
   {
     name: "John Muchai, CPA",
     credentials: "CGMA",
-    role: "Partner - North America Region",
-    companyRole: "Partner - North America Region",
-    image: "/images/TeamImage/John_Muchai.jpg?v=3",
+    role: "Partner, North America",
+    companyRole: "Partner, North America",
+    image: "/images/TeamImage/john.jpeg",
     email: "John.muchai@nextledgers.com",
   },
 ];
 
-/** GLOBAL LEADERSHIP / GLOBAL PARTNERS — 3 × 2 */
+/** GLOBAL LEADERSHIP / GLOBAL PARTNERS — order: Anjali, Praveen, Ankita, Shivam, Parwinder, Akash */
 const GLOBAL_LEADERSHIP = [
-  {
-    name: "Praveen Kumar",
-    credentials: "CMA",
-    role: "Audit & Tax Partner - Canada Region",
-    companyRole: "Audit & Tax Partner - Canada Region",
-    image: "/images/TeamImage/Praveen_Kumar-removebg-preview.png",
-    email: "Praveen.kumar@nextledgers.com",
-    linkedin: "linkedin.com/in/praveen-kumar-143b90216",
-    bio: [
-      "Praveen Kumar serves as the Audit & Tax Partner – Canada at Next Ledgers, supporting accounting firms and businesses with high-quality audit support, financial reporting, and tax compliance solutions. He is committed to helping clients strengthen financial governance through accuracy, transparency, and practical business insight.",
-      "Working closely with organisations across diverse industries, Praveen focuses on delivering dependable accounting solutions, supporting regulatory compliance, and ensuring financial information is both accurate and decision-ready. His collaborative approach and attention to detail help clients confidently navigate complex accounting and tax requirements. As a member of the Global Partners team, Praveen plays a key role in maintaining Next Ledgers’ commitment to quality, integrity, and exceptional client service. He believes trusted financial reporting and proactive advisory support enable businesses to make informed decisions and achieve sustainable growth.",
-    ],
-    highlights: [
-      { value: "140+", label: "Projects Delivered", icon: "briefcase" },
-      { value: "Audit", label: "Excellence", icon: "file" },
-      { value: "Tax", label: "Compliance", icon: "gavel" },
-      { value: "Regulatory", label: "Assurance", icon: "shield" },
-    ],
-  },
   {
     name: "Anjali Sharma",
     credentials: "MBA",
-    role: "Non Profit Accounting Partner - North America Region",
-    companyRole: "Non Profit Accounting Partner - North America Region",
+    role: "Non Profit Accounting Partner",
+    companyRole: "Non Profit Accounting Partner",
     image: "/images/TeamImage/Anjali_Sharma-removebg-preview.png",
     email: "Anjali@nextledgers.com",
     bio: [
@@ -89,30 +71,48 @@ const GLOBAL_LEADERSHIP = [
     ],
   },
   {
-    name: "Parwinder Singh",
-    credentials: "MBA, Finance",
-    role: "Accounting Partner - North America Region",
-    companyRole: "Accounting Partner - North America Region",
-    image: "/images/TeamImage/Parwinder_Singh-removebg-preview.png",
-    email: "Parwinder.singh@nextledgers.com",
-    linkedin: "linkedin.com/in/parwinder-singh-a915001b5",
+    name: "Praveen Kumar",
+    credentials: "CMA",
+    role: "Audit & Tax Partner",
+    companyRole: "Audit & Tax Partner",
+    image: "/images/TeamImage/Praveen_Kumar-removebg-preview.png",
+    email: "Praveen.kumar@nextledgers.com",
+    linkedin: "linkedin.com/in/praveen-kumar-143b90216",
     bio: [
-      "Parwinder Singh is an Accounting Partner at Next Ledgers, supporting businesses and accounting firms across North America with reliable accounting solutions, financial reporting, and business support services. He is dedicated to helping clients improve financial operations through accuracy, consistency, and a practical approach to accounting.",
-      "Working closely with organisations across a wide range of industries, Parwinder focuses on maintaining high-quality financial reporting, streamlining accounting workflows, and supporting businesses with dependable financial information. His collaborative mindset and attention to detail help clients strengthen operational efficiency while maintaining compliance and financial transparency.",
-      "As a member of the Global Partners team, Parwinder plays a key role in delivering scalable accounting solutions, building trusted client relationships, and upholding Next Ledgers’ commitment to quality, professionalism, and confidential service delivery.",
+      "Praveen Kumar serves as the Audit & Tax Partner – Canada at Next Ledgers, supporting accounting firms and businesses with high-quality audit support, financial reporting, and tax compliance solutions. He is committed to helping clients strengthen financial governance through accuracy, transparency, and practical business insight.",
+      "Working closely with organisations across diverse industries, Praveen focuses on delivering dependable accounting solutions, supporting regulatory compliance, and ensuring financial information is both accurate and decision-ready. His collaborative approach and attention to detail help clients confidently navigate complex accounting and tax requirements. As a member of the Global Partners team, Praveen plays a key role in maintaining Next Ledgers’ commitment to quality, integrity, and exceptional client service. He believes trusted financial reporting and proactive advisory support enable businesses to make informed decisions and achieve sustainable growth.",
     ],
     highlights: [
-      { value: "110+", label: "Projects Delivered", icon: "briefcase" },
-      { value: "Financial", label: "Reporting", icon: "chart" },
-      { value: "Process", label: "Improvement", icon: "gear" },
-      { value: "Trusted Client", label: "Relationships", icon: "handshake" },
+      { value: "140+", label: "Projects Delivered", icon: "briefcase" },
+      { value: "Audit", label: "Excellence", icon: "file" },
+      { value: "Tax", label: "Compliance", icon: "gavel" },
+      { value: "Regulatory", label: "Assurance", icon: "shield" },
+    ],
+  },
+  {
+    name: "Ankita Varde",
+    credentials: "CPA",
+    role: "Head of Tax & Compliance",
+    companyRole: "Head of Tax & Compliance",
+    image: "/images/TeamImage/Ankita-removebg-preview.png",
+    email: "Ankita.varde@nextledgers.com",
+    bio: [
+      "Ankita Varde is the Head of Tax & Compliance – North America at Next Ledgers, helping accounting firms and businesses stay compliant while making tax processes clearer and more efficient. She focuses on delivering accurate, timely, and practical tax solutions that support confident decision-making.",
+      "Her expertise covers corporate tax compliance, tax planning, and regulatory reporting. Ankita works closely with clients to manage complex tax requirements, reduce risk, and maintain strong compliance standards across North American jurisdictions.",
+      "As a member of the Global Partners team, Ankita plays a key role in upholding Next Ledgers’ commitment to quality, integrity, and exceptional client service. She believes proactive tax guidance and disciplined compliance practices help businesses grow with confidence.",
+    ],
+    highlights: [
+      { value: "130+", label: "Projects Delivered", icon: "briefcase" },
+      { value: "Tax", label: "Planning", icon: "building" },
+      { value: "Regulatory", label: "Compliance", icon: "globe" },
+      { value: "Risk", label: "Management", icon: "shield" },
     ],
   },
   {
     name: "Shivam Baranwal ACCA",
     credentials: "ACCA Member | B.Com",
-    role: "Accounting & Tax Partner - UK, Middle East & APAC",
-    companyRole: "Accounting & Tax Partner - UK, Middle East & APAC",
+    role: "Accounting & Tax Partner",
+    companyRole: "Accounting & Tax Partner",
     image: "/images/TeamImage/shivam.png",
     /** Portrait fill — slightly larger head-and-shoulders crop (unlike cutout photos) */
     avatarVariant: "shivam",
@@ -133,29 +133,30 @@ const GLOBAL_LEADERSHIP = [
     ],
   },
   {
-    name: "Ankita Varde",
-    credentials: "CPA",
-    role: "Head of Tax & Compliance - North America Region",
-    companyRole: "Head of Tax & Compliance - North America Region",
-    image: "/images/TeamImage/Ankita-removebg-preview.png",
-    email: "Ankita.varde@nextledgers.com",
+    name: "Parwinder Singh",
+    credentials: "MBA, Finance",
+    role: "Accounting Partner",
+    companyRole: "Accounting Partner",
+    image: "/images/TeamImage/Parwinder_Singh-removebg-preview.png",
+    email: "Parwinder.singh@nextledgers.com",
+    linkedin: "linkedin.com/in/parwinder-singh-a915001b5",
     bio: [
-      "Ankita Varde is the Head of Tax & Compliance – North America at Next Ledgers, helping accounting firms and businesses stay compliant while making tax processes clearer and more efficient. She focuses on delivering accurate, timely, and practical tax solutions that support confident decision-making.",
-      "Her expertise covers corporate tax compliance, tax planning, and regulatory reporting. Ankita works closely with clients to manage complex tax requirements, reduce risk, and maintain strong compliance standards across North American jurisdictions.",
-      "As a member of the Global Partners team, Ankita plays a key role in upholding Next Ledgers’ commitment to quality, integrity, and exceptional client service. She believes proactive tax guidance and disciplined compliance practices help businesses grow with confidence.",
+      "Parwinder Singh is an Accounting Partner at Next Ledgers, supporting businesses and accounting firms across North America with reliable accounting solutions, financial reporting, and business support services. He is dedicated to helping clients improve financial operations through accuracy, consistency, and a practical approach to accounting.",
+      "Working closely with organisations across a wide range of industries, Parwinder focuses on maintaining high-quality financial reporting, streamlining accounting workflows, and supporting businesses with dependable financial information. His collaborative mindset and attention to detail help clients strengthen operational efficiency while maintaining compliance and financial transparency.",
+      "As a member of the Global Partners team, Parwinder plays a key role in delivering scalable accounting solutions, building trusted client relationships, and upholding Next Ledgers’ commitment to quality, professionalism, and confidential service delivery.",
     ],
     highlights: [
-      { value: "130+", label: "Projects Delivered", icon: "briefcase" },
-      { value: "Tax", label: "Planning", icon: "building" },
-      { value: "Regulatory", label: "Compliance", icon: "globe" },
-      { value: "Risk", label: "Management", icon: "shield" },
+      { value: "110+", label: "Projects Delivered", icon: "briefcase" },
+      { value: "Financial", label: "Reporting", icon: "chart" },
+      { value: "Process", label: "Improvement", icon: "gear" },
+      { value: "Trusted Client", label: "Relationships", icon: "handshake" },
     ],
   },
   {
     name: "Akash Gangwar",
     credentials: "MBA",
-    role: "Accounting Partner - North America Region",
-    companyRole: "Accounting Partner - North America Region",
+    role: "Accounting Partner",
+    companyRole: "Accounting Partner",
     image: "/images/TeamImage/Akash_Gangwar-removebg-preview.png",
     email: "Akash.gangwar@nextledgers.com",
     linkedin: "linkedin.com/in/akash-kumar-147346244",
@@ -173,58 +174,55 @@ const GLOBAL_LEADERSHIP = [
   },
 ];
 
-/** SENIOR PROFESSIONALS — horizontal cards, 3 × 2 */
-const SENIOR_PROFESSIONALS = [
+/**
+ * Shared roster for Senior Professionals + Support Team
+ * (same data in both sections; Md. Almasud last)
+ */
+const TEAM_ROSTER = [
+  {
+    name: "Abhishek Rawat",
+    role: "Financial Planning & KPIs Expert",
+    image: "",
+  },
   {
     name: "Dharmesh Kumar",
-    role: "Chief Onboarding Specialist",
+    role: "Client Onboarding Specialist",
     image: "/images/TeamImage/Dharmesh_Kumar-removebg-preview.png",
   },
   {
-    name: "Kirti Kapoor",
-    role: "Virtual Assistance Specialist",
-    image: "/images/TeamImage/Kirti_Kapoor-removebg-preview.png",
+    name: "Nisha Jindal",
+    role: "Multi-Country Payroll Specialist",
+    image: "",
   },
   {
     name: "Nikhil Kushwaha",
-    role: "AP/AR Specialist",
+    role: "Accounts Payable & Receivable Expert",
     image: "/images/TeamImage/Nikhil_Kushwaha-removebg-preview.png",
   },
   {
-    name: "Md. Almasud",
-    role: "Tax Specialist",
-    image: "/images/TeamImage/Md._Almasud-removebg-preview.png",
-  },
-  {
-    name: "Nisha",
-    role: "Payroll Specialist",
-    image: "",
-  },
-  {
-    name: "Abhishek",
-    role: "FP&A Expert",
-    image: "",
-  },
-];
-
-/** SUPPORT TEAM — horizontal cards */
-const SUPPORT_TEAM = [
-  {
-    name: "Avnish Mishra",
-    role: "Marketing Manager",
+    name: "Avnish Mercer",
+    role: "Business Development Specialist",
     image: "/images/TeamImage/Avneesh_Mishra-removebg-preview.png",
   },
   {
-    name: "Lakshya",
+    name: "Richa Chaudhary",
     role: "HR Manager",
     image: "",
   },
   {
-    name: "Aditya",
+    name: "Rahul Paul",
     role: "IT & Security Administrator",
     image: "",
   },
+  {
+    name: "Md. Almasud",
+    role: "Indirect Tax & Compliance Expert",
+    image: "/images/TeamImage/Md._Almasud-removebg-preview.png",
+  },
 ];
+
+const SENIOR_PROFESSIONALS = TEAM_ROSTER;
+const SUPPORT_TEAM = TEAM_ROSTER;
 
 const STATS = [
   { value: "250+", label: "Projects Delivered", Icon: Briefcase },
@@ -249,13 +247,11 @@ function getInitials(name) {
   return (first?.[0] || "?").toUpperCase();
 }
 
-/** Split "Title - Region" into lines; drop the dash and put the rest on a new line */
+/** Role title only — drop region suffix after " - " (e.g. North America Region) */
 function getRoleLines(role) {
   if (!role) return [];
-  return role
-    .split(/\s*[-–—]\s*/)
-    .map((part) => part.trim())
-    .filter(Boolean);
+  const title = role.split(/\s*[-–—]\s*/)[0]?.trim();
+  return title ? [title] : [];
 }
 
 /** Section heading: short faded side rules + under-title ornament */
@@ -365,6 +361,7 @@ function ProfileCard({ member, large = false, onOpen }) {
   const emailHref = toMailHref(member.email || DEFAULT_EMAIL);
   const linkedinHref = toLinkedInHref(member.linkedin);
   const roleLines = getRoleLines(member.role);
+  const cardName = getCleanDisplayName(member.name);
   const roleTextClass = `font-bold leading-snug ${large ? "text-[14px] sm:text-[15px]" : "text-[13px] sm:text-[14px]"}`;
 
   return (
@@ -378,7 +375,7 @@ function ProfileCard({ member, large = false, onOpen }) {
         type="button"
         className="flex w-full cursor-pointer flex-col items-center text-center transition-opacity hover:opacity-90"
         onClick={() => onOpen?.(member)}
-        aria-label={`View details for ${member.name}`}
+        aria-label={`View details for ${cardName}`}
       >
         <TeamAvatar
           src={member.image}
@@ -390,11 +387,11 @@ function ProfileCard({ member, large = false, onOpen }) {
           className={`mt-4 font-bold leading-snug ${large ? "text-[18px] sm:text-[19px]" : "text-[16px] sm:text-[17px]"}`}
           style={{ color: ORANGE }}
         >
-          {member.name}
+          {cardName}
         </h3>
         {member.credentials ? (
           <p
-            className={`mt-1.5 font-bold leading-snug ${large ? "text-[14px] sm:text-[15px]" : "text-[13px] sm:text-[14px]"}`}
+            className={`mt-1.5 font-normal leading-snug ${large ? "text-[14px] sm:text-[15px]" : "text-[13px] sm:text-[14px]"}`}
             style={{ color: NAVY }}
           >
             {member.credentials}
@@ -448,29 +445,46 @@ function ProfileCard({ member, large = false, onOpen }) {
   );
 }
 
-/** Horizontal senior / support card — display only, no popup */
-function CompactCard({ member, accent = ORANGE }) {
+/** Same look as ProfileCard — no Email/LinkedIn, not clickable */
+function DisplayProfileCard({ member, large = false }) {
+  const roleLines = getRoleLines(member.role);
+  const cardName = getCleanDisplayName(member.name);
+  const roleTextClass = `font-bold leading-snug ${large ? "text-[14px] sm:text-[15px]" : "text-[13px] sm:text-[14px]"}`;
+
   return (
-    <article className="flex w-full items-center gap-4 rounded-[14px] bg-white px-4 py-4 text-left shadow-[0_4px_16px_rgba(15,39,74,0.07)] sm:gap-4 sm:px-5 sm:py-[18px]">
-      <TeamAvatar
-        src={member.image}
-        name={member.name}
-        size="sm"
-        ringColor={accent}
-        bgColor="#F3F4F6"
-      />
-      <div className="min-w-0">
-        <h3 className="text-[15px] font-bold leading-snug sm:text-[16px]" style={{ color: NAVY }}>
-          {member.name}
-        </h3>
-        <span
-          className="mt-2 block h-[2px] w-9 rounded-full"
-          style={{ backgroundColor: accent }}
-          aria-hidden="true"
+    <article
+      className={`flex w-full max-w-[290px] flex-col items-center rounded-[14px] border border-[#FF6A00] bg-white px-5 pb-6 pt-7 shadow-[0_4px_18px_rgba(15,39,74,0.06)] sm:px-6 sm:pb-7 sm:pt-8 ${
+        large ? "" : "sm:w-[270px]"
+      }`}
+    >
+      <div className="flex w-full flex-col items-center text-center">
+        <TeamAvatar
+          src={member.image}
+          name={member.name}
+          size={large ? "lg" : "md"}
+          variant={member.avatarVariant}
         />
-        <p className="mt-2 text-[13px] leading-snug sm:text-[14px]" style={{ color: NAVY }}>
-          {member.role}
-        </p>
+        <h3
+          className={`mt-4 font-bold leading-snug ${large ? "text-[18px] sm:text-[19px]" : "text-[16px] sm:text-[17px]"}`}
+          style={{ color: ORANGE }}
+        >
+          {cardName}
+        </h3>
+        {member.credentials ? (
+          <p
+            className={`mt-1.5 font-normal leading-snug ${large ? "text-[14px] sm:text-[15px]" : "text-[13px] sm:text-[14px]"}`}
+            style={{ color: NAVY }}
+          >
+            {member.credentials}
+          </p>
+        ) : null}
+        <div className="mt-1 space-y-0.5">
+          {roleLines.map((line) => (
+            <p key={line} className={roleTextClass} style={{ color: NAVY }}>
+              {line}
+            </p>
+          ))}
+        </div>
       </div>
     </article>
   );
@@ -584,25 +598,21 @@ export default function TeamPage() {
       <section className="w-full py-8 sm:py-9 lg:py-10" style={{ backgroundColor: "#F3F4F6" }}>
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
           <SectionTitle>Senior Professionals</SectionTitle>
-          <div className="mx-auto grid max-w-[1100px] grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
+          <div className="mx-auto grid max-w-[1100px] grid-cols-1 justify-items-center gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-7">
             {SENIOR_PROFESSIONALS.map((member) => (
-              <CompactCard key={member.name} member={member} />
+              <DisplayProfileCard key={`senior-${member.name}`} member={member} large />
             ))}
           </div>
         </div>
       </section>
 
-      {/* SUPPORT TEAM */}
+      {/* FP&A & KPI Expert */}
       <section className="w-full py-8 sm:py-9 lg:py-10" style={{ backgroundColor: "#FFF7F0" }}>
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
-          <SectionTitle>Support Team</SectionTitle>
-          <div className="mx-auto grid max-w-[1100px] grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
+          <SectionTitle>FP&A & KPI Expert</SectionTitle>
+          <div className="mx-auto grid max-w-[1100px] grid-cols-1 justify-items-center gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-7">
             {SUPPORT_TEAM.map((member) => (
-              <CompactCard
-                key={member.name}
-                member={member}
-                accent={TITLE_LINE}
-              />
+              <DisplayProfileCard key={`support-${member.name}`} member={member} large />
             ))}
           </div>
         </div>

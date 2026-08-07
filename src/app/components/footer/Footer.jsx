@@ -373,6 +373,12 @@ export default function Footer({ region, variant }) {
 
   const mode = isGlobal ? "global" : resolvedRegion || "uk";
   const regionServices = mode === "global" ? null : REGION_SERVICES[mode];
+  const regionHomePath = resolvedRegion
+    ? REGION_PATH_PREFIXES.find(([, key]) => key === resolvedRegion)?.[0] || "/"
+    : "/";
+  const quickLinks = QUICK_LINKS.map((link) =>
+    link.label === "Home" ? { ...link, href: regionHomePath } : link
+  );
 
   // Exact same home copy + stats everywhere
   const copy = HOME_COPY;
@@ -440,7 +446,7 @@ export default function Footer({ region, variant }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-7 xl:flex xl:flex-row xl:items-stretch xl:gap-0">
           {/* Brand */}
           <div className="flex flex-col gap-3 xl:w-[26%] xl:shrink-0 xl:pr-4">
-            <Link href="/" className="inline-block shrink-0">
+            <Link href={regionHomePath} className="inline-block shrink-0">
               <img
                 src="/images/nextledgerlogo3.png"
                 alt="Next Ledgers"
@@ -520,7 +526,7 @@ export default function Footer({ region, variant }) {
               Quick Links
             </h3>
             <ul className="flex flex-col gap-2">
-              {QUICK_LINKS.map((link) => (
+              {quickLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}

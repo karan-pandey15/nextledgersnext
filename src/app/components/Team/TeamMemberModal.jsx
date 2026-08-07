@@ -423,7 +423,7 @@ export default function TeamMemberModal({
                 </h2>
 
                 <p
-                  className="mt-1.5 text-[13px] font-bold leading-snug sm:text-[14px]"
+                  className="mt-1.5 text-[13px] font-normal leading-snug sm:text-[14px]"
                   style={{ color: NAVY }}
                 >
                   {details.degree}
