@@ -174,55 +174,58 @@ const GLOBAL_LEADERSHIP = [
   },
 ];
 
-/**
- * Shared roster for Senior Professionals + Support Team
- * (same data in both sections; Md. Almasud last)
- */
-const TEAM_ROSTER = [
-  {
-    name: "Abhishek Rawat",
-    role: "Financial Planning & KPIs Expert",
-    image: "",
-  },
+/** SENIOR PROFESSIONALS — Global Leadership card style, original data */
+const SENIOR_PROFESSIONALS = [
   {
     name: "Dharmesh Kumar",
-    role: "Client Onboarding Specialist",
+    role: "Chief Onboarding Specialist",
     image: "/images/TeamImage/Dharmesh_Kumar-removebg-preview.png",
   },
   {
-    name: "Nisha Jindal",
-    role: "Multi-Country Payroll Specialist",
-    image: "",
+    name: "Kirti Kapoor",
+    role: "Virtual Assistance Specialist",
+    image: "/images/TeamImage/Kirti_Kapoor-removebg-preview.png",
   },
   {
     name: "Nikhil Kushwaha",
-    role: "Accounts Payable & Receivable Expert",
+    role: "AP/AR Specialist",
     image: "/images/TeamImage/Nikhil_Kushwaha-removebg-preview.png",
   },
   {
-    name: "Avnish Mercer",
-    role: "Business Development Specialist",
+    name: "Md. Almasud",
+    role: "Tax Specialist",
+    image: "/images/TeamImage/Md._Almasud-removebg-preview.png",
+  },
+  {
+    name: "Nisha",
+    role: "Payroll Specialist",
+    image: "",
+  },
+  {
+    name: "Abhishek",
+    role: "FP&A Expert",
+    image: "",
+  },
+];
+
+/** SUPPORT TEAM — Global Leadership card style, original data */
+const SUPPORT_TEAM = [
+  {
+    name: "Avnish Mishra",
+    role: "Marketing Manager",
     image: "/images/TeamImage/Avneesh_Mishra-removebg-preview.png",
   },
   {
-    name: "Richa Chaudhary",
+    name: "Lakshya",
     role: "HR Manager",
     image: "",
   },
   {
-    name: "Rahul Paul",
+    name: "Aditya",
     role: "IT & Security Administrator",
     image: "",
   },
-  {
-    name: "Md. Almasud",
-    role: "Indirect Tax & Compliance Expert",
-    image: "/images/TeamImage/Md._Almasud-removebg-preview.png",
-  },
 ];
-
-const SENIOR_PROFESSIONALS = TEAM_ROSTER;
-const SUPPORT_TEAM = TEAM_ROSTER;
 
 const STATS = [
   { value: "250+", label: "Projects Delivered", Icon: Briefcase },
@@ -445,7 +448,7 @@ function ProfileCard({ member, large = false, onOpen }) {
   );
 }
 
-/** Same look as ProfileCard — no Email/LinkedIn, not clickable */
+/** Same look as Global Leadership cards — no Email/LinkedIn, not clickable */
 function DisplayProfileCard({ member, large = false }) {
   const roleLines = getRoleLines(member.role);
   const cardName = getCleanDisplayName(member.name);
@@ -600,19 +603,19 @@ export default function TeamPage() {
           <SectionTitle>Senior Professionals</SectionTitle>
           <div className="mx-auto grid max-w-[1100px] grid-cols-1 justify-items-center gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-7">
             {SENIOR_PROFESSIONALS.map((member) => (
-              <DisplayProfileCard key={`senior-${member.name}`} member={member} large />
+              <DisplayProfileCard key={member.name} member={member} large />
             ))}
           </div>
         </div>
       </section>
 
-      {/* FP&A & KPI Expert */}
+      {/* SUPPORT TEAM */}
       <section className="w-full py-8 sm:py-9 lg:py-10" style={{ backgroundColor: "#FFF7F0" }}>
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
-          <SectionTitle>FP&A & KPI Expert</SectionTitle>
+          <SectionTitle>Support Team</SectionTitle>
           <div className="mx-auto grid max-w-[1100px] grid-cols-1 justify-items-center gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-7">
             {SUPPORT_TEAM.map((member) => (
-              <DisplayProfileCard key={`support-${member.name}`} member={member} large />
+              <DisplayProfileCard key={member.name} member={member} large />
             ))}
           </div>
         </div>
