@@ -44,7 +44,7 @@ const GLOBAL_ADVISORS = [
     credentials: "CGMA",
     role: "Partner, North America",
     companyRole: "Partner, North America",
-    image: "/images/TeamImage/john.jpeg",
+    image: "/images/TeamImage/johnremovebg.png",
     email: "John.muchai@nextledgers.com",
   },
 ];
@@ -73,8 +73,9 @@ const GLOBAL_LEADERSHIP = [
   {
     name: "Praveen Kumar",
     credentials: "CMA",
-    role: "Audit & Tax Partner",
-    companyRole: "Audit & Tax Partner",
+    role: "Audit & Tax Partner, Canada",
+    companyRole: "Audit & Tax Partner, Canada",
+    designationLines: ["Audit & Tax Partner, Canada"],
     image: "/images/TeamImage/Praveen_Kumar-removebg-preview.png",
     email: "Praveen.kumar@nextledgers.com",
     linkedin: "linkedin.com/in/praveen-kumar-143b90216",
@@ -113,6 +114,7 @@ const GLOBAL_LEADERSHIP = [
     credentials: "ACCA Member | B.Com",
     role: "Accounting & Tax Partner",
     companyRole: "Accounting & Tax Partner",
+    designationLines: ["Accounting & Tax Partner", "UK, Middle East & APAC"],
     image: "/images/TeamImage/shivam.png",
     /** Portrait fill — slightly larger head-and-shoulders crop (unlike cutout photos) */
     avatarVariant: "shivam",
@@ -135,8 +137,9 @@ const GLOBAL_LEADERSHIP = [
   {
     name: "Parwinder Singh",
     credentials: "MBA, Finance",
-    role: "Accounting Partner",
-    companyRole: "Accounting Partner",
+    role: "Accounting & Tax Partner",
+    companyRole: "Accounting & Tax Partner",
+    designationLines: ["Accounting & Tax Partner", "North America"],
     image: "/images/TeamImage/Parwinder_Singh-removebg-preview.png",
     email: "Parwinder.singh@nextledgers.com",
     linkedin: "linkedin.com/in/parwinder-singh-a915001b5",
@@ -155,8 +158,9 @@ const GLOBAL_LEADERSHIP = [
   {
     name: "Akash Gangwar",
     credentials: "MBA",
-    role: "Accounting Partner",
-    companyRole: "Accounting Partner",
+    role: "Accounting & Tax Partner",
+    companyRole: "Accounting & Tax Partner",
+    designationLines: ["Accounting & Tax Partner", "North America"],
     image: "/images/TeamImage/Akash_Gangwar-removebg-preview.png",
     email: "Akash.gangwar@nextledgers.com",
     linkedin: "linkedin.com/in/akash-kumar-147346244",
@@ -178,7 +182,7 @@ const GLOBAL_LEADERSHIP = [
 const SENIOR_PROFESSIONALS = [
   {
     name: "Dharmesh Kumar",
-    role: "Chief Onboarding Specialist",
+    role: "Client Onboarding Specialist",
     image: "/images/TeamImage/Dharmesh_Kumar-removebg-preview.png",
   },
   {
@@ -188,40 +192,42 @@ const SENIOR_PROFESSIONALS = [
   },
   {
     name: "Nikhil Kushwaha",
-    role: "AP/AR Specialist",
+    role: "Accounts Payable & Receivable Expert",
     image: "/images/TeamImage/Nikhil_Kushwaha-removebg-preview.png",
   },
   {
     name: "Md. Almasud",
-    role: "Tax Specialist",
+    role: "Indirect Tax & Compliance Expert",
     image: "/images/TeamImage/Md._Almasud-removebg-preview.png",
   },
   {
-    name: "Nisha",
-    role: "Payroll Specialist",
+    name: "Nisha Jindal",
+    role: "Multi-Country Payroll Specialist",
     image: "",
   },
   {
-    name: "Abhishek",
-    role: "FP&A Expert",
-    image: "",
+    name: "Abhishek Rawat",
+    role: "Financial Planning & KPIs Expert",
+    image: "/images/TeamImage/abhishekremove.png",
+    /** Zoom crop — frame head + crossed arms/hands tightly in the circle */
+    avatarVariant: "abhishek",
   },
 ];
 
 /** SUPPORT TEAM — Global Leadership card style, original data */
 const SUPPORT_TEAM = [
   {
-    name: "Avnish Mishra",
-    role: "Marketing Manager",
+    name: "Avnish Mercer",
+    role: "Business Development Specialist",
     image: "/images/TeamImage/Avneesh_Mishra-removebg-preview.png",
   },
   {
-    name: "Lakshya",
+    name: "Richa Chaudhary",
     role: "HR Manager",
     image: "",
   },
   {
-    name: "Aditya",
+    name: "Rahul Paul",
     role: "IT & Security Administrator",
     image: "",
   },
@@ -250,11 +256,20 @@ function getInitials(name) {
   return (first?.[0] || "?").toUpperCase();
 }
 
-/** Role title only — drop region suffix after " - " (e.g. North America Region) */
-function getRoleLines(role) {
-  if (!role) return [];
-  const title = role.split(/\s*[-–—]\s*/)[0]?.trim();
-  return title ? [title] : [];
+/** Split "Title - Region" into lines; prefer explicit designationLines when set */
+function getRoleLines(memberOrRole) {
+  if (!memberOrRole) return [];
+  if (typeof memberOrRole === "object") {
+    if (Array.isArray(memberOrRole.designationLines) && memberOrRole.designationLines.length) {
+      return memberOrRole.designationLines;
+    }
+    memberOrRole = memberOrRole.role || memberOrRole.companyRole || "";
+  }
+  if (!memberOrRole) return [];
+  return String(memberOrRole)
+    .split(/\s*[-–—]\s*/)
+    .map((part) => part.trim())
+    .filter(Boolean);
 }
 
 /** Section heading: short faded side rules + under-title ornament */
@@ -301,6 +316,10 @@ function getAvatarImageClass(variant, isCutout) {
   // Shivam only — source photo sits right; center face without scaling (avoids bottom cut)
   if (variant === "shivam") {
     return "h-full w-full object-cover object-[70%_48%]";
+  }
+  // Abhishek only — zoom in so head + folded arms/hands fill the circle
+  if (variant === "abhishek") {
+    return "h-full w-full object-cover object-[50%_12%] scale-[1.55] origin-top";
   }
   if (isCutout) {
     return "h-full w-full object-contain object-bottom";
@@ -363,7 +382,7 @@ function TeamAvatar({
 function ProfileCard({ member, large = false, onOpen }) {
   const emailHref = toMailHref(member.email || DEFAULT_EMAIL);
   const linkedinHref = toLinkedInHref(member.linkedin);
-  const roleLines = getRoleLines(member.role);
+  const roleLines = getRoleLines(member);
   const cardName = getCleanDisplayName(member.name);
   const roleTextClass = `font-bold leading-snug ${large ? "text-[14px] sm:text-[15px]" : "text-[13px] sm:text-[14px]"}`;
 
@@ -450,7 +469,7 @@ function ProfileCard({ member, large = false, onOpen }) {
 
 /** Same look as Global Leadership cards — no Email/LinkedIn, not clickable */
 function DisplayProfileCard({ member, large = false }) {
-  const roleLines = getRoleLines(member.role);
+  const roleLines = getRoleLines(member);
   const cardName = getCleanDisplayName(member.name);
   const roleTextClass = `font-bold leading-snug ${large ? "text-[14px] sm:text-[15px]" : "text-[13px] sm:text-[14px]"}`;
 

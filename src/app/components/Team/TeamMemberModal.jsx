@@ -280,9 +280,13 @@ function ModalAvatar({ src, name, variant }) {
     .toUpperCase();
 
   const isShivam = variant === "shivam";
+  const isAbhishek = variant === "abhishek";
   const imageClass = isShivam
     ? // Source photo sits right; keep face centered and show full lower crop (no scale = no bottom cut)
       "h-full w-full object-cover object-[70%_48%]"
+    : isAbhishek
+      ? // Zoom so head + crossed arms/hands fill the circle
+        "h-full w-full object-cover object-[50%_12%] scale-[1.55] origin-top"
     : isCutout
       ? "h-full w-full object-contain object-bottom"
       : "h-full w-full object-contain object-center";

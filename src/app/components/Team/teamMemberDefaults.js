@@ -86,15 +86,15 @@ export function getTeamMemberDetails(member) {
       ];
 
   /**
-   * Designation under the orange line — title only (no region suffix).
-   * Prefer companyRole; if "Title - Region" is present, keep only the title.
+   * Designation under the orange line.
+   * Prefer designationLines; else split "Title - Region" into separate lines (card + modal match).
    */
   const designationSource = (member.companyRole || member.role || "").trim();
   const designationParts = designationSource
     .split(/\s*[-–—]\s*/)
     .map((p) => p.trim())
     .filter(Boolean);
-  const designationLines = member.designationLines || (designationParts[0] ? [designationParts[0]] : []);
+  const designationLines = member.designationLines || designationParts;
 
   return {
     name: member.name,
