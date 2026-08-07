@@ -10,11 +10,10 @@ const SECURITY_VIDEO_SRC = "/video/shield.mp4";
  */
 export default function SecurityShieldMotion() {
   return (
-    <div className="relative mx-auto flex w-full items-center justify-center overflow-visible">
-      {/* 1116px × 0.8 ≈ 893px — 20% smaller width & height */}
-      <div className="relative aspect-square w-[120%] max-w-[893px] shrink-0 origin-center">
+    <div className="relative mx-auto flex w-full items-start justify-center overflow-hidden">
+      <div className="relative aspect-square w-full max-w-[420px] shrink-0 origin-center sm:max-w-[480px] lg:max-w-[520px]">
         <div
-          className="pointer-events-none absolute inset-[8%] rounded-full bg-[#FFE8D4]/70 blur-3xl"
+          className="pointer-events-none absolute inset-[12%] rounded-full bg-[#FFE8D4]/70 blur-3xl"
           aria-hidden="true"
         />
 

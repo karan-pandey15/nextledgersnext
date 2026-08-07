@@ -89,7 +89,7 @@ const STATS = [
 
 export default function SecurityStats() {
   return (
-    <div className="my-6 rounded-[18px] bg-[#FFF7F0] px-4 py-3 sm:my-8 sm:rounded-[20px] sm:px-6 sm:py-3.5">
+    <div className="my-4 rounded-[18px] bg-[#FFF7F0] px-4 py-3 sm:my-5 sm:rounded-[20px] sm:px-6 sm:py-3.5">
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-0">
         {STATS.map((stat, index) => {
           const Icon = stat.icon;
