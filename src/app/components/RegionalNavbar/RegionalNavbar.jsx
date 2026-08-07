@@ -114,13 +114,13 @@ export default function RegionalNavbar({
       `}</style>
 
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 lg:h-[68px]">
+        <div className="flex justify-between items-center h-[72px]">
           <div className="flex-shrink-0 flex items-center -ml-2 sm:-ml-4 lg:-ml-6">
             <Link href={homePath} className="flex items-center group">
               <img
                 src="/images/nextledgerlogo3.png"
                 alt="NextLedgers Logo"
-                className="h-7 md:h-8 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.01]"
+                className="h-10 md:h-11 w-auto object-contain transition-transform duration-200 group-hover:scale-[1.01]"
               />
             </Link>
           </div>
