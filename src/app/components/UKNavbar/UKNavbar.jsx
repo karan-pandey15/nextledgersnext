@@ -2,12 +2,12 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import Button from "@/components/ui/Button";
 import { usePathname } from "next/navigation";
 import { UK_SERVICE_LINKS } from "@/app/uk/ukServiceLinks";
+import RegionSelect from "@/app/components/RegionSelect/RegionSelect";
 
 const UK_NAV_LINKS = [
-  { id: "home", label: "Home", href: "/uk" },
+  { id: "home", label: "Home", href: "/" },
   { id: "about", label: "About Us", href: "/about" },
   {
     id: "services",
@@ -25,6 +25,7 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [expandedMobileMenus, setExpandedMobileMenus] = useState({});
   const timeoutRef = useRef(null);
+  const sidebarPanelRef = useRef(null);
   const pathname = usePathname();
 
   // Lock body scroll when mobile sidebar is open
@@ -94,7 +95,7 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
         <div className="flex justify-between items-center h-[72px]">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center -ml-2 sm:-ml-4 lg:-ml-6">
-            <Link href="/uk" className="flex items-center group">
+            <Link href="/" className="flex items-center group">
               <img
                 src="/images/nextledgerlogo3.png"
                 alt="NextLedgers Logo"
@@ -198,9 +199,9 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
             })}
           </nav>
 
-          {/* BOOK A CALL Button (Desktop) */}
+          {/* Region select (Desktop) — same as home header */}
           <div className="hidden lg:flex items-center">
-            <Button text="BOOK A CALL" className="!py-2 !px-6 !text-[13px] !font-extrabold !tracking-wider" />
+            <RegionSelect />
           </div>
 
           {/* Hamburger (Mobile) */}
@@ -232,6 +233,7 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
 
         {/* Sidebar Panel */}
         <div
+          ref={sidebarPanelRef}
           className={`absolute inset-y-0 left-0 w-[300px] bg-white shadow-2xl p-6 flex flex-col gap-5 transform transition-transform duration-300 ease-out ${
             isSidebarOpen ? "translate-x-0" : "-translate-x-full"
           }`}
@@ -332,13 +334,16 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
               );
             })}
 
-            {/* Mobile CTA */}
-            <div className="pt-3 px-2">
-              <Button
-                text="BOOK A CALL"
-                href="/contact"
-                onClick={() => setIsSidebarOpen(false)}
-                className="!w-full !py-3 !text-sm !font-extrabold"
+            {/* Mobile region select */}
+            <div className="shrink-0 border-t border-[#FF6A00]/15 pt-3 px-2">
+              <p className="mb-2 px-0.5 text-[10px] font-bold uppercase tracking-[0.14em] text-[#9CA3AF]">
+                Choose region
+              </p>
+              <RegionSelect
+                onRegionChange={() => setIsSidebarOpen(false)}
+                compact
+                showLabel
+                boundaryRef={sidebarPanelRef}
               />
             </div>
           </nav>

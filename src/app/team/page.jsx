@@ -192,7 +192,7 @@ const SENIOR_PROFESSIONALS = [
   },
   {
     name: "Nikhil Kushwaha",
-    role: "Accounts Payable & Receivable Expert",
+    role: "Global AP & AR Specialist",
     image: "/images/TeamImage/Nikhil_Kushwaha-removebg-preview.png",
   },
   {
@@ -202,7 +202,7 @@ const SENIOR_PROFESSIONALS = [
   },
   {
     name: "Nisha Jindal",
-    role: "Multi-Country Payroll Specialist",
+    role: "Payroll & Compliance Specialist",
     image: "",
   },
   {
@@ -229,7 +229,7 @@ const SUPPORT_TEAM = [
   {
     name: "Rahul Paul",
     role: "IT & Security Administrator",
-    image: "",
+    image: "/images/TeamImage/rahul.png",
   },
 ];
 

@@ -2,12 +2,12 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import Button from "@/components/ui/Button";
 import { usePathname } from "next/navigation";
 import { USA_SERVICE_LINKS } from "@/app/usa/usaServiceLinks";
+import RegionSelect from "@/app/components/RegionSelect/RegionSelect";
 
 const USA_NAV_LINKS = [
-  { id: "home", label: "Home", href: "/usa" },
+  { id: "home", label: "Home", href: "/" },
   { id: "about", label: "About Us", href: "/about" },
   {
     id: "services",
@@ -25,6 +25,7 @@ export default function USANavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [expandedMobileMenus, setExpandedMobileMenus] = useState({});
   const timeoutRef = useRef(null);
+  const sidebarPanelRef = useRef(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -94,7 +95,7 @@ export default function USANavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-[72px]">
           <div className="flex-shrink-0 flex items-center -ml-2 sm:-ml-4 lg:-ml-6">
-            <Link href="/usa" className="flex items-center group">
+            <Link href="/" className="flex items-center group">
               <img
                 src="/images/nextledgerlogo3.png"
                 alt="NextLedgers Logo"
@@ -198,10 +199,7 @@ export default function USANavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
           </nav>
 
           <div className="hidden lg:flex items-center">
-            <Button
-              text="BOOK A CALL"
-              className="!py-2 !px-6 !text-[13px] !font-extrabold !tracking-wider"
-            />
+            <RegionSelect />
           </div>
 
           <div className="flex lg:hidden items-center">
@@ -232,6 +230,7 @@ export default function USANavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
           className={`absolute inset-y-0 left-0 w-[300px] bg-white shadow-2xl p-6 flex flex-col gap-5 transform transition-transform duration-300 ease-out ${
             isSidebarOpen ? "translate-x-0" : "-translate-x-full"
           }`}
+          ref={sidebarPanelRef}
         >
           <div className="flex items-center justify-between">
             <img
@@ -336,10 +335,15 @@ export default function USANavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
               );
             })}
 
-            <div className="pt-3 px-2">
-              <Button
-                text="BOOK A CALL"
-                className="!w-full !py-3 !text-sm !font-extrabold"
+            <div className="shrink-0 border-t border-[#FF6A00]/15 pt-3 px-2">
+              <p className="mb-2 px-0.5 text-[10px] font-bold uppercase tracking-[0.14em] text-[#9CA3AF]">
+                Choose region
+              </p>
+              <RegionSelect
+                onRegionChange={() => setIsSidebarOpen(false)}
+                compact
+                showLabel
+                boundaryRef={sidebarPanelRef}
               />
             </div>
           </nav>
