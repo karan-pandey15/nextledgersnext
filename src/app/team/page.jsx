@@ -230,6 +230,8 @@ const SUPPORT_TEAM = [
     name: "Rahul Paul",
     role: "IT & Security Administrator",
     image: "/images/TeamImage/rahul.png",
+    /** Zoom crop — frame head + crossed arms/hands tightly in the circle */
+    avatarVariant: "rahul",
   },
 ];
 
@@ -320,6 +322,10 @@ function getAvatarImageClass(variant, isCutout) {
   // Abhishek only — zoom in so head + folded arms/hands fill the circle
   if (variant === "abhishek") {
     return "h-full w-full object-cover object-[50%_12%] scale-[1.55] origin-top";
+  }
+  // Rahul only — same framing as Abhishek (head + crossed arms/hands)
+  if (variant === "rahul") {
+    return "h-full w-full object-cover object-[50%_10%] scale-[1.55] origin-top";
   }
   if (isCutout) {
     return "h-full w-full object-contain object-bottom";
