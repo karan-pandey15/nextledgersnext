@@ -77,6 +77,8 @@ const GLOBAL_LEADERSHIP = [
     companyRole: "Audit & Tax Partner, Canada",
     designationLines: ["Audit & Tax Partner, Canada"],
     image: "/images/TeamImage/Praveen-__1_-removebg-preview.png",
+    /** Slight zoom — fill circle so portrait displays properly */
+    avatarVariant: "praveen",
     email: "Praveen.kumar@nextledgers.com",
     linkedin: "linkedin.com/in/praveen-kumar-143b90216",
     bio: [
@@ -318,6 +320,10 @@ function getAvatarImageClass(variant, isCutout) {
   // Shivam only — source photo sits right; center face without scaling (avoids bottom cut)
   if (variant === "shivam") {
     return "h-full w-full object-cover object-[70%_48%]";
+  }
+  // Praveen only — slight zoom so portrait fills the circle properly
+  if (variant === "praveen") {
+    return "h-full w-full object-contain object-bottom scale-[1.22] origin-bottom";
   }
   // Abhishek only — zoom in so head + folded arms/hands fill the circle
   if (variant === "abhishek") {
