@@ -76,7 +76,7 @@ const GLOBAL_LEADERSHIP = [
     role: "Audit & Tax Partner, Canada",
     companyRole: "Audit & Tax Partner, Canada",
     designationLines: ["Audit & Tax Partner, Canada"],
-    image: "/images/TeamImage/Praveen_Kumar-removebg-preview.png",
+    image: "/images/TeamImage/Praveen-__1_-removebg-preview.png",
     email: "Praveen.kumar@nextledgers.com",
     linkedin: "linkedin.com/in/praveen-kumar-143b90216",
     bio: [
@@ -161,7 +161,7 @@ const GLOBAL_LEADERSHIP = [
     role: "Accounting & Tax Partner",
     companyRole: "Accounting & Tax Partner",
     designationLines: ["Accounting & Tax Partner", "North America"],
-    image: "/images/TeamImage/Akash_Gangwar-removebg-preview.png",
+          image: "/images/TeamImage/akashremovebg.png",
     email: "Akash.gangwar@nextledgers.com",
     linkedin: "linkedin.com/in/akash-kumar-147346244",
     bio: [
@@ -203,7 +203,7 @@ const SENIOR_PROFESSIONALS = [
   {
     name: "Nisha Jindal",
     role: "Payroll & Compliance Specialist",
-    image: "",
+    image: "/images/TeamImage/Nisha__1_-removebg-preview.png",
   },
   {
     name: "Abhishek Rawat",

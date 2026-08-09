@@ -181,6 +181,25 @@ export const LOGO_MAP = {
     draftworx: "/images/logooUK/Caseware.png",
     tallyprime: "/images/logooUK/Sage.jpg",
     tally: "/images/logooUK/Sage.jpg",
+    // Netherlands / Dutch market software (aliases to closest existing brand assets)
+    "exact online": "/images/logooUK/Xero.png",
+    "exact online payroll": "/images/logooUK/Xero.png",
+    "exact online btw module": "/images/logooUK/Xero.png",
+    "afas software": "/images/logooUK/Sage.jpg",
+    "afas payroll": "/images/logooUK/Sage.jpg",
+    twinfield: "/images/logooUK/wolters.png",
+    "wolters kluwer twinfield": "/images/logooUK/wolters.png",
+    "twinfield reporting": "/images/logooUK/wolters.png",
+    moneybird: "/images/logooUK/freshbooks.png",
+    "visma eaccounting": "/images/logooUK/Sage.jpg",
+    "visma youserve": "/images/logooUK/Employmenthero.jpeg",
+    basecone: "/images/logooUK/AutoEntry.jpeg",
+    nextens: "/images/logooUK/wolters.png",
+    nmbrs: "/images/logooUK/Employmenthero.jpeg",
+    "loket.nl": "/images/logooUK/Wagepoint.jpeg",
+    loket: "/images/logooUK/Wagepoint.jpeg",
+    "adp workforce now": "/images/logooUK/Gusto.png",
+    "sd worx": "/images/logooUK/Employmenthero.jpeg",
 };
 
 const CATEGORY_ICONS = {

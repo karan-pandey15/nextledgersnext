@@ -16,7 +16,7 @@ export default function NetherlandsPage() {
       footerRegion="netherlands"
       badge="Netherlands Accounting Outsourcing Partner"
       titleBefore="Dutch Accounting Firms"
-      subtitle="Dedicated offshore support across bookkeeping, VAT (BTW), payroll, tax, management reporting, advisory & company secretarial."
+      subtitle="Dedicated offshore support across bookkeeping, VAT (BTW), payroll, corporate & personal tax, management reporting & year-end accounts."
       badges={NETHERLANDS_TRUST_BADGES}
       outsourcingAccent="Netherlands Outsourcing"
     />
