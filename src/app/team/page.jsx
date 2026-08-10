@@ -195,12 +195,12 @@ const SENIOR_PROFESSIONALS = [
   {
     name: "Nikhil Kushwaha",
     role: "Global AP & AR Specialist",
-    image: "/images/TeamImage/Nikhil_Kushwaha-removebg-preview.png",
+    image: "/images/TeamImage/Nikhil-removebg-preview.png",
   },
   {
     name: "Md. Almasud",
     role: "Indirect Tax & Compliance Expert",
-    image: "/images/TeamImage/Md._Almasud-removebg-preview.png",
+    image: "/images/TeamImage/Almasud-removebg-preview.png",
   },
   {
     name: "Nisha Jindal",
@@ -321,9 +321,9 @@ function getAvatarImageClass(variant, isCutout) {
   if (variant === "shivam") {
     return "h-full w-full object-cover object-[70%_48%]";
   }
-  // Praveen only — slight zoom so portrait fills the circle properly
+  // Praveen only — mild zoom so full head + crossed arms fit inside the circle
   if (variant === "praveen") {
-    return "h-full w-full object-contain object-bottom scale-[1.22] origin-bottom";
+    return "h-full w-full object-contain object-bottom scale-[1.05] origin-bottom";
   }
   // Abhishek only — zoom in so head + folded arms/hands fill the circle
   if (variant === "abhishek") {

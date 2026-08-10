@@ -70,11 +70,11 @@ const ROLES = [
 
 /**
  * Orbit around Next Ledgers — Senior Professionals from /team
- * (designation + image only, top → clockwise)
+ * (designation + image match /team exactly, top → clockwise)
  */
 const ORBIT = [
   {
-    label: "Chief Onboarding Specialist",
+    label: "Client Onboarding Specialist",
     src: "/images/TeamImage/Dharmesh_Kumar-removebg-preview.png",
     angle: -90,
   },
@@ -84,25 +84,23 @@ const ORBIT = [
     angle: -30,
   },
   {
-    label: "AP/AR Specialist",
-    src: "/images/TeamImage/Nikhil_Kushwaha-removebg-preview.png",
+    label: "Global AP & AR Specialist",
+    src: "/images/TeamImage/Nikhil-removebg-preview.png",
     angle: 30,
   },
   {
-    label: "Tax Specialist",
-    src: "/images/TeamImage/Md._Almasud-removebg-preview.png",
+    label: "Indirect Tax & Compliance Expert",
+    src: "/images/TeamImage/Almasud-removebg-preview.png",
     angle: 90,
   },
   {
-    label: "Payroll Specialist",
-    src: "",
-    initial: "N",
+    label: "Payroll & Compliance Specialist",
+    src: "/images/TeamImage/Nisha__1_-removebg-preview.png",
     angle: 150,
   },
   {
-    label: "FP&A Expert",
-    src: "",
-    initial: "A",
+    label: "Financial Planning & KPIs Expert",
+    src: "/images/TeamImage/abhishekremove.png",
     angle: 210,
   },
 ];
@@ -512,7 +510,7 @@ export default function ByotHero() {
                       )}
                     </div>
                     <span
-                      className="absolute left-1/2 top-[calc(100%+8px)] z-40 -translate-x-1/2 whitespace-nowrap rounded-full bg-white px-3 py-1 text-[10px] font-semibold shadow-[0_1px_6px_rgba(0,0,0,0.08)] sm:text-[11px]"
+                      className="absolute left-1/2 top-[calc(100%+8px)] z-40 w-max max-w-[140px] -translate-x-1/2 rounded-full bg-white px-2.5 py-1 text-center text-[9px] font-semibold leading-snug shadow-[0_1px_6px_rgba(0,0,0,0.08)] sm:max-w-[160px] sm:px-3 sm:text-[10px]"
                       style={{ color: NAVY }}
                     >
                       {person.label}
