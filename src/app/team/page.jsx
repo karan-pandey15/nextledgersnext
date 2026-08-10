@@ -226,7 +226,7 @@ const SUPPORT_TEAM = [
   {
     name: "Richa Chaudhary",
     role: "HR Manager",
-    image: "",
+    image: "/images/TeamImage/Richa_HR-removebg-preview.png",
   },
   {
     name: "Rahul Paul",
