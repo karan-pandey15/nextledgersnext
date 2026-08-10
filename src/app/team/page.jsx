@@ -163,7 +163,7 @@ const GLOBAL_LEADERSHIP = [
     role: "Accounting & Tax Partner",
     companyRole: "Accounting & Tax Partner",
     designationLines: ["Accounting & Tax Partner", "North America"],
-          image: "/images/TeamImage/akashremovebg.png",
+    image: "/images/TeamImage/Akash_Gangwar-removebg-preview.png",
     email: "Akash.gangwar@nextledgers.com",
     linkedin: "linkedin.com/in/akash-kumar-147346244",
     bio: [
