@@ -8,12 +8,13 @@ import {
   isNavLinkActive,
   persistRegionCode,
   getRegionCodeFromPath,
+  siteHomeHref,
 } from "@/app/lib/regionNav";
 
 /**
  * UK-pattern regional navbar — same layout, sizes, colors, and behavior as UKNavbar.
  * Pass country-specific homePath, servicesLabel, serviceLinks, flagCode, backLabel.
- * Home / logo stay on the region (e.g. /uk), not the global homepage.
+ * On the region hub, Home + logo go to global `/`. On other pages they return to the region hub.
  */
 export default function RegionalNavbar({
   isSidebarOpen = false,
@@ -33,9 +34,10 @@ export default function RegionalNavbar({
 
   const isOnHome =
     pathname === homePath || pathname === `${homePath}/`;
+  const homeHref = siteHomeHref(pathname, homePath);
 
   const navLinks = [
-    { id: "home", label: "Home", href: homePath },
+    { id: "home", label: "Home", href: homeHref },
     { id: "about", label: "About Us", href: "/about" },
     {
       id: "services",
@@ -129,7 +131,7 @@ export default function RegionalNavbar({
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-[72px]">
           <div className="flex-shrink-0 flex items-center -ml-2 sm:-ml-4 lg:-ml-6">
-            <Link href={homePath} className="flex items-center group">
+            <Link href={homeHref} className="flex items-center group">
               <img
                 src="/images/nextledgerlogo3.png"
                 alt="NextLedgers Logo"
@@ -268,11 +270,13 @@ export default function RegionalNavbar({
           }`}
         >
           <div className="flex items-center justify-between">
-            <img
-              src="/images/nextledgerlogo3.png"
-              alt="NextLedgers Logo"
-              className="h-7 w-auto object-contain"
-            />
+            <Link href={homeHref} onClick={() => setIsSidebarOpen(false)} className="flex items-center">
+              <img
+                src="/images/nextledgerlogo3.png"
+                alt="NextLedgers Logo"
+                className="h-7 w-auto object-contain"
+              />
+            </Link>
             <button
               onClick={() => setIsSidebarOpen(false)}
               className="p-1.5 rounded-lg text-[#FF6A00] hover:bg-[#FF6A00]/5 cursor-pointer transition-all duration-200"

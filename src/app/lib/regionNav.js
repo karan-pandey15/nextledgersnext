@@ -130,6 +130,17 @@ export function regionFooterKey(code) {
   return path.replace(/^\//, "");
 }
 
+/** On a region hub (/uk, /usa, …) Home + logo go to global `/`. */
+export function isRegionHubPath(pathname, homePath) {
+  if (!pathname || !homePath) return false;
+  return pathname === homePath || pathname === `${homePath}/`;
+}
+
+export function siteHomeHref(pathname, regionHome) {
+  if (isRegionHubPath(pathname, regionHome)) return "/";
+  return regionHome || "/";
+}
+
 export function isNavLinkActive(pathname, href, homePath) {
   if (!pathname || !href) return false;
   const path = href.split("#")[0];

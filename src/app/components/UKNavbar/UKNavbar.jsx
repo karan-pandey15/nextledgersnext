@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { UK_SERVICE_LINKS } from "@/app/uk/ukServiceLinks";
 import RegionSelect from "@/app/components/RegionSelect/RegionSelect";
-import { isNavLinkActive, persistRegionCode } from "@/app/lib/regionNav";
+import { isNavLinkActive, persistRegionCode, siteHomeHref } from "@/app/lib/regionNav";
 
 const UK_HOME = "/uk";
 
@@ -30,6 +30,10 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
   const timeoutRef = useRef(null);
   const sidebarPanelRef = useRef(null);
   const pathname = usePathname();
+  const homeHref = siteHomeHref(pathname, UK_HOME);
+  const navLinks = UK_NAV_LINKS.map((link) =>
+    link.id === "home" ? { ...link, href: homeHref } : link
+  );
 
   useEffect(() => {
     persistRegionCode("UK");
@@ -102,7 +106,7 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
         <div className="flex justify-between items-center h-[72px]">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center -ml-2 sm:-ml-4 lg:-ml-6">
-            <Link href={UK_HOME} className="flex items-center group">
+            <Link href={homeHref} className="flex items-center group">
               <img
                 src="/images/nextledgerlogo3.png"
                 alt="NextLedgers Logo"
@@ -113,7 +117,7 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
 
           {/* Desktop Navigation Links */}
           <nav className="hidden lg:flex items-center space-x-0.5 xl:space-x-1">
-            {UK_NAV_LINKS.map((link) => {
+            {navLinks.map((link) => {
               const isOpen = activeDropdown === link.id;
 
               if (link.hasDropdown) {
@@ -246,11 +250,13 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
         >
           {/* Logo & Close */}
           <div className="flex items-center justify-between">
-            <img
-              src="/images/nextledgerlogo3.png"
-              alt="NextLedgers Logo"
-              className="h-7 w-auto object-contain"
-            />
+            <Link href={homeHref} onClick={() => setIsSidebarOpen(false)} className="flex items-center">
+              <img
+                src="/images/nextledgerlogo3.png"
+                alt="NextLedgers Logo"
+                className="h-7 w-auto object-contain"
+              />
+            </Link>
             <button
               onClick={() => setIsSidebarOpen(false)}
               className="p-1.5 rounded-lg text-[#FF6A00] hover:bg-[#FF6A00]/5 cursor-pointer transition-all duration-200"
@@ -266,7 +272,7 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
 
           {/* Mobile Nav Links */}
           <nav className="flex-1 flex flex-col gap-2 overflow-y-auto pr-1 uk-no-scrollbar">
-            {UK_NAV_LINKS.map((link) => {
+            {navLinks.map((link) => {
               const isExpanded = !!expandedMobileMenus[link.id];
 
               if (link.hasDropdown) {
