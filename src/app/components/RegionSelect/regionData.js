@@ -85,3 +85,18 @@ export const REGION_ROUTES = {
   AU: "/australia",
   NZ: "/new-zealand",
 };
+
+/** Market region from URL. Global home (`/`) returns null (not IN). */
+export function getRegionCodeFromPath(pathname) {
+  if (!pathname || pathname === "/") return null;
+
+  const entries = Object.entries(REGION_ROUTES)
+    .filter(([code]) => code !== "IN")
+    .sort((a, b) => b[1].length - a[1].length);
+
+  const match = entries.find(
+    ([, route]) => pathname === route || pathname.startsWith(`${route}/`)
+  );
+
+  return match?.[0] || null;
+}

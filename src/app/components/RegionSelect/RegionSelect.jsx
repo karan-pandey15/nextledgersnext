@@ -3,16 +3,16 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { createPortal } from "react-dom";
 import { usePathname, useRouter } from "next/navigation";
-import { POPUP_REGIONS, REGION_ROUTES, DEFAULT_REGION } from "./regionData";
-
-/** Resolve region code from the current URL (home → IN). */
-function regionFromPath(pathname) {
-  if (!pathname || pathname === "/") return "IN";
-  const match = Object.entries(REGION_ROUTES).find(
-    ([code, route]) => code !== "IN" && (pathname === route || pathname.startsWith(`${route}/`))
-  );
-  return match?.[0] || null;
-}
+import {
+  POPUP_REGIONS,
+  REGION_ROUTES,
+  DEFAULT_REGION,
+  getRegionCodeFromPath,
+} from "./regionData";
+import {
+  persistRegionCode,
+  readStoredRegionCode,
+} from "@/app/lib/regionNav";
 
 const NAVY = "#0F274A";
 const CODE = "#5B4B8A";
@@ -59,29 +59,23 @@ export default function RegionSelect({
   }, []);
 
   // Keep header/sidebar selection in sync with the current page.
-  // Home (/) always shows IN; regional routes show that market.
+  // Regional routes save that market. Home (/) shows IN in the trigger
+  // but does NOT overwrite the saved region — so About/BYOT/Tools/Contact
+  // can still send Home back to UK/USA/Canada/etc.
   useEffect(() => {
-    const fromPath = regionFromPath(pathname);
+    const fromPath = getRegionCodeFromPath(pathname);
     if (fromPath) {
       setSelectedRegion(fromPath);
-      try {
-        localStorage.setItem("selected-region", fromPath);
-      } catch {
-        /* ignore */
-      }
+      persistRegionCode(fromPath);
       return;
     }
 
-    try {
-      const saved = localStorage.getItem("selected-region");
-      if (saved && POPUP_REGIONS.some((r) => r.code === saved)) {
-        setSelectedRegion(saved);
-      } else {
-        setSelectedRegion("IN");
-      }
-    } catch {
+    if (pathname === "/") {
       setSelectedRegion("IN");
+      return;
     }
+
+    setSelectedRegion(readStoredRegionCode() || "IN");
   }, [pathname]);
 
   const updateMenuPosition = useCallback(() => {
@@ -168,7 +162,7 @@ export default function RegionSelect({
   const handleSelect = (code) => {
     setSelectedRegion(code);
     setIsOpen(false);
-    localStorage.setItem("selected-region", code);
+    persistRegionCode(code);
 
     if (REGION_ROUTES[code]) {
       router.push(REGION_ROUTES[code]);

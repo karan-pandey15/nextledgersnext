@@ -1,6 +1,6 @@
 "use client";
 
-import Header from "@/app/components/header/Header";
+import SiteNavbar from "@/app/components/SiteNavbar/SiteNavbar";
 import {
     Calendar,
     Shield,
@@ -234,7 +234,7 @@ export default function ManagementReportingPage() {
 
     return (
         <main className="relative min-h-screen w-full overflow-x-hidden bg-white">
-            <Header
+            <SiteNavbar>
                 isSidebarOpen={isSidebarOpen}
                 setIsSidebarOpen={setIsSidebarOpen}
             />

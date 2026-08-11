@@ -3,6 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import useActiveRegion from "@/app/lib/useActiveRegion";
+import { regionFooterKey } from "@/app/lib/regionNav";
 import FooterGlobalMap from "./FooterGlobalMap";
 import { UK_SERVICE_LINKS } from "@/app/uk/ukServiceLinks";
 import { USA_SERVICE_LINKS } from "@/app/usa/usaServiceLinks";
@@ -360,16 +362,16 @@ function regionFromPathname(pathname) {
  */
 export default function Footer({ region, variant }) {
   const pathname = usePathname();
+  const { regionCode } = useActiveRegion();
+  const storedFooterRegion = regionFooterKey(regionCode);
 
   const resolvedRegion = KNOWN_REGIONS.includes(region)
     ? region
     : KNOWN_REGIONS.includes(variant)
       ? variant
-      : regionFromPathname(pathname);
+      : regionFromPathname(pathname) || storedFooterRegion;
 
-  const isGlobal =
-    variant === "global" ||
-    (!resolvedRegion && !regionFromPathname(pathname));
+  const isGlobal = !resolvedRegion;
 
   const mode = isGlobal ? "global" : resolvedRegion || "uk";
   const regionServices = mode === "global" ? null : REGION_SERVICES[mode];

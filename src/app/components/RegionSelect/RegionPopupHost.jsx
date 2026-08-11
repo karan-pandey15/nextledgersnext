@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import RegionPopup from "./RegionPopup";
 import { REGION_ROUTES } from "./regionData";
+import { persistRegionCode } from "@/app/lib/regionNav";
 
 const REGION_POPUP_DELAY_MS = 25000; // 25s on non-home pages
 const TRUSTED_SECTION_ID = "trusted-by-businesses";
@@ -71,11 +72,6 @@ export default function RegionPopupHost() {
 
     if (isHome) {
       setSelectedRegion("IN");
-      try {
-        localStorage.setItem("selected-region", "IN");
-      } catch {
-        /* ignore */
-      }
       clearTimer();
       return undefined;
     }
@@ -143,11 +139,11 @@ export default function RegionPopupHost() {
   const handleSelect = useCallback(
     (code) => {
       setSelectedRegion(code);
-      localStorage.setItem("selected-region", code);
+      persistRegionCode(code);
       setIsOpen(false);
 
       const route = REGION_ROUTES[code];
-      if (route && route !== "/") {
+      if (route) {
         router.push(route);
       }
     },

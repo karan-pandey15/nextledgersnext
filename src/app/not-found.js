@@ -3,27 +3,30 @@
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, Wrench } from "lucide-react";
-import Header from "./components/header/Header";
+import SiteNavbar from "./components/SiteNavbar/SiteNavbar";
 import Footer from "./components/footer/Footer";
 import NexaLedAi from "./components/ChatBot/NexaLedAi";
 import CtaButton from "./components/ui/CtaButton";
+import useActiveRegion from "./lib/useActiveRegion";
+import { regionHomePath } from "./lib/regionNav";
 
 export default function NotFound() {
   const router = useRouter();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const { regionCode } = useActiveRegion();
 
   const handleBack = () => {
     if (typeof window !== "undefined" && window.history.length > 1) {
       router.back();
     } else {
-      router.push("/");
+      router.push(regionHomePath(regionCode));
     }
   };
 
   return (
     <main className="min-h-screen bg-[#faf9f6] text-[#1E1B2A] flex flex-col font-sans">
       {/* Main Navbar */}
-      <Header isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
+      <SiteNavbar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
 
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col items-center justify-center py-16 px-6 sm:px-8 text-center max-w-4xl mx-auto w-full">

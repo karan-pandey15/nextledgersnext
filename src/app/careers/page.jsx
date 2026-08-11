@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Header from "../components/header/Header";
+import SiteNavbar from "../components/SiteNavbar/SiteNavbar";
 import Footer from "../components/footer/Footer";
 import ArtificialIntelligence from "../components/ArtificialIntelligence/ArtificialIntelligence";
 import NexaLedAi from "../components/ChatBot/NexaLedAi";
@@ -217,7 +217,7 @@ export default function CareersPage() {
 
   return (
     <main className="flex min-h-screen flex-col overflow-x-hidden bg-white font-sans text-[#1A1A1A]">
-      <Header isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
+      <SiteNavbar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
 
       <section className="relative w-full flex-1 bg-[linear-gradient(180deg,#FFF9F5_0%,#FFFFFF_42%,#FFFFFF_100%)]">
         <div className="mx-auto max-w-[920px] px-4 py-10 sm:px-6 sm:py-14 lg:px-10 lg:py-16">

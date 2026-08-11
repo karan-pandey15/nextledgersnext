@@ -9,7 +9,7 @@ import {
   UsersRound,
 } from "lucide-react";
 import { FaLinkedinIn } from "react-icons/fa";
-import Header from "../components/header/Header";
+import SiteNavbar from "../components/SiteNavbar/SiteNavbar";
 import Footer from "../components/footer/Footer";
 import ArtificialIntelligence from "../components/ArtificialIntelligence/ArtificialIntelligence";
 import NexaLedAi from "../components/ChatBot/NexaLedAi";
@@ -541,7 +541,7 @@ export default function TeamPage() {
       className="flex min-h-screen flex-col overflow-x-hidden font-sans"
       style={{ backgroundColor: PAGE_BG, color: NAVY }}
     >
-      <Header isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
+      <SiteNavbar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
 
       {/* Hero — light, centered (matches SS) */}
       <section className="w-full" style={{ backgroundColor: PAGE_BG }}>

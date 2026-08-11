@@ -4,11 +4,16 @@ import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import RegionSelect from "@/app/components/RegionSelect/RegionSelect";
+import {
+  isNavLinkActive,
+  persistRegionCode,
+  getRegionCodeFromPath,
+} from "@/app/lib/regionNav";
 
 /**
  * UK-pattern regional navbar — same layout, sizes, colors, and behavior as UKNavbar.
  * Pass country-specific homePath, servicesLabel, serviceLinks, flagCode, backLabel.
- * Home / logo → `/`; Book a Call replaced by RegionSelect (same as home header).
+ * Home / logo stay on the region (e.g. /uk), not the global homepage.
  */
 export default function RegionalNavbar({
   isSidebarOpen = false,
@@ -30,7 +35,7 @@ export default function RegionalNavbar({
     pathname === homePath || pathname === `${homePath}/`;
 
   const navLinks = [
-    { id: "home", label: "Home", href: "/" },
+    { id: "home", label: "Home", href: homePath },
     { id: "about", label: "About Us", href: "/about" },
     {
       id: "services",
@@ -43,6 +48,11 @@ export default function RegionalNavbar({
     { id: "tools", label: "Tool", href: "/tools" },
     { id: "contact", label: "Contact Us", href: "/contact" },
   ];
+
+  useEffect(() => {
+    const code = getRegionCodeFromPath(homePath);
+    if (code) persistRegionCode(code);
+  }, [homePath]);
 
   useEffect(() => {
     if (isSidebarOpen) {
@@ -82,8 +92,9 @@ export default function RegionalNavbar({
   };
 
   const renderServiceIcon = (icon) => {
+    if (!icon) return null;
     if (typeof icon === "string") return icon;
-    if (typeof icon === "function") {
+    if (typeof icon === "function" || (typeof icon === "object" && icon.$$typeof)) {
       const Icon = icon;
       return <Icon className="h-4 w-4" strokeWidth={2} />;
     }
@@ -118,7 +129,7 @@ export default function RegionalNavbar({
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-[72px]">
           <div className="flex-shrink-0 flex items-center -ml-2 sm:-ml-4 lg:-ml-6">
-            <Link href="/" className="flex items-center group">
+            <Link href={homePath} className="flex items-center group">
               <img
                 src="/images/nextledgerlogo3.png"
                 alt="NextLedgers Logo"
@@ -211,8 +222,7 @@ export default function RegionalNavbar({
                   key={link.id}
                   href={link.href}
                   className={`px-3 py-2 rounded-full text-[13px] font-bold tracking-wide transition-all duration-200 ${
-                    pathname === link.href ||
-                    (link.href !== "/" && pathname?.startsWith(link.href))
+                    isNavLinkActive(pathname, link.href, homePath)
                       ? "bg-[#FF6A00]/10 text-[#FF6A00]"
                       : "text-[#1E1B2A] hover:text-[#FF6A00] hover:bg-[#FF6A00]/5"
                   }`}

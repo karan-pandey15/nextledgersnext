@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import Header from "../components/header/Header";
+import SiteNavbar from "../components/SiteNavbar/SiteNavbar";
 import Footer from "../components/footer/Footer";
 import ArtificialIntelligence from "../components/ArtificialIntelligence/ArtificialIntelligence";
 import NexaLedAi from "../components/ChatBot/NexaLedAi";
@@ -263,7 +263,7 @@ export default function AboutPage() {
 
   return (
     <main className="flex min-h-screen flex-col overflow-x-hidden bg-white font-sans text-[#1A1A1A]">
-      <Header isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
+      <SiteNavbar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
 
       {/* ─── 1. Video hero (home theme) ─── */}
       <section className="relative w-full min-h-[420px] overflow-hidden bg-[#111111] sm:min-h-[460px] lg:min-h-[500px]">

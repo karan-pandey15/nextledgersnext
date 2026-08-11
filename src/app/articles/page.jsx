@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Header from "../components/header/Header";
+import SiteNavbar from "../components/SiteNavbar/SiteNavbar";
 import Footer from "../components/footer/Footer";
 import ArtificialIntelligence from "../components/ArtificialIntelligence/ArtificialIntelligence";
 import NexaLedAi from "../components/ChatBot/NexaLedAi";
@@ -28,7 +28,7 @@ export default function ArticlesPage() {
 
   return (
     <main className="flex min-h-screen flex-col overflow-x-hidden bg-white font-sans text-[#1A1A1A]">
-      <Header isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
+      <SiteNavbar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
 
       <section
         className="relative w-full flex-1"

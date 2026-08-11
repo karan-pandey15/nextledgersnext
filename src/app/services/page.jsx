@@ -12,7 +12,7 @@ import {
   Percent,
   Receipt,
 } from "lucide-react";
-import Header from "@/app/components/header/Header";
+import SiteNavbar from "@/app/components/SiteNavbar/SiteNavbar";
 import Footer from "@/app/components/footer/Footer";
 import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/ArtificialIntelligence";
 import NexaLedAi from "@/app/components/ChatBot/NexaLedAi";
@@ -39,7 +39,7 @@ export default function ExploreAllServicesPage() {
 
   return (
     <main className="flex min-h-screen flex-col overflow-x-hidden bg-white font-sans text-[#1A1A1A]">
-      <Header
+      <SiteNavbar>
         isSidebarOpen={isSidebarOpen}
         setIsSidebarOpen={setIsSidebarOpen}
       />

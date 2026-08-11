@@ -6,6 +6,8 @@ import { usePathname } from "next/navigation";
 import RegionSelect from "../RegionSelect/RegionSelect";
 import NavIcon from "./NavIcon";
 import { NAVIGATION_LINKS } from "./navigationData";
+import useActiveRegion from "@/app/lib/useActiveRegion";
+import { regionHomePath } from "@/app/lib/regionNav";
 
 function DropdownItemIcon({ icon, className = "w-5 h-5" }) {
   if (!icon) return null;
@@ -22,6 +24,11 @@ function DropdownItemIcon({ icon, className = "w-5 h-5" }) {
 
 export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
   const pathname = usePathname();
+  const { rememberedCode, isGlobalHome } = useActiveRegion();
+  const homeHref = isGlobalHome ? "/" : regionHomePath(rememberedCode);
+  const navLinks = NAVIGATION_LINKS.map((link) =>
+    link.id === "home" ? { ...link, href: homeHref } : link
+  );
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [expandedMobileMenus, setExpandedMobileMenus] = useState({});
   const timeoutRefs = useRef({});
@@ -155,7 +162,7 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
         <div className="flex justify-between items-center h-[72px]">
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="flex items-center group">
+            <Link href={homeHref} className="flex items-center group">
               <img
                 src="/images/nextledgerlogo3.png"
                 alt="NextLedgers Logo"
@@ -165,7 +172,7 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
           </div>
 
           <nav className="hidden items-center gap-1 overflow-visible xl:flex">
-            {NAVIGATION_LINKS.map((link) => {
+            {navLinks.map((link) => {
               const isOpen = activeDropdown === link.id;
 
               if (link.hasDropdown) {
@@ -403,7 +410,7 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
 
           {/* Sidebar Menu Scrollable Links */}
           <nav className="flex-1 flex flex-col gap-2 overflow-y-auto pr-1 no-scrollbar">
-            {NAVIGATION_LINKS.map((link) => {
+            {navLinks.map((link) => {
               const isExpanded = !!expandedMobileMenus[link.id];
 
               if (link.hasDropdown) {

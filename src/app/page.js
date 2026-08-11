@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Header from "./components/header/Header";
+import SiteNavbar from "./components/SiteNavbar/SiteNavbar";
 import CoreServices from "./components/CoreServices/CoreServices";
 import Technology from "./components/Technology/Technology";
 import GlobalPartner from "./components/GlobalPartner/GlobalPartner";
@@ -56,7 +56,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-white text-[#1A1A1A] flex flex-col font-sans overflow-x-hidden">
-      <Header
+      <SiteNavbar
         isSidebarOpen={isSidebarOpen}
         setIsSidebarOpen={setIsSidebarOpen}
       />

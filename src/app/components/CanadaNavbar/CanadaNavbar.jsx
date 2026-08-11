@@ -5,9 +5,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { CANADA_SERVICE_LINKS } from "@/app/canada/canadaServiceLinks";
 import RegionSelect from "@/app/components/RegionSelect/RegionSelect";
+import { isNavLinkActive, persistRegionCode } from "@/app/lib/regionNav";
+
+const CANADA_HOME = "/canada";
 
 const CANADA_NAV_LINKS = [
-  { id: "home", label: "Home", href: "/" },
+  { id: "home", label: "Home", href: CANADA_HOME },
   { id: "about", label: "About Us", href: "/about" },
   {
     id: "services",
@@ -27,6 +30,10 @@ export default function CanadaNavbar({ isSidebarOpen = false, setIsSidebarOpen }
   const timeoutRef = useRef(null);
   const sidebarPanelRef = useRef(null);
   const pathname = usePathname();
+
+  useEffect(() => {
+    persistRegionCode("CA");
+  }, []);
 
   useEffect(() => {
     if (isSidebarOpen) {
@@ -95,7 +102,7 @@ export default function CanadaNavbar({ isSidebarOpen = false, setIsSidebarOpen }
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-[72px]">
           <div className="flex-shrink-0 flex items-center -ml-2 sm:-ml-4 lg:-ml-6">
-            <Link href="/" className="flex items-center group">
+            <Link href={CANADA_HOME} className="flex items-center group">
               <img
                 src="/images/nextledgerlogo3.png"
                 alt="NextLedgers Logo"
@@ -190,7 +197,11 @@ export default function CanadaNavbar({ isSidebarOpen = false, setIsSidebarOpen }
                 <Link
                   key={link.id}
                   href={link.href}
-                  className="px-3 py-2 rounded-full text-[13px] font-bold tracking-wide text-[#1E1B2A] hover:text-[#FF6A00] hover:bg-[#FF6A00]/5 transition-all duration-200"
+                  className={`px-3 py-2 rounded-full text-[13px] font-bold tracking-wide transition-all duration-200 ${
+                    isNavLinkActive(pathname, link.href, CANADA_HOME)
+                      ? "bg-[#FF6A00]/10 text-[#FF6A00]"
+                      : "text-[#1E1B2A] hover:text-[#FF6A00] hover:bg-[#FF6A00]/5"
+                  }`}
                 >
                   {link.label}
                 </Link>

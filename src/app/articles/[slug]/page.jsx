@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
-import Header from "../../components/header/Header";
+import SiteNavbar from "../../components/SiteNavbar/SiteNavbar";
 import Footer from "../../components/footer/Footer";
 import ArtificialIntelligence from "../../components/ArtificialIntelligence/ArtificialIntelligence";
 import NexaLedAi from "../../components/ChatBot/NexaLedAi";
@@ -29,7 +29,7 @@ export default function ArticleDetailPage() {
   if (!article) {
     return (
       <main className="flex min-h-screen flex-col overflow-x-hidden bg-white font-sans text-[#1A1A1A]">
-        <Header isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
+        <SiteNavbar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
         <section className="flex flex-1 flex-col items-center justify-center px-4 py-20 text-center">
           <h1 className="text-[24px] font-extrabold" style={{ color: NAVY }}>
             Article not found
@@ -50,7 +50,7 @@ export default function ArticleDetailPage() {
 
   return (
     <main className="flex min-h-screen flex-col overflow-x-hidden bg-white font-sans text-[#1A1A1A]">
-      <Header isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
+      <SiteNavbar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
 
       <article className="relative w-full flex-1" style={{ backgroundColor: PAGE_CREAM }}>
         <div className="mx-auto max-w-[900px] px-4 py-8 sm:px-6 sm:py-12 lg:px-10 lg:py-14">

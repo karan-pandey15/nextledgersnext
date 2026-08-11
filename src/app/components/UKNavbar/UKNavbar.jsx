@@ -5,9 +5,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { UK_SERVICE_LINKS } from "@/app/uk/ukServiceLinks";
 import RegionSelect from "@/app/components/RegionSelect/RegionSelect";
+import { isNavLinkActive, persistRegionCode } from "@/app/lib/regionNav";
+
+const UK_HOME = "/uk";
 
 const UK_NAV_LINKS = [
-  { id: "home", label: "Home", href: "/" },
+  { id: "home", label: "Home", href: UK_HOME },
   { id: "about", label: "About Us", href: "/about" },
   {
     id: "services",
@@ -27,6 +30,10 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
   const timeoutRef = useRef(null);
   const sidebarPanelRef = useRef(null);
   const pathname = usePathname();
+
+  useEffect(() => {
+    persistRegionCode("UK");
+  }, []);
 
   // Lock body scroll when mobile sidebar is open
   useEffect(() => {
@@ -95,7 +102,7 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
         <div className="flex justify-between items-center h-[72px]">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center -ml-2 sm:-ml-4 lg:-ml-6">
-            <Link href="/" className="flex items-center group">
+            <Link href={UK_HOME} className="flex items-center group">
               <img
                 src="/images/nextledgerlogo3.png"
                 alt="NextLedgers Logo"
@@ -187,8 +194,7 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
                   key={link.id}
                   href={link.href}
                   className={`px-3 py-2 rounded-full text-[13px] font-bold tracking-wide transition-all duration-200 ${
-                    pathname === link.href ||
-                    (link.href !== "/" && pathname?.startsWith(link.href))
+                    isNavLinkActive(pathname, link.href, UK_HOME)
                       ? "bg-[#FF6A00]/10 text-[#FF6A00]"
                       : "text-[#1E1B2A] hover:text-[#FF6A00] hover:bg-[#FF6A00]/5"
                   }`}
