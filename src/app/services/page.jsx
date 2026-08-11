@@ -39,7 +39,7 @@ export default function ExploreAllServicesPage() {
 
   return (
     <main className="flex min-h-screen flex-col overflow-x-hidden bg-white font-sans text-[#1A1A1A]">
-      <SiteNavbar>
+      <SiteNavbar
         isSidebarOpen={isSidebarOpen}
         setIsSidebarOpen={setIsSidebarOpen}
       />

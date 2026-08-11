@@ -234,7 +234,7 @@ export default function TaxCompliancePage() {
 
     return (
         <main className="relative min-h-screen w-full overflow-x-hidden bg-white">
-            <SiteNavbar>
+            <SiteNavbar
                 isSidebarOpen={isSidebarOpen}
                 setIsSidebarOpen={setIsSidebarOpen}
             />
