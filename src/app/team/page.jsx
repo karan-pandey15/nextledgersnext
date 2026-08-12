@@ -200,7 +200,7 @@ const SENIOR_PROFESSIONALS = [
   {
     name: "Md. Almasud",
     role: "Indirect Tax & Compliance Expert",
-    image: "/images/TeamImage/Almasud-removebg-preview.png",
+    image: "/images/TeamImage/Al_masud..-removebg-preview.png",
   },
   {
     name: "Nisha Jindal",

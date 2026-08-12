@@ -90,7 +90,7 @@ const ORBIT = [
   },
   {
     label: "Indirect Tax & Compliance Expert",
-    src: "/images/TeamImage/Almasud-removebg-preview.png",
+    src: "/images/TeamImage/Al_masud..-removebg-preview.png",
     angle: 90,
   },
   {
