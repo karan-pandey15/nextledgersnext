@@ -206,11 +206,20 @@ export default function CareersPage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [form, setForm] = useState(INITIAL);
   const [submitted, setSubmitted] = useState(false);
+  const [agreeError, setAgreeError] = useState(false);
 
-  const update = (key, value) => setForm((prev) => ({ ...prev, [key]: value }));
+  const update = (key, value) => {
+    setForm((prev) => ({ ...prev, [key]: value }));
+    if (key === "agree" && value) setAgreeError(false);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!form.agree) {
+      setAgreeError(true);
+      return;
+    }
+    setAgreeError(false);
     setSubmitted(true);
     setForm(INITIAL);
   };
@@ -372,29 +381,56 @@ export default function CareersPage() {
               </FormField>
             </div>
 
-            <label className="mt-3 flex cursor-pointer items-start gap-2.5 select-none sm:mt-4">
-              <input
-                type="checkbox"
-                required
-                checked={form.agree}
-                onChange={(e) => update("agree", e.target.checked)}
-                className="mt-0.5 h-4 w-4 cursor-pointer rounded border-[#D1D5DB] accent-[#FF6A00]"
-              />
-              <span className="text-[12px] leading-5 text-[#4B5563] sm:text-[13px]">
-                I have read and agree to the{" "}
-                <Link href="/terms" className="font-semibold hover:underline" style={{ color: ORANGE }}>
-                  Terms and Conditions
-                </Link>{" "}
-                and{" "}
-                <Link href="/privacy" className="font-semibold hover:underline" style={{ color: ORANGE }}>
-                  Privacy Policy
-                </Link>
-              </span>
-            </label>
+            <div className="mt-3 sm:mt-4">
+              <label className="flex cursor-pointer items-start gap-2.5 select-none">
+                <input
+                  type="checkbox"
+                  required
+                  aria-required="true"
+                  checked={form.agree}
+                  onChange={(e) => update("agree", e.target.checked)}
+                  className={`mt-0.5 h-4 w-4 cursor-pointer rounded accent-[#FF6A00] ${
+                    agreeError ? "outline outline-1 outline-[#E11D48]" : "border-[#D1D5DB]"
+                  }`}
+                />
+                <span className="text-[12px] leading-5 text-[#4B5563] sm:text-[13px]">
+                  I have read and agree to the{" "}
+                  <Link
+                    href="/terms"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold hover:underline"
+                    style={{ color: ORANGE }}
+                  >
+                    Terms and Conditions
+                  </Link>{" "}
+                  and{" "}
+                  <Link
+                    href="/privacy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold hover:underline"
+                    style={{ color: ORANGE }}
+                  >
+                    Privacy Policy
+                  </Link>
+                </span>
+              </label>
+              {agreeError ? (
+                <p className="mt-1.5 pl-6 text-[12px] font-medium text-[#E11D48]">
+                  Please agree to the Terms and Conditions and Privacy Policy to continue.
+                </p>
+              ) : null}
+            </div>
 
             <button
               type="submit"
-              className="mx-auto mt-5 flex h-[48px] w-full max-w-[480px] cursor-pointer items-center justify-center gap-2.5 rounded-[10px] bg-[#FF6A00] text-[13px] font-bold tracking-[0.08em] text-white uppercase shadow-[0_8px_20px_rgba(255, 106, 0,0.28)] transition-colors hover:bg-[#e57416] sm:mt-6 sm:h-[52px] sm:text-[14px]"
+              disabled={!form.agree}
+              className={`mx-auto mt-5 flex h-[48px] w-full max-w-[480px] items-center justify-center gap-2.5 rounded-[10px] text-[13px] font-bold tracking-[0.08em] text-white uppercase shadow-[0_8px_20px_rgba(255, 106, 0,0.28)] transition-colors sm:mt-6 sm:h-[52px] sm:text-[14px] ${
+                form.agree
+                  ? "cursor-pointer bg-[#FF6A00] hover:bg-[#e57416]"
+                  : "cursor-not-allowed bg-[#FF6A00]/45"
+              }`}
             >
               <IconSend className="h-[15px] w-[15px]" />
               SUBMIT APPLICATION

@@ -128,6 +128,65 @@ function IconChat({ className = "w-[18px] h-[18px]" }) {
   );
 }
 
+function IconShield({ className = "w-5 h-5" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path
+        d="M12 3.2 5.5 6v5.4c0 4.2 2.9 8.1 6.5 9.1 3.6-1 6.5-4.9 6.5-9.1V6L12 3.2Z"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinejoin="round"
+      />
+      <path
+        d="m9.1 12 2 2 3.9-4"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function IconClock24({ className = "w-5 h-5" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <circle cx="12" cy="12" r="8.2" stroke="currentColor" strokeWidth="1.7" />
+      <text
+        x="12"
+        y="14.5"
+        textAnchor="middle"
+        fontSize="7"
+        fontWeight="700"
+        fill="currentColor"
+        fontFamily="system-ui, sans-serif"
+      >
+        24
+      </text>
+    </svg>
+  );
+}
+
+function IconTeam({ className = "w-5 h-5" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <circle cx="9" cy="8.5" r="2.6" stroke="currentColor" strokeWidth="1.6" />
+      <circle cx="16" cy="9.2" r="2.2" stroke="currentColor" strokeWidth="1.6" />
+      <path
+        d="M3.8 18.5c.9-2.6 2.8-4 5.2-4s4.3 1.4 5.2 4"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+      <path
+        d="M14.2 14.8c1.5-.4 3-.2 4.2 1.2.7.8 1.1 1.7 1.3 2.5"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
 function IconSend({ className = "w-4 h-4" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
@@ -162,6 +221,29 @@ function FormField({ icon, label, required, children }) {
   );
 }
 
+const FEATURES = [
+  {
+    title: "100% Secure",
+    text: "Your information is safe with us",
+    icon: IconShield,
+  },
+  {
+    title: "Quick Response",
+    text: "We reply within 24 hours",
+    icon: IconClock24,
+  },
+  {
+    title: "Expert Team",
+    text: "Experienced professionals ready to help",
+    icon: IconTeam,
+  },
+  {
+    title: "Global Support",
+    text: "Serving businesses worldwide",
+    icon: IconGlobe,
+  },
+];
+
 const inputClass =
   "w-full h-[46px] sm:h-[48px] rounded-[10px] border border-[#E5E7EB] bg-white px-3.5 text-[13px] sm:text-[14px] text-[#0F274A] placeholder:text-[#9CA3AF] outline-none transition-colors focus:border-[#FF6A00] focus:ring-2 focus:ring-[#FF6A00]/15";
 
@@ -169,11 +251,20 @@ export default function ContactPage() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [form, setForm] = useState(INITIAL);
   const [submitted, setSubmitted] = useState(false);
+  const [agreeError, setAgreeError] = useState(false);
 
-  const update = (key, value) => setForm((prev) => ({ ...prev, [key]: value }));
+  const update = (key, value) => {
+    setForm((prev) => ({ ...prev, [key]: value }));
+    if (key === "agree" && value) setAgreeError(false);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!form.agree) {
+      setAgreeError(true);
+      return;
+    }
+    setAgreeError(false);
     setSubmitted(true);
     setForm(INITIAL);
   };
@@ -300,33 +391,93 @@ export default function ContactPage() {
               </FormField>
             </div>
 
-            <label className="mt-3 flex cursor-pointer items-start gap-2.5 select-none sm:mt-4">
-              <input
-                type="checkbox"
-                required
-                checked={form.agree}
-                onChange={(e) => update("agree", e.target.checked)}
-                className="mt-0.5 h-4 w-4 cursor-pointer rounded border-[#D1D5DB] accent-[#FF6A00]"
-              />
-              <span className="text-[12px] leading-5 text-[#4B5563] sm:text-[13px]">
-                I have read and agree to the{" "}
-                <Link href="/terms" className="font-semibold hover:underline" style={{ color: ORANGE }}>
-                  Terms and Conditions
-                </Link>{" "}
-                and{" "}
-                <Link href="/privacy" className="font-semibold hover:underline" style={{ color: ORANGE }}>
-                  Privacy Policy
-                </Link>
-              </span>
-            </label>
+            <div className="mt-3 sm:mt-4">
+              <label className="flex cursor-pointer items-start gap-2.5 select-none">
+                <input
+                  type="checkbox"
+                  required
+                  aria-required="true"
+                  checked={form.agree}
+                  onChange={(e) => update("agree", e.target.checked)}
+                  className={`mt-0.5 h-4 w-4 cursor-pointer rounded accent-[#FF6A00] ${
+                    agreeError ? "outline outline-1 outline-[#E11D48]" : "border-[#D1D5DB]"
+                  }`}
+                />
+                <span className="text-[12px] leading-5 text-[#4B5563] sm:text-[13px]">
+                  I have read and agree to the{" "}
+                  <Link
+                    href="/terms"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold hover:underline"
+                    style={{ color: ORANGE }}
+                  >
+                    Terms and Conditions
+                  </Link>{" "}
+                  and{" "}
+                  <Link
+                    href="/privacy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold hover:underline"
+                    style={{ color: ORANGE }}
+                  >
+                    Privacy Policy
+                  </Link>
+                </span>
+              </label>
+              {agreeError ? (
+                <p className="mt-1.5 pl-6 text-[12px] font-medium text-[#E11D48]">
+                  Please agree to the Terms and Conditions and Privacy Policy to continue.
+                </p>
+              ) : null}
+            </div>
 
             <button
               type="submit"
-              className="mx-auto mt-5 flex h-[48px] w-full max-w-[480px] cursor-pointer items-center justify-center gap-2.5 rounded-[10px] bg-[#FF6A00] text-[13px] font-bold tracking-[0.08em] text-white uppercase shadow-[0_8px_20px_rgba(255, 106, 0,0.28)] transition-colors hover:bg-[#e57416] sm:mt-6 sm:h-[52px] sm:text-[14px]"
+              disabled={!form.agree}
+              className={`mx-auto mt-5 flex h-[48px] w-full max-w-[480px] items-center justify-center gap-2.5 rounded-[10px] text-[13px] font-bold tracking-[0.08em] text-white uppercase shadow-[0_8px_20px_rgba(255, 106, 0,0.28)] transition-colors sm:mt-6 sm:h-[52px] sm:text-[14px] ${
+                form.agree
+                  ? "cursor-pointer bg-[#FF6A00] hover:bg-[#e57416]"
+                  : "cursor-not-allowed bg-[#FF6A00]/45"
+              }`}
             >
               <IconSend className="h-[15px] w-[15px]" />
               SUBMIT FORM
             </button>
+
+            <div className="mt-6 sm:mt-7">
+              <div className="rounded-[12px] bg-[#FFF7F0] px-4 py-3.5 sm:rounded-[14px] sm:px-5 sm:py-4 lg:px-6">
+                <div className="grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-0">
+                  {FEATURES.map((feature, index) => {
+                    const Icon = feature.icon;
+                    return (
+                      <div
+                        key={feature.title}
+                        className={`flex items-start gap-2.5 ${
+                          index > 0 ? "lg:border-l lg:border-[#E8D5C4] lg:pl-5" : ""
+                        } ${index < FEATURES.length - 1 ? "lg:pr-5" : ""}`}
+                      >
+                        <div className="mt-0.5 shrink-0 text-[#FF6A00]">
+                          <Icon className="h-5 w-5" />
+                        </div>
+                        <div className="min-w-0">
+                          <p
+                            className="text-[13px] font-bold leading-tight sm:text-[14px]"
+                            style={{ color: NAVY }}
+                          >
+                            {feature.title}
+                          </p>
+                          <p className="mt-0.5 text-[11px] leading-[1.35] text-[#6B7280] sm:text-[12px]">
+                            {feature.text}
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
           </form>
         </div>
       </section>

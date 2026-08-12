@@ -11,7 +11,9 @@ import { REGION_NAV_BY_CODE } from "@/app/lib/regionNav";
 /**
  * Shows the matching regional navbar (UK / USA / Canada / Ireland / …)
  * when the visitor is in a market region — including on shared pages
- * like About, BYOT, Tools and Contact. Home then returns to that region.
+ * like About, BYOT, Tools and Contact (Home then returns to that region).
+ * After visiting global `/`, the saved region is cleared and this falls
+ * back to the worldwide Header.
  */
 export default function SiteNavbar({
   isSidebarOpen = false,

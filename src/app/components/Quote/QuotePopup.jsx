@@ -253,6 +253,7 @@ const INITIAL = {
 export default function QuotePopup({ isOpen, onClose }) {
   const [mounted, setMounted] = useState(false);
   const [form, setForm] = useState(INITIAL);
+  const [agreeError, setAgreeError] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -263,6 +264,8 @@ export default function QuotePopup({ isOpen, onClose }) {
 
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    setForm(INITIAL);
+    setAgreeError(false);
 
     const onKeyDown = (e) => {
       if (e.key === "Escape") onClose();
@@ -275,10 +278,18 @@ export default function QuotePopup({ isOpen, onClose }) {
     };
   }, [isOpen, onClose]);
 
-  const update = (key, value) => setForm((prev) => ({ ...prev, [key]: value }));
+  const update = (key, value) => {
+    setForm((prev) => ({ ...prev, [key]: value }));
+    if (key === "agree" && value) setAgreeError(false);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!form.agree) {
+      setAgreeError(true);
+      return;
+    }
+    setAgreeError(false);
     // Form wiring not finished yet — UI only for now
     onClose();
   };
@@ -484,31 +495,60 @@ export default function QuotePopup({ isOpen, onClose }) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.28, duration: 0.35, ease: "easeOut" }}
                 >
-                  <label className="mt-3 flex cursor-pointer select-none items-start gap-2.5 sm:mt-3.5">
-                    <input
-                      type="checkbox"
-                      required
-                      checked={form.agree}
-                      onChange={(e) => update("agree", e.target.checked)}
-                      className="mt-0.5 h-4 w-4 cursor-pointer rounded border-[#D1D5DB] accent-[#FF6A00] text-[#FF6A00]"
-                    />
-                    <span className="text-[11px] leading-4 text-[#4B5563] sm:text-[13px] sm:leading-5">
-                      I have read and agree to the{" "}
-                      <Link href="/terms" className="font-semibold hover:underline" style={{ color: ORANGE }}>
-                        Terms and Conditions
-                      </Link>{" "}
-                      and{" "}
-                      <Link href="/privacy" className="font-semibold hover:underline" style={{ color: ORANGE }}>
-                        Privacy Policy
-                      </Link>
-                    </span>
-                  </label>
+                  <div className="mt-3 sm:mt-3.5">
+                    <label className="flex cursor-pointer select-none items-start gap-2.5">
+                      <input
+                        type="checkbox"
+                        required
+                        aria-required="true"
+                        checked={form.agree}
+                        onChange={(e) => update("agree", e.target.checked)}
+                        className={`mt-0.5 h-4 w-4 cursor-pointer rounded accent-[#FF6A00] text-[#FF6A00] ${
+                          agreeError ? "border-[#E11D48] outline outline-1 outline-[#E11D48]" : "border-[#D1D5DB]"
+                        }`}
+                      />
+                      <span className="text-[11px] leading-4 text-[#4B5563] sm:text-[13px] sm:leading-5">
+                        I have read and agree to the{" "}
+                        <Link
+                          href="/terms"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="font-semibold hover:underline"
+                          style={{ color: ORANGE }}
+                        >
+                          Terms and Conditions
+                        </Link>{" "}
+                        and{" "}
+                        <Link
+                          href="/privacy"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="font-semibold hover:underline"
+                          style={{ color: ORANGE }}
+                        >
+                          Privacy Policy
+                        </Link>
+                      </span>
+                    </label>
+                    {agreeError ? (
+                      <p className="mt-1.5 pl-6 text-[11px] font-medium text-[#E11D48] sm:text-[12px]">
+                        Please agree to the Terms and Conditions and Privacy Policy to continue.
+                      </p>
+                    ) : null}
+                  </div>
 
                   <motion.button
                     type="submit"
-                    whileHover={{ scale: 1.015 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="mx-auto mt-3.5 flex h-[44px] w-full max-w-[420px] cursor-pointer items-center justify-center gap-2.5 rounded-[10px] bg-[#FF6A00] text-[12px] font-bold tracking-[0.08em] text-white uppercase shadow-[0_8px_20px_rgba(255, 106, 0,0.28)] transition-colors hover:bg-[#e57416] sm:mt-4 sm:h-[48px] sm:max-w-[480px] sm:text-[14px]"
+                    disabled={!form.agree}
+                    whileHover={form.agree ? { scale: 1.015 } : undefined}
+                    whileTap={form.agree ? { scale: 0.98 } : undefined}
+                    className={`mx-auto mt-3.5 flex h-[44px] w-full max-w-[420px] items-center justify-center gap-2.5 rounded-[10px] text-[12px] font-bold tracking-[0.08em] text-white uppercase shadow-[0_8px_20px_rgba(255, 106, 0,0.28)] transition-colors sm:mt-4 sm:h-[48px] sm:max-w-[480px] sm:text-[14px] ${
+                      form.agree
+                        ? "cursor-pointer bg-[#FF6A00] hover:bg-[#e57416]"
+                        : "cursor-not-allowed bg-[#FF6A00]/45"
+                    }`}
                   >
                     <IconSend className="h-[15px] w-[15px]" />
                     SUBMIT FORM

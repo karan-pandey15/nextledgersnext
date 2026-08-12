@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import {
+  clearStoredRegionCode,
   getRegionCodeFromPath,
   persistRegionCode,
   readStoredRegionCode,
@@ -12,8 +13,8 @@ import {
  * Current market region:
  * - On /uk, /usa, /canada, etc. → that region (also saved)
  * - On shared pages (about, byot, tools, contact, …) → last saved region
- * - Global home `/` → navbar is worldwide, but the saved region is kept
- *   so About / BYOT / Tools / Contact still return Home to that market.
+ * - Global home `/` → worldwide navbar and clears the saved region so
+ *   About / BYOT / Tools / Contact use the global navbar afterward
  */
 export default function useActiveRegion() {
   const pathname = usePathname();
@@ -26,13 +27,16 @@ export default function useActiveRegion() {
     if (fromPath) {
       persistRegionCode(fromPath);
       setStoredCode(fromPath);
+    } else if (isGlobalHome) {
+      clearStoredRegionCode();
+      setStoredCode(null);
     } else {
       setStoredCode(readStoredRegionCode());
     }
     setHydrated(true);
-  }, [pathname, fromPath]);
+  }, [pathname, fromPath, isGlobalHome]);
 
-  const rememberedCode = fromPath || storedCode;
+  const rememberedCode = isGlobalHome ? null : fromPath || storedCode;
 
   return {
     regionCode: isGlobalHome ? null : rememberedCode,

@@ -119,6 +119,15 @@ export function persistRegionCode(code) {
   }
 }
 
+/** Reset to worldwide (India) — used when the visitor returns to global `/`. */
+export function clearStoredRegionCode() {
+  try {
+    localStorage.setItem(REGION_STORAGE_KEY, "IN");
+  } catch {
+    /* ignore */
+  }
+}
+
 export function regionHomePath(code) {
   if (!code || code === "IN") return "/";
   return REGION_ROUTES[code] || "/";

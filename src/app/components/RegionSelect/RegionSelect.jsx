@@ -10,6 +10,7 @@ import {
   getRegionCodeFromPath,
 } from "./regionData";
 import {
+  clearStoredRegionCode,
   persistRegionCode,
   readStoredRegionCode,
 } from "@/app/lib/regionNav";
@@ -59,9 +60,8 @@ export default function RegionSelect({
   }, []);
 
   // Keep header/sidebar selection in sync with the current page.
-  // Regional routes save that market. Home (/) shows IN in the trigger
-  // but does NOT overwrite the saved region — so About/BYOT/Tools/Contact
-  // can still send Home back to UK/USA/Canada/etc.
+  // Regional routes save that market. Home (/) resets to IN / worldwide
+  // so About/BYOT/Tools/Contact use the global navbar afterward.
   useEffect(() => {
     const fromPath = getRegionCodeFromPath(pathname);
     if (fromPath) {
@@ -72,6 +72,7 @@ export default function RegionSelect({
 
     if (pathname === "/") {
       setSelectedRegion("IN");
+      clearStoredRegionCode();
       return;
     }
 

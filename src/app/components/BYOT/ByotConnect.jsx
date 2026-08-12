@@ -334,11 +334,21 @@ export default function ByotConnect() {
                 />
                 <span>
                   I agree to the{" "}
-                  <Link href="/privacy" className="font-semibold text-[#2563EB] underline">
+                  <Link
+                    href="/privacy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-[#2563EB] underline"
+                  >
                     Privacy Policy
                   </Link>{" "}
                   and{" "}
-                  <Link href="/terms" className="font-semibold text-[#2563EB] underline">
+                  <Link
+                    href="/terms"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-[#2563EB] underline"
+                  >
                     Terms of Service
                   </Link>
                 </span>
