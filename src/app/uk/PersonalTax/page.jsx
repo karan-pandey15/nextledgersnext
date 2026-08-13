@@ -182,15 +182,12 @@ const softwareExpertiseLogodata = [
 ];
 
 const whyChooseNextLedgers = [
-    { title: "ACCA-Led Delivery Team", icon: UserCheck },
-    { title: "UK Personal Tax Expertise", icon: BookOpen },
-    { title: "Self Assessment Specialists", icon: UserRound },
-    { title: "White-Label Service Delivery", icon: BadgeCheck },
-    { title: "Dedicated Offshore Resources", icon: Headset },
-    { title: "Multi-Software Expertise", icon: Monitor },
-    { title: "Structured Review Processes", icon: ClipboardCheck },
-    { title: "Flexible Engagement Models", icon: Network },
-    { title: "Secure Data Handling", icon: LockKeyhole },
+    { title: "UK Self Assessment Expertise", icon: BookOpen },
+    { title: "ACCA-Led Tax Professionals", icon: UserCheck },
+    { title: "Director & Shareholder Tax Knowledge", icon: UserRound },
+    { title: "Tax Return Preparation & Review", icon: ClipboardCheck },
+    { title: "Personal Tax Planning Support", icon: BadgeCheck },
+    { title: "Secure & Confidential Handling", icon: LockKeyhole },
 ];
 
 function CheckPill({ text }) {
@@ -798,7 +795,7 @@ export default function PersonalTaxPage() {
                 titleAfter="?"
                 subtitle="Technical expertise, confidentiality, and attention to detail for personal tax compliance."
                 items={whyChooseNextLedgers}
-                imageSrc="/images/bgimage.JPG"
+                imageSrc="/images/DSC09669.JPG"
                 imageAlt="Why choose NextLedgers for personal tax"
             />
 

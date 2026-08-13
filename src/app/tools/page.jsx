@@ -50,6 +50,8 @@ const TOOL_CATEGORIES = [
       { key: "kashflow", name: "IRIS KashFlow" },
       { key: "accountsiq", name: "AccountsIQ" },
       { key: "iplicit", name: "iplicit" },
+      { key: "quickfile", name: "QuickFile" },
+      { key: "busy", name: "Busy" },
     ],
   },
   {
@@ -79,6 +81,8 @@ const TOOL_CATEGORIES = [
       { key: "nest", name: "NEST" },
       { key: "the people's pension", name: "The People's Pension" },
       { key: "smart pension", name: "Smart Pension" },
+      { key: "payworks", name: "Payworks" },
+      { key: "adp", name: "ADP" },
     ],
   },
   {
@@ -94,6 +98,7 @@ const TOOL_CATEGORIES = [
       { key: "absolute tax", name: "Absolute Tax" },
       { key: "forbes professional", name: "Forbes Professional" },
       { key: "xero tax", name: "Xero Tax" },
+      { key: "thomson reuters", name: "Thomson Reuters" },
     ],
   },
   {

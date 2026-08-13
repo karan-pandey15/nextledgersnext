@@ -45,6 +45,7 @@ import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/Arti
 import NexaLedAi from "@/app/components/ChatBot/NexaLedAi";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
 import { INDUSTRIES_WE_SUPPORT } from "@/app/lib/industriesWeSupport";
+import { uniquePagePhotos } from "@/app/lib/uniquePagePhotos";
 
 const ORANGE = BRAND_ORANGE;
 const NAVY = "#0B1F3A";
@@ -178,6 +179,12 @@ export default function CanadaServiceTemplate({ data }) {
     { icon: <Headset className="h-5 w-5" />, value: "Dedicated", label: "Offshore Support Team" },
   ];
 
+  const [introSrc, whyMatterSrc, whyChooseSrc] = uniquePagePhotos([
+    data.intro?.image,
+    data.whyMatter?.image,
+    data.whyChooseImage || "/images/DSC09669.JPG",
+  ]);
+
   return (
     <main className="relative min-h-screen w-full overflow-x-hidden bg-white">
       <CanadaNavbar
@@ -269,7 +276,7 @@ export default function CanadaServiceTemplate({ data }) {
             <div className="relative pb-10 sm:pb-12">
               <div className="overflow-hidden rounded-2xl">
                 <Image
-                  src={"/images/DSC09901.JPG"}
+                  src={introSrc}
                   alt={data.intro.heading}
                   width={720}
                   height={480}
@@ -379,11 +386,7 @@ export default function CanadaServiceTemplate({ data }) {
 
             <div className="relative mx-auto h-[220px] w-full overflow-hidden rounded-[20px] shadow-[0_12px_40px_rgba(15,39,74,0.08)] sm:h-[280px] sm:rounded-[24px] lg:h-[320px]">
               <Image
-                src={
-                  data.whyMatter.image ||
-                  data.intro?.image ||
-                  "/images/bgimage.JPG"
-                }
+                src={whyMatterSrc}
                 alt={data.whyMatter.title}
                 fill
                 className="object-cover object-center"
@@ -492,7 +495,7 @@ export default function CanadaServiceTemplate({ data }) {
           title,
           icon: WHY_CHOOSE_ICONS[i % WHY_CHOOSE_ICONS.length],
         }))}
-        imageSrc="/images/DSC09669.JPG"
+        imageSrc={whyChooseSrc}
         imageAlt="NextLedgers Canada accounting specialists"
       />
 

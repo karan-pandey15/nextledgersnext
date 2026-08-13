@@ -176,14 +176,12 @@ const softwareExpertiseLogodata = [
 ];
 
 const whyChooseCards = [
-    { title: "ACCA-Led Delivery Team", icon: UserCheck },
-    { title: "UK VAT & MTD Expertise", icon: BookOpen },
-    { title: "Dedicated Offshore Resources", icon: Headset },
-    { title: "White-Label Service Delivery", icon: BadgeCheck },
-    { title: "Structured Review Processes", icon: ClipboardCheck },
-    { title: "Secure Data Handling", icon: LockKeyhole },
-    { title: "Flexible Engagement Models", icon: Network },
-    { title: "Scalable Support Without Increasing Overheads", icon: TrendingUp },
+    { title: "UK VAT Compliance Expertise", icon: BookOpen },
+    { title: "Making Tax Digital Knowledge", icon: Sparkles },
+    { title: "Accurate VAT Return Preparation", icon: Calculator },
+    { title: "VAT Reconciliation & Review", icon: ClipboardCheck },
+    { title: "HMRC Filing Support", icon: FileText },
+    { title: "Proactive Compliance Management", icon: BadgeCheck },
 ];
 
 const partnerTrust = [

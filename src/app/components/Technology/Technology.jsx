@@ -21,10 +21,12 @@ const ACCOUNTING_LOGOS = [
   { name: "Wave", src: "/images/logooUK/Wave_id.jpeg" },
   { name: "FreeAgent", src: "/images/logooUK/FreeAgent.png" },
   { name: "MYOB", src: "/images/logooUK/MYOB.jpeg" },
-  { name: "FreshBooks", src: "/images/logooUK/freshbooks.png" },
+  { name: "FreshBooks", src: "/images/logooUK/freshbook2.jfif" },
   { name: "KashFlow", src: "/images/logooUK/IRIS_KashFlow.jpeg" },
   { name: "Zoho Books", src: "/images/logooUK/SVG_Brand_zoho_corporation.webp" },
   { name: "Reckon", src: "/images/logooUK/Reckon.png" },
+  { name: "QuickFile", src: "/images/logooUK/QuickFile.png" },
+  { name: "Busy", src: "/images/logooUK/Busy.jpeg" },
 ];
 
 const PAYROLL_LOGOS = [
@@ -36,7 +38,8 @@ const PAYROLL_LOGOS = [
   { name: "Employment Hero", src: "/images/logooUK/Employmenthero.jpeg" },
   { name: "Ceridian Dayforce", src: "/images/logooUK/Ceridian.jpeg" },
   { name: "Wagepoint", src: "/images/logooUK/Wagepoint.jpeg" },
-  { name: "Zoho Payroll", src: "/images/logooUK/SVG_Brand_zoho_corporation.webp" },
+  { name: "Payworks", src: "/images/logooUK/Payworks.jpeg" },
+  { name: "Capium", src: "/images/logooUK/capium.jpeg" },
   { name: "Bayzat", src: "/images/logooUK/Bayzat.png" },
 ];
 
@@ -47,7 +50,8 @@ const TAX_LOGOS = [
   { name: "Wolters Kluwer", src: "/images/logooUK/wolters.png" },
   { name: "UFile", src: "/images/logooUK/UFile.jpeg" },
   { name: "TaxCycle", src: "/images/logooUK/TaxCycle.jpeg" },
-  { name: "Zoho Prime", src: "/images/logooUK/SVG_Brand_zoho_corporation.webp" },
+  { name: "Thomson Reuters", src: "/images/logooUK/Thomson_Reuters.jpeg" },
+  { name: "ADP", src: "/images/logooUK/ADP.jpeg" },
   { name: "Avalara", src: "/images/logooUK/Avalara.png" },
   { name: "Taxfyle", src: "/images/logooUK/Taxfyle.jpeg" },
 ];
@@ -56,11 +60,13 @@ const ALL_LOGOS = [...ACCOUNTING_LOGOS, ...PAYROLL_LOGOS, ...TAX_LOGOS];
 
 const MOBILE_LOGOS = ALL_LOGOS;
 
-// Desktop honeycomb: 10 / 9 / 10
+// Desktop honeycomb: longer / shorter / remaining so rows nest
+const HONEYCOMB_ROW1 = ACCOUNTING_LOGOS.length;
+const HONEYCOMB_ROW2 = Math.max(PAYROLL_LOGOS.length - 1, 1);
 const DESKTOP_LOGOS = [
-  ALL_LOGOS.slice(0, 10),
-  ALL_LOGOS.slice(10, 19),
-  ALL_LOGOS.slice(19, 29),
+  ALL_LOGOS.slice(0, HONEYCOMB_ROW1),
+  ALL_LOGOS.slice(HONEYCOMB_ROW1, HONEYCOMB_ROW1 + HONEYCOMB_ROW2),
+  ALL_LOGOS.slice(HONEYCOMB_ROW1 + HONEYCOMB_ROW2),
 ];
 
 const FEATURES = [
@@ -96,12 +102,12 @@ const hexPolygonStyle = {
 };
 
 /** Figma honeycomb: staggered nest + visible gutter between every hex (no overlap) */
-const HEX_W = 88;
-const HEX_H = 102;
-const HEX_GAP = 14; // clear white gutter like Figma
-const HEX_ROW_OFFSET = (HEX_W + HEX_GAP) / 2; // 51 — sit in valleys
+const HEX_W = 80;
+const HEX_H = 93;
+const HEX_GAP = 12; // clear white gutter like Figma
+const HEX_ROW_OFFSET = (HEX_W + HEX_GAP) / 2; // sit in valleys
 // Mild nest into valleys while keeping ~HEX_GAP between diagonal edges
-const HEX_ROW_PULL = 18;
+const HEX_ROW_PULL = 16;
 
 export default function Technology() {
   const [isInView, setIsInView] = useState(false);

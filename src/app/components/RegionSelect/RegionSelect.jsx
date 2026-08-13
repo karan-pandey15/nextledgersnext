@@ -2,12 +2,15 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { createPortal } from "react-dom";
+import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { ArrowLeft } from "lucide-react";
 import {
   POPUP_REGIONS,
   REGION_ROUTES,
   DEFAULT_REGION,
   getRegionCodeFromPath,
+  isRegionalServicePath,
 } from "./regionData";
 import {
   clearStoredRegionCode,
@@ -38,6 +41,8 @@ export default function RegionSelect({
   boundaryRef = null,
   /** Show region name beside code (better for sidebar) */
   showLabel = false,
+  /** Force the single-flag + Back to Home control (regional service pages) */
+  showBackHome = null,
 }) {
   const [isOpen, setIsOpen] = useState(false);
   /** Default: India (IN) until user picks a market region */
@@ -180,6 +185,14 @@ export default function RegionSelect({
       : POPUP_REGIONS.find((r) => r.code === selectedRegion) || DEFAULT_REGION;
 
   const triggerCode = activeRegion.displayCode || activeRegion.code;
+  const isServicePage =
+    showBackHome === null ? isRegionalServicePath(pathname) : Boolean(showBackHome);
+
+  const goHome = () => {
+    setIsOpen(false);
+    clearStoredRegionCode();
+    setSelectedRegion("IN");
+  };
 
   const dropdown =
     mounted && isOpen
@@ -305,6 +318,105 @@ export default function RegionSelect({
           document.body
         )
       : null;
+
+  const shellClass = isDark
+    ? "rounded-full border border-white/20 bg-white/10"
+    : "rounded-full border border-[#D1D5DB] bg-white shadow-[0_2px_8px_rgba(15,39,74,0.06)]";
+
+  if (isServicePage) {
+    return (
+      <div
+        ref={rootRef}
+        className={`relative inline-block shrink-0 text-left ${compact ? "w-full min-w-0" : ""} ${className}`}
+      >
+        <div
+          className={`inline-flex max-w-full min-w-0 items-stretch overflow-hidden ${shellClass} ${
+            compact ? "w-full" : ""
+          } transition-shadow duration-200 ${
+            isDark ? "" : "hover:shadow-[0_4px_14px_rgba(15,39,74,0.1)]"
+          }`}
+        >
+          <button
+            type="button"
+            onClick={() => setIsOpen((open) => !open)}
+            className={`inline-flex min-w-0 items-center cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6A00]/35 focus-visible:ring-inset ${
+              compact ? "gap-1.5 px-2 py-1.5" : "gap-2 pl-2.5 pr-2.5 py-1.5"
+            } ${isDark ? "hover:bg-white/10" : "hover:bg-[#FFF7F0]"}`}
+            aria-expanded={isOpen}
+            aria-haspopup="listbox"
+            aria-label={`Change region. Current: ${activeRegion.name}`}
+          >
+            <span
+              className={`relative flex flex-shrink-0 overflow-hidden rounded-[3px] border shadow-[0_1px_2px_rgba(15,39,74,0.12)] ${
+                isDark ? "border-white/70" : "border-[#E5E7EB]"
+              } ${compact ? "h-3.5 w-5" : "h-4 w-[22px]"}`}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={activeRegion.flag}
+                alt=""
+                className="h-full w-full object-cover"
+              />
+            </span>
+
+            <span
+              className={`font-bold uppercase leading-none shrink-0 ${
+                compact
+                  ? "text-[10px] tracking-[0.12em]"
+                  : "text-[11px] tracking-[0.14em]"
+              } ${isDark ? "text-white" : "text-[#0F274A]"}`}
+            >
+              {triggerCode}
+            </span>
+
+            <svg
+              className={`h-3.5 w-3.5 shrink-0 transition-transform duration-200 ease-in-out ${
+                isOpen ? "rotate-180" : ""
+              } ${isDark ? "text-white/70" : "text-[#9CA3AF]"}`}
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          <span
+            className={`w-px self-stretch my-[7px] shrink-0 ${
+              isDark ? "bg-white/20" : "bg-[#E5E7EB]"
+            }`}
+            aria-hidden="true"
+          />
+
+          <Link
+            href="/"
+            onClick={goHome}
+            className={`inline-flex min-w-0 items-center gap-1.5 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6A00]/35 focus-visible:ring-inset transition-colors duration-200 ${
+              compact ? "ml-auto px-2.5 py-1.5" : "pl-2.5 pr-3 py-1.5"
+            } ${
+              isDark
+                ? "text-white/90 hover:bg-white/10 hover:text-white"
+                : "text-[#0F274A] hover:bg-[#FFF7F0] hover:text-[#FF6A00]"
+            }`}
+            aria-label="Back to home"
+          >
+            <ArrowLeft
+              className="h-3.5 w-3.5 shrink-0"
+              strokeWidth={2.4}
+              aria-hidden="true"
+            />
+            <span className="text-[11px] font-bold uppercase leading-none tracking-[0.12em] whitespace-nowrap">
+              Back to Home
+            </span>
+          </Link>
+        </div>
+
+        {dropdown}
+      </div>
+    );
+  }
 
   return (
     <div

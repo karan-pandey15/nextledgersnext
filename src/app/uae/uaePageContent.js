@@ -91,6 +91,7 @@ const UAE_ACCOUNTING_BOOKKEEPING = {
     "zoho books",
     "sage",
     "tallyprime",
+    "busy",
     "oracle netsuite",
     "microsoft dynamics 365 business central",
   ],

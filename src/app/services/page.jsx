@@ -137,36 +137,6 @@ export default function ExploreAllServicesPage() {
             })}
           </div>
 
-          {/* Quick list — matches footer “Our Services” style */}
-          <div className="mt-12 rounded-[18px] border border-[#F0E6DC] bg-white px-6 py-8 sm:px-8 sm:py-9 lg:px-10">
-            <h3
-              className="text-[13px] font-extrabold uppercase tracking-[0.18em]"
-              style={{ color: ORANGE }}
-            >
-              Our Services
-            </h3>
-            <ul className="mt-5 grid grid-cols-1 gap-x-10 gap-y-3 sm:grid-cols-2 lg:grid-cols-3">
-              {ALL_GLOBAL_SERVICES.map((service) => (
-                <li key={`list-${service.href}`}>
-                  <Link
-                    href={service.href}
-                    className="group inline-flex items-center gap-2 text-[14px] font-medium transition-colors hover:text-[#FF6A00] sm:text-[15px]"
-                    style={{ color: NAVY }}
-                  >
-                    <span
-                      className="text-[15px] font-bold leading-none"
-                      style={{ color: ORANGE }}
-                      aria-hidden="true"
-                    >
-                      ›
-                    </span>
-                    {service.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           <div className="mt-10 flex flex-col items-center gap-3 text-center sm:mt-12">
             <p className="max-w-md text-[13px] sm:text-[14px]" style={{ color: GREY }}>
               Not sure which service fits your needs? Talk to our team.

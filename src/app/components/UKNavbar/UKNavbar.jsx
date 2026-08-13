@@ -5,13 +5,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { UK_SERVICE_LINKS } from "@/app/uk/ukServiceLinks";
 import RegionSelect from "@/app/components/RegionSelect/RegionSelect";
-import { isNavLinkActive, persistRegionCode, siteHomeHref } from "@/app/lib/regionNav";
+import { isNavLinkActive, persistRegionCode, siteHomeHref, ABOUT_NAV_LINK } from "@/app/lib/regionNav";
 
 const UK_HOME = "/uk";
 
 const UK_NAV_LINKS = [
   { id: "home", label: "Home", href: UK_HOME },
-  { id: "about", label: "About Us", href: "/about" },
+  ABOUT_NAV_LINK,
   {
     id: "services",
     label: "Services in UK",
@@ -31,6 +31,8 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
   const sidebarPanelRef = useRef(null);
   const pathname = usePathname();
   const homeHref = siteHomeHref(pathname, UK_HOME);
+  const isUkHub = pathname === UK_HOME || pathname === `${UK_HOME}/`;
+  const showBackHome = !isUkHub;
   const navLinks = UK_NAV_LINKS.map((link) =>
     link.id === "home" ? { ...link, href: homeHref } : link
   );
@@ -119,6 +121,10 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
           <nav className="hidden lg:flex items-center space-x-0.5 xl:space-x-1">
             {navLinks.map((link) => {
               const isOpen = activeDropdown === link.id;
+              const childActive = link.dropdownItems?.some((item) =>
+                isNavLinkActive(pathname, item.href, UK_HOME)
+              );
+              const isHighlighted = isOpen || childActive;
 
               if (link.hasDropdown) {
                 return (
@@ -131,7 +137,7 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
                     <button
                       onClick={(e) => handleDropdownClick(link.id, e)}
                       className={`flex items-center gap-1 px-3 py-2 rounded-full text-[13px] font-bold tracking-wide transition-all duration-200 cursor-pointer focus:outline-none ${
-                        isOpen
+                        isHighlighted
                           ? "bg-[#FF6A00]/10 text-[#FF6A00]"
                           : "text-[#1E1B2A] hover:text-[#FF6A00] hover:bg-[#FF6A00]/5"
                       }`}
@@ -154,13 +160,13 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
                     {/* Dropdown */}
                     {isOpen && (
                       <div
-                        className="absolute left-0 mt-2 w-[380px] origin-top-left rounded-[20px] bg-white border border-gray-100 p-4 shadow-[0_12px_45px_rgba(0,0,0,0.08)] z-50 animate-uk-nav-dropdown"
+                        className={`absolute left-0 mt-2 ${link.dropdownWidth || "w-[380px]"} origin-top-left rounded-[20px] bg-white border border-gray-100 p-4 shadow-[0_12px_45px_rgba(0,0,0,0.08)] z-50 animate-uk-nav-dropdown`}
                         onMouseEnter={() => handleMouseEnter(link.id)}
                         onMouseLeave={() => handleMouseLeave(link.id)}
                       >
                         <div className="flex flex-col gap-0.5">
                           {/* Back To UK Action Header */}
-                          {pathname !== "/uk" && pathname !== "/uk/" && (
+                          {link.id === "services" && pathname !== "/uk" && pathname !== "/uk/" && (
                             <Link
                               href="/uk"
                               className="group flex items-center gap-2.5 p-2.5 mb-2 rounded-xl bg-[#FF6A00]/5 hover:bg-[#FF6A00]/10 border border-[#FF6A00]/20 transition-all duration-200 text-left"
@@ -172,20 +178,32 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
                             </Link>
                           )}
 
-                          {link.dropdownItems.map((item, idx) => (
+                          {link.dropdownItems.map((item, idx) => {
+                            const Icon = item.icon;
+                            const isLucide =
+                              typeof Icon === "function" ||
+                              (typeof Icon === "object" && Icon?.$$typeof);
+                            return (
                             <Link
                               key={idx}
                               href={item.href}
                               className="group flex items-center gap-3 p-2.5 rounded-xl transition-all duration-200 hover:bg-[#FF6A00]/5 border-l-2 border-transparent hover:border-[#FF6A00]/40 text-left"
                             >
-                              <span className="text-lg flex-shrink-0 transition-transform duration-200 group-hover:scale-110">
-                                {item.icon}
-                              </span>
+                              {isLucide ? (
+                                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#FF6A00] transition-transform duration-200 group-hover:scale-110">
+                                  <Icon className="h-4 w-4" strokeWidth={2} />
+                                </span>
+                              ) : (
+                                <span className="text-lg flex-shrink-0 transition-transform duration-200 group-hover:scale-110">
+                                  {item.icon}
+                                </span>
+                              )}
                               <span className="text-[13px] font-bold text-[#1E1B2A]/90 transition-colors duration-200 group-hover:text-[#FF6A00] leading-snug">
                                 {item.label}
                               </span>
                             </Link>
-                          ))}
+                            );
+                          })}
                         </div>
                       </div>
                     )}
@@ -210,8 +228,8 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
           </nav>
 
           {/* Region select (Desktop) — same as home header */}
-          <div className="hidden lg:flex items-center">
-            <RegionSelect />
+          <div className="hidden lg:flex shrink-0 items-center">
+            <RegionSelect showBackHome={showBackHome} />
           </div>
 
           {/* Hamburger (Mobile) */}
@@ -301,7 +319,7 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
                     }`}>
                       <div className="overflow-hidden">
                         <div className="bg-[#FF6A00]/2 border border-[#FF6A00]/5 rounded-[18px] p-3 flex flex-col gap-1 mx-2">
-                          {pathname !== "/uk" && pathname !== "/uk/" && (
+                          {link.id === "services" && pathname !== "/uk" && pathname !== "/uk/" && (
                             <Link
                               href="/uk"
                               onClick={() => setIsSidebarOpen(false)}
@@ -314,19 +332,31 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
                             </Link>
                           )}
 
-                          {link.dropdownItems.map((item, idx) => (
+                          {link.dropdownItems.map((item, idx) => {
+                            const Icon = item.icon;
+                            const isLucide =
+                              typeof Icon === "function" ||
+                              (typeof Icon === "object" && Icon?.$$typeof);
+                            return (
                             <Link
                               key={idx}
                               href={item.href}
                               onClick={() => setIsSidebarOpen(false)}
                               className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-[#FF6A00]/4 transition-colors"
                             >
-                              <span className="text-base flex-shrink-0">{item.icon}</span>
+                              {isLucide ? (
+                                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#FF6A00]">
+                                  <Icon className="h-3.5 w-3.5" strokeWidth={2} />
+                                </span>
+                              ) : (
+                                <span className="text-base flex-shrink-0">{item.icon}</span>
+                              )}
                               <span className="text-xs font-bold text-[#1E1B2A]/90">
                                 {item.label}
                               </span>
                             </Link>
-                          ))}
+                            );
+                          })}
                         </div>
                       </div>
                     </div>
@@ -355,6 +385,7 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
                 onRegionChange={() => setIsSidebarOpen(false)}
                 compact
                 showLabel
+                showBackHome={showBackHome}
                 boundaryRef={sidebarPanelRef}
               />
             </div>

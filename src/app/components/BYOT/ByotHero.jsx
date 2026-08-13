@@ -75,12 +75,12 @@ const ROLES = [
 const ORBIT = [
   {
     label: "Client Onboarding Specialist",
-    src: "/images/TeamImage/Dharmesh_Kumar-removebg-preview.png",
+    src: "/images/TeamImage/Dharmesh-_Final-removebg-preview.png",
     angle: -90,
   },
   {
     label: "Virtual Assistance Specialist",
-    src: "/images/TeamImage/Kirti_Kapoor-removebg-preview.png",
+    src: "/images/TeamImage/Kirti-Final-removebg-preview.png",
     angle: -30,
   },
   {

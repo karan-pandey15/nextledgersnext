@@ -283,6 +283,7 @@ function ModalAvatar({ src, name, variant }) {
   const isPraveen = variant === "praveen";
   const isAbhishek = variant === "abhishek";
   const isRahul = variant === "rahul";
+  const isNisha = variant === "nisha";
   const imageClass = isShivam
     ? // Source photo sits right; keep face centered and show full lower crop (no scale = no bottom cut)
       "h-full w-full object-cover object-[70%_48%]"
@@ -295,6 +296,8 @@ function ModalAvatar({ src, name, variant }) {
     : isRahul
       ? // Zoom so head + crossed arms/hands fill the circle
         "h-full w-full object-cover object-[50%_10%] scale-[1.55] origin-top"
+    : isNisha
+      ? "h-full w-full object-contain object-bottom scale-[0.96] origin-bottom"
     : isCutout
       ? "h-full w-full object-contain object-bottom"
       : "h-full w-full object-contain object-center";

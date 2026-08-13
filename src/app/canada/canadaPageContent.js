@@ -725,7 +725,7 @@ export const CANADA_PAYROLL = {
     {
       heading: "PAYROLL & ACCOUNTING PLATFORMS",
       icon: "user",
-      logos: ["quickbooks online", "xero", "sage business cloud", "microsoft 365"],
+      logos: ["quickbooks online", "xero", "sage business cloud", "payworks", "microsoft 365"],
     },
     {
       heading: "DOCUMENT & WORKFLOW TOOLS",
@@ -932,7 +932,7 @@ export const CANADA_REVIEW = {
     title: "Why Review Engagements & Assurance Services Matter",
     intro:
       "Review engagements provide limited assurance that financial statements are plausible and free from material misstatement. They enhance stakeholder confidence without the depth of a full audit, making them a critical service for private enterprises.",
-    image: "/images/DSC09845.JPG",
+    image: "/images/DSC09781.JPG",
     bullets: [
       "Improve financial statement credibility",
       "Ensure consistency in reporting",

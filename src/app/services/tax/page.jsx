@@ -171,7 +171,7 @@ const softwareExpertiseLogodata = [
     {
         heading: "TAX & COMPLIANCE",
         icon: "briefcase",
-        logos: ["taxcalc", "intuit proconnect"],
+        logos: ["taxcalc", "intuit proconnect", "thomson reuters"],
     },
     {
         heading: "DATA & PRODUCTIVITY",

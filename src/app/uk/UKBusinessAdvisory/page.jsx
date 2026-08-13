@@ -240,17 +240,12 @@ const softwareExpertiseLogodata = [
 ];
 
 const whyChooseCards = [
-    { title: "ACCA-Led Delivery Team", icon: UserCheck },
-    { title: "UK Business Advisory Expertise", icon: BookOpen },
-    { title: "Virtual CFO Experience", icon: LineChart },
-    { title: "Tax Planning Support Expertise", icon: Landmark },
-    { title: "Business Start-Up & Companies House Compliance Support", icon: Building2 },
-    { title: "White-Label Service Delivery", icon: BadgeCheck },
-    { title: "Dedicated Offshore Resources", icon: Headset },
-    { title: "Structured Review Processes", icon: ClipboardCheck },
-    { title: "Secure Data Handling", icon: LockKeyhole },
-    { title: "Flexible Engagement Models", icon: Network },
-    { title: "Scalable Support Framework", icon: TrendingUp },
+    { title: "ACCA-Led Advisory Expertise", icon: UserCheck },
+    { title: "Strategic Financial Planning", icon: Target },
+    { title: "Cash Flow & Profitability Analysis", icon: LineChart },
+    { title: "Budgeting & Forecasting Support", icon: Wallet },
+    { title: "Management Reporting & Insights", icon: BookOpen },
+    { title: "Scalable Virtual CFO Support", icon: TrendingUp },
 ];
 
 const partnerTrust = [
@@ -778,7 +773,7 @@ export default function UKBusinessAdvisory() {
 
                         <div className="relative h-[231px] overflow-hidden rounded-[20px] shadow-[0_12px_40px_rgba(15,39,74,0.08)] sm:h-[273px] sm:rounded-[24px] lg:h-[294px]">
                             <Image
-                                src="/images/DSC09901.JPG"
+                                src="/images/DSC09894.JPG"
                                 alt="Business start-up and Companies House compliance support"
                                 fill
                                 className="object-cover object-center"

@@ -185,12 +185,12 @@ const SENIOR_PROFESSIONALS = [
   {
     name: "Dharmesh Kumar",
     role: "Client Onboarding Specialist",
-    image: "/images/TeamImage/Dharmesh_Kumar-removebg-preview.png",
+    image: "/images/TeamImage/Dharmesh-_Final-removebg-preview.png",
   },
   {
     name: "Kirti Kapoor",
     role: "Virtual Assistance Specialist",
-    image: "/images/TeamImage/Kirti_Kapoor-removebg-preview.png",
+    image: "/images/TeamImage/Kirti-Final-removebg-preview.png",
   },
   {
     name: "Nikhil Kushwaha",
@@ -206,6 +206,8 @@ const SENIOR_PROFESSIONALS = [
     name: "Nisha Jindal",
     role: "Payroll & Compliance Specialist",
     image: "/images/TeamImage/Nisha__1_-removebg-preview.png",
+    /** Slightly less zoom so the portrait sits naturally in the circle */
+    avatarVariant: "nisha",
   },
   {
     name: "Abhishek Rawat",
@@ -332,6 +334,10 @@ function getAvatarImageClass(variant, isCutout) {
   // Rahul only — same framing as Abhishek (head + crossed arms/hands)
   if (variant === "rahul") {
     return "h-full w-full object-cover object-[50%_10%] scale-[1.55] origin-top";
+  }
+  // Nisha only — pull zoom back ~2% so the portrait is not cropped so tight
+  if (variant === "nisha") {
+    return "h-full w-full object-contain object-bottom scale-[0.96] origin-bottom";
   }
   if (isCutout) {
     return "h-full w-full object-contain object-bottom";

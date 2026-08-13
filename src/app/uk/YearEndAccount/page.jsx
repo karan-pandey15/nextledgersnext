@@ -188,15 +188,12 @@ const softwareExpertiseLogodata = [
 ];
 
 const whyChooseCards = [
-    { title: "ACCA-Led Delivery Team", icon: UserCheck },
-    { title: "UK Accounts Production Expertise", icon: BookOpen },
-    { title: "Corporation Tax Specialists", icon: Calculator },
-    { title: "White-Label Service Delivery", icon: BadgeCheck },
-    { title: "Dedicated Offshore Resources", icon: Headset },
-    { title: "Structured Review Processes", icon: ClipboardCheck },
-    { title: "Multi-Software Expertise", icon: Layers },
-    { title: "Flexible Engagement Models", icon: Network },
-    { title: "Secure Data Handling", icon: LockKeyhole },
+    { title: "UK Statutory Accounts Expertise", icon: BookOpen },
+    { title: "FRS 102 & FRS 105 Knowledge", icon: Scale },
+    { title: "Corporation Tax Compliance Support", icon: Calculator },
+    { title: "Companies House Filing Expertise", icon: Landmark },
+    { title: "Multi-Level Review Processes", icon: ClipboardCheck },
+    { title: "Accurate & Timely Deliverables", icon: BadgeCheck },
 ];
 
 const partnerTrust = [

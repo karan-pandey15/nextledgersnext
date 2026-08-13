@@ -89,7 +89,13 @@ const LOGO_MAP = {
   "iplicit": "/images/logooUK/iplicit.png",
   "syft analytics": "/images/logooUK/SyftAnalytics.png",
   "power bi": "/images/logooUK/Powerlogo.png",
-  "google looker studio": "/images/logooUK/Google_Looker.png"
+  "google looker studio": "/images/logooUK/Google_Looker.png",
+  "quickfile": "/images/logooUK/QuickFile.png",
+  "quick file": "/images/logooUK/QuickFile.png",
+  "busy": "/images/logooUK/Busy.jpeg",
+  "payworks": "/images/logooUK/Payworks.jpeg",
+  "adp": "/images/logooUK/ADP.jpeg",
+  "thomson reuters": "/images/logooUK/Thomson_Reuters.jpeg",
 };
 
 function SoftwareLogoBadge({ name }) {
@@ -522,12 +528,12 @@ export default function UKServicesContent({ serviceSlug }) {
             {/* Why Choose Grid */}
             <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
-                { title: "ACCA-Led Team", desc: "Expert leadership with qualified UK accounting framework knowledge." },
-                { title: "Offshore Support", desc: "Dedicated resources to compile and comment on monthly reporting packs." },
-                { title: "White-Label Service", desc: "Direct client communication features under your accounting practice brand." },
-                { title: "Advisory-Focused", desc: "Turn core trial balances into strategic boardroom recommendations." },
-                { title: "Flexible Engagement", desc: "Scale resources up or down depending on seasonal client cycles." },
-                { title: "No Additional UK Hiring", desc: "Expand practice capabilities without high local overheads and benefits." },
+                { title: "ACCA-Led Financial Reporting", desc: "Qualified professionals delivering decision-ready UK management accounts." },
+                { title: "UK Management Accounting Expertise", desc: "Deep knowledge of UK reporting packs, KPIs, and performance analysis." },
+                { title: "Clear KPI & Performance Insights", desc: "Highlight the metrics that help firms advise clients with confidence." },
+                { title: "Budgeting & Forecasting Support", desc: "Forward-looking packs that support planning, cash flow, and growth." },
+                { title: "Structured Review Processes", desc: "Multi-level review so every pack is accurate before it reaches you." },
+                { title: "Decision-Ready Financial Reporting", desc: "Board-ready reporting your practice can present to clients as its own." },
               ].map((item, idx) => (
                 <div key={idx} className="bg-white p-5 rounded-2xl border border-gray-100 hover:border-[#FF6A00]/30 transition-all duration-300 flex items-start gap-3.5 group shadow-xs">
                   <div className="w-6 h-6 rounded-full bg-[#FF6A00] flex items-center justify-center flex-shrink-0 text-white font-bold text-[10px] transition-all">
@@ -904,14 +910,12 @@ export default function UKServicesContent({ serviceSlug }) {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {[
-                  "ACCA-Led Team",
-                  "UK Payroll & CIS Expertise",
-                  "White-Label Service Delivery",
-                  "Dedicated Offshore Resources",
-                  "Structured Review Processes",
-                  "Secure Data Handling",
-                  "Flexible Engagement Models",
-                  "Scalable Support Framework"
+                  "UK PAYE & Payroll Expertise",
+                  "CIS Compliance Knowledge",
+                  "RTI & Statutory Reporting",
+                  "Accurate Payroll Processing",
+                  "Dedicated Payroll Resources",
+                  "Confidential Data Handling"
                 ].map((adv, idx) => (
                   <div
                     key={idx}
@@ -1289,15 +1293,12 @@ export default function UKServicesContent({ serviceSlug }) {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {[
-                  "ACCA-Led Delivery Team",
-                  "UK Personal Tax Expertise",
-                  "Self Assessment Specialists",
-                  "White-Label Service Delivery",
-                  "Dedicated Offshore Resources",
-                  "Multi-Software Expertise",
-                  "Structured Review Processes",
-                  "Flexible Engagement Models",
-                  "Secure Data Handling"
+                  "UK Self Assessment Expertise",
+                  "ACCA-Led Tax Professionals",
+                  "Director & Shareholder Tax Knowledge",
+                  "Tax Return Preparation & Review",
+                  "Personal Tax Planning Support",
+                  "Secure & Confidential Handling"
                 ].map((adv, idx) => (
                   <div
                     key={idx}
@@ -1683,13 +1684,12 @@ export default function UKServicesContent({ serviceSlug }) {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {[
-                  "ACCA-Led Team with UK Accounting Expertise",
-                  "Dedicated Offshore Bookkeeping & VAT Specialists",
-                  "White-Label Service Delivery",
-                  "Structured Review Processes",
-                  "Secure Data Handling",
-                  "Flexible Engagement Models",
-                  "Scalable Support Without Increasing Overheads"
+                  "ACCA-Led Bookkeeping Expertise",
+                  "UK Accounting Standards Knowledge",
+                  "Xero, QuickBooks & Sage Expertise",
+                  "Accurate Reconciliation Processes",
+                  "Dedicated Bookkeeping Resources",
+                  "Scalable Monthly Support"
                 ].map((adv, idx) => (
                   <div
                     key={idx}
@@ -2064,17 +2064,12 @@ export default function UKServicesContent({ serviceSlug }) {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {[
-                  "ACCA-Led Delivery Team",
-                  "UK Business Advisory Expertise",
-                  "Virtual CFO Experience",
-                  "Tax Planning Support Expertise",
-                  "Companies House ID & Setup Support",
-                  "White-Label Service Delivery",
-                  "Dedicated Offshore Resources",
-                  "Structured Review Processes",
-                  "Secure Data Handling",
-                  "Flexible Engagement Models",
-                  "Scalable Support Framework"
+                  "ACCA-Led Advisory Expertise",
+                  "Strategic Financial Planning",
+                  "Cash Flow & Profitability Analysis",
+                  "Budgeting & Forecasting Support",
+                  "Management Reporting & Insights",
+                  "Scalable Virtual CFO Support"
                 ].map((adv, idx) => (
                   <div
                     key={idx}
@@ -2536,15 +2531,12 @@ export default function UKServicesContent({ serviceSlug }) {
                 </h3>
                 <div className="space-y-2.5">
                   {[
-                    "ACCA-Led Delivery Team",
-                    "UK Company Secretarial Expertise",
+                    "UK Company Formation Expertise",
                     "Companies House Compliance Knowledge",
-                    "White-Label Service Delivery",
-                    "Dedicated Offshore Resources",
-                    "Structured Review Processes",
-                    "Secure Data Handling",
-                    "Flexible Engagement Models",
-                    "Scalable Support Framework"
+                    "ACCA-Led Professional Support",
+                    "Statutory Filing & Reporting",
+                    "Dedicated Company Secretarial Resources",
+                    "Secure & Confidential Handling"
                   ].map((adv, idx) => (
                     <div key={idx} className="flex items-center gap-2">
                       <span className="w-5 h-5 rounded-full bg-[#FF6A00] text-white flex items-center justify-center text-[10px] font-bold">✓</span>
@@ -2990,14 +2982,12 @@ export default function UKServicesContent({ serviceSlug }) {
                 </h3>
                 <div className="space-y-2.5">
                   {[
-                    "ACCA-Led Delivery Team",
-                    "UK VAT & MTD Expertise",
-                    "Dedicated Offshore Resources",
-                    "White-Label Service Delivery",
-                    "Structured Review Processes",
-                    "Secure Data Handling",
-                    "Flexible Engagement Models",
-                    "Scalable Support Without Increasing Overheads"
+                    "UK VAT Compliance Expertise",
+                    "Making Tax Digital Knowledge",
+                    "Accurate VAT Return Preparation",
+                    "VAT Reconciliation & Review",
+                    "HMRC Filing Support",
+                    "Proactive Compliance Management"
                   ].map((adv, idx) => (
                     <div key={idx} className="flex items-center gap-2">
                       <span className="w-5 h-5 rounded-full bg-[#FF6A00] text-white flex items-center justify-center text-[10px] font-bold">✓</span>
@@ -3417,15 +3407,12 @@ export default function UKServicesContent({ serviceSlug }) {
                 </h3>
                 <div className="space-y-2.5">
                   {[
-                    "ACCA-Led Delivery Team",
-                    "UK Accounts Production Expertise",
-                    "Corporation Tax Specialists",
-                    "White-Label Service Delivery",
-                    "Dedicated Offshore Resources",
-                    "Structured Review Processes",
-                    "Multi-Software Expertise",
-                    "Flexible Engagement Models",
-                    "Secure Data Handling"
+                    "UK Statutory Accounts Expertise",
+                    "FRS 102 & FRS 105 Knowledge",
+                    "Corporation Tax Compliance Support",
+                    "Companies House Filing Expertise",
+                    "Multi-Level Review Processes",
+                    "Accurate & Timely Deliverables"
                   ].map((adv, idx) => (
                     <div key={idx} className="flex items-center gap-2">
                       <span className="w-4 h-4 rounded-full bg-[#FF6A00] text-white flex items-center justify-center text-[9px] font-bold">✓</span>

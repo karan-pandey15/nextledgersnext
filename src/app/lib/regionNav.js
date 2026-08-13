@@ -1,3 +1,4 @@
+import { Info, Users } from "lucide-react";
 import {
   REGION_ROUTES,
   getRegionCodeFromPath,
@@ -15,6 +16,19 @@ import { SINGAPORE_SERVICE_LINKS } from "@/app/singapore/singaporeServiceLinks";
 export { getRegionCodeFromPath };
 
 export const REGION_STORAGE_KEY = "selected-region";
+
+/** Same About Us / Our Team dropdown as the global header — used in every regional navbar */
+export const ABOUT_NAV_LINK = {
+  id: "about",
+  label: "About Us",
+  href: "/about",
+  hasDropdown: true,
+  dropdownWidth: "w-[240px]",
+  dropdownItems: [
+    { label: "About Us", href: "/about", icon: Info },
+    { label: "Our Team", href: "/team", icon: Users },
+  ],
+};
 
 /** Navbar config for every market region */
 export const REGION_NAV_BY_CODE = {

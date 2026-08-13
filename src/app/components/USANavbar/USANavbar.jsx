@@ -5,13 +5,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { USA_SERVICE_LINKS } from "@/app/usa/usaServiceLinks";
 import RegionSelect from "@/app/components/RegionSelect/RegionSelect";
-import { isNavLinkActive, persistRegionCode, siteHomeHref } from "@/app/lib/regionNav";
+import { isNavLinkActive, persistRegionCode, siteHomeHref, ABOUT_NAV_LINK } from "@/app/lib/regionNav";
 
 const USA_HOME = "/usa";
 
 const USA_NAV_LINKS = [
   { id: "home", label: "Home", href: USA_HOME },
-  { id: "about", label: "About Us", href: "/about" },
+  ABOUT_NAV_LINK,
   {
     id: "services",
     label: "Services in USA",
@@ -118,6 +118,10 @@ export default function USANavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
           <nav className="hidden lg:flex items-center space-x-0.5 xl:space-x-1">
             {navLinks.map((link) => {
               const isOpen = activeDropdown === link.id;
+              const childActive = link.dropdownItems?.some((item) =>
+                isNavLinkActive(pathname, item.href, USA_HOME)
+              );
+              const isHighlighted = isOpen || childActive;
 
               if (link.hasDropdown) {
                 return (
@@ -130,7 +134,7 @@ export default function USANavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
                     <button
                       onClick={(e) => handleDropdownClick(link.id, e)}
                       className={`flex items-center gap-1 px-3 py-2 rounded-full text-[13px] font-bold tracking-wide transition-all duration-200 cursor-pointer focus:outline-none ${
-                        isOpen
+                        isHighlighted
                           ? "bg-[#FF6A00]/10 text-[#FF6A00]"
                           : "text-[#1E1B2A] hover:text-[#FF6A00] hover:bg-[#FF6A00]/5"
                       }`}
@@ -152,12 +156,12 @@ export default function USANavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
 
                     {isOpen && (
                       <div
-                        className="absolute left-0 mt-2 w-[380px] origin-top-left rounded-[20px] bg-white border border-gray-100 p-4 shadow-[0_12px_45px_rgba(0,0,0,0.08)] z-50 animate-usa-nav-dropdown"
+                        className={`absolute left-0 mt-2 ${link.dropdownWidth || "w-[380px]"} origin-top-left rounded-[20px] bg-white border border-gray-100 p-4 shadow-[0_12px_45px_rgba(0,0,0,0.08)] z-50 animate-usa-nav-dropdown`}
                         onMouseEnter={() => handleMouseEnter(link.id)}
                         onMouseLeave={() => handleMouseLeave(link.id)}
                       >
                         <div className="flex flex-col gap-0.5">
-                          {!isUsaHome && (
+                          {link.id === "services" && !isUsaHome && (
                             <Link
                               href="/usa"
                               className="group flex items-center gap-2.5 p-2.5 mb-2 rounded-xl bg-[#FF6A00]/5 hover:bg-[#FF6A00]/10 border border-[#FF6A00]/20 transition-all duration-200 text-left"
@@ -213,8 +217,8 @@ export default function USANavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
             })}
           </nav>
 
-          <div className="hidden lg:flex items-center">
-            <RegionSelect />
+          <div className="hidden lg:flex shrink-0 items-center">
+            <RegionSelect showBackHome={!isUsaHome} />
           </div>
 
           <div className="flex lg:hidden items-center">
@@ -300,7 +304,7 @@ export default function USANavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
                     >
                       <div className="overflow-hidden">
                         <div className="bg-[#FF6A00]/2 border border-[#FF6A00]/5 rounded-[18px] p-3 flex flex-col gap-1 mx-2">
-                          {!isUsaHome && (
+                          {link.id === "services" && !isUsaHome && (
                             <Link
                               href="/usa"
                               onClick={() => setIsSidebarOpen(false)}
@@ -360,6 +364,7 @@ export default function USANavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
                 onRegionChange={() => setIsSidebarOpen(false)}
                 compact
                 showLabel
+                showBackHome={!isUsaHome}
                 boundaryRef={sidebarPanelRef}
               />
             </div>

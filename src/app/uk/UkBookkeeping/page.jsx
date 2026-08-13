@@ -64,6 +64,7 @@ const softwareExpertiseLogodata = [
             "freeagent",
             "capium",
             "kashflow",
+            "quickfile",
         ],
     },
     {
@@ -84,34 +85,12 @@ const softwareExpertiseLogodata = [
 ];
 
 const whyChooseCards = [
-    {
-        title: "ACCA-Led Team with UK Accounting Expertise",
-        icon: UserCheck,
-    },
-    {
-        title: "Dedicated Offshore Bookkeeping & VAT Specialists",
-        icon: BookOpen,
-    },
-    {
-        title: "White-Label Service Delivery",
-        icon: BadgeCheck,
-    },
-    {
-        title: "Structured Review Processes",
-        icon: ClipboardCheck,
-    },
-    {
-        title: "Secure Data Handling",
-        icon: LockKeyhole,
-    },
-    {
-        title: "Flexible Engagement Models",
-        icon: Network,
-    },
-    {
-        title: "Scalable Support Without Increasing Overheads",
-        icon: TrendingUp,
-    },
+    { title: "ACCA-Led Bookkeeping Expertise", icon: UserCheck },
+    { title: "UK Accounting Standards Knowledge", icon: BookOpen },
+    { title: "Xero, QuickBooks & Sage Expertise", icon: BadgeCheck },
+    { title: "Accurate Reconciliation Processes", icon: ClipboardCheck },
+    { title: "Dedicated Bookkeeping Resources", icon: Headset },
+    { title: "Scalable Monthly Support", icon: TrendingUp },
 ];
 
 const partnerTrust = [

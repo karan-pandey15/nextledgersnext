@@ -164,14 +164,12 @@ const softwareExpertiseLogodata = [
 ];
 
 const whyChooseNextLedgers = [
-    { title: "ACCA-Led Delivery Team", icon: UserCheck },
-    { title: "UK Payroll & CIS Expertise", icon: BookOpen },
-    { title: "White-Label Service Delivery", icon: BadgeCheck },
-    { title: "Dedicated Offshore Resources", icon: Headset },
-    { title: "Structured Review Processes", icon: ClipboardCheck },
-    { title: "Secure Data Handling", icon: LockKeyhole },
-    { title: "Flexible Engagement Models", icon: Network },
-    { title: "Scalable Support Framework", icon: TrendingUp },
+    { title: "UK PAYE & Payroll Expertise", icon: BookOpen },
+    { title: "CIS Compliance Knowledge", icon: BadgeCheck },
+    { title: "RTI & Statutory Reporting", icon: ClipboardCheck },
+    { title: "Accurate Payroll Processing", icon: UserCheck },
+    { title: "Dedicated Payroll Resources", icon: Headset },
+    { title: "Confidential Data Handling", icon: LockKeyhole },
 ];
 
 function CheckPill({ text }) {
@@ -757,7 +755,7 @@ export default function UKPayrollPage() {
                 titleAfter="?"
                 subtitle="Precision, confidentiality, and consistent HMRC compliance for payroll and CIS."
                 items={whyChooseNextLedgers}
-                imageSrc="/images/bgimage.JPG"
+                imageSrc="/images/DSC09669.JPG"
                 imageAlt="Why choose NextLedgers for payroll and CIS"
             />
 

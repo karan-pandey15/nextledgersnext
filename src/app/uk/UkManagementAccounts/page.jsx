@@ -189,30 +189,12 @@ const softwareExpertiseLogodata = [
 ];
 
 const whyChooseCards = [
-    {
-        title: "ACCA-Led Team with UK Accounting Expertise",
-        icon: UserCheck,
-    },
-    {
-        title: "Dedicated Management Reporting Specialists",
-        icon: BookOpen,
-    },
-    {
-        title: "White-Label Service Delivery",
-        icon: BadgeCheck,
-    },
-    {
-        title: "Advisory-Focused Reporting Approach",
-        icon: BarChart3,
-    },
-    {
-        title: "Flexible Engagement Models",
-        icon: Network,
-    },
-    {
-        title: "Scalable Support Without Additional UK Hiring",
-        icon: TrendingUp,
-    },
+    { title: "ACCA-Led Financial Reporting", icon: UserCheck },
+    { title: "UK Management Accounting Expertise", icon: BookOpen },
+    { title: "Clear KPI & Performance Insights", icon: BarChart3 },
+    { title: "Budgeting & Forecasting Support", icon: LineChart },
+    { title: "Structured Review Processes", icon: BadgeCheck },
+    { title: "Decision-Ready Financial Reporting", icon: Target },
 ];
 
 const partnerTrust = [

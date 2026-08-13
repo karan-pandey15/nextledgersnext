@@ -214,15 +214,12 @@ const softwareExpertiseLogodata = [
 ];
 
 const whyChooseCards = [
-    { title: "ACCA-Led Delivery Team", icon: UserCheck },
-    { title: "UK Company Secretarial Expertise", icon: BookOpen },
+    { title: "UK Company Formation Expertise", icon: Building2 },
     { title: "Companies House Compliance Knowledge", icon: FileCheck2 },
-    { title: "White-Label Service Delivery", icon: BadgeCheck },
-    { title: "Dedicated Offshore Resources", icon: Headset },
-    { title: "Structured Review Processes", icon: ClipboardCheck },
-    { title: "Secure Data Handling", icon: LockKeyhole },
-    { title: "Flexible Engagement Models", icon: Network },
-    { title: "Scalable Support Framework", icon: TrendingUp },
+    { title: "ACCA-Led Professional Support", icon: UserCheck },
+    { title: "Statutory Filing & Reporting", icon: FileText },
+    { title: "Dedicated Company Secretarial Resources", icon: Headset },
+    { title: "Secure & Confidential Handling", icon: LockKeyhole },
 ];
 
 function Stat({ icon, value, label }) {

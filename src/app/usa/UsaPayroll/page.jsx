@@ -180,6 +180,7 @@ const softwareExpertiseLogodata = [
         icon: "briefcase",
         logos: [
             "gusto",
+            "adp",
             "quickbooks payroll",
             "quickbooks online",
             "quickbooks",

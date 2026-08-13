@@ -100,3 +100,14 @@ export function getRegionCodeFromPath(pathname) {
 
   return match?.[0] || null;
 }
+
+/** Nested regional route (e.g. /uk/UkBookkeeping) — not the region hub itself. */
+export function isRegionalServicePath(pathname) {
+  if (!pathname || pathname === "/") return false;
+  const path = pathname.replace(/\/+$/, "") || "/";
+  const code = getRegionCodeFromPath(path);
+  if (!code) return false;
+  const hub = REGION_ROUTES[code];
+  if (!hub) return false;
+  return path !== hub;
+}
