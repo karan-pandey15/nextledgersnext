@@ -171,19 +171,19 @@ export default function ByotVsHiring() {
 
         {/* Right: comparison table */}
         <div className="w-full overflow-hidden rounded-[16px] border border-[#E5E7EB] bg-white shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:rounded-[18px]">
-          <div className="overflow-x-auto">
-            <div className="min-w-[520px]">
+          <div className="w-full min-w-0 overflow-x-auto">
+            <div className="w-full min-w-0 sm:min-w-[520px]">
               {/* Header — equal left/right columns */}
-              <div className="grid grid-cols-[1fr_0.95fr_1fr]">
+              <div className="grid grid-cols-[minmax(0,1.05fr)_minmax(0,0.8fr)_minmax(0,1.05fr)] sm:grid-cols-[1fr_0.95fr_1fr]">
                 <div
-                  className="flex items-center justify-center bg-[#C5CAD3] px-3 py-[28.5px] text-center text-[14px] font-extrabold sm:px-4 sm:text-[15px] lg:text-[16px]"
+                  className="flex items-center justify-center bg-[#C5CAD3] px-1.5 py-3 text-center text-[11px] font-extrabold leading-tight sm:px-4 sm:py-[28.5px] sm:text-[15px] lg:text-[16px]"
                   style={{ color: NAVY }}
                 >
                   Traditional Hiring
                 </div>
                 <div className="bg-white" />
                 <div
-                  className="flex items-center justify-center px-3 py-[28.5px] text-center text-[14px] font-extrabold text-white sm:px-4 sm:text-[15px] lg:text-[16px]"
+                  className="flex items-center justify-center px-1.5 py-3 text-center text-[11px] font-extrabold leading-tight text-white sm:px-4 sm:py-[28.5px] sm:text-[15px] lg:text-[16px]"
                   style={{ background: ORANGE }}
                 >
                   NextLedgers BYOT
@@ -194,23 +194,23 @@ export default function ByotVsHiring() {
               {TABLE_ROWS.map(({ traditional, label, byot, icon: Icon }) => (
                 <div
                   key={label}
-                  className="grid grid-cols-[1fr_0.95fr_1fr] items-stretch border-t border-[#EEEEEE]"
+                  className="grid grid-cols-[minmax(0,1.05fr)_minmax(0,0.8fr)_minmax(0,1.05fr)] items-stretch border-t border-[#EEEEEE] sm:grid-cols-[1fr_0.95fr_1fr]"
                 >
                   <div
-                    className="flex items-center justify-center bg-[#D8DCE3] px-3 py-3 text-center text-[11px] font-semibold leading-snug sm:px-4 sm:py-3.5 sm:text-[12.5px]"
+                    className="flex items-center justify-center bg-[#D8DCE3] px-1.5 py-2 text-center text-[9px] font-semibold leading-snug sm:px-4 sm:py-3.5 sm:text-[12.5px]"
                     style={{ color: NAVY }}
                   >
                     {traditional}
                   </div>
 
-                  <div className="relative z-[1] flex items-center justify-center gap-1.5 bg-white px-2 py-3 shadow-[2px_0_8px_rgba(15,39,74,0.04)] sm:gap-2 sm:px-3 sm:py-3.5">
+                  <div className="relative z-[1] flex items-center justify-center gap-0.5 bg-white px-0.5 py-2 shadow-[2px_0_8px_rgba(15,39,74,0.04)] sm:gap-2 sm:px-3 sm:py-3.5">
                     <Icon
-                      className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4"
+                      className="hidden h-4 w-4 shrink-0 sm:block"
                       style={{ color: "#6B7280" }}
                       strokeWidth={1.6}
                     />
                     <span
-                      className="text-[11px] font-semibold leading-tight sm:text-[12px]"
+                      className="text-center text-[9px] font-semibold leading-tight sm:text-left sm:text-[12px]"
                       style={{ color: NAVY }}
                     >
                       {label}
@@ -219,17 +219,17 @@ export default function ByotVsHiring() {
 
                   {/* Equal side padding; checkmark absolute so text stays truly centered */}
                   <div
-                    className="relative flex items-center justify-center bg-[#FFF4EA] px-3 py-3 sm:px-4 sm:py-3.5"
+                    className="relative flex items-center justify-center bg-[#FFF4EA] px-1 py-2 sm:px-4 sm:py-3.5"
                     style={{ color: ORANGE }}
                   >
-                    <span className="px-6 text-center text-[11px] font-semibold leading-snug sm:px-7 sm:text-[12.5px]">
+                    <span className="px-3.5 text-center text-[9px] font-semibold leading-snug sm:px-7 sm:text-[12.5px]">
                       {byot}
                     </span>
                     <span
-                      className="absolute right-3 inline-flex h-[18px] w-[18px] items-center justify-center rounded-full text-white sm:right-4 sm:h-5 sm:w-5"
+                      className="absolute right-1 inline-flex h-3.5 w-3.5 items-center justify-center rounded-full text-white sm:right-4 sm:h-5 sm:w-5"
                       style={{ background: ORANGE }}
                     >
-                      <Check className="h-2.5 w-2.5 sm:h-3 sm:w-3" strokeWidth={3} />
+                      <Check className="h-2 w-2 sm:h-3 sm:w-3" strokeWidth={3} />
                     </span>
                   </div>
                 </div>
