@@ -395,10 +395,10 @@ export default function RegionSelect({
             />
 
             <span
-              className={`min-w-0 whitespace-nowrap font-bold leading-none ${
+              className={`min-w-0 whitespace-nowrap font-bold uppercase leading-none ${
                 compact
-                  ? "text-[10px] tracking-[0.01em] sm:text-[11px]"
-                  : "text-[11px] tracking-[0.01em]"
+                  ? "text-[10px] tracking-[0.08em] sm:text-[11px]"
+                  : "text-[11px] tracking-[0.08em]"
               } ${isDark ? "text-white" : "text-[#0F274A]"}`}
             >
               Choose Other Regions

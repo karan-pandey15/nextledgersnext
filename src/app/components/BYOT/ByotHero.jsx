@@ -301,25 +301,57 @@ export default function ByotHero() {
             hours—without the cost and complexity of local hiring.
           </p>
 
-          <div ref={rolesRef} className="mt-6 w-full min-w-0">
-            <div className="mb-3 flex items-center justify-center gap-2 lg:justify-start">
-              <FaUserFriends className="h-[17px] w-[17px]" style={{ color: ORANGE }} />
+          <div ref={rolesRef} className="mt-5 w-full min-w-0 sm:mt-6">
+            <div className="mb-2 flex items-center justify-center gap-1.5 sm:mb-3 sm:gap-2 lg:justify-start">
+              <FaUserFriends className="h-4 w-4 sm:h-[17px] sm:w-[17px]" style={{ color: ORANGE }} />
               <p
-                className="text-[11px] font-bold uppercase tracking-[0.14em] sm:text-[12px]"
+                className="text-[10px] font-bold uppercase tracking-[0.12em] sm:text-[12px] sm:tracking-[0.14em]"
                 style={{ color: NAVY }}
               >
                 Dedicated Roles You Can Build
               </p>
             </div>
 
-            {/* Equal card width + equal gap for all 7 roles */}
-            <div className="grid w-full min-w-0 grid-cols-2 gap-2 sm:grid-cols-4 lg:hidden">
+            {/* Phone: compact 2-col cards — no wasted height */}
+            <div className="grid w-full min-w-0 grid-cols-2 gap-1.5 sm:hidden">
               {ROLES.map(({ label, Icon }, index) => {
                 const visible = rolesVisible > index;
                 return (
                   <div
                     key={label}
-                    className="box-border flex h-[112px] w-full min-w-0 flex-col items-center justify-center rounded-[10px] border border-[#E8E8E8] bg-white px-1 py-2 text-center shadow-[0_2px_10px_rgba(15,39,74,0.07)] sm:h-[118px]"
+                    className="box-border flex w-full min-w-0 flex-col items-center justify-center rounded-[8px] border border-[#E8E8E8] bg-white px-1.5 py-2 text-center shadow-[0_1px_6px_rgba(15,39,74,0.06)]"
+                    style={{
+                      opacity: visible ? 1 : 0,
+                      transform: visible
+                        ? "translateY(0) scale(1)"
+                        : "translateY(10px) scale(0.96)",
+                      transition:
+                        "opacity 400ms cubic-bezier(0.22, 1, 0.36, 1), transform 400ms cubic-bezier(0.22, 1, 0.36, 1)",
+                    }}
+                  >
+                    <Icon
+                      className="h-5 w-5 shrink-0"
+                      style={{ color: ORANGE }}
+                    />
+                    <span
+                      className="mt-1 w-full px-0.5 text-center text-[9px] font-bold leading-[1.2]"
+                      style={{ color: NAVY }}
+                    >
+                      {label}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Tablet: 4-col */}
+            <div className="hidden w-full min-w-0 grid-cols-4 gap-2 sm:grid lg:hidden">
+              {ROLES.map(({ label, Icon }, index) => {
+                const visible = rolesVisible > index;
+                return (
+                  <div
+                    key={label}
+                    className="box-border flex h-[118px] w-full min-w-0 flex-col items-center justify-center rounded-[10px] border border-[#E8E8E8] bg-white px-1 py-2 text-center shadow-[0_2px_10px_rgba(15,39,74,0.07)]"
                     style={{
                       opacity: visible ? 1 : 0,
                       transform: visible
@@ -334,7 +366,7 @@ export default function ByotHero() {
                       style={{ color: ORANGE }}
                     />
                     <span
-                      className="mt-2 flex h-[36px] w-full items-start justify-center px-0.5 text-center text-[9px] font-bold leading-[1.2] sm:text-[10px]"
+                      className="mt-2 flex h-[36px] w-full items-start justify-center px-0.5 text-center text-[10px] font-bold leading-[1.2]"
                       style={{ color: NAVY }}
                     >
                       {label}
@@ -378,7 +410,7 @@ export default function ByotHero() {
           </div>
 
           {/* CTA below role cards */}
-          <div className="mt-6 flex flex-col items-center gap-7 sm:flex-row sm:justify-center lg:justify-start">
+          <div className="mt-4 flex flex-col items-center gap-4 sm:mt-6 sm:flex-row sm:justify-center sm:gap-7 lg:justify-start">
             <Link
               href="#byot-connect"
               className="inline-flex items-center gap-2 rounded-[8px] px-5 py-3 text-[12px] font-bold uppercase tracking-wide text-white shadow-md shadow-orange-500/25 transition hover:brightness-95 sm:text-[13px]"
@@ -412,7 +444,7 @@ export default function ByotHero() {
           ref={orbitRef}
           className="order-2 z-10 flex min-w-0 w-full items-center justify-center overflow-visible lg:justify-end lg:pl-16 lg:pr-1 xl:pl-20 xl:pr-2"
         >
-          <div className="w-full max-w-[506px] pb-10 sm:max-w-[550px] sm:pb-11 lg:max-w-[572px] xl:max-w-[616px]">
+          <div className="w-full max-w-[506px] pb-12 sm:max-w-[550px] sm:pb-11 lg:max-w-[572px] xl:max-w-[616px]">
           <div className="relative aspect-square w-full">
             {/* Spokes: dashed orange from Next Ledgers logo → each portrait */}
             <svg
@@ -448,10 +480,10 @@ export default function ByotHero() {
               })}
             </svg>
 
-            {/* Center Next Ledgers logo — slightly smaller so orbit labels stay visible */}
+            {/* Center Next Ledgers logo — smaller on phone to match orbit math */}
             <div className="pointer-events-none absolute inset-0 z-[15] flex items-center justify-center">
               <div
-                className="pointer-events-auto flex h-[132px] w-[132px] shrink-0 items-center justify-center rounded-full bg-white p-3.5 shadow-[0_8px_30px_rgba(0,0,0,0.1)] sm:h-[148px] sm:w-[148px] sm:p-4 lg:h-[164px] lg:w-[164px] lg:p-[18px]"
+                className="pointer-events-auto flex h-[88px] w-[88px] shrink-0 items-center justify-center rounded-full bg-white p-2.5 shadow-[0_8px_30px_rgba(0,0,0,0.1)] sm:h-[148px] sm:w-[148px] sm:p-4 lg:h-[164px] lg:w-[164px] lg:p-[18px]"
                 style={{
                   opacity: orbitReady ? 1 : 0,
                   transform: orbitReady ? "scale(1)" : "scale(0.86)",
@@ -470,7 +502,7 @@ export default function ByotHero() {
               </div>
             </div>
 
-            {/* Profile circles + labels — designation always below the photo */}
+            {/* Profile circles + labels — designation always below the photo (no overlap) */}
             {ORBIT.map((person, i) => {
               const { x, y } = orbitPoint(person.angle, ORBIT_RADIUS);
               const show = orbitPeople > i;
@@ -490,7 +522,7 @@ export default function ByotHero() {
                   }}
                 >
                   <div className="relative">
-                    <div className="flex h-[119px] w-[119px] items-center justify-center overflow-hidden rounded-full border-[3.5px] border-white bg-[#F3F3F3] shadow-[0_4px_16px_rgba(0,0,0,0.12)] sm:h-[137px] sm:w-[137px]">
+                    <div className="flex h-[72px] w-[72px] items-center justify-center overflow-hidden rounded-full border-[2.5px] border-white bg-[#F3F3F3] shadow-[0_4px_16px_rgba(0,0,0,0.12)] sm:h-[137px] sm:w-[137px] sm:border-[3.5px]">
                       {person.src ? (
                         <Image
                           src={person.src}
@@ -501,7 +533,7 @@ export default function ByotHero() {
                         />
                       ) : (
                         <span
-                          className="text-[28px] font-bold sm:text-[32px]"
+                          className="text-[20px] font-bold sm:text-[32px]"
                           style={{ color: ORANGE }}
                           aria-hidden="true"
                         >
@@ -510,7 +542,7 @@ export default function ByotHero() {
                       )}
                     </div>
                     <span
-                      className="absolute left-1/2 top-[calc(100%+8px)] z-40 w-max max-w-[140px] -translate-x-1/2 rounded-full bg-white px-2.5 py-1 text-center text-[9px] font-semibold leading-snug shadow-[0_1px_6px_rgba(0,0,0,0.08)] sm:max-w-[160px] sm:px-3 sm:text-[10px]"
+                      className="absolute left-1/2 top-[calc(100%+6px)] z-40 w-max max-w-[100px] -translate-x-1/2 rounded-full bg-white px-2 py-0.5 text-center text-[8px] font-semibold leading-[1.15] shadow-[0_1px_6px_rgba(0,0,0,0.08)] sm:top-[calc(100%+8px)] sm:max-w-[160px] sm:px-3 sm:py-1 sm:text-[10px] sm:leading-snug"
                       style={{ color: NAVY }}
                     >
                       {person.label}

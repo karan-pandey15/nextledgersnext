@@ -53,7 +53,7 @@ const STEPS = [
 function StepCard({ num, title, desc, Icon, visible }) {
   return (
     <div
-      className="relative w-full pt-4"
+      className="relative w-full pt-3 sm:pt-4"
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0) scale(1)" : "translateY(24px) scale(0.92)",
@@ -62,20 +62,20 @@ function StepCard({ num, title, desc, Icon, visible }) {
         pointerEvents: visible ? "auto" : "none",
       }}
     >
-      <div className="relative flex h-full min-h-[214px] flex-col items-center rounded-[14px] border border-[#E5E7EB] bg-white px-3 pb-5 pt-8 text-center shadow-[0_4px_16px_rgba(15,39,74,0.07)] sm:min-h-[224px]">
+      <div className="relative flex h-full flex-col items-center rounded-[12px] border border-[#E5E7EB] bg-white px-3 pb-3 pt-5 text-center shadow-[0_4px_16px_rgba(15,39,74,0.07)] sm:min-h-[224px] sm:rounded-[14px] sm:px-3 sm:pb-5 sm:pt-8">
         <span
-          className="absolute left-1/2 top-0 z-[3] flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full text-[13px] font-bold text-white shadow-sm"
+          className="absolute left-1/2 top-0 z-[3] flex h-7 w-7 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full text-[12px] font-bold text-white shadow-sm sm:h-8 sm:w-8 sm:text-[13px]"
           style={{ background: ORANGE }}
         >
           {num}
         </span>
 
         <div
-          className="mb-3 flex h-[66px] w-[66px] items-center justify-center rounded-full"
+          className="mb-2 flex h-12 w-12 items-center justify-center rounded-full sm:mb-3 sm:h-[66px] sm:w-[66px]"
           style={{ background: "#FFF4EA" }}
         >
           <Icon
-            className="h-[35.2px] w-[35.2px] shrink-0"
+            className="h-6 w-6 shrink-0 sm:h-[35.2px] sm:w-[35.2px]"
             style={{ color: ORANGE }}
             strokeWidth={1.75}
           />
@@ -87,7 +87,7 @@ function StepCard({ num, title, desc, Icon, visible }) {
         >
           {title}
         </h3>
-        <p className="mt-2 text-[12px] leading-relaxed" style={{ color: GREY }}>
+        <p className="mt-1 text-[11px] leading-snug sm:mt-2 sm:text-[12px] sm:leading-relaxed" style={{ color: GREY }}>
           {desc}
         </p>
       </div>
@@ -101,7 +101,7 @@ function StepArrow({ visible, desktop }) {
   return (
     <div
       className={`flex shrink-0 items-center justify-center ${
-        desktop ? "hidden w-6 self-center lg:flex xl:w-8" : "flex h-8 w-full lg:hidden"
+        desktop ? "hidden w-6 self-center lg:flex xl:w-8" : "flex h-5 w-full lg:hidden sm:h-8"
       }`}
       style={{
         opacity: visible ? 1 : 0,
@@ -134,7 +134,7 @@ function StepArrow({ visible, desktop }) {
           />
         </svg>
       ) : (
-        <svg width="14" height="30" viewBox="0 0 14 30" className="overflow-visible">
+        <svg width="12" height="22" viewBox="0 0 14 30" className="overflow-visible sm:h-[30px] sm:w-[14px]">
           <path
             d="M7 1v21"
             stroke={stroke}
@@ -229,9 +229,9 @@ export default function ByotHowItWorks() {
   return (
     <section ref={sectionRef} className="w-full bg-white pt-[10px] pb-[5px]">
       <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
-        <div className="rounded-[20px] bg-[#F5F5F5] px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-11">
+        <div className="rounded-[20px] bg-[#F5F5F5] px-3 py-5 sm:px-6 sm:py-10 lg:px-8 lg:py-11">
           <h2
-            className="text-center text-[24px] font-bold tracking-[-0.01em] sm:text-[30px] lg:text-[32px]"
+            className="text-center text-[22px] font-bold tracking-[-0.01em] sm:text-[30px] lg:text-[32px]"
             style={{ color: NAVY }}
           >
             How{" "}
@@ -247,7 +247,7 @@ export default function ByotHowItWorks() {
           </h2>
 
           {/* Mobile / tablet */}
-          <div className="mt-9 flex flex-col items-stretch gap-0.5 sm:mx-auto sm:max-w-md lg:hidden">
+          <div className="mt-5 flex flex-col items-stretch gap-0 sm:mx-auto sm:mt-9 sm:max-w-md lg:hidden">
             {STEPS.map(({ num, title, desc, Icon }, index) => (
               <div key={title} className="flex flex-col items-stretch">
                 <StepCard
