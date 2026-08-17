@@ -99,28 +99,18 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
 
   return (
     <header className="sticky top-0 z-40 w-full overflow-visible border-b border-[#ECECEC] bg-white">
-      {/* Phone-only thin top bar (home) — left tagline, right region */}
+      {/* Phone-only thin top bar (home) — region control on the right */}
       {showPhoneTopBar ? (
         <div
-          className="flex xl:hidden h-9 w-full items-center justify-between gap-2 border-b border-[#FF6A00]/15 px-3 sm:px-4"
+          className="flex xl:hidden h-10 w-full items-center justify-end gap-2 border-b border-[#FF6A00]/15 px-3 sm:px-4"
           style={{
             background:
               "linear-gradient(90deg, #FFF9F5 0%, #FFFFFF 45%, #FFF4EA 100%)",
           }}
         >
-          <p className="min-w-0 flex-1 truncate text-[10px] font-semibold leading-none tracking-[0.02em] text-[#0F274A] sm:text-[11px]">
-            <span className="text-[#FF6A00]">NextLedgers</span>
-            <span className="mx-1.5 text-[#D1D5DB]" aria-hidden="true">
-              ·
-            </span>
-            <span className="text-[#4B5563]">
-              Offshore Accounting for Global Firms
-            </span>
-          </p>
           <RegionSelect
             onRegionChange={handleRegionChange}
-            compact
-            className="shrink-0"
+            className="shrink-0 origin-right max-w-full scale-[0.92] sm:scale-100"
           />
         </div>
       ) : null}

@@ -74,7 +74,7 @@ const SERVICES = [
 
 export default function CoreServices() {
   return (
-    <section id="core-services" className="w-full bg-[#FAFAFA] pt-8 pb-9 sm:pt-9 sm:pb-10 lg:pt-10 lg:pb-11">
+    <section id="core-services" className="w-full bg-[#FAFAFA] pt-8 pb-6 sm:pt-9 sm:pb-10 lg:pt-10 lg:pb-11">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
         {/* Header */}
         <div className="text-center max-w-[820px] mx-auto">
@@ -102,8 +102,8 @@ export default function CoreServices() {
           </p>
         </div>
 
-        {/* Cards — 6 in one row on large screens */}
-        <div className="mt-5 sm:mt-6 grid w-full grid-cols-1 gap-3 auto-rows-fr sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 lg:gap-3">
+        {/* Cards — 2 on phone, 3 on tablet, 6 on large screens */}
+        <div className="mt-5 sm:mt-6 grid w-full grid-cols-2 gap-2.5 auto-rows-fr sm:gap-3 md:grid-cols-3 lg:grid-cols-6">
           {SERVICES.map((service) => {
             const Icon = service.icon;
 
@@ -111,19 +111,27 @@ export default function CoreServices() {
               <Link
                 key={service.title}
                 href={service.href}
-                className="group flex h-full min-h-[210px] w-full min-w-0 flex-col items-center bg-white rounded-[14px] px-2.5 pt-[18px] pb-3 shadow-[0_2px_14px_rgba(15,39,74,0.07)] hover:shadow-[0_6px_24px_rgba(255, 106, 0,0.12)] transition-shadow duration-300"
+                className="group relative flex h-full w-full min-w-0 flex-col items-center bg-white rounded-[14px] px-2.5 pt-3.5 pb-3 shadow-[0_2px_14px_rgba(15,39,74,0.07)] hover:shadow-[0_6px_24px_rgba(255,106,0,0.12)] transition-shadow duration-300 sm:px-3 sm:pt-4 sm:pb-3.5"
               >
+                <span
+                  className="absolute top-2 right-2 z-10 text-[14px] leading-none transition-transform duration-300 group-hover:translate-x-0.5 sm:top-2.5 sm:right-2.5 sm:text-[15px]"
+                  style={{ color: ORANGE }}
+                  aria-hidden="true"
+                >
+                  →
+                </span>
+
                 <div className="flex w-full flex-col items-center text-center">
-                  <div className="mb-2 flex h-[58px] w-[58px] items-center justify-center rounded-full bg-[#FFF4EA]">
+                  <div className="mb-1.5 flex h-10 w-10 items-center justify-center rounded-full bg-[#FFF4EA] sm:mb-2 sm:h-12 sm:w-12">
                     <Icon
-                      className="h-7 w-7"
+                      className="h-5 w-5 sm:h-6 sm:w-6"
                       style={{ color: ORANGE }}
                       strokeWidth={1.75}
                     />
                   </div>
 
                   <h3
-                    className="px-0.5 text-[13px] font-bold leading-[1.2] sm:text-[14px]"
+                    className="px-0.5 text-[12px] font-bold leading-[1.2] sm:text-[13px]"
                     style={{ color: NAVY }}
                   >
                     <span className="block">{service.line1}</span>
@@ -133,29 +141,19 @@ export default function CoreServices() {
                   </h3>
 
                   <p
-                    className="mt-1.5 px-0.5 text-[11px] leading-[1.35] sm:text-[12px]"
+                    className="mt-1 px-0.5 text-[10px] leading-[1.35] sm:mt-1.5 sm:text-[11px]"
                     style={{ color: GREY }}
                   >
                     {service.description}
                   </p>
-                </div>
-
-                <div className="mt-auto flex w-full justify-end pt-2 pr-0.5">
-                  <span
-                    className="text-[15px] leading-none transition-transform duration-300 group-hover:translate-x-0.5"
-                    style={{ color: ORANGE }}
-                    aria-hidden="true"
-                  >
-                    →
-                  </span>
                 </div>
               </Link>
             );
           })}
         </div>
 
-        {/* CTA */}
-        <div className="mt-6 sm:mt-7 flex justify-center">
+        {/* CTA — equal top/bottom gap on phone */}
+        <div className="mt-6 flex justify-center sm:mt-7">
           <Link
             href="/services"
             className="cta-fill-orange inline-flex items-center gap-[6px] rounded-full px-[26px] py-2 text-[13px] font-semibold sm:text-[14px]"

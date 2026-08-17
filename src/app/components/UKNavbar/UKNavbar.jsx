@@ -30,12 +30,8 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
   const timeoutRef = useRef(null);
   const sidebarPanelRef = useRef(null);
   const pathname = usePathname();
-  const homeHref = siteHomeHref(pathname, UK_HOME);
-  const isUkHub = pathname === UK_HOME || pathname === `${UK_HOME}/`;
-  const showBackHome = !isUkHub;
-  const navLinks = UK_NAV_LINKS.map((link) =>
-    link.id === "home" ? { ...link, href: homeHref } : link
-  );
+  const logoHref = siteHomeHref(pathname, UK_HOME);
+  const navLinks = UK_NAV_LINKS;
 
   useEffect(() => {
     persistRegionCode("UK");
@@ -108,7 +104,7 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
         <div className="flex justify-between items-center h-[72px]">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center -ml-2 sm:-ml-4 lg:-ml-6">
-            <Link href={homeHref} className="flex items-center group">
+            <Link href={logoHref} className="flex items-center group">
               <img
                 src="/images/nextledgerlogo3.png"
                 alt="NextLedgers Logo"
@@ -229,7 +225,7 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
 
           {/* Region select (Desktop) — same as home header */}
           <div className="hidden lg:flex shrink-0 items-center">
-            <RegionSelect showBackHome={showBackHome} />
+            <RegionSelect />
           </div>
 
           {/* Hamburger (Mobile) */}
@@ -268,7 +264,7 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
         >
           {/* Logo & Close */}
           <div className="flex items-center justify-between">
-            <Link href={homeHref} onClick={() => setIsSidebarOpen(false)} className="flex items-center">
+            <Link href={logoHref} onClick={() => setIsSidebarOpen(false)} className="flex items-center">
               <img
                 src="/images/nextledgerlogo3.png"
                 alt="NextLedgers Logo"
@@ -385,7 +381,6 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
                 onRegionChange={() => setIsSidebarOpen(false)}
                 compact
                 showLabel
-                showBackHome={showBackHome}
                 boundaryRef={sidebarPanelRef}
               />
             </div>

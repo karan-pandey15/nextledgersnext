@@ -253,6 +253,146 @@ const PRESENCE = [
   { label: "Asia Pacific", flag: "/images/specificreason.png", isGlobe: true },
 ];
 
+const PRESENCE_INTERVAL_MS = 1500;
+
+function PresenceFlag({ flag, label, isGlobe, size = "md" }) {
+  const globeClass =
+    size === "sm"
+      ? "h-8 w-8 shrink-0 rounded-full object-cover shadow-sm ring-1 ring-black/10"
+      : "h-8 w-8 shrink-0 rounded-full object-cover shadow-sm ring-1 ring-black/10 sm:h-9 sm:w-9";
+  const flagClass =
+    size === "sm"
+      ? "h-6 w-9 shrink-0 rounded-[3px] object-cover shadow-sm ring-1 ring-black/10"
+      : "h-6 w-9 shrink-0 rounded-[3px] object-cover shadow-sm ring-1 ring-black/10 sm:h-7 sm:w-10";
+
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={flag}
+      alt={`${label} ${isGlobe ? "region" : "flag"}`}
+      className={isGlobe ? globeClass : flagClass}
+      draggable={false}
+    />
+  );
+}
+
+function GlobalPresenceBar() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPhone, setIsPhone] = useState(false);
+
+  // Detect phone viewport and keep carousel in sync on resize
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 639px)");
+    const sync = () => setIsPhone(mq.matches);
+    sync();
+
+    if (typeof mq.addEventListener === "function") {
+      mq.addEventListener("change", sync);
+      return () => mq.removeEventListener("change", sync);
+    }
+
+    mq.addListener(sync);
+    return () => mq.removeListener(sync);
+  }, []);
+
+  // Infinite region carousel — phone only; title/logo stay fixed
+  useEffect(() => {
+    if (!isPhone) return undefined;
+
+    const id = window.setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % PRESENCE.length);
+    }, PRESENCE_INTERVAL_MS);
+
+    return () => window.clearInterval(id);
+  }, [isPhone]);
+
+  // Preload flags so swaps don't flash empty
+  useEffect(() => {
+    PRESENCE.forEach((item) => {
+      const img = new window.Image();
+      img.src = item.flag;
+    });
+  }, []);
+
+  return (
+    <section className="w-full px-4 py-6 sm:px-6 sm:py-8 lg:px-10" style={{ backgroundColor: BEIGE }}>
+      {/* Phone — fixed title + one region at a time */}
+      <div className="mx-auto flex max-w-[980px] flex-col items-stretch overflow-hidden rounded-[28px] bg-white py-2 shadow-[0_4px_16px_rgba(15,39,74,0.08)] sm:hidden">
+        <div className="flex items-center justify-center gap-2.5 px-5 py-3">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/worldfooter.png"
+            alt=""
+            className="h-7 w-7 shrink-0 rounded-full object-cover"
+          />
+          <span className="whitespace-nowrap text-[13px] font-bold" style={{ color: NAVY }}>
+            Our Global Presence
+          </span>
+        </div>
+
+        <div
+          className="relative flex h-[52px] items-center justify-center overflow-hidden border-t border-[#E8E8E8] px-4"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          {PRESENCE.map((item, index) => {
+            const isActive = index === activeIndex;
+            return (
+              <div
+                key={item.label}
+                className={`absolute inset-x-0 flex items-center justify-center gap-2.5 px-4 transition-opacity duration-200 ${
+                  isActive ? "opacity-100" : "pointer-events-none opacity-0"
+                }`}
+                aria-hidden={!isActive}
+              >
+                <PresenceFlag
+                  flag={item.flag}
+                  label={item.label}
+                  isGlobe={item.isGlobe}
+                  size="sm"
+                />
+                <span
+                  className="whitespace-nowrap text-[13px] font-medium"
+                  style={{ color: BODY }}
+                >
+                  {item.label}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Tablet / laptop — full horizontal pill (unchanged) */}
+      <div className="mx-auto hidden max-w-[980px] flex-row items-center rounded-full bg-white py-0 shadow-[0_4px_16px_rgba(15,39,74,0.08)] sm:flex">
+        <div className="flex shrink-0 items-center justify-start gap-2.5 py-3.5 pl-6 pr-5">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/worldfooter.png"
+            alt=""
+            className="h-8 w-8 shrink-0 rounded-full object-cover"
+          />
+          <span className="whitespace-nowrap text-[14px] font-bold" style={{ color: NAVY }}>
+            Our Global Presence
+          </span>
+        </div>
+
+        {PRESENCE.map(({ label, flag, isGlobe }) => (
+          <div
+            key={label}
+            className="flex flex-1 items-center justify-center gap-2.5 border-l border-[#E8E8E8] px-4 py-3.5"
+          >
+            <PresenceFlag flag={flag} label={label} isGlobe={isGlobe} />
+            <span className="whitespace-nowrap text-[14px] font-medium" style={{ color: BODY }}>
+              {label}
+            </span>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function getInitials(name) {
   const first = name
     .split(",")[0]
@@ -577,28 +717,28 @@ export default function TeamPage() {
       {/* Stats bar — icon + number above label */}
       <section className="relative z-10 w-full px-4 pb-5 sm:px-6 sm:pb-6 lg:px-10 lg:pb-7" style={{ backgroundColor: PAGE_BG }}>
         <div className="mx-auto max-w-[1100px] rounded-[14px] border border-[#E5E7EB] bg-white px-3 py-5 shadow-[0_8px_28px_rgba(15,39,74,0.06)] sm:px-4 sm:py-6">
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-0 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-y-4 sm:grid-cols-2 sm:gap-0 lg:grid-cols-4">
             {STATS.map(({ value, label, Icon }, index) => (
               <div
                 key={label}
-                className={`flex flex-row items-center justify-center gap-3 px-3 py-2 sm:gap-3.5 sm:px-5 ${
-                  index > 0 ? "sm:border-l sm:border-[#E5E7EB]" : ""
-                }`}
+                className={`flex flex-row items-center justify-center gap-2.5 px-2 py-2 sm:gap-3.5 sm:px-5 ${
+                  index % 2 === 1 ? "border-l border-[#E5E7EB]" : ""
+                } ${index > 0 ? "sm:border-l sm:border-[#E5E7EB]" : ""}`}
               >
                 <Icon
-                  className="h-[44px] w-[44px] shrink-0"
+                  className="h-9 w-9 shrink-0 sm:h-[44px] sm:w-[44px]"
                   strokeWidth={1.5}
                   style={{ color: ORANGE }}
                 />
                 <div className="min-w-0 text-left">
                   <p
-                    className="text-[22px] font-bold leading-none sm:text-[26px] lg:text-[28px]"
+                    className="text-[20px] font-bold leading-none sm:text-[26px] lg:text-[28px]"
                     style={{ color: ORANGE }}
                   >
                     {value}
                   </p>
                   <p
-                    className="mt-1.5 text-[12px] font-medium leading-snug sm:text-[13px]"
+                    className="mt-1 text-[11px] font-medium leading-snug sm:mt-1.5 sm:text-[13px]"
                     style={{ color: NAVY }}
                   >
                     {label}
@@ -658,46 +798,8 @@ export default function TeamPage() {
         </div>
       </section>
 
-      {/* Global Presence bar — pill card */}
-      <section className="w-full px-4 py-6 sm:px-6 sm:py-8 lg:px-10" style={{ backgroundColor: BEIGE }}>
-        <div className="mx-auto flex max-w-[980px] flex-col items-stretch rounded-[28px] bg-white py-2 shadow-[0_4px_16px_rgba(15,39,74,0.08)] sm:flex-row sm:items-center sm:rounded-full sm:py-0">
-          <div className="flex items-center justify-center gap-2.5 px-5 py-3 sm:shrink-0 sm:justify-start sm:py-3.5 sm:pl-6 sm:pr-5">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/worldfooter.png"
-              alt=""
-              className="h-7 w-7 shrink-0 rounded-full object-cover sm:h-8 sm:w-8"
-            />
-            <span className="whitespace-nowrap text-[13px] font-bold sm:text-[14px]" style={{ color: NAVY }}>
-              Our Global Presence
-            </span>
-          </div>
-
-          {PRESENCE.map(({ label, flag, isGlobe }) => (
-            <div
-              key={label}
-              className="flex flex-1 items-center justify-center gap-2.5 border-t border-[#E8E8E8] px-4 py-3 sm:border-t-0 sm:border-l sm:py-3.5"
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={flag}
-                alt={`${label} ${isGlobe ? "region" : "flag"}`}
-                className={
-                  isGlobe
-                    ? "h-8 w-8 shrink-0 rounded-full object-cover shadow-sm ring-1 ring-black/10 sm:h-9 sm:w-9"
-                    : "h-6 w-9 shrink-0 rounded-[3px] object-cover shadow-sm ring-1 ring-black/10 sm:h-7 sm:w-10"
-                }
-              />
-              <span
-                className="whitespace-nowrap text-[13px] font-medium sm:text-[14px]"
-                style={{ color: BODY }}
-              >
-                {label}
-              </span>
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* Global Presence bar — phone carousel / desktop pill */}
+      <GlobalPresenceBar />
 
       <Footer variant="global" />
       <ArtificialIntelligence />

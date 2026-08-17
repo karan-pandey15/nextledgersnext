@@ -221,7 +221,7 @@ export default function ResultsStats() {
           */}
           <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-stretch lg:gap-10 xl:gap-12">
             <div className="relative z-10 flex min-w-0 flex-col">
-              <div className="inline-flex items-center gap-3">
+              <div className="mt-[5px] inline-flex items-center gap-3 sm:mt-0">
                 <span className="h-px w-7 shrink-0 bg-[#FF6A00] sm:w-9" aria-hidden="true" />
                 <p className="text-[11px] font-bold tracking-[0.18em] uppercase sm:text-[12px]">
                   <span style={{ color: BROWN }}>NUMBERS THAT </span>

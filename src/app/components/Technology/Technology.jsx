@@ -159,7 +159,7 @@ export default function Technology() {
         }
         .marquee-track {
           display: flex;
-          animation: marquee 20s linear infinite;
+          animation: marquee 24s linear infinite;
         }
         .marquee-track:hover {
           animation-play-state: paused;

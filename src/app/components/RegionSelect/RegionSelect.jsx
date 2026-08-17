@@ -10,19 +10,18 @@ import {
   REGION_ROUTES,
   DEFAULT_REGION,
   getRegionCodeFromPath,
-  isRegionalServicePath,
 } from "./regionData";
 import {
   clearStoredRegionCode,
   persistRegionCode,
   readStoredRegionCode,
+  siteHomeHref,
 } from "@/app/lib/regionNav";
 
 const NAVY = "#0F274A";
 const CODE = "#5B4B8A";
 const TRIGGER_FLAGS = POPUP_REGIONS;
-const COMPACT_FLAGS = POPUP_REGIONS.slice(0, 5);
-const MENU_ESTIMATE = 360;
+const MENU_ESTIMATE = 400;
 const GAP = 6;
 const PAD = 8;
 
@@ -41,12 +40,14 @@ export default function RegionSelect({
   boundaryRef = null,
   /** Show region name beside code (better for sidebar) */
   showLabel = false,
-  /** Force the single-flag + Back to Home control (regional service pages) */
-  showBackHome = null,
 }) {
+  const router = useRouter();
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   /** Default: India (IN) until user picks a market region */
-  const [selectedRegion, setSelectedRegion] = useState("IN");
+  const [selectedRegion, setSelectedRegion] = useState(
+    () => getRegionCodeFromPath(pathname) || "IN"
+  );
   const [menuPos, setMenuPos] = useState({
     top: 0,
     left: 0,
@@ -54,8 +55,6 @@ export default function RegionSelect({
     maxHeight: 320,
   });
   const [mounted, setMounted] = useState(false);
-  const router = useRouter();
-  const pathname = usePathname();
   const isDark = variant === "dark";
   const rootRef = useRef(null);
   const menuRef = useRef(null);
@@ -108,7 +107,7 @@ export default function RegionSelect({
 
     const measured =
       menuRef.current?.scrollHeight ||
-      Math.min(MENU_ESTIMATE, POPUP_REGIONS.length * 42 + 40);
+      Math.min(MENU_ESTIMATE, POPUP_REGIONS.length * 42 + 80);
 
     const maxHeight = Math.max(
       160,
@@ -134,7 +133,6 @@ export default function RegionSelect({
     if (!isOpen) return undefined;
 
     updateMenuPosition();
-    // Re-measure after paint once menu exists (more accurate height)
     const raf = requestAnimationFrame(() => updateMenuPosition());
 
     const onPointerDown = (e) => {
@@ -184,15 +182,12 @@ export default function RegionSelect({
       ? DEFAULT_REGION
       : POPUP_REGIONS.find((r) => r.code === selectedRegion) || DEFAULT_REGION;
 
-  const triggerCode = activeRegion.displayCode || activeRegion.code;
-  const isServicePage =
-    showBackHome === null ? isRegionalServicePath(pathname) : Boolean(showBackHome);
-
-  const goHome = () => {
-    setIsOpen(false);
-    clearStoredRegionCode();
-    setSelectedRegion("IN");
-  };
+  const regionHub =
+    selectedRegion && selectedRegion !== "IN"
+      ? REGION_ROUTES[selectedRegion]
+      : null;
+  const isMarketRegion = Boolean(regionHub);
+  const backHref = isMarketRegion ? siteHomeHref(pathname, regionHub) : "/";
 
   const dropdown =
     mounted && isOpen
@@ -212,14 +207,45 @@ export default function RegionSelect({
               WebkitOverflowScrolling: "touch",
               borderRadius: 14,
               background: "#ffffff",
-              padding: "10px 8px 8px",
+              padding: "8px",
               boxShadow: "0 12px 32px rgba(15,39,74,0.16)",
               border: "1px solid rgba(255,106,0,0.12)",
             }}
           >
+            {isMarketRegion ? (
+              <>
+                <Link
+                  href={backHref}
+                  onClick={() => {
+                    setIsOpen(false);
+                    if (onRegionChange) onRegionChange(selectedRegion);
+                  }}
+                  className="flex items-center gap-1.5 rounded-[10px] px-2.5 py-2.5 text-[#0F274A] transition-colors hover:bg-[#FFF7F0] hover:text-[#FF6A00] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6A00]/35"
+                  aria-label="Back to Home"
+                >
+                  <ArrowLeft
+                    className="h-3.5 w-3.5 shrink-0"
+                    strokeWidth={2.4}
+                    aria-hidden="true"
+                  />
+                  <span className="text-[11px] font-bold uppercase leading-none tracking-[0.12em] whitespace-nowrap">
+                    Back To Home
+                  </span>
+                </Link>
+                <div
+                  style={{
+                    height: 1,
+                    margin: "4px 6px 2px",
+                    background: "#F3F4F6",
+                  }}
+                  aria-hidden="true"
+                />
+              </>
+            ) : null}
+
             <p
               style={{
-                margin: "0 0 6px",
+                margin: isMarketRegion ? "6px 0 6px" : "2px 0 6px",
                 textAlign: "center",
                 fontSize: 10,
                 fontWeight: 700,
@@ -319,105 +345,6 @@ export default function RegionSelect({
         )
       : null;
 
-  const shellClass = isDark
-    ? "rounded-full border border-white/20 bg-white/10"
-    : "rounded-full border border-[#D1D5DB] bg-white shadow-[0_2px_8px_rgba(15,39,74,0.06)]";
-
-  if (isServicePage) {
-    return (
-      <div
-        ref={rootRef}
-        className={`relative inline-block shrink-0 text-left ${compact ? "w-full min-w-0" : ""} ${className}`}
-      >
-        <div
-          className={`inline-flex max-w-full min-w-0 items-stretch overflow-hidden ${shellClass} ${
-            compact ? "w-full" : ""
-          } transition-shadow duration-200 ${
-            isDark ? "" : "hover:shadow-[0_4px_14px_rgba(15,39,74,0.1)]"
-          }`}
-        >
-          <button
-            type="button"
-            onClick={() => setIsOpen((open) => !open)}
-            className={`inline-flex min-w-0 items-center cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6A00]/35 focus-visible:ring-inset ${
-              compact ? "gap-1.5 px-2 py-1.5" : "gap-2 pl-2.5 pr-2.5 py-1.5"
-            } ${isDark ? "hover:bg-white/10" : "hover:bg-[#FFF7F0]"}`}
-            aria-expanded={isOpen}
-            aria-haspopup="listbox"
-            aria-label={`Change region. Current: ${activeRegion.name}`}
-          >
-            <span
-              className={`relative flex flex-shrink-0 overflow-hidden rounded-[3px] border shadow-[0_1px_2px_rgba(15,39,74,0.12)] ${
-                isDark ? "border-white/70" : "border-[#E5E7EB]"
-              } ${compact ? "h-3.5 w-5" : "h-4 w-[22px]"}`}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={activeRegion.flag}
-                alt=""
-                className="h-full w-full object-cover"
-              />
-            </span>
-
-            <span
-              className={`font-bold uppercase leading-none shrink-0 ${
-                compact
-                  ? "text-[10px] tracking-[0.12em]"
-                  : "text-[11px] tracking-[0.14em]"
-              } ${isDark ? "text-white" : "text-[#0F274A]"}`}
-            >
-              {triggerCode}
-            </span>
-
-            <svg
-              className={`h-3.5 w-3.5 shrink-0 transition-transform duration-200 ease-in-out ${
-                isOpen ? "rotate-180" : ""
-              } ${isDark ? "text-white/70" : "text-[#9CA3AF]"}`}
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
-
-          <span
-            className={`w-px self-stretch my-[7px] shrink-0 ${
-              isDark ? "bg-white/20" : "bg-[#E5E7EB]"
-            }`}
-            aria-hidden="true"
-          />
-
-          <Link
-            href="/"
-            onClick={goHome}
-            className={`inline-flex min-w-0 items-center gap-1.5 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6A00]/35 focus-visible:ring-inset transition-colors duration-200 ${
-              compact ? "ml-auto px-2.5 py-1.5" : "pl-2.5 pr-3 py-1.5"
-            } ${
-              isDark
-                ? "text-white/90 hover:bg-white/10 hover:text-white"
-                : "text-[#0F274A] hover:bg-[#FFF7F0] hover:text-[#FF6A00]"
-            }`}
-            aria-label="Back to home"
-          >
-            <ArrowLeft
-              className="h-3.5 w-3.5 shrink-0"
-              strokeWidth={2.4}
-              aria-hidden="true"
-            />
-            <span className="text-[11px] font-bold uppercase leading-none tracking-[0.12em] whitespace-nowrap">
-              Back to Home
-            </span>
-          </Link>
-        </div>
-
-        {dropdown}
-      </div>
-    );
-  }
-
   return (
     <div
       ref={rootRef}
@@ -436,53 +363,99 @@ export default function RegionSelect({
             : `rounded-full border border-[#D1D5DB] bg-white shadow-[0_2px_8px_rgba(15,39,74,0.06)] hover:shadow-[0_4px_12px_rgba(15,39,74,0.1)] ${
                 compact
                   ? "px-1.5 py-1 gap-1 sm:px-2.5 sm:py-1.5 sm:gap-2"
-                  : "px-2.5 py-1.5 gap-2"
+                  : "px-2 py-1 gap-1.5 sm:px-2.5 sm:py-1.5 sm:gap-2"
               }`
         }`}
         aria-expanded={isOpen}
         aria-haspopup="listbox"
-        aria-label={`Region: ${activeRegion.name}`}
+        aria-label={
+          isMarketRegion
+            ? `Choose Other Regions. Current: ${activeRegion.name}`
+            : `Region: ${activeRegion.name}`
+        }
       >
-        {minimize || compact ? (
-          <>
-            <div
-              className={`relative flex flex-shrink-0 overflow-hidden rounded-sm border shadow-xs ${
-                isDark ? "border-white/80" : "border-[#E5E7EB]"
-              } ${compact ? "h-3.5 w-5" : "h-3.5 w-5"}`}
+        {isMarketRegion ? (
+          <span className="inline-flex min-w-0 items-center gap-2">
+            <span
+              className={`relative flex flex-shrink-0 overflow-hidden rounded-[3px] border shadow-[0_1px_2px_rgba(15,39,74,0.12)] ${
+                isDark ? "border-white/70" : "border-[#E5E7EB]"
+              } ${compact ? "h-3.5 w-5" : "h-4 w-[22px]"}`}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={activeRegion.flag}
-                alt={activeRegion.name}
+                alt=""
                 className="h-full w-full object-cover"
               />
-            </div>
+            </span>
 
-            {compact && !minimize && !showLabel ? (
+            <span
+              className={`h-3.5 w-px shrink-0 ${isDark ? "bg-white/25" : "bg-[#D1D5DB]"}`}
+              aria-hidden="true"
+            />
+
+            <span
+              className={`min-w-0 whitespace-nowrap font-bold leading-none ${
+                compact
+                  ? "text-[10px] tracking-[0.01em] sm:text-[11px]"
+                  : "text-[11px] tracking-[0.01em]"
+              } ${isDark ? "text-white" : "text-[#0F274A]"}`}
+            >
+              Choose Other Regions
+            </span>
+          </span>
+        ) : minimize || compact ? (
+          showLabel ? (
+            <>
               <div
-                className="hidden sm:flex items-center gap-0.5 flex-shrink-0"
-                aria-hidden="true"
+                className={`relative flex flex-shrink-0 overflow-hidden rounded-sm border shadow-xs ${
+                  isDark ? "border-white/80" : "border-[#E5E7EB]"
+                } h-3.5 w-5`}
               >
-                {COMPACT_FLAGS.filter((r) => r.code !== activeRegion.code)
-                  .slice(0, 4)
-                  .map((region) => (
-                    <span
-                      key={region.code}
-                      className="inline-flex h-[11px] w-4 flex-shrink-0 overflow-hidden rounded-sm border border-white/70 bg-white"
-                    >
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={region.flag}
-                        alt=""
-                        className="block h-full w-full object-cover"
-                        loading="lazy"
-                        draggable={false}
-                      />
-                    </span>
-                  ))}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={activeRegion.flag}
+                  alt={activeRegion.name}
+                  className="h-full w-full object-cover"
+                />
               </div>
-            ) : null}
-          </>
+              <span
+                className={`min-w-0 truncate font-bold leading-none ${
+                  compact ? "text-[10px] sm:text-[11px]" : "text-[11px]"
+                } ${isDark ? "text-white" : "text-[#374151]"}`}
+              >
+                {activeRegion.name}
+              </span>
+            </>
+          ) : (
+            <span className="inline-flex min-w-0 items-center gap-1.5 sm:gap-2">
+              <span
+                className={`relative flex flex-shrink-0 overflow-hidden rounded-[3px] border shadow-[0_1px_2px_rgba(15,39,74,0.12)] ${
+                  isDark ? "border-white/70" : "border-[#E5E7EB]"
+                } h-3.5 w-5`}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={activeRegion.flag}
+                  alt=""
+                  className="h-full w-full object-cover"
+                />
+              </span>
+
+              <span
+                className={`h-3.5 w-px shrink-0 ${isDark ? "bg-white/25" : "bg-[#D1D5DB]"}`}
+                aria-hidden="true"
+              />
+
+              <span
+                className={`min-w-0 whitespace-nowrap font-bold uppercase leading-none text-[10px] tracking-[0.12em] sm:text-[11px] sm:tracking-[0.14em] ${
+                  isDark ? "text-white" : "text-[#0F274A]"
+                }`}
+              >
+                Regions
+              </span>
+            </span>
+          )
         ) : (
           <>
             <div
@@ -550,18 +523,18 @@ export default function RegionSelect({
                 />
               </svg>
             </span>
+
+            <span
+              className={`font-bold uppercase leading-none shrink-0 whitespace-nowrap ${
+                compact
+                  ? "text-[9px] tracking-[0.1em] sm:text-[10px] sm:tracking-[0.12em]"
+                  : "text-[10px] tracking-[0.12em] sm:text-[11px] sm:tracking-[0.14em]"
+              } ${isDark ? "text-white" : "text-[#0F274A]"}`}
+            >
+              Regions
+            </span>
           </>
         )}
-
-        <span
-          className={`font-bold uppercase leading-none shrink-0 ${
-            compact
-              ? "text-[9px] tracking-[0.1em] sm:text-[10px] sm:tracking-[0.12em]"
-              : "text-[11px] tracking-[0.14em]"
-          } ${isDark ? "text-white" : "text-[#374151]"}`}
-        >
-          {minimize || compact ? triggerCode : "Regions"}
-        </span>
 
         <svg
           className={`h-3.5 w-3.5 shrink-0 transition-transform duration-200 ease-in-out ${

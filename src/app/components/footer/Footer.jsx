@@ -324,6 +324,56 @@ function ColumnPipe({ className = "" }) {
   );
 }
 
+/** "Your Offshore Team" + value stats — reused so phone order can differ */
+function FooterValueProp({ valueIntro, className = "" }) {
+  return (
+    <div className={className}>
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-3.5 sm:py-4 lg:py-5">
+        <div className="flex flex-col xl:flex-row xl:items-center gap-3 sm:gap-4 xl:gap-0">
+          <div className="xl:w-[30%] xl:max-w-[380px] xl:pr-5 shrink-0 text-center sm:text-left">
+            <h2 className="font-bold text-[20px] sm:text-[23px] lg:text-[25px] leading-[1.2] tracking-[-0.01em] text-white">
+              Your Offshore Team.
+              <br />
+              <span className="text-[#FF6A00]">Your Competitive Advantage.</span>
+            </h2>
+            <p className="mt-1.5 text-[12px] sm:text-[13px] leading-[1.45] text-[#9AA3B2] max-w-[420px] mx-auto sm:mx-0">
+              {valueIntro}
+            </p>
+          </div>
+
+          <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
+            {VALUE_STATS.map((stat, index) => {
+              const Icon = stat.icon;
+              return (
+                <div key={stat.title} className="flex items-stretch min-w-0">
+                  {index > 0 && <FadeDividerV className="hidden lg:block" />}
+                  <div className="flex-1 flex flex-col items-center justify-center text-center px-1 sm:px-2 lg:px-2.5 py-1.5 sm:py-2">
+                    <div className="flex flex-col sm:flex-row min-h-0 sm:min-h-10 w-full items-center justify-center gap-0.5 sm:gap-1.5">
+                      <span className="text-[#FF6A00] inline-flex items-center justify-center shrink-0 w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10">
+                        <Icon className="block w-full h-full" />
+                      </span>
+                      <span className="font-bold text-[12px] sm:text-[14px] lg:text-[15px] leading-none text-white whitespace-nowrap">
+                        {stat.title}
+                      </span>
+                    </div>
+                    <p className="mt-0.5 sm:mt-1 min-h-0 flex flex-col items-center justify-start text-[10px] sm:text-[11px] lg:text-[12px] leading-[1.25] font-semibold text-[#9AA3B2] text-center">
+                      {stat.subtitle.map((line) => (
+                        <span key={line} className="block">
+                          {line}
+                        </span>
+                      ))}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const KNOWN_REGIONS = [
   "uk",
   "usa",
@@ -398,57 +448,18 @@ export default function Footer({ region, variant }) {
 
   return (
     <footer className="w-full text-white overflow-x-hidden" style={{ backgroundColor: BG }}>
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-3.5 sm:py-4 lg:py-5">
-        <div className="flex flex-col xl:flex-row xl:items-center gap-3 sm:gap-4 xl:gap-0">
-          <div className="xl:w-[30%] xl:max-w-[380px] xl:pr-5 shrink-0 text-center sm:text-left">
-            <h2 className="font-bold text-[20px] sm:text-[23px] lg:text-[25px] leading-[1.2] tracking-[-0.01em] text-white">
-              Your Offshore Team.
-              <br />
-              <span className="text-[#FF6A00]">Your Competitive Advantage.</span>
-            </h2>
-            <p className="mt-1.5 text-[12px] sm:text-[13px] leading-[1.45] text-[#9AA3B2] max-w-[420px] mx-auto sm:mx-0">
-              {copy.valueIntro}
-            </p>
-          </div>
-
-          <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
-            {VALUE_STATS.map((stat, index) => {
-              const Icon = stat.icon;
-              return (
-                <div key={stat.title} className="flex items-stretch min-w-0">
-                  {index > 0 && <FadeDividerV className="hidden lg:block" />}
-                  <div className="flex-1 flex flex-col items-center justify-center text-center px-1 sm:px-2 lg:px-2.5 py-1.5 sm:py-2">
-                    <div className="flex flex-col sm:flex-row min-h-0 sm:min-h-10 w-full items-center justify-center gap-0.5 sm:gap-1.5">
-                      <span className="text-[#FF6A00] inline-flex items-center justify-center shrink-0 w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10">
-                        <Icon className="block w-full h-full" />
-                      </span>
-                      <span className="font-bold text-[12px] sm:text-[14px] lg:text-[15px] leading-none text-white whitespace-nowrap">
-                        {stat.title}
-                      </span>
-                    </div>
-                    <p className="mt-0.5 sm:mt-1 min-h-0 flex flex-col items-center justify-start text-[10px] sm:text-[11px] lg:text-[12px] leading-[1.25] font-semibold text-[#9AA3B2] text-center">
-                      {stat.subtitle.map((line) => (
-                        <span key={line} className="block">
-                          {line}
-                        </span>
-                      ))}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+      {/* Tablet/desktop — value prop stays at the top */}
+      <div className="hidden sm:block">
+        <FooterValueProp valueIntro={copy.valueIntro} />
+        <FadeDividerH />
       </div>
-
-      <FadeDividerH />
 
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-3.5 sm:py-4 lg:py-5">
         {/* | Brand | Services | Quick Links | Global |  — pipes between only, no outer left/right */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-7 xl:flex xl:flex-row xl:items-stretch xl:gap-0">
           {/* Brand */}
           <div className="flex flex-col gap-3 xl:w-[26%] xl:shrink-0 xl:pr-4">
-            <Link href={regionHomePath} className="inline-block shrink-0">
+            <Link href={regionHomePath} className="mt-[5px] inline-block shrink-0 sm:mt-0">
               <img
                 src="/images/nextledgerlogo3.png"
                 alt="Next Ledgers"
@@ -542,6 +553,11 @@ export default function Footer({ region, variant }) {
           </div>
 
           <ColumnPipe />
+
+          {/* Phone only — value prop below Contact Us / Quick Links, above Global Connectivity */}
+          <div className="sm:hidden -mx-4 border-y border-white/10">
+            <FooterValueProp valueIntro={copy.valueIntro} />
+          </div>
 
           {/* Global Connectivity */}
           <div className="md:col-span-2 xl:flex-1 xl:min-w-0 xl:pl-4">

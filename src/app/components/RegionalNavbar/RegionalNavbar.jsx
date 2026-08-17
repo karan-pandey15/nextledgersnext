@@ -15,7 +15,8 @@ import {
 /**
  * UK-pattern regional navbar — same layout, sizes, colors, and behavior as UKNavbar.
  * Pass country-specific homePath, servicesLabel, serviceLinks, flagCode, backLabel.
- * On the region hub, Home + logo go to global `/`. On other pages they return to the region hub.
+ * Logo on the region hub goes to global `/`; on other pages it returns to the region hub.
+ * Navbar Home always stays on the region hub.
  */
 export default function RegionalNavbar({
   isSidebarOpen = false,
@@ -35,10 +36,10 @@ export default function RegionalNavbar({
 
   const isOnHome =
     pathname === homePath || pathname === `${homePath}/`;
-  const homeHref = siteHomeHref(pathname, homePath);
+  const logoHref = siteHomeHref(pathname, homePath);
 
   const navLinks = [
-    { id: "home", label: "Home", href: homeHref },
+    { id: "home", label: "Home", href: homePath },
     ABOUT_NAV_LINK,
     {
       id: "services",
@@ -132,7 +133,7 @@ export default function RegionalNavbar({
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-[72px]">
           <div className="flex-shrink-0 flex items-center -ml-2 sm:-ml-4 lg:-ml-6">
-            <Link href={homeHref} className="flex items-center group">
+            <Link href={logoHref} className="flex items-center group">
               <img
                 src="/images/nextledgerlogo3.png"
                 alt="NextLedgers Logo"
@@ -241,7 +242,7 @@ export default function RegionalNavbar({
           </nav>
 
           <div className="hidden lg:flex shrink-0 items-center">
-            <RegionSelect showBackHome={!isOnHome} />
+            <RegionSelect />
           </div>
 
           <div className="flex lg:hidden items-center">
@@ -275,7 +276,7 @@ export default function RegionalNavbar({
           }`}
         >
           <div className="flex items-center justify-between">
-            <Link href={homeHref} onClick={() => setIsSidebarOpen(false)} className="flex items-center">
+            <Link href={logoHref} onClick={() => setIsSidebarOpen(false)} className="flex items-center">
               <img
                 src="/images/nextledgerlogo3.png"
                 alt="NextLedgers Logo"
@@ -384,7 +385,6 @@ export default function RegionalNavbar({
                 onRegionChange={() => setIsSidebarOpen?.(false)}
                 compact
                 showLabel
-                showBackHome={!isOnHome}
                 boundaryRef={sidebarPanelRef}
               />
             </div>

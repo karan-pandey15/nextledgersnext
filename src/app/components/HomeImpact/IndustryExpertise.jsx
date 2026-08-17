@@ -11,6 +11,40 @@ const GREY = "#6B7280";
 
 const V = "v4";
 
+const GRID_INDUSTRIES = INDUSTRIES_WE_SUPPORT_ALL.filter(
+  (item) => item.label !== "Non-Profit Organizations"
+);
+
+const NON_PROFIT = INDUSTRIES_WE_SUPPORT_ALL.find(
+  (item) => item.label === "Non-Profit Organizations"
+);
+
+const cardClassName =
+  "flex flex-col items-center justify-start rounded-[12px] border border-[#F0F0F0] bg-white px-1 pt-2 pb-1.5 text-center shadow-[0_4px_18px_rgba(15,39,74,0.05)] transition-all duration-200 hover:border-[#FF6A00]/25 hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:min-h-[136px] sm:justify-center sm:rounded-[14px] sm:px-2.5 sm:py-3";
+
+function IndustryCard({ item, label }) {
+  return (
+    <div className={cardClassName}>
+      <div className="flex h-[48px] w-[48px] shrink-0 items-center justify-center sm:h-[75px] sm:w-[75px]">
+        <Image
+          src={item.src}
+          alt={label || item.label}
+          width={75}
+          height={75}
+          className="h-[48px] w-[48px] object-contain sm:h-[75px] sm:w-[75px]"
+          unoptimized
+        />
+      </div>
+      <p
+        className="mt-1 px-0.5 text-[9px] font-bold leading-tight sm:mt-1.5 sm:text-[12px]"
+        style={{ color: NAVY }}
+      >
+        {label || item.label}
+      </p>
+    </div>
+  );
+}
+
 export default function IndustryExpertise() {
   return (
     <section className="relative w-full bg-white">
@@ -45,50 +79,35 @@ export default function IndustryExpertise() {
             </p>
           </div>
 
-          {/* Industry icons — Non-Profit shown in dedicated row below */}
-          <div className="mt-4 grid grid-cols-2 gap-2.5 sm:mt-5 sm:grid-cols-3 sm:gap-3 md:grid-cols-5 md:gap-3">
-            {INDUSTRIES_WE_SUPPORT_ALL.filter(
-              (item) => item.label !== "Non-Profit Organizations"
-            ).map((item) => (
-              <div
-                key={item.label}
-                className="flex min-h-[124px] flex-col items-center justify-center rounded-[12px] border border-[#F0F0F0] bg-white px-2 py-2.5 text-center shadow-[0_4px_18px_rgba(15,39,74,0.05)] transition-all duration-200 hover:border-[#FF6A00]/25 hover:shadow-[0_8px_28px_rgba(15,39,74,0.08)] sm:min-h-[136px] sm:rounded-[14px] sm:px-2.5 sm:py-3"
-              >
-                <div className="flex h-[70px] w-[70px] shrink-0 items-center justify-center sm:h-[75px] sm:w-[75px]">
-                  <Image
-                    src={item.src}
-                    alt={item.label}
-                    width={75}
-                    height={75}
-                    className="h-[70px] w-[70px] object-contain sm:h-[75px] sm:w-[75px]"
-                    unoptimized
-                  />
-                </div>
-                <p
-                  className="mt-1.5 px-0.5 text-[10px] font-bold leading-tight sm:text-[12px]"
-                  style={{ color: NAVY }}
-                >
-                  {item.label}
-                </p>
-              </div>
+          {/* 3 on phone (includes Non-Profit), 3 on sm, 5 on md+ */}
+          <div className="mt-3 grid grid-cols-3 gap-1.5 sm:mt-5 sm:grid-cols-3 sm:gap-3 md:grid-cols-5 md:gap-3">
+            {GRID_INDUSTRIES.map((item) => (
+              <IndustryCard key={item.label} item={item} />
             ))}
+
+            {/* Phone only — fills the empty slot after Startups & SMEs */}
+            {NON_PROFIT ? (
+              <div className="sm:hidden">
+                <IndustryCard item={NON_PROFIT} label="Non-Profit" />
+              </div>
+            ) : null}
           </div>
 
-          {/* Non-Profit — always visible, scrolls with section */}
-          <div className="mt-4 flex w-full flex-col items-center gap-2.5 rounded-[12px] border border-[#FF6A00]/15 bg-white px-3 py-3 text-center sm:mt-5 sm:flex-row sm:items-center sm:gap-3 sm:rounded-[14px] sm:px-4 sm:py-3.5 sm:text-left">
-            <div className="flex h-[70px] w-[70px] shrink-0 items-center justify-center sm:h-[75px] sm:w-[75px]">
+          {/* Non-Profit strip — tablet/laptop only (unchanged) */}
+          <div className="mt-5 hidden w-full items-center gap-3 rounded-[14px] border border-[#FF6A00]/15 bg-white px-4 py-3.5 text-left sm:mt-5 sm:flex">
+            <div className="flex h-[75px] w-[75px] shrink-0 items-center justify-center">
               <Image
                 src={`/images/industry-icons/non-profit.png?${V}`}
                 alt="Non-Profit Organizations"
                 width={75}
                 height={75}
-                className="h-[70px] w-[70px] object-contain sm:h-[75px] sm:w-[75px]"
+                className="h-[75px] w-[75px] object-contain"
                 unoptimized
               />
             </div>
 
             <p
-              className="w-full text-[12px] font-semibold leading-snug sm:flex-1 sm:text-[13px]"
+              className="flex-1 text-[13px] font-semibold leading-snug"
               style={{ color: NAVY }}
             >
               Non-Profit Organizations / 501 Sections Organizations

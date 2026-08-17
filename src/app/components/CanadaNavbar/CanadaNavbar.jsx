@@ -30,10 +30,8 @@ export default function CanadaNavbar({ isSidebarOpen = false, setIsSidebarOpen }
   const timeoutRef = useRef(null);
   const sidebarPanelRef = useRef(null);
   const pathname = usePathname();
-  const homeHref = siteHomeHref(pathname, CANADA_HOME);
-  const navLinks = CANADA_NAV_LINKS.map((link) =>
-    link.id === "home" ? { ...link, href: homeHref } : link
-  );
+  const logoHref = siteHomeHref(pathname, CANADA_HOME);
+  const navLinks = CANADA_NAV_LINKS;
 
   useEffect(() => {
     persistRegionCode("CA");
@@ -106,7 +104,7 @@ export default function CanadaNavbar({ isSidebarOpen = false, setIsSidebarOpen }
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-[72px]">
           <div className="flex-shrink-0 flex items-center -ml-2 sm:-ml-4 lg:-ml-6">
-            <Link href={homeHref} className="flex items-center group">
+            <Link href={logoHref} className="flex items-center group">
               <img
                 src="/images/nextledgerlogo3.png"
                 alt="NextLedgers Logo"
@@ -218,7 +216,7 @@ export default function CanadaNavbar({ isSidebarOpen = false, setIsSidebarOpen }
           </nav>
 
           <div className="hidden lg:flex shrink-0 items-center">
-            <RegionSelect showBackHome={!isCanadaHome} />
+            <RegionSelect />
           </div>
 
           <div className="flex lg:hidden items-center">
@@ -252,7 +250,7 @@ export default function CanadaNavbar({ isSidebarOpen = false, setIsSidebarOpen }
           ref={sidebarPanelRef}
         >
           <div className="flex items-center justify-between">
-            <Link href={homeHref} onClick={() => setIsSidebarOpen(false)} className="flex items-center">
+            <Link href={logoHref} onClick={() => setIsSidebarOpen(false)} className="flex items-center">
               <img
                 src="/images/nextledgerlogo3.png"
                 alt="NextLedgers Logo"
@@ -364,7 +362,6 @@ export default function CanadaNavbar({ isSidebarOpen = false, setIsSidebarOpen }
                 onRegionChange={() => setIsSidebarOpen(false)}
                 compact
                 showLabel
-                showBackHome={!isCanadaHome}
                 boundaryRef={sidebarPanelRef}
               />
             </div>

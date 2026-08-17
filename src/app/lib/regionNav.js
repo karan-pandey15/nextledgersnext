@@ -153,12 +153,13 @@ export function regionFooterKey(code) {
   return path.replace(/^\//, "");
 }
 
-/** On a region hub (/uk, /usa, …) Home + logo go to global `/`. */
+/** True on a region hub such as /uk or /usa (not nested service pages). */
 export function isRegionHubPath(pathname, homePath) {
   if (!pathname || !homePath) return false;
   return pathname === homePath || pathname === `${homePath}/`;
 }
 
+/** Logo / Back To Home: region hub → global `/`; service or shared pages → region hub. */
 export function siteHomeHref(pathname, regionHome) {
   if (isRegionHubPath(pathname, regionHome)) return "/";
   return regionHome || "/";
