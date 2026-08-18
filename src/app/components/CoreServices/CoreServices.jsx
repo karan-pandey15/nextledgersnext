@@ -2,19 +2,13 @@
 
 import React from "react";
 import Link from "next/link";
-import {
-  BarChart3,
-  Building2,
-  Calculator,
-  ClipboardList,
-  Percent,
-  Receipt,
-} from "lucide-react";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
 const ORANGE = BRAND_ORANGE;
 const NAVY = "#0F274A";
 const GREY = "#6B7280";
+
+const ICON_BASE = "/images/icon/Comprehensive%20Solutioins";
 
 /** Keep in sync with GLOBAL_SERVICE_LINKS in header/navigationData.js */
 const SERVICES = [
@@ -23,7 +17,7 @@ const SERVICES = [
     line1: "Accounting",
     line2: "& Bookkeeping",
     description: "Accurate and timely bookkeeping to keep your finances organized.",
-    icon: Calculator,
+    icon: `${ICON_BASE}/${encodeURIComponent("Acc & Bkk.png")}`,
     href: "/services/bookkeeping",
   },
   {
@@ -32,7 +26,7 @@ const SERVICES = [
     line2: "Reporting",
     description:
       "Insightful reports and analysis to help you make informed business decisions.",
-    icon: BarChart3,
+    icon: `${ICON_BASE}/${encodeURIComponent("Fin Rep..png")}`,
     href: "/services/financial-reporting",
   },
   {
@@ -40,7 +34,7 @@ const SERVICES = [
     line1: "Tax Preparation",
     line2: "& Planning",
     description: "Stay compliant with local tax regulations and filing requirements.",
-    icon: Percent,
+    icon: `${ICON_BASE}/${encodeURIComponent("TAx Prep.png")}`,
     href: "/services/tax",
   },
   {
@@ -49,7 +43,7 @@ const SERVICES = [
     line2: "& HR Services",
     description:
       "End-to-end payroll processing that ensures accuracy and timely payments.",
-    icon: Receipt,
+    icon: `${ICON_BASE}/${encodeURIComponent("Payroll HR.png")}`,
     href: "/services/payroll",
   },
   {
@@ -58,7 +52,7 @@ const SERVICES = [
     line2: "Reporting",
     description:
       "Clear management reports and KPI dashboards for better business decisions.",
-    icon: ClipboardList,
+    icon: `${ICON_BASE}/${encodeURIComponent("Mkt Rep.png")}`,
     href: "/services/management-reporting",
   },
   {
@@ -67,7 +61,7 @@ const SERVICES = [
     line2: "& Advisory Services",
     description:
       "Strategic financial leadership, forecasting, and advisory for sustainable growth.",
-    icon: Building2,
+    icon: `${ICON_BASE}/${encodeURIComponent("CFO.png")}`,
     href: "/services/cfo-advisory",
   },
 ];
@@ -105,8 +99,6 @@ export default function CoreServices() {
         {/* Cards — 2 on phone, 3 on tablet, 6 on large screens */}
         <div className="mt-5 sm:mt-6 grid w-full grid-cols-2 gap-2.5 auto-rows-fr sm:gap-3 md:grid-cols-3 lg:grid-cols-6">
           {SERVICES.map((service) => {
-            const Icon = service.icon;
-
             return (
               <Link
                 key={service.title}
@@ -121,17 +113,17 @@ export default function CoreServices() {
                   →
                 </span>
 
-                <div className="flex w-full flex-col items-center text-center">
-                  <div className="mb-1.5 flex h-10 w-10 items-center justify-center rounded-full bg-[#FFF4EA] sm:mb-2 sm:h-12 sm:w-12">
-                    <Icon
-                      className="h-5 w-5 sm:h-6 sm:w-6"
-                      style={{ color: ORANGE }}
-                      strokeWidth={1.75}
+                <div className="flex w-full flex-1 flex-col items-center text-center">
+                  <div className="mb-1.5 flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-[#FFF4EA] sm:mb-2 sm:h-12 sm:w-12">
+                    <img
+                      src={service.icon}
+                      alt={service.title}
+                      className="h-full w-full object-cover scale-[1.04]"
                     />
                   </div>
 
                   <h3
-                    className="px-0.5 text-[12px] font-bold leading-[1.2] sm:text-[13px]"
+                    className="min-h-[2.4em] px-0.5 text-[12px] font-bold leading-[1.2] sm:text-[13px]"
                     style={{ color: NAVY }}
                   >
                     <span className="block">{service.line1}</span>
@@ -141,7 +133,7 @@ export default function CoreServices() {
                   </h3>
 
                   <p
-                    className="mt-1 px-0.5 text-[10px] leading-[1.35] sm:mt-1.5 sm:text-[11px]"
+                    className="mt-1 min-h-[4.05em] px-0.5 text-[10px] leading-[1.35] sm:mt-1.5 sm:text-[11px]"
                     style={{ color: GREY }}
                   >
                     {service.description}

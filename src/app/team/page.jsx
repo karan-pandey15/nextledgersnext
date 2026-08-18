@@ -2,11 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import {
-  Briefcase,
-  Globe2,
   Mail,
-  Smile,
-  UsersRound,
 } from "lucide-react";
 import { FaLinkedinIn } from "react-icons/fa";
 import SiteNavbar from "../components/SiteNavbar/SiteNavbar";
@@ -239,11 +235,29 @@ const SUPPORT_TEAM = [
   },
 ];
 
+const TEAM_ICON_BASE = "/images/icon/Our%20Team";
+
 const STATS = [
-  { value: "250+", label: "Projects Delivered", Icon: Briefcase },
-  { value: "15+", label: "Industry Experts", Icon: UsersRound },
-  { value: "9+", label: "Countries Served", Icon: Globe2 },
-  { value: "99.9%", label: "Client Satisfaction", Icon: Smile },
+  {
+    value: "250+",
+    label: "Projects Delivered",
+    icon: `${TEAM_ICON_BASE}/${encodeURIComponent("250+ Project.png")}`,
+  },
+  {
+    value: "15+",
+    label: "Industry Experts",
+    icon: `${TEAM_ICON_BASE}/${encodeURIComponent("15+.png")}`,
+  },
+  {
+    value: "9+",
+    label: "Countries Served",
+    icon: `${TEAM_ICON_BASE}/${encodeURIComponent("9+.png")}`,
+  },
+  {
+    value: "99.9%",
+    label: "Client Satisfaction",
+    icon: `${TEAM_ICON_BASE}/${encodeURIComponent("99.9.png")}`,
+  },
 ];
 
 const PRESENCE = [
@@ -718,18 +732,20 @@ export default function TeamPage() {
       <section className="relative z-10 w-full px-4 pb-5 sm:px-6 sm:pb-6 lg:px-10 lg:pb-7" style={{ backgroundColor: PAGE_BG }}>
         <div className="mx-auto max-w-[1100px] rounded-[14px] border border-[#E5E7EB] bg-white px-3 py-5 shadow-[0_8px_28px_rgba(15,39,74,0.06)] sm:px-4 sm:py-6">
           <div className="grid grid-cols-2 gap-y-4 sm:grid-cols-2 sm:gap-0 lg:grid-cols-4">
-            {STATS.map(({ value, label, Icon }, index) => (
+            {STATS.map(({ value, label, icon }, index) => (
               <div
                 key={label}
                 className={`flex flex-row items-center justify-center gap-2.5 px-2 py-2 sm:gap-3.5 sm:px-5 ${
                   index % 2 === 1 ? "border-l border-[#E5E7EB]" : ""
                 } ${index > 0 ? "sm:border-l sm:border-[#E5E7EB]" : ""}`}
               >
-                <Icon
-                  className="h-9 w-9 shrink-0 sm:h-[44px] sm:w-[44px]"
-                  strokeWidth={1.5}
-                  style={{ color: ORANGE }}
-                />
+                <span className="h-9 w-9 shrink-0 overflow-hidden rounded-full sm:h-[44px] sm:w-[44px]">
+                  <img
+                    src={icon}
+                    alt={label}
+                    className="h-full w-full object-cover scale-[1.04]"
+                  />
+                </span>
                 <div className="min-w-0 text-left">
                   <p
                     className="text-[20px] font-bold leading-none sm:text-[26px] lg:text-[28px]"

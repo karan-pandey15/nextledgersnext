@@ -1,13 +1,6 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import {
-  Headset,
-  Network,
-  RefreshCw,
-  Settings2,
-  ShieldCheck,
-} from "lucide-react";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
 const ORANGE = BRAND_ORANGE;
@@ -69,31 +62,34 @@ const DESKTOP_LOGOS = [
   ALL_LOGOS.slice(HONEYCOMB_ROW1 + HONEYCOMB_ROW2),
 ];
 
+const FEATURE_ICON_BASE =
+  "/images/icon/Below%20Technology%20we%20use---";
+
 const FEATURES = [
   {
     title: "Secure & Trusted",
     description: "Bank-level security and data protection",
-    icon: ShieldCheck,
+    icon: `${FEATURE_ICON_BASE}/1.png`,
   },
   {
     title: "Real-time Sync",
     description: "Always up-to-date data across platforms",
-    icon: RefreshCw,
+    icon: `${FEATURE_ICON_BASE}/2.png`,
   },
   {
     title: "Automation First",
     description: "Smart automations for better accuracy",
-    icon: Settings2,
+    icon: `${FEATURE_ICON_BASE}/3.png`,
   },
   {
     title: "Seamless Workflows",
     description: "Built to integrate with your existing systems",
-    icon: Network,
+    icon: `${FEATURE_ICON_BASE}/4.png`,
   },
   {
     title: "Dedicated Support",
     description: "Our team is certified and tool-experienced",
-    icon: Headset,
+    icon: `${FEATURE_ICON_BASE}/5.png`,
   },
 ];
 
@@ -335,17 +331,16 @@ export default function Technology() {
         <div className="mt-8 sm:mt-10 w-full rounded-[16px] bg-[#FFF7F0] border border-[#FF6A00]/10 px-4 sm:px-5 lg:px-4 py-5 sm:py-6">
           <div className="flex flex-col sm:grid sm:grid-cols-2 lg:flex lg:flex-row lg:items-center">
             {FEATURES.map((feature, index) => {
-              const Icon = feature.icon;
               const isLast = index === FEATURES.length - 1;
 
               return (
                 <React.Fragment key={feature.title}>
                   <div className="flex flex-1 items-center gap-3 min-w-0 px-1 lg:px-3 py-3 lg:py-0">
-                    <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shrink-0 shadow-[0_2px_8px_rgba(255, 106, 0,0.12)]">
-                      <Icon
-                        className="w-6 h-6"
-                        style={{ color: ORANGE }}
-                        strokeWidth={2}
+                    <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shrink-0 overflow-hidden shadow-[0_2px_8px_rgba(255, 106, 0,0.12)]">
+                      <img
+                        src={feature.icon}
+                        alt={feature.title}
+                        className="w-full h-full object-cover scale-[1.04]"
                       />
                     </div>
                     <div className="min-w-0">

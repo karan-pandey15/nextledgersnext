@@ -5,140 +5,60 @@ import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
 const ORANGE = BRAND_ORANGE;
 const BG = "#0B1C33";
-const ICON_BLUE = "#1E4A6E";
 const WHITE = "#FFFFFF";
 const DESC = "#D4D9E0";
 
 const STEP_FILL_MS = 550;
 const LINE_TRAVEL_MS = 750;
 
+const ICON_BASE = "/images/icon/How%20we%20fit%20inot%20process-%20Home%20page";
+
 const STEPS = [
   {
     num: "01",
     title: "Discovery Call",
     description: "We understand your business, challenges and goals.",
-    Icon: HeadsetIcon,
+    icon: `${ICON_BASE}/1.png`,
   },
   {
     num: "02",
     title: "Understand Workflow",
     description: "We analyze your processes, tools and reporting needs.",
-    Icon: WorkflowIcon,
+    icon: `${ICON_BASE}/2.png`,
   },
   {
     num: "03",
     title: "Assign Dedicated Team",
     description: "We assign the best matched professionals for your requirements.",
-    Icon: TeamIcon,
+    icon: `${ICON_BASE}/3.png`,
   },
   {
     num: "04",
     title: "Knowledge Transfer",
     description: "We learn your processes and align with your expectations.",
-    Icon: TransferIcon,
+    icon: `${ICON_BASE}/4.png`,
   },
   {
     num: "05",
     title: "Daily Operations Begin",
     description: "Your team starts delivering with quality and consistency.",
-    Icon: GearIcon,
+    icon: `${ICON_BASE}/5.png`,
   },
   {
     num: "06",
     title: "Weekly Reviews",
     description: "Regular updates, performance reviews and improvements.",
-    Icon: ChartIcon,
+    icon: `${ICON_BASE}/6.png`,
   },
   {
     num: "07",
     title: "Scale Anytime",
     description: "Easily scale your team up or down as your business grows.",
-    Icon: ScaleIcon,
+    icon: `${ICON_BASE}/7.png`,
   },
 ];
 
-function HeadsetIcon({ color = ICON_BLUE }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" width="33" height="33" aria-hidden="true">
-      <path d="M4.5 13.5V12a7.5 7.5 0 0 1 15 0v1.5" stroke={color} strokeWidth="1.65" strokeLinecap="round" />
-      <rect x="3.2" y="12.5" width="3.5" height="5" rx="1.1" stroke={color} strokeWidth="1.55" />
-      <rect x="17.3" y="12.5" width="3.5" height="5" rx="1.1" stroke={color} strokeWidth="1.55" />
-      <path d="M17.5 17.6v.8a2.4 2.4 0 0 1-2.4 2.4H12" stroke={color} strokeWidth="1.55" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function WorkflowIcon({ color = ICON_BLUE }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" width="33" height="33" aria-hidden="true">
-      <rect x="4" y="3.5" width="11.5" height="15.5" rx="1.4" stroke={color} strokeWidth="1.55" />
-      <path d="M7 8h6M7 11.5h6M7 15h3.2" stroke={color} strokeWidth="1.55" strokeLinecap="round" />
-      <circle cx="17.2" cy="16.2" r="3" stroke={color} strokeWidth="1.55" />
-      <path d="m19.4 18.4 1.5 1.5" stroke={color} strokeWidth="1.55" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function TeamIcon({ color = ICON_BLUE }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" width="33" height="33" aria-hidden="true">
-      <circle cx="12" cy="7" r="2.3" stroke={color} strokeWidth="1.55" />
-      <circle cx="6" cy="8.2" r="1.9" stroke={color} strokeWidth="1.55" />
-      <circle cx="18" cy="8.2" r="1.9" stroke={color} strokeWidth="1.55" />
-      <path d="M7.6 18.2c.7-2.3 2.3-3.5 4.4-3.5s3.7 1.2 4.4 3.5" stroke={color} strokeWidth="1.55" strokeLinecap="round" />
-      <path d="M3.6 17.6c.5-1.7 1.5-2.6 2.9-2.6M20.4 17.6c-.5-1.7-1.5-2.6-2.9-2.6" stroke={color} strokeWidth="1.55" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function TransferIcon({ color = ICON_BLUE }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" width="33" height="33" aria-hidden="true">
-      <rect x="3.5" y="4" width="12.5" height="9.5" rx="1.1" stroke={color} strokeWidth="1.55" />
-      <path d="M6.2 7h7M6.2 10h4.2" stroke={color} strokeWidth="1.45" strokeLinecap="round" />
-      <circle cx="16.2" cy="16" r="2.1" stroke={color} strokeWidth="1.55" />
-      <path d="M12.4 20.2c.5-1.7 1.7-2.7 3.8-2.7s3.3.9 3.8 2.7" stroke={color} strokeWidth="1.55" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function GearIcon({ color = ICON_BLUE }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" width="33" height="33" aria-hidden="true">
-      <circle cx="12" cy="12" r="2.8" stroke={color} strokeWidth="1.55" />
-      <path
-        d="M12 3.8v2M12 18.2v2M3.8 12h2M18.2 12h2M6 6l1.4 1.4M16.6 16.6 18 18M6 18l1.4-1.4M16.6 7.4 18 6"
-        stroke={color}
-        strokeWidth="1.55"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
-function ChartIcon({ color = ICON_BLUE }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" width="33" height="33" aria-hidden="true">
-      <path d="M4 19h16" stroke={color} strokeWidth="1.55" strokeLinecap="round" />
-      <path d="M7 16V11M11.5 16V8M16 16v-3.5" stroke={color} strokeWidth="1.7" strokeLinecap="round" />
-      <path d="M14.5 7.5h4.5V12" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="m19 7.5-4.2 4.2" stroke={color} strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function ScaleIcon({ color = ICON_BLUE }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" width="33" height="33" aria-hidden="true">
-      <path d="M4 18.5h16" stroke={color} strokeWidth="1.55" strokeLinecap="round" />
-      <path d="M5 15.5 9.5 10l3.2 3.2L18.5 6.5" stroke={color} strokeWidth="1.65" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M15 6.5h3.5V10" stroke={color} strokeWidth="1.55" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
 function StepItem({ step, showDivider = false, compact = false, active = false }) {
-  const { Icon } = step;
   const iconSize = compact ? 48 : 54;
 
   return (
@@ -167,18 +87,28 @@ function StepItem({ step, showDivider = false, compact = false, active = false }
           width: iconSize,
           height: iconSize,
           borderRadius: "9999px",
-          backgroundColor: active ? ORANGE : WHITE,
+          overflow: "hidden",
+          backgroundColor: WHITE,
           boxShadow: active
             ? "0 4px 18px rgba(255, 106, 0, 0.45)"
             : "0 4px 14px rgba(0,0,0,0.16)",
           position: "relative",
           zIndex: 2,
           flexShrink: 0,
-          transition: "background-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease",
+          transition: "box-shadow 0.35s ease, transform 0.35s ease",
           transform: active ? "scale(1.06)" : "scale(1)",
         }}
       >
-        <Icon color={active ? WHITE : ICON_BLUE} />
+        <img
+          src={step.icon}
+          alt={step.title}
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            transform: "scale(1.04)",
+          }}
+        />
       </div>
 
       <span

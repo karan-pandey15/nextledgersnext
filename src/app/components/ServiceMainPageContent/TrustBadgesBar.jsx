@@ -7,6 +7,48 @@ import {
     UserCheck,
 } from "lucide-react";
 
+const ICON_BASE = "/images/icon/For%20Service%20Page";
+
+const TRUST_IMAGES = {
+    hmrc: `${ICON_BASE}/${encodeURIComponent("HMRC.png")}`,
+    iso: `${ICON_BASE}/ISO.png`,
+    gdpr: `${ICON_BASE}/GDPR.png`,
+    timezone: `${ICON_BASE}/${encodeURIComponent("Time Zpne- C.png")}`,
+    years: `${ICON_BASE}/${encodeURIComponent("9+ yrs.png")}`,
+    dedicated: `${ICON_BASE}/${encodeURIComponent("Dedicated Account manager.png")}`,
+};
+
+function resolveTrustImage({ label = "", sub = "" } = {}) {
+    const text = `${label} ${sub}`.toLowerCase();
+
+    if (text.includes("iso")) return TRUST_IMAGES.iso;
+    if (text.includes("9+") || text.includes("year")) return TRUST_IMAGES.years;
+    if (
+        text.includes("account manager") ||
+        text.includes("dedicated") ||
+        text.includes("tax team")
+    ) {
+        return TRUST_IMAGES.dedicated;
+    }
+    if (text.includes("time zone") || text.includes("overlap")) {
+        return TRUST_IMAGES.timezone;
+    }
+    if (
+        text.includes("gdpr") ||
+        text.includes("ccpa") ||
+        text.includes("pipeda") ||
+        text.includes("pdpa") ||
+        text.includes("privacy") ||
+        text.includes("secure") ||
+        text.includes("confidential") ||
+        text.includes("data protected")
+    ) {
+        return TRUST_IMAGES.gdpr;
+    }
+
+    return TRUST_IMAGES.hmrc;
+}
+
 export const DEFAULT_TRUST_BADGES = [
     { icon: ShieldCheck, label: "HMRC", sub: "Compliant" },
     { icon: Shield, label: "ISO 27001", sub: "Certified" },
@@ -98,7 +140,7 @@ export default function TrustBadgesBar({ badges = DEFAULT_TRUST_BADGES, classNam
             className={`mt-6 w-full rounded-xl border border-slate-200/80 bg-white/90 px-3 py-3.5 shadow-[0_8px_30px_rgba(15,23,42,0.06)] backdrop-blur-sm sm:px-4 sm:py-4 lg:px-2 lg:py-3 ${className}`}
         >
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-3.5 lg:grid-cols-6 lg:gap-0">
-                {badges.map(({ icon: Icon, label, sub }, i) => (
+                {badges.map(({ label, sub }, i) => (
                     <div
                         key={`${label}-${i}`}
                         className={`flex min-h-[48px] items-center gap-2.5 rounded-lg px-2 py-1.5 sm:min-h-[52px] sm:gap-2.5 sm:px-2.5 lg:min-h-0 lg:justify-center lg:rounded-none lg:px-2 lg:py-0 ${
@@ -107,8 +149,12 @@ export default function TrustBadgesBar({ badges = DEFAULT_TRUST_BADGES, classNam
                                 : ""
                         }`}
                     >
-                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#FF6A00]/40 bg-[#FFF7F0] text-[#FF6A00] sm:h-8 sm:w-8">
-                            <Icon className="h-3.5 w-3.5" strokeWidth={2} />
+                        <span className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#FFF7F0] sm:h-9 sm:w-9">
+                            <img
+                                src={resolveTrustImage({ label, sub })}
+                                alt=""
+                                className="h-full w-full object-cover scale-[1.04]"
+                            />
                         </span>
                         <span className="min-w-0 flex-1 text-left leading-tight lg:flex-none">
                             <span className="block truncate text-[11px] font-semibold text-slate-800 sm:text-[12px]">

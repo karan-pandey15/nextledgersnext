@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { Users, Globe2, UserCheck, BarChart3, RefreshCw, Clock3 } from "lucide-react";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
 const ORANGE = BRAND_ORANGE;
@@ -11,42 +10,45 @@ const BROWN = "#6B4423";
 const VIDEO_SRC = "/video/IMG_1995.mp4";
 const COUNT_DURATION_MS = 1600;
 
+const ICON_BASE =
+  "/images/icon/Result%20that%20speak%20for%20themselves-%20Home%20page";
+
 const STATS = [
   {
     end: 105,
     suffix: "+",
     label: "Clients Across Globally",
-    icon: Users,
+    icon: `${ICON_BASE}/${encodeURIComponent("105+.png")}`,
   },
   {
     end: 9,
     suffix: "+",
     label: "Years in Global Accounting Outsourcing",
-    icon: Globe2,
+    icon: `${ICON_BASE}/${encodeURIComponent("9+.png")}`,
   },
   {
     end: 75,
     suffix: "+",
     label: "Qualified Finance Professionals",
-    icon: UserCheck,
+    icon: `${ICON_BASE}/${encodeURIComponent("75+.png")}`,
   },
   {
     end: 70,
     suffix: "%",
     label: "of Business via Referrals",
-    icon: BarChart3,
+    icon: `${ICON_BASE}/${encodeURIComponent("70%.png")}`,
   },
   {
     end: 95,
     suffix: "%+",
     label: "Client Retention Rate",
-    icon: RefreshCw,
+    icon: `${ICON_BASE}/${encodeURIComponent("95%.png")}`,
   },
   {
     end: 36,
     suffix: "+ hrs",
     label: "Onboarding Process",
-    icon: Clock3,
+    icon: `${ICON_BASE}/${encodeURIComponent("36+.png")}`,
   },
 ];
 
@@ -241,7 +243,6 @@ export default function ResultsStats() {
               <div className="mt-6 rounded-[18px] bg-white p-3 shadow-[0_8px_30px_rgba(15,39,74,0.06)] sm:mt-8 sm:rounded-[20px] sm:p-4 lg:p-5">
                 <div className="grid grid-cols-2 sm:grid-cols-3">
                   {STATS.map((stat, index) => {
-                    const Icon = stat.icon;
                     const col = index % 3;
                     const isLastRow = index >= 3;
                     const mobileCol = index % 2;
@@ -277,8 +278,12 @@ export default function ResultsStats() {
                           />
                         )}
 
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FFE8D4] text-[#FF6A00] sm:h-11 sm:w-11">
-                          <Icon className="h-[18px] w-[18px] sm:h-5 sm:w-5" strokeWidth={1.8} />
+                        <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-[#FFE8D4] sm:h-11 sm:w-11">
+                          <img
+                            src={stat.icon}
+                            alt={stat.label}
+                            className="h-full w-full object-cover scale-[1.04]"
+                          />
                         </div>
 
                         <p
