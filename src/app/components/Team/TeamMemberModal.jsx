@@ -267,7 +267,7 @@ const HIGHLIGHT_ICONS = {
 
 function ModalAvatar({ src, name, variant }) {
   const [failed, setFailed] = useState(!src);
-  const isCutout = Boolean(src?.includes("removebg"));
+  const isCutout = Boolean(src?.includes("removebg") || src?.includes("remove.png"));
   const imageSrc = src ? encodeURI(src) : "";
   const initials = (name || "")
     .split(",")[0]
@@ -281,23 +281,29 @@ function ModalAvatar({ src, name, variant }) {
 
   const isShivam = variant === "shivam";
   const isPraveen = variant === "praveen";
-  const isAbhishek = variant === "abhishek";
   const isRahul = variant === "rahul";
+  const isAvnish = variant === "avnish";
+  const isRicha = variant === "richa";
   const isNisha = variant === "nisha";
+  const isAbhishek = variant === "abhishek";
+  const hasHeadGap = isAvnish || isRicha;
   const imageClass = isShivam
     ? // Source photo sits right; keep face centered and show full lower crop (no scale = no bottom cut)
       "h-full w-full object-cover object-[70%_48%]"
     : isPraveen
       ? // Mild zoom so full head + crossed arms fit inside the circle
         "h-full w-full object-contain object-bottom scale-[1.05] origin-bottom"
-    : isAbhishek
-      ? // Zoom so head + crossed arms/hands fill the circle
-        "h-full w-full object-cover object-[50%_12%] scale-[1.55] origin-top"
     : isRahul
       ? // Zoom so head + crossed arms/hands fill the circle
         "h-full w-full object-cover object-[50%_10%] scale-[1.55] origin-top"
+    : isAvnish
+      ? "h-full w-full object-cover object-[50%_10%] scale-[1.45] origin-top"
+    : isRicha
+      ? "h-full w-full object-cover object-[50%_10%] scale-[1.42] origin-top"
     : isNisha
-      ? "h-full w-full object-contain object-bottom scale-[0.96] origin-bottom"
+      ? "h-full w-full object-contain object-bottom scale-[0.9] origin-bottom"
+    : isAbhishek
+      ? "h-full w-full object-cover object-[50%_12%] scale-[1.22] origin-top"
     : isCutout
       ? "h-full w-full object-contain object-bottom"
       : "h-full w-full object-contain object-center";
@@ -310,7 +316,9 @@ function ModalAvatar({ src, name, variant }) {
     // Outer pad keeps the orange ring from being clipped by modal overflow
     <div className={`mx-auto shrink-0 ${isShivam ? "p-[3px]" : ""}`}>
       <div
-        className="relative mx-auto flex h-[176px] w-[176px] items-center justify-center overflow-hidden rounded-full bg-[#FFF7F0] sm:h-[192px] sm:w-[192px]"
+        className={`relative mx-auto flex h-[176px] w-[176px] items-center justify-center overflow-hidden rounded-full bg-[#FFF7F0] sm:h-[192px] sm:w-[192px] ${
+          hasHeadGap ? "pt-[5px]" : ""
+        }`}
         style={{ boxShadow: `0 0 0 2.5px ${ACCENT}` }}
       >
         {imageSrc && !failed ? (

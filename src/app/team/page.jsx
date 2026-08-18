@@ -40,7 +40,7 @@ const GLOBAL_ADVISORS = [
     credentials: "CGMA",
     role: "Partner, North America",
     companyRole: "Partner, North America",
-    image: "/images/TeamImage/johnremovebg.png",
+    image: "/images/TeamImage/John_Muchai-removebg-preview.png",
     email: "John.muchai@nextledgers.com",
   },
 ];
@@ -202,14 +202,12 @@ const SENIOR_PROFESSIONALS = [
     name: "Nisha Jindal",
     role: "Payroll & Compliance Specialist",
     image: "/images/TeamImage/Nisha__1_-removebg-preview.png",
-    /** Slightly less zoom so the portrait sits naturally in the circle */
     avatarVariant: "nisha",
   },
   {
     name: "Abhishek Rawat",
     role: "Financial Planning & KPIs Expert",
     image: "/images/TeamImage/abhishekremove.png",
-    /** Zoom crop — frame head + crossed arms/hands tightly in the circle */
     avatarVariant: "abhishek",
   },
 ];
@@ -220,11 +218,13 @@ const SUPPORT_TEAM = [
     name: "Avnish Mercer",
     role: "Business Development Specialist",
     image: "/images/TeamImage/Avneesh_Mishra-removebg-preview.png",
+    avatarVariant: "avnish",
   },
   {
     name: "Richa Chaudhary",
     role: "HR Manager",
     image: "/images/TeamImage/Richa_HR-removebg-preview.png",
+    avatarVariant: "richa",
   },
   {
     name: "Rahul Paul",
@@ -481,17 +481,25 @@ function getAvatarImageClass(variant, isCutout) {
   if (variant === "praveen") {
     return "h-full w-full object-contain object-bottom scale-[1.05] origin-bottom";
   }
-  // Abhishek only — zoom in so head + folded arms/hands fill the circle
-  if (variant === "abhishek") {
-    return "h-full w-full object-cover object-[50%_12%] scale-[1.55] origin-top";
-  }
   // Rahul only — same framing as Abhishek (head + crossed arms/hands)
   if (variant === "rahul") {
     return "h-full w-full object-cover object-[50%_10%] scale-[1.55] origin-top";
   }
-  // Nisha only — pull zoom back ~2% so the portrait is not cropped so tight
+  // Avnish / Richa — slightly eased crop; 5px top inset is applied on the box
+  if (variant === "avnish") {
+    return "h-full w-full object-cover object-[50%_10%] scale-[1.45] origin-top";
+  }
+  if (variant === "richa") {
+    return "h-full w-full object-cover object-[50%_10%] scale-[1.42] origin-top";
+  }
+  // Nisha — slightly reduce size so top head gap matches Md. Almasud
   if (variant === "nisha") {
-    return "h-full w-full object-contain object-bottom scale-[0.96] origin-bottom";
+    return "h-full w-full object-contain object-bottom scale-[0.9] origin-bottom";
+  }
+  // Abhishek — zoom in from the default cutout so head gap matches Md. Almasud
+  if (variant === "abhishek") {
+    // Use object-cover + top origin to prevent head clipping while still zooming in
+    return "h-full w-full object-cover object-[50%_12%] scale-[1.22] origin-top";
   }
   if (isCutout) {
     return "h-full w-full object-contain object-bottom";
@@ -508,8 +516,9 @@ function TeamAvatar({
   variant,
 }) {
   const [failed, setFailed] = useState(!src);
-  const isCutout = Boolean(src?.includes("removebg"));
+  const isCutout = Boolean(src?.includes("removebg") || src?.includes("remove.png"));
   const imageSrc = src ? encodeURI(src) : "";
+  const hasHeadGap = variant === "avnish" || variant === "richa";
   const sizeClass =
     size === "sm"
       ? "h-[64px] w-[64px] sm:h-[72px] sm:w-[72px]"
@@ -523,7 +532,9 @@ function TeamAvatar({
 
   return (
     <div
-      className={`relative flex shrink-0 items-center justify-center overflow-hidden rounded-full ${sizeClass}`}
+      className={`relative flex shrink-0 items-center justify-center overflow-hidden rounded-full ${sizeClass} ${
+        hasHeadGap ? "pt-[5px]" : ""
+      }`}
       style={{ backgroundColor: bgColor, boxShadow: `0 0 0 2px ${ringColor}` }}
     >
       {imageSrc && !failed ? (
