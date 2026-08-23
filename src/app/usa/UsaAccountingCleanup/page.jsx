@@ -276,7 +276,7 @@ const softwareExpertiseLogodata = [
 
 const whyChooseCards = [
     {
-        title: "Experienced Offshore Bookkeeping Professionals",
+        title: "Experienced Bookkeeping Professionals",
         icon: Users,
     },
     {
@@ -508,7 +508,7 @@ export default function UsaAccountingCleanup() {
                                         </h3>
                                     </div>
                                     <p className="text-[12.5px] leading-relaxed text-gray-500 sm:text-[13px]">
-                                        Dedicated offshore Accounting Cleanup,
+                                        Dedicated Accounting Cleanup,
                                         Catch-Up Bookkeeping, AR &amp; AP support
                                         — eliminate backlogs, improve reporting
                                         accuracy, strengthen cash flow, and add
@@ -579,7 +579,7 @@ export default function UsaAccountingCleanup() {
                                 <Stat
                                     icon={<Headset className="h-5 w-5" />}
                                     value="Dedicated"
-                                    label="Offshore Support"
+                                    label="Support"
                                 />
                             </div>
                         </div>
@@ -875,7 +875,7 @@ export default function UsaAccountingCleanup() {
                 titleMiddle=" for "
                 titleAccent2="Accounting Cleanup"
                 titleAfter="?"
-                subtitle="Experienced offshore accounting recovery specialists for US CPA firms — structured cleanup, reconciliations, and AR/AP support."
+                subtitle="Experienced accounting recovery specialists for US CPA firms — structured cleanup, reconciliations, and AR/AP support."
                 items={whyChooseCards}
             />
 
@@ -912,7 +912,7 @@ export default function UsaAccountingCleanup() {
                             className="text-[24px] font-extrabold leading-tight sm:text-[30px] lg:text-[34px]"
                             style={{ color: NAVY }}
                         >
-                            Your Offshore Accounting Recovery Partner
+                            Your Accounting Recovery Partner
                         </h2>
 
                         <p

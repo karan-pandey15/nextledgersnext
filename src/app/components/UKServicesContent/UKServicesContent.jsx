@@ -521,7 +521,7 @@ export default function UKServicesContent({ serviceSlug }) {
                 Why Choose NextLedgers?
               </h2>
               <p className="text-gray-700 text-xs sm:text-sm leading-relaxed max-w-2xl mx-auto">
-                We stand apart through our UK accounts production experience and white-label offshore support system.
+                We stand apart through our UK accounts production experience and white-label support system.
               </p>
             </div>
 
@@ -623,7 +623,7 @@ export default function UKServicesContent({ serviceSlug }) {
                     Payroll and Construction Industry Scheme (CIS) compliance require accuracy, consistency, and a thorough understanding of HMRC regulations. Even minor payroll errors can lead to penalties, employee dissatisfaction, and additional administrative work for accounting firms.
                   </p>
                   <p className="font-semibold text-[#0F274A]">
-                    As your practice grows, managing payroll and CIS can become increasingly time-consuming. At NextLedgers, we provide dedicated offshore Payroll and CIS support to UK accounting firms, helping practices increase capacity, maintain compliance, and deliver reliable services without increasing internal staffing costs.
+                    As your practice grows, managing payroll and CIS can become increasingly time-consuming. At NextLedgers, we provide dedicated Payroll and CIS support to UK accounting firms, helping practices increase capacity, maintain compliance, and deliver reliable services without increasing internal staffing costs.
                   </p>
                 </div>
                 {/* Action Buttons */}
@@ -781,7 +781,7 @@ export default function UKServicesContent({ serviceSlug }) {
                   How We Help Accounting Firms
                 </h3>
                 <p className="text-gray-600 text-xs sm:text-sm">
-                  Our offshore support helps practices optimize processes and increase turnaround times without overheads.
+                  Our support helps practices optimize processes and increase turnaround times without overheads.
                 </p>
               </div>
 
@@ -898,13 +898,13 @@ export default function UKServicesContent({ serviceSlug }) {
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
                 <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#FF6A00]/15 px-3 py-1 rounded-full">
-                  Offshore Advantages
+                  Advantages
                 </span>
                 <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mt-3 mb-2">
                   Why Choose NextLedgers for Payroll & CIS?
                 </h3>
                 <p className="text-gray-600 text-xs sm:text-sm">
-                  We stand apart through our UK compliance expertise and scalable Offshore support framework.
+                  We stand apart through our UK compliance expertise and scalable support framework.
                 </p>
               </div>
 
@@ -933,7 +933,7 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 8: Your Offshore Payroll Partner (Centered Card CTA, bg #ffffff, heading #FF6A00) */}
+          {/* Section 8: Your Payroll Partner (Centered Card CTA, bg #ffffff, heading #FF6A00) */}
           <div className="w-full bg-white py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="w-[90%] max-w-7xl mx-auto text-center">
               <div className="bg-[#FEF4E4]/40 border border-[#FF6A00]/25 rounded-[24px] p-6 sm:p-10 lg:p-14 shadow-[0_20px_50px_rgba(255, 106, 0,0.04)] relative overflow-hidden group hover:shadow-[0_20px_50px_rgba(255, 106, 0,0.08)] transition-all duration-500">
@@ -945,7 +945,7 @@ export default function UKServicesContent({ serviceSlug }) {
                   Delivery Partner
                 </span>
                 <h2 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mb-4">
-                  Your Offshore Payroll & CIS Delivery Partner
+                  Your Payroll & CIS Delivery Partner
                 </h2>
                 <div className="space-y-4 text-gray-700 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed mb-6">
                   <p>
@@ -1008,7 +1008,7 @@ export default function UKServicesContent({ serviceSlug }) {
                     Personal Tax remains one of the most important services offered by UK accounting practices. However, increasing volumes of Self Assessment returns, evolving tax legislation, and growing client expectations can place significant pressure on internal teams.
                   </p>
                   <p>
-                    At NextLedgers, we provide dedicated offshore Personal Tax support to UK accounting firms, helping practices manage compliance efficiently, improve turnaround times, and increase capacity without compromising quality.
+                    At NextLedgers, we provide dedicated Personal Tax support to UK accounting firms, helping practices manage compliance efficiently, improve turnaround times, and increase capacity without compromising quality.
                   </p>
                   <p className="font-semibold text-[#0F274A]">
                     Whether your firm requires support with standard Self Assessment returns, director tax returns, partnership returns, capital gains calculations, or complex personal tax cases, our team works as a seamless extension of your practice.
@@ -1170,7 +1170,7 @@ export default function UKServicesContent({ serviceSlug }) {
                 {[
                   { title: "Senior Staff Optimization", desc: "Better utilise senior tax staff for consulting and high-value client advisory." },
                   { title: "Reduce Recruitment", desc: "Avoid the hassle and expense of hiring temporary staff for peak tax seasons." },
-                  { title: "Improve Profitability", desc: "Improve profitability per tax return using a dedicated offshore delivery model." },
+                  { title: "Improve Profitability", desc: "Improve profitability per tax return using a dedicated delivery model." },
                   { title: "Scale Seasonally", desc: "Scale operations efficiently during peak tax seasons without increasing headcount." }
                 ].map((card, idx) => (
                   <div key={idx} className="bg-[#faf9f6] p-5 rounded-2xl border border-gray-50 hover:border-[#FF6A00]/25 transition-all duration-300">
@@ -1316,7 +1316,7 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 8: Your Offshore Personal Tax Compliance Partner (Centered Card CTA, bg #ffffff, heading #FF6A00) */}
+          {/* Section 8: Your Personal Tax Compliance Partner (Centered Card CTA, bg #ffffff, heading #FF6A00) */}
           <div className="w-full bg-white py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="w-[90%] max-w-7xl mx-auto text-center">
               <div className="bg-[#FEF4E4]/40 border border-[#FF6A00]/25 rounded-[24px] p-6 sm:p-10 lg:p-14 shadow-[0_20px_50px_rgba(255, 106, 0,0.04)] relative overflow-hidden group hover:shadow-[0_20px_50px_rgba(255, 106, 0,0.08)] transition-all duration-500">
@@ -1328,14 +1328,14 @@ export default function UKServicesContent({ serviceSlug }) {
                   Tax Compliance Partner
                 </span>
                 <h2 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mb-4">
-                  Your Offshore Personal Tax Compliance Partner
+                  Your Personal Tax Compliance Partner
                 </h2>
                 <div className="space-y-4 text-gray-700 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed mb-6">
                   <p>
                     Personal tax compliance requires technical expertise, confidentiality, and attention to detail. Our experienced professionals help UK accounting firms increase capacity while maintaining high standards of accuracy and compliance.
                   </p>
                   <p className="font-semibold text-[#0F274A]">
-                    Whether you need support with Self Assessment returns, director tax returns, partnership reporting, capital gains calculations, foreign income disclosures, or dedicated offshore tax resources, NextLedgers can help your practice scale efficiently while delivering exceptional service to your clients.
+                    Whether you need support with Self Assessment returns, director tax returns, partnership reporting, capital gains calculations, foreign income disclosures, or dedicated tax resources, NextLedgers can help your practice scale efficiently while delivering exceptional service to your clients.
                   </p>
                 </div>
                 {/* Booking Call & Proposal Action Buttons */}
@@ -1396,10 +1396,10 @@ export default function UKServicesContent({ serviceSlug }) {
                     As accounting firms continue to grow, bookkeeping and VAT compliance often become some of the most time-consuming services to manage. Maintaining accurate financial records, reconciling accounts, processing invoices, and ensuring VAT compliance requires significant time, consistency, and attention to detail.
                   </p>
                   <p>
-                    At NextLedgers, we act as an extension of your accounting practice, providing reliable offshore bookkeeping and VAT support that helps your firm increase capacity, improve turnaround times, and reduce operational pressure.
+                    At NextLedgers, we act as an extension of your accounting practice, providing reliable bookkeeping and VAT support that helps your firm increase capacity, improve turnaround times, and reduce operational pressure.
                   </p>
                   <p className="font-semibold text-[#0F274A]">
-                    Whether you require ongoing bookkeeping support, month-end processing, backlog clean-up, or dedicated offshore resources, our team integrates seamlessly into your existing workflow.
+                    Whether you require ongoing bookkeeping support, month-end processing, backlog clean-up, or dedicated resources, our team integrates seamlessly into your existing workflow.
                   </p>
                 </div>
                 <div className="flex flex-col items-center sm:items-start sm:flex-row gap-3 mt-5 w-full">
@@ -1607,7 +1607,7 @@ export default function UKServicesContent({ serviceSlug }) {
                   Bookkeeping, eCommerce & Integration Expertise
                 </h3>
                 <p className="text-gray-600 text-xs sm:text-sm">
-                  We leverage your existing technology integrations to deliver seamless offshore execution.
+                  We leverage your existing technology integrations to deliver seamless execution.
                 </p>
               </div>
 
@@ -1707,7 +1707,7 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 9: Your Offshore Bookkeeping & VAT Partner (Centered Card CTA, bg #FEF4E4 outer, bg #ffffff card inner) */}
+          {/* Section 9: Your Bookkeeping & VAT Partner (Centered Card CTA, bg #FEF4E4 outer, bg #ffffff card inner) */}
           <div className="w-full bg-[#FEF4E4] py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="w-[90%] max-w-7xl mx-auto text-center">
               <div className="bg-white border border-[#FF6A00]/25 rounded-[24px] p-6 sm:p-10 lg:p-14 shadow-[0_20px_50px_rgba(255, 106, 0,0.04)] relative overflow-hidden group hover:shadow-[0_20px_50px_rgba(255, 106, 0,0.08)] transition-all duration-500">
@@ -1719,14 +1719,14 @@ export default function UKServicesContent({ serviceSlug }) {
                   Bookkeeping & VAT Partner
                 </span>
                 <h2 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mb-4">
-                  Your Offshore Bookkeeping & VAT Partner
+                  Your Bookkeeping & VAT Partner
                 </h2>
                 <div className="space-y-4 text-gray-700 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed mb-6">
                   <p>
                     Reliable bookkeeping and VAT processes are essential for accurate financial reporting and effective business management. Our experienced professionals help accounting firms streamline day-to-day financial processing while maintaining high standards of accuracy and compliance.
                   </p>
                   <p className="font-semibold text-[#0F274A]">
-                    Whether you need support with selected clients, month-end bookkeeping, VAT preparation, backlog clean-up, or a dedicated offshore team, NextLedgers can help your practice scale efficiently while delivering consistent, high-quality service.
+                    Whether you need support with selected clients, month-end bookkeeping, VAT preparation, backlog clean-up, or a dedicated team, NextLedgers can help your practice scale efficiently while delivering consistent, high-quality service.
                   </p>
                 </div>
                 {/* Booking Call & Proposal Action Buttons */}
@@ -1788,7 +1788,7 @@ export default function UKServicesContent({ serviceSlug }) {
                     Today's businesses expect far more than compliance and bookkeeping. They rely on their accountants to provide strategic financial guidance, management reporting, cash flow forecasting, budgeting, profitability analysis, commercial insights, tax planning, and business setup support that help them make informed business decisions. As client expectations continue to evolve, UK accounting firms often require additional resources to deliver high-value advisory services while managing increasing workloads.
                   </p>
                   <p className="font-semibold text-[#0F274A]">
-                    At NextLedgers, we provide dedicated offshore Business Advisory & Virtual CFO support to UK accounting firms, accountancy practices, and business advisory firms. Our white-label outsourcing solutions help firms expand their advisory services, improve reporting efficiency, deliver strategic financial insights, support tax planning engagements, and streamline business setup processes without increasing internal staffing costs.
+                    At NextLedgers, we provide dedicated Business Advisory & Virtual CFO support to UK accounting firms, accountancy practices, and business advisory firms. Our white-label outsourcing solutions help firms expand their advisory services, improve reporting efficiency, deliver strategic financial insights, support tax planning engagements, and streamline business setup processes without increasing internal staffing costs.
                   </p>
                 </div>
                 <div className="flex flex-col items-center sm:items-start sm:flex-row gap-3 mt-5 w-full">
@@ -1981,7 +1981,7 @@ export default function UKServicesContent({ serviceSlug }) {
                   Advisory Software & Spreadsheet Tools
                 </h3>
                 <p className="text-gray-600 text-xs sm:text-sm">
-                  We leverage your existing technology integrations to deliver seamless offshore execution.
+                  We leverage your existing technology integrations to deliver seamless execution.
                 </p>
               </div>
 
@@ -2052,13 +2052,13 @@ export default function UKServicesContent({ serviceSlug }) {
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-8 max-w-2xl mx-auto">
                 <span className="text-[#FF6A00] font-bold text-[10px] uppercase tracking-wider bg-white border border-[#FF6A00]/15 px-3 py-1 rounded-full">
-                  Offshore Advantages
+                  Advantages
                 </span>
                 <h3 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#0F274A] leading-snug mt-3 mb-2">
                   Why Choose NextLedgers?
                 </h3>
                 <p className="text-gray-600 text-xs sm:text-sm">
-                  We stand apart through our UK advisory experience and scalable Offshore support framework.
+                  We stand apart through our UK advisory experience and scalable support framework.
                 </p>
               </div>
 
@@ -2087,7 +2087,7 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 8: Your Offshore Business Advisory & CFO Partner (Centered Card CTA, bg #ffffff, heading #FF6A00) */}
+          {/* Section 8: Your Business Advisory & CFO Partner (Centered Card CTA, bg #ffffff, heading #FF6A00) */}
           <div className="w-full bg-white py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="w-[90%] max-w-7xl mx-auto text-center">
               <div className="bg-[#FEF4E4]/40 border border-[#FF6A00]/25 rounded-[24px] p-6 sm:p-10 lg:p-14 shadow-[0_20px_50px_rgba(255, 106, 0,0.04)] relative overflow-hidden group hover:shadow-[0_20px_50px_rgba(255, 106, 0,0.08)] transition-all duration-500">
@@ -2099,14 +2099,14 @@ export default function UKServicesContent({ serviceSlug }) {
                   Advisory & CFO Partner
                 </span>
                 <h2 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mb-4">
-                  Your Offshore Business Advisory & Virtual CFO Delivery Partner
+                  Your Business Advisory & Virtual CFO Delivery Partner
                 </h2>
                 <div className="space-y-4 text-gray-700 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed mb-6">
                   <p>
                     Business Advisory and Virtual CFO services require commercial insight, analytical expertise, and proactive financial leadership. Our dedicated professionals work as an extension of your practice, helping you deliver meaningful financial insights, strategic business advice, tax planning support, and business setup assistance while freeing up valuable internal resources.
                   </p>
                   <p className="font-semibold text-[#0F274A]">
-                    Whether you require support with management accounts, budgeting, forecasting, financial modelling, KPI reporting, cash flow management, board reporting, profitability analysis, tax planning, Companies House compliance, business start-up support, or dedicated offshore advisory resources, NextLedgers can help your practice scale efficiently while maintaining quality and client satisfaction.
+                    Whether you require support with management accounts, budgeting, forecasting, financial modelling, KPI reporting, cash flow management, board reporting, profitability analysis, tax planning, Companies House compliance, business start-up support, or dedicated advisory resources, NextLedgers can help your practice scale efficiently while maintaining quality and client satisfaction.
                   </p>
                 </div>
                 {/* Booking Call Action Button */}
@@ -2163,7 +2163,7 @@ export default function UKServicesContent({ serviceSlug }) {
                     Company formation and ongoing company secretarial compliance are essential services offered by modern accounting firms. From incorporating new companies and completing Companies House identity verification requirements to maintaining statutory records and managing Companies House filings, businesses rely on their accountants to ensure they remain compliant throughout their business lifecycle.
                   </p>
                   <p className="font-semibold text-[#0F274A]">
-                    As your practice grows, managing company formations, statutory filings, and company secretarial work for multiple clients can become increasingly time-consuming. At NextLedgers, we provide dedicated offshore Company Formation & Company Secretarial support to UK accounting firms, accountancy practices, and corporate service providers. Our white-label outsourcing solutions help firms increase capacity, improve turnaround times, and deliver reliable compliance services without increasing internal staffing costs.
+                    As your practice grows, managing company formations, statutory filings, and company secretarial work for multiple clients can become increasingly time-consuming. At NextLedgers, we provide dedicated Company Formation & Company Secretarial support to UK accounting firms, accountancy practices, and corporate service providers. Our white-label outsourcing solutions help firms increase capacity, improve turnaround times, and deliver reliable compliance services without increasing internal staffing costs.
                   </p>
                 </div>
                 <div className="flex flex-col items-center sm:items-start sm:flex-row gap-3 mt-5 w-full">
@@ -2440,7 +2440,7 @@ export default function UKServicesContent({ serviceSlug }) {
                   Filing Software & Document Tools
                 </h3>
                 <p className="text-gray-600 text-xs sm:text-sm">
-                  We leverage your preferred compliance applications to deliver seamless offshore execution.
+                  We leverage your preferred compliance applications to deliver seamless execution.
                 </p>
               </div>
 
@@ -2548,7 +2548,7 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 8: Your Offshore Company Secretarial Delivery Partner (Centered CTA Card, bg #ffffff, heading #FF6A00) */}
+          {/* Section 8: Your Company Secretarial Delivery Partner (Centered CTA Card, bg #ffffff, heading #FF6A00) */}
           <div className="w-full bg-white py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="w-[90%] max-w-7xl mx-auto text-center">
               <div className="bg-[#FEF4E4]/40 border border-[#FF6A00]/25 rounded-[24px] p-6 sm:p-10 lg:p-14 shadow-[0_20px_50px_rgba(255, 106, 0,0.04)] relative overflow-hidden group hover:shadow-[0_20px_50px_rgba(255, 106, 0,0.08)] transition-all duration-500">
@@ -2560,14 +2560,14 @@ export default function UKServicesContent({ serviceSlug }) {
                   Secretarial Partner
                 </span>
                 <h2 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mb-4">
-                  Your Offshore Company Formation & Company Secretarial Delivery Partner
+                  Your Company Formation & Company Secretarial Delivery Partner
                 </h2>
                 <div className="space-y-4 text-gray-700 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed mb-6">
                   <p>
                     Company formation and company secretarial services require accuracy, organisation, confidentiality, and ongoing compliance management. Our dedicated professionals work as an extension of your practice, helping you deliver efficient company formation, statutory compliance, and corporate administration services while freeing up valuable internal resources.
                   </p>
                   <p className="font-semibold text-[#0F274A]">
-                    Whether you require support with company formation coordination, Companies House identity verification, confirmation statements, statutory register maintenance, director and shareholder changes, corporate governance documentation, or dedicated offshore company secretarial resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.
+                    Whether you require support with company formation coordination, Companies House identity verification, confirmation statements, statutory register maintenance, director and shareholder changes, corporate governance documentation, or dedicated company secretarial resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.
                   </p>
                 </div>
                 {/* Booking Call Action Button */}
@@ -2627,7 +2627,7 @@ export default function UKServicesContent({ serviceSlug }) {
                     VAT remains one of the most technically challenging and frequently changing areas of UK taxation. From registrations and VAT returns to complex schemes and Making Tax Digital (MTD) requirements, accounting firms must continually manage compliance while delivering timely and accurate services to clients.
                   </p>
                   <p className="font-semibold text-[#0F274A]">
-                    At NextLedgers, we provide dedicated offshore VAT and MTD support to UK accounting firms, helping practices increase capacity, improve compliance processes, and manage growing client portfolios efficiently. Whether your firm requires support with routine VAT returns, reconciliations, MTD compliance, or complex VAT schemes, our team acts as a seamless extension of your practice.
+                    At NextLedgers, we provide dedicated VAT and MTD support to UK accounting firms, helping practices increase capacity, improve compliance processes, and manage growing client portfolios efficiently. Whether your firm requires support with routine VAT returns, reconciliations, MTD compliance, or complex VAT schemes, our team acts as a seamless extension of your practice.
                   </p>
                 </div>
                 <div className="flex flex-col items-center sm:items-start sm:flex-row gap-3 mt-5 w-full">
@@ -2895,7 +2895,7 @@ export default function UKServicesContent({ serviceSlug }) {
                   VAT Software & Platforms Expertise
                 </h3>
                 <p className="text-gray-600 text-xs sm:text-sm">
-                  We leverage your existing technology integrations to deliver seamless offshore execution.
+                  We leverage your existing technology integrations to deliver seamless execution.
                 </p>
               </div>
 
@@ -2999,7 +2999,7 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 9: Your Offshore VAT Compliance Partner (Centered CTA Card, bg #FEF4E4 outer, bg #ffffff card inner) */}
+          {/* Section 9: Your VAT Compliance Partner (Centered CTA Card, bg #FEF4E4 outer, bg #ffffff card inner) */}
           <div className="w-full bg-[#FEF4E4] py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
             <div className="w-[90%] max-w-7xl mx-auto text-center">
               <div className="bg-white border border-[#FF6A00]/25 rounded-[24px] p-6 sm:p-10 lg:p-14 shadow-[0_20px_50px_rgba(255, 106, 0,0.04)] relative overflow-hidden group hover:shadow-[0_20px_50px_rgba(255, 106, 0,0.08)] transition-all duration-500">
@@ -3011,14 +3011,14 @@ export default function UKServicesContent({ serviceSlug }) {
                   VAT & MTD Partner
                 </span>
                 <h2 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mb-4">
-                  Your Offshore VAT & MTD Compliance Partner
+                  Your VAT & MTD Compliance Partner
                 </h2>
                 <div className="space-y-4 text-gray-700 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed mb-6">
                   <p>
                     VAT requires technical knowledge, accuracy, and a thorough understanding of HMRC regulations. Combined with Making Tax Digital requirements, firms increasingly need efficient processes and specialist support to maintain high compliance standards.
                   </p>
                   <p className="font-semibold text-[#0F274A]">
-                    At NextLedgers, our experienced VAT professionals help UK accounting firms streamline VAT processes, strengthen compliance controls, and scale efficiently without increasing internal resource pressures. Whether you require support with VAT returns, MTD compliance, reconciliations, VAT reviews, or complex VAT schemes, NextLedgers can provide reliable offshore support that integrates seamlessly with your accounting practice.
+                    At NextLedgers, our experienced VAT professionals help UK accounting firms streamline VAT processes, strengthen compliance controls, and scale efficiently without increasing internal resource pressures. Whether you require support with VAT returns, MTD compliance, reconciliations, VAT reviews, or complex VAT schemes, NextLedgers can provide reliable support that integrates seamlessly with your accounting practice.
                   </p>
                 </div>
               </div>
@@ -3070,7 +3070,7 @@ export default function UKServicesContent({ serviceSlug }) {
                     Preparing statutory accounts, reviewing year-end adjustments, finalising corporation tax computations, and ensuring compliance with Companies House and HMRC requirements demands technical expertise and meticulous attention to detail.
                   </p>
                   <p className="font-semibold text-[#0F274A]">
-                    At NextLedgers, we provide dedicated offshore Year-End Accounts and Corporation Tax support to UK accounting firms, helping practices increase capacity, improve turnaround times, and maintain compliance without increasing internal overheads. Whether you require support for limited companies, partnerships, LLPs, dormant companies, or high-volume year-end processing, our team works as a seamless extension of your practice.
+                    At NextLedgers, we provide dedicated Year-End Accounts and Corporation Tax support to UK accounting firms, helping practices increase capacity, improve turnaround times, and maintain compliance without increasing internal overheads. Whether you require support for limited companies, partnerships, LLPs, dormant companies, or high-volume year-end processing, our team works as a seamless extension of your practice.
                   </p>
                 </div>
                 <div className="flex flex-col items-center sm:items-start sm:flex-row gap-3 mt-5 w-full">
@@ -3424,7 +3424,7 @@ export default function UKServicesContent({ serviceSlug }) {
             </div>
           </div>
 
-          {/* Section 7: Your Offshore Compliance Partner (Centered CTA Card, bg #FEF4E4 outer, bg #ffffff card inner) */}
+          {/* Section 7: Your Compliance Partner (Centered CTA Card, bg #FEF4E4 outer, bg #ffffff card inner) */}
           <div className="w-full bg-[#FEF4E4] py-16 lg:py-24 px-4 sm:px-6 lg:px-8 border-b border-gray-100">
             <div className="w-[90%] max-w-7xl mx-auto text-center">
               <div className="bg-white border border-[#FF6A00]/25 rounded-[24px] p-6 sm:p-10 lg:p-14 shadow-[0_20px_50px_rgba(255, 106, 0,0.04)] relative overflow-hidden group hover:shadow-[0_20px_50px_rgba(255, 106, 0,0.08)] transition-all duration-500">
@@ -3436,14 +3436,14 @@ export default function UKServicesContent({ serviceSlug }) {
                   Compliance Partner
                 </span>
                 <h2 className="text-lg sm:text-2xl lg:text-[34px] font-extrabold text-[#FF6A00] leading-snug mb-4">
-                  Your Offshore Year-End Compliance Partner
+                  Your Year-End Compliance Partner
                 </h2>
                 <div className="space-y-4 text-gray-700 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed mb-6">
                   <p>
                     Year-end accounts and corporation tax compliance require technical knowledge, consistency, and attention to detail. Our experienced professionals help UK accounting firms streamline compliance processes, strengthen quality controls, and scale efficiently without increasing internal resource pressures.
                   </p>
                   <p className="font-semibold text-[#0F274A]">
-                    Whether you need support with statutory accounts preparation, corporation tax computations, CT600 returns, year-end adjustments, or dedicated offshore resources, NextLedgers can provide reliable offshore support that integrates seamlessly with your accounting practice.
+                    Whether you need support with statutory accounts preparation, corporation tax computations, CT600 returns, year-end adjustments, or dedicated resources, NextLedgers can provide reliable support that integrates seamlessly with your accounting practice.
                   </p>
                 </div>
                 {/* Booking Call & Proposal Action Buttons */}

@@ -286,7 +286,9 @@ function ModalAvatar({ src, name, variant }) {
   const isRicha = variant === "richa";
   const isNisha = variant === "nisha";
   const isAbhishek = variant === "abhishek";
+  const isAkash = variant === "akash";
   const hasHeadGap = isAvnish || isRicha;
+  const hasAlmasudGap = isAbhishek;
   const imageClass = isShivam
     ? // Source photo sits right; keep face centered and show full lower crop (no scale = no bottom cut)
       "h-full w-full object-cover object-[70%_48%]"
@@ -303,7 +305,9 @@ function ModalAvatar({ src, name, variant }) {
     : isNisha
       ? "h-full w-full object-contain object-bottom scale-[0.9] origin-bottom"
     : isAbhishek
-      ? "h-full w-full object-cover object-[50%_12%] scale-[1.22] origin-top"
+      ? "h-full w-full object-cover object-[50%_26%] scale-[1.38] origin-top"
+    : isAkash
+      ? "h-full w-full object-cover object-[50%_8%] scale-[1.32] origin-top -translate-y-[10px]"
     : isCutout
       ? "h-full w-full object-contain object-bottom"
       : "h-full w-full object-contain object-center";
@@ -317,7 +321,7 @@ function ModalAvatar({ src, name, variant }) {
     <div className={`mx-auto shrink-0 ${isShivam ? "p-[3px]" : ""}`}>
       <div
         className={`relative mx-auto flex h-[176px] w-[176px] items-center justify-center overflow-hidden rounded-full bg-[#FFF7F0] sm:h-[192px] sm:w-[192px] ${
-          hasHeadGap ? "pt-[5px]" : ""
+          hasAlmasudGap ? "pt-[12px]" : hasHeadGap ? "pt-[5px]" : ""
         }`}
         style={{ boxShadow: `0 0 0 2.5px ${ACCENT}` }}
       >

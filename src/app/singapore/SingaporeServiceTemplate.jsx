@@ -316,7 +316,7 @@ export default function SingaporeServiceTemplate({ data }) {
     {
       icon: <Headset className="h-5 w-5" />,
       value: "Dedicated",
-      label: "Offshore Support Team",
+      label: "Support Team",
     },
   ];
 
@@ -548,7 +548,7 @@ export default function SingaporeServiceTemplate({ data }) {
               style={{ color: GREY }}
             >
               {data.deliverablesSubtitle ||
-                "Structured offshore delivery across every workstream your practice needs."}
+                "Structured delivery across every workstream your practice needs."}
             </p>
           </div>
 
@@ -600,7 +600,7 @@ export default function SingaporeServiceTemplate({ data }) {
                 className="mt-2.5 max-w-2xl text-[12.5px] leading-relaxed sm:text-[13.5px]"
                 style={{ color: GREY }}
               >
-                Our offshore support enables Singapore practices to:
+                Our support enables Singapore practices to:
               </p>
             </div>
 

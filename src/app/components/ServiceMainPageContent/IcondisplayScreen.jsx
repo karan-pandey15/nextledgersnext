@@ -211,6 +211,10 @@ export const LOGO_MAP = {
     loket: "/images/logooUK/Wagepoint.jpeg",
     "adp workforce now": "/images/logooUK/ADP.jpeg",
     "sd worx": "/images/logooUK/Employmenthero.jpeg",
+    taxdome: "/images/logooUK/TaxDome.png",
+    avalara: "/images/logooUK/Avalara.png",
+    moorepay: "/images/logooUK/Moorepay.jpeg",
+    "sage accounting": "/images/logooUK/Sage.jpg",
 };
 
 const CATEGORY_ICONS = {

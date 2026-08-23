@@ -1,16 +1,11 @@
 import React from "react";
-import {
-  PadlockIcon,
-  ShieldCheckIcon,
-  TeamIcon,
-  TimerIcon,
-} from "./TrustBarIcons";
+import { HomeLogoImg } from "@/app/lib/homePageLogos";
 
 const TRUST_ITEMS = [
-  { icon: ShieldCheckIcon, lines: ["Global", "Standards"] },
-  { icon: PadlockIcon, lines: ["Secure &", "Confidential"] },
-  { icon: TeamIcon, lines: ["Trusted by", "Businesses"] },
-  { icon: TimerIcon, lines: ["On-Time", "Delivery"] },
+  { logo: 18, lines: ["Global", "Standards"] },
+  { logo: 14, lines: ["Secure &", "Confidential"] },
+  { logo: 4, lines: ["Trusted by", "Businesses"] },
+  { logo: 21, lines: ["On-Time", "Delivery"] },
 ];
 
 export default function HomeHeroSection() {
@@ -59,17 +54,11 @@ export default function HomeHeroSection() {
 
         <div className="mt-[3px]">
           <div className="flex flex-wrap items-center gap-x-2 gap-y-3">
-            {TRUST_ITEMS.map(({ icon: Icon, lines }, index) => (
+            {TRUST_ITEMS.map(({ logo, lines }, index) => (
               <React.Fragment key={lines.join("-")}>
-                <div className="flex items-center gap-2 text-[14px] sm:text-[15px]">
-                  <div
-                    className="shrink-0 aspect-square"
-                    style={{
-                      width: "calc(2 * 1.12 * 1.9 * 1em - 2px)",
-                      height: "calc(2 * 1.12 * 1.9 * 1em - 2px)",
-                    }}
-                  >
-                    <Icon />
+                <div className="flex items-center gap-2.5 text-[14px] sm:text-[15px]">
+                  <div className="h-11 w-11 shrink-0 sm:h-12 sm:w-12 lg:h-[52px] lg:w-[52px]">
+                    <HomeLogoImg n={logo} />
                   </div>
                   <div className="flex flex-col leading-[1.15]">
                     <span className="text-white font-semibold">{lines[0]}</span>
@@ -79,7 +68,7 @@ export default function HomeHeroSection() {
 
                 {index < TRUST_ITEMS.length - 1 && (
                   <div
-                    className="hidden sm:block w-px bg-white/35 mx-1.5 self-center h-[calc(2*1.12*1.9*14px-2px)] sm:h-[calc(2*1.12*1.9*15px-2px)]"
+                    className="hidden sm:block w-px bg-white/35 mx-1.5 self-center h-11 sm:h-12 lg:h-[52px]"
                     aria-hidden="true"
                   />
                 )}

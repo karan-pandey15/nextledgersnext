@@ -28,10 +28,10 @@ export default function USAPage() {
       />
 
       <ServiceHomePage
-        badge="USA Accounting Outsourcing Partner"
+        badge="Accounting Delivery Partner"
         titleBefore="Helping USA Accounting Firms"
         titleAccent="Scale with Confidence"
-        subtitle="Dedicated offshore support across bookkeeping, sales tax, payroll, tax, management reporting, advisory & business formation."
+        subtitle="Dedicated support across bookkeeping, sales tax, payroll, tax, management reporting, advisory & business formation."
         badges={USA_TRUST_BADGES}
       />
 
@@ -59,14 +59,14 @@ export default function USAPage() {
               style={{ color: NAVY }}
             >
               Explore Our{" "}
-              <span style={{ color: ORANGE }}>USA Outsourcing</span> Services
+              <span style={{ color: ORANGE }}>Services</span>
             </h2>
             <p
               className="mx-auto mt-2.5 max-w-xl px-1 text-[13px] leading-relaxed sm:text-[14px]"
               style={{ color: GREY }}
             >
               Choose a service to see how NextLedgers supports USA accounting
-              firms with dedicated offshore delivery.
+              firms with dedicated delivery.
             </p>
             <div
               className="mx-auto mt-4 h-[3px] w-11 rounded-full"

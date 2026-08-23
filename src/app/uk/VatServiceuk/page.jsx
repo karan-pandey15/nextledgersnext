@@ -45,6 +45,7 @@ import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/Arti
 import NexaLedAi from "@/app/components/ChatBot/NexaLedAi";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
 import { UK_VAT_INDUSTRIES } from "@/app/uk/ukIndustries";
+import { UK_VAT_SOFTWARE } from "@/app/uk/ukSoftwareExpertise";
 
 const ORANGE = BRAND_ORANGE;
 const NAVY = "#0B1F3A";
@@ -152,28 +153,7 @@ const reconciliationServices = [
     "HMRC Readiness Assessments",
 ];
 
-const softwareExpertiseLogodata = [
-    {
-        heading: "ACCOUNTING SOFTWARE",
-        icon: "user",
-        logos: ["xero", "quickbooks online", "sage business cloud", "freeagent"],
-    },
-    {
-        heading: "MTD & VAT COMPLIANCE PLATFORMS",
-        icon: "briefcase",
-        logos: [
-            "xero tax",
-            "quickbooks vat centre",
-            "sage vat module",
-            "freeagent vat",
-        ],
-    },
-    {
-        heading: "SUPPORTING TOOLS",
-        icon: "document",
-        logos: ["dext", "hubdoc", "autoentry", "approvalmax", "a2x"],
-    },
-];
+const softwareExpertiseLogodata = UK_VAT_SOFTWARE;
 
 const whyChooseCards = [
     { title: "UK VAT Compliance Expertise", icon: BookOpen },
@@ -431,7 +411,7 @@ export default function VatServiceuk() {
                             </p>
 
                             <p className="mb-3 text-[13px] leading-relaxed text-gray-500 sm:text-[15px]">
-                                At NextLedgers, we provide dedicated offshore VAT and MTD support
+                                At NextLedgers, we provide dedicated VAT and MTD support
                                 to UK accounting firms, helping practices increase capacity,
                                 improve compliance processes, and manage growing client portfolios
                                 efficiently.
@@ -480,7 +460,7 @@ export default function VatServiceuk() {
                                 <Stat
                                     icon={<Headset className="h-5 w-5" />}
                                     value="Dedicated"
-                                    label="Offshore Support Team"
+                                    label="Support Team"
                                 />
                             </div>
                         </div>
@@ -861,7 +841,7 @@ export default function VatServiceuk() {
                             className="text-[24px] font-extrabold leading-tight sm:text-[30px] lg:text-[34px]"
                             style={{ color: NAVY }}
                         >
-                            Your Offshore{" "}
+                            Your{" "}
                             <span style={{ color: ORANGE }}>VAT &amp; MTD</span> Compliance
                             Partner
                         </h2>
@@ -898,7 +878,7 @@ export default function VatServiceuk() {
                             >
                                 Whether you require support with VAT returns, MTD compliance,
                                 reconciliations, VAT reviews, or complex VAT schemes, NextLedgers
-                                can provide reliable offshore support that integrates seamlessly
+                                can provide reliable support that integrates seamlessly
                                 with your accounting practice.
                             </p>
                         </div>

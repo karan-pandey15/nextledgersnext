@@ -207,7 +207,7 @@ export const AU_GST_BAS = {
       "Reliable BAS & GST Compliance Support for Australian Accounting Firms & Bookkeeping Practices",
     paragraphs: [
       "BAS and GST compliance require technical expertise, accuracy, and a thorough understanding of Australian Taxation Office (ATO) requirements. Preparing Business Activity Statements, reviewing GST treatments, reconciling GST control accounts, and meeting lodgement deadlines demand significant time and attention to detail. Even minor GST or BAS errors can lead to penalties, interest charges, ATO reviews, and unnecessary administrative work.",
-      "As your practice grows, managing BAS and GST compliance for multiple clients can become increasingly time-consuming. At NextLedgers, we provide dedicated offshore BAS & GST support to Australian accounting firms and bookkeeping practices, helping firms increase capacity, improve turnaround times, and deliver reliable compliance services without increasing internal staffing costs.",
+      "As your practice grows, managing BAS and GST compliance for multiple clients can become increasingly time-consuming. At NextLedgers, we provide dedicated BAS & GST support to Australian accounting firms and bookkeeping practices, helping firms increase capacity, improve turnaround times, and deliver reliable compliance services without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -308,7 +308,7 @@ export const AU_GST_BAS = {
     "Australian BAS & GST Expertise",
     "ATO Compliance Knowledge",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -318,11 +318,11 @@ export const AU_GST_BAS = {
     "Dedicated BAS & GST specialists who work as an extension of your Australian practice.",
   partner: {
     badge: "BAS & GST Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "BAS & GST Delivery Partner",
     body: "BAS and GST compliance require technical expertise, consistency, and meticulous attention to detail. Our dedicated professionals work as an extension of your practice, helping you deliver accurate BAS and GST compliance services while freeing up valuable internal resources.",
     callout:
-      "Whether you require support with BAS preparation, GST reconciliations, GST adjustments, ATO lodgement-ready packs, GST registrations, or dedicated offshore compliance resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
+      "Whether you require support with BAS preparation, GST reconciliations, GST adjustments, ATO lodgement-ready packs, GST registrations, or dedicated compliance resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
   },
 };
 
@@ -339,7 +339,7 @@ export const AU_BOOKKEEPING = {
       "Reliable Bookkeeping Support for Australian Accounting Firms & Bookkeeping Practices",
     paragraphs: [
       "Accurate bookkeeping is the foundation of every successful business. From recording daily transactions to reconciling bank accounts and preparing financial records for BAS, GST, payroll, and year-end reporting, bookkeeping plays a critical role in maintaining compliance and supporting informed business decisions.",
-      "As your practice grows, managing bookkeeping for multiple clients can become increasingly time-consuming. At NextLedgers, we provide dedicated offshore Bookkeeping support to Australian accounting firms and bookkeeping practices, helping firms increase capacity, improve turnaround times, and deliver accurate bookkeeping services without increasing internal staffing costs.",
+      "As your practice grows, managing bookkeeping for multiple clients can become increasingly time-consuming. At NextLedgers, we provide dedicated Bookkeeping support to Australian accounting firms and bookkeeping practices, helping firms increase capacity, improve turnaround times, and deliver accurate bookkeeping services without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -439,7 +439,7 @@ export const AU_BOOKKEEPING = {
     "ACCA-Led Delivery Team",
     "Australian Bookkeeping Expertise",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -449,11 +449,11 @@ export const AU_BOOKKEEPING = {
     "Dedicated bookkeeping specialists who work as an extension of your Australian practice.",
   partner: {
     badge: "Bookkeeping Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Bookkeeping Delivery Partner",
     body: "Bookkeeping requires consistency, accuracy, and attention to detail. Our dedicated professionals work as an extension of your practice, helping you deliver reliable bookkeeping services while freeing up valuable internal resources.",
     callout:
-      "Whether you require support with day-to-day bookkeeping, catch-up bookkeeping, reconciliations, month-end accounting, management reporting, or dedicated offshore bookkeeping resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
+      "Whether you require support with day-to-day bookkeeping, catch-up bookkeeping, reconciliations, month-end accounting, management reporting, or dedicated bookkeeping resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
   },
 };
 
@@ -470,7 +470,7 @@ export const AU_CORPORATE_TAX = {
       "Reliable Corporate Tax Compliance Support for Australian Accounting Firms & Tax Practices",
     paragraphs: [
       "Corporate tax compliance requires technical expertise, accuracy, and a thorough understanding of Australian taxation laws. Preparing company tax returns, reviewing financial statements, calculating taxable income, identifying tax adjustments, and maintaining compliance with Australian Taxation Office (ATO) requirements demand significant time and expertise. As client portfolios continue to grow, accounting firms often require additional resources to manage increasing tax workloads efficiently.",
-      "At NextLedgers, we provide dedicated offshore Corporate Tax support to Australian accounting firms and tax practices. Our white-label outsourcing solutions help firms increase capacity, improve turnaround times, and deliver reliable corporate tax compliance services without increasing internal staffing costs.",
+      "At NextLedgers, we provide dedicated Corporate Tax support to Australian accounting firms and tax practices. Our white-label outsourcing solutions help firms increase capacity, improve turnaround times, and deliver reliable corporate tax compliance services without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -557,7 +557,7 @@ export const AU_CORPORATE_TAX = {
     "ACCA-Led Delivery Team",
     "Australian Corporate Tax Expertise",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -567,11 +567,11 @@ export const AU_CORPORATE_TAX = {
     "Dedicated corporate tax specialists who work as an extension of your Australian practice.",
   partner: {
     badge: "Corporation Tax Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Corporation Tax Delivery Partner",
     body: "Corporate tax compliance requires technical knowledge, precision, and a structured review process. Our dedicated professionals work as an extension of your practice, helping you deliver reliable corporate tax services while freeing up valuable internal resources during busy tax seasons.",
     callout:
-      "Whether you require support with company tax return preparation, tax computations, tax reconciliations, deferred tax calculations, working papers, or dedicated offshore tax resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
+      "Whether you require support with company tax return preparation, tax computations, tax reconciliations, deferred tax calculations, working papers, or dedicated tax resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
   },
 };
 
@@ -588,7 +588,7 @@ export const AU_INCOME_TAX = {
       "Reliable Individual & Personal Income Tax Support for Australian Accounting Firms & Tax Practices",
     paragraphs: [
       "Preparing individual income tax returns requires technical expertise, attention to detail, and a thorough understanding of Australian taxation legislation. Accounting firms must accurately review income sources, deductions, tax offsets, capital gains, investment income, and supporting documentation while ensuring compliance with Australian Taxation Office (ATO) requirements.",
-      "As your practice grows, managing large volumes of individual tax returns during tax season can place significant pressure on your internal team. At NextLedgers, we provide dedicated offshore Income Tax support to Australian accounting firms and tax practices, helping firms increase capacity, improve turnaround times, and deliver accurate tax compliance services without increasing internal staffing costs.",
+      "As your practice grows, managing large volumes of individual tax returns during tax season can place significant pressure on your internal team. At NextLedgers, we provide dedicated Income Tax support to Australian accounting firms and tax practices, helping firms increase capacity, improve turnaround times, and deliver accurate tax compliance services without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -691,7 +691,7 @@ export const AU_INCOME_TAX = {
     "ACCA-Led Delivery Team",
     "Australian Income Tax Expertise",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -701,11 +701,11 @@ export const AU_INCOME_TAX = {
     "Dedicated income tax specialists who work as an extension of your Australian practice.",
   partner: {
     badge: "Income Tax Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Income Tax Delivery Partner",
     body: "Income tax preparation requires technical expertise, precision, and a structured review process. Our dedicated professionals work as an extension of your practice, helping you deliver accurate individual tax returns while freeing up valuable internal resources during busy tax seasons.",
     callout:
-      "Whether you require support with individual tax returns, sole trader tax returns, rental property reporting, capital gains tax calculations, tax planning, working papers, or dedicated offshore tax resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
+      "Whether you require support with individual tax returns, sole trader tax returns, rental property reporting, capital gains tax calculations, tax planning, working papers, or dedicated tax resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
   },
 };
 
@@ -723,7 +723,7 @@ export const AU_MANAGEMENT_ACCOUNTS = {
       "Reliable Management Accounting & Virtual CFO Support for Australian Accounting Firms",
     paragraphs: [
       "Modern businesses expect far more than bookkeeping and tax compliance. They rely on their accountants for financial insights, cash flow management, budgeting, forecasting, profitability analysis, and strategic advice that helps them make informed business decisions. As client expectations continue to evolve, accounting firms require additional resources to deliver high-value advisory services while managing increasing workloads.",
-      "At NextLedgers, we provide dedicated offshore Management Accounting & Virtual CFO support to Australian accounting firms and business advisory practices. Our white-label outsourcing solutions help firms expand their advisory services, improve reporting efficiency, and deliver strategic financial insights without increasing internal staffing costs.",
+      "At NextLedgers, we provide dedicated Management Accounting & Virtual CFO support to Australian accounting firms and business advisory practices. Our white-label outsourcing solutions help firms expand their advisory services, improve reporting efficiency, and deliver strategic financial insights without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -829,7 +829,7 @@ export const AU_MANAGEMENT_ACCOUNTS = {
     "Australian Management Accounting Expertise",
     "Virtual CFO Advisory Experience",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -839,11 +839,11 @@ export const AU_MANAGEMENT_ACCOUNTS = {
     "Dedicated management accounting and Virtual CFO specialists who work as an extension of your Australian practice.",
   partner: {
     badge: "Management Accounting Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Management Accounting & Virtual CFO Delivery Partner",
     body: "Management accounting and Virtual CFO services require commercial insight, analytical expertise, and consistent reporting. Our dedicated professionals work as an extension of your practice, helping you deliver meaningful financial insights and strategic advisory services while freeing up valuable internal resources.",
     callout:
-      "Whether you require support with monthly management accounts, budgeting, forecasting, cash flow management, KPI reporting, board reporting, financial modelling, or dedicated offshore advisory resources, NextLedgers can help your practice scale efficiently while maintaining quality and client satisfaction.",
+      "Whether you require support with monthly management accounts, budgeting, forecasting, cash flow management, KPI reporting, board reporting, financial modelling, or dedicated advisory resources, NextLedgers can help your practice scale efficiently while maintaining quality and client satisfaction.",
   },
 };
 
@@ -860,7 +860,7 @@ export const AU_PAYROLL = {
       "Reliable Payroll Processing Support for Australian Accounting Firms & Bookkeeping Practices",
     paragraphs: [
       "Payroll processing requires accuracy, consistency, and a thorough understanding of Australian payroll legislation. Businesses rely on their accountants and bookkeepers to ensure employees are paid accurately and on time while meeting obligations relating to PAYG withholding, Superannuation Guarantee (SG), Single Touch Payroll (STP), leave entitlements, and Fair Work requirements. Even minor payroll errors can result in compliance risks, employee dissatisfaction, and unnecessary administrative work.",
-      "As your practice grows, managing payroll for multiple clients can become increasingly resource-intensive. At NextLedgers, we provide dedicated offshore Payroll Processing support to Australian accounting firms and bookkeeping practices, helping firms increase capacity, improve turnaround times, and deliver reliable payroll services without increasing internal staffing costs.",
+      "As your practice grows, managing payroll for multiple clients can become increasingly resource-intensive. At NextLedgers, we provide dedicated Payroll Processing support to Australian accounting firms and bookkeeping practices, helping firms increase capacity, improve turnaround times, and deliver reliable payroll services without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -961,7 +961,7 @@ export const AU_PAYROLL = {
     "Australian Payroll Expertise",
     "STP & Superannuation Knowledge",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -971,11 +971,11 @@ export const AU_PAYROLL = {
     "Dedicated payroll specialists who work as an extension of your Australian practice.",
   partner: {
     badge: "Payroll Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Payroll Processing Delivery Partner",
     body: "Payroll processing requires precision, confidentiality, and consistent compliance. Our dedicated professionals work as an extension of your practice, helping you deliver reliable payroll services while freeing up valuable internal resources.",
     callout:
-      "Whether you require support with payroll processing, STP reporting, Superannuation calculations, PAYG reconciliations, employee record maintenance, payroll reporting, or dedicated offshore payroll resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
+      "Whether you require support with payroll processing, STP reporting, Superannuation calculations, PAYG reconciliations, employee record maintenance, payroll reporting, or dedicated payroll resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
   },
 };
 
@@ -993,7 +993,7 @@ export const AU_YEAR_END = {
       "Reliable Year-End Accounts & Financial Reporting Support for Australian Accounting Firms",
     paragraphs: [
       "Preparing year-end accounts and financial statements requires technical expertise, accuracy, and a structured review process. Accounting firms must ensure financial statements are prepared from complete and accurate accounting records while meeting Australian Accounting Standards, Australian Taxation Office (ATO) requirements, ASIC reporting obligations where applicable, and client deadlines.",
-      "As your practice grows, managing year-end reporting engagements for multiple clients can become increasingly resource-intensive. At NextLedgers, we provide dedicated offshore Year-End Accounts & Financial Statement Preparation support to Australian accounting firms and bookkeeping practices, helping firms increase capacity, improve turnaround times, and deliver high-quality financial reporting without increasing internal staffing costs.",
+      "As your practice grows, managing year-end reporting engagements for multiple clients can become increasingly resource-intensive. At NextLedgers, we provide dedicated Year-End Accounts & Financial Statement Preparation support to Australian accounting firms and bookkeeping practices, helping firms increase capacity, improve turnaround times, and deliver high-quality financial reporting without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -1094,7 +1094,7 @@ export const AU_YEAR_END = {
     "Australian Financial Reporting Expertise",
     "Australian Accounting Standards Knowledge",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -1104,10 +1104,10 @@ export const AU_YEAR_END = {
     "Dedicated year-end reporting specialists who work as an extension of your Australian practice.",
   partner: {
     badge: "Financial Reporting Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Financial Reporting Delivery Partner",
     body: "Year-end accounts preparation requires technical expertise, consistency, and meticulous attention to detail. Our dedicated professionals work as an extension of your practice, helping you deliver accurate financial statements while freeing up valuable internal resources during busy reporting periods.",
     callout:
-      "Whether you require support with year-end accounts preparation, financial statement drafting, working paper preparation, reconciliations, audit support, corporate tax readiness, or dedicated offshore accounting resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
+      "Whether you require support with year-end accounts preparation, financial statement drafting, working paper preparation, reconciliations, audit support, corporate tax readiness, or dedicated accounting resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
   },
 };

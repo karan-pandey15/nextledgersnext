@@ -9,12 +9,7 @@ import Footer from "../components/footer/Footer";
 import ArtificialIntelligence from "../components/ArtificialIntelligence/ArtificialIntelligence";
 import NexaLedAi from "../components/ChatBot/NexaLedAi";
 import ContactUsCTA from "../components/HomeTrust/ContactUsCTA";
-import {
-  PadlockIcon,
-  ShieldCheckIcon,
-  TeamIcon,
-  TimerIcon,
-} from "../components/VideoComponent/TrustBarIcons";
+import { HomeLogoImg } from "@/app/lib/homePageLogos";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
 const ORANGE = BRAND_ORANGE;
@@ -22,10 +17,10 @@ const NAVY = "#0F274A";
 const GREY = "#6B7280";
 
 const TRUST_ITEMS = [
-  { icon: ShieldCheckIcon, lines: ["Global", "Standards"] },
-  { icon: PadlockIcon, lines: ["Secure &", "Confidential"] },
-  { icon: TeamIcon, lines: ["Trusted by", "Businesses"] },
-  { icon: TimerIcon, lines: ["On-Time", "Delivery"] },
+  { logo: 18, lines: ["Global", "Standards"] },
+  { logo: 14, lines: ["Secure &", "Confidential"] },
+  { logo: 4, lines: ["Trusted by", "Businesses"] },
+  { logo: 21, lines: ["On-Time", "Delivery"] },
 ];
 
 const WHY_STARTED = [
@@ -33,25 +28,25 @@ const WHY_STARTED = [
     title: "The Gap We Saw",
     description:
       "We didn't build Next Ledgers to be just another accounting service provider. Too many firms were onboarded and then left unsupported.",
-    icon: GapIcon,
+    logo: 4,
   },
   {
     title: "Continuous Care",
     description:
       "Our clients don't just meet one person during onboarding — they work with a responsive, experienced team invested in their growth at every stage.",
-    icon: CareIcon,
+    logo: 18,
   },
   {
     title: "Strategy & Partnership",
     description:
       "Whether you need to streamline accounting, expand your client base, or acquire a practice — we bring service, strategy, and partnership.",
-    icon: PartnerIcon,
+    logo: 22,
   },
   {
     title: "Always With You",
     description:
       "We believe in continuous care, not one-time connections. Real people who stay with you beyond onboarding.",
-    icon: AlwaysIcon,
+    logo: 6,
   },
 ];
 
@@ -60,172 +55,27 @@ const CORE_VALUES = [
     title: "Trust",
     description:
       "Lasting relationships based on honesty, transparency, and reliability in every interaction.",
-    icon: TrustIcon,
+    logo: 18,
   },
   {
     title: "Excellence",
     description:
       "We strive for excellence in everything we do, delivering superior service and results.",
-    icon: ExcellenceIcon,
+    logo: 19,
   },
   {
     title: "Innovation",
     description:
       "We embrace new ideas and technologies to provide smarter solutions for our clients.",
-    icon: InnovationIcon,
+    logo: 20,
   },
   {
     title: "Efficiency",
     description:
       "We respect your time — our processes are designed to be fast, seamless, and hassle-free.",
-    icon: EfficiencyIcon,
+    logo: 21,
   },
 ];
-
-function GapIcon({ className = "w-5 h-5" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <circle cx="9" cy="8.5" r="2.4" stroke="currentColor" strokeWidth="1.8" />
-      <circle cx="15.5" cy="9" r="2" stroke="currentColor" strokeWidth="1.8" />
-      <path
-        d="M4.8 17.2c.5-2.3 2.2-3.6 4.2-3.6s3.7 1.3 4.2 3.6M13.2 17.2c.4-1.7 1.7-2.8 3.2-2.8"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
-function CareIcon({ className = "w-5 h-5" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <path
-        d="M12 3.2 5.5 6v5.4c0 4.2 2.9 8.1 6.5 9.1 3.6-1 6.5-4.9 6.5-9.1V6L12 3.2Z"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinejoin="round"
-      />
-      <path
-        d="m9.1 12 2 2 3.9-4"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function PartnerIcon({ className = "w-5 h-5" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="1.8" />
-      <path d="M12 7.5v9M10 9.4c.5-.8 1.2-1.1 2-1.1 1.2 0 2 .6 2 1.5s-.8 1.4-2 1.4-2 .5-2 1.5.9 1.6 2.1 1.6c.8 0 1.5-.3 2-1" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function AlwaysIcon({ className = "w-5 h-5" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <circle cx="12" cy="12" r="8.2" stroke="currentColor" strokeWidth="1.8" />
-      <text
-        x="12"
-        y="13.2"
-        textAnchor="middle"
-        fontSize="7.2"
-        fontWeight="700"
-        fill="currentColor"
-        fontFamily="system-ui, sans-serif"
-      >
-        24/7
-      </text>
-    </svg>
-  );
-}
-
-function TrustIcon({ className = "w-5 h-5" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <path
-        d="M12 3.2 5.5 6v5.4c0 4.2 2.9 8.1 6.5 9.1 3.6-1 6.5-4.9 6.5-9.1V6L12 3.2Z"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function ExcellenceIcon({ className = "w-5 h-5" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <path
-        d="M12 3l2.2 6.6H21l-5.4 4 2.1 6.4L12 16.8 6.3 20l2.1-6.4L3 9.6h6.8L12 3Z"
-        stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function InnovationIcon({ className = "w-5 h-5" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <path
-        d="M9 18h6M10 21h4M12 3a6 6 0 0 1 3.5 10.8V16a1.5 1.5 0 0 1-1.5 1.5h-4A1.5 1.5 0 0 1 8.5 16v-2.2A6 6 0 0 1 12 3Z"
-        stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function EfficiencyIcon({ className = "w-5 h-5" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <path d="M13 3 5.5 13.5H12L11 21l7.5-10.5H12L13 3Z" fill="currentColor" />
-    </svg>
-  );
-}
-
-function MissionIcon({ className = "w-5 h-5" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <path
-        d="m9 12 2 2 4-4"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M12 3.2 5.5 6v5.4c0 4.2 2.9 8.1 6.5 9.1 3.6-1 6.5-4.9 6.5-9.1V6L12 3.2Z"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function VisionIcon({ className = "w-5 h-5" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <path
-        d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinejoin="round"
-      />
-      <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.8" />
-    </svg>
-  );
-}
 
 function DottedWorldMap() {
   return (
@@ -312,17 +162,11 @@ export default function AboutPage() {
             transition={{ delay: 0.2, duration: 0.45, ease: "easeOut" }}
           >
             <div className="flex flex-wrap items-center gap-x-2 gap-y-3">
-              {TRUST_ITEMS.map(({ icon: Icon, lines }, index) => (
+              {TRUST_ITEMS.map(({ logo, lines }, index) => (
                 <React.Fragment key={lines.join("-")}>
-                  <div className="flex items-center gap-2 text-[14px] sm:text-[15px]">
-                    <div
-                      className="aspect-square shrink-0"
-                      style={{
-                        width: "calc(2 * 1.12 * 1.9 * 1em)",
-                        height: "calc(2 * 1.12 * 1.9 * 1em)",
-                      }}
-                    >
-                      <Icon />
+                  <div className="flex items-center gap-2.5 text-[14px] sm:text-[15px]">
+                    <div className="h-11 w-11 shrink-0 sm:h-12 sm:w-12 lg:h-[52px] lg:w-[52px]">
+                      <HomeLogoImg n={logo} />
                     </div>
                     <div className="flex flex-col leading-[1.15]">
                       <span className="font-semibold text-white">{lines[0]}</span>
@@ -331,7 +175,7 @@ export default function AboutPage() {
                   </div>
                   {index < TRUST_ITEMS.length - 1 && (
                     <div
-                      className="mx-1.5 hidden h-[calc(2*1.12*1.9*14px)] w-px self-center bg-white/35 sm:block sm:h-[calc(2*1.12*1.9*15px)]"
+                      className="mx-1.5 hidden h-11 w-px self-center bg-white/35 sm:block sm:h-12 lg:h-[52px]"
                       aria-hidden="true"
                     />
                   )}
@@ -346,7 +190,7 @@ export default function AboutPage() {
       <section className="relative w-full overflow-hidden bg-white pt-8 pb-0 sm:pt-9 lg:pt-10">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
           <div className="bg-[#FFF7F0] px-5 py-8 sm:px-8 sm:py-9 lg:px-10 lg:py-10">
-            <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-2 lg:gap-10 xl:gap-12">
+            <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-10 xl:gap-12">
               <div className="relative z-10 flex w-full flex-col">
                 <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
                   <DottedWorldMap />
@@ -401,20 +245,16 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {/* Image slots — reserved empty frames */}
-              <div className="grid grid-cols-2 gap-3 self-stretch sm:gap-4">
-                <div
-                  className="relative col-span-2 min-h-[200px] overflow-hidden rounded-[20px] bg-[#F3F4F6] sm:min-h-[240px] sm:rounded-[24px] lg:min-h-[280px]"
-                  aria-hidden="true"
-                />
-                <div
-                  className="relative min-h-[160px] overflow-hidden rounded-[18px] bg-[#0B1C33] shadow-[0_10px_28px_rgba(15,39,74,0.08)] sm:min-h-[180px] sm:rounded-[20px]"
-                  aria-hidden="true"
-                />
-                <div
-                  className="relative min-h-[160px] overflow-hidden rounded-[18px] border border-[#E8E8E8] bg-white shadow-[0_10px_28px_rgba(15,39,74,0.06)] sm:min-h-[180px] sm:rounded-[20px]"
-                  aria-hidden="true"
-                />
+              <div className="relative w-full overflow-hidden rounded-[20px] border border-[#F0E4D8] bg-white shadow-[0_12px_40px_rgba(15,39,74,0.08)] sm:rounded-[24px]">
+                <div className="relative aspect-[4/3] w-full sm:aspect-[5/4]">
+                  <Image
+                    src="/images/about-group.png"
+                    alt="Next Ledgers team"
+                    fill
+                    className="object-contain object-center p-3 sm:p-4"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -604,13 +444,12 @@ export default function AboutPage() {
 
                 <div className="mt-2.5 flex-1 sm:mt-3">
                   {WHY_STARTED.map((item, index) => {
-                    const Icon = item.icon;
                     const isLast = index === WHY_STARTED.length - 1;
                     return (
                       <div key={item.title}>
                         <div className="flex items-start gap-3 py-1.5 sm:py-2">
-                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#FF6A00] text-white shadow-[0_6px_16px_rgba(255, 106, 0,0.25)] sm:h-10 sm:w-10">
-                            <Icon className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
+                          <div className="h-10 w-10 shrink-0 sm:h-11 sm:w-11">
+                            <HomeLogoImg n={item.logo} />
                           </div>
                           <div className="min-w-0">
                             <h3
@@ -659,22 +498,21 @@ export default function AboutPage() {
                 {
                   title: "Our Mission",
                   text: "To empower individuals and businesses to achieve success by providing personalized service, expert guidance, and the right financial solutions that build lasting results.",
-                  icon: MissionIcon,
+                  logo: 7,
                 },
                 {
                   title: "Our Vision",
                   text: "To build a firm recognized for trust, global expertise and commitment to helping every client move forward with confidence — feeling heard, supported, and ready to achieve their unique business goals.",
-                  icon: VisionIcon,
+                  logo: 26,
                 },
               ].map((item) => {
-                const Icon = item.icon;
                 return (
                   <div
                     key={item.title}
                     className="flex min-w-0 items-start gap-3.5 rounded-[16px] border border-[#FF6A00]/15 bg-white px-4 py-4 sm:gap-4 sm:px-5 sm:py-5"
                   >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#FF6A00] text-white shadow-[0_6px_16px_rgba(255,106,0,0.25)]">
-                      <Icon className="h-[18px] w-[18px]" />
+                    <div className="h-12 w-12 shrink-0 sm:h-[52px] sm:w-[52px]">
+                      <HomeLogoImg n={item.logo} />
                     </div>
                     <div className="min-w-0">
                       <h3
@@ -721,13 +559,12 @@ export default function AboutPage() {
 
                 <div className="mt-2.5 flex-1 sm:mt-3">
                   {CORE_VALUES.map((value, index) => {
-                    const Icon = value.icon;
                     const isLast = index === CORE_VALUES.length - 1;
                     return (
                       <div key={value.title}>
                         <div className="flex items-start gap-3 py-1.5 sm:py-2">
-                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#FF6A00] text-white shadow-[0_6px_16px_rgba(255, 106, 0,0.25)] sm:h-10 sm:w-10">
-                            <Icon className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
+                          <div className="h-10 w-10 shrink-0 sm:h-11 sm:w-11">
+                            <HomeLogoImg n={value.logo} />
                           </div>
                           <div className="min-w-0">
                             <h3

@@ -1,13 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import {
-  ClipboardList,
-  FileSearch,
-  MonitorPlay,
-  ClipboardCheck,
-  UsersRound,
-} from "lucide-react";
+import { HomeLogoImg } from "@/app/lib/homePageLogos";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
 const ORANGE = BRAND_ORANGE;
@@ -22,35 +16,35 @@ const STEPS = [
     num: "1",
     title: "Share Your Requirements",
     desc: "Tell us the roles, skills, and experience you need.",
-    Icon: ClipboardList,
+    logo: 23,
   },
   {
     num: "2",
     title: "We Shortlist Candidates",
     desc: "We find and shortlist the best matching professionals.",
-    Icon: FileSearch,
+    logo: 13,
   },
   {
     num: "3",
     title: "Interview & Select",
     desc: "You interview and choose your ideal team members.",
-    Icon: MonitorPlay,
+    logo: 17,
   },
   {
     num: "4",
     title: "Onboard in 48 Hours",
     desc: "We handle onboarding, access, and documentation.",
-    Icon: ClipboardCheck,
+    logo: 8,
   },
   {
     num: "5",
     title: "Start Working & Grow Together",
     desc: "Your dedicated team starts working exclusively for you.",
-    Icon: UsersRound,
+    logo: 4,
   },
 ];
 
-function StepCard({ num, title, desc, Icon, visible }) {
+function StepCard({ num, title, desc, logo, visible }) {
   return (
     <div
       className="relative w-full pt-3 sm:pt-4"
@@ -70,15 +64,8 @@ function StepCard({ num, title, desc, Icon, visible }) {
           {num}
         </span>
 
-        <div
-          className="mb-2 flex h-12 w-12 items-center justify-center rounded-full sm:mb-3 sm:h-[66px] sm:w-[66px]"
-          style={{ background: "#FFF4EA" }}
-        >
-          <Icon
-            className="h-6 w-6 shrink-0 sm:h-[35.2px] sm:w-[35.2px]"
-            style={{ color: ORANGE }}
-            strokeWidth={1.75}
-          />
+        <div className="mb-2 flex h-12 w-12 items-center justify-center sm:mb-3 sm:h-[66px] sm:w-[66px]">
+          <HomeLogoImg n={logo} />
         </div>
 
         <h3
@@ -248,13 +235,13 @@ export default function ByotHowItWorks() {
 
           {/* Mobile / tablet */}
           <div className="mt-5 flex flex-col items-stretch gap-0 sm:mx-auto sm:mt-9 sm:max-w-md lg:hidden">
-            {STEPS.map(({ num, title, desc, Icon }, index) => (
+            {STEPS.map(({ num, title, desc, logo }, index) => (
               <div key={title} className="flex flex-col items-stretch">
                 <StepCard
                   num={num}
                   title={title}
                   desc={desc}
-                  Icon={Icon}
+                  logo={logo}
                   visible={visibleCards > index}
                 />
                 {index < STEPS.length - 1 ? (
@@ -266,14 +253,14 @@ export default function ByotHowItWorks() {
 
           {/* Desktop */}
           <div className="mt-10 hidden lg:flex lg:items-stretch lg:justify-between lg:gap-1.5 xl:gap-2">
-            {STEPS.map(({ num, title, desc, Icon }, index) => (
+            {STEPS.map(({ num, title, desc, logo }, index) => (
               <div key={title} className="flex min-w-0 flex-1 items-stretch">
                 <div className="min-w-0 flex-1">
                   <StepCard
                     num={num}
                     title={title}
                     desc={desc}
-                    Icon={Icon}
+                    logo={logo}
                     visible={visibleCards > index}
                   />
                 </div>

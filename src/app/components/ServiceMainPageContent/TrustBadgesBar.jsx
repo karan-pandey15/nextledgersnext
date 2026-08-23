@@ -9,11 +9,15 @@ import {
 
 const ICON_BASE = "/images/icon/For%20Service%20Page";
 
+const RESULTS_ICON_BASE =
+    "/images/icon/Result%20that%20speak%20for%20themselves-%20Home%20page";
+
 const TRUST_IMAGES = {
     hmrc: `${ICON_BASE}/${encodeURIComponent("HMRC.png")}`,
     iso: `${ICON_BASE}/ISO.png`,
     gdpr: `${ICON_BASE}/GDPR.png`,
     timezone: `${ICON_BASE}/${encodeURIComponent("Time Zpne- C.png")}`,
+    onboarding: `${RESULTS_ICON_BASE}/${encodeURIComponent("36+.png")}`,
     years: `${ICON_BASE}/${encodeURIComponent("9+ yrs.png")}`,
     dedicated: `${ICON_BASE}/${encodeURIComponent("Dedicated Account manager.png")}`,
 };
@@ -30,8 +34,12 @@ function resolveTrustImage({ label = "", sub = "" } = {}) {
     ) {
         return TRUST_IMAGES.dedicated;
     }
-    if (text.includes("time zone") || text.includes("overlap")) {
+    // UK keeps the Union Jack clock; all other time-zone slots use the 36+ hrs icon only.
+    if (text.includes("uk time zone")) {
         return TRUST_IMAGES.timezone;
+    }
+    if (text.includes("time zone") || text.includes("overlap")) {
+        return TRUST_IMAGES.onboarding;
     }
     if (
         text.includes("gdpr") ||

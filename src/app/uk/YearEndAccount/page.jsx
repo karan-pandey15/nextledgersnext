@@ -44,6 +44,7 @@ import Footer from "@/app/components/footer/Footer";
 import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/ArtificialIntelligence";
 import NexaLedAi from "@/app/components/ChatBot/NexaLedAi";
 import { UK_YEAR_END_INDUSTRIES } from "@/app/uk/ukIndustries";
+import { UK_YEAR_END_SOFTWARE } from "@/app/uk/ukSoftwareExpertise";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
 const ORANGE = BRAND_ORANGE;
@@ -156,36 +157,7 @@ const yearEndAdjustments = [
     "Corporation Tax Provisions",
 ];
 
-const softwareExpertiseLogodata = [
-    {
-        heading: "ACCOUNTS PRODUCTION SOFTWARE",
-        icon: "briefcase",
-        logos: [
-            "iris accounts production",
-            "cch accounts production",
-            "capium",
-            "xero",
-            "quickbooks online",
-            "sage business cloud",
-            "freeagent",
-        ],
-    },
-    {
-        heading: "CORPORATION TAX SOFTWARE",
-        icon: "chart",
-        logos: [
-            "iris business tax",
-            "cch corporation tax",
-            "btcsoftware tax",
-            "capium corporation tax",
-        ],
-    },
-    {
-        heading: "SUPPORTING TOOLS",
-        icon: "document",
-        logos: ["dext", "hubdoc", "autoentry", "approvalmax"],
-    },
-];
+const softwareExpertiseLogodata = UK_YEAR_END_SOFTWARE;
 
 const whyChooseCards = [
     { title: "UK Statutory Accounts Expertise", icon: BookOpen },
@@ -461,7 +433,7 @@ export default function YearEndAccount() {
                             </p>
 
                             <p className="mb-5 text-[13px] leading-relaxed text-gray-500 sm:text-[15px]">
-                                At NextLedgers, we provide dedicated offshore Year-End Accounts
+                                At NextLedgers, we provide dedicated Year-End Accounts
                                 and Corporation Tax support to UK accounting firms, helping
                                 practices increase capacity, improve turnaround times, and
                                 maintain compliance without increasing internal overheads. Whether
@@ -507,7 +479,7 @@ export default function YearEndAccount() {
                                 <Stat
                                     icon={<Headset className="h-5 w-5" />}
                                     value="Dedicated"
-                                    label="Offshore Support Team"
+                                    label="Support Team"
                                 />
                             </div>
                         </div>
@@ -832,7 +804,7 @@ export default function YearEndAccount() {
                             className="text-[24px] font-extrabold leading-tight sm:text-[30px] lg:text-[34px]"
                             style={{ color: NAVY }}
                         >
-                            Your Offshore{" "}
+                            Your{" "}
                             <span style={{ color: ORANGE }}>Year-End Compliance</span> Partner
                         </h2>
 
@@ -860,8 +832,8 @@ export default function YearEndAccount() {
                             >
                                 Whether you need support with statutory accounts preparation,
                                 corporation tax computations, CT600 returns, year-end adjustments,
-                                or dedicated offshore resources, NextLedgers can provide reliable
-                                offshore support that integrates seamlessly with your accounting
+                                or dedicated resources, NextLedgers can provide reliable
+                                support that integrates seamlessly with your accounting
                                 practice.
                             </p>
                         </div>

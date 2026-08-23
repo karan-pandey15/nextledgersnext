@@ -1,16 +1,11 @@
 "use client";
 
-import { HiOutlineClock } from "react-icons/hi2";
-import { MdOutlineZoomOutMap, MdOutlineCurrencyExchange, MdOutlineHandshake } from "react-icons/md";
-import { PiMedal } from "react-icons/pi";
-import { RiUserStarLine } from "react-icons/ri";
+import { HomeLogoImg } from "@/app/lib/homePageLogos";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
 const ORANGE = BRAND_ORANGE;
 const NAVY = "#0F274A";
 const GREY = "#4B5563";
-
-const ICON_CLASS = "h-[41px] w-[41px] shrink-0 sm:h-[46px] sm:w-[46px]";
 
 function TitleDash({ flip = false }) {
   return (
@@ -34,32 +29,32 @@ const BENEFITS = [
   {
     title: "Dedicated Team",
     desc: "Works exclusively for your business.",
-    Icon: RiUserStarLine,
+    logo: 4,
   },
   {
     title: "Scalable Flexibility",
     desc: "Scale your team up or down anytime.",
-    Icon: MdOutlineZoomOutMap,
+    logo: 7,
   },
   {
     title: "Cost Efficient",
     desc: "Save up to 70% on operational costs.",
-    Icon: MdOutlineCurrencyExchange,
+    logo: 21,
   },
   {
     title: "High Quality",
     desc: "Experienced professionals with proven expertise.",
-    Icon: PiMedal,
+    logo: 2,
   },
   {
     title: "Fast Turnaround",
     desc: "Quick onboarding and faster results.",
-    Icon: HiOutlineClock,
+    logo: 8,
   },
   {
     title: "Long-term Partnership",
     desc: "We grow with you and your business.",
-    Icon: MdOutlineHandshake,
+    logo: 22,
   },
 ];
 
@@ -80,13 +75,11 @@ export default function ByotWhyLove() {
         </div>
 
         <div className="grid grid-cols-1 gap-x-3 gap-y-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
-          {BENEFITS.map(({ title, desc, Icon }) => (
+          {BENEFITS.map(({ title, desc, logo }) => (
             <div key={title} className="flex items-center gap-3">
-              <Icon
-                className={ICON_CLASS}
-                style={{ color: ORANGE }}
-                aria-hidden
-              />
+              <span className="h-[41px] w-[41px] shrink-0 sm:h-[46px] sm:w-[46px]">
+                <HomeLogoImg n={logo} />
+              </span>
               <div className="min-w-0">
                 <h3
                   className="text-[13px] font-bold leading-tight sm:text-[14px]"

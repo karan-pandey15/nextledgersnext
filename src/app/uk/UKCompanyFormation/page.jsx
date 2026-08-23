@@ -43,6 +43,7 @@ import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/Arti
 import NexaLedAi from "@/app/components/ChatBot/NexaLedAi";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
 import { UK_COMPANY_FORMATION_INDUSTRIES } from "@/app/uk/ukIndustries";
+import { UK_COMPANY_FORMATION_SOFTWARE } from "@/app/uk/ukSoftwareExpertise";
 
 const ORANGE = BRAND_ORANGE;
 const NAVY = "#0B1F3A";
@@ -176,42 +177,7 @@ const helpFirmsScale = [
     "Scale operations without increasing headcount",
 ];
 
-const softwareExpertiseLogodata = [
-    {
-        heading: "COMPANY SECRETARIAL SOFTWARE",
-        icon: "briefcase",
-        logos: [
-            "inform direct",
-            "companies house webfiling",
-            "virtual cabinet",
-            "microsoft excel",
-        ],
-    },
-    {
-        heading: "ACCOUNTING SOFTWARE",
-        icon: "user",
-        logos: [
-            "xero",
-            "quickbooks online",
-            "sage business cloud",
-            "freeagent",
-            "accountsiq",
-            "iplicit",
-        ],
-    },
-    {
-        heading: "WORKFLOW & DOCUMENT MANAGEMENT TOOLS",
-        icon: "document",
-        logos: [
-            "dext",
-            "hubdoc",
-            "approvalmax",
-            "microsoft 365",
-            "google workspace",
-            "sharepoint",
-        ],
-    },
-];
+const softwareExpertiseLogodata = UK_COMPANY_FORMATION_SOFTWARE;
 
 const whyChooseCards = [
     { title: "UK Company Formation Expertise", icon: Building2 },
@@ -457,7 +423,7 @@ export default function UKCompanyFormation() {
                             </p>
 
                             <p className="mb-5 text-[13px] leading-relaxed text-gray-500 sm:text-[15px]">
-                                At NextLedgers, we provide dedicated offshore Company Formation
+                                At NextLedgers, we provide dedicated Company Formation
                                 &amp; Company Secretarial support to UK accounting firms,
                                 accountancy practices, and corporate service providers. Our
                                 white-label outsourcing solutions help firms increase capacity,
@@ -502,7 +468,7 @@ export default function UKCompanyFormation() {
                                 <Stat
                                     icon={<Headset className="h-5 w-5" />}
                                     value="Dedicated"
-                                    label="Offshore Support Team"
+                                    label="Support Team"
                                 />
                             </div>
                         </div>
@@ -807,7 +773,7 @@ export default function UKCompanyFormation() {
             {/* 10 — Partner CTA */}
             <ServicePartnerCTA
                 eyebrow="Company Secretarial Partner"
-                titleBefore="Your Offshore Company Formation &"
+                titleBefore="Your Company Formation &"
                 titleAccent="Company Secretarial"
                 titleAfter="Partner"
                 description="Company formation and company secretarial services require accuracy, organisation, confidentiality, and ongoing compliance management. Our dedicated professionals work as an extension of your practice, helping you deliver efficient company formation, statutory compliance, and corporate administration services while freeing up valuable internal resources."

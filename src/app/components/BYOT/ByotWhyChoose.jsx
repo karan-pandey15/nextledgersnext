@@ -1,13 +1,6 @@
 "use client";
 
-import {
-  Award,
-  CalendarClock,
-  Globe2,
-  MessageSquare,
-  Shield,
-  Users,
-} from "lucide-react";
+import { HomeLogoImg } from "@/app/lib/homePageLogos";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
 const ORANGE = BRAND_ORANGE;
@@ -18,32 +11,32 @@ const REASONS = [
   {
     title: "Experienced Professionals",
     desc: "Professionals with years of experience in global accounting & finance.",
-    icon: Award,
+    logo: 19,
   },
   {
     title: "Global Standards",
     desc: "Work aligned with international accounting standards and best practices.",
-    icon: Globe2,
+    logo: 26,
   },
   {
     title: "Data Security",
     desc: "Bank-grade security protocols to keep your data safe and confidential.",
-    icon: Shield,
+    logo: 18,
   },
   {
     title: "Clear Communication",
     desc: "Multiple communication channels and regular updates.",
-    icon: MessageSquare,
+    logo: 3,
   },
   {
     title: "Flexible Engagement",
     desc: "Monthly, quarterly, or long-term engagements to suit your business needs.",
-    icon: CalendarClock,
+    logo: 5,
   },
   {
     title: "Your Team, Your Way",
     desc: "You manage the work. We provide the talent and support.",
-    icon: Users,
+    logo: 4,
   },
 ];
 
@@ -61,18 +54,15 @@ export default function ByotWhyChoose() {
           </h2>
 
           <div className="mt-9 grid grid-cols-1 gap-y-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 xl:gap-y-0">
-            {REASONS.map(({ title, desc, icon: Icon }, index) => (
+            {REASONS.map(({ title, desc, logo }, index) => (
               <div
                 key={title}
                 className={`flex flex-col items-center px-4 text-center ${
                   index > 0 ? "xl:border-l xl:border-[#EEEEEE]" : ""
                 }`}
               >
-                <span
-                  className="mb-4 flex h-16 w-16 items-center justify-center rounded-full shadow-[0_6px_18px_rgba(255,106,0,0.16)]"
-                  style={{ background: "#FDEEE1", color: ORANGE }}
-                >
-                  <Icon className="h-7 w-7" strokeWidth={1.6} />
+                <span className="mb-4 flex h-16 w-16 items-center justify-center">
+                  <HomeLogoImg n={logo} />
                 </span>
                 <h3
                   className="text-[13.5px] font-bold leading-snug sm:text-[14px]"

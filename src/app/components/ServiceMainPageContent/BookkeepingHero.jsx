@@ -50,7 +50,7 @@ export default function BookkeepingHero() {
                             <Stat icon={<Users className="w-5 h-5" />} value="500+" label="UK Accounting Firms Supported" />
                             <Stat icon={<PuzzleIcon className="w-5 h-5" />} value="30+" label="Software Integrations" />
                             <Stat icon={<ShieldCheck className="w-5 h-5" />} value="100%" label="HMRC Compliant Processes" />
-                            <Stat icon={<Headset className="w-5 h-5" />} value="Dedicated" label="Offshore Support Team" />
+                            <Stat icon={<Headset className="w-5 h-5" />} value="Dedicated" label="Support Team" />
                         </div>
                     </div>
                 </div>

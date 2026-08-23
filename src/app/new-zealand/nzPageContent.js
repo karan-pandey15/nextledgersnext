@@ -237,16 +237,16 @@ export const NZ_BOOKKEEPING = {
   titleBefore: "New Zealand Bookkeeping",
   titleAccent: "Services",
   subtitle:
-    "Reliable Offshore Bookkeeping Support for New Zealand Accounting Firms",
+    "Reliable Bookkeeping Support for New Zealand Accounting Firms",
   intro: {
     eyebrow: "Outsourcing Partnership",
     heading:
-      "Reliable Offshore Bookkeeping Support for New Zealand Accounting Firms",
+      "Reliable Bookkeeping Support for New Zealand Accounting Firms",
     paragraphs: [
       "Bookkeeping is the foundation of accurate financial reporting and effective business management. However, as client portfolios expand, transaction volumes increase, and compliance deadlines become more demanding, many New Zealand accounting firms face growing pressure to maintain accuracy while managing capacity and profitability.",
       "Maintaining up-to-date financial records, reconciling bank accounts, processing supplier invoices, managing accounts receivable and payable, and preparing management reports requires consistency, attention to detail, and a strong understanding of New Zealand accounting practices.",
-      "At NextLedgers, we provide dedicated offshore Bookkeeping Services to New Zealand accounting firms, helping practices increase capacity, improve turnaround times, and deliver accurate bookkeeping without increasing internal overheads.",
-      "Whether you require daily bookkeeping support, monthly bookkeeping, catch-up bookkeeping, bank reconciliations, accounts payable management, accounts receivable support, or dedicated offshore bookkeeping resources, our team works as a seamless extension of your practice.",
+      "At NextLedgers, we provide dedicated Bookkeeping Services to New Zealand accounting firms, helping practices increase capacity, improve turnaround times, and deliver accurate bookkeeping without increasing internal overheads.",
+      "Whether you require daily bookkeeping support, monthly bookkeeping, catch-up bookkeeping, bank reconciliations, accounts payable management, accounts receivable support, or dedicated bookkeeping resources, our team works as a seamless extension of your practice.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -360,9 +360,9 @@ export const NZ_BOOKKEEPING = {
     "We support accounting firms serving clients across a wide range of industries, including:",
   whyChoose: [
     "ACCA-Led Delivery Team",
-    "Experienced Offshore Bookkeeping Professionals",
+    "Experienced Bookkeeping Professionals",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Multi-Software Expertise",
     "Structured Review Processes",
     "Flexible Engagement Models",
@@ -373,11 +373,11 @@ export const NZ_BOOKKEEPING = {
     "Dedicated bookkeeping specialists who work as an extension of your New Zealand practice.",
   partner: {
     badge: "Bookkeeping Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Bookkeeping Partner",
     body: "Bookkeeping requires consistency, accuracy, and efficient processes to ensure businesses maintain reliable financial records throughout the year. Our experienced professionals help New Zealand accounting firms streamline bookkeeping operations, improve reporting quality, and scale efficiently without increasing internal resource pressures.",
     callout:
-      "Whether you need support with daily bookkeeping, bank reconciliations, accounts receivable, accounts payable, GST-ready bookkeeping, management reporting, catch-up bookkeeping, or dedicated offshore bookkeeping resources, NextLedgers provides reliable offshore support that integrates seamlessly with your accounting practice.",
+      "Whether you need support with daily bookkeeping, bank reconciliations, accounts receivable, accounts payable, GST-ready bookkeeping, management reporting, catch-up bookkeeping, or dedicated bookkeeping resources, NextLedgers provides reliable support that integrates seamlessly with your accounting practice.",
   },
 };
 
@@ -394,7 +394,7 @@ export const NZ_COMPANY_TAX = {
     paragraphs: [
       "Company tax compliance is a core service offered by New Zealand accounting practices. However, increasing client portfolios, evolving Inland Revenue (IRD) requirements, tight filing deadlines, and ongoing resource constraints often make it difficult for firms to maintain efficiency while delivering consistently high-quality tax services.",
       "Preparing company income tax returns, calculating tax liabilities, reviewing financial statements, managing provisional tax obligations, and ensuring compliance with New Zealand tax legislation requires technical expertise, accuracy, and a structured review process.",
-      "At NextLedgers, we provide dedicated offshore New Zealand Company Tax Compliance support to accounting firms, helping practices increase capacity, improve turnaround times, and maintain compliance without increasing internal overheads.",
+      "At NextLedgers, we provide dedicated New Zealand Company Tax Compliance support to accounting firms, helping practices increase capacity, improve turnaround times, and maintain compliance without increasing internal overheads.",
       "Whether your firm requires support with small businesses, SMEs, investment companies, group entities, trusts with corporate structures, or high-volume tax return preparation, our team works as a seamless extension of your practice.",
     ],
     image: "/images/DSC09901.JPG",
@@ -488,7 +488,7 @@ export const NZ_COMPANY_TAX = {
     "New Zealand Company Tax Specialists",
     "Strong Understanding of IRD Requirements",
     "White-Label Service Delivery",
-    "Dedicated Offshore Tax Resources",
+    "Dedicated Tax Resources",
     "Structured Review Processes",
     "Multi-Software Expertise",
     "Flexible Engagement Models",
@@ -498,11 +498,11 @@ export const NZ_COMPANY_TAX = {
     "Dedicated company tax specialists who work as an extension of your New Zealand practice.",
   partner: {
     badge: "Company Tax Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "New Zealand Company Tax Compliance Partner",
     body: "Company tax compliance requires technical expertise, consistency, and careful attention to detail. Our experienced professionals help New Zealand accounting firms streamline tax preparation, strengthen quality controls, and scale efficiently without increasing internal resource pressures.",
     callout:
-      "Whether you need support with IR4 company tax returns, provisional tax calculations, tax computations, imputation credit account support, tax working papers, or dedicated offshore tax professionals, NextLedgers provides reliable offshore support that integrates seamlessly with your accounting practice.",
+      "Whether you need support with IR4 company tax returns, provisional tax calculations, tax computations, imputation credit account support, tax working papers, or dedicated tax professionals, NextLedgers provides reliable support that integrates seamlessly with your accounting practice.",
   },
 };
 
@@ -518,7 +518,7 @@ export const NZ_GST = {
     paragraphs: [
       "GST compliance is one of the most fundamental services provided by New Zealand accounting practices. However, increasing client volumes, evolving Inland Revenue (IRD) requirements, tighter filing deadlines, and ongoing resource constraints make it challenging for firms to maintain efficiency while delivering consistently high-quality compliance services.",
       "Preparing GST returns involves far more than completing a filing. It requires reviewing sales and purchase transactions, validating GST treatments, reconciling GST control accounts, identifying exceptions, and ensuring compliance with New Zealand GST legislation.",
-      "At NextLedgers, we provide dedicated offshore GST Compliance & Filing support to New Zealand accounting firms, helping practices increase capacity, improve turnaround times, and maintain compliance without increasing internal overheads.",
+      "At NextLedgers, we provide dedicated GST Compliance & Filing support to New Zealand accounting firms, helping practices increase capacity, improve turnaround times, and maintain compliance without increasing internal overheads.",
       "Whether your firm requires support for sole traders, partnerships, companies, trusts, charities, property investors, or high-volume GST processing, our team works as a seamless extension of your practice.",
     ],
     image: "/images/DSC09901.JPG",
@@ -611,7 +611,7 @@ export const NZ_GST = {
     "ACCA-Led Delivery Team",
     "New Zealand GST Compliance Expertise",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Multi-Software Expertise",
     "Flexible Engagement Models",
@@ -621,11 +621,11 @@ export const NZ_GST = {
     "Dedicated GST specialists who work as an extension of your New Zealand practice.",
   partner: {
     badge: "GST Compliance Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "GST Compliance Partner",
     body: "GST compliance requires technical knowledge, consistency, and attention to detail. Our experienced professionals help New Zealand accounting firms streamline GST processes, improve reporting accuracy, and scale efficiently without increasing internal resource pressures.",
     callout:
-      "Whether you need support with GST return preparation, GST reconciliations, GST adjustments, IRD submission-ready returns, GST registrations, or dedicated offshore accounting resources, NextLedgers provides reliable offshore support that integrates seamlessly with your accounting practice.",
+      "Whether you need support with GST return preparation, GST reconciliations, GST adjustments, IRD submission-ready returns, GST registrations, or dedicated accounting resources, NextLedgers provides reliable support that integrates seamlessly with your accounting practice.",
   },
 };
 
@@ -643,7 +643,7 @@ export const NZ_INCOME_TAX = {
     paragraphs: [
       "Income tax compliance is a core service offered by every New Zealand accounting practice. However, increasing client volumes, evolving Inland Revenue (IRD) requirements, seasonal filing deadlines, and ongoing resource constraints can place significant pressure on internal tax teams.",
       "Preparing accurate income tax returns, reviewing financial information, calculating taxable income, and ensuring compliance with New Zealand tax legislation requires technical expertise, attention to detail, and a structured review process.",
-      "At NextLedgers, we provide dedicated offshore Income Tax Return Preparation support to New Zealand accounting firms, helping practices increase capacity, improve turnaround times, and maintain compliance without increasing internal overheads.",
+      "At NextLedgers, we provide dedicated Income Tax Return Preparation support to New Zealand accounting firms, helping practices increase capacity, improve turnaround times, and maintain compliance without increasing internal overheads.",
       "Whether your firm requires support for sole traders, partnerships, companies, trusts, rental property owners, or high-volume tax return processing, our team works as a seamless extension of your practice.",
     ],
     image: "/images/DSC09901.JPG",
@@ -729,9 +729,9 @@ export const NZ_INCOME_TAX = {
   whyChoose: [
     "ACCA-Led Delivery Team",
     "New Zealand Income Tax Expertise",
-    "Experienced Offshore Tax Professionals",
+    "Experienced Tax Professionals",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Multi-Software Expertise",
     "Flexible Engagement Models",
@@ -741,11 +741,11 @@ export const NZ_INCOME_TAX = {
     "Dedicated income tax specialists who work as an extension of your New Zealand practice.",
   partner: {
     badge: "Income Tax Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Income Tax Compliance Partner",
     body: "Income tax preparation requires technical expertise, accuracy, and a thorough understanding of New Zealand tax legislation. Our experienced professionals help New Zealand accounting firms increase tax preparation capacity, strengthen quality control, and manage busy filing periods efficiently.",
     callout:
-      "Whether you need support with individual tax returns, company income tax returns, partnership returns, trust taxation, rental property reporting, tax computations, or dedicated offshore tax resources, NextLedgers provides reliable offshore support that integrates seamlessly with your accounting practice.",
+      "Whether you need support with individual tax returns, company income tax returns, partnership returns, trust taxation, rental property reporting, tax computations, or dedicated tax resources, NextLedgers provides reliable support that integrates seamlessly with your accounting practice.",
   },
 };
 
@@ -762,7 +762,7 @@ export const NZ_PAYROLL = {
       "Reliable Payroll Support for New Zealand Businesses & Accounting Firms",
     paragraphs: [
       "Payroll is one of the most critical business functions, requiring employers to pay employees accurately and on time while complying with Inland Revenue (IRD) payroll legislation and New Zealand employment requirements. As businesses grow, payroll administration becomes increasingly complex, particularly when managing different pay cycles, leave entitlements, KiwiSaver contributions, PAYE deductions, student loan repayments, ACC levies, and Payday Filing obligations.",
-      "At NextLedgers, we provide dedicated offshore New Zealand Payroll Processing Services to accounting firms, bookkeepers, payroll providers, SMEs, and growing businesses, helping organisations streamline payroll operations, improve compliance, and reduce administrative workload.",
+      "At NextLedgers, we provide dedicated New Zealand Payroll Processing Services to accounting firms, bookkeepers, payroll providers, SMEs, and growing businesses, helping organisations streamline payroll operations, improve compliance, and reduce administrative workload.",
       "Whether you require weekly, fortnightly, semi-monthly, or monthly payroll processing, Payday Filing support, employee onboarding, KiwiSaver administration, or ongoing payroll management, our team works as a seamless extension of your business or accounting practice.",
     ],
     image: "/images/DSC09901.JPG",
@@ -876,7 +876,7 @@ export const NZ_PAYROLL = {
       ],
     },
   ],
-  howWeHelpIntro: "Our offshore payroll support enables organisations to:",
+  howWeHelpIntro: "Our payroll support enables organisations to:",
   howWeHelp: [
     "Increase payroll processing capacity",
     "Improve payroll accuracy",
@@ -892,7 +892,7 @@ export const NZ_PAYROLL = {
   industriesBlurb:
     "We provide payroll processing support across a wide range of industries, including:",
   whyChoose: [
-    "Dedicated Offshore Payroll Professionals",
+    "Dedicated Payroll Professionals",
     "New Zealand Payroll & IRD Compliance Expertise",
     "Payday Filing Specialists",
     "White-Label Service Delivery",
@@ -906,11 +906,11 @@ export const NZ_PAYROLL = {
     "Dedicated payroll specialists who work as an extension of your New Zealand business or practice.",
   partner: {
     badge: "Payroll Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "New Zealand Payroll Partner",
-    body: "Payroll processing requires accuracy, consistency, and a thorough understanding of New Zealand payroll legislation and IRD reporting requirements. Our experienced payroll professionals help accounting firms and businesses streamline payroll administration, strengthen compliance, and improve operational efficiency through dependable offshore support.",
+    body: "Payroll processing requires accuracy, consistency, and a thorough understanding of New Zealand payroll legislation and IRD reporting requirements. Our experienced payroll professionals help accounting firms and businesses streamline payroll administration, strengthen compliance, and improve operational efficiency through dependable support.",
     callout:
-      "Whether you require assistance with payroll processing, PAYE calculations, KiwiSaver administration, Payday Filing, leave management, payroll reconciliations, or dedicated offshore payroll resources, NextLedgers provides scalable payroll solutions that integrate seamlessly with your business while delivering accurate, compliant, and timely payroll services.",
+      "Whether you require assistance with payroll processing, PAYE calculations, KiwiSaver administration, Payday Filing, leave management, payroll reconciliations, or dedicated payroll resources, NextLedgers provides scalable payroll solutions that integrate seamlessly with your business while delivering accurate, compliant, and timely payroll services.",
   },
 };
 
@@ -929,7 +929,7 @@ export const NZ_YEAR_END = {
     paragraphs: [
       "Year-end accounts and financial statement preparation are core services for every New Zealand accounting practice. However, increasing client portfolios, compressed reporting deadlines, evolving financial reporting standards, and ongoing recruitment challenges often make it difficult for firms to maintain capacity while delivering consistent quality.",
       "Preparing annual financial statements, reviewing year-end adjustments, reconciling balance sheet accounts, finalising working papers, and ensuring compliance with Inland Revenue (IRD) and the Companies Office requires technical expertise, accuracy, and a structured review process.",
-      "At NextLedgers, we provide dedicated offshore Year-End Accounts & Financial Statement Preparation Services to New Zealand accounting firms, helping practices increase capacity, improve turnaround times, and maintain high-quality financial reporting without increasing internal overheads.",
+      "At NextLedgers, we provide dedicated Year-End Accounts & Financial Statement Preparation Services to New Zealand accounting firms, helping practices increase capacity, improve turnaround times, and maintain high-quality financial reporting without increasing internal overheads.",
       "Whether your firm requires support for sole traders, partnerships, companies, trusts, charities, or high-volume year-end processing, our team works as a seamless extension of your practice.",
     ],
     image: "/images/DSC09901.JPG",
@@ -1027,7 +1027,7 @@ export const NZ_YEAR_END = {
     "New Zealand Financial Reporting Expertise",
     "Experienced Year-End Accounts Specialists",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Multi-Software Expertise",
     "Flexible Engagement Models",
@@ -1037,10 +1037,10 @@ export const NZ_YEAR_END = {
     "Dedicated year-end specialists who work as an extension of your New Zealand practice.",
   partner: {
     badge: "Year-End Accounts Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Year-End Accounts Partner",
     body: "Preparing accurate year-end accounts requires technical knowledge, consistency, and meticulous attention to detail. Our experienced professionals help New Zealand accounting firms streamline financial reporting processes, strengthen quality controls, and increase capacity without adding internal resource pressures.",
     callout:
-      "Whether you require support with annual financial statement preparation, year-end adjustments, balance sheet reconciliations, working papers, financial reporting, or dedicated offshore accounting resources, NextLedgers provides reliable offshore support that integrates seamlessly with your accounting practice.",
+      "Whether you require support with annual financial statement preparation, year-end adjustments, balance sheet reconciliations, working papers, financial reporting, or dedicated accounting resources, NextLedgers provides reliable support that integrates seamlessly with your accounting practice.",
   },
 };

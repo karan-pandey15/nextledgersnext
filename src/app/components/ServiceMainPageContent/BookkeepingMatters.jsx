@@ -31,7 +31,7 @@ const DEFAULT_TRUST_ITEMS = [
     { icon: ShieldCheck, label: "HMRC Compliant" },
     { icon: Lock, label: "Secure & Confidential" },
     { icon: Clock, label: "UK Time Zone Overlap" },
-    { icon: Users, label: "Experienced Offshore Team" },
+    { icon: Users, label: "Experienced Team" },
 ];
 
 const DEFAULT_BENEFITS = [

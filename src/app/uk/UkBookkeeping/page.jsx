@@ -38,6 +38,7 @@ import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/Arti
 import NexaLedAi from "@/app/components/ChatBot/NexaLedAi";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
 import { UK_BOOKKEEPING_INDUSTRIES } from "@/app/uk/ukIndustries";
+import { UK_BOOKKEEPING_SOFTWARE } from "@/app/uk/ukSoftwareExpertise";
 
 const ORANGE = BRAND_ORANGE;
 const NAVY = "#0B1F3A";
@@ -53,36 +54,7 @@ const trustBadges = [
     { icon: UserCheck, label: "Dedicated", sub: "Account Manager" },
 ];
 
-const softwareExpertiseLogodata = [
-    {
-        heading: "ACCOUNTING SOFTWARE",
-        icon: "user",
-        logos: [
-            "xero",
-            "quickbooks online",
-            "sage business cloud",
-            "freeagent",
-            "capium",
-            "kashflow",
-            "quickfile",
-        ],
-    },
-    {
-        heading: "DOCUMENT PROCESSING TOOLS",
-        icon: "document",
-        logos: ["dext", "hubdoc", "autoentry", "approvalmax"],
-    },
-    {
-        heading: "ECOMMERCE INTEGRATIONS",
-        icon: "tag",
-        logos: ["a2x", "shopify", "amazon", "ebay", "etsy", "woocommerce"],
-    },
-    {
-        heading: "PAYMENT PLATFORMS",
-        icon: "shield",
-        logos: ["stripe", "paypal", "wise", "gocardless"],
-    },
-];
+const softwareExpertiseLogodata = UK_BOOKKEEPING_SOFTWARE;
 
 const whyChooseCards = [
     { title: "ACCA-Led Bookkeeping Expertise", icon: UserCheck },
@@ -238,15 +210,14 @@ export default function UkBookkeeping() {
 
                             <p className="mb-3 text-[13px] leading-relaxed text-gray-500 sm:text-[15px]">
                                 At NextLedgers, we act as an extension of your accounting
-                                practice, providing reliable offshore bookkeeping and VAT
+                                practice, providing reliable bookkeeping and VAT
                                 support that helps your firm increase capacity, improve
                                 turnaround times, and reduce operational pressure.
                             </p>
 
                             <p className="mb-5 text-[13px] leading-relaxed text-gray-500 sm:text-[15px]">
                                 Whether you require ongoing bookkeeping support, month-end
-                                processing, backlog clean-up, or dedicated offshore
-                                resources, our team integrates seamlessly into your existing
+                                processing, backlog clean-up, or dedicated resources, our team integrates seamlessly into your existing
                                 workflow.
                             </p>
 
@@ -287,7 +258,7 @@ export default function UkBookkeeping() {
                                 <Stat
                                     icon={<Headset className="h-5 w-5" />}
                                     value="Dedicated"
-                                    label="Offshore Support Team"
+                                    label="Support Team"
                                 />
                             </div>
                         </div>
@@ -401,7 +372,7 @@ export default function UkBookkeeping() {
                             className="text-[24px] font-extrabold leading-tight sm:text-[30px] lg:text-[34px]"
                             style={{ color: NAVY }}
                         >
-                            Your Offshore{" "}
+                            Your{" "}
                             <span style={{ color: ORANGE }}>Bookkeeping &amp; VAT</span>{" "}
                             Partner
                         </h2>
@@ -430,7 +401,7 @@ export default function UkBookkeeping() {
                             >
                                 Whether you need support with selected clients, month-end
                                 bookkeeping, VAT preparation, backlog clean-up, or a
-                                dedicated offshore team, NextLedgers can help your practice
+                                dedicated team, NextLedgers can help your practice
                                 scale efficiently while delivering consistent, high-quality
                                 service.
                             </p>

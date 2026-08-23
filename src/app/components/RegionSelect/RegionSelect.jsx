@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import {
   POPUP_REGIONS,
@@ -41,7 +41,6 @@ export default function RegionSelect({
   /** Show region name beside code (better for sidebar) */
   showLabel = false,
 }) {
-  const router = useRouter();
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   /** Default: India (IN) until user picks a market region */
@@ -163,20 +162,6 @@ export default function RegionSelect({
     };
   }, [isOpen, updateMenuPosition]);
 
-  const handleSelect = (code) => {
-    setSelectedRegion(code);
-    setIsOpen(false);
-    persistRegionCode(code);
-
-    if (REGION_ROUTES[code]) {
-      router.push(REGION_ROUTES[code]);
-    }
-
-    if (onRegionChange) {
-      onRegionChange(code);
-    }
-  };
-
   const activeRegion =
     selectedRegion === "IN"
       ? DEFAULT_REGION
@@ -260,13 +245,18 @@ export default function RegionSelect({
             <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
               {POPUP_REGIONS.map((region) => {
                 const isSelected = region.code === selectedRegion;
+                const href = REGION_ROUTES[region.code] || "/";
                 return (
-                  <button
+                  <Link
                     key={region.code}
-                    type="button"
+                    href={href}
                     role="option"
                     aria-selected={isSelected}
-                    onClick={() => handleSelect(region.code)}
+                    onClick={() => {
+                      persistRegionCode(region.code);
+                      setIsOpen(false);
+                      onRegionChange?.(region.code);
+                    }}
                     style={{
                       display: "flex",
                       flexDirection: "row",
@@ -280,6 +270,7 @@ export default function RegionSelect({
                       cursor: "pointer",
                       background: isSelected ? "#FFF7F0" : "transparent",
                       textAlign: "left",
+                      textDecoration: "none",
                     }}
                   >
                     <span
@@ -336,7 +327,7 @@ export default function RegionSelect({
                     >
                       {region.name}
                     </span>
-                  </button>
+                  </Link>
                 );
               })}
             </div>

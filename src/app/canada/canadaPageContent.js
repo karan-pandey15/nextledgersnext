@@ -17,7 +17,7 @@ export const CANADA_WHY_CHOOSE_DEFAULT = [
   "Canadian Accounting Expertise",
   "CRA Compliance Knowledge",
   "White-Label Service Delivery",
-  "Dedicated Offshore Resources",
+  "Dedicated Resources",
   "Structured Review Processes",
   "Secure Data Handling",
   "Flexible Engagement Models",
@@ -49,13 +49,13 @@ export const CANADA_BOOKKEEPING = {
   titleAfter: "Outsourcing Services",
   subtitle: "Reliable Bookkeeping, Accounting & Financial Cleanup Support for Canadian Accounting Firms",
   subtitleSecond:
-    "Accurate bookkeeping is the foundation of every successful business. Streamline CRA-ready books with dedicated offshore delivery.",
+    "Accurate bookkeeping is the foundation of every successful business. Streamline CRA-ready books with dedicated delivery.",
   intro: {
     eyebrow: "Outsourcing Partnership",
     heading: "Reliable Bookkeeping Support for Growing Canadian Practices",
     paragraphs: [
       "Canadian businesses rely on timely financial records to meet Canada Revenue Agency (CRA) requirements, manage GST/HST obligations, monitor cash flow, and prepare reliable financial reports. As accounting firms continue to grow, managing bookkeeping, accounting, reconciliations, and financial cleanup projects for multiple clients can become increasingly resource-intensive.",
-      "At NextLedgers, we provide dedicated offshore Bookkeeping, Outsourced Accounting & Financial Cleanup support to Canadian accounting firms, CPA practices, and bookkeeping providers. Our white-label outsourcing solutions help firms increase capacity, improve turnaround times, maintain compliance, and deliver accurate financial information without increasing internal staffing costs.",
+      "At NextLedgers, we provide dedicated Bookkeeping, Outsourced Accounting & Financial Cleanup support to Canadian accounting firms, CPA practices, and bookkeeping providers. Our white-label outsourcing solutions help firms increase capacity, improve turnaround times, maintain compliance, and deliver accurate financial information without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -165,7 +165,7 @@ export const CANADA_BOOKKEEPING = {
     "Canadian Bookkeeping & Accounting Expertise",
     "CRA & GST/HST Compliance Knowledge",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -173,9 +173,9 @@ export const CANADA_BOOKKEEPING = {
   ],
   partner: {
     badge: "Bookkeeping & Accounting Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Bookkeeping & Accounting Delivery Partner",
-    body: "Whether you require support with day-to-day bookkeeping, outsourced accounting, financial cleanup projects, GST/HST-ready bookkeeping, reconciliations, management reporting, month-end close, or dedicated offshore bookkeeping resources, NextLedgers can help your practice scale efficiently while maintaining quality, compliance, and client satisfaction.",
+    body: "Whether you require support with day-to-day bookkeeping, outsourced accounting, financial cleanup projects, GST/HST-ready bookkeeping, reconciliations, management reporting, month-end close, or dedicated bookkeeping resources, NextLedgers can help your practice scale efficiently while maintaining quality, compliance, and client satisfaction.",
   },
 };
 
@@ -191,7 +191,7 @@ export const CANADA_CORPORATE_TAX = {
     heading: "Reliable Corporate Tax Filing Support for Growing Practices",
     paragraphs: [
       "Corporate tax compliance in Canada requires technical expertise, accuracy, and a thorough understanding of federal and provincial tax legislation. Preparing corporate tax returns, calculating taxable income, reviewing financial statements, reconciling accounting and tax differences, and complying with CRA requirements can be both complex and time-consuming.",
-      "At NextLedgers, we provide dedicated offshore Corporate Tax Filing support to Canadian accounting firms, CPA practices, and tax advisory firms. Our white-label outsourcing solutions help firms increase capacity, improve turnaround times, and deliver reliable corporate tax compliance services without increasing internal staffing costs.",
+      "At NextLedgers, we provide dedicated Corporate Tax Filing support to Canadian accounting firms, CPA practices, and tax advisory firms. Our white-label outsourcing solutions help firms increase capacity, improve turnaround times, and deliver reliable corporate tax compliance services without increasing internal staffing costs.",
     ],
     image: "/images/DSC09781.JPG",
   },
@@ -297,7 +297,7 @@ export const CANADA_CORPORATE_TAX = {
     "CRA Compliance Knowledge",
     "Federal & Provincial Tax Understanding",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -305,9 +305,9 @@ export const CANADA_CORPORATE_TAX = {
   ],
   partner: {
     badge: "Corporate Tax Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Corporate Tax Delivery Partner",
-    body: "Whether you require support with T2 Corporate Income Tax returns, corporate tax computations, CRA compliance, tax reconciliations, capital cost allowance calculations, prior-year corrections, tax working papers, or dedicated offshore corporate tax resources, NextLedgers can help your practice scale efficiently while maintaining quality, compliance, and client satisfaction.",
+    body: "Whether you require support with T2 Corporate Income Tax returns, corporate tax computations, CRA compliance, tax reconciliations, capital cost allowance calculations, prior-year corrections, tax working papers, or dedicated corporate tax resources, NextLedgers can help your practice scale efficiently while maintaining quality, compliance, and client satisfaction.",
   },
 };
 
@@ -323,7 +323,7 @@ export const CANADA_GST_HST = {
     heading: "Reliable GST / HST Compliance Support for Growing Practices",
     paragraphs: [
       "GST/HST compliance is a critical component of financial management for Canadian businesses. Accounting firms must ensure GST/HST is accurately recorded, reconciled, and reported while complying with Canada Revenue Agency (CRA) regulations and varying provincial tax requirements. As client portfolios expand, managing GST/HST compliance across multiple businesses, provinces, and reporting periods can become increasingly time-consuming.",
-      "At NextLedgers, we provide dedicated offshore GST / HST Compliance & CRA Compliance support to Canadian accounting firms, CPA practices, and bookkeeping providers. Our white-label outsourcing solutions help firms increase capacity, improve turnaround times, strengthen CRA compliance, and deliver accurate indirect tax reporting without increasing internal staffing costs.",
+      "At NextLedgers, we provide dedicated GST / HST Compliance & CRA Compliance support to Canadian accounting firms, CPA practices, and bookkeeping providers. Our white-label outsourcing solutions help firms increase capacity, improve turnaround times, strengthen CRA compliance, and deliver accurate indirect tax reporting without increasing internal staffing costs.",
     ],
     image: "/images/DSC09794.JPG",
   },
@@ -363,7 +363,7 @@ export const CANADA_GST_HST = {
     {
       title: "CRA Compliance & Regulatory Reporting Support",
       intro:
-        "Our offshore team helps accounting firms maintain accurate reporting and ongoing compliance with CRA requirements.",
+        "Our team helps accounting firms maintain accurate reporting and ongoing compliance with CRA requirements.",
       items: [
         "CRA Compliance Reviews",
         "GST/HST Registration Assistance",
@@ -440,7 +440,7 @@ export const CANADA_GST_HST = {
     "CRA Compliance Knowledge",
     "Multi-Province Tax Experience",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -448,9 +448,9 @@ export const CANADA_GST_HST = {
   ],
   partner: {
     badge: "GST/HST Compliance Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "GST / HST Compliance Delivery Partner",
-    body: "Whether you require support with GST/HST registrations, GST/HST return preparation, Input Tax Credit (ITC) reviews, CRA compliance, GST/HST reconciliations, multi-province tax reporting, audit-ready working papers, or dedicated offshore indirect tax resources, NextLedgers can help your practice scale efficiently while maintaining quality, compliance, and client satisfaction.",
+    body: "Whether you require support with GST/HST registrations, GST/HST return preparation, Input Tax Credit (ITC) reviews, CRA compliance, GST/HST reconciliations, multi-province tax reporting, audit-ready working papers, or dedicated indirect tax resources, NextLedgers can help your practice scale efficiently while maintaining quality, compliance, and client satisfaction.",
   },
 };
 
@@ -467,7 +467,7 @@ export const CANADA_MANAGEMENT = {
     heading: "Strategic Financial Leadership for Growing Canadian Practices",
     paragraphs: [
       "As Canadian businesses scale, financial decision-making becomes increasingly complex due to multi-channel revenue streams, provincial tax structures, capital allocation decisions, investor expectations, and regulatory reporting requirements under ASPE or IFRS. Management accounting and strategic financial oversight are no longer optional—they are essential for sustainable growth, profitability optimisation, and long-term financial stability.",
-      "At NextLedgers, we provide dedicated offshore Management Accounting, Virtual CFO & Investment Accounting support to Canadian accounting firms, CPA practices, SMEs, and investment-driven businesses. Our white-label outsourcing solutions help firms strengthen financial reporting, improve decision-making, and scale advisory capabilities without increasing internal staffing costs.",
+      "At NextLedgers, we provide dedicated Management Accounting, Virtual CFO & Investment Accounting support to Canadian accounting firms, CPA practices, SMEs, and investment-driven businesses. Our white-label outsourcing solutions help firms strengthen financial reporting, improve decision-making, and scale advisory capabilities without increasing internal staffing costs.",
     ],
     image: "/images/DSC09879.JPG",
   },
@@ -592,7 +592,7 @@ export const CANADA_MANAGEMENT = {
     "Virtual CFO & Advisory Capability",
     "Investment Reporting Support Experience",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -600,9 +600,9 @@ export const CANADA_MANAGEMENT = {
   ],
   partner: {
     badge: "Management Accounting Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Management Accounting & CFO Delivery Partner",
-    body: "Whether you require support with management accounts, budgeting, forecasting, financial modelling, KPI reporting, cash flow management, investment accounting, executive reporting, or dedicated offshore CFO resources, NextLedgers can help your practice scale efficiently while maintaining quality, accuracy, and client satisfaction.",
+    body: "Whether you require support with management accounts, budgeting, forecasting, financial modelling, KPI reporting, cash flow management, investment accounting, executive reporting, or dedicated CFO resources, NextLedgers can help your practice scale efficiently while maintaining quality, accuracy, and client satisfaction.",
   },
 };
 
@@ -618,7 +618,7 @@ export const CANADA_PAYROLL = {
     heading: "Reliable Payroll Processing Support for Growing Practices",
     paragraphs: [
       "Payroll processing in Canada is highly regulated and increasingly complex due to evolving CRA requirements, province-specific employment standards, statutory deductions (CPP, EI, and income tax), and strict reporting deadlines. For accounting firms, CPA practices, and SMEs, ensuring payroll accuracy while managing compliance obligations and employee expectations can quickly become resource-intensive.",
-      "At NextLedgers, we provide dedicated offshore Payroll Processing support to Canadian accounting firms, CPA practices, and businesses. Our white-label outsourcing solutions help firms improve accuracy, ensure CRA compliance, increase capacity, and reduce internal payroll workload without increasing staffing costs.",
+      "At NextLedgers, we provide dedicated Payroll Processing support to Canadian accounting firms, CPA practices, and businesses. Our white-label outsourcing solutions help firms improve accuracy, ensure CRA compliance, increase capacity, and reduce internal payroll workload without increasing staffing costs.",
     ],
     image: "/images/DSC09845.JPG",
   },
@@ -740,7 +740,7 @@ export const CANADA_PAYROLL = {
     "CRA Regulatory Understanding",
     "Multi-Province Payroll Experience",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -748,9 +748,9 @@ export const CANADA_PAYROLL = {
   ],
   partner: {
     badge: "Payroll Processing Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Payroll Processing Delivery Partner",
-    body: "Whether you require support with payroll calculations, CRA remittances, statutory deductions, multi-province payroll, year-end reporting, payroll reconciliations, or dedicated offshore payroll resources, NextLedgers can help your practice scale efficiently while maintaining accuracy, compliance, and client satisfaction.",
+    body: "Whether you require support with payroll calculations, CRA remittances, statutory deductions, multi-province payroll, year-end reporting, payroll reconciliations, or dedicated payroll resources, NextLedgers can help your practice scale efficiently while maintaining accuracy, compliance, and client satisfaction.",
   },
 };
 
@@ -767,7 +767,7 @@ export const CANADA_PERSONAL_TAX = {
     heading: "Reliable Personal Tax Filing Support for Growing Practices",
     paragraphs: [
       "Personal tax filing in Canada is becoming increasingly complex due to evolving Canada Revenue Agency (CRA) regulations, multiple income sources, provincial tax variations, investment income reporting, and strict filing deadlines. For individuals, self-employed professionals, and cross-border taxpayers, ensuring accurate tax filing while maximising eligible deductions and credits requires strong technical understanding of Canadian tax laws.",
-      "At NextLedgers, we provide dedicated offshore Canada Personal Tax Filing & CA Tax Preparation services to CPA firms, tax advisors, and accounting practices. Our white-label outsourcing solutions help firms improve capacity, enhance accuracy, and deliver compliant personal tax services without increasing internal workload or staffing costs.",
+      "At NextLedgers, we provide dedicated Canada Personal Tax Filing & CA Tax Preparation services to CPA firms, tax advisors, and accounting practices. Our white-label outsourcing solutions help firms improve capacity, enhance accuracy, and deliver compliant personal tax services without increasing internal workload or staffing costs.",
     ],
     image: "/images/DSC09669.JPG",
   },
@@ -897,7 +897,7 @@ export const CANADA_PERSONAL_TAX = {
     "CRA Compliance Knowledge",
     "Multi-Source Income Handling Experience",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -905,9 +905,9 @@ export const CANADA_PERSONAL_TAX = {
   ],
   partner: {
     badge: "Personal Tax Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Personal Tax Preparation Partner",
-    body: "Whether you require support with T1 tax preparation, self-employed tax filing, investment income reporting, capital gains calculations, prior-year tax cleanup, deduction optimisation, or dedicated offshore personal tax resources, NextLedgers can help your practice scale efficiently while maintaining quality, compliance, and client satisfaction.",
+    body: "Whether you require support with T1 tax preparation, self-employed tax filing, investment income reporting, capital gains calculations, prior-year tax cleanup, deduction optimisation, or dedicated personal tax resources, NextLedgers can help your practice scale efficiently while maintaining quality, compliance, and client satisfaction.",
   },
 };
 
@@ -924,7 +924,7 @@ export const CANADA_REVIEW = {
     heading: "Reliable Review Engagement Support for Growing Practices",
     paragraphs: [
       "Review engagements in Canada play a key role in providing limited assurance on financial statements for private enterprises that do not require a full statutory audit. With increasing CRA scrutiny, lender expectations, and stakeholder demands, businesses must ensure financial reporting is accurate, consistent, and compliant with applicable accounting frameworks such as ASPE and IFRS.",
-      "At NextLedgers, we provide dedicated offshore Review Engagement, Compliance & Assurance support services for Canadian CPA firms and accounting practices. Our white-label solutions help firms improve capacity, strengthen working paper preparation, and deliver high-quality review engagements while reducing internal workload and operational pressure.",
+      "At NextLedgers, we provide dedicated Review Engagement, Compliance & Assurance support services for Canadian CPA firms and accounting practices. Our white-label solutions help firms improve capacity, strengthen working paper preparation, and deliver high-quality review engagements while reducing internal workload and operational pressure.",
     ],
     image: "/images/DSC09845.JPG",
   },
@@ -1047,7 +1047,7 @@ export const CANADA_REVIEW = {
     "CPA Canada Standards Understanding",
     "ASPE / IFRS Reporting Alignment",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -1055,9 +1055,9 @@ export const CANADA_REVIEW = {
   ],
   partner: {
     badge: "Review Engagement Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Review Engagement & Assurance Delivery Partner",
-    body: "Whether you require support with review engagement file preparation, financial statement analysis, analytical procedures, CRA alignment, working paper structuring, or dedicated offshore assurance resources, NextLedgers can help your practice scale efficiently while maintaining quality, compliance, and client satisfaction.",
+    body: "Whether you require support with review engagement file preparation, financial statement analysis, analytical procedures, CRA alignment, working paper structuring, or dedicated assurance resources, NextLedgers can help your practice scale efficiently while maintaining quality, compliance, and client satisfaction.",
   },
 };
 
@@ -1068,13 +1068,13 @@ export const CANADA_YEAR_END = {
   subtitle:
     "Accurate, CRA-Compliant Year-End Financial Reporting & Financial Statement Preparation for Canadian Businesses",
   subtitleSecond:
-    "Accelerate year-end close, strengthen reporting accuracy, and reduce internal workload with experienced offshore accounting professionals.",
+    "Accelerate year-end close, strengthen reporting accuracy, and reduce internal workload with experienced accounting professionals.",
   intro: {
     eyebrow: "Year-End Accounts Partnership",
     heading: "Reliable Year-End Accounts Support for Growing Practices",
     paragraphs: [
       "Year-end accounts preparation is one of the most important financial reporting obligations for Canadian businesses. Whether preparing financial statements for shareholders, lenders, investors, management, or supporting corporate tax filings with the Canada Revenue Agency (CRA), organisations need accurate, complete, and compliant financial information to close their financial year with confidence.",
-      "At NextLedgers, we provide dedicated offshore Canada Year-End Accounts & Financial Statement Preparation Services for Canadian CPA firms, accounting practices, SMEs, and multi-entity organisations. Our white-label accounting solutions help firms accelerate year-end close processes, strengthen financial reporting accuracy, improve CRA compliance readiness, and reduce internal workload through experienced offshore accounting professionals.",
+      "At NextLedgers, we provide dedicated Canada Year-End Accounts & Financial Statement Preparation Services for Canadian CPA firms, accounting practices, SMEs, and multi-entity organisations. Our white-label accounting solutions help firms accelerate year-end close processes, strengthen financial reporting accuracy, improve CRA compliance readiness, and reduce internal workload through experienced accounting professionals.",
     ],
     image: "/images/DSC09894.JPG",
   },
@@ -1213,21 +1213,21 @@ export const CANADA_YEAR_END = {
     "Multi-Entity & Group Businesses",
   ],
   whyChoose: [
-    "Experienced Offshore Accounting Professionals",
+    "Experienced Accounting Professionals",
     "Dedicated Support for Canadian CPA Firms",
     "CRA Reporting & Compliance Understanding",
     "ASPE & IFRS Financial Reporting Expertise",
     "White-Label Delivery Model",
     "Secure & Confidential Data Handling",
     "Flexible Engagement Models",
-    "Scalable Offshore Accounting Teams",
+    "Scalable Accounting Teams",
     "Structured Year-End Close Processes",
     "Reliable Turnaround During Peak Reporting Seasons",
   ],
   partner: {
     badge: "Year-End Accounts Partner",
-    titleBefore: "Your Offshore Partner for",
+    titleBefore: "Your Partner for",
     titleAccent: "Canada Year-End Accounts & Financial Statement Preparation",
-    body: "Whether you require support with year-end close activities, financial statement preparation, account reconciliations, journal entries, CRA compliance readiness, or dedicated offshore accounting resources, our professionals provide dependable, scalable solutions tailored to your firm's needs.",
+    body: "Whether you require support with year-end close activities, financial statement preparation, account reconciliations, journal entries, CRA compliance readiness, or dedicated accounting resources, our professionals provide dependable, scalable solutions tailored to your firm's needs.",
   },
 };

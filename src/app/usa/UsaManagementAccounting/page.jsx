@@ -206,7 +206,7 @@ const whyChooseNextLedgers = [
     { title: "US Management Accounting Expertise", icon: Briefcase },
     { title: "Virtual CFO Support Specialists", icon: UserCheck },
     { title: "White-Label Service Delivery", icon: BadgeCheck },
-    { title: "Dedicated Offshore Resources", icon: Users },
+    { title: "Dedicated Resources", icon: Users },
     { title: "Multi-Software Expertise", icon: Layers },
     { title: "Structured Financial Reporting Processes", icon: ClipboardCheck },
     { title: "Flexible Engagement Models", icon: Network },
@@ -462,7 +462,7 @@ export default function UsaManagementAccounting() {
                                         </h3>
                                     </div>
                                     <p className="text-[12.5px] leading-relaxed text-gray-500 sm:text-[13px]">
-                                        Dedicated offshore Management Accounting
+                                        Dedicated Management Accounting
                                         &amp; Virtual CFO support for US CPA firms
                                         — an extension of your practice to expand
                                         advisory services, improve turnaround, and
@@ -538,7 +538,7 @@ export default function UsaManagementAccounting() {
                                 <Stat
                                     icon={<Headset className="h-5 w-5" />}
                                     value="Dedicated"
-                                    label="Offshore Support"
+                                    label="Support"
                                 />
                             </div>
                         </div>
@@ -778,7 +778,7 @@ export default function UsaManagementAccounting() {
                             className="mt-2.5 max-w-2xl text-[12.5px] leading-relaxed sm:text-[13.5px]"
                             style={{ color: GREY }}
                         >
-                            Our offshore finance professionals support firms
+                            Our finance professionals support firms
                             throughout the management reporting cycle, from
                             preparing monthly management accounts to delivering
                             executive-level financial reporting and Virtual CFO
@@ -900,7 +900,7 @@ export default function UsaManagementAccounting() {
                 titleMiddle=" for "
                 titleAccent2="Management Accounting"
                 titleAfter="?"
-                subtitle="ACCA-led offshore management accounting and Virtual CFO specialists for US CPA firms and accounting practices."
+                subtitle="ACCA-led management accounting and Virtual CFO specialists for US CPA firms and accounting practices."
                 items={whyChooseNextLedgers}
             />
 
@@ -933,7 +933,7 @@ export default function UsaManagementAccounting() {
                             className="text-[24px] font-extrabold leading-tight sm:text-[30px] lg:text-[34px]"
                             style={{ color: NAVY }}
                         >
-                            Your Offshore{" "}
+                            Your{" "}
                             <span style={{ color: ORANGE }}>
                                 Management Accounting &amp; Virtual CFO
                             </span>{" "}
@@ -968,7 +968,7 @@ export default function UsaManagementAccounting() {
                                 management accounts, budgeting, cash flow
                                 forecasting, KPI reporting, board reporting,
                                 financial analysis, Virtual CFO services, or
-                                dedicated offshore finance resources,
+                                dedicated finance resources,
                                 NextLedgers helps your practice scale
                                 efficiently while delivering high-value
                                 financial advisory services to your clients.

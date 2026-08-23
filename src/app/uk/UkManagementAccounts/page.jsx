@@ -42,6 +42,7 @@ import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/Arti
 import NexaLedAi from "@/app/components/ChatBot/NexaLedAi";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
 import { UK_MANAGEMENT_ACCOUNTS_INDUSTRIES } from "@/app/uk/ukIndustries";
+import { UK_MANAGEMENT_ACCOUNTS_SOFTWARE } from "@/app/uk/ukSoftwareExpertise";
 
 const ORANGE = BRAND_ORANGE;
 const NAVY = "#0B1F3A";
@@ -162,31 +163,7 @@ const helpCards = [
     },
 ];
 
-const softwareExpertiseLogodata = [
-    {
-        heading: "ACCOUNTING PLATFORMS",
-        icon: "briefcase",
-        logos: [
-            "xero",
-            "quickbooks online",
-            "sage business cloud",
-            "freeagent",
-        ],
-    },
-    {
-        heading: "REPORTING & DASHBOARD TOOLS",
-        icon: "chart",
-        logos: [
-            "fathom",
-            "syft analytics",
-            "spotlight reporting",
-            "futrli",
-            "float",
-            "power bi",
-            "google looker studio",
-        ],
-    },
-];
+const softwareExpertiseLogodata = UK_MANAGEMENT_ACCOUNTS_SOFTWARE;
 
 const whyChooseCards = [
     { title: "ACCA-Led Financial Reporting", icon: UserCheck },
@@ -412,7 +389,7 @@ export default function UkManagementAccounts() {
                                 <Stat
                                     icon={<Headset className="h-5 w-5" />}
                                     value="Dedicated"
-                                    label="Offshore Support Team"
+                                    label="Support Team"
                                 />
                             </div>
                         </div>
@@ -559,7 +536,7 @@ export default function UkManagementAccounts() {
                         </span>
 
                         <h2 className="text-[24px] font-extrabold leading-tight text-[#0B1F3A] sm:text-[30px] lg:text-[34px]">
-                            Your Offshore{" "}
+                            Your{" "}
                             <span className="text-[#FF6A00]">
                                 Management Accounts
                             </span>{" "}
@@ -578,7 +555,7 @@ export default function UkManagementAccounts() {
                             </span>
                             <p className="pt-0.5 text-[12.5px] leading-relaxed text-[#6B7280] sm:text-[13.5px]">
                                 Whether you need monthly reporting, board packs, cash flow
-                                forecasts, KPI dashboards, or dedicated offshore support,
+                                forecasts, KPI dashboards, or dedicated support,
                                 NextLedgers helps your practice deliver consistent,
                                 advisory-ready insight.
                             </p>

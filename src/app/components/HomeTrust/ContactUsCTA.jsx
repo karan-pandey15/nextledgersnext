@@ -3,85 +3,43 @@
 import React from "react";
 import Link from "next/link";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
+import { HomeLogoImg } from "@/app/lib/homePageLogos";
 
 const ORANGE = BRAND_ORANGE;
-
-function IconPhone({ className = "w-5 h-5" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <path
-        d="M8.2 3.8h2.4l1.2 3.2-1.5 1.1a12.5 12.5 0 0 0 5.6 5.6l1.1-1.5 3.2 1.2v2.4c0 .9-.7 1.7-1.6 1.8A15.7 15.7 0 0 1 3.8 5.4c.1-.9.9-1.6 1.8-1.6Z"
-        stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function IconMail({ className = "w-5 h-5" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <rect x="3.5" y="5.5" width="17" height="13" rx="2" stroke="currentColor" strokeWidth="1.7" />
-      <path
-        d="m5.5 8 6.5 5 6.5-5"
-        stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function IconChat({ className = "w-5 h-5" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <path
-        d="M5 5.5h14A1.5 1.5 0 0 1 20.5 7v8A1.5 1.5 0 0 1 19 16.5H9.5L5 20v-3.5A1.5 1.5 0 0 1 3.5 15V7A1.5 1.5 0 0 1 5 5.5Z"
-        stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinejoin="round"
-      />
-      <path d="M8 10h8M8 13h5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-    </svg>
-  );
-}
 
 const CONTACT_CARDS = [
   {
     title: "Call Us",
     detail: "+1 (888) 552-0055",
     href: "tel:+18885520055",
-    icon: IconPhone,
+    logo: 1,
     external: true,
   },
   {
     title: "Email Us",
     detail: "info@nextledgers.com",
     href: "mailto:info@nextledgers.com",
-    icon: IconMail,
+    logo: 25,
     external: true,
   },
   {
     title: "Let's Talk",
     detail: "Schedule a Free Consultation",
     href: "/contact",
-    icon: IconChat,
+    logo: 3,
     external: false,
   },
 ];
 
 function ContactCard({ card }) {
-  const Icon = card.icon;
   const isConsultation = card.detail === "Schedule a Free Consultation";
   const className =
     "flex w-full flex-col items-center justify-center rounded-[14px] bg-white px-4 py-5 text-center shadow-[0_8px_24px_rgba(0,0,0,0.1)] sm:px-5 sm:py-6";
 
   const content = (
     <>
-      <div className="flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full bg-[#FFF1E6] text-[#FF6A00] sm:h-[66px] sm:w-[66px]">
-        <Icon className="h-[30px] w-[30px] sm:h-[33px] sm:w-[33px]" />
+      <div className="flex h-[60px] w-[60px] shrink-0 items-center justify-center sm:h-[66px] sm:w-[66px]">
+        <HomeLogoImg n={card.logo} />
       </div>
 
       <h3 className="mt-3 text-[15px] font-bold text-[#0F274A] sm:mt-3.5 sm:text-[16px]">

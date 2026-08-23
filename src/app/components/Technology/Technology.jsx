@@ -47,6 +47,7 @@ const TAX_LOGOS = [
   { name: "ADP", src: "/images/logooUK/ADP.jpeg" },
   { name: "Avalara", src: "/images/logooUK/Avalara.png" },
   { name: "Taxfyle", src: "/images/logooUK/Taxfyle.jpeg" },
+  { name: "CaseWare", src: "/images/logooUK/Caseware.png" },
 ];
 
 const ALL_LOGOS = [...ACCOUNTING_LOGOS, ...PAYROLL_LOGOS, ...TAX_LOGOS];

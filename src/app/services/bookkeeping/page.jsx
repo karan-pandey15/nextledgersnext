@@ -163,7 +163,7 @@ const whoWeSupport = [
         icon: Briefcase,
         title: "Accounting Firms & CPA Practices",
         description:
-            "Expand your service capacity through dedicated offshore bookkeeping teams operating as a seamless extension of your practice.",
+            "Expand your service capacity through dedicated bookkeeping teams operating as a seamless extension of your practice.",
     },
     {
         icon: Layers,
@@ -542,7 +542,7 @@ export default function AccountingBookkeepingPage() {
                         >
                             NextLedgers helps businesses worldwide simplify accounting
                             operations through accurate bookkeeping, structured
-                            financial processes, and scalable offshore support. Our
+                            financial processes, and scalable support. Our
                             experienced professionals become an extension of your
                             finance team, helping you improve efficiency, maintain
                             financial accuracy, and focus on growing your business

@@ -231,7 +231,7 @@ export const IE_BOOKKEEPING = {
       "Reliable Bookkeeping Support for Irish Accounting Firms & Accountancy Practices",
     paragraphs: [
       "Accurate bookkeeping is the foundation of every successful business. From recording day-to-day financial transactions to reconciling bank accounts, maintaining VAT records, and preparing financial data for payroll, tax compliance, and year-end reporting, bookkeeping plays a critical role in helping Irish businesses remain compliant and financially organised.",
-      "As your practice grows, managing bookkeeping for multiple clients can become increasingly time-consuming. At NextLedgers, we provide dedicated offshore Bookkeeping support to Irish accounting firms, accountancy practices, and bookkeeping providers, helping firms increase capacity, improve turnaround times, and deliver accurate bookkeeping services without increasing internal staffing costs.",
+      "As your practice grows, managing bookkeeping for multiple clients can become increasingly time-consuming. At NextLedgers, we provide dedicated Bookkeeping support to Irish accounting firms, accountancy practices, and bookkeeping providers, helping firms increase capacity, improve turnaround times, and deliver accurate bookkeeping services without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -331,7 +331,7 @@ export const IE_BOOKKEEPING = {
     "ACCA-Led Delivery Team",
     "Irish Bookkeeping Expertise",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -341,11 +341,11 @@ export const IE_BOOKKEEPING = {
     "Dedicated bookkeeping specialists who work as an extension of your Irish practice.",
   partner: {
     badge: "Bookkeeping Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Bookkeeping Delivery Partner",
     body: "Bookkeeping requires consistency, accuracy, and attention to detail. Our dedicated professionals work as an extension of your practice, helping you deliver reliable bookkeeping services while freeing up valuable internal resources.",
     callout:
-      "Whether you require support with day-to-day bookkeeping, catch-up bookkeeping, reconciliations, month-end accounting, VAT-ready bookkeeping, management reporting, or dedicated offshore bookkeeping resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
+      "Whether you require support with day-to-day bookkeeping, catch-up bookkeeping, reconciliations, month-end accounting, VAT-ready bookkeeping, management reporting, or dedicated bookkeeping resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
   },
 };
 
@@ -362,7 +362,7 @@ export const IE_VAT = {
       "Reliable VAT Compliance & Filing Support for Irish Accounting Firms",
     paragraphs: [
       "VAT compliance requires technical expertise, accuracy, and a thorough understanding of Irish VAT legislation. Businesses must maintain accurate VAT records, correctly classify transactions, prepare periodic VAT returns, and comply with the reporting requirements of the Irish Revenue Commissioners. Even minor VAT errors can lead to penalties, interest charges, audits, and unnecessary administrative work.",
-      "As your practice grows, managing VAT compliance for multiple clients can become increasingly time-consuming. At NextLedgers, we provide dedicated offshore VAT support to Irish accounting firms, accountancy practices, and tax advisory firms, helping firms increase capacity, improve turnaround times, and deliver reliable VAT compliance services without increasing internal staffing costs.",
+      "As your practice grows, managing VAT compliance for multiple clients can become increasingly time-consuming. At NextLedgers, we provide dedicated VAT support to Irish accounting firms, accountancy practices, and tax advisory firms, helping firms increase capacity, improve turnaround times, and deliver reliable VAT compliance services without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -463,7 +463,7 @@ export const IE_VAT = {
     "Irish VAT Expertise",
     "Revenue & EU VAT Compliance Knowledge",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -473,11 +473,11 @@ export const IE_VAT = {
     "Dedicated VAT specialists who work as an extension of your Irish practice.",
   partner: {
     badge: "VAT Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "VAT Delivery Partner",
     body: "VAT compliance requires technical expertise, consistency, and meticulous attention to detail. Our dedicated professionals work as an extension of your practice, helping you deliver accurate VAT compliance services while freeing up valuable internal resources.",
     callout:
-      "Whether you require support with VAT registrations, VAT return preparation, VIES and Intrastat reporting, OSS reporting, VAT reconciliations, Revenue compliance reviews, or dedicated offshore VAT specialists, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
+      "Whether you require support with VAT registrations, VAT return preparation, VIES and Intrastat reporting, OSS reporting, VAT reconciliations, Revenue compliance reviews, or dedicated VAT specialists, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
   },
 };
 
@@ -495,7 +495,7 @@ export const IE_YEAR_END = {
       "Reliable Year-End Accounts & Financial Reporting Support for Irish Accounting Firms",
     paragraphs: [
       "Preparing year-end accounts and financial statements requires technical expertise, accuracy, and a structured review process. Accounting firms must ensure financial statements are prepared from complete and accurate accounting records while complying with Irish Generally Accepted Accounting Practice (Irish GAAP), Financial Reporting Standards (FRS 102), International Financial Reporting Standards (IFRS) where applicable, and Revenue as well as Companies Registration Office (CRO) requirements.",
-      "As your practice grows, managing year-end reporting engagements for multiple clients can become increasingly resource-intensive. At NextLedgers, we provide dedicated offshore Year-End Accounts & Financial Statement Preparation support to Irish accounting firms, accountancy practices, and business advisory firms, helping firms increase capacity, improve turnaround times, and deliver high-quality financial reporting without increasing internal staffing costs.",
+      "As your practice grows, managing year-end reporting engagements for multiple clients can become increasingly resource-intensive. At NextLedgers, we provide dedicated Year-End Accounts & Financial Statement Preparation support to Irish accounting firms, accountancy practices, and business advisory firms, helping firms increase capacity, improve turnaround times, and deliver high-quality financial reporting without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -596,7 +596,7 @@ export const IE_YEAR_END = {
     "Irish Financial Reporting Expertise",
     "Irish GAAP, FRS 102 & IFRS Knowledge",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -606,11 +606,11 @@ export const IE_YEAR_END = {
     "Dedicated year-end and financial reporting specialists who work as an extension of your Irish practice.",
   partner: {
     badge: "Financial Reporting Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Financial Reporting Delivery Partner",
     body: "Year-end accounts preparation requires technical expertise, consistency, and meticulous attention to detail. Our dedicated professionals work as an extension of your practice, helping you deliver accurate financial statements while freeing up valuable internal resources during busy reporting periods.",
     callout:
-      "Whether you require support with year-end accounts preparation, financial statement drafting, working paper preparation, Corporation Tax readiness, CRO filing support, reconciliations, audit support, or dedicated offshore accounting resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
+      "Whether you require support with year-end accounts preparation, financial statement drafting, working paper preparation, Corporation Tax readiness, CRO filing support, reconciliations, audit support, or dedicated accounting resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
   },
 };
 
@@ -627,7 +627,7 @@ export const IE_PERSONAL_TAX = {
       "Reliable Personal Tax Compliance Support for Irish Accounting Firms",
     paragraphs: [
       "Preparing Personal Tax returns requires technical expertise, attention to detail, and a thorough understanding of Irish tax legislation. Accounting firms and tax advisors must accurately review employment income, self-employed income, rental income, investment income, allowable deductions, tax credits, reliefs, and supporting documentation while ensuring compliance with Revenue requirements.",
-      "As your practice grows, managing large volumes of Personal Tax returns can place significant pressure on your internal team, particularly during the annual filing season. At NextLedgers, we provide dedicated offshore Personal Tax support to Irish accounting firms, accountancy practices, and tax advisory firms, helping practices increase capacity, improve turnaround times, and deliver accurate tax compliance services without increasing internal staffing costs.",
+      "As your practice grows, managing large volumes of Personal Tax returns can place significant pressure on your internal team, particularly during the annual filing season. At NextLedgers, we provide dedicated Personal Tax support to Irish accounting firms, accountancy practices, and tax advisory firms, helping practices increase capacity, improve turnaround times, and deliver accurate tax compliance services without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -731,7 +731,7 @@ export const IE_PERSONAL_TAX = {
     "Irish Personal Tax Expertise",
     "Revenue Compliance Knowledge",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -741,11 +741,11 @@ export const IE_PERSONAL_TAX = {
     "Dedicated personal tax specialists who work as an extension of your Irish practice.",
   partner: {
     badge: "Personal Tax Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Personal Tax Delivery Partner",
     body: "Personal Tax preparation requires technical expertise, precision, and a structured review process. Our dedicated professionals work as an extension of your practice, helping you deliver accurate Personal Tax returns while freeing up valuable internal resources during busy tax seasons.",
     callout:
-      "Whether you require support with Form 11 and Form 12 tax returns, self-employed tax returns, Capital Gains Tax calculations, rental income reporting, tax planning, Revenue compliance, working papers, or dedicated offshore tax resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
+      "Whether you require support with Form 11 and Form 12 tax returns, self-employed tax returns, Capital Gains Tax calculations, rental income reporting, tax planning, Revenue compliance, working papers, or dedicated tax resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
   },
 };
 
@@ -763,7 +763,7 @@ export const IE_MANAGEMENT_ACCOUNTS = {
       "Reliable Management Accounting & Virtual CFO Support for Irish Accounting Firms",
     paragraphs: [
       "Today's businesses expect far more than bookkeeping and tax compliance. They rely on their accountants for timely financial reporting, cash flow management, budgeting, forecasting, profitability analysis, and strategic financial advice. As client expectations continue to evolve, Irish accounting firms require additional resources to deliver high-value advisory services while managing increasing workloads.",
-      "At NextLedgers, we provide dedicated offshore Management Accounting & Virtual CFO support to Irish accounting firms, accountancy practices, and business advisory firms. Our white-label outsourcing solutions help firms expand their advisory services, improve reporting efficiency, and deliver strategic financial insights without increasing internal staffing costs.",
+      "At NextLedgers, we provide dedicated Management Accounting & Virtual CFO support to Irish accounting firms, accountancy practices, and business advisory firms. Our white-label outsourcing solutions help firms expand their advisory services, improve reporting efficiency, and deliver strategic financial insights without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -869,7 +869,7 @@ export const IE_MANAGEMENT_ACCOUNTS = {
     "Irish Management Accounting Expertise",
     "Virtual CFO Advisory Experience",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -879,11 +879,11 @@ export const IE_MANAGEMENT_ACCOUNTS = {
     "Dedicated management accounting and virtual CFO specialists who work as an extension of your Irish practice.",
   partner: {
     badge: "Management Accounting Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Management Accounting & Virtual CFO Delivery Partner",
     body: "Management accounting and Virtual CFO services require commercial insight, analytical expertise, and consistent reporting. Our dedicated professionals work as an extension of your practice, helping you deliver meaningful financial insights and strategic advisory services while freeing up valuable internal resources.",
     callout:
-      "Whether you require support with monthly management accounts, budgeting, forecasting, cash flow management, KPI reporting, board reporting, financial modelling, business advisory, or dedicated offshore advisory resources, NextLedgers can help your practice scale efficiently while maintaining quality and client satisfaction.",
+      "Whether you require support with monthly management accounts, budgeting, forecasting, cash flow management, KPI reporting, board reporting, financial modelling, business advisory, or dedicated advisory resources, NextLedgers can help your practice scale efficiently while maintaining quality and client satisfaction.",
   },
 };
 
@@ -901,7 +901,7 @@ export const IE_COMPANY_SECRETARIAL = {
       "Reliable Company Secretarial & CRO Compliance Support for Irish Accounting Firms",
     paragraphs: [
       "Company Secretarial compliance is a vital part of running an Irish company. Businesses must maintain statutory registers, submit annual returns, notify changes to company information, and comply with the filing requirements of the Companies Registration Office (CRO). Missing filing deadlines or maintaining incomplete statutory records can lead to penalties, loss of audit exemption, and unnecessary compliance risks.",
-      "As your practice grows, managing Company Secretarial work and CRO compliance for multiple clients can become increasingly time-consuming. At NextLedgers, we provide dedicated offshore Company Secretarial & CRO support to Irish accounting firms, accountancy practices, and corporate service providers, helping firms increase capacity, improve turnaround times, and deliver reliable compliance services without increasing internal staffing costs.",
+      "As your practice grows, managing Company Secretarial work and CRO compliance for multiple clients can become increasingly time-consuming. At NextLedgers, we provide dedicated Company Secretarial & CRO support to Irish accounting firms, accountancy practices, and corporate service providers, helping firms increase capacity, improve turnaround times, and deliver reliable compliance services without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -1002,7 +1002,7 @@ export const IE_COMPANY_SECRETARIAL = {
     "Irish Company Secretarial Expertise",
     "CRO Compliance Knowledge",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -1012,11 +1012,11 @@ export const IE_COMPANY_SECRETARIAL = {
     "Dedicated company secretarial specialists who work as an extension of your Irish practice.",
   partner: {
     badge: "Company Secretarial Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Company Secretarial & CRO Delivery Partner",
     body: "Company Secretarial work requires organisation, accuracy, confidentiality, and ongoing compliance monitoring. Our dedicated professionals work as an extension of your practice, helping you manage statutory obligations and CRO filings while freeing up valuable internal resources.",
     callout:
-      "Whether you require support with annual return preparation, statutory register maintenance, CRO filing documentation, company resolutions, corporate governance documentation, or dedicated offshore compliance resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
+      "Whether you require support with annual return preparation, statutory register maintenance, CRO filing documentation, company resolutions, corporate governance documentation, or dedicated compliance resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
   },
 };
 
@@ -1033,7 +1033,7 @@ export const IE_CORPORATE_TAX = {
       "Reliable Corporation Tax Compliance Support for Irish Accounting Firms & Tax Practices",
     paragraphs: [
       "Corporation Tax compliance requires technical expertise, accuracy, and a thorough understanding of Irish taxation law. Preparing company tax returns, reviewing financial statements, calculating taxable income, identifying tax adjustments, and maintaining compliance with Revenue requirements demand significant time and expertise. As client portfolios continue to grow, accounting firms often require additional resources to manage increasing tax workloads efficiently.",
-      "At NextLedgers, we provide dedicated offshore Corporation Tax support to Irish accounting firms, accountancy practices, and tax advisory firms. Our white-label outsourcing solutions help practices increase capacity, improve turnaround times, and deliver reliable Corporation Tax compliance services without increasing internal staffing costs.",
+      "At NextLedgers, we provide dedicated Corporation Tax support to Irish accounting firms, accountancy practices, and tax advisory firms. Our white-label outsourcing solutions help practices increase capacity, improve turnaround times, and deliver reliable Corporation Tax compliance services without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -1120,7 +1120,7 @@ export const IE_CORPORATE_TAX = {
     "ACCA-Led Delivery Team",
     "Irish Corporation Tax Expertise",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -1130,11 +1130,11 @@ export const IE_CORPORATE_TAX = {
     "Dedicated Corporation Tax specialists who work as an extension of your Irish practice.",
   partner: {
     badge: "Corporation Tax Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Corporation Tax Delivery Partner",
     body: "Corporation Tax compliance requires technical expertise, accuracy, and a structured review process. Our dedicated professionals work as an extension of your practice, helping you deliver reliable Corporation Tax services while freeing up valuable internal resources during busy tax seasons.",
     callout:
-      "Whether you require support with Corporation Tax computations, tax return preparation, tax reconciliations, compliance reviews, working papers, or dedicated offshore tax resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
+      "Whether you require support with Corporation Tax computations, tax return preparation, tax reconciliations, compliance reviews, working papers, or dedicated tax resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
   },
 };
 

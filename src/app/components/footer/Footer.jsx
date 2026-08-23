@@ -16,6 +16,7 @@ import { AUSTRALIA_SERVICE_LINKS } from "@/app/australia/australiaServiceLinks";
 import { NETHERLANDS_SERVICE_LINKS } from "@/app/netherlands/netherlandsServiceLinks";
 import { UAE_SERVICE_LINKS } from "@/app/uae/uaeServiceLinks";
 import { GLOBAL_SERVICE_LINKS } from "../header/navigationData";
+import { HomeLogoImg } from "@/app/lib/homePageLogos";
 
 const BG = "#0B1C33";
 
@@ -253,27 +254,27 @@ function IconChevron({ className = "w-3 h-3" }) {
 
 const VALUE_STATS = [
   {
-    icon: IconLaurel,
+    logo: 2,
     title: "9+ Years",
     subtitle: ["Serving Firms", "Worldwide"],
   },
   {
-    icon: IconShield,
+    logo: 18,
     title: "ISO 27001",
     subtitle: ["Certified", "Data Security"],
   },
   {
-    icon: IconTeam,
+    logo: 4,
     title: "75+",
     subtitle: ["Skilled", "Professionals"],
   },
   {
-    icon: IconClock,
+    logo: 6,
     title: "24/7",
     subtitle: ["Seamless", "Support"],
   },
   {
-    icon: IconStar,
+    logo: 19,
     title: "100%",
     subtitle: ["Client", "Satisfaction"],
   },
@@ -343,14 +344,13 @@ function FooterValueProp({ valueIntro, className = "" }) {
 
           <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
             {VALUE_STATS.map((stat, index) => {
-              const Icon = stat.icon;
               return (
                 <div key={stat.title} className="flex items-stretch min-w-0">
                   {index > 0 && <FadeDividerV className="hidden lg:block" />}
                   <div className="flex-1 flex flex-col items-center justify-center text-center px-1 sm:px-2 lg:px-2.5 py-1.5 sm:py-2">
                     <div className="flex flex-col sm:flex-row min-h-0 sm:min-h-10 w-full items-center justify-center gap-0.5 sm:gap-1.5">
-                      <span className="text-[#FF6A00] inline-flex items-center justify-center shrink-0 w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10">
-                        <Icon className="block w-full h-full" />
+                      <span className="inline-flex items-center justify-center shrink-0 w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10">
+                        <HomeLogoImg n={stat.logo} />
                       </span>
                       <span className="font-bold text-[12px] sm:text-[14px] lg:text-[15px] leading-none text-white whitespace-nowrap">
                         {stat.title}

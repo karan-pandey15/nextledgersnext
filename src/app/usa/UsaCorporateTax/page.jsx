@@ -223,7 +223,7 @@ const whyChooseCards = [
     { title: "Experienced US Corporate Tax Specialists", icon: FileText },
     { title: "Federal & State Tax Compliance Expertise", icon: Scale },
     { title: "White-Label Service Delivery", icon: BadgeCheck },
-    { title: "Dedicated Offshore Tax Professionals", icon: Users },
+    { title: "Dedicated Tax Professionals", icon: Users },
     { title: "Multi-State Tax Experience", icon: Globe },
     { title: "Structured Review & Quality Control Processes", icon: ClipboardCheck },
     { title: "Multi-Software Expertise", icon: Layers },
@@ -452,7 +452,7 @@ export default function UsaCorporateTax() {
                                         </h3>
                                     </div>
                                     <p className="text-[12.5px] leading-relaxed text-gray-500 sm:text-[13px]">
-                                        Dedicated offshore Corporate Tax
+                                        Dedicated Corporate Tax
                                         Preparation &amp; Compliance — increase
                                         capacity, improve turnaround, and deliver
                                         high-quality white-label tax compliance.
@@ -522,7 +522,7 @@ export default function UsaCorporateTax() {
                                 <Stat
                                     icon={<Headset className="h-5 w-5" />}
                                     value="Dedicated"
-                                    label="Offshore Support"
+                                    label="Support"
                                 />
                             </div>
                         </div>
@@ -920,7 +920,7 @@ export default function UsaCorporateTax() {
                 titleMiddle=" for "
                 titleAccent2="Corporate Tax"
                 titleAfter="?"
-                subtitle="CPA-led offshore corporate tax specialists for US CPA firms — federal, state, and multi-state compliance support."
+                subtitle="CPA-led corporate tax specialists for US CPA firms — federal, state, and multi-state compliance support."
                 items={whyChooseCards}
             />
 
@@ -957,7 +957,7 @@ export default function UsaCorporateTax() {
                             className="text-[24px] font-extrabold leading-tight sm:text-[30px] lg:text-[34px]"
                             style={{ color: NAVY }}
                         >
-                            Your Offshore Corporate Tax Compliance Partner
+                            Your Corporate Tax Compliance Partner
                         </h2>
 
                         <p

@@ -1,6 +1,7 @@
 import { Calendar, Play, Phone } from "lucide-react";
 import CtaButton from "@/app/components/ui/CtaButton";
 import TrustBadgesBar from "./TrustBadgesBar";
+import { cleanRegionHeading } from "@/app/lib/cleanRegionHeading";
 
 /**
  * ServiceHomePage — reusable regional hero.
@@ -8,11 +9,11 @@ import TrustBadgesBar from "./TrustBadgesBar";
  */
 
 export default function ServiceHomePage({
-    badge = "UK Accounting Outsourcing Partner",
-    titleBefore = "UK Accounting Firms",
+    badge = "Accounting Delivery Partner",
+    titleBefore = "Accounting Firms",
     titleAccent = "Scale with Confidence",
     titleAfter = "",
-    subtitle = "Dedicated offshore support across bookkeeping, VAT, payroll, tax, management reporting, advisory & company secretarial.",
+    subtitle = "Dedicated support across bookkeeping, VAT, payroll, tax, management reporting, advisory & company secretarial.",
     subtitleSecond,
     primaryHref = "/contact",
     secondaryHref = "#services",
@@ -21,6 +22,9 @@ export default function ServiceHomePage({
     badges,
 }) {
     const isCallLink = String(secondaryHref).startsWith("tel:");
+    const headingBefore = cleanRegionHeading(titleBefore) || "Accounting Firms";
+    const headingAccent = cleanRegionHeading(titleAccent) || "Scale with Confidence";
+    const headingAfter = cleanRegionHeading(titleAfter);
 
     return (
         <section
@@ -49,9 +53,9 @@ export default function ServiceHomePage({
                     </span>
 
                     <h1 className="max-w-[300px] text-[#FF6A00] text-[22px] font-extrabold leading-snug text-[#0B1F3A] sm:max-w-2xl sm:text-3xl lg:text-[34px]">
-                      <span  className="text-[#111]" >Helping</span>  {titleBefore}{" "}
-                        <span className="text-[#111]">{titleAccent}</span>
-                        {titleAfter ? ` ${titleAfter}` : ""}
+                      <span  className="text-[#111]" >Helping</span>  {headingBefore}{" "}
+                        <span className="text-[#111]">{headingAccent}</span>
+                        {headingAfter ? ` ${headingAfter}` : ""}
                     </h1>
 
                     <p className="mt-2.5 max-w-[320px] text-[12.5px] leading-relaxed text-slate-600 sm:max-w-xl sm:text-[13px] md:text-sm">

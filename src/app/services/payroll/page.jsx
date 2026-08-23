@@ -426,7 +426,7 @@ export default function PayrollHrPage() {
 
             {/* 5 — Why Choose */}
             <WhyChooseSplitSection
-                subtitle="Accurate payroll, strong compliance, and flexible offshore HR support that scales with your business."
+                subtitle="Accurate payroll, strong compliance, and flexible HR support that scales with your business."
                 items={whyChooseCards}
             />
 

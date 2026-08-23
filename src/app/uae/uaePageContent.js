@@ -227,7 +227,7 @@ export const UAE_BUSINESS_SETUP = {
       "Reliable Business Setup & Compliance Support for UAE Corporate Service Providers & Accounting Firms",
     paragraphs: [
       "Setting up a business in the UAE involves much more than company registration. Businesses must choose the appropriate legal structure, prepare incorporation documents, obtain licences, maintain statutory records, meet regulatory obligations, and manage ongoing compliance requirements. As demand for company formation and corporate compliance services continues to grow, corporate service providers and accounting firms often require additional resources to manage increasing client workloads efficiently.",
-      "At NextLedgers, we provide dedicated offshore Business Setup & Compliance support to UAE corporate service providers, accounting firms, and business consultants. Our white-label outsourcing solutions help practices increase capacity, improve turnaround times, and deliver seamless company formation and compliance services without increasing internal staffing costs.",
+      "At NextLedgers, we provide dedicated Business Setup & Compliance support to UAE corporate service providers, accounting firms, and business consultants. Our white-label outsourcing solutions help practices increase capacity, improve turnaround times, and deliver seamless company formation and compliance services without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -330,7 +330,7 @@ export const UAE_BUSINESS_SETUP = {
     "ACCA-Led Delivery Team",
     "UAE Business Compliance Knowledge",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -340,11 +340,11 @@ export const UAE_BUSINESS_SETUP = {
     "Dedicated business setup and compliance specialists who work as an extension of your UAE practice.",
   partner: {
     badge: "Business Setup Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Business Setup & Compliance Delivery Partner",
     body: "Business setup and corporate compliance require organisation, accuracy, and consistent administrative support. Our dedicated professionals work as an extension of your practice, helping you manage company formation projects and ongoing compliance obligations while freeing up valuable internal resources.",
     callout:
-      "Whether you require support with company incorporation documentation, corporate compliance administration, KYC processes, statutory record maintenance, or dedicated offshore resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
+      "Whether you require support with company incorporation documentation, corporate compliance administration, KYC processes, statutory record maintenance, or dedicated resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
   },
 };
 
@@ -361,7 +361,7 @@ export const UAE_VIRTUAL_CFO = {
       "Reliable Virtual CFO & Financial Advisory Support for UAE Accounting Firms & Business Consultants",
     paragraphs: [
       "Businesses today expect more than compliance and bookkeeping services. They look to their accountants and advisors for strategic financial guidance, cash flow management, budgeting, forecasting, profitability analysis, and actionable business insights. Delivering these high-value advisory services consistently can be challenging for accounting firms, particularly as client expectations and workloads continue to grow.",
-      "At NextLedgers, we provide dedicated offshore Virtual CFO & Financial Advisory support to UAE accounting firms, business consultants, and corporate service providers. Our white-label outsourcing solutions help practices expand their advisory offerings, increase service capacity, and deliver strategic financial insights without increasing internal staffing costs.",
+      "At NextLedgers, we provide dedicated Virtual CFO & Financial Advisory support to UAE accounting firms, business consultants, and corporate service providers. Our white-label outsourcing solutions help practices expand their advisory offerings, increase service capacity, and deliver strategic financial insights without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -466,7 +466,7 @@ export const UAE_VIRTUAL_CFO = {
     "Financial Advisory Expertise",
     "UAE Business Knowledge",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -476,7 +476,7 @@ export const UAE_VIRTUAL_CFO = {
     "Dedicated Virtual CFO specialists who work as an extension of your UAE practice.",
   partner: {
     badge: "Virtual CFO Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Virtual CFO & Advisory Delivery Partner",
     body: "Virtual CFO services require commercial understanding, analytical expertise, and consistent reporting. Our dedicated professionals work as an extension of your practice, helping you deliver valuable financial insights and strategic advisory services while freeing up valuable internal resources.",
     callout:
@@ -497,7 +497,7 @@ export const UAE_CORPORATE_TAX = {
       "Reliable Corporate Tax Compliance Support for UAE Accounting Firms & Tax Consultants",
     paragraphs: [
       "Corporate Tax compliance has become a critical service for businesses operating in the UAE. Preparing accurate tax computations, reviewing financial statements, identifying tax adjustments, and ensuring timely compliance with the UAE Corporate Tax regime require technical expertise and meticulous attention to detail. As client demand continues to increase, accounting firms and tax consultants often face significant pressure during tax compliance periods.",
-      "At NextLedgers, we provide dedicated offshore Corporate Tax support to UAE accounting firms, tax consultants, and corporate service providers. Our white-label outsourcing solutions help practices increase capacity, improve turnaround times, and deliver reliable Corporate Tax services without increasing internal staffing costs.",
+      "At NextLedgers, we provide dedicated Corporate Tax support to UAE accounting firms, tax consultants, and corporate service providers. Our white-label outsourcing solutions help practices increase capacity, improve turnaround times, and deliver reliable Corporate Tax services without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -584,7 +584,7 @@ export const UAE_CORPORATE_TAX = {
     "ACCA-Led Delivery Team",
     "UAE Corporate Tax Expertise",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -594,11 +594,11 @@ export const UAE_CORPORATE_TAX = {
     "Dedicated corporate tax specialists who work as an extension of your UAE practice.",
   partner: {
     badge: "Corporation Tax Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Corporate Tax Delivery Partner",
     body: "Corporate Tax compliance requires technical expertise, accuracy, and a structured review process. Our dedicated professionals work as an extension of your practice, helping you deliver reliable Corporate Tax services while freeing up valuable internal resources.",
     callout:
-      "Whether you require support with Corporate Tax computations, tax return preparation, tax reconciliations, compliance reviews, working papers, or dedicated offshore tax resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
+      "Whether you require support with Corporate Tax computations, tax return preparation, tax reconciliations, compliance reviews, working papers, or dedicated tax resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
   },
 };
 
@@ -615,7 +615,7 @@ export const UAE_MANAGEMENT_ACCOUNTS = {
       "Reliable Management Reporting Support for UAE Accounting Firms & Business Consultants",
     paragraphs: [
       "Modern businesses expect timely financial reports that go beyond statutory compliance. Management accounts provide business owners with valuable insights into profitability, cash flow, operational performance, and financial health, enabling them to make informed strategic decisions. As client expectations continue to grow, accounting firms increasingly require additional resources to deliver accurate and timely management reporting.",
-      "At NextLedgers, we provide dedicated offshore Management Accounts & Financial Reporting support to UAE accounting firms, business consultants, and corporate service providers. Our white-label outsourcing solutions help practices expand their advisory capabilities, improve reporting efficiency, and deliver high-quality financial reports without increasing internal staffing costs.",
+      "At NextLedgers, we provide dedicated Management Accounts & Financial Reporting support to UAE accounting firms, business consultants, and corporate service providers. Our white-label outsourcing solutions help practices expand their advisory capabilities, improve reporting efficiency, and deliver high-quality financial reports without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -719,7 +719,7 @@ export const UAE_MANAGEMENT_ACCOUNTS = {
     "Financial Reporting Expertise",
     "UAE Business Knowledge",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -729,7 +729,7 @@ export const UAE_MANAGEMENT_ACCOUNTS = {
     "Dedicated management reporting specialists who work as an extension of your UAE practice.",
   partner: {
     badge: "Management Reporting Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Management Reporting Delivery Partner",
     body: "Management reporting requires accuracy, commercial understanding, and consistent delivery. Our dedicated professionals work as an extension of your practice, helping you deliver timely financial insights and high-quality management reports while freeing up valuable internal resources.",
     callout:
@@ -750,7 +750,7 @@ export const UAE_PAYROLL = {
       "Reliable Payroll & WPS Support for UAE Accounting Firms & Business Consultants",
     paragraphs: [
       "Payroll processing and Wage Protection System (WPS) compliance require accuracy, consistency, and a thorough understanding of UAE labour regulations. Even minor payroll errors can result in employee dissatisfaction, compliance issues, delayed salary payments, and increased administrative workload for accounting firms and business consultants.",
-      "As your practice grows, managing payroll processing, employee records, salary calculations, WPS files, and statutory reporting for multiple clients can become increasingly time-consuming. At NextLedgers, we provide dedicated offshore Payroll & WPS support to UAE accounting firms, payroll providers, and corporate service firms, helping practices increase capacity, improve efficiency, and deliver reliable payroll services without increasing internal staffing costs.",
+      "As your practice grows, managing payroll processing, employee records, salary calculations, WPS files, and statutory reporting for multiple clients can become increasingly time-consuming. At NextLedgers, we provide dedicated Payroll & WPS support to UAE accounting firms, payroll providers, and corporate service firms, helping practices increase capacity, improve efficiency, and deliver reliable payroll services without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -852,7 +852,7 @@ export const UAE_PAYROLL = {
     "ACCA-Led Delivery Team",
     "UAE Payroll & WPS Expertise",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -862,7 +862,7 @@ export const UAE_PAYROLL = {
     "Dedicated payroll specialists who work as an extension of your UAE practice.",
   partner: {
     badge: "Payroll & WPS Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Payroll & WPS Delivery Partner",
     body: "Payroll processing requires precision, confidentiality, and consistent compliance. Our dedicated professionals work as an extension of your practice, helping you deliver reliable payroll and WPS services while freeing up valuable internal resources.",
     callout:
@@ -883,7 +883,7 @@ export const UAE_VAT = {
       "Reliable VAT Advisory & Compliance Support for UAE Accounting Firms & Tax Consultants",
     paragraphs: [
       "VAT compliance requires technical expertise, accuracy, and a thorough understanding of UAE VAT regulations. Businesses rely on accounting firms and tax consultants not only for VAT return preparation but also for transaction reviews, VAT advisory, reconciliations, registration support, and ongoing compliance guidance. As client portfolios continue to grow, managing VAT engagements efficiently can become increasingly resource-intensive.",
-      "At NextLedgers, we provide dedicated offshore VAT Advisory & Compliance support to UAE accounting firms, tax consultants, and corporate service providers. Our white-label outsourcing solutions help practices increase capacity, improve turnaround times, and deliver reliable VAT services without increasing internal staffing costs.",
+      "At NextLedgers, we provide dedicated VAT Advisory & Compliance support to UAE accounting firms, tax consultants, and corporate service providers. Our white-label outsourcing solutions help practices increase capacity, improve turnaround times, and deliver reliable VAT services without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -970,7 +970,7 @@ export const UAE_VAT = {
     "ACCA-Led Delivery Team",
     "UAE VAT Expertise",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -980,7 +980,7 @@ export const UAE_VAT = {
     "Dedicated VAT specialists who work as an extension of your UAE practice.",
   partner: {
     badge: "VAT Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "VAT Advisory & Compliance Delivery Partner",
     body: "VAT compliance requires technical expertise, attention to detail, and consistent review processes. Our dedicated professionals work as an extension of your practice, helping you deliver reliable VAT advisory and compliance services while freeing up valuable internal resources.",
     callout:
@@ -1001,7 +1001,7 @@ export const UAE_YEAR_END = {
       "Reliable Year-End Accounts & Financial Reporting Support for UAE Accounting Firms & Business Consultants",
     paragraphs: [
       "Preparing year-end accounts and financial statements requires technical expertise, accuracy, and a structured review process. Accounting firms and business consultants must ensure financial statements are prepared from complete and accurate accounting records while meeting reporting requirements, tax compliance obligations, audit requirements, and client deadlines.",
-      "As your practice grows, managing year-end reporting engagements for multiple clients can become increasingly resource-intensive. At NextLedgers, we provide dedicated offshore Year-End Accounts & Financial Statement Preparation support to UAE accounting firms, tax consultants, and corporate service providers, helping practices increase capacity, improve turnaround times, and deliver high-quality financial reporting without increasing internal staffing costs.",
+      "As your practice grows, managing year-end reporting engagements for multiple clients can become increasingly resource-intensive. At NextLedgers, we provide dedicated Year-End Accounts & Financial Statement Preparation support to UAE accounting firms, tax consultants, and corporate service providers, helping practices increase capacity, improve turnaround times, and deliver high-quality financial reporting without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -1102,7 +1102,7 @@ export const UAE_YEAR_END = {
     "Financial Reporting Expertise",
     "UAE Accounting Knowledge",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -1112,7 +1112,7 @@ export const UAE_YEAR_END = {
     "Dedicated year-end reporting specialists who work as an extension of your UAE practice.",
   partner: {
     badge: "Financial Reporting Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Financial Reporting Delivery Partner",
     body: "Year-end accounts preparation requires technical expertise, consistency, and meticulous attention to detail. Our dedicated professionals work as an extension of your practice, helping you deliver accurate financial statements while freeing up valuable internal resources during busy reporting periods.",
     callout:
@@ -1133,7 +1133,7 @@ export const UAE_BOOKKEEPING = {
       "Reliable Bookkeeping & VAT Support for UAE Accounting Firms & Tax Consultants",
     paragraphs: [
       "Bookkeeping and VAT compliance are fundamental to maintaining accurate financial records and meeting the regulatory requirements of businesses operating in the UAE. As transaction volumes grow and VAT regulations continue to evolve, accounting firms and tax consultants often face increasing pressure to deliver timely bookkeeping, accurate VAT reporting, and consistent client service.",
-      "Managing multiple client accounts, reconciling transactions, preparing VAT returns, and ensuring compliance can quickly become resource-intensive. At NextLedgers, we provide dedicated offshore Bookkeeping & VAT support to UAE accounting firms, tax consultants, and corporate service providers, helping practices increase capacity, improve turnaround times, and deliver reliable accounting services without increasing internal staffing costs.",
+      "Managing multiple client accounts, reconciling transactions, preparing VAT returns, and ensuring compliance can quickly become resource-intensive. At NextLedgers, we provide dedicated Bookkeeping & VAT support to UAE accounting firms, tax consultants, and corporate service providers, helping practices increase capacity, improve turnaround times, and deliver reliable accounting services without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -1224,7 +1224,7 @@ export const UAE_BOOKKEEPING = {
     "ACCA-Led Delivery Team",
     "UAE Bookkeeping & VAT Expertise",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -1234,7 +1234,7 @@ export const UAE_BOOKKEEPING = {
     "Dedicated bookkeeping and VAT specialists who work as an extension of your UAE practice.",
   partner: {
     badge: "Bookkeeping & VAT Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Bookkeeping & VAT Delivery Partner",
     body: "Bookkeeping and VAT compliance require accuracy, consistency, and a thorough understanding of UAE regulations. Our dedicated professionals work as an extension of your practice, helping you deliver reliable bookkeeping and VAT services while freeing up valuable internal resources.",
     callout:

@@ -28,10 +28,10 @@ export default function CanadaPage() {
       />
 
       <ServiceHomePage
-        badge="Canada Accounting Outsourcing Partner"
+        badge="Accounting Delivery Partner"
         titleBefore="Helping Canadian Accounting Firms"
         titleAccent="Scale with Confidence"
-        subtitle="Dedicated offshore support across bookkeeping, GST/HST, payroll, corporate & personal tax, management reporting, review engagements & year-end accounts."
+        subtitle="Dedicated support across bookkeeping, GST/HST, payroll, corporate & personal tax, management reporting, review engagements & year-end accounts."
         badges={CANADA_TRUST_BADGES}
         secondaryHref="tel:+18885520055"
         secondaryLabel="Call Us"
@@ -60,14 +60,14 @@ export default function CanadaPage() {
               style={{ color: NAVY }}
             >
               Explore Our{" "}
-              <span style={{ color: ORANGE }}>Canada Outsourcing</span> Services
+              <span style={{ color: ORANGE }}>Services</span>
             </h2>
             <p
               className="mx-auto mt-2.5 max-w-xl px-1 text-[13px] leading-relaxed sm:text-[14px]"
               style={{ color: GREY }}
             >
               Choose a service to see how NextLedgers supports Canadian accounting
-              firms with dedicated offshore delivery.
+              firms with dedicated delivery.
             </p>
             <div
               className="mx-auto mt-4 h-[3px] w-11 rounded-full"

@@ -14,11 +14,10 @@ export default function UaePage() {
       backLabel="Back To UAE"
       regionName="UAE"
       footerRegion="uae"
-      badge="UAE Accounting Outsourcing Partner"
+      badge="Accounting Delivery Partner"
       titleBefore="UAE Accounting Firms"
-      subtitle="Dedicated offshore support across business setup, virtual CFO, corporate tax, management reporting, payroll & WPS, VAT, year-end accounts & bookkeeping."
+      subtitle="Dedicated support across business setup, virtual CFO, corporate tax, management reporting, payroll & WPS, VAT, year-end accounts & bookkeeping."
       badges={UAE_TRUST_BADGES}
-      outsourcingAccent="UAE Outsourcing"
     />
   );
 }

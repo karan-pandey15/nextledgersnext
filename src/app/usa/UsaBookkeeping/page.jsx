@@ -107,7 +107,7 @@ const bookkeepingTrustItems = [
     { icon: ShieldCheck, label: "IRS Compliant" },
     { icon: Lock, label: "Secure & Confidential" },
     { icon: Clock, label: "US Time Zone Overlap" },
-    { icon: Users, label: "Experienced Offshore Team" },
+    { icon: Users, label: "Experienced Team" },
 ];
 
 const serviceLines = [
@@ -230,7 +230,7 @@ const specialistAreaCards = [
         icon: BookOpen,
         title: "Bookkeeping Outsourcing",
         description:
-            "Providing dedicated offshore bookkeeping resources that integrate seamlessly with your firm's existing workflows and client service model.",
+            "Providing dedicated bookkeeping resources that integrate seamlessly with your firm's existing workflows and client service model.",
     },
     {
         icon: CalendarCheck,
@@ -260,7 +260,7 @@ const specialistAreaCards = [
 
 const whyChooseCards = [
     {
-        title: "Dedicated Offshore Bookkeeping Professionals",
+        title: "Dedicated Bookkeeping Professionals",
         icon: UserCheck,
     },
     {
@@ -292,7 +292,7 @@ const whyChooseCards = [
         icon: LockKeyhole,
     },
     {
-        title: "Scalable Offshore Accounting Teams",
+        title: "Scalable Accounting Teams",
         icon: TrendingUp,
     },
 ];
@@ -391,7 +391,7 @@ export default function UsaBookkeeping() {
                         </h1>
 
                         <p className="mt-2 max-w-xs text-[12.5px] leading-snug text-slate-600 sm:max-w-xl sm:text-[13px] md:text-sm">
-                            Reliable Offshore Bookkeeping &amp; Accounting Support
+                            Reliable Bookkeeping &amp; Accounting Support
                             for US CPA Firms
                         </p>
 
@@ -417,7 +417,7 @@ export default function UsaBookkeeping() {
                 </div>
             </section>
 
-            {/* 2 — Reliable Offshore Bookkeeping Support intro */}
+            {/* 2 — Reliable Bookkeeping Support intro */}
             <section id="how-we-work" className="w-full bg-white">
                 <div className="mx-auto max-w-6xl px-4 py-5 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 items-center gap-5 lg:grid-cols-2 lg:gap-8">
@@ -427,7 +427,7 @@ export default function UsaBookkeeping() {
                             </span>
 
                             <h2 className="mb-3 text-[26px] font-extrabold leading-[1.15] text-[#0B1F3A] sm:text-[30px]">
-                                Reliable Offshore Bookkeeping &amp; Accounting
+                                Reliable Bookkeeping &amp; Accounting
                                 Support for US CPA Firms
                             </h2>
 
@@ -474,7 +474,7 @@ export default function UsaBookkeeping() {
                                         </h3>
                                     </div>
                                     <p className="text-[12.5px] leading-relaxed text-gray-500 sm:text-[13px]">
-                                        Dedicated offshore bookkeeping professionals
+                                        Dedicated bookkeeping professionals
                                         work as a seamless extension of your team —
                                         increasing capacity, improving turnaround, and
                                         delivering accurate white-label support.
@@ -543,7 +543,7 @@ export default function UsaBookkeeping() {
                                 <Stat
                                     icon={<Headset className="h-5 w-5" />}
                                     value="Dedicated"
-                                    label="Offshore Support Team"
+                                    label="Support Team"
                                 />
                             </div>
                         </div>
@@ -587,7 +587,7 @@ export default function UsaBookkeeping() {
                 specialistTitleAccent="Specialist Areas"
                 specialistTitleAfter=" We Support"
                 specialistParagraphs={[
-                    "Our dedicated offshore bookkeeping specialists integrate seamlessly with your firm's existing workflows and client service model, delivering consistent white-label support.",
+                    "Our dedicated bookkeeping specialists integrate seamlessly with your firm's existing workflows and client service model, delivering consistent white-label support.",
                     "From month-end close and AR/AP management to financial reporting and cleanup, we strengthen your firm's bookkeeping delivery without adding internal overhead.",
                 ]}
                 specialistImageSrc="/images/bgimage.JPG"
@@ -674,7 +674,7 @@ export default function UsaBookkeeping() {
                 titleMiddle=" for "
                 titleAccent2="Bookkeeping & Accounting"
                 titleAfter="?"
-                subtitle="Dedicated offshore bookkeeping specialists who work as an extension of your practice, ensuring accuracy and IRS-aligned processes."
+                subtitle="Dedicated bookkeeping specialists who work as an extension of your practice, ensuring accuracy and IRS-aligned processes."
                 items={whyChooseCards}
             />
 
@@ -707,7 +707,7 @@ export default function UsaBookkeeping() {
                             className="text-[24px] font-extrabold leading-tight sm:text-[30px] lg:text-[34px]"
                             style={{ color: NAVY }}
                         >
-                            Your Offshore{" "}
+                            Your{" "}
                             <span style={{ color: ORANGE }}>
                                 Bookkeeping &amp; Accounting
                             </span>{" "}
@@ -742,8 +742,7 @@ export default function UsaBookkeeping() {
                                 bookkeeping, bank reconciliations, Accounts
                                 Receivable and Accounts Payable management,
                                 financial reporting, month-end close procedures,
-                                bookkeeping cleanup, or dedicated offshore
-                                bookkeeping resources, NextLedgers provides
+                                bookkeeping cleanup, or dedicated bookkeeping resources, NextLedgers provides
                                 reliable white-label support that integrates
                                 seamlessly with your accounting practice.
                             </p>

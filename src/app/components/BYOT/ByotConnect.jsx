@@ -2,14 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import {
-  Calendar,
-  Mail,
-  MessageCircle,
-  Phone,
-  Send,
-  Users,
-} from "lucide-react";
+import { Send } from "lucide-react";
+import { HomeLogoImg } from "@/app/lib/homePageLogos";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
 const ORANGE = BRAND_ORANGE;
@@ -21,21 +15,21 @@ const WHATSAPP_URL = "https://wa.me/918285285223";
 const CONTACT_WAYS = [
   {
     title: "Call Us",
-    icon: Phone,
+    logo: 1,
     primary: "+1 (888) 552-0055",
     secondary: "Mon – Fri | 9 AM – 6 PM EST",
     href: "tel:+18885520055",
   },
   {
     title: "Email Us",
-    icon: Mail,
+    logo: 25,
     primary: "hello@nextledgers.com",
     secondary: "We reply within 24 hours",
     href: "mailto:hello@nextledgers.com",
   },
   {
     title: "Live Chat",
-    icon: MessageCircle,
+    logo: 3,
     primary: "Chat with our Team",
     secondary: "We're Online Now",
     href: WHATSAPP_URL,
@@ -44,7 +38,7 @@ const CONTACT_WAYS = [
   },
   {
     title: "Schedule a Call",
-    icon: Calendar,
+    logo: 5,
     primary: "Book a free consultation with our specialists",
     secondary: "Contact us to book a call",
     href: "/contact",
@@ -135,7 +129,7 @@ export default function ByotConnect() {
                 (
                   {
                     title,
-                    icon: Icon,
+                    logo,
                     primary,
                     secondary,
                     href,
@@ -158,11 +152,8 @@ export default function ByotConnect() {
                         index > 0 ? "sm:border-l sm:border-[#E8ECF0]" : ""
                       }`}
                     >
-                      <span
-                        className="mb-2.5 flex h-11 w-11 items-center justify-center rounded-full"
-                        style={{ background: "#FFF4EA", color: ORANGE }}
-                      >
-                        <Icon className="h-5 w-5" strokeWidth={1.7} />
+                      <span className="mb-2.5 flex h-11 w-11 items-center justify-center">
+                        <HomeLogoImg n={logo} />
                       </span>
                       <p className="text-[12px] font-bold" style={{ color: NAVY }}>
                         {title}
@@ -201,11 +192,9 @@ export default function ByotConnect() {
 
             <div className="mt-auto flex flex-col items-start gap-3 rounded-[12px] border border-[#FFD8B8] bg-[#FFF4EA] px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-5">
               <div className="flex items-start gap-3 sm:items-center">
-                <Users
-                  className="h-8 w-8 shrink-0"
-                  style={{ color: ORANGE }}
-                  strokeWidth={1.6}
-                />
+                <span className="h-8 w-8 shrink-0">
+                  <HomeLogoImg n={4} />
+                </span>
                 <div>
                   <p className="text-[14px] font-bold" style={{ color: NAVY }}>
                     Not sure where to start?

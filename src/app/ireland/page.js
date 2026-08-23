@@ -34,10 +34,10 @@ export default function IrelandPage() {
       />
 
       <ServiceHomePage
-        badge="Ireland Accounting Outsourcing Partner"
+        badge="Accounting Delivery Partner"
         titleBefore="Irish Accounting Firms"
         titleAccent="Scale with Confidence"
-        subtitle="Dedicated offshore support across bookkeeping, company secretarial & CRO, corporation tax, management reporting, virtual CFO & personal tax."
+        subtitle="Dedicated support across bookkeeping, company secretarial & CRO, corporation tax, management reporting, virtual CFO & personal tax."
         badges={IRELAND_TRUST_BADGES}
         secondaryHref="tel:+918285285223"
         secondaryLabel="Call Us"
@@ -66,14 +66,14 @@ export default function IrelandPage() {
               style={{ color: NAVY }}
             >
               Explore Our{" "}
-              <span style={{ color: ORANGE }}>Ireland Outsourcing</span> Services
+              <span style={{ color: ORANGE }}>Services</span>
             </h2>
             <p
               className="mx-auto mt-2.5 max-w-xl px-1 text-[13px] leading-relaxed sm:text-[14px]"
               style={{ color: GREY }}
             >
               Choose a service to see how NextLedgers supports Irish accounting
-              firms with dedicated offshore delivery.
+              firms with dedicated delivery.
             </p>
             <div
               className="mx-auto mt-4 h-[3px] w-11 rounded-full"

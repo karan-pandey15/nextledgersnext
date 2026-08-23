@@ -3,12 +3,11 @@
 import React from "react";
 import Link from "next/link";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
+import { homeLogoSrc } from "@/app/lib/homePageLogos";
 
 const ORANGE = BRAND_ORANGE;
 const NAVY = "#0F274A";
 const GREY = "#6B7280";
-
-const ICON_BASE = "/images/icon/Comprehensive%20Solutioins";
 
 /** Keep in sync with GLOBAL_SERVICE_LINKS in header/navigationData.js */
 const SERVICES = [
@@ -17,7 +16,7 @@ const SERVICES = [
     line1: "Accounting",
     line2: "& Bookkeeping",
     description: "Accurate and timely bookkeeping to keep your finances organized.",
-    icon: `${ICON_BASE}/${encodeURIComponent("Acc & Bkk.png")}`,
+    icon: homeLogoSrc(23),
     href: "/services/bookkeeping",
   },
   {
@@ -26,7 +25,7 @@ const SERVICES = [
     line2: "Reporting",
     description:
       "Insightful reports and analysis to help you make informed business decisions.",
-    icon: `${ICON_BASE}/${encodeURIComponent("Fin Rep..png")}`,
+    icon: homeLogoSrc(17),
     href: "/services/financial-reporting",
   },
   {
@@ -34,7 +33,7 @@ const SERVICES = [
     line1: "Tax Preparation",
     line2: "& Planning",
     description: "Stay compliant with local tax regulations and filing requirements.",
-    icon: `${ICON_BASE}/${encodeURIComponent("TAx Prep.png")}`,
+    icon: homeLogoSrc(13),
     href: "/services/tax",
   },
   {
@@ -43,7 +42,7 @@ const SERVICES = [
     line2: "& HR Services",
     description:
       "End-to-end payroll processing that ensures accuracy and timely payments.",
-    icon: `${ICON_BASE}/${encodeURIComponent("Payroll HR.png")}`,
+    icon: homeLogoSrc(4),
     href: "/services/payroll",
   },
   {
@@ -52,7 +51,7 @@ const SERVICES = [
     line2: "Reporting",
     description:
       "Clear management reports and KPI dashboards for better business decisions.",
-    icon: `${ICON_BASE}/${encodeURIComponent("Mkt Rep.png")}`,
+    icon: homeLogoSrc(12),
     href: "/services/management-reporting",
   },
   {
@@ -61,7 +60,7 @@ const SERVICES = [
     line2: "& Advisory Services",
     description:
       "Strategic financial leadership, forecasting, and advisory for sustainable growth.",
-    icon: `${ICON_BASE}/${encodeURIComponent("CFO.png")}`,
+    icon: homeLogoSrc(20),
     href: "/services/cfo-advisory",
   },
 ];
@@ -114,11 +113,11 @@ export default function CoreServices() {
                 </span>
 
                 <div className="flex w-full flex-1 flex-col items-center text-center">
-                  <div className="mb-1.5 flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-[#FFF4EA] sm:mb-2 sm:h-12 sm:w-12">
+                  <div className="mb-1.5 flex h-10 w-10 items-center justify-center sm:mb-2 sm:h-12 sm:w-12">
                     <img
                       src={service.icon}
                       alt={service.title}
-                      className="h-full w-full object-cover scale-[1.04]"
+                      className="block h-full w-full object-contain"
                     />
                   </div>
 

@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { POPUP_REGIONS } from "../RegionSelect/regionData";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
+import { HomeLogoImg } from "@/app/lib/homePageLogos";
 
 const ORANGE = BRAND_ORANGE;
 const NAVY = "#0F274A";
@@ -221,22 +222,22 @@ const FEATURES = [
   {
     title: "100% Secure",
     text: "Your information is safe with us",
-    icon: IconShield,
+    logo: 18,
   },
   {
     title: "Quick Response",
     text: "We reply within 24 hours",
-    icon: IconClock24,
+    logo: 6,
   },
   {
     title: "Expert Team",
     text: "Experienced professionals ready to help",
-    icon: IconTeam,
+    logo: 4,
   },
   {
     title: "Global Support",
     text: "Serving businesses worldwide",
-    icon: IconGlobe,
+    logo: 26,
   },
 ];
 
@@ -560,16 +561,15 @@ export default function QuotePopup({ isOpen, onClose }) {
                 <div className="rounded-[12px] bg-[#FFF7F0] px-4 py-3.5 sm:rounded-[14px] sm:px-5 sm:py-4 lg:px-6">
                   <div className="grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-0">
                     {FEATURES.map((feature, index) => {
-                      const Icon = feature.icon;
                       return (
                         <div
                           key={feature.title}
-                          className={`flex items-start gap-2.5 ${
+                          className={`flex items-center gap-3 ${
                             index > 0 ? "lg:border-l lg:border-[#E8D5C4] lg:pl-5" : ""
                           } ${index < FEATURES.length - 1 ? "lg:pr-5" : ""}`}
                         >
-                          <div className="mt-0.5 shrink-0 text-[#FF6A00]">
-                            <Icon className="h-5 w-5" />
+                          <div className="h-11 w-11 shrink-0 sm:h-12 sm:w-12">
+                            <HomeLogoImg n={feature.logo} />
                           </div>
                           <div className="min-w-0">
                             <p

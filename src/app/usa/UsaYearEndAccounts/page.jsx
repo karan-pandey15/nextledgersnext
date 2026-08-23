@@ -214,7 +214,7 @@ const whyChooseCards = [
     { title: "US Year-End Accounting Expertise", icon: BookOpen },
     { title: "Financial Statement Preparation Specialists", icon: FileCheck },
     { title: "White-Label Service Delivery", icon: BadgeCheck },
-    { title: "Dedicated Offshore Resources", icon: Users },
+    { title: "Dedicated Resources", icon: Users },
     { title: "Structured Review Processes", icon: ClipboardCheck },
     { title: "Multi-Software Expertise", icon: Layers },
     { title: "Flexible Engagement Models", icon: Network },
@@ -447,12 +447,12 @@ export default function UsaYearEndAccounts() {
                                         </h3>
                                     </div>
                                     <p className="text-[12.5px] leading-relaxed text-gray-500 sm:text-[13px]">
-                                        Dedicated offshore Year-End Accounts
+                                        Dedicated Year-End Accounts
                                         &amp; Financial Statement Preparation
                                         support — helping firms improve
                                         turnaround, increase delivery capacity,
                                         and maintain reporting quality through
-                                        white-label offshore delivery.
+                                        white-label delivery.
                                     </p>
                                 </div>
                             </div>
@@ -519,7 +519,7 @@ export default function UsaYearEndAccounts() {
                                 <Stat
                                     icon={<Headset className="h-5 w-5" />}
                                     value="Dedicated"
-                                    label="Offshore Support"
+                                    label="Support"
                                 />
                             </div>
                         </div>
@@ -843,7 +843,7 @@ export default function UsaYearEndAccounts() {
                 titleMiddle=" for "
                 titleAccent2="Year-End Accounts"
                 titleAfter="?"
-                subtitle="ACCA-led offshore year-end accounting and financial statement specialists for US CPA firms."
+                subtitle="ACCA-led year-end accounting and financial statement specialists for US CPA firms."
                 items={whyChooseCards}
             />
 
@@ -880,7 +880,7 @@ export default function UsaYearEndAccounts() {
                             className="text-[24px] font-extrabold leading-tight sm:text-[30px] lg:text-[34px]"
                             style={{ color: NAVY }}
                         >
-                            Your Offshore Year-End Accounting Partner
+                            Your Year-End Accounting Partner
                         </h2>
 
                         <p

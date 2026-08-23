@@ -46,6 +46,7 @@ import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/Arti
 import NexaLedAi from "@/app/components/ChatBot/NexaLedAi";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
 import { UK_BUSINESS_ADVISORY_INDUSTRIES } from "@/app/uk/ukIndustries";
+import { UK_ADVISORY_SOFTWARE } from "@/app/uk/ukSoftwareExpertise";
 
 const ORANGE = BRAND_ORANGE;
 const NAVY = "#0B1F3A";
@@ -206,38 +207,7 @@ const helpFirmsScale = [
     "Scale operations without increasing headcount",
 ];
 
-const softwareExpertiseLogodata = [
-    {
-        heading: "ACCOUNTING SOFTWARE",
-        icon: "user",
-        logos: [
-            "xero",
-            "quickbooks online",
-            "sage business cloud",
-            "freeagent",
-            "accountsiq",
-            "iplicit",
-        ],
-    },
-    {
-        heading: "REPORTING & FORECASTING SOFTWARE",
-        icon: "chart",
-        logos: [
-            "fathom",
-            "spotlight reporting",
-            "syft analytics",
-            "float",
-            "futrli",
-            "microsoft excel",
-            "google sheets",
-        ],
-    },
-    {
-        heading: "WORKFLOW & COLLABORATION TOOLS",
-        icon: "document",
-        logos: ["dext", "hubdoc", "approvalmax", "microsoft 365", "google workspace"],
-    },
-];
+const softwareExpertiseLogodata = UK_ADVISORY_SOFTWARE;
 
 const whyChooseCards = [
     { title: "ACCA-Led Advisory Expertise", icon: UserCheck },
@@ -488,7 +458,7 @@ export default function UKBusinessAdvisory() {
                             </p>
 
                             <p className="mb-5 text-[13px] leading-relaxed text-gray-500 sm:text-[15px]">
-                                At NextLedgers, we provide dedicated offshore Business Advisory
+                                At NextLedgers, we provide dedicated Business Advisory
                                 &amp; Virtual CFO support to UK accounting firms, accountancy
                                 practices, and business advisory firms. Our white-label outsourcing
                                 solutions help firms expand their advisory services, improve
@@ -534,7 +504,7 @@ export default function UKBusinessAdvisory() {
                                 <Stat
                                     icon={<Headset className="h-5 w-5" />}
                                     value="Dedicated"
-                                    label="Offshore Support Team"
+                                    label="Support Team"
                                 />
                             </div>
                         </div>
@@ -727,7 +697,7 @@ export default function UKBusinessAdvisory() {
 
                     <ServiceCard
                         icon={Landmark}
-                        titleBefore="Our offshore team can "
+                        titleBefore="Our team can "
                         titleAccent="assist with"
                         titleAfter=":"
                         items={taxPlanningServices}
@@ -766,7 +736,7 @@ export default function UKBusinessAdvisory() {
                                 Supporting clients from incorporation through ongoing compliance
                                 enables accounting firms to build long-term relationships while
                                 ensuring businesses meet their statutory obligations from day one. Our
-                                offshore team assists with the administration, documentation, and
+                                team assists with the administration, documentation, and
                                 compliance processes involved in setting up new businesses.
                             </p>
                         </div>
@@ -995,7 +965,7 @@ export default function UKBusinessAdvisory() {
                             className="text-[24px] font-extrabold leading-tight sm:text-[30px] lg:text-[34px]"
                             style={{ color: NAVY }}
                         >
-                            Your Offshore{" "}
+                            Your{" "}
                             <span style={{ color: ORANGE }}>
                                 Business Advisory &amp; Virtual CFO
                             </span>{" "}
@@ -1029,7 +999,7 @@ export default function UKBusinessAdvisory() {
                                 forecasting, financial modelling, KPI reporting, cash flow
                                 management, board reporting, profitability analysis, tax planning,
                                 Companies House compliance, business start-up support, or dedicated
-                                offshore advisory resources, NextLedgers can help your practice
+                                advisory resources, NextLedgers can help your practice
                                 scale efficiently while maintaining quality and client satisfaction.
                             </p>
                         </div>

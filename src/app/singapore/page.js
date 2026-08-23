@@ -34,10 +34,10 @@ export default function SingaporePage() {
       />
 
       <ServiceHomePage
-        badge="Singapore Accounting Outsourcing Partner"
+        badge="Accounting Delivery Partner"
         titleBefore="Singapore Accounting Firms"
         titleAccent="Scale with Confidence"
-        subtitle="Dedicated offshore support across bookkeeping, accounting cleanup, GST, payroll, corporate tax, year-end accounts, management reporting & virtual CFO."
+        subtitle="Dedicated support across bookkeeping, accounting cleanup, GST, payroll, corporate tax, year-end accounts, management reporting & virtual CFO."
         badges={SINGAPORE_TRUST_BADGES}
         secondaryHref="tel:+918285285223"
         secondaryLabel="Call Us"
@@ -66,15 +66,14 @@ export default function SingaporePage() {
               style={{ color: NAVY }}
             >
               Explore Our{" "}
-              <span style={{ color: ORANGE }}>Singapore Outsourcing</span>{" "}
-              Services
+              <span style={{ color: ORANGE }}>Services</span>
             </h2>
             <p
               className="mx-auto mt-2.5 max-w-xl px-1 text-[13px] leading-relaxed sm:text-[14px]"
               style={{ color: GREY }}
             >
               Choose a service to see how NextLedgers supports Singapore
-              accounting firms with dedicated offshore delivery.
+              accounting firms with dedicated delivery.
             </p>
             <div
               className="mx-auto mt-4 h-[3px] w-11 rounded-full"

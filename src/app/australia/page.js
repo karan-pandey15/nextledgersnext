@@ -14,11 +14,10 @@ export default function AustraliaPage() {
       backLabel="Back To Australia"
       regionName="Australia"
       footerRegion="australia"
-      badge="Australia Accounting Outsourcing Partner"
+      badge="Accounting Delivery Partner"
       titleBefore="Australian Accounting Firms"
-      subtitle="Dedicated offshore support across bookkeeping, corporate tax, income tax, management reporting, payroll & year-end accounts."
+      subtitle="Dedicated support across bookkeeping, corporate tax, income tax, management reporting, payroll & year-end accounts."
       badges={AUSTRALIA_TRUST_BADGES}
-      outsourcingAccent="Australia Outsourcing"
     />
   );
 }

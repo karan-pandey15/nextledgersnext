@@ -316,7 +316,7 @@ export default function UAEServiceTemplate({ data }) {
     {
       icon: <Headset className="h-5 w-5" />,
       value: "Dedicated",
-      label: "Offshore Support Team",
+      label: "Support Team",
     },
   ];
 
@@ -548,7 +548,7 @@ export default function UAEServiceTemplate({ data }) {
               style={{ color: GREY }}
             >
               {data.deliverablesSubtitle ||
-                "Structured offshore delivery across every workstream your practice needs."}
+                "Structured delivery across every workstream your practice needs."}
             </p>
           </div>
 
@@ -603,7 +603,7 @@ export default function UAEServiceTemplate({ data }) {
                 style={{ color: GREY }}
               >
                 {data.howWeHelpIntro ||
-                  "Our offshore support enables UAE practices to:"}
+                  "Our support enables UAE practices to:"}
               </p>
             </div>
 

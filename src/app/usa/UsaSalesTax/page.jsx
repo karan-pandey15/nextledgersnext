@@ -175,12 +175,12 @@ const softwareExpertiseLogodata = [
 ];
 
 const whyChooseCards = [
-    { title: "Experienced Offshore Sales Tax Specialists", icon: Award },
+    { title: "Experienced Sales Tax Specialists", icon: Award },
     { title: "Multi-State Sales Tax Expertise", icon: MapPin },
     { title: "White-Label Service Delivery", icon: BadgeCheck },
     { title: "Economic Nexus Assessment Support", icon: Target },
     { title: "Marketplace Compliance Experience", icon: ShoppingBag },
-    { title: "Dedicated Offshore Resources", icon: Users },
+    { title: "Dedicated Resources", icon: Users },
     { title: "Structured Review Processes", icon: ClipboardCheck },
     { title: "Multi-Software Expertise", icon: Layers },
     { title: "Flexible Engagement Models", icon: Network },
@@ -409,12 +409,12 @@ export default function UsaSalesTax() {
                                         </h3>
                                     </div>
                                     <p className="text-[12.5px] leading-relaxed text-gray-500 sm:text-[13px]">
-                                        Dedicated offshore Sales Tax Compliance
+                                        Dedicated Sales Tax Compliance
                                         &amp; Filing support — helping firms
                                         manage multi-state obligations
                                         efficiently, increase capacity, and
                                         reduce operational pressure through
-                                        white-label offshore delivery.
+                                        white-label delivery.
                                     </p>
                                 </div>
                             </div>
@@ -481,7 +481,7 @@ export default function UsaSalesTax() {
                                 <Stat
                                     icon={<Headset className="h-5 w-5" />}
                                     value="Dedicated"
-                                    label="Offshore Support"
+                                    label="Support"
                                 />
                             </div>
                         </div>
@@ -841,7 +841,7 @@ export default function UsaSalesTax() {
                 titleMiddle=" for "
                 titleAccent2="Sales Tax"
                 titleAfter="?"
-                subtitle="Experienced offshore sales tax compliance specialists for US CPA firms managing multi-state obligations."
+                subtitle="Experienced sales tax compliance specialists for US CPA firms managing multi-state obligations."
                 items={whyChooseCards}
             />
 
@@ -878,7 +878,7 @@ export default function UsaSalesTax() {
                             className="text-[24px] font-extrabold leading-tight sm:text-[30px] lg:text-[34px]"
                             style={{ color: NAVY }}
                         >
-                            Your Offshore Sales Tax Compliance Partner
+                            Your Sales Tax Compliance Partner
                         </h2>
 
                         <p

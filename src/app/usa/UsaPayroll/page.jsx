@@ -205,7 +205,7 @@ const whyChooseCards = [
     { title: "Experienced US Payroll Specialists", icon: Wallet },
     { title: "Federal & State Payroll Tax Expertise", icon: Scale },
     { title: "White-Label Service Delivery", icon: BadgeCheck },
-    { title: "Dedicated Offshore Payroll Professionals", icon: Users },
+    { title: "Dedicated Payroll Professionals", icon: Users },
     { title: "Multi-State Payroll Experience", icon: MapPin },
     { title: "Structured Review & Quality Control Processes", icon: ClipboardCheck },
     { title: "Multi-Software Expertise", icon: Layers },
@@ -434,7 +434,7 @@ export default function UsaPayroll() {
                                         </h3>
                                     </div>
                                     <p className="text-[12.5px] leading-relaxed text-gray-500 sm:text-[13px]">
-                                        Dedicated offshore Payroll Processing
+                                        Dedicated Payroll Processing
                                         &amp; Payroll Tax support — helping
                                         firms increase capacity, improve
                                         turnaround, and deliver reliable
@@ -506,7 +506,7 @@ export default function UsaPayroll() {
                                 <Stat
                                     icon={<Headset className="h-5 w-5" />}
                                     value="Dedicated"
-                                    label="Offshore Support"
+                                    label="Support"
                                 />
                             </div>
                         </div>
@@ -853,7 +853,7 @@ export default function UsaPayroll() {
                 titleMiddle=" for "
                 titleAccent2="Payroll"
                 titleAfter="?"
-                subtitle="ACCA-led offshore payroll processing and payroll tax specialists for US CPA firms."
+                subtitle="ACCA-led payroll processing and payroll tax specialists for US CPA firms."
                 items={whyChooseCards}
             />
 
@@ -890,7 +890,7 @@ export default function UsaPayroll() {
                             className="text-[24px] font-extrabold leading-tight sm:text-[30px] lg:text-[34px]"
                             style={{ color: NAVY }}
                         >
-                            Your Offshore Payroll Compliance Partner
+                            Your Payroll Compliance Partner
                         </h2>
 
                         <p

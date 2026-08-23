@@ -205,7 +205,7 @@ const whyChooseCards = [
     { title: "Experienced US Individual Tax Specialists", icon: FileCheck },
     { title: "Federal & State Tax Compliance Expertise", icon: Scale },
     { title: "White-Label Service Delivery", icon: BadgeCheck },
-    { title: "Dedicated Offshore Tax Professionals", icon: Users },
+    { title: "Dedicated Tax Professionals", icon: Users },
     { title: "Expertise in Complex Individual Tax Matters", icon: Calculator },
     {
         title: "Structured Review & Quality Control Processes",
@@ -438,11 +438,11 @@ export default function UsaIndividualTax() {
                                         </h3>
                                     </div>
                                     <p className="text-[12.5px] leading-relaxed text-gray-500 sm:text-[13px]">
-                                        Dedicated offshore Individual Tax
+                                        Dedicated Individual Tax
                                         Preparation support — helping firms
                                         increase capacity, improve turnaround,
                                         and deliver accurate, compliant returns
-                                        through white-label offshore delivery.
+                                        through white-label delivery.
                                     </p>
                                 </div>
                             </div>
@@ -509,7 +509,7 @@ export default function UsaIndividualTax() {
                                 <Stat
                                     icon={<Headset className="h-5 w-5" />}
                                     value="Dedicated"
-                                    label="Offshore Support"
+                                    label="Support"
                                 />
                             </div>
                         </div>
@@ -872,7 +872,7 @@ export default function UsaIndividualTax() {
                 titleMiddle=" for "
                 titleAccent2="Individual Tax"
                 titleAfter="?"
-                subtitle="CPA-led offshore individual tax specialists for US CPA firms — structured preparation, review, and white-label delivery."
+                subtitle="CPA-led individual tax specialists for US CPA firms — structured preparation, review, and white-label delivery."
                 items={whyChooseCards}
             />
 
@@ -909,7 +909,7 @@ export default function UsaIndividualTax() {
                             className="text-[24px] font-extrabold leading-tight sm:text-[30px] lg:text-[34px]"
                             style={{ color: NAVY }}
                         >
-                            Your Offshore Individual Tax Compliance Partner
+                            Your Individual Tax Compliance Partner
                         </h2>
 
                         <p

@@ -214,7 +214,7 @@ export const NL_BOOKKEEPING = {
       "Reliable Bookkeeping Support for Dutch Accounting Firms & Administratiekantoren",
     paragraphs: [
       "Accurate bookkeeping is the foundation of every successful business. From recording day-to-day financial transactions to reconciling bank accounts, maintaining VAT records, and preparing financial data for year-end reporting, bookkeeping plays a vital role in helping Dutch businesses remain compliant and financially organised.",
-      "As your practice grows, managing bookkeeping for multiple clients can become increasingly time-consuming. At NextLedgers, we provide dedicated offshore Bookkeeping support to Dutch accounting firms, administratiekantoren (administration offices), and financial service providers, helping firms increase capacity, improve turnaround times, and deliver accurate bookkeeping services without increasing internal staffing costs.",
+      "As your practice grows, managing bookkeeping for multiple clients can become increasingly time-consuming. At NextLedgers, we provide dedicated Bookkeeping support to Dutch accounting firms, administratiekantoren (administration offices), and financial service providers, helping firms increase capacity, improve turnaround times, and deliver accurate bookkeeping services without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -314,7 +314,7 @@ export const NL_BOOKKEEPING = {
     "ACCA-Led Delivery Team",
     "Dutch Bookkeeping Expertise",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -324,11 +324,11 @@ export const NL_BOOKKEEPING = {
     "Dedicated bookkeeping specialists who work as an extension of your Dutch practice.",
   partner: {
     badge: "Bookkeeping Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Bookkeeping Delivery Partner",
     body: "Bookkeeping requires consistency, accuracy, and attention to detail. Our dedicated professionals work as an extension of your practice, helping you deliver reliable bookkeeping services while freeing up valuable internal resources.",
     callout:
-      "Whether you require support with day-to-day bookkeeping, catch-up bookkeeping, reconciliations, month-end accounting, VAT-ready bookkeeping, management reporting, or dedicated offshore bookkeeping resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
+      "Whether you require support with day-to-day bookkeeping, catch-up bookkeeping, reconciliations, month-end accounting, VAT-ready bookkeeping, management reporting, or dedicated bookkeeping resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
   },
 };
 
@@ -345,7 +345,7 @@ export const NL_CORPORATE_TAX = {
       "Reliable Corporate Income Tax Compliance Support for Dutch Accounting Firms & Tax Advisors",
     paragraphs: [
       "Corporate Income Tax compliance requires technical expertise, accuracy, and a thorough understanding of Dutch tax legislation. Preparing Corporate Income Tax returns, reviewing financial statements, calculating taxable profits, identifying fiscal adjustments, and ensuring compliance with Dutch tax regulations require significant time and specialist knowledge. As client portfolios continue to grow, accounting firms and tax advisors often require additional resources to manage increasing tax workloads efficiently.",
-      "At NextLedgers, we provide dedicated offshore Corporate Income Tax support to Dutch accounting firms, administratiekantoren, and tax advisory firms. Our white-label outsourcing solutions help firms increase capacity, improve turnaround times, and deliver reliable Corporate Income Tax compliance services without increasing internal staffing costs.",
+      "At NextLedgers, we provide dedicated Corporate Income Tax support to Dutch accounting firms, administratiekantoren, and tax advisory firms. Our white-label outsourcing solutions help firms increase capacity, improve turnaround times, and deliver reliable Corporate Income Tax compliance services without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -432,7 +432,7 @@ export const NL_CORPORATE_TAX = {
     "ACCA-Led Delivery Team",
     "Dutch Corporate Income Tax Expertise",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -442,11 +442,11 @@ export const NL_CORPORATE_TAX = {
     "Dedicated Corporate Income Tax specialists who work as an extension of your Dutch practice.",
   partner: {
     badge: "Corporate Income Tax Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Corporate Income Tax Delivery Partner",
     body: "Corporate Income Tax compliance requires technical expertise, precision, and a structured review process. Our dedicated professionals work as an extension of your practice, helping you deliver reliable Corporate Income Tax services while freeing up valuable internal resources during busy tax seasons.",
     callout:
-      "Whether you require support with Corporate Income Tax return preparation, tax computations, deferred tax calculations, reconciliations, working papers, compliance reviews, or dedicated offshore tax resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
+      "Whether you require support with Corporate Income Tax return preparation, tax computations, deferred tax calculations, reconciliations, working papers, compliance reviews, or dedicated tax resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
   },
 };
 
@@ -463,7 +463,7 @@ export const NL_MANAGEMENT_ACCOUNTS = {
       "Reliable Management Accounting & Virtual CFO Support for Dutch Accounting Firms & Administration Offices",
     paragraphs: [
       "Today's businesses expect far more than bookkeeping and tax compliance. They rely on their accountants for timely financial reporting, cash flow management, budgeting, forecasting, profitability analysis, and strategic financial advice. As client expectations continue to evolve, Dutch accounting firms and administratiekantoren often require additional resources to deliver high-value advisory services while managing increasing workloads.",
-      "At NextLedgers, we provide dedicated offshore Management Accounting & Virtual CFO support to Dutch accounting firms, administratiekantoren, and financial advisory firms. Our white-label outsourcing solutions help firms expand their advisory services, improve reporting efficiency, and deliver strategic financial insights without increasing internal staffing costs.",
+      "At NextLedgers, we provide dedicated Management Accounting & Virtual CFO support to Dutch accounting firms, administratiekantoren, and financial advisory firms. Our white-label outsourcing solutions help firms expand their advisory services, improve reporting efficiency, and deliver strategic financial insights without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -569,7 +569,7 @@ export const NL_MANAGEMENT_ACCOUNTS = {
     "Dutch Management Accounting Expertise",
     "Virtual CFO Advisory Experience",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -579,11 +579,11 @@ export const NL_MANAGEMENT_ACCOUNTS = {
     "Dedicated management accounting and Virtual CFO specialists who work as an extension of your Dutch practice.",
   partner: {
     badge: "Management Accounting & Virtual CFO Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Management Accounting & Virtual CFO Delivery Partner",
     body: "Management accounting and Virtual CFO services require commercial insight, analytical expertise, and consistent reporting. Our dedicated professionals work as an extension of your practice, helping you deliver meaningful financial insights and strategic advisory services while freeing up valuable internal resources.",
     callout:
-      "Whether you require support with monthly management accounts, budgeting, forecasting, cash flow management, KPI reporting, board reporting, financial modelling, or dedicated offshore advisory resources, NextLedgers can help your practice scale efficiently while maintaining quality and client satisfaction.",
+      "Whether you require support with monthly management accounts, budgeting, forecasting, cash flow management, KPI reporting, board reporting, financial modelling, or dedicated advisory resources, NextLedgers can help your practice scale efficiently while maintaining quality and client satisfaction.",
   },
 };
 
@@ -600,7 +600,7 @@ export const NL_PAYROLL = {
       "Reliable Payroll Processing Support for Dutch Accounting Firms & Administration Offices",
     paragraphs: [
       "Payroll processing requires accuracy, consistency, and a thorough understanding of Dutch payroll legislation. Businesses rely on their accountants and payroll providers to ensure employees are paid accurately and on time while meeting obligations relating to wage tax (Loonheffing), social security contributions, employee benefits, pension schemes, and employment regulations. Even minor payroll errors can lead to compliance issues, employee dissatisfaction, and additional administrative work.",
-      "As your practice grows, managing payroll for multiple clients can become increasingly resource-intensive. At NextLedgers, we provide dedicated offshore Payroll Processing support to Dutch accounting firms, administratiekantoren, payroll providers, and financial service firms, helping practices increase capacity, improve turnaround times, and deliver reliable payroll services without increasing internal staffing costs.",
+      "As your practice grows, managing payroll for multiple clients can become increasingly resource-intensive. At NextLedgers, we provide dedicated Payroll Processing support to Dutch accounting firms, administratiekantoren, payroll providers, and financial service firms, helping practices increase capacity, improve turnaround times, and deliver reliable payroll services without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -701,7 +701,7 @@ export const NL_PAYROLL = {
     "Dutch Payroll Expertise",
     "Wage Tax & Social Security Knowledge",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -711,11 +711,11 @@ export const NL_PAYROLL = {
     "Dedicated payroll specialists who work as an extension of your Dutch practice.",
   partner: {
     badge: "Payroll Processing Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Payroll Processing Delivery Partner",
     body: "Payroll processing requires precision, confidentiality, and consistent compliance. Our dedicated professionals work as an extension of your practice, helping you deliver reliable payroll services while freeing up valuable internal resources.",
     callout:
-      "Whether you require support with payroll processing, wage tax calculations, pension contribution reviews, payroll reconciliations, employee record maintenance, payroll reporting, or dedicated offshore payroll resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
+      "Whether you require support with payroll processing, wage tax calculations, pension contribution reviews, payroll reconciliations, employee record maintenance, payroll reporting, or dedicated payroll resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
   },
 };
 
@@ -732,7 +732,7 @@ export const NL_PERSONAL_TAX = {
       "Reliable Personal Income Tax Support for Dutch Accounting Firms & Tax Advisors",
     paragraphs: [
       "Preparing Personal Income Tax returns requires technical expertise, attention to detail, and a thorough understanding of Dutch income tax legislation. Accounting firms and tax advisors must accurately review employment income, self-employment income, investment income, property income, allowable deductions, tax credits, and supporting documentation while ensuring compliance with the requirements of the Dutch Tax and Customs Administration.",
-      "As your practice grows, managing large volumes of Personal Income Tax returns can place significant pressure on your internal team, particularly during the annual filing season. At NextLedgers, we provide dedicated offshore Personal Income Tax support to Dutch accounting firms, administratiekantoren, and tax advisory firms, helping practices increase capacity, improve turnaround times, and deliver accurate tax compliance services without increasing internal staffing costs.",
+      "As your practice grows, managing large volumes of Personal Income Tax returns can place significant pressure on your internal team, particularly during the annual filing season. At NextLedgers, we provide dedicated Personal Income Tax support to Dutch accounting firms, administratiekantoren, and tax advisory firms, helping practices increase capacity, improve turnaround times, and deliver accurate tax compliance services without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -835,7 +835,7 @@ export const NL_PERSONAL_TAX = {
     "ACCA-Led Delivery Team",
     "Dutch Personal Income Tax Expertise",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -845,11 +845,11 @@ export const NL_PERSONAL_TAX = {
     "Dedicated Personal Income Tax specialists who work as an extension of your Dutch practice.",
   partner: {
     badge: "Personal Income Tax Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Personal Income Tax Delivery Partner",
     body: "Personal Income Tax preparation requires technical expertise, precision, and a structured review process. Our dedicated professionals work as an extension of your practice, helping you deliver accurate Personal Income Tax returns while freeing up valuable internal resources during busy tax seasons.",
     callout:
-      "Whether you require support with Personal Income Tax return preparation, self-employed tax returns, Box 1, Box 2 & Box 3 calculations, investment income reporting, tax planning, working papers, or dedicated offshore tax resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
+      "Whether you require support with Personal Income Tax return preparation, self-employed tax returns, Box 1, Box 2 & Box 3 calculations, investment income reporting, tax planning, working papers, or dedicated tax resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
   },
 };
 
@@ -866,7 +866,7 @@ export const NL_VAT = {
       "Reliable VAT (BTW) Compliance & Filing Support for Dutch Accounting Firms & Administration Offices",
     paragraphs: [
       "VAT (BTW) compliance requires technical expertise, accuracy, and a thorough understanding of Dutch tax legislation. Businesses are required to maintain accurate VAT records, correctly classify transactions, prepare periodic VAT returns, and comply with the reporting requirements of the Dutch Tax and Customs Administration (Belastingdienst). Even minor VAT errors can lead to penalties, additional tax liabilities, audits, and unnecessary administrative work.",
-      "As your practice grows, managing VAT compliance for multiple clients can become increasingly time-consuming. At NextLedgers, we provide dedicated offshore VAT (BTW) Compliance & Filing support to Dutch accounting firms, administratiekantoren, and tax advisory firms, helping practices increase capacity, improve turnaround times, and deliver reliable VAT compliance services without increasing internal staffing costs.",
+      "As your practice grows, managing VAT compliance for multiple clients can become increasingly time-consuming. At NextLedgers, we provide dedicated VAT (BTW) Compliance & Filing support to Dutch accounting firms, administratiekantoren, and tax advisory firms, helping practices increase capacity, improve turnaround times, and deliver reliable VAT compliance services without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -967,7 +967,7 @@ export const NL_VAT = {
     "Dutch VAT (BTW) Expertise",
     "EU VAT Compliance Knowledge",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -977,11 +977,11 @@ export const NL_VAT = {
     "Dedicated VAT (BTW) specialists who work as an extension of your Dutch practice.",
   partner: {
     badge: "VAT (BTW) Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "VAT (BTW) Delivery Partner",
     body: "VAT compliance requires technical expertise, consistency, and meticulous attention to detail. Our dedicated professionals work as an extension of your practice, helping you deliver accurate VAT compliance services while freeing up valuable internal resources.",
     callout:
-      "Whether you require support with VAT (BTW) return preparation, VAT reconciliations, EU VAT reporting, OSS reporting, EC Sales Lists (ICP), VAT registrations, compliance reviews, or dedicated offshore VAT specialists, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
+      "Whether you require support with VAT (BTW) return preparation, VAT reconciliations, EU VAT reporting, OSS reporting, EC Sales Lists (ICP), VAT registrations, compliance reviews, or dedicated VAT specialists, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
   },
 };
 
@@ -998,7 +998,7 @@ export const NL_YEAR_END = {
       "Reliable Year-End Accounts & Financial Reporting Support for Dutch Accounting Firms & Administration Offices",
     paragraphs: [
       "Preparing year-end accounts and financial statements requires technical expertise, accuracy, and a structured review process. Accounting firms must ensure financial statements are prepared from complete and accurate accounting records while complying with Dutch Accounting Standards (Dutch GAAP), International Financial Reporting Standards (IFRS) where applicable, the requirements of the Dutch Tax and Customs Administration (Belastingdienst), and the Dutch Chamber of Commerce (KVK) filing obligations.",
-      "As your practice grows, managing year-end reporting engagements for multiple clients can become increasingly resource-intensive. At NextLedgers, we provide dedicated offshore Year-End Accounts & Financial Statement Preparation support to Dutch accounting firms, administratiekantoren, and financial advisory firms, helping practices increase capacity, improve turnaround times, and deliver high-quality financial reporting without increasing internal staffing costs.",
+      "As your practice grows, managing year-end reporting engagements for multiple clients can become increasingly resource-intensive. At NextLedgers, we provide dedicated Year-End Accounts & Financial Statement Preparation support to Dutch accounting firms, administratiekantoren, and financial advisory firms, helping practices increase capacity, improve turnaround times, and deliver high-quality financial reporting without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -1099,7 +1099,7 @@ export const NL_YEAR_END = {
     "Dutch Financial Reporting Expertise",
     "Dutch GAAP & IFRS Knowledge",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -1109,10 +1109,10 @@ export const NL_YEAR_END = {
     "Dedicated year-end reporting specialists who work as an extension of your Dutch practice.",
   partner: {
     badge: "Year-End Accounts Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Financial Reporting Delivery Partner",
     body: "Year-end accounts preparation requires technical expertise, consistency, and meticulous attention to detail. Our dedicated professionals work as an extension of your practice, helping you deliver accurate financial statements while freeing up valuable internal resources during busy reporting periods.",
     callout:
-      "Whether you require support with year-end accounts preparation, financial statement drafting, working paper preparation, reconciliations, statutory reporting, Corporate Income Tax readiness, audit support, or dedicated offshore accounting resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
+      "Whether you require support with year-end accounts preparation, financial statement drafting, working paper preparation, reconciliations, statutory reporting, Corporate Income Tax readiness, audit support, or dedicated accounting resources, NextLedgers can help your practice scale efficiently while maintaining quality and compliance.",
   },
 };

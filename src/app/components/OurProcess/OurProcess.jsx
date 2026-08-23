@@ -3,6 +3,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
+import { homeLogoSrc } from "@/app/lib/homePageLogos";
+
 const ORANGE = BRAND_ORANGE;
 const BG = "#0B1C33";
 const WHITE = "#FFFFFF";
@@ -11,50 +13,48 @@ const DESC = "#D4D9E0";
 const STEP_FILL_MS = 550;
 const LINE_TRAVEL_MS = 750;
 
-const ICON_BASE = "/images/icon/How%20we%20fit%20inot%20process-%20Home%20page";
-
 const STEPS = [
   {
     num: "01",
     title: "Discovery Call",
     description: "We understand your business, challenges and goals.",
-    icon: `${ICON_BASE}/1.png`,
+    icon: homeLogoSrc(1),
   },
   {
     num: "02",
     title: "Understand Workflow",
     description: "We analyze your processes, tools and reporting needs.",
-    icon: `${ICON_BASE}/2.png`,
+    icon: homeLogoSrc(12),
   },
   {
     num: "03",
     title: "Assign Dedicated Team",
     description: "We assign the best matched professionals for your requirements.",
-    icon: `${ICON_BASE}/3.png`,
+    icon: homeLogoSrc(4),
   },
   {
     num: "04",
     title: "Knowledge Transfer",
     description: "We learn your processes and align with your expectations.",
-    icon: `${ICON_BASE}/4.png`,
+    icon: homeLogoSrc(23),
   },
   {
     num: "05",
     title: "Daily Operations Begin",
     description: "Your team starts delivering with quality and consistency.",
-    icon: `${ICON_BASE}/5.png`,
+    icon: homeLogoSrc(8),
   },
   {
     num: "06",
     title: "Weekly Reviews",
     description: "Regular updates, performance reviews and improvements.",
-    icon: `${ICON_BASE}/6.png`,
+    icon: homeLogoSrc(5),
   },
   {
     num: "07",
     title: "Scale Anytime",
     description: "Easily scale your team up or down as your business grows.",
-    icon: `${ICON_BASE}/7.png`,
+    icon: homeLogoSrc(7),
   },
 ];
 
@@ -105,8 +105,8 @@ function StepItem({ step, showDivider = false, compact = false, active = false }
           style={{
             width: "100%",
             height: "100%",
-            objectFit: "cover",
-            transform: "scale(1.04)",
+            objectFit: "contain",
+            transform: "none",
           }}
         />
       </div>

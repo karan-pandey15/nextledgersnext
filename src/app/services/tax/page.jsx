@@ -418,7 +418,7 @@ export default function TaxCompliancePage() {
 
                         {/* 5 — Why Choose */}
             <WhyChooseSplitSection
-                subtitle="Accurate filings, strategic planning, and scalable offshore tax support across multiple jurisdictions."
+                subtitle="Accurate filings, strategic planning, and scalable tax support across multiple jurisdictions."
                 items={whyChooseCards}
             />
 

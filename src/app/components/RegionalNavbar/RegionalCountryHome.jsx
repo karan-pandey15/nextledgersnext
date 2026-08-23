@@ -82,14 +82,14 @@ export default function RegionalCountryHome({
               style={{ color: NAVY }}
             >
               Explore Our{" "}
-              <span style={{ color: ORANGE }}>{outsourcingAccent}</span> Services
+              <span style={{ color: ORANGE }}>Services</span>
             </h2>
             <p
               className="mx-auto mt-2.5 max-w-xl px-1 text-[13px] leading-relaxed sm:text-[14px]"
               style={{ color: GREY }}
             >
               Choose a service to see how NextLedgers supports {regionName}{" "}
-              accounting firms with dedicated offshore delivery.
+              accounting firms with dedicated delivery.
             </p>
             <div
               className="mx-auto mt-4 h-[3px] w-11 rounded-full"

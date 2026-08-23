@@ -8,6 +8,7 @@ import ArtificialIntelligence from "../components/ArtificialIntelligence/Artific
 import NexaLedAi from "../components/ChatBot/NexaLedAi";
 import { POPUP_REGIONS } from "../components/RegionSelect/regionData";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
+import { HomeLogoImg } from "@/app/lib/homePageLogos";
 
 const ORANGE = BRAND_ORANGE;
 const NAVY = "#0F274A";
@@ -26,27 +27,6 @@ const INITIAL = {
   message: "",
   agree: false,
 };
-
-function IconDocLock({ className = "w-6 h-6" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <path
-        d="M8 3.5h5.2L17.5 8v12.5H8V3.5Z"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinejoin="round"
-      />
-      <path d="M13.2 3.5V8H17.5" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
-      <rect x="10" y="12.2" width="4.2" height="3.4" rx="0.6" stroke="currentColor" strokeWidth="1.5" />
-      <path
-        d="M11.1 12.2v-1.1a1 1 0 0 1 2 0v1.1"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
 
 function IconUser({ className = "w-[18px] h-[18px]" }) {
   return (
@@ -128,65 +108,6 @@ function IconChat({ className = "w-[18px] h-[18px]" }) {
   );
 }
 
-function IconShield({ className = "w-5 h-5" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <path
-        d="M12 3.2 5.5 6v5.4c0 4.2 2.9 8.1 6.5 9.1 3.6-1 6.5-4.9 6.5-9.1V6L12 3.2Z"
-        stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinejoin="round"
-      />
-      <path
-        d="m9.1 12 2 2 3.9-4"
-        stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function IconClock24({ className = "w-5 h-5" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <circle cx="12" cy="12" r="8.2" stroke="currentColor" strokeWidth="1.7" />
-      <text
-        x="12"
-        y="14.5"
-        textAnchor="middle"
-        fontSize="7"
-        fontWeight="700"
-        fill="currentColor"
-        fontFamily="system-ui, sans-serif"
-      >
-        24
-      </text>
-    </svg>
-  );
-}
-
-function IconTeam({ className = "w-5 h-5" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <circle cx="9" cy="8.5" r="2.6" stroke="currentColor" strokeWidth="1.6" />
-      <circle cx="16" cy="9.2" r="2.2" stroke="currentColor" strokeWidth="1.6" />
-      <path
-        d="M3.8 18.5c.9-2.6 2.8-4 5.2-4s4.3 1.4 5.2 4"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-      />
-      <path
-        d="M14.2 14.8c1.5-.4 3-.2 4.2 1.2.7.8 1.1 1.7 1.3 2.5"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
 function IconSend({ className = "w-4 h-4" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
@@ -225,22 +146,22 @@ const FEATURES = [
   {
     title: "100% Secure",
     text: "Your information is safe with us",
-    icon: IconShield,
+    logo: 18,
   },
   {
     title: "Quick Response",
     text: "We reply within 24 hours",
-    icon: IconClock24,
+    logo: 6,
   },
   {
     title: "Expert Team",
     text: "Experienced professionals ready to help",
-    icon: IconTeam,
+    logo: 4,
   },
   {
     title: "Global Support",
     text: "Serving businesses worldwide",
-    icon: IconGlobe,
+    logo: 26,
   },
 ];
 
@@ -280,8 +201,8 @@ export default function ContactPage() {
             className="rounded-[18px] border border-[#ECEFF3] bg-white px-5 py-8 shadow-[0_16px_48px_rgba(15,39,74,0.08)] sm:rounded-[22px] sm:px-8 sm:py-10 lg:px-10"
           >
             <div className="mx-auto max-w-[620px] text-center">
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#FFF1E6] text-[#FF6A00] sm:h-14 sm:w-14">
-                <IconDocLock className="h-6 w-6 sm:h-7 sm:w-7" />
+              <div className="mx-auto h-14 w-14 sm:h-16 sm:w-16">
+                <HomeLogoImg n={18} />
               </div>
 
               <h1
@@ -450,16 +371,15 @@ export default function ContactPage() {
               <div className="rounded-[12px] bg-[#FFF7F0] px-4 py-3.5 sm:rounded-[14px] sm:px-5 sm:py-4 lg:px-6">
                 <div className="grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-0">
                   {FEATURES.map((feature, index) => {
-                    const Icon = feature.icon;
                     return (
                       <div
                         key={feature.title}
-                        className={`flex items-start gap-2.5 ${
+                        className={`flex items-center gap-3 ${
                           index > 0 ? "lg:border-l lg:border-[#E8D5C4] lg:pl-5" : ""
                         } ${index < FEATURES.length - 1 ? "lg:pr-5" : ""}`}
                       >
-                        <div className="mt-0.5 shrink-0 text-[#FF6A00]">
-                          <Icon className="h-5 w-5" />
+                        <div className="h-11 w-11 shrink-0 sm:h-12 sm:w-12">
+                          <HomeLogoImg n={feature.logo} />
                         </div>
                         <div className="min-w-0">
                           <p

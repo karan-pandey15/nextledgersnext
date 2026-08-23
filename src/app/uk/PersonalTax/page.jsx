@@ -37,6 +37,7 @@ import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/Arti
 import NexaLedAi from "@/app/components/ChatBot/NexaLedAi";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
 import { UK_PERSONAL_TAX_INDUSTRIES } from "@/app/uk/ukIndustries";
+import { UK_PERSONAL_TAX_SOFTWARE } from "@/app/uk/ukSoftwareExpertise";
 
 const ORANGE = BRAND_ORANGE;
 const NAVY = "#0B1F3A";
@@ -156,30 +157,7 @@ const specialistAreas = [
     },
 ];
 
-const softwareExpertiseLogodata = [
-    {
-        heading: "PERSONAL TAX SOFTWARE",
-        icon: "briefcase",
-        logos: [
-            "iris personal tax",
-            "cch personal tax",
-            "btcsoftware",
-            "capium personal tax",
-            "absolute tax",
-            "forbes professional",
-        ],
-    },
-    {
-        heading: "ACCOUNTING SOFTWARE",
-        icon: "user",
-        logos: ["xero", "quickbooks online", "sage business cloud", "freeagent"],
-    },
-    {
-        heading: "DOCUMENT & WORKFLOW TOOLS",
-        icon: "document",
-        logos: ["dext", "hubdoc", "autoentry", "approvalmax"],
-    },
-];
+const softwareExpertiseLogodata = UK_PERSONAL_TAX_SOFTWARE;
 
 const whyChooseNextLedgers = [
     { title: "UK Self Assessment Expertise", icon: BookOpen },
@@ -390,7 +368,7 @@ export default function PersonalTaxPage() {
                                 expectations can place significant pressure on internal teams.
                             </p>
                             <p className="mb-3 text-[15px] leading-relaxed text-gray-500">
-                                At NextLedgers, we provide dedicated offshore Personal Tax support
+                                At NextLedgers, we provide dedicated Personal Tax support
                                 to UK accounting firms, helping practices manage compliance
                                 efficiently, improve turnaround times, and increase capacity without
                                 compromising quality.
@@ -435,7 +413,7 @@ export default function PersonalTaxPage() {
                                 <Stat
                                     icon={<Headset className="h-5 w-5" />}
                                     value="Dedicated"
-                                    label="Offshore Support Team"
+                                    label="Support Team"
                                 />
                             </div>
                         </div>
@@ -802,11 +780,11 @@ export default function PersonalTaxPage() {
             {/* 9 — CTA */}
             <ServicePartnerCTA
                 eyebrow="Personal Tax Partner"
-                titleBefore="Your Offshore Personal Tax"
+                titleBefore="Your Personal Tax"
                 titleAccent="Compliance"
                 titleAfter="Partner"
                 description="Personal tax compliance requires technical expertise, confidentiality, and attention to detail. Our experienced professionals help UK accounting firms increase capacity while maintaining high standards of accuracy and compliance."
-                callout="Whether you need Self Assessment returns, director returns, partnership reporting, capital gains calculations, foreign income disclosures, or dedicated offshore tax resources, NextLedgers helps your practice scale efficiently."
+                callout="Whether you need Self Assessment returns, director returns, partnership reporting, capital gains calculations, foreign income disclosures, or dedicated tax resources, NextLedgers helps your practice scale efficiently."
             />
 
             <Footer region="uk" />

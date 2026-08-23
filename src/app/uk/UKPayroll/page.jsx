@@ -37,6 +37,7 @@ import ArtificialIntelligence from "@/app/components/ArtificialIntelligence/Arti
 import NexaLedAi from "@/app/components/ChatBot/NexaLedAi";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
 import { UK_PAYROLL_INDUSTRIES } from "@/app/uk/ukIndustries";
+import { UK_PAYROLL_SOFTWARE } from "@/app/uk/ukSoftwareExpertise";
 
 const ORANGE = BRAND_ORANGE;
 const NAVY = "#0B1F3A";
@@ -130,38 +131,7 @@ const helpFirmsScale = [
     "Scale operations without increasing headcount",
 ];
 
-const softwareExpertiseLogodata = [
-    {
-        heading: "PAYROLL SOFTWARE",
-        icon: "briefcase",
-        logos: [
-            "brightpay",
-            "moneysoft payroll manager",
-            "xero payroll",
-            "quickbooks payroll",
-            "sage payroll",
-            "freeagent payroll",
-        ],
-    },
-    {
-        heading: "PENSION PLATFORMS",
-        icon: "shield",
-        logos: ["nest", "the people's pension", "smart pension"],
-    },
-    {
-        heading: "ACCOUNTING & WORKFLOW TOOLS",
-        icon: "document",
-        logos: [
-            "xero",
-            "quickbooks online",
-            "sage business cloud",
-            "freeagent",
-            "dext",
-            "hubdoc",
-            "approvalmax",
-        ],
-    },
-];
+const softwareExpertiseLogodata = UK_PAYROLL_SOFTWARE;
 
 const whyChooseNextLedgers = [
     { title: "UK PAYE & Payroll Expertise", icon: BookOpen },
@@ -376,7 +346,7 @@ export default function UKPayrollPage() {
                             <p className="mb-3 text-[15px] leading-relaxed text-gray-500">
                                 As your practice grows, managing payroll and CIS can become
                                 increasingly time-consuming. At NextLedgers, we provide dedicated
-                                offshore Payroll and CIS support to UK accounting firms, helping
+                                Payroll and CIS support to UK accounting firms, helping
                                 practices increase capacity, maintain compliance, and deliver
                                 reliable services without increasing internal staffing costs.
                             </p>
@@ -414,7 +384,7 @@ export default function UKPayrollPage() {
                                 <Stat
                                     icon={<Headset className="h-5 w-5" />}
                                     value="Dedicated"
-                                    label="Offshore Support Team"
+                                    label="Support Team"
                                 />
                             </div>
                         </div>
@@ -762,7 +732,7 @@ export default function UKPayrollPage() {
             {/* 10 — CTA */}
             <ServicePartnerCTA
                 eyebrow="Payroll & CIS Partner"
-                titleBefore="Your Offshore Payroll &"
+                titleBefore="Your Payroll &"
                 titleAccent="CIS Delivery"
                 titleAfter="Partner"
                 description="Payroll and CIS require precision, confidentiality, and consistent compliance. Our dedicated professionals work as an extension of your practice, helping you deliver reliable payroll services while freeing up valuable internal resources."

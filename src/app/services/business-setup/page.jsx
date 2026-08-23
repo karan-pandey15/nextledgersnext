@@ -159,7 +159,7 @@ const whyChooseCards = [
     { title: "Strong Compliance & Risk Management", icon: ShieldCheck },
     { title: "Efficient Business Process Implementation", icon: Workflow },
     { title: "Global Business Support Expertise", icon: Globe2 },
-    { title: "Flexible Offshore Consulting Services", icon: Network },
+    { title: "Flexible Consulting Services", icon: Network },
     { title: "Trusted Partner for Long-Term Business Success", icon: BadgeCheck },
 ];
 

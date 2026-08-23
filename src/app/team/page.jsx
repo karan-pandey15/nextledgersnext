@@ -12,7 +12,6 @@ import NexaLedAi from "../components/ChatBot/NexaLedAi";
 import TeamMemberModal from "../components/Team/TeamMemberModal";
 import {
   DEFAULT_EMAIL,
-  getCleanDisplayName,
   toLinkedInHref,
   toMailHref,
 } from "../components/Team/teamMemberDefaults";
@@ -27,7 +26,7 @@ const PAGE_BG = "#FFFFFF";
 /** GLOBAL ADVISORS — 2 large cards */
 const GLOBAL_ADVISORS = [
   {
-    name: "Durgesh Pandey ACCA",
+    name: "Durgesh Pandey, ACCA",
     credentials: "CPA Pursuing",
     role: "Managing Partner",
     companyRole: "Managing Partner",
@@ -159,7 +158,8 @@ const GLOBAL_LEADERSHIP = [
     role: "Accounting & Tax Partner",
     companyRole: "Accounting & Tax Partner",
     designationLines: ["Accounting & Tax Partner", "North America"],
-    image: "/images/TeamImage/Akash_Gangwar-removebg-preview.png",
+    image: "/images/TeamImage/Akash..-removebg-preview.png",
+    avatarVariant: "akash",
     email: "Akash.gangwar@nextledgers.com",
     linkedin: "linkedin.com/in/akash-kumar-147346244",
     bio: [
@@ -496,10 +496,13 @@ function getAvatarImageClass(variant, isCutout) {
   if (variant === "nisha") {
     return "h-full w-full object-contain object-bottom scale-[0.9] origin-bottom";
   }
-  // Abhishek — zoom in from the default cutout so head gap matches Md. Almasud
+  // Abhishek — head + shoulders like Md. Almasud (crop folded hands, match head gap)
   if (variant === "abhishek") {
-    // Use object-cover + top origin to prevent head clipping while still zooming in
-    return "h-full w-full object-cover object-[50%_12%] scale-[1.22] origin-top";
+    return "h-full w-full object-cover object-[50%_26%] scale-[1.38] origin-top";
+  }
+  // Akash — head near top, crossed arms visible at bottom of the circle
+  if (variant === "akash") {
+    return "h-full w-full object-cover object-[50%_8%] scale-[1.32] origin-top -translate-y-[10px]";
   }
   if (isCutout) {
     return "h-full w-full object-contain object-bottom";
@@ -519,6 +522,7 @@ function TeamAvatar({
   const isCutout = Boolean(src?.includes("removebg") || src?.includes("remove.png"));
   const imageSrc = src ? encodeURI(src) : "";
   const hasHeadGap = variant === "avnish" || variant === "richa";
+  const hasAlmasudGap = variant === "abhishek";
   const sizeClass =
     size === "sm"
       ? "h-[64px] w-[64px] sm:h-[72px] sm:w-[72px]"
@@ -533,7 +537,7 @@ function TeamAvatar({
   return (
     <div
       className={`relative flex shrink-0 items-center justify-center overflow-hidden rounded-full ${sizeClass} ${
-        hasHeadGap ? "pt-[5px]" : ""
+        hasAlmasudGap ? "pt-[10px]" : hasHeadGap ? "pt-[5px]" : ""
       }`}
       style={{ backgroundColor: bgColor, boxShadow: `0 0 0 2px ${ringColor}` }}
     >
@@ -566,7 +570,7 @@ function ProfileCard({ member, large = false, onOpen }) {
   const emailHref = toMailHref(member.email || DEFAULT_EMAIL);
   const linkedinHref = toLinkedInHref(member.linkedin);
   const roleLines = getRoleLines(member);
-  const cardName = getCleanDisplayName(member.name);
+  const cardName = member.name;
   const roleTextClass = `font-bold leading-snug ${large ? "text-[14px] sm:text-[15px]" : "text-[13px] sm:text-[14px]"}`;
 
   return (
@@ -653,7 +657,7 @@ function ProfileCard({ member, large = false, onOpen }) {
 /** Same look as Global Leadership cards — no Email/LinkedIn, not clickable */
 function DisplayProfileCard({ member, large = false }) {
   const roleLines = getRoleLines(member);
-  const cardName = getCleanDisplayName(member.name);
+  const cardName = member.name;
   const roleTextClass = `font-bold leading-snug ${large ? "text-[14px] sm:text-[15px]" : "text-[13px] sm:text-[14px]"}`;
 
   return (

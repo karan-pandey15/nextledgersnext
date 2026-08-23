@@ -49,7 +49,7 @@ export const SINGAPORE_WHY_CHOOSE_DEFAULT = [
   "ACCA-Led Delivery Team",
   "Singapore Accounting Knowledge",
   "White-Label Service Delivery",
-  "Dedicated Offshore Resources",
+  "Dedicated Resources",
   "Structured Review Processes",
   "Secure Data Handling",
   "Flexible Engagement Models",
@@ -69,7 +69,7 @@ export const SG_BOOKKEEPING = {
       "Reliable Bookkeeping Support for Singapore Accounting Firms & Corporate Service Providers",
     paragraphs: [
       "Bookkeeping forms the foundation of accurate financial reporting, tax compliance, and effective business decision-making. However, maintaining accurate bookkeeping records for multiple clients can be time-consuming and resource-intensive for accounting firms and corporate service providers.",
-      "As your practice grows, bookkeeping workloads increase, month-end deadlines become tighter, and client expectations continue to rise. At NextLedgers, we provide dedicated offshore bookkeeping support to Singapore accounting firms, helping practices increase capacity, improve turnaround times, and deliver accurate bookkeeping services without increasing internal staffing costs.",
+      "As your practice grows, bookkeeping workloads increase, month-end deadlines become tighter, and client expectations continue to rise. At NextLedgers, we provide dedicated bookkeeping support to Singapore accounting firms, helping practices increase capacity, improve turnaround times, and deliver accurate bookkeeping services without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -136,14 +136,14 @@ export const SG_BOOKKEEPING = {
     "Deliver consistent client service",
     "Meet month-end deadlines efficiently",
     "Scale operations without increasing headcount",
-    "Improve profitability through offshore delivery",
+    "Improve profitability through delivery",
   ],
   software: [SG_ACCOUNTING_SOFTWARE, SG_DOCUMENT_TOOLS],
   whyChoose: [
     "ACCA-Led Delivery Team",
     "Singapore Accounting Knowledge",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -151,7 +151,7 @@ export const SG_BOOKKEEPING = {
   ],
   partner: {
     badge: "Bookkeeping Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Bookkeeping Delivery Partner",
     body: "Bookkeeping requires consistency, accuracy, and attention to detail. Our dedicated professionals work as an extension of your practice, helping you deliver reliable bookkeeping services while freeing up valuable internal resources.",
     callout:
@@ -173,7 +173,7 @@ export const SG_ACCOUNTING_CLEANUP = {
       "Reliable Accounting Support & Financial Cleanup Solutions for Singapore Practices",
     paragraphs: [
       "Accurate accounting records are essential for financial reporting, tax compliance, management decision-making, and business growth. However, many businesses fall behind on bookkeeping, accumulate unreconciled balances, maintain inaccurate ledgers, or face accounting issues resulting from rapid growth, staff turnover, software migrations, or lack of internal accounting resources.",
-      "For accounting firms and corporate service providers, correcting historical accounting issues while managing ongoing client work can place significant pressure on internal teams. At NextLedgers, we provide dedicated offshore Accounting & Financial Cleanup support to Singapore accounting firms, helping practices increase capacity, resolve complex accounting issues, and deliver reliable accounting services without increasing internal staffing costs.",
+      "For accounting firms and corporate service providers, correcting historical accounting issues while managing ongoing client work can place significant pressure on internal teams. At NextLedgers, we provide dedicated Accounting & Financial Cleanup support to Singapore accounting firms, helping practices increase capacity, resolve complex accounting issues, and deliver reliable accounting services without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -291,7 +291,7 @@ export const SG_ACCOUNTING_CLEANUP = {
     "ACCA-Led Delivery Team",
     "Singapore Accounting Expertise",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -299,7 +299,7 @@ export const SG_ACCOUNTING_CLEANUP = {
   ],
   partner: {
     badge: "Accounting & Cleanup Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Accounting & Financial Cleanup Delivery Partner",
     body: "Accounting cleanup projects require attention to detail, strong technical knowledge, and a structured review process. Our dedicated professionals work as an extension of your practice, helping you resolve historical accounting issues while maintaining ongoing service delivery for your clients.",
     callout:
@@ -321,7 +321,7 @@ export const SG_MANAGEMENT_ACCOUNTS = {
       "Reliable Management Reporting & Virtual CFO Support for Growing Practices",
     paragraphs: [
       "Business owners increasingly expect more than compliance services from their accountants. They want timely financial insights, meaningful management reports, cash flow visibility, budgeting support, and strategic financial guidance that helps them make informed business decisions.",
-      "As your practice grows, providing management accounts and Virtual CFO services to multiple clients can become resource-intensive and difficult to scale internally. At NextLedgers, we provide dedicated offshore Management Accounts and Virtual CFO support to Singapore accounting firms and corporate service providers, helping practices expand advisory offerings, improve service delivery, and increase capacity without increasing internal staffing costs.",
+      "As your practice grows, providing management accounts and Virtual CFO services to multiple clients can become resource-intensive and difficult to scale internally. At NextLedgers, we provide dedicated Management Accounts and Virtual CFO support to Singapore accounting firms and corporate service providers, helping practices expand advisory offerings, improve service delivery, and increase capacity without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -443,14 +443,14 @@ export const SG_MANAGEMENT_ACCOUNTS = {
     "Management Reporting Expertise",
     "Virtual CFO Support Experience",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Scalable Support Framework",
   ],
   partner: {
     badge: "Management Accounts & Virtual CFO Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Management Accounts & Virtual CFO Delivery Partner",
     body: "Management reporting and advisory services require accuracy, commercial awareness, and consistent delivery. Our dedicated professionals work as an extension of your practice, helping you provide high-value financial reporting and advisory support while freeing up valuable internal resources.",
     callout:
@@ -472,7 +472,7 @@ export const SG_GST = {
       "Reliable GST Compliance Support for Singapore Accounting Firms & Corporate Service Providers",
     paragraphs: [
       "GST compliance requires accuracy, consistency, and a strong understanding of Singapore's indirect tax regulations. Incorrect GST treatment, filing errors, reconciliation issues, or missed deadlines can lead to compliance risks, penalties, and additional administrative work for accounting firms and corporate service providers.",
-      "As your practice grows, managing GST registrations, return preparations, reconciliations, and compliance reviews for multiple clients can become increasingly time-consuming. At NextLedgers, we provide dedicated offshore GST support to Singapore accounting firms and corporate service providers, helping practices increase capacity, improve efficiency, and deliver reliable GST compliance services without increasing internal staffing costs.",
+      "As your practice grows, managing GST registrations, return preparations, reconciliations, and compliance reviews for multiple clients can become increasingly time-consuming. At NextLedgers, we provide dedicated GST support to Singapore accounting firms and corporate service providers, helping practices increase capacity, improve efficiency, and deliver reliable GST compliance services without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -582,7 +582,7 @@ export const SG_GST = {
     "ACCA-Led Delivery Team",
     "Singapore GST Compliance Knowledge",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -590,7 +590,7 @@ export const SG_GST = {
   ],
   partner: {
     badge: "GST Compliance Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "GST Compliance Delivery Partner",
     body: "GST compliance requires technical accuracy, consistency, and strong attention to detail. Our dedicated professionals work as an extension of your practice, helping you deliver reliable GST services while freeing up valuable internal resources.",
     callout:
@@ -612,7 +612,7 @@ export const SG_YEAR_END = {
       "Reliable Financial Statement Preparation Support for Singapore Accounting Firms & Corporate Service Providers",
     paragraphs: [
       "Year-end accounts preparation and financial statement reporting require accuracy, technical expertise, and attention to detail. Accounting firms and corporate service providers must ensure financial statements are prepared from accurate accounting records while meeting reporting requirements, compliance standards, and client deadlines.",
-      "As your practice grows, managing year-end accounts, financial statement preparation, working papers, reconciliations, and reporting requirements for multiple clients can become increasingly resource-intensive. At NextLedgers, we provide dedicated offshore Year-End Accounts & Financial Statement Preparation support to Singapore accounting firms, helping practices increase capacity, improve turnaround times, and maintain reporting quality without increasing internal staffing costs.",
+      "As your practice grows, managing year-end accounts, financial statement preparation, working papers, reconciliations, and reporting requirements for multiple clients can become increasingly resource-intensive. At NextLedgers, we provide dedicated Year-End Accounts & Financial Statement Preparation support to Singapore accounting firms, helping practices increase capacity, improve turnaround times, and maintain reporting quality without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -730,7 +730,7 @@ export const SG_YEAR_END = {
     "Financial Reporting Expertise",
     "Singapore Accounting Knowledge",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -738,7 +738,7 @@ export const SG_YEAR_END = {
   ],
   partner: {
     badge: "Financial Reporting Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Financial Reporting Delivery Partner",
     body: "Year-end accounts preparation requires technical expertise, consistency, and a structured review process. Our dedicated professionals work as an extension of your practice, helping you deliver accurate financial statements while freeing up valuable internal resources during busy reporting periods.",
     callout:
@@ -759,7 +759,7 @@ export const SG_CORPORATE_TAX = {
       "Reliable Corporate Tax Compliance Support for Singapore Accounting Firms & Corporate Service Providers",
     paragraphs: [
       "Corporate tax compliance requires accuracy, technical expertise, and a thorough understanding of Singapore tax regulations. Preparing corporate tax computations, reviewing financial information, identifying tax adjustments, and meeting filing deadlines can place significant pressure on accounting firms, particularly during peak compliance periods.",
-      "As your practice grows, managing multiple corporate tax engagements while maintaining quality and turnaround times can become increasingly challenging. At NextLedgers, we provide dedicated offshore Corporate Tax support to Singapore accounting firms and corporate service providers, helping practices increase capacity, improve efficiency, and deliver reliable tax compliance services without increasing internal staffing costs.",
+      "As your practice grows, managing multiple corporate tax engagements while maintaining quality and turnaround times can become increasingly challenging. At NextLedgers, we provide dedicated Corporate Tax support to Singapore accounting firms and corporate service providers, helping practices increase capacity, improve efficiency, and deliver reliable tax compliance services without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -858,7 +858,7 @@ export const SG_CORPORATE_TAX = {
     "ACCA-Led Delivery Team",
     "Singapore Corporate Tax Knowledge",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -866,7 +866,7 @@ export const SG_CORPORATE_TAX = {
   ],
   partner: {
     badge: "Corporate Tax Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Corporate Tax Delivery Partner",
     body: "Corporate tax compliance requires accuracy, consistency, and strong attention to detail. Our dedicated professionals work as an extension of your practice, helping you deliver reliable corporate tax services while freeing up valuable internal resources.",
     callout:
@@ -888,7 +888,7 @@ export const SG_PAYROLL = {
       "Reliable Payroll & CPF Support for Singapore Accounting Firms & Corporate Service Providers",
     paragraphs: [
       "Payroll processing and CPF compliance require accuracy, consistency, and a thorough understanding of Singapore employment and statutory requirements. Even minor payroll errors can lead to employee dissatisfaction, compliance risks, payroll adjustments, and additional administrative work for accounting firms and corporate service providers.",
-      "As your practice grows, managing payroll processing, employee records, CPF calculations, payroll reconciliations, and reporting obligations for multiple clients can become increasingly time-consuming. At NextLedgers, we provide dedicated offshore Payroll & CPF support to Singapore accounting firms, helping practices increase capacity, maintain compliance, and deliver reliable payroll services without increasing internal staffing costs.",
+      "As your practice grows, managing payroll processing, employee records, CPF calculations, payroll reconciliations, and reporting obligations for multiple clients can become increasingly time-consuming. At NextLedgers, we provide dedicated Payroll & CPF support to Singapore accounting firms, helping practices increase capacity, maintain compliance, and deliver reliable payroll services without increasing internal staffing costs.",
     ],
     image: "/images/DSC09901.JPG",
   },
@@ -1000,7 +1000,7 @@ export const SG_PAYROLL = {
     "ACCA-Led Delivery Team",
     "Singapore Payroll & CPF Knowledge",
     "White-Label Service Delivery",
-    "Dedicated Offshore Resources",
+    "Dedicated Resources",
     "Structured Review Processes",
     "Secure Data Handling",
     "Flexible Engagement Models",
@@ -1008,7 +1008,7 @@ export const SG_PAYROLL = {
   ],
   partner: {
     badge: "Payroll & CPF Partner",
-    titleBefore: "Your Offshore",
+    titleBefore: "Your",
     titleAccent: "Payroll & CPF Delivery Partner",
     body: "Payroll processing requires precision, confidentiality, and consistent compliance. Our dedicated professionals work as an extension of your practice, helping you deliver reliable payroll services while freeing up valuable internal resources.",
     callout:

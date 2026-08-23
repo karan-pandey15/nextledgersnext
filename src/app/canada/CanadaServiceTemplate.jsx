@@ -176,7 +176,7 @@ export default function CanadaServiceTemplate({ data }) {
     { icon: <Users className="h-5 w-5" />, value: "500+", label: "Canadian Firms Supported" },
     { icon: <PuzzleIcon className="h-5 w-5" />, value: "30+", label: "Software Integrations" },
     { icon: <ShieldCheck className="h-5 w-5" />, value: "100%", label: "CRA Compliant Processes" },
-    { icon: <Headset className="h-5 w-5" />, value: "Dedicated", label: "Offshore Support Team" },
+    { icon: <Headset className="h-5 w-5" />, value: "Dedicated", label: "Support Team" },
   ];
 
   const [introSrc, whyMatterSrc, whyChooseSrc] = uniquePagePhotos([
@@ -403,7 +403,7 @@ export default function CanadaServiceTemplate({ data }) {
         titleBefore="Our "
         titleAccent="Canada Service"
         titleAfter=" Deliverables"
-        subtitle="Structured offshore delivery across every workstream your practice needs."
+        subtitle="Structured delivery across every workstream your practice needs."
         className="!py-5"
         services={(data.sections || []).map((section, i) => ({
           title: section.title,
