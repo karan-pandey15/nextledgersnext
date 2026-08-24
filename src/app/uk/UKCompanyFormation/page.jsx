@@ -709,6 +709,7 @@ export default function UKCompanyFormation() {
                 subtitle="We work across the company secretarial, accounting, and document platforms your practice already uses."
                 logodata={softwareExpertiseLogodata}
                 className="!py-3"
+                showTextForMissing={true}
             />
 
             {/* 8 — Industries */}

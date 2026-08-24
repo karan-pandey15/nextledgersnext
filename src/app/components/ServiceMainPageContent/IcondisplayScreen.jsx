@@ -22,23 +22,15 @@ export const LOGO_MAP = {
     "moneysoft payroll manager": "/images/logooUK/Moneysoft_Australial.jpeg",
     "moneysoft payroll": "/images/logooUK/Moneysoft_Australial.jpeg",
     moneysoft: "/images/logooUK/Moneysoft_Australial.jpeg",
-    "xero payroll": "/images/logooUK/Xero.png",
-    "quickbooks payroll": "/images/logooUK/QuickBooks_Training.png",
-    "sage payroll": "/images/logooUK/Sage.jpg",
     "freeagent payroll": "/images/logooUK/FreeAgent.png",
     nest: "/images/logooUK/NEST_id4rvtkhfhg.png",
     "the people's pension": "/images/logooUK/thepepole.png",
     "the peoples pension": "/images/logooUK/thepepole.png",
     "smart pension": "/images/logooUK/Smart_Pension.jpeg",
     xero: "/images/logooUK/Xero.png",
-    "xero tax": "/images/logooUK/Xero.png",
-    "xero & quickbooks online": "/images/logooUK/Xero.png",
     "quickbooks online": "/images/logooUK/QuickBooks_Training.png",
     quickbooks: "/images/logooUK/QuickBooks_Training.png",
-    "quickbooks vat centre": "/images/logooUK/QuickBooks_Training.png",
-    "sage business cloud": "/images/logooUK/Sage.jpg",
     sage: "/images/logooUK/Sage.jpg",
-    "sage vat module": "/images/logooUK/Sage.jpg",
     freeagent: "/images/logooUK/FreeAgent.png",
     "freeagent vat": "/images/logooUK/FreeAgent.png",
     dext: "/images/logooUK/dext.png",
@@ -75,13 +67,8 @@ export const LOGO_MAP = {
     "spotlight reporting": "/images/logooUK/Spotlight.jpeg",
     float: "/images/logooUK/Float.png",
     futrli: "/images/logooUK/Futrli.png",
-    "microsoft excel": "/images/logooUK/Microsoft_Excel_id.png",
     "google sheets": "/images/logooUK/Google_Sheets.jpeg",
-    "microsoft 365": "/images/logooUK/Microsoft_Icon.jpeg",
-    "microsoft teams": "/images/logooUK/Microsoft_Icon.jpeg",
-    teams: "/images/logooUK/Microsoft_Icon.jpeg",
     "google workspace": "/images/logooUK/Google_Sheets.jpeg",
-    sharepoint: "/images/logooUK/Microsoft_Icon.jpeg",
     "inform direct": "/images/logooUK/Inform_Direct/Inform_Direct.jpeg",
     "companies house webfiling": "/images/logooUK/Companies.jpeg",
     "virtual cabinet": "/images/logooUK/Virtual_Cabinet.png",
@@ -91,11 +78,7 @@ export const LOGO_MAP = {
     "syft analytics": "/images/logooUK/SyftAnalytics.png",
     "power bi": "/images/logooUK/Powerlogo.png",
     "google looker studio": "/images/logooUK/Google_Looker.png",
-    "zoho books": "/images/logooUK/SVG_Brand_zoho_corporation.webp",
     zoho: "/images/logooUK/SVG_Brand_zoho_corporation.webp",
-    "zoho people": "/images/logooUK/SVG_Brand_zoho_corporation.webp",
-    "zoho payroll": "/images/logooUK/SVG_Brand_zoho_corporation.webp",
-    "zoho prime": "/images/logooUK/SVG_Brand_zoho_corporation.webp",
     freshbooks: "/images/logooUK/freshbook2.jfif",
     "wave accounting": "/images/logooUK/Wave_id.jpeg",
     wave: "/images/logooUK/Wave_id.jpeg",
@@ -121,100 +104,51 @@ export const LOGO_MAP = {
     caseware: "/images/logooUK/Caseware.png",
     "cch engagement": "/images/logooUK/wolters.png",
     "employment hero": "/images/logooUK/Employmenthero.jpeg",
-    "sage accounting": "/images/logooUK/Sage.jpg",
-    "sage tax": "/images/logooUK/Sage.jpg",
-    "sage vat": "/images/logooUK/Sage.jpg",
-    "surf accounts": "/images/logooUK/Aiq.jpeg",
-    "big red cloud": "/images/logooUK/Aiq.jpeg",
-    "relate accounts": "/images/logooUK/wolters.png",
-    "relate software": "/images/logooUK/wolters.png",
-    "relate tax": "/images/logooUK/wolters.png",
-    "relate accounts production": "/images/logooUK/wolters.png",
-    "microsoft dynamics 365": "/images/logooUK/Microsoft_Icon.jpeg",
-    "microsoft dynamics 365 business central": "/images/logooUK/Microsoft_Icon.jpeg",
-    lightyear: "/images/logooUK/AutoEntry.jpeg",
-    "dropbox business": "/images/logooUK/Microsoft_Icon.jpeg",
-    "blueprint oneworld": "/images/logooUK/Inform_Direct/Inform_Direct.jpeg",
     laserfiche: "/images/logooUK/Virtual_Cabinet.png",
-    calxa: "/images/logooUK/Float.png",
-    ros: "/images/logooUK/Companies.jpeg",
-    "revenue online service": "/images/logooUK/Companies.jpeg",
-    "myob business": "/images/logooUK/MYOB.jpeg",
-    "myob tax": "/images/logooUK/MYOB.jpeg",
-    "myob payroll": "/images/logooUK/MYOB.jpeg",
-    "myob accountright": "/images/logooUK/MYOB.jpeg",
-    "myob ae ao tax": "/images/logooUK/MYOB.jpeg",
-    "myob ae/ao tax": "/images/logooUK/MYOB.jpeg",
     reckon: "/images/logooUK/Reckon.png",
-    "fyi docs": "/images/logooUK/Virtual_Cabinet.png",
-    karbon: "/images/logooUK/Virtual_Cabinet.png",
-    "aps tax": "/images/logooUK/wolters.png",
-    aps: "/images/logooUK/wolters.png",
-    "cch ifirm": "/images/logooUK/wolters.png",
-    taxlab: "/images/logooUK/TaxCalc.jpeg",
     abss: "/images/logooUK/MYOB.jpeg",
-    accountkit: "/images/logooUK/Aiq.jpeg",
-    hnry: "/images/logooUK/Xero.png",
     "smartly payroll": "/images/logooUK/Employmenthero.jpeg",
     ipayroll: "/images/logooUK/Wagepoint.jpeg",
     payhero: "/images/logooUK/Employmenthero.jpeg",
     "crystal payroll": "/images/logooUK/brightpay.jpeg",
-    figured: "/images/logooUK/Fathom.png",
-    suitefiles: "/images/logooUK/Virtual_Cabinet.png",
-    fuseworks: "/images/logooUK/Virtual_Cabinet.png",
     "reckon one": "/images/logooUK/Reckon.png",
     "reckon payroll": "/images/logooUK/Reckon.png",
-    handitax: "/images/logooUK/TaxCalc.jpeg",
-    "handi tax": "/images/logooUK/TaxCalc.jpeg",
-    ezzybills: "/images/logooUK/AutoEntry.jpeg",
     keypay: "/images/logooUK/Employmenthero.jpeg",
     "wage easy": "/images/logooUK/Wagepoint.jpeg",
     wageeasy: "/images/logooUK/Wagepoint.jpeg",
     micropay: "/images/logooUK/Wagepoint.jpeg",
-    "bgl simple fund": "/images/logooUK/wolters.png",
-    "bgl 360": "/images/logooUK/wolters.png",
     "caseware working papers": "/images/logooUK/Caseware.png",
-    "oracle netsuite": "/images/logooUK/Aiq.jpeg",
-    docusign: "/images/logooUK/Microsoft_Icon.jpeg",
-    "adobe acrobat": "/images/logooUK/Microsoft_Icon.jpeg",
-    clickup: "/images/logooUK/Virtual_Cabinet.png",
-    asana: "/images/logooUK/Virtual_Cabinet.png",
-    trello: "/images/logooUK/Virtual_Cabinet.png",
-    "monday.com": "/images/logooUK/Virtual_Cabinet.png",
-    monday: "/images/logooUK/Virtual_Cabinet.png",
-    bayzat: "/images/logooUK/Employmenthero.jpeg",
-    greythr: "/images/logooUK/Employmenthero.jpeg",
-    greytHR: "/images/logooUK/Employmenthero.jpeg",
-    easyhr: "/images/logooUK/Wagepoint.jpeg",
-    gulfhr: "/images/logooUK/Wagepoint.jpeg",
-    "sap successfactors": "/images/logooUK/Employmenthero.jpeg",
-    "oracle hcm": "/images/logooUK/Employmenthero.jpeg",
-    draftworx: "/images/logooUK/Caseware.png",
-    tallyprime: "/images/logooUK/Sage.jpg",
-    tally: "/images/logooUK/Sage.jpg",
     // Netherlands / Dutch market software (aliases to closest existing brand assets)
-    "exact online": "/images/logooUK/Xero.png",
-    "exact online payroll": "/images/logooUK/Xero.png",
-    "exact online btw module": "/images/logooUK/Xero.png",
-    "afas software": "/images/logooUK/Sage.jpg",
-    "afas payroll": "/images/logooUK/Sage.jpg",
-    twinfield: "/images/logooUK/wolters.png",
-    "wolters kluwer twinfield": "/images/logooUK/wolters.png",
-    "twinfield reporting": "/images/logooUK/wolters.png",
-    moneybird: "/images/logooUK/freshbooks.png",
-    "visma eaccounting": "/images/logooUK/Sage.jpg",
-    "visma youserve": "/images/logooUK/Employmenthero.jpeg",
-    basecone: "/images/logooUK/AutoEntry.jpeg",
-    nextens: "/images/logooUK/wolters.png",
-    nmbrs: "/images/logooUK/Employmenthero.jpeg",
-    "loket.nl": "/images/logooUK/Wagepoint.jpeg",
-    loket: "/images/logooUK/Wagepoint.jpeg",
     "adp workforce now": "/images/logooUK/ADP.jpeg",
-    "sd worx": "/images/logooUK/Employmenthero.jpeg",
     taxdome: "/images/logooUK/TaxDome.png",
     avalara: "/images/logooUK/Avalara.png",
     moorepay: "/images/logooUK/Moorepay.jpeg",
-    "sage accounting": "/images/logooUK/Sage.jpg",
+    "thomson reuters onvio": "/images/logooUK/Thomson_Reuters.jpeg",
+    "iris staffology payroll": "/images/logooUK/IRIS_KashFlow.jpeg",
+    "thomson reuters digita": "/images/logooUK/Thomson_Reuters.jpeg",
+    "digita accounts production": "/images/logooUK/Thomson_Reuters.jpeg",
+    "iris corporation tax": "/images/logooUK/IRIS_KashFlow.jpeg",
+    "aegon": "/images/logooUK/Aegon_UK_idC8IrQgKJ_3.jpeg",
+    "aviva": "/images/logooUK/Aviva_UK_idal-t0iG6_0.png",
+    "datamolino": "/images/logooUK/Datamolino_id5vjNEIkE_0.jpeg",
+    "docuclipper": "/images/logooUK/DocuClipper_idLKXjsljA_1.png",
+    "gosimpletax": "/images/logooUK/GoSimpleTax_idCXUENZ8C_1.png",
+    "jirav": "/images/logooUK/Jirav_idF08WUiTW_0.png",
+    "kuberno": "/images/logooUK/Kuberno-uk-com_ideVe8GRbj_1.jpeg",
+    "legal & general": "/images/logooUK/Legal___General_id_yMoz_xT_0.jpeg",
+    "liveplan": "/images/logooUK/LivePlan_idxJWKdUFG_1.png",
+    "magento": "/images/logooUK/Magento_idQo_GiVYi_0.png",
+    "mollie": "/images/logooUK/Mollie_Payments_idrgHiM9z2_2.jpeg",
+    "cushon": "/images/logooUK/NatWest_Cushon_idyo-Q2woM_2.jpeg",
+    "pandle": "/images/logooUK/Pandle_idwWVJVpYf_0.jpeg",
+    "paperless": "/images/logooUK/Paperless_id-Q-LGbVK_0.png",
+    "payfit": "/images/logooUK/PayFit_Monogram_White_12.png",
+    "qvinci": "/images/logooUK/Qvinci_Software_idY0mt0xfO_1.png",
+    "senta": "/images/logooUK/Senta_By_IRIS_idoRNEsAuv_0.jpeg",
+    "slack": "/images/logooUK/Slack_Icon_13.jpeg",
+    "sovos": "/images/logooUK/Sovos_idSguBkvuv_1.png",
+    "sumup": "/images/logooUK/SumUp_idVuY0HUUt_9.png",
+    "vistra": "/images/logooUK/Vistra_idoBjodIbL_1.png",
 };
 
 const CATEGORY_ICONS = {
@@ -231,8 +165,8 @@ const CATEGORY_ICONS = {
     briefcase: Briefcase,
 };
 
-const MAX_LOGOS_PER_ROW = 7;
-const LOGO_GAP = "1.25rem"; // keeps 7 logos on one row inside max-w-6xl
+const MAX_LOGOS_PER_ROW = 8;
+const LOGO_GAP = "1.25rem"; // keeps 8 logos on one row inside max-w-6xl
 
 /**
  * Example / default logodata shape:
@@ -272,7 +206,7 @@ export const DEFAULT_TECH_CATEGORIES = [
  *  - string keys: ["xero", "quickbooks"]  (resolved via LOGO_MAP)
  *  - array of { name, src }
  */
-function normalizeLogos(logos, logoMap) {
+function normalizeLogos(logos, logoMap, showTextForMissing = false) {
     if (!logos) return [];
 
     if (Array.isArray(logos)) {
@@ -281,13 +215,14 @@ function normalizeLogos(logos, logoMap) {
                 if (typeof item === "string") {
                     const key = item.toLowerCase().trim();
                     const src = logoMap[key];
-                    if (!src) return null;
-                    return { name: item, src };
+                    if (!src && !showTextForMissing) return null;
+                    return { name: item, src: src || null };
                 }
-                if (item && typeof item === "object" && item.src) {
+                if (item && typeof item === "object") {
+                    if (!item.src && !showTextForMissing) return null;
                     return {
                         name: item.name || "Logo",
-                        src: item.src,
+                        src: item.src || null,
                     };
                 }
                 return null;
@@ -298,14 +233,17 @@ function normalizeLogos(logos, logoMap) {
     if (typeof logos === "object") {
         return Object.entries(logos)
             .map(([name, src]) => {
-                if (!src || typeof src !== "string") return null;
+                if (typeof src !== "string") {
+                    if (!showTextForMissing) return null;
+                    return { name, src: null };
+                }
                 // Allow LOGO_MAP key as value too
                 const resolved =
                     src.startsWith("/") || src.startsWith("http")
                         ? src
                         : logoMap[src.toLowerCase().trim()];
-                if (!resolved) return null;
-                return { name, src: resolved };
+                if (!resolved && !showTextForMissing) return null;
+                return { name, src: resolved || null };
             })
             .filter(Boolean);
     }
@@ -346,6 +284,13 @@ function CategoryIcon({ icon, className = "h-4 w-4" }) {
 
 function LogoItem({ name, src, size = "default", onError }) {
     if (size === "carousel") {
+        if (!src) {
+            return (
+                <div className="flex h-10 items-center justify-center whitespace-nowrap px-4 text-[13px] font-bold text-slate-700 sm:h-11 sm:text-[14px]">
+                    {formatLogoLabel(name)}
+                </div>
+            );
+        }
         return (
             <Image
                 src={src}
@@ -355,6 +300,17 @@ function LogoItem({ name, src, size = "default", onError }) {
                 className="h-10 w-auto max-h-10 max-w-[100px] object-contain sm:h-11 sm:max-h-11 sm:max-w-[110px]"
                 onError={onError}
             />
+        );
+    }
+
+    if (!src) {
+        return (
+            <div
+                className="flex h-8 w-[72px] shrink-0 items-center justify-center text-center text-[10.5px] font-bold leading-[1.1] text-slate-600 sm:h-9 sm:w-[84px] sm:text-[11px] lg:h-10 lg:w-[92px]"
+                title={formatLogoLabel(name)}
+            >
+                {formatLogoLabel(name)}
+            </div>
         );
     }
 
@@ -376,17 +332,18 @@ function LogoItem({ name, src, size = "default", onError }) {
 }
 
 /** One continuous infinite strip — no category sections, 20px between every logo */
-function LogoCarousel({ logos, logoMap }) {
-    const raw = normalizeLogos(logos, logoMap);
+function LogoCarousel({ logos, logoMap, showTextForMissing }) {
+    const raw = normalizeLogos(logos, logoMap, showTextForMissing);
     const seen = new Set();
     const unique = raw.filter((item) => {
-        if (!item?.src || seen.has(item.src)) return false;
-        seen.add(item.src);
+        const identifier = item?.src || item?.name;
+        if (!identifier || seen.has(identifier)) return false;
+        seen.add(identifier);
         return true;
     });
 
     const [hidden, setHidden] = React.useState(() => new Set());
-    const items = unique.filter((item) => !hidden.has(item.src));
+    const items = unique.filter((item) => !hidden.has(item.src || item.name));
     if (!items.length) return null;
 
     // Repeat the full list enough times so the strip never looks "sectioned"
@@ -395,11 +352,11 @@ function LogoCarousel({ logos, logoMap }) {
     // Exact duplicate for seamless -50% loop (gap stays 20px across the join)
     const loop = [...track, ...track];
 
-    const hideLogo = (src) => {
+    const hideLogo = (identifier) => {
         setHidden((prev) => {
-            if (prev.has(src)) return prev;
+            if (prev.has(identifier)) return prev;
             const next = new Set(prev);
-            next.add(src);
+            next.add(identifier);
             return next;
         });
     };
@@ -448,14 +405,14 @@ function LogoCarousel({ logos, logoMap }) {
             <div className="icon-display-marquee" aria-label="Software logos">
                 {loop.map((logo, index) => (
                     <div
-                        key={`${logo.src}-${index}`}
+                        key={`${logo.src || logo.name}-${index}`}
                         className="icon-display-marquee__slot"
                     >
                         <LogoItem
                             name={logo.name}
                             src={logo.src}
                             size="carousel"
-                            onError={() => hideLogo(logo.src)}
+                            onError={() => hideLogo(logo.src || logo.name)}
                         />
                     </div>
                 ))}
@@ -472,8 +429,9 @@ function CategoryRow({
     isLast,
     categoryIconClassName = "h-4 w-4",
     categoryIconColorClass = "text-slate-500",
+    showTextForMissing = false,
 }) {
-    const items = normalizeLogos(logos, logoMap);
+    const items = normalizeLogos(logos, logoMap, showTextForMissing);
     const lines = chunkLogos(items, MAX_LOGOS_PER_ROW);
 
     return (
@@ -552,6 +510,8 @@ export default function IconDisplayScreen({
     categoryIconColorClass = "text-slate-500",
     /** Infinite carousel: flatten all logos, show ~6 at a time */
     carousel = false,
+    /** Show text name if logo is missing */
+    showTextForMissing = false,
     // legacy alias
     categories,
 }) {
@@ -593,7 +553,7 @@ export default function IconDisplayScreen({
                 </div>
 
                 {carousel ? (
-                    <LogoCarousel logos={flatLogos} logoMap={logoMap} />
+                    <LogoCarousel logos={flatLogos} logoMap={logoMap} showTextForMissing={showTextForMissing} />
                 ) : (
                     <div className="w-full">
                         {rows.map((row, index) => (
@@ -606,6 +566,7 @@ export default function IconDisplayScreen({
                                 isLast={index === rows.length - 1}
                                 categoryIconClassName={categoryIconClassName}
                                 categoryIconColorClass={categoryIconColorClass}
+                                showTextForMissing={showTextForMissing}
                             />
                         ))}
                     </div>
