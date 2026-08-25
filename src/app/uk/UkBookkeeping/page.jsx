@@ -281,6 +281,7 @@ export default function UkBookkeeping() {
                 subtitle="We work across the accounting, document, eCommerce, and payment platforms your clients already use."
                 logodata={softwareExpertiseLogodata}
                 className="!py-3"
+                showTextForMissing={true}
             />
 
             {/* 7 — Industries We Support */}

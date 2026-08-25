@@ -874,6 +874,7 @@ export default function UKBusinessAdvisory() {
                 subtitle="We work across the accounting, reporting, forecasting, and collaboration tools your clients already rely on."
                 logodata={softwareExpertiseLogodata}
                 className="!py-3"
+                showTextForMissing={true}
             />
 
             {/* 10 — Industries */}

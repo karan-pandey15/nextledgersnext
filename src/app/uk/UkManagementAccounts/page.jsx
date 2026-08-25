@@ -463,6 +463,7 @@ export default function UkManagementAccounts() {
                 subtitle="We work across the accounting platforms and reporting tools your clients already rely on."
                 logodata={softwareExpertiseLogodata}
                 className="!py-3"
+                showTextForMissing={true}
             />
 
             <section

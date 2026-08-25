@@ -1,13 +1,22 @@
 /**
- * UK Software Expertise — only tools from the UK service lists,
- * and only where we have a matching brand logo (no substitute logos).
+ * UK Software Expertise — exact tool lists for each UK service page.
+ * Keys must match LOGO_MAP in IcondisplayScreen.jsx (lowercase).
  */
 
 export const UK_COMPANY_FORMATION_SOFTWARE = [
   {
     heading: "COMPANY SECRETARIAL SOFTWARE",
     icon: "briefcase",
-    logos: ["iris", "inform direct", "taxcalc", "kuberno", "vistra", "thomson reuters onvio", "senta", "online filings"],
+    logos: [
+      "iris",
+      "inform direct",
+      "taxcalc",
+      "kuberno",
+      "online filings",
+      "vistra",
+      "thomson reuters onvio",
+      "senta",
+    ],
   },
   {
     heading: "ACCOUNTING SOFTWARE",
@@ -32,9 +41,9 @@ export const UK_COMPANY_FORMATION_SOFTWARE = [
       "docusign",
       "karbon",
       "taxdome",
+      "brightmanager",
       "fyi",
       "approvalmax",
-      "brightmanager",
     ],
   },
 ];
@@ -57,7 +66,16 @@ export const UK_PAYROLL_SOFTWARE = [
   {
     heading: "PENSION PLATFORMS",
     icon: "shield",
-    logos: ["nest", "the people's pension", "smart pension", "aviva", "legal & general", "cushon", "aegon", "now: pensions"],
+    logos: [
+      "nest",
+      "the people's pension",
+      "smart pension",
+      "aviva",
+      "now: pensions",
+      "legal & general",
+      "cushon",
+      "aegon",
+    ],
   },
   {
     heading: "ACCOUNTING & WORKFLOW TOOLS",
@@ -86,14 +104,23 @@ export const UK_VAT_SOFTWARE = [
       "freeagent",
       "zoho books",
       "kashflow",
-      "pandle",
       "quickfile",
+      "pandle",
     ],
   },
   {
     heading: "MTD & VAT COMPLIANCE PLATFORMS",
     icon: "briefcase",
-    logos: ["taxcalc", "avalara", "sovos", "btcsoftware", "capium", "vat filer", "taxfiler"],
+    logos: [
+      "vat filer",
+      "taxcalc",
+      "avalara",
+      "sovos",
+      "taxfiler",
+      "gosimpletax",
+      "btcsoftware",
+      "capium",
+    ],
   },
   {
     heading: "SUPPORTING TOOLS",
@@ -121,9 +148,9 @@ export const UK_PERSONAL_TAX_SOFTWARE = [
       "btcsoftware",
       "cch personal tax",
       "thomson reuters digita",
+      "taxfiler",
       "gosimpletax",
       "xero tax",
-      "taxfiler",
     ],
   },
   {
@@ -174,17 +201,44 @@ export const UK_BOOKKEEPING_SOFTWARE = [
   {
     heading: "DOCUMENT PROCESSING TOOLS",
     icon: "document",
-    logos: ["dext", "autoentry", "hubdoc", "datamolino", "paperless", "docuclipper", "veryfi", "microsoft lens"],
+    logos: [
+      "dext",
+      "autoentry",
+      "hubdoc",
+      "datamolino",
+      "paperless",
+      "docuclipper",
+      "veryfi",
+      "microsoft lens",
+    ],
   },
   {
     heading: "E-COMMERCE INTEGRATIONS",
     icon: "tag",
-    logos: ["shopify", "woocommerce", "amazon", "ebay", "etsy", "magento", "bigcommerce", "tiktok shop"],
+    logos: [
+      "shopify",
+      "woocommerce",
+      "amazon",
+      "ebay",
+      "etsy",
+      "magento",
+      "bigcommerce",
+      "tiktok shop",
+    ],
   },
   {
     heading: "PAYMENT PLATFORMS",
     icon: "shield",
-    logos: ["stripe", "paypal", "gocardless", "sumup", "mollie", "square", "worldpay", "revolut business"],
+    logos: [
+      "stripe",
+      "paypal",
+      "gocardless",
+      "square",
+      "sumup",
+      "worldpay",
+      "revolut business",
+      "mollie",
+    ],
   },
 ];
 
@@ -308,4 +362,3 @@ export const UK_ADVISORY_SOFTWARE = [
     ],
   },
 ];
-

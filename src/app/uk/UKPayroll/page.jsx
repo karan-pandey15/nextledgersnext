@@ -670,6 +670,7 @@ export default function UKPayrollPage() {
                 subtitle="We work across the payroll, pension, and accounting platforms your clients already use."
                 logodata={softwareExpertiseLogodata}
                 className="!py-3"
+                showTextForMissing={true}
             />
 
             {/* 8 — Industries */}

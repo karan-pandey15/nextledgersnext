@@ -716,6 +716,7 @@ export default function PersonalTaxPage() {
                 subtitle="We work across the personal tax, accounting, and workflow platforms your clients already use."
                 logodata={softwareExpertiseLogodata}
                 className="!py-3"
+                showTextForMissing={true}
             />
 
             {/* 8 — Clients We Support */}

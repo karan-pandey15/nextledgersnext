@@ -714,6 +714,7 @@ export default function YearEndAccount() {
                 subtitle="We work across the accounts production, corporation tax, and supporting tools your practice already uses."
                 logodata={softwareExpertiseLogodata}
                 className="!py-3"
+                showTextForMissing={true}
             />
 
             {/* 7 — Industries */}

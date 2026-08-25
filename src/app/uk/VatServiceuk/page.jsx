@@ -747,6 +747,7 @@ export default function VatServiceuk() {
                 subtitle="We work across the accounting, MTD, VAT, and supporting tools your clients already use."
                 logodata={softwareExpertiseLogodata}
                 className="!py-3"
+                showTextForMissing={true}
             />
 
             {/* 8 — Industries */}
