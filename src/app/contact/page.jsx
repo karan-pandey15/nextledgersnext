@@ -8,7 +8,7 @@ import ArtificialIntelligence from "../components/ArtificialIntelligence/Artific
 import NexaLedAi from "../components/ChatBot/NexaLedAi";
 import { POPUP_REGIONS } from "../components/RegionSelect/regionData";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
-import { HomeLogoImg } from "@/app/lib/homePageLogos";
+import { FORM_LOGOS, FORM_TRUST_LOGOS, HomeLogoImg } from "@/app/lib/homePageLogos";
 
 const ORANGE = BRAND_ORANGE;
 const NAVY = "#0F274A";
@@ -28,86 +28,6 @@ const INITIAL = {
   agree: false,
 };
 
-function IconUser({ className = "w-[18px] h-[18px]" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <circle cx="12" cy="8" r="3.2" stroke="currentColor" strokeWidth="1.7" />
-      <path
-        d="M5.5 19.2c1.4-3 3.7-4.5 6.5-4.5s5.1 1.5 6.5 4.5"
-        stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
-function IconBriefcase({ className = "w-[18px] h-[18px]" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <rect x="3.5" y="7.5" width="17" height="12" rx="2" stroke="currentColor" strokeWidth="1.7" />
-      <path d="M9 7.5V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1.5" stroke="currentColor" strokeWidth="1.7" />
-      <path d="M3.5 12.5h17" stroke="currentColor" strokeWidth="1.7" />
-    </svg>
-  );
-}
-
-function IconMail({ className = "w-[18px] h-[18px]" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <rect x="3.5" y="5.5" width="17" height="13" rx="2" stroke="currentColor" strokeWidth="1.7" />
-      <path
-        d="m5.5 8 6.5 5 6.5-5"
-        stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function IconPhone({ className = "w-[18px] h-[18px]" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <path
-        d="M8.2 3.8h2.4l1.2 3.2-1.5 1.1a12.5 12.5 0 0 0 5.6 5.6l1.1-1.5 3.2 1.2v2.4c0 .9-.7 1.7-1.6 1.8A15.7 15.7 0 0 1 3.8 5.4c.1-.9.9-1.6 1.8-1.6Z"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function IconGlobe({ className = "w-[18px] h-[18px]" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <circle cx="12" cy="12" r="8.2" stroke="currentColor" strokeWidth="1.7" />
-      <path d="M3.8 12h16.4" stroke="currentColor" strokeWidth="1.7" />
-      <path
-        d="M12 3.8c2.2 2.4 3.3 5.1 3.3 8.2S14.2 18 12 20.2C9.8 18 8.7 15.1 8.7 12S9.8 6.2 12 3.8Z"
-        stroke="currentColor"
-        strokeWidth="1.7"
-      />
-    </svg>
-  );
-}
-
-function IconChat({ className = "w-[18px] h-[18px]" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <path
-        d="M5 5.5h14A1.5 1.5 0 0 1 20.5 7v8A1.5 1.5 0 0 1 19 16.5H9.5L5 20v-3.5A1.5 1.5 0 0 1 3.5 15V7A1.5 1.5 0 0 1 5 5.5Z"
-        stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinejoin="round"
-      />
-      <path d="M8 10h8M8 13h5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-    </svg>
-  );
-}
-
 function IconSend({ className = "w-4 h-4" }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
@@ -122,15 +42,12 @@ function IconSend({ className = "w-4 h-4" }) {
   );
 }
 
-function FormField({ icon, label, required, children }) {
+function FormField({ logo, label, required, children }) {
   return (
     <div className="min-w-0">
       <div className="mb-2 flex items-center gap-2">
-        <span
-          className="flex h-7 w-7 shrink-0 items-center justify-center rounded-[7px] bg-[#FFF1E6] text-[#FF6A00]"
-          aria-hidden="true"
-        >
-          {icon}
+        <span className="flex h-8 w-8 shrink-0 items-center justify-center sm:h-9 sm:w-9" aria-hidden="true">
+          <HomeLogoImg n={logo} alt="" />
         </span>
         <label className="text-[13px] font-bold sm:text-[14px]" style={{ color: NAVY }}>
           {label}
@@ -141,29 +58,6 @@ function FormField({ icon, label, required, children }) {
     </div>
   );
 }
-
-const FEATURES = [
-  {
-    title: "100% Secure",
-    text: "Your information is safe with us",
-    logo: 18,
-  },
-  {
-    title: "Quick Response",
-    text: "We reply within 24 hours",
-    logo: 6,
-  },
-  {
-    title: "Expert Team",
-    text: "Experienced professionals ready to help",
-    logo: 4,
-  },
-  {
-    title: "Global Support",
-    text: "Serving businesses worldwide",
-    logo: 26,
-  },
-];
 
 const inputClass =
   "w-full h-[46px] sm:h-[48px] rounded-[10px] border border-[#E5E7EB] bg-white px-3.5 text-[13px] sm:text-[14px] text-[#0F274A] placeholder:text-[#9CA3AF] outline-none transition-colors focus:border-[#FF6A00] focus:ring-2 focus:ring-[#FF6A00]/15";
@@ -202,7 +96,7 @@ export default function ContactPage() {
           >
             <div className="mx-auto max-w-[620px] text-center">
               <div className="mx-auto h-14 w-14 sm:h-16 sm:w-16">
-                <HomeLogoImg n={18} />
+                <HomeLogoImg n={FORM_LOGOS.header} alt="" />
               </div>
 
               <h1
@@ -232,7 +126,7 @@ export default function ContactPage() {
             ) : null}
 
             <div className="mt-7 grid grid-cols-1 gap-x-6 gap-y-5 sm:mt-8 md:grid-cols-2 lg:gap-x-8">
-              <FormField icon={<IconUser />} label="Full Name" required>
+              <FormField logo={FORM_LOGOS.fullName} label="Full Name" required>
                 <input
                   type="text"
                   required
@@ -243,7 +137,7 @@ export default function ContactPage() {
                 />
               </FormField>
 
-              <FormField icon={<IconBriefcase />} label="Company Name" required>
+              <FormField logo={FORM_LOGOS.company} label="Company Name" required>
                 <input
                   type="text"
                   required
@@ -254,7 +148,7 @@ export default function ContactPage() {
                 />
               </FormField>
 
-              <FormField icon={<IconMail />} label="Business Email Address" required>
+              <FormField logo={FORM_LOGOS.email} label="Business Email Address" required>
                 <input
                   type="email"
                   required
@@ -265,7 +159,7 @@ export default function ContactPage() {
                 />
               </FormField>
 
-              <FormField icon={<IconPhone />} label="Business Phone/Mobile" required>
+              <FormField logo={FORM_LOGOS.phone} label="Business Phone/Mobile" required>
                 <input
                   type="tel"
                   required
@@ -276,7 +170,7 @@ export default function ContactPage() {
                 />
               </FormField>
 
-              <FormField icon={<IconGlobe />} label="Choose Your Country" required>
+              <FormField logo={FORM_LOGOS.country} label="Choose Your Country" required>
                 <div className="relative">
                   <select
                     required
@@ -301,7 +195,7 @@ export default function ContactPage() {
                 </div>
               </FormField>
 
-              <FormField icon={<IconChat />} label="Any Questions?">
+              <FormField logo={FORM_LOGOS.message} label="Any Questions?">
                 <input
                   type="text"
                   value={form.message}
@@ -370,13 +264,13 @@ export default function ContactPage() {
             <div className="mt-6 sm:mt-7">
               <div className="rounded-[12px] bg-[#FFF7F0] px-4 py-3.5 sm:rounded-[14px] sm:px-5 sm:py-4 lg:px-6">
                 <div className="grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-0">
-                  {FEATURES.map((feature, index) => {
+                  {FORM_TRUST_LOGOS.map((feature, index) => {
                     return (
                       <div
                         key={feature.title}
                         className={`flex items-center gap-3 ${
                           index > 0 ? "lg:border-l lg:border-[#E8D5C4] lg:pl-5" : ""
-                        } ${index < FEATURES.length - 1 ? "lg:pr-5" : ""}`}
+                        } ${index < FORM_TRUST_LOGOS.length - 1 ? "lg:pr-5" : ""}`}
                       >
                         <div className="h-11 w-11 shrink-0 sm:h-12 sm:w-12">
                           <HomeLogoImg n={feature.logo} />
