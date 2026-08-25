@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { UK_SERVICE_LINKS } from "@/app/uk/ukServiceLinks";
 import RegionSelect from "@/app/components/RegionSelect/RegionSelect";
+import PhoneRegionTopBar from "@/app/components/RegionSelect/PhoneRegionTopBar";
 import { isNavLinkActive, persistRegionCode, siteHomeHref, ABOUT_NAV_LINK } from "@/app/lib/regionNav";
 
 const UK_HOME = "/uk";
@@ -76,7 +77,8 @@ export default function UKNavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
   };
 
   return (
-    <header className="w-full bg-white border-b border-gray-100 sticky top-0 z-40">
+    <header className="w-full bg-white border-b border-gray-100 sticky top-0 z-40 overflow-visible">
+      <PhoneRegionTopBar isSidebarOpen={isSidebarOpen} hiddenBelow="lg" />
       <style>{`
         @keyframes ukNavDropdownSlideIn {
           from {

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { CANADA_SERVICE_LINKS } from "@/app/canada/canadaServiceLinks";
 import RegionSelect from "@/app/components/RegionSelect/RegionSelect";
+import PhoneRegionTopBar from "@/app/components/RegionSelect/PhoneRegionTopBar";
 import { isNavLinkActive, persistRegionCode, siteHomeHref, ABOUT_NAV_LINK } from "@/app/lib/regionNav";
 
 const CANADA_HOME = "/canada";
@@ -77,7 +78,8 @@ export default function CanadaNavbar({ isSidebarOpen = false, setIsSidebarOpen }
   const isCanadaHome = pathname === "/canada" || pathname === "/canada/";
 
   return (
-    <header className="w-full bg-white border-b border-gray-100 sticky top-0 z-40">
+    <header className="w-full bg-white border-b border-gray-100 sticky top-0 z-40 overflow-visible">
+      <PhoneRegionTopBar isSidebarOpen={isSidebarOpen} hiddenBelow="lg" />
       <style>{`
         @keyframes canadaNavDropdownSlideIn {
           from {

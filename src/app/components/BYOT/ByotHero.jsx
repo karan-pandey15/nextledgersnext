@@ -102,6 +102,7 @@ const ORBIT = [
     label: "Financial Planning & KPIs Expert",
     src: "/images/TeamImage/abhishekremove.png",
     angle: 210,
+    photoClass: "byot-orbit-photo-abhishek",
   },
 ];
 
@@ -529,7 +530,10 @@ export default function ByotHero() {
                           alt={person.label}
                           width={137}
                           height={137}
-                          className="h-full w-full object-cover object-top"
+                          className={
+                            person.photoClass ||
+                            "h-full w-full object-cover object-top"
+                          }
                         />
                       ) : (
                         <span
@@ -555,6 +559,17 @@ export default function ByotHero() {
           </div>
         </div>
       </div>
+      <style>{`
+        /* Abhishek only — zoom to fill the circle (less empty space above the head) */
+        .byot-orbit-photo-abhishek {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: 50% 12%;
+          transform: scale(1.52);
+          transform-origin: top center;
+        }
+      `}</style>
     </section>
   );
 }

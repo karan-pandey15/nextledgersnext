@@ -107,7 +107,7 @@ const GLOBAL_LEADERSHIP = [
     ],
   },
   {
-    name: "Shivam Baranwal ACCA",
+    name: "Shivam Baranwal",
     credentials: "ACCA Member | B.Com",
     role: "Accounting & Tax Partner",
     companyRole: "Accounting & Tax Partner",

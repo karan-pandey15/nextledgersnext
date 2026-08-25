@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import RegionSelect from "@/app/components/RegionSelect/RegionSelect";
+import PhoneRegionTopBar from "@/app/components/RegionSelect/PhoneRegionTopBar";
 import {
   isNavLinkActive,
   persistRegionCode,
@@ -106,7 +107,8 @@ export default function RegionalNavbar({
   };
 
   return (
-    <header className="w-full bg-white border-b border-gray-100 sticky top-0 z-40">
+    <header className="w-full bg-white border-b border-gray-100 sticky top-0 z-40 overflow-visible">
+      <PhoneRegionTopBar isSidebarOpen={isSidebarOpen} hiddenBelow="lg" />
       <style>{`
         @keyframes regionalNavDropdownSlideIn {
           from {

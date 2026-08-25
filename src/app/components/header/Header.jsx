@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import PhoneRegionTopBar from "../RegionSelect/PhoneRegionTopBar";
 import RegionSelect from "../RegionSelect/RegionSelect";
 import NavIcon from "./NavIcon";
 import { NAVIGATION_LINKS } from "./navigationData";
@@ -33,7 +34,6 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
   const [expandedMobileMenus, setExpandedMobileMenus] = useState({});
   const timeoutRefs = useRef({});
   const sidebarPanelRef = useRef(null);
-  const showPhoneTopBar = pathname === "/";
 
   const isActiveLink = (href) => {
     if (!href || href === "#") return false;
@@ -99,25 +99,10 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
 
   return (
     <header className="sticky top-0 z-40 w-full overflow-visible border-b border-[#ECECEC] bg-white">
-      {/* Phone-only thin top bar (home) — region control on the right */}
-      {showPhoneTopBar ? (
-        <div
-          className={`flex xl:hidden h-10 w-full items-center justify-end gap-2 border-b border-[#FF6A00]/15 px-3 sm:px-4 ${
-            isSidebarOpen ? "invisible pointer-events-none" : ""
-          }`}
-          style={{
-            background:
-              "linear-gradient(90deg, #FFF9F5 0%, #FFFFFF 45%, #FFF4EA 100%)",
-          }}
-        >
-          {!isSidebarOpen ? (
-            <RegionSelect
-              onRegionChange={handleRegionChange}
-              className="shrink-0 origin-right max-w-full scale-[0.92] sm:scale-100"
-            />
-          ) : null}
-        </div>
-      ) : null}
+      <PhoneRegionTopBar
+        isSidebarOpen={isSidebarOpen}
+        onRegionChange={handleRegionChange}
+      />
 
       {/* Custom Styles for Nav Dropdown Opening */}
       <style>{`

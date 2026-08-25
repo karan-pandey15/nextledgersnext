@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { USA_SERVICE_LINKS } from "@/app/usa/usaServiceLinks";
 import RegionSelect from "@/app/components/RegionSelect/RegionSelect";
+import PhoneRegionTopBar from "@/app/components/RegionSelect/PhoneRegionTopBar";
 import { isNavLinkActive, persistRegionCode, siteHomeHref, ABOUT_NAV_LINK } from "@/app/lib/regionNav";
 
 const USA_HOME = "/usa";
@@ -77,7 +78,8 @@ export default function USANavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
   const isUsaHome = pathname === "/usa" || pathname === "/usa/";
 
   return (
-    <header className="w-full bg-white border-b border-gray-100 sticky top-0 z-40">
+    <header className="w-full bg-white border-b border-gray-100 sticky top-0 z-40 overflow-visible">
+      <PhoneRegionTopBar isSidebarOpen={isSidebarOpen} hiddenBelow="lg" />
       <style>{`
         @keyframes usaNavDropdownSlideIn {
           from {

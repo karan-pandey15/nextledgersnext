@@ -40,6 +40,8 @@ export default function RegionSelect({
   boundaryRef = null,
   /** Show region name beside code (better for sidebar) */
   showLabel = false,
+  /** Same pill as desktop navbar (flags + globe + REGIONS), including on phone */
+  matchNavbar = false,
 }) {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
@@ -347,14 +349,14 @@ export default function RegionSelect({
         className={`inline-flex max-w-full items-center cursor-pointer focus:outline-none transition-all duration-200 min-w-0 ${
           isDark
             ? `rounded-full border border-white/20 bg-white/10 hover:bg-white/15 ${
-                compact
+                compact && !matchNavbar
                   ? "px-1.5 py-1 gap-1 sm:px-2 sm:py-1.5 sm:gap-1.5"
                   : "px-2.5 py-1.5 gap-2"
               }`
             : `rounded-full border border-[#D1D5DB] bg-white shadow-[0_2px_8px_rgba(15,39,74,0.06)] hover:shadow-[0_4px_12px_rgba(15,39,74,0.1)] ${
-                compact
+                compact && !matchNavbar
                   ? "px-1.5 py-1 gap-1 sm:px-2.5 sm:py-1.5 sm:gap-2"
-                  : "px-2 py-1 gap-1.5 sm:px-2.5 sm:py-1.5 sm:gap-2"
+                  : "px-2.5 py-1.5 gap-2"
               }`
         }`}
         aria-expanded={isOpen}
@@ -365,7 +367,7 @@ export default function RegionSelect({
             : `Region: ${activeRegion.name}`
         }
       >
-        {isMarketRegion ? (
+        {isMarketRegion && !matchNavbar ? (
           <span className="inline-flex min-w-0 items-center gap-2">
             <span
               className={`relative flex flex-shrink-0 overflow-hidden rounded-[3px] border shadow-[0_1px_2px_rgba(15,39,74,0.12)] ${
@@ -395,7 +397,7 @@ export default function RegionSelect({
               Choose Other Regions
             </span>
           </span>
-        ) : minimize || compact ? (
+        ) : (minimize || compact) && !matchNavbar ? (
           showLabel ? (
             <>
               <div
@@ -517,9 +519,9 @@ export default function RegionSelect({
 
             <span
               className={`font-bold uppercase leading-none shrink-0 whitespace-nowrap ${
-                compact
+                compact && !matchNavbar
                   ? "text-[9px] tracking-[0.1em] sm:text-[10px] sm:tracking-[0.12em]"
-                  : "text-[10px] tracking-[0.12em] sm:text-[11px] sm:tracking-[0.14em]"
+                  : "text-[11px] tracking-[0.14em]"
               } ${isDark ? "text-white" : "text-[#0F274A]"}`}
             >
               Regions

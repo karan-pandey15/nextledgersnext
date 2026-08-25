@@ -254,7 +254,7 @@ function IconChevron({ className = "w-3 h-3" }) {
 
 const VALUE_STATS = [
   {
-    logo: 2,
+    logo: 19,
     title: "9+ Years",
     subtitle: ["Serving Firms", "Worldwide"],
   },
@@ -274,9 +274,11 @@ const VALUE_STATS = [
     subtitle: ["Seamless", "Support"],
   },
   {
-    logo: 19,
-    title: "100%",
-    subtitle: ["Client", "Satisfaction"],
+    iconSrc: encodeURI(
+      "/images/icon/Result that speak for themselves- Home page/95%.png"
+    ),
+    title: "95%+",
+    subtitle: ["Client", "Retention Rate"],
   },
 ];
 
@@ -350,7 +352,15 @@ function FooterValueProp({ valueIntro, className = "" }) {
                   <div className="flex-1 flex flex-col items-center justify-center text-center px-1 sm:px-2 lg:px-2.5 py-1.5 sm:py-2">
                     <div className="flex flex-col sm:flex-row min-h-0 sm:min-h-10 w-full items-center justify-center gap-0.5 sm:gap-1.5">
                       <span className="inline-flex items-center justify-center shrink-0 w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10">
-                        <HomeLogoImg n={stat.logo} />
+                        {stat.iconSrc ? (
+                          <img
+                            src={stat.iconSrc}
+                            alt=""
+                            className="block h-full w-full object-contain"
+                          />
+                        ) : (
+                          <HomeLogoImg n={stat.logo} />
+                        )}
                       </span>
                       <span className="font-bold text-[12px] sm:text-[14px] lg:text-[15px] leading-none text-white whitespace-nowrap">
                         {stat.title}
