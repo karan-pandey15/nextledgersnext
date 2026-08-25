@@ -158,8 +158,7 @@ const GLOBAL_LEADERSHIP = [
     role: "Accounting & Tax Partner",
     companyRole: "Accounting & Tax Partner",
     designationLines: ["Accounting & Tax Partner", "North America"],
-    image: "/images/TeamImage/Akash..-removebg-preview.png",
-    avatarVariant: "akash",
+    image: "/images/TeamImage/akashfinal.png",
     email: "Akash.gangwar@nextledgers.com",
     linkedin: "linkedin.com/in/akash-kumar-147346244",
     bio: [
@@ -499,10 +498,6 @@ function getAvatarImageClass(variant, isCutout) {
   // Abhishek — head + shoulders like Md. Almasud (crop folded hands, match head gap)
   if (variant === "abhishek") {
     return "h-full w-full object-cover object-[50%_26%] scale-[1.38] origin-top";
-  }
-  // Akash — head near top, crossed arms visible at bottom of the circle
-  if (variant === "akash") {
-    return "h-full w-full object-cover object-[50%_8%] scale-[1.32] origin-top -translate-y-[10px]";
   }
   if (isCutout) {
     return "h-full w-full object-contain object-bottom";

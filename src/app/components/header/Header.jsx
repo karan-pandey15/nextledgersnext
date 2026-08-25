@@ -102,16 +102,20 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
       {/* Phone-only thin top bar (home) — region control on the right */}
       {showPhoneTopBar ? (
         <div
-          className="flex xl:hidden h-10 w-full items-center justify-end gap-2 border-b border-[#FF6A00]/15 px-3 sm:px-4"
+          className={`flex xl:hidden h-10 w-full items-center justify-end gap-2 border-b border-[#FF6A00]/15 px-3 sm:px-4 ${
+            isSidebarOpen ? "invisible pointer-events-none" : ""
+          }`}
           style={{
             background:
               "linear-gradient(90deg, #FFF9F5 0%, #FFFFFF 45%, #FFF4EA 100%)",
           }}
         >
-          <RegionSelect
-            onRegionChange={handleRegionChange}
-            className="shrink-0 origin-right max-w-full scale-[0.92] sm:scale-100"
-          />
+          {!isSidebarOpen ? (
+            <RegionSelect
+              onRegionChange={handleRegionChange}
+              className="shrink-0 origin-right max-w-full scale-[0.92] sm:scale-100"
+            />
+          ) : null}
         </div>
       ) : null}
 
@@ -522,21 +526,6 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
               );
             })}
           </nav>
-
-          <div className="shrink-0 border-t border-[#FF6A00]/15 pt-3">
-            <p className="mb-2 px-0.5 text-[10px] font-bold uppercase tracking-[0.14em] text-[#9CA3AF]">
-              Choose region
-            </p>
-            <RegionSelect
-              onRegionChange={(code) => {
-                handleRegionChange(code);
-                setIsSidebarOpen(false);
-              }}
-              compact
-              boundaryRef={sidebarPanelRef}
-              className="w-full [&_button]:w-full [&_button]:justify-between [&_button]:min-w-0 [&_button]:rounded-xl [&_button]:px-3 [&_button]:py-2.5"
-            />
-          </div>
         </div>
       </div>
     </header>

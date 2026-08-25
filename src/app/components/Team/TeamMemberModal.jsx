@@ -286,7 +286,6 @@ function ModalAvatar({ src, name, variant }) {
   const isRicha = variant === "richa";
   const isNisha = variant === "nisha";
   const isAbhishek = variant === "abhishek";
-  const isAkash = variant === "akash";
   const hasHeadGap = isAvnish || isRicha;
   const hasAlmasudGap = isAbhishek;
   const imageClass = isShivam
@@ -306,8 +305,6 @@ function ModalAvatar({ src, name, variant }) {
       ? "h-full w-full object-contain object-bottom scale-[0.9] origin-bottom"
     : isAbhishek
       ? "h-full w-full object-cover object-[50%_26%] scale-[1.38] origin-top"
-    : isAkash
-      ? "h-full w-full object-cover object-[50%_8%] scale-[1.32] origin-top -translate-y-[10px]"
     : isCutout
       ? "h-full w-full object-contain object-bottom"
       : "h-full w-full object-contain object-center";

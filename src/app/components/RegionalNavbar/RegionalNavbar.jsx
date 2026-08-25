@@ -377,17 +377,6 @@ export default function RegionalNavbar({
               );
             })}
 
-            <div className="shrink-0 border-t border-[#FF6A00]/15 pt-3 px-2">
-              <p className="mb-2 px-0.5 text-[10px] font-bold uppercase tracking-[0.14em] text-[#9CA3AF]">
-                Choose region
-              </p>
-              <RegionSelect
-                onRegionChange={() => setIsSidebarOpen?.(false)}
-                compact
-                showLabel
-                boundaryRef={sidebarPanelRef}
-              />
-            </div>
           </nav>
         </div>
       </div>

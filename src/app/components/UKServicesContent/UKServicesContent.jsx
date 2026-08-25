@@ -96,6 +96,25 @@ const LOGO_MAP = {
   "payworks": "/images/logooUK/Payworks.jpeg",
   "adp": "/images/logooUK/ADP.jpeg",
   "thomson reuters": "/images/logooUK/Thomson_Reuters.jpeg",
+  "online filings": "/images/logooUK/OnlineFiling.png",
+  "online filing": "/images/logooUK/OnlineFiling.png",
+  "brightmanager": "/images/logooUK/Bright.png",
+  "bright manager": "/images/logooUK/Bright.png",
+  "vat filer": "/images/logooUK/VAT_Filer-removebg-preview.png",
+  "taxfiler": "/images/logooUK/Taxfiler-removebg-preview.png",
+  "now: pensions": "/images/logooUK/NowPensions.jpg",
+  "now pensions": "/images/logooUK/NowPensions.jpg",
+  "veryfi": "/images/logooUK/Veryfi.jpeg",
+  "microsoft lens": "/images/logooUK/MS_Lens-removebg-preview.png",
+  "ms lens": "/images/logooUK/MS_Lens-removebg-preview.png",
+  "zapier": "/images/logooUK/Zapier.jpeg",
+  "bigcommerce": "/images/logooUK/BigCommerce.jpeg",
+  "tiktok shop": "/images/logooUK/Tik_Tok_Shop-removebg-preview.png",
+  "tik tok shop": "/images/logooUK/Tik_Tok_Shop-removebg-preview.png",
+  "square": "/images/logooUK/Square.png",
+  "worldpay": "/images/logooUK/Worldpay.jpeg",
+  "revolut business": "/images/logooUK/Revolut.png",
+  "revolut": "/images/logooUK/Revolut.png",
 };
 
 function SoftwareLogoBadge({ name }) {
@@ -852,7 +871,7 @@ export default function UKServicesContent({ serviceSlug }) {
                     Pension Platforms
                   </h4>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
-                    {["NEST", "The People's Pension", "Smart Pension"].map((sw, idx) => (
+                    {["NEST", "The People's Pension", "Smart Pension", "NOW: Pensions"].map((sw, idx) => (
                       <SoftwareLogoBadge key={idx} name={sw} />
                     ))}
                   </div>
@@ -1241,7 +1260,7 @@ export default function UKServicesContent({ serviceSlug }) {
                     Personal Tax Software
                   </h4>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
-                    {["IRIS Personal Tax", "CCH Personal Tax", "Capium Personal Tax", "Absolute Tax", "Forbes Professional"].map((sw, idx) => (
+                    {["IRIS Personal Tax", "CCH Personal Tax", "Capium Personal Tax", "Absolute Tax", "Forbes Professional", "Taxfiler"].map((sw, idx) => (
                       <SoftwareLogoBadge key={idx} name={sw} />
                     ))}
                   </div>
@@ -1632,7 +1651,7 @@ export default function UKServicesContent({ serviceSlug }) {
                     Document Processing
                   </h4>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
-                    {["Dext", "Hubdoc", "AutoEntry", "ApprovalMax"].map((sw, idx) => (
+                    {["Dext", "Hubdoc", "AutoEntry", "ApprovalMax", "Veryfi", "Microsoft Lens"].map((sw, idx) => (
                       <SoftwareLogoBadge key={idx} name={sw} />
                     ))}
                   </div>
@@ -1645,7 +1664,7 @@ export default function UKServicesContent({ serviceSlug }) {
                     eCommerce Integration
                   </h4>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
-                    {["A2X", "Shopify", "Amazon", "eBay", "Etsy", "WooCommerce"].map((sw, idx) => (
+                    {["A2X", "Shopify", "Amazon", "eBay", "Etsy", "WooCommerce", "BigCommerce", "TikTok Shop"].map((sw, idx) => (
                       <SoftwareLogoBadge key={idx} name={sw} />
                     ))}
                   </div>
@@ -1658,7 +1677,7 @@ export default function UKServicesContent({ serviceSlug }) {
                     Payment Platforms
                   </h4>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
-                    {["Stripe", "PayPal", "Wise", "GoCardless"].map((sw, idx) => (
+                    {["Stripe", "PayPal", "Wise", "GoCardless", "Square", "Worldpay", "Revolut Business"].map((sw, idx) => (
                       <SoftwareLogoBadge key={idx} name={sw} />
                     ))}
                   </div>
@@ -2452,7 +2471,7 @@ export default function UKServicesContent({ serviceSlug }) {
                     Secretarial Software
                   </h4>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
-                    {["Inform Direct", "Companies House WebFiling", "Virtual Cabinet", "Practice Ignition", "Microsoft Excel"].map((sw, idx) => (
+                    {["Inform Direct", "Companies House WebFiling", "Virtual Cabinet", "Practice Ignition", "Microsoft Excel", "Online Filings"].map((sw, idx) => (
                       <SoftwareLogoBadge key={idx} name={sw} />
                     ))}
                   </div>
@@ -2478,7 +2497,7 @@ export default function UKServicesContent({ serviceSlug }) {
                     Document Management
                   </h4>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
-                    {["Dext", "Hubdoc", "ApprovalMax", "Microsoft 365", "Google Workspace"].map((sw, idx) => (
+                    {["Dext", "Hubdoc", "ApprovalMax", "Microsoft 365", "Google Workspace", "BrightManager"].map((sw, idx) => (
                       <SoftwareLogoBadge key={idx} name={sw} />
                     ))}
                   </div>
@@ -2920,7 +2939,7 @@ export default function UKServicesContent({ serviceSlug }) {
                     MTD & VAT Platforms
                   </h4>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
-                    {["Xero Tax", "QuickBooks VAT Centre", "Sage VAT Module", "FreeAgent VAT"].map((sw, idx) => (
+                    {["Xero Tax", "QuickBooks VAT Centre", "Sage VAT Module", "FreeAgent VAT", "VAT Filer", "Taxfiler"].map((sw, idx) => (
                       <SoftwareLogoBadge key={idx} name={sw} />
                     ))}
                   </div>
@@ -2933,7 +2952,7 @@ export default function UKServicesContent({ serviceSlug }) {
                     Supporting Tools
                   </h4>
                   <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5">
-                    {["Dext", "Hubdoc", "AutoEntry", "ApprovalMax", "A2X"].map((sw, idx) => (
+                    {["Dext", "Hubdoc", "AutoEntry", "ApprovalMax", "A2X", "Zapier"].map((sw, idx) => (
                       <SoftwareLogoBadge key={idx} name={sw} />
                     ))}
                   </div>

@@ -3,11 +3,16 @@
 import React from "react";
 import Link from "next/link";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
-import { homeLogoSrc } from "@/app/lib/homePageLogos";
 
 const ORANGE = BRAND_ORANGE;
 const NAVY = "#0F274A";
 const GREY = "#6B7280";
+
+const CORE_ICON_DIR = "/images/icon/Comprehensive Solutioins";
+
+function coreIconSrc(fileName) {
+  return encodeURI(`${CORE_ICON_DIR}/${fileName}`);
+}
 
 /** Keep in sync with GLOBAL_SERVICE_LINKS in header/navigationData.js */
 const SERVICES = [
@@ -16,7 +21,7 @@ const SERVICES = [
     line1: "Accounting",
     line2: "& Bookkeeping",
     description: "Accurate and timely bookkeeping to keep your finances organized.",
-    icon: homeLogoSrc(23),
+    icon: coreIconSrc("Acc & Bkk.png"),
     href: "/services/bookkeeping",
   },
   {
@@ -25,7 +30,7 @@ const SERVICES = [
     line2: "Reporting",
     description:
       "Insightful reports and analysis to help you make informed business decisions.",
-    icon: homeLogoSrc(17),
+    icon: coreIconSrc("Fin Rep..png"),
     href: "/services/financial-reporting",
   },
   {
@@ -33,7 +38,7 @@ const SERVICES = [
     line1: "Tax Preparation",
     line2: "& Planning",
     description: "Stay compliant with local tax regulations and filing requirements.",
-    icon: homeLogoSrc(13),
+    icon: coreIconSrc("TAx Prep.png"),
     href: "/services/tax",
   },
   {
@@ -42,7 +47,7 @@ const SERVICES = [
     line2: "& HR Services",
     description:
       "End-to-end payroll processing that ensures accuracy and timely payments.",
-    icon: homeLogoSrc(4),
+    icon: coreIconSrc("Payroll HR.png"),
     href: "/services/payroll",
   },
   {
@@ -51,7 +56,7 @@ const SERVICES = [
     line2: "Reporting",
     description:
       "Clear management reports and KPI dashboards for better business decisions.",
-    icon: homeLogoSrc(12),
+    icon: coreIconSrc("Mkt Rep.png"),
     href: "/services/management-reporting",
   },
   {
@@ -60,7 +65,7 @@ const SERVICES = [
     line2: "& Advisory Services",
     description:
       "Strategic financial leadership, forecasting, and advisory for sustainable growth.",
-    icon: homeLogoSrc(20),
+    icon: coreIconSrc("CFO.png"),
     href: "/services/cfo-advisory",
   },
 ];

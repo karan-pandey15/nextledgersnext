@@ -3,8 +3,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
 
-import { homeLogoSrc } from "@/app/lib/homePageLogos";
-
 const ORANGE = BRAND_ORANGE;
 const BG = "#0B1C33";
 const WHITE = "#FFFFFF";
@@ -13,48 +11,54 @@ const DESC = "#D4D9E0";
 const STEP_FILL_MS = 550;
 const LINE_TRAVEL_MS = 750;
 
+const PROCESS_ICON_DIR = "/images/icon/How we fit inot process- Home page";
+
+function processIconSrc(n) {
+  return encodeURI(`${PROCESS_ICON_DIR}/${n}.png`);
+}
+
 const STEPS = [
   {
     num: "01",
     title: "Discovery Call",
     description: "We understand your business, challenges and goals.",
-    icon: homeLogoSrc(1),
+    icon: processIconSrc(1),
   },
   {
     num: "02",
     title: "Understand Workflow",
     description: "We analyze your processes, tools and reporting needs.",
-    icon: homeLogoSrc(12),
+    icon: processIconSrc(2),
   },
   {
     num: "03",
     title: "Assign Dedicated Team",
     description: "We assign the best matched professionals for your requirements.",
-    icon: homeLogoSrc(4),
+    icon: processIconSrc(3),
   },
   {
     num: "04",
     title: "Knowledge Transfer",
     description: "We learn your processes and align with your expectations.",
-    icon: homeLogoSrc(23),
+    icon: processIconSrc(4),
   },
   {
     num: "05",
     title: "Daily Operations Begin",
     description: "Your team starts delivering with quality and consistency.",
-    icon: homeLogoSrc(8),
+    icon: processIconSrc(5),
   },
   {
     num: "06",
     title: "Weekly Reviews",
     description: "Regular updates, performance reviews and improvements.",
-    icon: homeLogoSrc(5),
+    icon: processIconSrc(6),
   },
   {
     num: "07",
     title: "Scale Anytime",
     description: "Easily scale your team up or down as your business grows.",
-    icon: homeLogoSrc(7),
+    icon: processIconSrc(7),
   },
 ];
 
@@ -87,11 +91,11 @@ function StepItem({ step, showDivider = false, compact = false, active = false }
           width: iconSize,
           height: iconSize,
           borderRadius: "9999px",
-          overflow: "hidden",
-          backgroundColor: WHITE,
+          overflow: "visible",
+          backgroundColor: "transparent",
           boxShadow: active
             ? "0 4px 18px rgba(255, 106, 0, 0.45)"
-            : "0 4px 14px rgba(0,0,0,0.16)",
+            : "none",
           position: "relative",
           zIndex: 2,
           flexShrink: 0,
