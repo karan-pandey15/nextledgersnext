@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { BRAND_ORANGE } from "@/app/lib/brandColors";
+import { HomeLogoImg } from "@/app/lib/homePageLogos";
 
 const ORANGE = BRAND_ORANGE;
 const NAVY = "#0F274A";
@@ -216,67 +217,14 @@ function PresenceMap() {
   );
 }
 
+/** Icons from /public/images/homepagelogo — matched by meaning */
 const FEATURES = [
-  { label: "Local Accounting Standards", icon: TargetIcon },
-  { label: "Global Communication", icon: GlobeIcon },
-  { label: "Time Zone Support", icon: ClockIcon },
-  { label: "Secure Cloud Workflow", icon: CloudIcon },
-  { label: "Dedicated Team", icon: PeopleIcon },
+  { label: "Local Accounting Standards", logo: 7 }, // target / standards
+  { label: "Global Communication", logo: 26 }, // globe + pin
+  { label: "Time Zone Support", logo: 8 }, // clock + sync
+  { label: "Secure Cloud Workflow", logo: 9 }, // cloud + shield
+  { label: "Dedicated Team", logo: 4 }, // people group
 ];
-
-function TargetIcon({ className = "w-5 h-5" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="1.7" />
-      <circle cx="12" cy="12" r="4.5" stroke="currentColor" strokeWidth="1.7" />
-      <circle cx="12" cy="12" r="1.5" fill="currentColor" />
-    </svg>
-  );
-}
-
-function ClockIcon({ className = "w-5 h-5" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="1.7" />
-      <path d="M12 7.5V12l3 2" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function PeopleIcon({ className = "w-5 h-5" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <circle cx="12" cy="7.5" r="2.3" stroke="currentColor" strokeWidth="1.7" />
-      <circle cx="6.5" cy="8.5" r="1.8" stroke="currentColor" strokeWidth="1.7" />
-      <circle cx="17.5" cy="8.5" r="1.8" stroke="currentColor" strokeWidth="1.7" />
-      <path d="M7.8 18c.6-2.2 2.2-3.4 4.2-3.4s3.6 1.2 4.2 3.4" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function GlobeIcon({ className = "w-5 h-5" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="1.7" />
-      <path d="M4 12h16M12 4c2.5 2.8 2.5 13.2 0 16M12 4c-2.5 2.8-2.5 13.2 0 16" stroke="currentColor" strokeWidth="1.5" />
-    </svg>
-  );
-}
-
-function CloudIcon({ className = "w-5 h-5" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <path
-        d="M7.5 17.5h9.2a3.8 3.8 0 0 0 .4-7.6 5.2 5.2 0 0 0-10-1.4A3.6 3.6 0 0 0 7.5 17.5Z"
-        stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinejoin="round"
-      />
-      <rect x="10.2" y="12.2" width="3.6" height="3" rx="0.5" stroke="currentColor" strokeWidth="1.4" />
-      <path d="M11.2 12.2V11a0.8 0.8 0 0 1 1.6 0v1.2" stroke="currentColor" strokeWidth="1.4" />
-    </svg>
-  );
-}
 
 export default function GlobalPresence() {
   return (
@@ -312,22 +260,19 @@ export default function GlobalPresence() {
             </p>
 
             <div className="mt-7 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 max-w-[480px] mx-auto lg:mx-0 text-left">
-              {FEATURES.map((feature) => {
-                const Icon = feature.icon;
-                return (
-                  <div key={feature.label} className="flex items-center gap-3">
-                    <span className="inline-flex shrink-0 items-center justify-center" style={{ color: ORANGE }}>
-                      <Icon className="w-[27px] h-[27px]" />
-                    </span>
-                    <span
-                      className="text-[13px] sm:text-[14px] font-semibold leading-snug"
-                      style={{ color: NAVY }}
-                    >
-                      {feature.label}
-                    </span>
-                  </div>
-                );
-              })}
+              {FEATURES.map((feature) => (
+                <div key={feature.label} className="flex items-center gap-3">
+                  <span className="inline-flex h-[34px] w-[34px] shrink-0 items-center justify-center sm:h-9 sm:w-9">
+                    <HomeLogoImg n={feature.logo} alt="" />
+                  </span>
+                  <span
+                    className="text-[13px] sm:text-[14px] font-semibold leading-snug"
+                    style={{ color: NAVY }}
+                  >
+                    {feature.label}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
 

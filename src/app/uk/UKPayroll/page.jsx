@@ -25,6 +25,7 @@ import {
     Network,
     TrendingUp,
 } from "lucide-react";
+import { HomeLogoImg } from "@/app/lib/homePageLogos";
 import { useState } from "react";
 import Image from "next/image";
 import IconDisplayScreen from "@/app/components/ServiceMainPageContent/IcondisplayScreen";
@@ -207,16 +208,22 @@ function HelpCard({ icon: Icon, titleBefore, titleAccent, titleAfter, items }) {
     );
 }
 
-function Stat({ icon, value, label }) {
+function Stat({ icon, logo, value, label }) {
     return (
-        <div className="flex flex-col items-center text-center gap-1.5">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#FF6A00]/10 text-[#FF6A00] flex items-center justify-center">
-                {icon}
+        <div className="flex flex-col items-center gap-1.5 text-center">
+            <div
+                className={
+                    logo != null
+                        ? "flex h-9 w-9 shrink-0 items-center justify-center sm:h-10 sm:w-10"
+                        : "flex h-9 w-9 items-center justify-center rounded-full bg-[#FF6A00]/10 text-[#FF6A00] sm:h-10 sm:w-10"
+                }
+            >
+                {logo != null ? <HomeLogoImg n={logo} alt="" /> : icon}
             </div>
-            <div className="text-[15px] sm:text-[17px] font-extrabold text-[#0B1F3A] leading-none">
+            <div className="text-[15px] font-extrabold leading-none text-[#0B1F3A] sm:text-[17px]">
                 {value}
             </div>
-            <div className="text-[10px] sm:text-[11px] text-gray-500 leading-tight max-w-[90px]">
+            <div className="max-w-[90px] text-[10px] leading-tight text-gray-500 sm:text-[11px]">
                 {label}
             </div>
         </div>
@@ -367,22 +374,22 @@ export default function UKPayrollPage() {
                             </div>
                             <div className="absolute left-4 right-4 -bottom-8 grid grid-cols-4 gap-2 rounded-xl bg-white px-3 py-4 shadow-lg sm:-bottom-9 sm:px-5 sm:py-5">
                                 <Stat
-                                    icon={<Users className="h-5 w-5" />}
+                                    logo={4}
                                     value="500+"
                                     label="UK Accounting Firms Supported"
                                 />
                                 <Stat
-                                    icon={<PuzzleIcon className="h-5 w-5" />}
+                                    logo={15}
                                     value="30+"
                                     label="Software Integrations"
                                 />
                                 <Stat
-                                    icon={<ShieldCheck className="h-5 w-5" />}
+                                    logo={18}
                                     value="100%"
                                     label="HMRC Compliant Processes"
                                 />
                                 <Stat
-                                    icon={<Headset className="h-5 w-5" />}
+                                    logo={16}
                                     value="Dedicated"
                                     label="Support Team"
                                 />

@@ -59,13 +59,15 @@ export function getTeamMemberDetails(member) {
   /** Degree under the name — fallback M.Com when missing */
   const rawCredentials = (member.credentials || "").trim();
   const degree = rawCredentials || "M.Com";
-  /** Sidebar / card title — keep full name including ACCA/CPA suffix */
-  const headingName = (member.name || displayName).trim();
+  /** Sidebar title — modalName overrides when card name should stay clean */
+  const headingName = (member.modalName || member.name || displayName).trim();
   /**
    * ABOUT header — e.g. "Shivam Baranwal ACCA"
    * No comma; drop "Member"; prefer name when it already has the credential.
    */
-  const aboutHeading = /\b(ACCA|CPA|CMA|MBA|EA|CGMA)\b/i.test(member.name || "")
+  const aboutHeading = /\b(ACCA|CPA|CMA|MBA|EA|CGMA)\b/i.test(
+    member.modalName || member.name || ""
+  )
     ? headingName
     : (() => {
         const shortCred = (rawCredentials.split("|")[0] || rawCredentials)

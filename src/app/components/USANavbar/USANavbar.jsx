@@ -7,6 +7,7 @@ import { USA_SERVICE_LINKS } from "@/app/usa/usaServiceLinks";
 import RegionSelect from "@/app/components/RegionSelect/RegionSelect";
 import PhoneRegionTopBar from "@/app/components/RegionSelect/PhoneRegionTopBar";
 import { isNavLinkActive, persistRegionCode, siteHomeHref, ABOUT_NAV_LINK } from "@/app/lib/regionNav";
+import NavItemLogoIcon from "@/app/components/header/NavItemLogoIcon";
 
 const USA_HOME = "/usa";
 
@@ -177,23 +178,20 @@ export default function USANavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
                             </Link>
                           )}
 
-                          {link.dropdownItems.map((item, idx) => {
-                            const Icon = item.icon;
-                            return (
+                          {link.dropdownItems.map((item, idx) => (
                             <Link
                               key={idx}
                               href={item.href}
                               className="group flex items-center gap-3 p-2.5 rounded-xl transition-all duration-200 hover:bg-[#FF6A00]/5 border-l-2 border-transparent hover:border-[#FF6A00]/40 text-left"
                             >
-                              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#FF6A00] transition-transform duration-200 group-hover:scale-110">
-                                <Icon className="h-4 w-4" strokeWidth={2} />
+                              <span className="flex-shrink-0 transition-transform duration-200 group-hover:scale-110">
+                                <NavItemLogoIcon item={item} />
                               </span>
                               <span className="text-[13px] font-bold text-[#1E1B2A]/90 transition-colors duration-200 group-hover:text-[#FF6A00] leading-snug">
                                 {item.label}
                               </span>
                             </Link>
-                            );
-                          })}
+                          ))}
                         </div>
                       </div>
                     )}
@@ -319,24 +317,19 @@ export default function USANavbar({ isSidebarOpen = false, setIsSidebarOpen }) {
                             </Link>
                           )}
 
-                          {link.dropdownItems.map((item, idx) => {
-                            const Icon = item.icon;
-                            return (
+                          {link.dropdownItems.map((item, idx) => (
                             <Link
                               key={idx}
                               href={item.href}
                               onClick={() => setIsSidebarOpen(false)}
                               className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-[#FF6A00]/4 transition-colors"
                             >
-                              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#FF6A00]">
-                                <Icon className="h-3.5 w-3.5" strokeWidth={2} />
-                              </span>
+                              <NavItemLogoIcon item={item} className="h-7 w-7" />
                               <span className="text-xs font-bold text-[#1E1B2A]/90">
                                 {item.label}
                               </span>
                             </Link>
-                            );
-                          })}
+                          ))}
                         </div>
                       </div>
                     </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Phone, Users, PuzzleIcon, ShieldCheck, Headset } from "lucide-react";
+import { HomeLogoImg } from "@/app/lib/homePageLogos";
 import CtaButton from "@/app/components/ui/CtaButton";
 
 export default function BookkeepingHero() {
@@ -47,10 +48,10 @@ export default function BookkeepingHero() {
 
                         {/* Stats bar overlapping the bottom of the image */}
                         <div className="absolute left-4 right-4 -bottom-8 sm:-bottom-9 bg-white rounded-xl shadow-lg px-3 sm:px-5 py-4 sm:py-5 grid grid-cols-4 gap-2">
-                            <Stat icon={<Users className="w-5 h-5" />} value="500+" label="UK Accounting Firms Supported" />
-                            <Stat icon={<PuzzleIcon className="w-5 h-5" />} value="30+" label="Software Integrations" />
-                            <Stat icon={<ShieldCheck className="w-5 h-5" />} value="100%" label="HMRC Compliant Processes" />
-                            <Stat icon={<Headset className="w-5 h-5" />} value="Dedicated" label="Support Team" />
+                            <Stat logo={4} value="500+" label="UK Accounting Firms Supported" />
+                            <Stat logo={15} value="30+" label="Software Integrations" />
+                            <Stat logo={18} value="100%" label="HMRC Compliant Processes" />
+                            <Stat logo={16} value="Dedicated" label="Support Team" />
                         </div>
                     </div>
                 </div>
@@ -62,12 +63,10 @@ export default function BookkeepingHero() {
     );
 }
 
-function Stat({ icon, value, label }) {
+function Stat({ icon, logo, value, label }) {
     return (
         <div className="flex flex-col items-center text-center gap-1.5">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#FF6A00]/10 text-[#FF6A00] flex items-center justify-center">
-                {icon}
-            </div>
+            <div className={logo != null ? "flex h-9 w-9 shrink-0 items-center justify-center sm:h-10 sm:w-10" : "flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-[#FF6A00]/10 text-[#FF6A00]"}>{logo != null ? <HomeLogoImg n={logo} alt="" /> : icon}</div>
             <div className="text-[15px] sm:text-[17px] font-extrabold text-[#0B1F3A] leading-none">
                 {value}
             </div>

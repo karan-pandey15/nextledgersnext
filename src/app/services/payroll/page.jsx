@@ -32,6 +32,7 @@ import {
     Receipt,
     FolderOpen,
 } from "lucide-react";
+import { HomeLogoImg } from "@/app/lib/homePageLogos";
 import { useState } from "react";
 import Image from "next/image";
 import CtaButton from "@/app/components/ui/CtaButton";
@@ -193,12 +194,10 @@ const partnerTrust = [
     { icon: Users, label: "Trusted Payroll Partner" },
 ];
 
-function Stat({ icon, value, label }) {
+function Stat({ icon, logo, value, label }) {
     return (
         <div className="flex flex-col items-center gap-1.5 text-center">
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#FF6A00]/10 text-[#FF6A00] sm:h-10 sm:w-10">
-                {icon}
-            </div>
+            <div className={logo != null ? "flex h-9 w-9 shrink-0 items-center justify-center sm:h-10 sm:w-10" : "flex h-9 w-9 items-center justify-center rounded-full bg-[#FF6A00]/10 text-[#FF6A00] sm:h-10 sm:w-10"}>{logo != null ? <HomeLogoImg n={logo} alt="" /> : icon}</div>
             <div className="text-[15px] font-extrabold leading-none text-[#0B1F3A] sm:text-[17px]">
                 {value}
             </div>
@@ -370,22 +369,22 @@ export default function PayrollHrPage() {
 
                             <div className="absolute bottom-0 left-4 right-4 grid grid-cols-4 gap-2 rounded-xl bg-white px-3 py-4 shadow-lg sm:px-5 sm:py-5">
                                 <Stat
-                                    icon={<Users className="h-5 w-5" />}
+                                    logo={4}
                                     value="500+"
                                     label="Businesses Supported"
                                 />
                                 <Stat
-                                    icon={<PuzzleIcon className="h-5 w-5" />}
+                                    logo={15}
                                     value="30+"
                                     label="Software Integrations"
                                 />
                                 <Stat
-                                    icon={<ShieldCheck className="h-5 w-5" />}
+                                    logo={18}
                                     value="100%"
                                     label="Secure Processes"
                                 />
                                 <Stat
-                                    icon={<Headset className="h-5 w-5" />}
+                                    logo={16}
                                     value="Dedicated"
                                     label="Payroll Team"
                                 />

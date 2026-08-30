@@ -108,6 +108,8 @@ const GLOBAL_LEADERSHIP = [
   },
   {
     name: "Shivam Baranwal",
+    /** Shown only in the detail modal, not on the main team card */
+    modalName: "Shivam Baranwal ACCA",
     credentials: "ACCA Member | B.Com",
     role: "Accounting & Tax Partner",
     companyRole: "Accounting & Tax Partner",

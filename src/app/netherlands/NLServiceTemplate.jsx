@@ -31,6 +31,7 @@ import {
   Users,
   Wallet,
 } from "lucide-react";
+import { HomeLogoImg } from "@/app/lib/homePageLogos";
 import RegionalNavbar from "@/app/components/RegionalNavbar/RegionalNavbar";
 import CtaButton from "@/app/components/ui/CtaButton";
 import IconDisplayScreen from "@/app/components/ServiceMainPageContent/IcondisplayScreen";
@@ -93,12 +94,10 @@ const PARTNER_TRUST = [
   { icon: Users, label: "Trusted by Dutch Accounting Firms" },
 ];
 
-function Stat({ icon, value, label }) {
+function Stat({ icon, logo, value, label }) {
   return (
     <div className="flex flex-col items-center gap-1.5 text-center">
-      <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#FF6A00]/10 text-[#FF6A00] sm:h-10 sm:w-10">
-        {icon}
-      </div>
+      <div className={logo != null ? "flex h-9 w-9 shrink-0 items-center justify-center sm:h-10 sm:w-10" : "flex h-9 w-9 items-center justify-center rounded-full bg-[#FF6A00]/10 text-[#FF6A00] sm:h-10 sm:w-10"}>{logo != null ? <HomeLogoImg n={logo} alt="" /> : icon}</div>
       <div className="text-[15px] font-extrabold leading-none text-[#0B1F3A] sm:text-[17px]">
         {value}
       </div>
@@ -299,22 +298,22 @@ export default function NLServiceTemplate({ data }) {
   const badges = data.trustBadges || NETHERLANDS_TRUST_BADGES;
   const stats = data.stats || [
     {
-      icon: <Users className="h-5 w-5" />,
+      logo: 4,
       value: "500+",
       label: "NL Firms Supported",
     },
     {
-      icon: <PuzzleIcon className="h-5 w-5" />,
+      logo: 15,
       value: "30+",
       label: "Software Integrations",
     },
     {
-      icon: <ShieldCheck className="h-5 w-5" />,
+      logo: 18,
       value: "100%",
       label: "Belastingdienst Compliant",
     },
     {
-      icon: <Headset className="h-5 w-5" />,
+      logo: 16,
       value: "Dedicated",
       label: "Support Team",
     },

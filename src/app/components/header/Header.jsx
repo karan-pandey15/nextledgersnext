@@ -9,8 +9,12 @@ import NavIcon from "./NavIcon";
 import { NAVIGATION_LINKS } from "./navigationData";
 import useActiveRegion from "@/app/lib/useActiveRegion";
 import { regionHomePath } from "@/app/lib/regionNav";
+import { HomeLogoImg } from "@/app/lib/homePageLogos";
 
-function DropdownItemIcon({ icon, className = "w-5 h-5" }) {
+function DropdownItemIcon({ icon, logo, className = "w-5 h-5" }) {
+  if (logo != null) {
+    return <HomeLogoImg n={logo} alt="" className={`block h-full w-full object-contain ${className}`} />;
+  }
   if (!icon) return null;
   // Lucide icons are forwardRef components (objects), not plain functions
   if (typeof icon === "function" || (typeof icon === "object" && icon.$$typeof)) {
@@ -21,6 +25,21 @@ function DropdownItemIcon({ icon, className = "w-5 h-5" }) {
     return <NavIcon name={icon} className={className} />;
   }
   return null;
+}
+
+function DropdownItemGlyph({ item, sizeClass = "h-8 w-8" }) {
+  if (item?.logo != null) {
+    return (
+      <span className={`inline-flex shrink-0 items-center justify-center ${sizeClass}`}>
+        <HomeLogoImg n={item.logo} alt="" />
+      </span>
+    );
+  }
+  return (
+    <span className={`mt-0.5 flex shrink-0 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#FF6A00] ${sizeClass}`}>
+      <DropdownItemIcon icon={item?.icon} className="h-4 w-4" />
+    </span>
+  );
 }
 
 export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
@@ -278,8 +297,8 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
                                     className={`${itemClass} cursor-default`}
                                     onClick={(e) => e.preventDefault()}
                                   >
-                                    <div className="text-[#FF6A00] flex-shrink-0 mt-0.5 transition-transform duration-200 group-hover:scale-110">
-                                      <DropdownItemIcon icon={item.icon} className="w-5 h-5" />
+                                    <div className="flex-shrink-0 mt-0.5 transition-transform duration-200 group-hover:scale-110">
+                                      <DropdownItemGlyph item={item} sizeClass="h-8 w-8" />
                                     </div>
                                     <span className="text-sm font-bold text-[#1E1B2A]/90 transition-colors duration-200 group-hover:text-[#FF6A00] leading-snug">
                                       {item.label}
@@ -295,8 +314,8 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
                                   className={itemClass}
                                   onClick={() => setActiveDropdown(null)}
                                 >
-                                  <div className="text-[#FF6A00] flex-shrink-0 mt-0.5 transition-transform duration-200 group-hover:scale-110">
-                                    <DropdownItemIcon icon={item.icon} className="w-5 h-5" />
+                                  <div className="flex-shrink-0 mt-0.5 transition-transform duration-200 group-hover:scale-110">
+                                    <DropdownItemGlyph item={item} sizeClass="h-8 w-8" />
                                   </div>
                                   <span className="text-sm font-bold text-[#1E1B2A]/90 transition-colors duration-200 group-hover:text-[#FF6A00] leading-snug">
                                     {item.label}
@@ -457,8 +476,8 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
                                   className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#FF6A00]/4 transition-colors w-full text-left cursor-default"
                                   onClick={(e) => e.preventDefault()}
                                 >
-                                  <div className="text-[#FF6A00] flex-shrink-0 mt-0.5">
-                                    <DropdownItemIcon icon={item.icon} className="w-4.5 h-4.5" />
+                                  <div className="flex-shrink-0 mt-0.5">
+                                    <DropdownItemGlyph item={item} sizeClass="h-8 w-8" />
                                   </div>
                                   <span className="text-xs font-bold text-[#1E1B2A]/90">
                                     {item.label}
@@ -474,9 +493,7 @@ export default function Header({ isSidebarOpen = false, setIsSidebarOpen }) {
                                 onClick={() => setIsSidebarOpen(false)}
                                 className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#FF6A00]/4 transition-colors"
                               >
-                                <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#FF6A00]">
-                                  <DropdownItemIcon icon={item.icon} className="w-4 h-4" />
-                                </span>
+                                <DropdownItemGlyph item={item} sizeClass="h-8 w-8" />
                                 <span className="min-w-0">
                                   <span className="block text-xs font-bold text-[#1E1B2A]/90 leading-snug">
                                     {item.label}

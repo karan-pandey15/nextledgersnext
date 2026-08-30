@@ -1,4 +1,4 @@
-import { Info, Users } from "lucide-react";
+import { NAV_ABOUT_LOGOS } from "@/app/lib/homePageLogos";
 import {
   REGION_ROUTES,
   getRegionCodeFromPath,
@@ -25,8 +25,8 @@ export const ABOUT_NAV_LINK = {
   hasDropdown: true,
   dropdownWidth: "w-[240px]",
   dropdownItems: [
-    { label: "About Us", href: "/about", icon: Info },
-    { label: "Our Team", href: "/team", icon: Users },
+    { label: "About Us", href: "/about", logo: NAV_ABOUT_LOGOS.aboutUs },
+    { label: "Our Team", href: "/team", logo: NAV_ABOUT_LOGOS.ourTeam },
   ],
 };
 

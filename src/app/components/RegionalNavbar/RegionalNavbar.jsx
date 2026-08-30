@@ -12,6 +12,7 @@ import {
   siteHomeHref,
   ABOUT_NAV_LINK,
 } from "@/app/lib/regionNav";
+import NavItemLogoIcon from "@/app/components/header/NavItemLogoIcon";
 
 /**
  * UK-pattern regional navbar — same layout, sizes, colors, and behavior as UKNavbar.
@@ -104,6 +105,17 @@ export default function RegionalNavbar({
       return <Icon className="h-4 w-4" strokeWidth={2} />;
     }
     return null;
+  };
+
+  const renderDropdownItemIcon = (item) => {
+    if (item?.logo != null) return <NavItemLogoIcon item={item} />;
+    const rendered = renderServiceIcon(item?.icon);
+    if (!rendered) return null;
+    return (
+      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#FFF4EA] text-[#FF6A00]">
+        {rendered}
+      </span>
+    );
   };
 
   return (
@@ -212,8 +224,8 @@ export default function RegionalNavbar({
                               href={item.href}
                               className="group flex items-center gap-3 p-2.5 rounded-xl transition-all duration-200 hover:bg-[#FF6A00]/5 border-l-2 border-transparent hover:border-[#FF6A00]/40 text-left"
                             >
-                              <span className="text-lg flex-shrink-0 transition-transform duration-200 group-hover:scale-110">
-                                {renderServiceIcon(item.icon)}
+                              <span className="flex-shrink-0 transition-transform duration-200 group-hover:scale-110">
+                                {renderDropdownItemIcon(item)}
                               </span>
                               <span className="text-[13px] font-bold text-[#1E1B2A]/90 transition-colors duration-200 group-hover:text-[#FF6A00] leading-snug">
                                 {item.label}
@@ -352,9 +364,7 @@ export default function RegionalNavbar({
                               onClick={() => setIsSidebarOpen(false)}
                               className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-[#FF6A00]/4 transition-colors"
                             >
-                              <span className="text-base flex-shrink-0">
-                                {renderServiceIcon(item.icon)}
-                              </span>
+                              <NavItemLogoIcon item={item} className="h-7 w-7" />
                               <span className="text-xs font-bold text-[#1E1B2A]/90">
                                 {item.label}
                               </span>

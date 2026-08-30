@@ -23,6 +23,48 @@ export const FORM_TRUST_LOGOS = [
   { title: "Global Support", text: "Serving businesses worldwide", logo: 26 },
 ];
 
+/** Team member modal highlight icons — keyed by highlight.icon name */
+export const TEAM_HIGHLIGHT_LOGOS = {
+  briefcase: 22, // projects / business growth
+  building: 27, // office buildings
+  globe: 26, // globe + pin
+  shield: 18, // shield check
+  file: 13, // certificate document
+  gavel: 23, // tax / compliance document
+  chart: 17, // analytics chart
+  gear: 14, // sync / process
+  handshake: 4, // people / relationships
+  heart: 19, // excellence / stewardship
+};
+
+/**
+ * Service page hero overlay stats — matched to /images/homepagelogo
+ * 4  people/team     → Businesses / Firms Supported
+ * 15 network nodes   → Software Integrations
+ * 18 shield check    → Secure / Compliant Processes
+ * 16 headset         → Dedicated Accounting / Support Team
+ */
+export const SERVICE_STAT_LOGOS = {
+  businesses: 4,
+  integrations: 15,
+  secure: 18,
+  dedicated: 16,
+};
+
+/** Default 4-stat bar used across global + regional service heroes */
+export const DEFAULT_SERVICE_HERO_STATS = [
+  { logo: SERVICE_STAT_LOGOS.businesses, value: "500+", label: "Businesses Supported" },
+  { logo: SERVICE_STAT_LOGOS.integrations, value: "30+", label: "Software Integrations" },
+  { logo: SERVICE_STAT_LOGOS.secure, value: "100%", label: "Secure Processes" },
+  { logo: SERVICE_STAT_LOGOS.dedicated, value: "Dedicated", label: "Accounting Team" },
+];
+
+/** Navbar About dropdown — matched logos */
+export const NAV_ABOUT_LOGOS = {
+  aboutUs: 24, // professional person
+  ourTeam: 4, // people / team
+};
+
 export function HomeLogoImg({
   n,
   alt = "",

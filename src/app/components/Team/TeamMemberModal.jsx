@@ -5,6 +5,7 @@ import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { Great_Vibes } from "next/font/google";
 import { getTeamMemberDetails } from "./teamMemberDefaults";
+import { HomeLogoImg, TEAM_HIGHLIGHT_LOGOS } from "@/app/lib/homePageLogos";
 
 const signatureFont = Great_Vibes({
   weight: "400",
@@ -70,200 +71,6 @@ function IconUser({ className = "h-10 w-10" }) {
     </svg>
   );
 }
-
-function IconBriefcase({ className = "h-10 w-10" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <rect x="3.5" y="7.5" width="17" height="12" rx="2" stroke="currentColor" strokeWidth="1.5" />
-      <path
-        d="M9 7.5V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1.5"
-        stroke="currentColor"
-        strokeWidth="1.5"
-      />
-      <path d="M3.5 12.5h17" stroke="currentColor" strokeWidth="1.5" />
-    </svg>
-  );
-}
-
-function IconBuilding({ className = "h-10 w-10" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <path
-        d="M4.5 20.5V5.5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v15"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M14.5 10.5h4a1 1 0 0 1 1 1v9"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinejoin="round"
-      />
-      <path d="M3.5 20.5h17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M8 8.5h2M8 12h2M8 15.5h2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function IconGlobe({ className = "h-10 w-10" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <circle cx="12" cy="12" r="8.5" stroke="currentColor" strokeWidth="1.5" />
-      <path
-        d="M3.5 12h17M12 3.5c2.4 2.6 3.6 5.4 3.6 8.5s-1.2 5.9-3.6 8.5c-2.4-2.6-3.6-5.4-3.6-8.5s1.2-5.9 3.6-8.5Z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-      />
-    </svg>
-  );
-}
-
-/** Shield with lock — matches design (not checkmark) */
-function IconShieldLock({ className = "h-10 w-10" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <path
-        d="M12 3.5 19.5 6.5v5.2c0 4.4-3 7.6-7.5 9.3-4.5-1.7-7.5-4.9-7.5-9.3V6.5L12 3.5Z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinejoin="round"
-      />
-      <rect
-        x="9.25"
-        y="11.4"
-        width="5.5"
-        height="4.2"
-        rx="0.7"
-        stroke="currentColor"
-        strokeWidth="1.4"
-      />
-      <path
-        d="M10.6 11.4v-1.35a1.4 1.4 0 0 1 2.8 0v1.35"
-        stroke="currentColor"
-        strokeWidth="1.4"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
-function IconFile({ className = "h-10 w-10" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <path
-        d="M7 3.5h7l4 4V20a1.5 1.5 0 0 1-1.5 1.5h-9.5A1.5 1.5 0 0 1 5.5 20V5A1.5 1.5 0 0 1 7 3.5Z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinejoin="round"
-      />
-      <path d="M14 3.5V8h4.5" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-      <path d="M9 12h6M9 15.5h6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-function IconGavel({ className = "h-10 w-10" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <path
-        d="m14.2 4.8 5 5M8.5 10.5l5 5M3.5 20.5h8M12.8 6.2l-7.1 7.1a1.2 1.2 0 0 0 0 1.7l1.3 1.3a1.2 1.2 0 0 0 1.7 0l7.1-7.1"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function IconChart({ className = "h-10 w-10" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <path
-        d="M4 19.5h16M7 16V11M12 16V8M17 16V5.5"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-      <path
-        d="m14.5 7.5 2.5-2 2.5 2"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function IconGear({ className = "h-10 w-10" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.5" />
-      <path
-        d="M12 3.5v2.2M12 18.3v2.2M3.5 12h2.2M18.3 12h2.2M5.8 5.8l1.6 1.6M16.6 16.6l1.6 1.6M18.2 5.8l-1.6 1.6M7.4 16.6l-1.6 1.6"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
-function IconHandshake({ className = "h-10 w-10" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <path
-        d="M8 13.5 10.5 11l2 2 3-3L18 12.5M4.5 11.5l3-2.5L10 11M19.5 11.5l-3-2.5L14 11"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M3.5 14.5c1.5 2.5 4 4 8.5 4s7-1.5 8.5-4"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
-function IconHeartHand({ className = "h-10 w-10" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <path
-        d="M12 19.5s-6.5-4-6.5-8.2A3.3 3.3 0 0 1 12 8.2a3.3 3.3 0 0 1 6.5 3.1c0 4.2-6.5 8.2-6.5 8.2Z"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function IconQuote({ className = "h-12 w-12" }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
-      <path d="M7.2 18c-1.7 0-3.1-.5-4.1-1.6C2 15.2 1.5 13.7 1.5 11.8c0-2.4.8-4.5 2.3-6.3C5.4 3.7 7.4 2.5 10 2l.7 2.1c-1.7.5-3 1.4-3.9 2.7-.8 1.2-1.2 2.5-1.1 3.8.4-.3 1-.5 1.7-.5 1.3 0 2.3.4 3.1 1.2.8.8 1.2 1.8 1.2 3.1 0 1.2-.4 2.2-1.2 3-.8.8-1.9 1.2-3.3 1.2Zm11.3 0c-1.7 0-3.1-.5-4.1-1.6-1.1-1.2-1.6-2.7-1.6-4.6 0-2.4.8-4.5 2.3-6.3 1.6-1.8 3.6-3 6.2-3.5l.7 2.1c-1.7.5-3 1.4-3.9 2.7-.8 1.2-1.2 2.5-1.1 3.8.4-.3 1-.5 1.7-.5 1.3 0 2.3.4 3.1 1.2.8.8 1.2 1.8 1.2 3.1 0 1.2-.4 2.2-1.2 3-.8.8-1.9 1.2-3.3 1.2Z" />
-    </svg>
-  );
-}
-
-const HIGHLIGHT_ICONS = {
-  briefcase: IconBriefcase,
-  building: IconBuilding,
-  globe: IconGlobe,
-  shield: IconShieldLock,
-  file: IconFile,
-  gavel: IconGavel,
-  chart: IconChart,
-  gear: IconGear,
-  handshake: IconHandshake,
-  heart: IconHeartHand,
-};
 
 function ModalAvatar({ src, name, variant }) {
   const [failed, setFailed] = useState(!src);
@@ -538,17 +345,14 @@ export default function TeamMemberModal({
                 <div className="mt-3 shrink-0 sm:mt-4">
                   <div className="grid grid-cols-2 gap-x-2 gap-y-3 sm:grid-cols-4 sm:gap-y-0 sm:divide-x sm:divide-[#E8E8E8]">
                     {details.highlights.map((item, index) => {
-                      const Icon = HIGHLIGHT_ICONS[item.icon] || IconBriefcase;
+                      const logoN = TEAM_HIGHLIGHT_LOGOS[item.icon] || TEAM_HIGHLIGHT_LOGOS.briefcase;
                       return (
                         <div
                           key={`${item.icon}-${item.value}-${index}`}
                           className="flex min-w-0 flex-col items-center px-1.5 text-center sm:px-2.5"
                         >
-                          <span
-                            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full sm:h-12 sm:w-12"
-                            style={{ backgroundColor: "#FFE8DC", color: ICON_ORANGE }}
-                          >
-                            <Icon className="h-6 w-6 sm:h-[26px] sm:w-[26px]" />
+                          <span className="flex h-11 w-11 shrink-0 items-center justify-center sm:h-12 sm:w-12">
+                            <HomeLogoImg n={logoN} alt="" />
                           </span>
                           <p
                             className="mt-1.5 w-full break-words text-[14px] font-bold leading-tight sm:text-[16px]"

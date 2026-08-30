@@ -186,31 +186,37 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ─── 2. Our Story (cream bg) ─── */}
+      {/* ─── 2. Our Story ─── */}
       <section className="relative w-full overflow-hidden bg-white pt-8 pb-0 sm:pt-9 lg:pt-10">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-10">
-          <div className="bg-[#FFF7F0] px-5 py-8 sm:px-8 sm:py-9 lg:px-10 lg:py-10">
-            <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-10 xl:gap-12">
-              <div className="relative z-10 flex w-full flex-col">
-                <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-                  <DottedWorldMap />
-                </div>
+          <div className="relative overflow-hidden bg-[#FFF7F0] px-5 py-8 sm:px-8 sm:py-9 lg:px-10 lg:py-10">
+            <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-40">
+              <DottedWorldMap />
+            </div>
 
-                <h2
-                  className="text-[24px] font-bold leading-[1.2] tracking-[-0.01em] sm:text-[30px] lg:text-[34px]"
-                  style={{ color: NAVY }}
-                >
-                  Our Story –{" "}
-                  <span style={{ color: ORANGE }}>
-                    Built by Experience, United by a Shared Vision
-                  </span>
-                </h2>
+            <div className="relative z-10">
+              {/* Title block — above the image row */}
+              <p
+                className="text-[11px] font-extrabold uppercase tracking-[0.2em] sm:text-[12px]"
+                style={{ color: ORANGE }}
+              >
+                Our Story
+              </p>
+              <h2
+                className="mt-2.5 max-w-[640px] text-[24px] font-bold leading-[1.2] tracking-[-0.015em] sm:text-[28px] lg:text-[32px]"
+                style={{ color: NAVY }}
+              >
+                Built by Experience,{" "}
+                <span style={{ color: ORANGE }}>United by a Shared Vision</span>
+              </h2>
 
+              {/* Body text + image: same start/end height */}
+              <div className="mt-5 grid grid-cols-1 gap-5 sm:mt-6 lg:grid-cols-2 lg:items-stretch lg:gap-8 xl:gap-10">
                 <div
-                  className="mt-3 max-w-[560px] flex-1 space-y-3 text-[13px] leading-6 sm:mt-4 sm:space-y-3.5 sm:text-[14px] sm:leading-7"
+                  className="flex h-full max-w-[540px] flex-col justify-between space-y-3 text-[13px] leading-6 sm:space-y-3.5 sm:text-[14px] sm:leading-7 lg:pr-2"
                   style={{ color: GREY }}
                 >
-                  <p className="font-semibold" style={{ color: NAVY }}>
+                  <p className="text-[14px] font-semibold sm:text-[15px]" style={{ color: NAVY }}>
                     Every successful business begins with a shared vision.
                   </p>
                   <p>
@@ -232,30 +238,37 @@ export default function AboutPage() {
                     Instead of building just another outsourcing company, we set out to
                     build a firm that accounting firms and businesses in all regions
                     could genuinely rely on. That vision became{" "}
-                    <strong className="font-semibold text-[#1A1A1A]">Next Ledgers</strong>.
-                  </p>
-                  <p>
-                    Today, our leadership and their core team members bring together
-                    specialists across multiple disciplines, including US, UK, Canadian,
-                    Gulf and APAC accounting and tax. By combining deep industry
-                    expertise with modern cloud technology and standardized processes, we
-                    deliver accurate, secure, and scalable accounting solutions that
-                    integrate seamlessly with our clients&apos; businesses.
+                    <strong className="font-semibold" style={{ color: NAVY }}>
+                      Next Ledgers
+                    </strong>
+                    .
                   </p>
                 </div>
-              </div>
 
-              <div className="relative w-full overflow-hidden rounded-[20px] border border-[#F0E4D8] bg-white shadow-[0_12px_40px_rgba(15,39,74,0.08)] sm:rounded-[24px]">
-                <div className="relative aspect-[4/3] w-full sm:aspect-[5/4]">
+                <div className="relative -mt-3 min-h-[240px] w-full sm:-mt-4 sm:min-h-[300px] lg:-mt-6 lg:min-h-full">
                   <Image
                     src="/images/about-group.png"
-                    alt="Next Ledgers team"
+                    alt="Next Ledgers founding team"
                     fill
-                    className="object-contain object-center p-3 sm:p-4"
+                    className="select-none object-contain object-[center_12%]"
                     sizes="(max-width: 1024px) 100vw, 50vw"
+                    priority
                   />
                 </div>
               </div>
+
+              {/* Closing paragraph — full width below */}
+              <p
+                className="mt-6 border-t border-[#F0E0D2] pt-5 text-[13px] leading-6 sm:mt-7 sm:pt-6 sm:text-[14px] sm:leading-7"
+                style={{ color: GREY }}
+              >
+                Today, our leadership and their core team members bring together
+                specialists across multiple disciplines, including US, UK, Canadian,
+                Gulf and APAC accounting and tax. By combining deep industry expertise
+                with modern cloud technology and standardized processes, we deliver
+                accurate, secure, and scalable accounting solutions that integrate
+                seamlessly with our clients&apos; businesses.
+              </p>
             </div>
           </div>
         </div>

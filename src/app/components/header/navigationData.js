@@ -4,6 +4,8 @@
  * (Regions sits beside the nav via RegionSelect)
  */
 
+import { NAV_ABOUT_LOGOS } from "@/app/lib/homePageLogos";
+
 export const GLOBAL_SERVICE_LINKS = [
   {
     label: "Accounting & Bookkeeping",
@@ -56,12 +58,12 @@ export const NAVIGATION_LINKS = [
       {
         label: "About Us",
         href: "/about",
-        icon: "info",
+        logo: NAV_ABOUT_LOGOS.aboutUs,
       },
       {
         label: "Our Team",
         href: "/team",
-        icon: "users",
+        logo: NAV_ABOUT_LOGOS.ourTeam,
       },
     ],
   },
